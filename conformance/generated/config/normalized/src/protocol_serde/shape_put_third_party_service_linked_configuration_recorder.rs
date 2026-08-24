@@ -9,13 +9,18 @@ pub fn de_put_third_party_service_linked_configuration_recorder_http_error(
     super::super::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-        .map_err(super::super::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderError::unhandled)?;
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body).map_err(
+        super::super::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderError::unhandled,
+    )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderError::unhandled(generic)),
+        None => return Err(
+            super::super::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderError::unhandled(
+                generic,
+            ),
+        ),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -97,11 +102,13 @@ pub fn ser_put_third_party_service_linked_configuration_recorder_input(
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
 
-
 pub(crate) fn de_put_third_party_service_linked_configuration_recorder(
     _value: &[u8],
     mut builder: super::super::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>{
+) -> ::std::result::Result<
+    super::super::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderOutputBuilder,
+    ::aws_smithy_json::deserialize::error::DeserializeError,
+> {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]

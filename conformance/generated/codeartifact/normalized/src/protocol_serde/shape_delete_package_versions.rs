@@ -15,11 +15,7 @@ pub fn de_delete_package_versions_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -74,11 +70,8 @@ pub fn de_delete_package_versions_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -176,9 +169,11 @@ pub(crate) fn de_delete_package_versions(
                     );
                 }
                 "failedVersions" => {
-                    builder = builder.set_failed_versions(
-                        super::super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(tokens, _value, depth + 1)?,
-                    );
+                    builder = builder.set_failed_versions(super::super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

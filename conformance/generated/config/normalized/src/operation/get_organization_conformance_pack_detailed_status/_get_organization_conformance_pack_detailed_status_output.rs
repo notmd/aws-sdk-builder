@@ -29,7 +29,9 @@ impl ::aws_types::request_id::RequestId for GetOrganizationConformancePackDetail
 }
 impl GetOrganizationConformancePackDetailedStatusOutput {
     /// Creates a new builder-style object to manufacture [`GetOrganizationConformancePackDetailedStatusOutput`](crate::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusOutput).
-    pub fn builder() -> super::super::super::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusOutputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusOutputBuilder
+    {
         super::super::super::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusOutputBuilder::default()
     }
 }
@@ -49,10 +51,7 @@ impl GetOrganizationConformancePackDetailedStatusOutputBuilder {
     /// To override the contents of this collection use [`set_organization_conformance_pack_detailed_statuses`](Self::set_organization_conformance_pack_detailed_statuses).
     ///
     /// <p>A list of <code>OrganizationConformancePackDetailedStatus</code> objects.</p>
-    pub fn organization_conformance_pack_detailed_statuses(
-        mut self,
-        input: super::super::super::types::OrganizationConformancePackDetailedStatus,
-    ) -> Self {
+    pub fn organization_conformance_pack_detailed_statuses(mut self, input: super::super::super::types::OrganizationConformancePackDetailedStatus) -> Self {
         let mut v = self.organization_conformance_pack_detailed_statuses.unwrap_or_default();
         v.push(input);
         self.organization_conformance_pack_detailed_statuses = ::std::option::Option::Some(v);
@@ -96,9 +95,7 @@ impl GetOrganizationConformancePackDetailedStatusOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetOrganizationConformancePackDetailedStatusOutput`](crate::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusOutput).
-    pub fn build(
-        self,
-    ) -> super::super::super::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusOutput {
+    pub fn build(self) -> super::super::super::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusOutput {
         super::super::super::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusOutput {
             organization_conformance_pack_detailed_statuses: self.organization_conformance_pack_detailed_statuses,
             next_token: self.next_token,

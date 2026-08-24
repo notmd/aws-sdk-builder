@@ -30,29 +30,17 @@ where
                         }
                         "configSnapshotDeliveryInfo" => {
                             builder = builder.set_config_snapshot_delivery_info(
-                                super::super::protocol_serde::shape_config_export_delivery_info::de_config_export_delivery_info(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_config_export_delivery_info::de_config_export_delivery_info(tokens, _value, depth + 1)?,
                             );
                         }
                         "configHistoryDeliveryInfo" => {
                             builder = builder.set_config_history_delivery_info(
-                                super::super::protocol_serde::shape_config_export_delivery_info::de_config_export_delivery_info(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_config_export_delivery_info::de_config_export_delivery_info(tokens, _value, depth + 1)?,
                             );
                         }
                         "configStreamDeliveryInfo" => {
                             builder = builder.set_config_stream_delivery_info(
-                                super::super::protocol_serde::shape_config_stream_delivery_info::de_config_stream_delivery_info(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_config_stream_delivery_info::de_config_stream_delivery_info(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

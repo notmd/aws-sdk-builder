@@ -28,8 +28,7 @@ impl ::aws_types::request_id::RequestId for GetOrganizationConfigRuleDetailedSta
 }
 impl GetOrganizationConfigRuleDetailedStatusOutput {
     /// Creates a new builder-style object to manufacture [`GetOrganizationConfigRuleDetailedStatusOutput`](crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusOutputBuilder
+    pub fn builder() -> super::super::super::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusOutputBuilder
     {
         super::super::super::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusOutputBuilder::default()
     }
@@ -64,9 +63,7 @@ impl GetOrganizationConfigRuleDetailedStatusOutputBuilder {
         self
     }
     /// <p>A list of <code>MemberAccountStatus</code> objects.</p>
-    pub fn get_organization_config_rule_detailed_status(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MemberAccountStatus>> {
+    pub fn get_organization_config_rule_detailed_status(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MemberAccountStatus>> {
         &self.organization_config_rule_detailed_status
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -93,9 +90,7 @@ impl GetOrganizationConfigRuleDetailedStatusOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetOrganizationConfigRuleDetailedStatusOutput`](crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusOutput).
-    pub fn build(
-        self,
-    ) -> super::super::super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusOutput {
+    pub fn build(self) -> super::super::super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusOutput {
         super::super::super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusOutput {
             organization_config_rule_detailed_status: self.organization_config_rule_detailed_status,
             next_token: self.next_token,

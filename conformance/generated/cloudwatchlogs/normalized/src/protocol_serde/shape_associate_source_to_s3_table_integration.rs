@@ -15,11 +15,7 @@ pub fn de_associate_source_to_s3_table_integration_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(
-                super::super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationError::unhandled(generic),
-            )
-        }
+        None => return Err(super::super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -31,9 +27,7 @@ pub fn de_associate_source_to_s3_table_integration_http_error(
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                     output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                        .map_err(
-                            super::super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationError::unhandled,
-                        )?;
+                        .map_err(super::super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -49,13 +43,8 @@ pub fn de_associate_source_to_s3_table_integration_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(
-                        super::super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationError::unhandled,
-                    )?;
+                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -75,9 +64,7 @@ pub fn de_associate_source_to_s3_table_integration_http_error(
                         _response_body,
                         output,
                     )
-                    .map_err(
-                        super::super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationError::unhandled,
-                    )?;
+                    .map_err(super::super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -94,9 +81,7 @@ pub fn de_associate_source_to_s3_table_integration_http_error(
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                     output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                        .map_err(
-                            super::super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationError::unhandled,
-                        )?;
+                        .map_err(super::super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -113,9 +98,7 @@ pub fn de_associate_source_to_s3_table_integration_http_error(
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                     output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                        .map_err(
-                            super::super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationError::unhandled,
-                        )?;
+                        .map_err(super::super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };

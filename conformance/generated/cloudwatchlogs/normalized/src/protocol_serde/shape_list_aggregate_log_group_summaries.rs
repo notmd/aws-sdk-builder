@@ -26,11 +26,9 @@ pub fn de_list_aggregate_log_group_summaries_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -46,11 +44,9 @@ pub fn de_list_aggregate_log_group_summaries_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -60,23 +56,21 @@ pub fn de_list_aggregate_log_group_summaries_http_error(
                 tmp
             })
         }
-        "ValidationException" => {
-            super::super::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesError::ValidationException({
+        "ValidationException" => super::super::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesError::ValidationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesError::generic(generic),
     })
 }
@@ -92,11 +86,9 @@ pub fn de_list_aggregate_log_group_summaries_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::list_aggregate_log_group_summaries::builders::ListAggregateLogGroupSummariesOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_list_aggregate_log_group_summaries::de_list_aggregate_log_group_summaries(_response_body, output)
-                .map_err(super::super::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesError::unhandled)?;
+        let mut output = super::super::operation::list_aggregate_log_group_summaries::builders::ListAggregateLogGroupSummariesOutputBuilder::default();
+        output = super::super::protocol_serde::shape_list_aggregate_log_group_summaries::de_list_aggregate_log_group_summaries(_response_body, output)
+            .map_err(super::super::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummariesError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -107,10 +99,7 @@ pub fn ser_list_aggregate_log_group_summaries_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_aggregate_log_group_summaries_input::ser_list_aggregate_log_group_summaries_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_list_aggregate_log_group_summaries_input::ser_list_aggregate_log_group_summaries_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -133,11 +122,7 @@ pub(crate) fn de_list_aggregate_log_group_summaries(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "aggregateLogGroupSummaries" => {
                     builder = builder.set_aggregate_log_group_summaries(
-                        super::super::protocol_serde::shape_aggregate_log_group_summaries::de_aggregate_log_group_summaries(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_aggregate_log_group_summaries::de_aggregate_log_group_summaries(tokens, _value, depth + 1)?,
                     );
                 }
                 "nextToken" => {

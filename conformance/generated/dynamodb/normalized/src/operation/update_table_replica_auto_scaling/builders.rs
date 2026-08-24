@@ -57,9 +57,7 @@ impl UpdateTableReplicaAutoScalingFluentBuilder {
         }
     }
     /// Access the UpdateTableReplicaAutoScaling as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::update_table_replica_auto_scaling::builders::UpdateTableReplicaAutoScalingInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,12 +81,11 @@ impl UpdateTableReplicaAutoScalingFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScaling::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = super::super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScaling::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         super::super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScaling::orchestrate(&runtime_plugins, input).await
     }
 
@@ -130,9 +127,7 @@ impl UpdateTableReplicaAutoScalingFluentBuilder {
         self
     }
     /// <p>Represents the auto scaling settings of the global secondary indexes of the replica to be updated.</p>
-    pub fn get_global_secondary_index_updates(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdate>> {
+    pub fn get_global_secondary_index_updates(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdate>> {
         self.inner.get_global_secondary_index_updates()
     }
     /// <p>The name of the global table to be updated. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
@@ -163,9 +158,7 @@ impl UpdateTableReplicaAutoScalingFluentBuilder {
         self
     }
     /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
-    pub fn get_provisioned_write_capacity_auto_scaling_update(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::AutoScalingSettingsUpdate> {
+    pub fn get_provisioned_write_capacity_auto_scaling_update(&self) -> &::std::option::Option<super::super::super::types::AutoScalingSettingsUpdate> {
         self.inner.get_provisioned_write_capacity_auto_scaling_update()
     }
     ///
@@ -179,10 +172,7 @@ impl UpdateTableReplicaAutoScalingFluentBuilder {
         self
     }
     /// <p>Represents the auto scaling settings of replicas of the table that will be modified.</p>
-    pub fn set_replica_updates(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaAutoScalingUpdate>>,
-    ) -> Self {
+    pub fn set_replica_updates(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaAutoScalingUpdate>>) -> Self {
         self.inner = self.inner.set_replica_updates(input);
         self
     }

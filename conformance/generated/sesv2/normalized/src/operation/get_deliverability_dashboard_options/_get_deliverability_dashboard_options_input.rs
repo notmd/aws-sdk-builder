@@ -7,8 +7,7 @@
 pub struct GetDeliverabilityDashboardOptionsInput {}
 impl GetDeliverabilityDashboardOptionsInput {
     /// Creates a new builder-style object to manufacture [`GetDeliverabilityDashboardOptionsInput`](crate::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsInput).
-    pub fn builder() -> super::super::super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsInputBuilder {
         super::super::super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsInputBuilder::default()
     }
 }

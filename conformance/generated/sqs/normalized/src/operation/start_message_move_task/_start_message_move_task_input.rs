@@ -86,10 +86,8 @@ impl StartMessageMoveTaskInputBuilder {
     /// Consumes the builder and constructs a [`StartMessageMoveTaskInput`](crate::operation::start_message_move_task::StartMessageMoveTaskInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::start_message_move_task::StartMessageMoveTaskInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::start_message_move_task::StartMessageMoveTaskInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::start_message_move_task::StartMessageMoveTaskInput {
             source_arn: self.source_arn,
             destination_arn: self.destination_arn,

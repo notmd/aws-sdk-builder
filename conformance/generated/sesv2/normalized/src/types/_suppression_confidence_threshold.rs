@@ -34,10 +34,7 @@ impl SuppressionConfidenceThresholdBuilder {
         self
     }
     /// <p>The confidence level threshold for suppression decisions.</p>
-    pub fn set_confidence_verdict_threshold(
-        mut self,
-        input: ::std::option::Option<super::super::types::SuppressionConfidenceVerdictThreshold>,
-    ) -> Self {
+    pub fn set_confidence_verdict_threshold(mut self, input: ::std::option::Option<super::super::types::SuppressionConfidenceVerdictThreshold>) -> Self {
         self.confidence_verdict_threshold = input;
         self
     }
@@ -48,9 +45,7 @@ impl SuppressionConfidenceThresholdBuilder {
     /// Consumes the builder and constructs a [`SuppressionConfidenceThreshold`](crate::types::SuppressionConfidenceThreshold).
     /// This method will fail if any of the following fields are not set:
     /// - [`confidence_verdict_threshold`](crate::types::builders::SuppressionConfidenceThresholdBuilder::confidence_verdict_threshold)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::SuppressionConfidenceThreshold, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::SuppressionConfidenceThreshold, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::SuppressionConfidenceThreshold {
             confidence_verdict_threshold: self.confidence_verdict_threshold.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

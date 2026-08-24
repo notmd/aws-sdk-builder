@@ -70,11 +70,9 @@ impl PutConfigurationSetVdmOptionsInputBuilder {
         super::super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsInput {
-                configuration_set_name: self.configuration_set_name,
-                vdm_options: self.vdm_options,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsInput {
+            configuration_set_name: self.configuration_set_name,
+            vdm_options: self.vdm_options,
+        })
     }
 }

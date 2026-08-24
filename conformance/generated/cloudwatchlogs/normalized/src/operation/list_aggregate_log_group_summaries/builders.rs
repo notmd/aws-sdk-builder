@@ -58,9 +58,7 @@ impl ListAggregateLogGroupSummariesFluentBuilder {
         }
     }
     /// Access the ListAggregateLogGroupSummaries as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::list_aggregate_log_group_summaries::builders::ListAggregateLogGroupSummariesInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::list_aggregate_log_group_summaries::builders::ListAggregateLogGroupSummariesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,12 +82,11 @@ impl ListAggregateLogGroupSummariesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummaries::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = super::super::super::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummaries::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         super::super::super::operation::list_aggregate_log_group_summaries::ListAggregateLogGroupSummaries::orchestrate(&runtime_plugins, input).await
     }
 
@@ -115,13 +112,8 @@ impl ListAggregateLogGroupSummariesFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_aggregate_log_group_summaries::paginator::ListAggregateLogGroupSummariesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> super::super::super::operation::list_aggregate_log_group_summaries::paginator::ListAggregateLogGroupSummariesPaginator {
-        super::super::super::operation::list_aggregate_log_group_summaries::paginator::ListAggregateLogGroupSummariesPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> super::super::super::operation::list_aggregate_log_group_summaries::paginator::ListAggregateLogGroupSummariesPaginator {
+        super::super::super::operation::list_aggregate_log_group_summaries::paginator::ListAggregateLogGroupSummariesPaginator::new(self.handle, self.inner)
     }
     ///
     /// Appends an item to `accountIdentifiers`.

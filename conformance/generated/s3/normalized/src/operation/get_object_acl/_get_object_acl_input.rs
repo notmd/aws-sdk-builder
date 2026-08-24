@@ -154,8 +154,7 @@ impl GetObjectAclInputBuilder {
     /// Consumes the builder and constructs a [`GetObjectAclInput`](crate::operation::get_object_acl::GetObjectAclInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::get_object_acl::GetObjectAclInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::get_object_acl::GetObjectAclInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_object_acl::GetObjectAclInput {
             bucket: self.bucket,
             key: self.key,

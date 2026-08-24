@@ -212,9 +212,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for TransactGetI
             );
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_transact_get_items::ser_transact_get_items_input(
-            &input,
-        )?);
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_transact_get_items::ser_transact_get_items_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -271,9 +269,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for TransactGetIt
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
 // Generated from JMESPath Expression: TransactItems[*].Get.TableName
-fn get_resource_arn_list(
-    input: &super::super::operation::transact_get_items::TransactGetItemsInput,
-) -> Option<::std::vec::Vec<&::std::string::String>> {
+fn get_resource_arn_list(input: &super::super::operation::transact_get_items::TransactGetItemsInput) -> Option<::std::vec::Vec<&::std::string::String>> {
     let _fld_1 = input.transact_items.as_ref()?;
     let _prj_4 = _fld_1
         .iter()

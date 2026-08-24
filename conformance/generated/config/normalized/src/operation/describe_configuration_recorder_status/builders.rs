@@ -61,9 +61,7 @@ impl DescribeConfigurationRecorderStatusFluentBuilder {
         }
     }
     /// Access the DescribeConfigurationRecorderStatus as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -93,11 +91,7 @@ impl DescribeConfigurationRecorderStatusFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatus::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        super::super::super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatus::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

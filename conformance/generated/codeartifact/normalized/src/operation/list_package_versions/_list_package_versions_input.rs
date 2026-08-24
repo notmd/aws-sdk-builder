@@ -357,10 +357,8 @@ impl ListPackageVersionsInputBuilder {
     /// Consumes the builder and constructs a [`ListPackageVersionsInput`](crate::operation::list_package_versions::ListPackageVersionsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_package_versions::ListPackageVersionsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_package_versions::ListPackageVersionsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_package_versions::ListPackageVersionsInput {
             domain: self.domain,
             domain_owner: self.domain_owner,

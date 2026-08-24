@@ -15,7 +15,11 @@ pub fn de_disassociate_resource_types_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::disassociate_resource_types::DisassociateResourceTypesError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::disassociate_resource_types::DisassociateResourceTypesError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -41,7 +45,12 @@ pub fn de_disassociate_resource_types_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::NoSuchConfigurationRecorderExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_no_such_configuration_recorder_exception::de_no_such_configuration_recorder_exception_json_err(_response_body, output).map_err(super::super::operation::disassociate_resource_types::DisassociateResourceTypesError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_no_such_configuration_recorder_exception::de_no_such_configuration_recorder_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::disassociate_resource_types::DisassociateResourceTypesError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -116,9 +125,11 @@ pub(crate) fn de_disassociate_resource_types(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "ConfigurationRecorder" => {
-                    builder = builder.set_configuration_recorder(
-                        super::super::protocol_serde::shape_configuration_recorder::de_configuration_recorder(tokens, _value, depth + 1)?,
-                    );
+                    builder = builder.set_configuration_recorder(super::super::protocol_serde::shape_configuration_recorder::de_configuration_recorder(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

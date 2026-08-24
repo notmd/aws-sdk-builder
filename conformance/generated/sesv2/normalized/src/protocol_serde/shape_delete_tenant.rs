@@ -52,9 +52,8 @@ pub fn de_delete_tenant_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::delete_tenant::DeleteTenantError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_tenant::DeleteTenantError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

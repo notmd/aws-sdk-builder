@@ -44,10 +44,8 @@ impl SendDelegationTokenInputBuilder {
     /// Consumes the builder and constructs a [`SendDelegationTokenInput`](crate::operation::send_delegation_token::SendDelegationTokenInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::send_delegation_token::SendDelegationTokenInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::send_delegation_token::SendDelegationTokenInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::send_delegation_token::SendDelegationTokenInput {
             delegation_request_id: self.delegation_request_id,
         })

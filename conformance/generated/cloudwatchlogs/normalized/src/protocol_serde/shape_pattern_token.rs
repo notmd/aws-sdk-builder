@@ -39,11 +39,8 @@ where
                             );
                         }
                         "enumerations" => {
-                            builder = builder.set_enumerations(super::super::protocol_serde::shape_enumerations::de_enumerations(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_enumerations(super::super::protocol_serde::shape_enumerations::de_enumerations(tokens, _value, depth + 1)?);
                         }
                         "inferredTokenName" => {
                             builder = builder.set_inferred_token_name(

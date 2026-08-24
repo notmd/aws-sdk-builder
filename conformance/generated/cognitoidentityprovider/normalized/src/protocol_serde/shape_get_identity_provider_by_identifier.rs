@@ -26,9 +26,8 @@ pub fn de_get_identity_provider_by_identifier_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError::unhandled)?;
+                    output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -44,11 +43,9 @@ pub fn de_get_identity_provider_by_identifier_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -64,9 +61,8 @@ pub fn de_get_identity_provider_by_identifier_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::NotAuthorizedExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError::unhandled)?;
+                    output = super::super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -82,11 +78,9 @@ pub fn de_get_identity_provider_by_identifier_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -102,11 +96,9 @@ pub fn de_get_identity_provider_by_identifier_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -131,11 +123,9 @@ pub fn de_get_identity_provider_by_identifier_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::get_identity_provider_by_identifier::builders::GetIdentityProviderByIdentifierOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_get_identity_provider_by_identifier::de_get_identity_provider_by_identifier(_response_body, output)
-                .map_err(super::super::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError::unhandled)?;
+        let mut output = super::super::operation::get_identity_provider_by_identifier::builders::GetIdentityProviderByIdentifierOutputBuilder::default();
+        output = super::super::protocol_serde::shape_get_identity_provider_by_identifier::de_get_identity_provider_by_identifier(_response_body, output)
+            .map_err(super::super::operation::get_identity_provider_by_identifier::GetIdentityProviderByIdentifierError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         super::super::serde_util::get_identity_provider_by_identifier_output_output_correct_errors(output).build()
     })
@@ -146,10 +136,7 @@ pub fn ser_get_identity_provider_by_identifier_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_identity_provider_by_identifier_input::ser_get_identity_provider_by_identifier_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_get_identity_provider_by_identifier_input::ser_get_identity_provider_by_identifier_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -169,16 +156,16 @@ pub(crate) fn de_get_identity_provider_by_identifier(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "IdentityProvider" => {
-                        builder = builder.set_identity_provider(
-                            super::super::protocol_serde::shape_identity_provider_type::de_identity_provider_type(tokens, _value, depth + 1)?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "IdentityProvider" => {
+                    builder = builder.set_identity_provider(super::super::protocol_serde::shape_identity_provider_type::de_identity_provider_type(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
-            }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

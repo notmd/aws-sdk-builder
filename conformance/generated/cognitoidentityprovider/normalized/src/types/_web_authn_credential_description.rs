@@ -167,9 +167,7 @@ impl WebAuthnCredentialDescriptionBuilder {
     /// - [`relying_party_id`](crate::types::builders::WebAuthnCredentialDescriptionBuilder::relying_party_id)
     /// - [`authenticator_transports`](crate::types::builders::WebAuthnCredentialDescriptionBuilder::authenticator_transports)
     /// - [`created_at`](crate::types::builders::WebAuthnCredentialDescriptionBuilder::created_at)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::WebAuthnCredentialDescription, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::WebAuthnCredentialDescription, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::WebAuthnCredentialDescription {
             credential_id: self.credential_id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -100,12 +100,10 @@ impl ListOpenIdConnectProviderTagsInputBuilder {
         super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsInput {
-                open_id_connect_provider_arn: self.open_id_connect_provider_arn,
-                marker: self.marker,
-                max_items: self.max_items,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsInput {
+            open_id_connect_provider_arn: self.open_id_connect_provider_arn,
+            marker: self.marker,
+            max_items: self.max_items,
+        })
     }
 }

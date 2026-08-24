@@ -120,11 +120,9 @@ impl PutFunctionCodeSigningConfigInputBuilder {
         super::super::super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigInput {
-                code_signing_config_arn: self.code_signing_config_arn,
-                function_name: self.function_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigInput {
+            code_signing_config_arn: self.code_signing_config_arn,
+            function_name: self.function_name,
+        })
     }
 }

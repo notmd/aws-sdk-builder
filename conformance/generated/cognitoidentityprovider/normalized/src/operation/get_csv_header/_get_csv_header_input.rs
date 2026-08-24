@@ -45,8 +45,7 @@ impl GetCsvHeaderInputBuilder {
     /// Consumes the builder and constructs a [`GetCsvHeaderInput`](crate::operation::get_csv_header::GetCsvHeaderInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::get_csv_header::GetCsvHeaderInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::get_csv_header::GetCsvHeaderInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_csv_header::GetCsvHeaderInput {
             user_pool_id: self.user_pool_id,
         })

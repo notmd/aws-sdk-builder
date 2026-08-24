@@ -66,16 +66,14 @@ impl StartWebAuthnRegistrationOutputBuilder {
         super::super::super::operation::start_web_authn_registration::StartWebAuthnRegistrationOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::start_web_authn_registration::StartWebAuthnRegistrationOutput {
-                credential_creation_options: self.credential_creation_options.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "credential_creation_options",
-                        "credential_creation_options was not specified but it is required when building StartWebAuthnRegistrationOutput",
-                    )
-                })?,
-                _request_id: self._request_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::start_web_authn_registration::StartWebAuthnRegistrationOutput {
+            credential_creation_options: self.credential_creation_options.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "credential_creation_options",
+                    "credential_creation_options was not specified but it is required when building StartWebAuthnRegistrationOutput",
+                )
+            })?,
+            _request_id: self._request_id,
+        })
     }
 }

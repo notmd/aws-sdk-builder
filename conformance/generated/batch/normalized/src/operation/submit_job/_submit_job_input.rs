@@ -417,10 +417,7 @@ impl SubmitJobInputBuilder {
         self
     }
     /// <p>An object that contains overrides for the consumable resources of a job.</p>
-    pub fn set_consumable_resource_properties_override(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::ConsumableResourceProperties>,
-    ) -> Self {
+    pub fn set_consumable_resource_properties_override(mut self, input: ::std::option::Option<super::super::super::types::ConsumableResourceProperties>) -> Self {
         self.consumable_resource_properties_override = input;
         self
     }
@@ -429,9 +426,7 @@ impl SubmitJobInputBuilder {
         &self.consumable_resource_properties_override
     }
     /// Consumes the builder and constructs a [`SubmitJobInput`](crate::operation::submit_job::SubmitJobInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::submit_job::SubmitJobInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::submit_job::SubmitJobInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::submit_job::SubmitJobInput {
             job_name: self.job_name,
             job_queue: self.job_queue,

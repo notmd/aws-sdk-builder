@@ -361,8 +361,7 @@ impl DeleteObjectsInputBuilder {
     /// Consumes the builder and constructs a [`DeleteObjectsInput`](crate::operation::delete_objects::DeleteObjectsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::delete_objects::DeleteObjectsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::delete_objects::DeleteObjectsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_objects::DeleteObjectsInput {
             bucket: self.bucket,
             delete: self.delete,

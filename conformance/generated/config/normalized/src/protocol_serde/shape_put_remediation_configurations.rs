@@ -110,9 +110,11 @@ pub(crate) fn de_put_remediation_configurations(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "FailedBatches" => {
-                    builder = builder.set_failed_batches(
-                        super::super::protocol_serde::shape_failed_remediation_batches::de_failed_remediation_batches(tokens, _value, depth + 1)?,
-                    );
+                    builder = builder.set_failed_batches(super::super::protocol_serde::shape_failed_remediation_batches::de_failed_remediation_batches(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

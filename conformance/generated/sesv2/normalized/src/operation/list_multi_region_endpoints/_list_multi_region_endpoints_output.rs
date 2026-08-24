@@ -55,10 +55,7 @@ impl ListMultiRegionEndpointsOutputBuilder {
         self
     }
     /// <p>An array that contains key multi-region endpoint (global-endpoint) properties.</p>
-    pub fn set_multi_region_endpoints(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MultiRegionEndpoint>>,
-    ) -> Self {
+    pub fn set_multi_region_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MultiRegionEndpoint>>) -> Self {
         self.multi_region_endpoints = input;
         self
     }

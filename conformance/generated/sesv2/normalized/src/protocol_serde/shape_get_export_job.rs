@@ -52,9 +52,8 @@ pub fn de_get_export_job_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_export_job::GetExportJobError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_export_job::GetExportJobError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -157,11 +156,7 @@ pub(crate) fn de_get_export_job(
                     )?);
                 }
                 "FailureInfo" => {
-                    builder = builder.set_failure_info(super::super::protocol_serde::shape_failure_info::de_failure_info(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_failure_info(super::super::protocol_serde::shape_failure_info::de_failure_info(tokens, _value, depth + 1)?);
                 }
                 "Statistics" => {
                     builder = builder.set_statistics(super::super::protocol_serde::shape_export_statistics::de_export_statistics(

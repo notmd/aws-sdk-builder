@@ -48,22 +48,28 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "AccountIds" => {
-                                builder = builder.set_account_ids(super::super::protocol_serde::shape_account_aggregation_source_account_list::de_account_aggregation_source_account_list(tokens, _value, depth + 1)?);
-                            }
-                            "AllAwsRegions" => {
-                                builder = builder.set_all_aws_regions(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                            }
-                            "AwsRegions" => {
-                                builder = builder.set_aws_regions(
-                                    super::super::protocol_serde::shape_aggregator_region_list::de_aggregator_region_list(tokens, _value, depth + 1)?,
-                                );
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "AccountIds" => {
+                            builder = builder.set_account_ids(
+                                super::super::protocol_serde::shape_account_aggregation_source_account_list::de_account_aggregation_source_account_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
                         }
-                    }
+                        "AllAwsRegions" => {
+                            builder = builder.set_all_aws_regions(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                        }
+                        "AwsRegions" => {
+                            builder = builder.set_aws_regions(super::super::protocol_serde::shape_aggregator_region_list::de_aggregator_region_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

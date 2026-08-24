@@ -9,10 +9,7 @@ pub fn ser_instance_launch_template_update(
     if let Some(var_2) = &input.network_configuration {
         #[allow(unused_mut)]
         let mut object_3 = object.key("networkConfiguration").start_object();
-        super::super::protocol_serde::shape_managed_instances_network_configuration::ser_managed_instances_network_configuration(
-            &mut object_3,
-            var_2,
-        )?;
+        super::super::protocol_serde::shape_managed_instances_network_configuration::ser_managed_instances_network_configuration(&mut object_3, var_2)?;
         object_3.finish();
     }
     if let Some(var_4) = &input.instance_requirements {
@@ -24,10 +21,7 @@ pub fn ser_instance_launch_template_update(
     if let Some(var_6) = &input.storage_configuration {
         #[allow(unused_mut)]
         let mut object_7 = object.key("storageConfiguration").start_object();
-        super::super::protocol_serde::shape_managed_instances_storage_configuration::ser_managed_instances_storage_configuration(
-            &mut object_7,
-            var_6,
-        )?;
+        super::super::protocol_serde::shape_managed_instances_storage_configuration::ser_managed_instances_storage_configuration(&mut object_7, var_6)?;
         object_7.finish();
     }
     if let Some(var_8) = &input.monitoring {

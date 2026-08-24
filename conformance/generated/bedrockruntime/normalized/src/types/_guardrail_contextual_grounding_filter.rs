@@ -135,9 +135,7 @@ impl GuardrailContextualGroundingFilterBuilder {
     /// - [`threshold`](crate::types::builders::GuardrailContextualGroundingFilterBuilder::threshold)
     /// - [`score`](crate::types::builders::GuardrailContextualGroundingFilterBuilder::score)
     /// - [`action`](crate::types::builders::GuardrailContextualGroundingFilterBuilder::action)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::GuardrailContextualGroundingFilter, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailContextualGroundingFilter, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::GuardrailContextualGroundingFilter {
             r#type: self.r#type.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

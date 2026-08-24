@@ -114,10 +114,7 @@ impl PutBucketRequestPaymentInputBuilder {
         self
     }
     /// <p>Container for Payer.</p>
-    pub fn set_request_payment_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::RequestPaymentConfiguration>,
-    ) -> Self {
+    pub fn set_request_payment_configuration(mut self, input: ::std::option::Option<super::super::super::types::RequestPaymentConfiguration>) -> Self {
         self.request_payment_configuration = input;
         self
     }

@@ -15,11 +15,7 @@ pub fn de_admin_confirm_sign_up_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -39,34 +35,31 @@ pub fn de_admin_confirm_sign_up_http_error(
             }
             tmp
         }),
-        "InvalidLambdaResponseException" => {
-            super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::InvalidLambdaResponseException({
+        "InvalidLambdaResponseException" => super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::InvalidLambdaResponseException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidParameterException" => super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::InvalidParameterException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -110,11 +103,9 @@ pub fn de_admin_confirm_sign_up_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -128,7 +119,22 @@ pub fn de_admin_confirm_sign_up_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "TooManyFailedAttemptsException" => super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::TooManyFailedAttemptsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::TooManyFailedAttemptsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_too_many_failed_attempts_exception::de_too_many_failed_attempts_exception_json_err(
                     _response_body,
                     output,
                 )
@@ -141,34 +147,13 @@ pub fn de_admin_confirm_sign_up_http_error(
             }
             tmp
         }),
-        "TooManyFailedAttemptsException" => {
-            super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::TooManyFailedAttemptsException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::TooManyFailedAttemptsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_failed_attempts_exception::de_too_many_failed_attempts_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
         "TooManyRequestsException" => super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::TooManyRequestsException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -182,9 +167,8 @@ pub fn de_admin_confirm_sign_up_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
+                output = super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::admin_confirm_sign_up::AdminConfirmSignUpError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

@@ -620,9 +620,7 @@ impl UploadPartInputBuilder {
         &self.expected_bucket_owner
     }
     /// Consumes the builder and constructs a [`UploadPartInput`](crate::operation::upload_part::UploadPartInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::upload_part::UploadPartInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::upload_part::UploadPartInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::upload_part::UploadPartInput {
             body: self.body.unwrap_or_default(),
             bucket: self.bucket,

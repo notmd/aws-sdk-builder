@@ -48,10 +48,8 @@ impl DisconnectCustomKeyStoreInputBuilder {
         super::super::super::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreInput {
-                custom_key_store_id: self.custom_key_store_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreInput {
+            custom_key_store_id: self.custom_key_store_id,
+        })
     }
 }

@@ -453,9 +453,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for PutConfi
         })
     }
 }
-impl ::aws_types::request_id::RequestId
-    for super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError
-{
+impl ::aws_types::request_id::RequestId for super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

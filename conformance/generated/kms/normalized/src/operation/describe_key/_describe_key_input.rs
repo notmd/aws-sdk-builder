@@ -146,9 +146,7 @@ impl DescribeKeyInputBuilder {
         &self.grant_tokens
     }
     /// Consumes the builder and constructs a [`DescribeKeyInput`](crate::operation::describe_key::DescribeKeyInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::describe_key::DescribeKeyInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::describe_key::DescribeKeyInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::describe_key::DescribeKeyInput {
             key_id: self.key_id,
             grant_tokens: self.grant_tokens,

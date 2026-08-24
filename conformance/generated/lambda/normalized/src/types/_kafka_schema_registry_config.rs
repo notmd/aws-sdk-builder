@@ -172,10 +172,7 @@ impl KafkaSchemaRegistryConfigBuilder {
         self
     }
     /// <p>An array of schema validation configuration objects, which tell Lambda the message attributes you want to validate and filter using your schema registry.</p>
-    pub fn set_schema_validation_configs(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::KafkaSchemaValidationConfig>>,
-    ) -> Self {
+    pub fn set_schema_validation_configs(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::KafkaSchemaValidationConfig>>) -> Self {
         self.schema_validation_configs = input;
         self
     }

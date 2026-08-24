@@ -55,10 +55,7 @@ impl ListPlatformApplicationsOutputBuilder {
         self
     }
     /// <p>Platform applications returned when calling <code>ListPlatformApplications</code> action.</p>
-    pub fn set_platform_applications(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PlatformApplication>>,
-    ) -> Self {
+    pub fn set_platform_applications(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PlatformApplication>>) -> Self {
         self.platform_applications = input;
         self
     }

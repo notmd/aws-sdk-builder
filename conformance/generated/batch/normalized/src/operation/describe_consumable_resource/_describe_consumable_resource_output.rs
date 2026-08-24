@@ -253,28 +253,26 @@ impl DescribeConsumableResourceOutputBuilder {
         super::super::super::operation::describe_consumable_resource::DescribeConsumableResourceOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::describe_consumable_resource::DescribeConsumableResourceOutput {
-                consumable_resource_name: self.consumable_resource_name.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "consumable_resource_name",
-                        "consumable_resource_name was not specified but it is required when building DescribeConsumableResourceOutput",
-                    )
-                })?,
-                consumable_resource_arn: self.consumable_resource_arn.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "consumable_resource_arn",
-                        "consumable_resource_arn was not specified but it is required when building DescribeConsumableResourceOutput",
-                    )
-                })?,
-                total_quantity: self.total_quantity,
-                in_use_quantity: self.in_use_quantity,
-                available_quantity: self.available_quantity,
-                resource_type: self.resource_type,
-                created_at: self.created_at,
-                tags: self.tags,
-                _request_id: self._request_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::describe_consumable_resource::DescribeConsumableResourceOutput {
+            consumable_resource_name: self.consumable_resource_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "consumable_resource_name",
+                    "consumable_resource_name was not specified but it is required when building DescribeConsumableResourceOutput",
+                )
+            })?,
+            consumable_resource_arn: self.consumable_resource_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "consumable_resource_arn",
+                    "consumable_resource_arn was not specified but it is required when building DescribeConsumableResourceOutput",
+                )
+            })?,
+            total_quantity: self.total_quantity,
+            in_use_quantity: self.in_use_quantity,
+            available_quantity: self.available_quantity,
+            resource_type: self.resource_type,
+            created_at: self.created_at,
+            tags: self.tags,
+            _request_id: self._request_id,
+        })
     }
 }

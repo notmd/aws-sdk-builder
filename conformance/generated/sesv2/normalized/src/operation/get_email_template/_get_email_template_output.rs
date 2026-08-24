@@ -115,10 +115,7 @@ impl GetEmailTemplateOutputBuilder {
     /// - [`template_name`](crate::operation::get_email_template::builders::GetEmailTemplateOutputBuilder::template_name)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_email_template::GetEmailTemplateOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_email_template::GetEmailTemplateOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_email_template::GetEmailTemplateOutput {
             template_name: self.template_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

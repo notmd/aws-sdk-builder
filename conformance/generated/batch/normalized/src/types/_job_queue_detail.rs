@@ -235,10 +235,7 @@ impl JobQueueDetailBuilder {
         self
     }
     /// <p>The compute environments that are attached to the job queue and the order that job placement is preferred. Compute environments are selected for job placement in ascending order.</p>
-    pub fn set_compute_environment_order(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::ComputeEnvironmentOrder>>,
-    ) -> Self {
+    pub fn set_compute_environment_order(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::ComputeEnvironmentOrder>>) -> Self {
         self.compute_environment_order = input;
         self
     }
@@ -258,10 +255,7 @@ impl JobQueueDetailBuilder {
         self
     }
     /// <p>The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
-    pub fn set_service_environment_order(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::ServiceEnvironmentOrder>>,
-    ) -> Self {
+    pub fn set_service_environment_order(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::ServiceEnvironmentOrder>>) -> Self {
         self.service_environment_order = input;
         self
     }
@@ -315,10 +309,7 @@ impl JobQueueDetailBuilder {
         self
     }
     /// <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed.</p>
-    pub fn set_job_state_time_limit_actions(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::JobStateTimeLimitAction>>,
-    ) -> Self {
+    pub fn set_job_state_time_limit_actions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::JobStateTimeLimitAction>>) -> Self {
         self.job_state_time_limit_actions = input;
         self
     }

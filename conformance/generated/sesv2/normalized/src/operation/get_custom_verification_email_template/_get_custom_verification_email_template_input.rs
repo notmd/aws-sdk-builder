@@ -15,8 +15,7 @@ impl GetCustomVerificationEmailTemplateInput {
 }
 impl GetCustomVerificationEmailTemplateInput {
     /// Creates a new builder-style object to manufacture [`GetCustomVerificationEmailTemplateInput`](crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateInput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateInputBuilder {
+    pub fn builder() -> super::super::super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateInputBuilder {
         super::super::super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateInputBuilder::default()
     }
 }

@@ -387,10 +387,7 @@ impl ListObjectsV2FluentBuilder {
     /// <p>Specifies the optional fields that you want returned in the response. Fields that you do not specify are not returned.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_optional_object_attributes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::OptionalObjectAttributes>>,
-    ) -> Self {
+    pub fn set_optional_object_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::OptionalObjectAttributes>>) -> Self {
         self.inner = self.inner.set_optional_object_attributes(input);
         self
     }

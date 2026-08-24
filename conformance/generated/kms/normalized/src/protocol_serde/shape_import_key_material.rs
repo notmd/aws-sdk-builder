@@ -4,10 +4,8 @@ pub fn de_import_key_material_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::import_key_material::ImportKeyMaterialOutput,
-    super::super::operation::import_key_material::ImportKeyMaterialError,
-> {
+) -> std::result::Result<super::super::operation::import_key_material::ImportKeyMaterialOutput, super::super::operation::import_key_material::ImportKeyMaterialError>
+{
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::import_key_material::ImportKeyMaterialError::unhandled)?;
@@ -25,11 +23,8 @@ pub fn de_import_key_material_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::import_key_material::ImportKeyMaterialError::unhandled)?;
+                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::import_key_material::ImportKeyMaterialError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -43,11 +38,9 @@ pub fn de_import_key_material_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ExpiredImportTokenExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_expired_import_token_exception::de_expired_import_token_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::import_key_material::ImportKeyMaterialError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_expired_import_token_exception::de_expired_import_token_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::import_key_material::ImportKeyMaterialError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -94,11 +87,8 @@ pub fn de_import_key_material_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidCiphertextExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_ciphertext_exception::de_invalid_ciphertext_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::import_key_material::ImportKeyMaterialError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_ciphertext_exception::de_invalid_ciphertext_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::import_key_material::ImportKeyMaterialError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -112,11 +102,9 @@ pub fn de_import_key_material_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidImportTokenExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_import_token_exception::de_invalid_import_token_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::import_key_material::ImportKeyMaterialError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_invalid_import_token_exception::de_invalid_import_token_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::import_key_material::ImportKeyMaterialError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -145,9 +133,8 @@ pub fn de_import_key_material_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::import_key_material::ImportKeyMaterialError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::import_key_material::ImportKeyMaterialError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -176,11 +163,9 @@ pub fn de_import_key_material_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UnsupportedOperationExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::import_key_material::ImportKeyMaterialError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::import_key_material::ImportKeyMaterialError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -198,10 +183,8 @@ pub fn de_import_key_material_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::import_key_material::ImportKeyMaterialOutput,
-    super::super::operation::import_key_material::ImportKeyMaterialError,
-> {
+) -> std::result::Result<super::super::operation::import_key_material::ImportKeyMaterialOutput, super::super::operation::import_key_material::ImportKeyMaterialError>
+{
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::import_key_material::builders::ImportKeyMaterialOutputBuilder::default();

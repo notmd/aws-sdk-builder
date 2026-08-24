@@ -23,8 +23,7 @@ where
                         break;
                     }
                     _ => {
-                        let value =
-                            super::super::protocol_serde::shape_email_template_metadata::de_email_template_metadata(tokens, _value, depth + 1)?;
+                        let value = super::super::protocol_serde::shape_email_template_metadata::de_email_template_metadata(tokens, _value, depth + 1)?;
                         if let Some(value) = value {
                             items.push(value);
                         } else {

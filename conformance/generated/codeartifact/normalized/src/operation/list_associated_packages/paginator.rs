@@ -86,11 +86,8 @@ impl ListAssociatedPackagesPaginator {
                         }
                     };
                     loop {
-                        let resp = super::super::super::operation::list_associated_packages::ListAssociatedPackages::orchestrate(
-                            &runtime_plugins,
-                            input.clone(),
-                        )
-                        .await;
+                        let resp =
+                            super::super::super::operation::list_associated_packages::ListAssociatedPackages::orchestrate(&runtime_plugins, input.clone()).await;
                         // If the input member is None or it was an error
                         let done = match resp {
                             ::std::result::Result::Ok(ref resp) => {

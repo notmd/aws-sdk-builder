@@ -146,10 +146,7 @@ impl QuotaShareDetailBuilder {
         self
     }
     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
-    pub fn set_resource_sharing_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::types::QuotaShareResourceSharingConfiguration>,
-    ) -> Self {
+    pub fn set_resource_sharing_configuration(mut self, input: ::std::option::Option<super::super::types::QuotaShareResourceSharingConfiguration>) -> Self {
         self.resource_sharing_configuration = input;
         self
     }

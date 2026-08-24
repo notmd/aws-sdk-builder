@@ -28,9 +28,7 @@ impl DescribeOrganizationConfigRuleStatusesInput {
 }
 impl DescribeOrganizationConfigRuleStatusesInput {
     /// Creates a new builder-style object to manufacture [`DescribeOrganizationConfigRuleStatusesInput`](crate::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesInput).
-    pub fn builder(
-    ) -> super::super::super::operation::describe_organization_config_rule_statuses::builders::DescribeOrganizationConfigRuleStatusesInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::describe_organization_config_rule_statuses::builders::DescribeOrganizationConfigRuleStatusesInputBuilder {
         super::super::super::operation::describe_organization_config_rule_statuses::builders::DescribeOrganizationConfigRuleStatusesInputBuilder::default()
     }
 }

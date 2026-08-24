@@ -77,11 +77,9 @@ impl DisassociateResourceTypesInputBuilder {
         super::super::super::operation::disassociate_resource_types::DisassociateResourceTypesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::disassociate_resource_types::DisassociateResourceTypesInput {
-                configuration_recorder_arn: self.configuration_recorder_arn,
-                resource_types: self.resource_types,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::disassociate_resource_types::DisassociateResourceTypesInput {
+            configuration_recorder_arn: self.configuration_recorder_arn,
+            resource_types: self.resource_types,
+        })
     }
 }

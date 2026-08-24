@@ -321,8 +321,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for CopyObjec
         let body = response.body().bytes().expect("body loaded");
         #[allow(unused_mut)]
         let mut force_error = false;
-        ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
-        if matches!(crate::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {
+        ::tracing::debug!(extended_request_id = ?super::super::s3_request_id::RequestIdExt::extended_request_id(response));
+        if matches!(super::super::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {
             force_error = true;
         }
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
@@ -343,9 +343,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CopyObjectRe
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
-        let input = input
-            .downcast::<super::super::operation::copy_object::CopyObjectInput>()
-            .expect("correct type");
+        let input = input.downcast::<super::super::operation::copy_object::CopyObjectInput>().expect("correct type");
         let _header_serialization_settings = _cfg
             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
             .cloned()

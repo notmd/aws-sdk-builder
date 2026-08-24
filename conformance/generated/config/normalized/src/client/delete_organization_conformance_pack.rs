@@ -9,8 +9,6 @@ impl super::Client {
     pub fn delete_organization_conformance_pack(
         &self,
     ) -> super::super::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackFluentBuilder {
-        super::super::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackFluentBuilder::new(self.handle.clone())
     }
 }

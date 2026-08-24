@@ -85,12 +85,11 @@ impl DescribeRemediationExceptionsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::describe_remediation_exceptions::DescribeRemediationExceptions::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = super::super::super::operation::describe_remediation_exceptions::DescribeRemediationExceptions::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         super::super::super::operation::describe_remediation_exceptions::DescribeRemediationExceptions::orchestrate(&runtime_plugins, input).await
     }
 
@@ -116,13 +115,8 @@ impl DescribeRemediationExceptionsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_remediation_exceptions::paginator::DescribeRemediationExceptionsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> super::super::super::operation::describe_remediation_exceptions::paginator::DescribeRemediationExceptionsPaginator {
-        super::super::super::operation::describe_remediation_exceptions::paginator::DescribeRemediationExceptionsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> super::super::super::operation::describe_remediation_exceptions::paginator::DescribeRemediationExceptionsPaginator {
+        super::super::super::operation::describe_remediation_exceptions::paginator::DescribeRemediationExceptionsPaginator::new(self.handle, self.inner)
     }
     /// <p>The name of the Config rule.</p>
     pub fn config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -149,10 +143,7 @@ impl DescribeRemediationExceptionsFluentBuilder {
         self
     }
     /// <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys.</p>
-    pub fn set_resource_keys(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationExceptionResourceKey>>,
-    ) -> Self {
+    pub fn set_resource_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationExceptionResourceKey>>) -> Self {
         self.inner = self.inner.set_resource_keys(input);
         self
     }

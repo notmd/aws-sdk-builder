@@ -15,8 +15,7 @@ impl PutAccountDedicatedIpWarmupAttributesInput {
 }
 impl PutAccountDedicatedIpWarmupAttributesInput {
     /// Creates a new builder-style object to manufacture [`PutAccountDedicatedIpWarmupAttributesInput`](crate::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesInput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_account_dedicated_ip_warmup_attributes::builders::PutAccountDedicatedIpWarmupAttributesInputBuilder {
+    pub fn builder() -> super::super::super::operation::put_account_dedicated_ip_warmup_attributes::builders::PutAccountDedicatedIpWarmupAttributesInputBuilder {
         super::super::super::operation::put_account_dedicated_ip_warmup_attributes::builders::PutAccountDedicatedIpWarmupAttributesInputBuilder::default()
     }
 }

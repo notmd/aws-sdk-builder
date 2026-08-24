@@ -45,10 +45,8 @@ impl GetEndpointAttributesInputBuilder {
     /// Consumes the builder and constructs a [`GetEndpointAttributesInput`](crate::operation::get_endpoint_attributes::GetEndpointAttributesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_endpoint_attributes::GetEndpointAttributesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_endpoint_attributes::GetEndpointAttributesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_endpoint_attributes::GetEndpointAttributesInput {
             endpoint_arn: self.endpoint_arn,
         })

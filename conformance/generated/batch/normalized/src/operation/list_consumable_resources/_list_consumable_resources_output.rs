@@ -53,10 +53,7 @@ impl ListConsumableResourcesOutputBuilder {
         self
     }
     /// <p>A list of consumable resources that match the request.</p>
-    pub fn set_consumable_resources(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumableResourceSummary>>,
-    ) -> Self {
+    pub fn set_consumable_resources(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumableResourceSummary>>) -> Self {
         self.consumable_resources = input;
         self
     }

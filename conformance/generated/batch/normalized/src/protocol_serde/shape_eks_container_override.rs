@@ -33,10 +33,7 @@ pub fn ser_eks_container_override(
             {
                 #[allow(unused_mut)]
                 let mut object_12 = array_10.value().start_object();
-                super::super::protocol_serde::shape_eks_container_environment_variable::ser_eks_container_environment_variable(
-                    &mut object_12,
-                    item_11,
-                )?;
+                super::super::protocol_serde::shape_eks_container_environment_variable::ser_eks_container_environment_variable(&mut object_12, item_11)?;
                 object_12.finish();
             }
         }

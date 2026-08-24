@@ -72,9 +72,7 @@ impl GetDeviceInputBuilder {
         &self.access_token
     }
     /// Consumes the builder and constructs a [`GetDeviceInput`](crate::operation::get_device::GetDeviceInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::get_device::GetDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_device::GetDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_device::GetDeviceInput {
             device_key: self.device_key,
             access_token: self.access_token,

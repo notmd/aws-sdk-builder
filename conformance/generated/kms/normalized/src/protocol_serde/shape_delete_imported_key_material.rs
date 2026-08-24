@@ -15,31 +15,30 @@ pub fn de_delete_imported_key_material_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "DependencyTimeoutException" => {
-            super::super::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::DependencyTimeoutException({
+        "DependencyTimeoutException" => super::super::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::DependencyTimeoutException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidArnException" => super::super::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::InvalidArnException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -70,26 +69,21 @@ pub fn de_delete_imported_key_material_http_error(
             }
             tmp
         }),
-        "KMSInvalidStateException" => {
-            super::super::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::KmsInvalidStateException({
+        "KMSInvalidStateException" => super::super::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::KmsInvalidStateException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "NotFoundException" => super::super::operation::delete_imported_key_material::DeleteImportedKeyMaterialError::NotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {

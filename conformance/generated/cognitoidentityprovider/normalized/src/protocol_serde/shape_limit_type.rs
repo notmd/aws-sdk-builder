@@ -22,9 +22,11 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "LimitDefinition" => {
-                            builder = builder.set_limit_definition(
-                                super::super::protocol_serde::shape_limit_definition_type::de_limit_definition_type(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_limit_definition(super::super::protocol_serde::shape_limit_definition_type::de_limit_definition_type(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "ProvisionedLimitValue" => {
                             builder = builder.set_provisioned_limit_value(
@@ -49,9 +51,9 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::limit_type_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::limit_type_correct_errors(builder).build().map_err(|err| {
+                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
+            })?))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

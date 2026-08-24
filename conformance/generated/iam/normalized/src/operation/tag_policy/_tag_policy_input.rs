@@ -76,9 +76,7 @@ impl TagPolicyInputBuilder {
         &self.tags
     }
     /// Consumes the builder and constructs a [`TagPolicyInput`](crate::operation::tag_policy::TagPolicyInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::tag_policy::TagPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::tag_policy::TagPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::tag_policy::TagPolicyInput {
             policy_arn: self.policy_arn,
             tags: self.tags,

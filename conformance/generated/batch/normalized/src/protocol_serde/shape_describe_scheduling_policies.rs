@@ -101,11 +101,7 @@ pub(crate) fn de_describe_scheduling_policies(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "schedulingPolicies" => {
                     builder = builder.set_scheduling_policies(
-                        super::super::protocol_serde::shape_scheduling_policy_detail_list::de_scheduling_policy_detail_list(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_scheduling_policy_detail_list::de_scheduling_policy_detail_list(tokens, _value, depth + 1)?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

@@ -69,9 +69,7 @@ impl ListServiceSpecificCredentialsOutputBuilder {
         self
     }
     /// <p>A list of structures that each contain details about a service-specific credential.</p>
-    pub fn get_service_specific_credentials(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceSpecificCredentialMetadata>> {
+    pub fn get_service_specific_credentials(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceSpecificCredentialMetadata>> {
         &self.service_specific_credentials
     }
     /// <p>When IsTruncated is true, this element is present and contains the value to use for the Marker parameter in a subsequent pagination request.</p>

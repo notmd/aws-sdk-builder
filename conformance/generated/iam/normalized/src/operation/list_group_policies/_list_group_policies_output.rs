@@ -116,10 +116,7 @@ impl ListGroupPoliciesOutputBuilder {
     /// - [`policy_names`](crate::operation::list_group_policies::builders::ListGroupPoliciesOutputBuilder::policy_names)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_group_policies::ListGroupPoliciesOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_group_policies::ListGroupPoliciesOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_group_policies::ListGroupPoliciesOutput {
             policy_names: self.policy_names.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

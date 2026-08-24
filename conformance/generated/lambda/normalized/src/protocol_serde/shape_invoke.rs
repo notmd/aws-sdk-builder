@@ -90,9 +90,8 @@ pub fn de_invoke_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::Ec2AccessDeniedExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_ec2_access_denied_exception::de_ec2_access_denied_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                output = super::super::protocol_serde::shape_ec2_access_denied_exception::de_ec2_access_denied_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -169,9 +168,8 @@ pub fn de_invoke_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::EfsMountFailureExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_efs_mount_failure_exception::de_efs_mount_failure_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                output = super::super::protocol_serde::shape_efs_mount_failure_exception::de_efs_mount_failure_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -185,9 +183,8 @@ pub fn de_invoke_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::EfsMountTimeoutExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_efs_mount_timeout_exception::de_efs_mount_timeout_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                output = super::super::protocol_serde::shape_efs_mount_timeout_exception::de_efs_mount_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -201,9 +198,8 @@ pub fn de_invoke_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::EniLimitReachedExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_eni_limit_reached_exception::de_eni_limit_reached_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                output = super::super::protocol_serde::shape_eni_limit_reached_exception::de_eni_limit_reached_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -301,9 +297,8 @@ pub fn de_invoke_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidSubnetIdExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_subnet_id_exception::de_invalid_subnet_id_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_subnet_id_exception::de_invalid_subnet_id_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -317,9 +312,8 @@ pub fn de_invoke_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidZipFileExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_zip_file_exception::de_invalid_zip_file_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_zip_file_exception::de_invalid_zip_file_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -333,9 +327,8 @@ pub fn de_invoke_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsAccessDeniedExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_access_denied_exception::de_kms_access_denied_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_access_denied_exception::de_kms_access_denied_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -364,9 +357,8 @@ pub fn de_invoke_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -395,11 +387,8 @@ pub fn de_invoke_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ModeNotSupportedExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_mode_not_supported_exception::de_mode_not_supported_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                output = super::super::protocol_serde::shape_mode_not_supported_exception::de_mode_not_supported_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -413,11 +402,9 @@ pub fn de_invoke_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::NoPublishedVersionExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_no_published_version_exception::de_no_published_version_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_no_published_version_exception::de_no_published_version_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -431,11 +418,9 @@ pub fn de_invoke_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::RecursiveInvocationExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_recursive_invocation_exception::de_recursive_invocation_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_recursive_invocation_exception::de_recursive_invocation_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -449,9 +434,8 @@ pub fn de_invoke_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::RequestTooLargeExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_request_too_large_exception::de_request_too_large_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                output = super::super::protocol_serde::shape_request_too_large_exception::de_request_too_large_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -465,9 +449,8 @@ pub fn de_invoke_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceConflictExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -481,11 +464,8 @@ pub fn de_invoke_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -499,11 +479,8 @@ pub fn de_invoke_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotReadyExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_ready_exception::de_resource_not_ready_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_ready_exception::de_resource_not_ready_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -517,12 +494,11 @@ pub fn de_invoke_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::S3FilesMountConnectivityExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_s3_files_mount_connectivity_exception::de_s3_files_mount_connectivity_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                output = super::super::protocol_serde::shape_s3_files_mount_connectivity_exception::de_s3_files_mount_connectivity_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -634,11 +610,9 @@ pub fn de_invoke_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::SnapStartNotReadyExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_snap_start_not_ready_exception::de_snap_start_not_ready_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_snap_start_not_ready_exception::de_snap_start_not_ready_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -647,30 +621,29 @@ pub fn de_invoke_http_error(
             }
             tmp
         }),
-        "SnapStartRegenerationFailureException" => super::super::operation::invoke::InvokeError::SnapStartRegenerationFailureException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "SnapStartRegenerationFailureException" => {
+            super::super::operation::invoke::InvokeError::SnapStartRegenerationFailureException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::SnapStartRegenerationFailureExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_snap_start_regeneration_failure_exception::de_snap_start_regeneration_failure_exception_json_err(_response_body, output).map_err(super::super::operation::invoke::InvokeError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::SnapStartRegenerationFailureExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_snap_start_regeneration_failure_exception::de_snap_start_regeneration_failure_exception_json_err(_response_body, output).map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "SnapStartTimeoutException" => super::super::operation::invoke::InvokeError::SnapStartTimeoutException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::SnapStartTimeoutExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_snap_start_timeout_exception::de_snap_start_timeout_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                output = super::super::protocol_serde::shape_snap_start_timeout_exception::de_snap_start_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -679,28 +652,29 @@ pub fn de_invoke_http_error(
             }
             tmp
         }),
-        "SubnetIPAddressLimitReachedException" => super::super::operation::invoke::InvokeError::SubnetIpAddressLimitReachedException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "SubnetIPAddressLimitReachedException" => {
+            super::super::operation::invoke::InvokeError::SubnetIpAddressLimitReachedException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::SubnetIpAddressLimitReachedExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_subnet_ip_address_limit_reached_exception::de_subnet_ip_address_limit_reached_exception_json_err(_response_body, output).map_err(super::super::operation::invoke::InvokeError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::SubnetIpAddressLimitReachedExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_subnet_ip_address_limit_reached_exception::de_subnet_ip_address_limit_reached_exception_json_err(_response_body, output).map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "TooManyRequestsException" => super::super::operation::invoke::InvokeError::TooManyRequestsException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -740,8 +714,7 @@ pub fn de_invoke_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::invoke::builders::InvokeOutputBuilder::default();
-        output = super::super::protocol_serde::shape_invoke::de_invoke(_response_body, output)
-            .map_err(super::super::operation::invoke::InvokeError::unhandled)?;
+        output = super::super::protocol_serde::shape_invoke::de_invoke(_response_body, output).map_err(super::super::operation::invoke::InvokeError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

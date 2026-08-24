@@ -15,7 +15,11 @@ pub fn de_delete_consumable_resource_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::delete_consumable_resource::DeleteConsumableResourceError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::delete_consumable_resource::DeleteConsumableResourceError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());

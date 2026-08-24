@@ -204,9 +204,7 @@ impl ServiceSpecificCredentialMetadataBuilder {
     /// - [`create_date`](crate::types::builders::ServiceSpecificCredentialMetadataBuilder::create_date)
     /// - [`service_specific_credential_id`](crate::types::builders::ServiceSpecificCredentialMetadataBuilder::service_specific_credential_id)
     /// - [`service_name`](crate::types::builders::ServiceSpecificCredentialMetadataBuilder::service_name)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::ServiceSpecificCredentialMetadata, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::ServiceSpecificCredentialMetadata, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::ServiceSpecificCredentialMetadata {
             user_name: self.user_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

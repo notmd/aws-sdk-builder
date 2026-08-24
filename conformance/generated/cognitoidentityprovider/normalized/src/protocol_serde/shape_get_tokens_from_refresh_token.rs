@@ -70,26 +70,21 @@ pub fn de_get_tokens_from_refresh_token_http_error(
                 tmp
             })
         }
-        "InvalidParameterException" => {
-            super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::InvalidParameterException({
+        "InvalidParameterException" => super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "NotAuthorizedException" => super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::NotAuthorizedException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -131,11 +126,9 @@ pub fn de_get_tokens_from_refresh_token_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::RefreshTokenReuseExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_refresh_token_reuse_exception::de_refresh_token_reuse_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_refresh_token_reuse_exception::de_refresh_token_reuse_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -145,66 +138,51 @@ pub fn de_get_tokens_from_refresh_token_http_error(
                 tmp
             })
         }
-        "ResourceNotFoundException" => {
-            super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::ResourceNotFoundException({
+        "ResourceNotFoundException" => super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::ResourceNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "TooManyRequestsException" => {
-            super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::TooManyRequestsException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "TooManyRequestsException" => super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::TooManyRequestsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "UnexpectedLambdaException" => {
-            super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::UnexpectedLambdaException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "UnexpectedLambdaException" => super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::UnexpectedLambdaException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "UserLambdaValidationException" => {
             super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenError::UserLambdaValidationException({
                 #[allow(unused_mut)]

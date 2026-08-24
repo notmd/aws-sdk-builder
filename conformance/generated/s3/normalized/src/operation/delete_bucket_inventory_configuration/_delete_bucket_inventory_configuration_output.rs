@@ -18,8 +18,7 @@ impl ::aws_types::request_id::RequestId for DeleteBucketInventoryConfigurationOu
 }
 impl DeleteBucketInventoryConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketInventoryConfigurationOutput`](crate::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationOutputBuilder {
+    pub fn builder() -> super::super::super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationOutputBuilder {
         super::super::super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationOutputBuilder::default()
     }
 }

@@ -383,10 +383,7 @@ impl RegisterJobDefinitionInputBuilder {
     /// <p>Jobs with the <code>MANAGED_INSTANCES</code> platform capability must use <code>ecsProperties</code> (not <code>containerProperties</code>) and do not support multi-node parallel jobs.</p><note>
     /// <p>If the job runs on Amazon EKS resources, then you must not specify <code>platformCapabilities</code>.</p>
     /// </note>
-    pub fn set_platform_capabilities(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PlatformCapability>>,
-    ) -> Self {
+    pub fn set_platform_capabilities(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PlatformCapability>>) -> Self {
         self.platform_capabilities = input;
         self
     }
@@ -431,10 +428,7 @@ impl RegisterJobDefinitionInputBuilder {
         self
     }
     /// <p>Contains a list of consumable resources required by the job.</p>
-    pub fn set_consumable_resource_properties(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::ConsumableResourceProperties>,
-    ) -> Self {
+    pub fn set_consumable_resource_properties(mut self, input: ::std::option::Option<super::super::super::types::ConsumableResourceProperties>) -> Self {
         self.consumable_resource_properties = input;
         self
     }
@@ -445,10 +439,8 @@ impl RegisterJobDefinitionInputBuilder {
     /// Consumes the builder and constructs a [`RegisterJobDefinitionInput`](crate::operation::register_job_definition::RegisterJobDefinitionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::register_job_definition::RegisterJobDefinitionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::register_job_definition::RegisterJobDefinitionInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::register_job_definition::RegisterJobDefinitionInput {
             job_definition_name: self.job_definition_name,
             r#type: self.r#type,

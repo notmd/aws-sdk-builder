@@ -130,10 +130,7 @@ impl ResyncMfaDeviceInputBuilder {
     /// Consumes the builder and constructs a [`ResyncMfaDeviceInput`](crate::operation::resync_mfa_device::ResyncMfaDeviceInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::resync_mfa_device::ResyncMfaDeviceInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::resync_mfa_device::ResyncMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::resync_mfa_device::ResyncMfaDeviceInput {
             user_name: self.user_name,
             serial_number: self.serial_number,

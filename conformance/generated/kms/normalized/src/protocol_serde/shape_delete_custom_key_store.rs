@@ -15,60 +15,37 @@ pub fn de_delete_custom_key_store_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::delete_custom_key_store::DeleteCustomKeyStoreError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::delete_custom_key_store::DeleteCustomKeyStoreError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "CustomKeyStoreHasCMKsException" => {
-            super::super::operation::delete_custom_key_store::DeleteCustomKeyStoreError::CustomKeyStoreHasCmKsException({
+        "CustomKeyStoreHasCMKsException" => super::super::operation::delete_custom_key_store::DeleteCustomKeyStoreError::CustomKeyStoreHasCmKsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::CustomKeyStoreHasCmKsExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_custom_key_store_has_cmks_exception::de_custom_key_store_has_cmks_exception_json_err(
-                            _response_body,
-                            output,
-                        )
-                        .map_err(super::super::operation::delete_custom_key_store::DeleteCustomKeyStoreError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::CustomKeyStoreHasCmKsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_custom_key_store_has_cmks_exception::de_custom_key_store_has_cmks_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::delete_custom_key_store::DeleteCustomKeyStoreError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "CustomKeyStoreInvalidStateException" => {
             super::super::operation::delete_custom_key_store::DeleteCustomKeyStoreError::CustomKeyStoreInvalidStateException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::CustomKeyStoreInvalidStateExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_custom_key_store_invalid_state_exception::de_custom_key_store_invalid_state_exception_json_err(_response_body, output).map_err(super::super::operation::delete_custom_key_store::DeleteCustomKeyStoreError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "CustomKeyStoreNotFoundException" => {
-            super::super::operation::delete_custom_key_store::DeleteCustomKeyStoreError::CustomKeyStoreNotFoundException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::CustomKeyStoreNotFoundExceptionBuilder::default();
                     output =
-                        super::super::protocol_serde::shape_custom_key_store_not_found_exception::de_custom_key_store_not_found_exception_json_err(
+                        super::super::protocol_serde::shape_custom_key_store_invalid_state_exception::de_custom_key_store_invalid_state_exception_json_err(
                             _response_body,
                             output,
                         )
@@ -82,6 +59,24 @@ pub fn de_delete_custom_key_store_http_error(
                 tmp
             })
         }
+        "CustomKeyStoreNotFoundException" => super::super::operation::delete_custom_key_store::DeleteCustomKeyStoreError::CustomKeyStoreNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::CustomKeyStoreNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_custom_key_store_not_found_exception::de_custom_key_store_not_found_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::delete_custom_key_store::DeleteCustomKeyStoreError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "KMSInternalException" => super::super::operation::delete_custom_key_store::DeleteCustomKeyStoreError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {

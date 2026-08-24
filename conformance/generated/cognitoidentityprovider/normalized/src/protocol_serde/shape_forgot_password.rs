@@ -4,8 +4,7 @@ pub fn de_forgot_password_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::forgot_password::ForgotPasswordOutput, super::super::operation::forgot_password::ForgotPasswordError>
-{
+) -> std::result::Result<super::super::operation::forgot_password::ForgotPasswordOutput, super::super::operation::forgot_password::ForgotPasswordError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::forgot_password::ForgotPasswordError::unhandled)?;
@@ -23,11 +22,9 @@ pub fn de_forgot_password_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::CodeDeliveryFailureExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_code_delivery_failure_exception::de_code_delivery_failure_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::forgot_password::ForgotPasswordError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_code_delivery_failure_exception::de_code_delivery_failure_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::forgot_password::ForgotPasswordError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -105,9 +102,8 @@ pub fn de_forgot_password_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::forgot_password::ForgotPasswordError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::forgot_password::ForgotPasswordError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -116,22 +112,24 @@ pub fn de_forgot_password_http_error(
             }
             tmp
         }),
-        "InvalidSmsRoleAccessPolicyException" => {
-            super::super::operation::forgot_password::ForgotPasswordError::InvalidSmsRoleAccessPolicyException({
+        "InvalidSmsRoleAccessPolicyException" => super::super::operation::forgot_password::ForgotPasswordError::InvalidSmsRoleAccessPolicyException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(_response_body, output).map_err(super::super::operation::forgot_password::ForgotPasswordError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::forgot_password::ForgotPasswordError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidSmsRoleTrustRelationshipException" => {
             super::super::operation::forgot_password::ForgotPasswordError::InvalidSmsRoleTrustRelationshipException({
                 #[allow(unused_mut)]
@@ -183,11 +181,9 @@ pub fn de_forgot_password_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::forgot_password::ForgotPasswordError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::forgot_password::ForgotPasswordError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -201,11 +197,8 @@ pub fn de_forgot_password_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::forgot_password::ForgotPasswordError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::forgot_password::ForgotPasswordError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -219,9 +212,8 @@ pub fn de_forgot_password_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::forgot_password::ForgotPasswordError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::forgot_password::ForgotPasswordError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -235,9 +227,8 @@ pub fn de_forgot_password_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::forgot_password::ForgotPasswordError::unhandled)?;
+                output = super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::forgot_password::ForgotPasswordError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -288,8 +279,7 @@ pub fn de_forgot_password_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::forgot_password::ForgotPasswordOutput, super::super::operation::forgot_password::ForgotPasswordError>
-{
+) -> std::result::Result<super::super::operation::forgot_password::ForgotPasswordOutput, super::super::operation::forgot_password::ForgotPasswordError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::forgot_password::builders::ForgotPasswordOutputBuilder::default();

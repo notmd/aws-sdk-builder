@@ -28,8 +28,7 @@ impl ::aws_types::request_id::RequestId for PutServiceLinkedConfigurationRecorde
 }
 impl PutServiceLinkedConfigurationRecorderOutput {
     /// Creates a new builder-style object to manufacture [`PutServiceLinkedConfigurationRecorderOutput`](crate::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderOutputBuilder {
+    pub fn builder() -> super::super::super::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderOutputBuilder {
         super::super::super::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderOutputBuilder::default()
     }
 }

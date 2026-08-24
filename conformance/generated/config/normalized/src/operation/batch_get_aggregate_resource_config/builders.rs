@@ -64,9 +64,7 @@ impl BatchGetAggregateResourceConfigFluentBuilder {
         }
     }
     /// Access the BatchGetAggregateResourceConfig as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::batch_get_aggregate_resource_config::builders::BatchGetAggregateResourceConfigInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::batch_get_aggregate_resource_config::builders::BatchGetAggregateResourceConfigInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -90,14 +88,12 @@ impl BatchGetAggregateResourceConfigFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::batch_get_aggregate_resource_config::BatchGetAggregateResourceConfig::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        super::super::super::operation::batch_get_aggregate_resource_config::BatchGetAggregateResourceConfig::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = super::super::super::operation::batch_get_aggregate_resource_config::BatchGetAggregateResourceConfig::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        super::super::super::operation::batch_get_aggregate_resource_config::BatchGetAggregateResourceConfig::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -144,10 +140,7 @@ impl BatchGetAggregateResourceConfigFluentBuilder {
         self
     }
     /// <p>A list of aggregate ResourceIdentifiers objects.</p>
-    pub fn set_resource_identifiers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregateResourceIdentifier>>,
-    ) -> Self {
+    pub fn set_resource_identifiers(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregateResourceIdentifier>>) -> Self {
         self.inner = self.inner.set_resource_identifiers(input);
         self
     }

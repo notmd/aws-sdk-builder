@@ -21,10 +21,8 @@ impl PutConfigurationSetReputationOptionsInput {
 }
 impl PutConfigurationSetReputationOptionsInput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetReputationOptionsInput`](crate::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsInput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsInputBuilder {
-        super::super::super::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsInputBuilder::default(
-        )
+    pub fn builder() -> super::super::super::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsInputBuilder {
+        super::super::super::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsInputBuilder::default()
     }
 }
 

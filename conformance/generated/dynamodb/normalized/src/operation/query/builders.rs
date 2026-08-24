@@ -39,20 +39,14 @@ pub struct QueryFluentBuilder {
     inner: super::super::super::operation::query::builders::QueryInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::query::QueryOutput,
-        super::super::super::operation::query::QueryError,
-    > for QueryFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::query::QueryOutput, super::super::super::operation::query::QueryError>
+    for QueryFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::query::QueryOutput,
-            super::super::super::operation::query::QueryError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::query::QueryOutput, super::super::super::operation::query::QueryError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -91,22 +85,15 @@ impl QueryFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::query::Query::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            super::super::super::operation::query::Query::operation_runtime_plugins(self.handle.runtime_plugins.clone(), &self.handle.conf, self.config_override);
         super::super::super::operation::query::Query::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
     pub fn customize(
         self,
-    ) -> super::super::super::client::customize::CustomizableOperation<
-        super::super::super::operation::query::QueryOutput,
-        super::super::super::operation::query::QueryError,
-        Self,
-    > {
+    ) -> super::super::super::client::customize::CustomizableOperation<super::super::super::operation::query::QueryOutput, super::super::super::operation::query::QueryError, Self> {
         super::super::super::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<super::super::super::config::Builder>) -> Self {
@@ -280,9 +267,7 @@ impl QueryFluentBuilder {
         self
     }
     /// <p>This is a legacy parameter. Use <code>KeyConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html">KeyConditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_key_conditions(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::Condition>> {
+    pub fn get_key_conditions(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::Condition>> {
         self.inner.get_key_conditions()
     }
     ///
@@ -304,9 +289,7 @@ impl QueryFluentBuilder {
         self
     }
     /// <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html">QueryFilter</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_query_filter(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::Condition>> {
+    pub fn get_query_filter(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::Condition>> {
         self.inner.get_query_filter()
     }
     /// <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -698,11 +681,7 @@ impl QueryFluentBuilder {
     /// <p>You could then use these values in an expression, such as this:</p>
     /// <p><code>ProductStatus IN (:avail, :back, :disc)</code></p>
     /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn expression_attribute_values(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: super::super::super::types::AttributeValue,
-    ) -> Self {
+    pub fn expression_attribute_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::AttributeValue) -> Self {
         self.inner = self.inner.expression_attribute_values(k.into(), v);
         self
     }

@@ -179,10 +179,8 @@ impl ListEntitiesForPolicyInputBuilder {
     /// Consumes the builder and constructs a [`ListEntitiesForPolicyInput`](crate::operation::list_entities_for_policy::ListEntitiesForPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_entities_for_policy::ListEntitiesForPolicyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_entities_for_policy::ListEntitiesForPolicyInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_entities_for_policy::ListEntitiesForPolicyInput {
             policy_arn: self.policy_arn,
             entity_filter: self.entity_filter,

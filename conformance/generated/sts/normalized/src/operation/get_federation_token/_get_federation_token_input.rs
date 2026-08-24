@@ -239,10 +239,8 @@ impl GetFederationTokenInputBuilder {
     /// Consumes the builder and constructs a [`GetFederationTokenInput`](crate::operation::get_federation_token::GetFederationTokenInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_federation_token::GetFederationTokenInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_federation_token::GetFederationTokenInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_federation_token::GetFederationTokenInput {
             name: self.name,
             policy: self.policy,

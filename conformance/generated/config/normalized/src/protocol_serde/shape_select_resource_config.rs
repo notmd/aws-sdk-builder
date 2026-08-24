@@ -15,11 +15,7 @@ pub fn de_select_resource_config_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::select_resource_config::SelectResourceConfigError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::select_resource_config::SelectResourceConfigError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -29,11 +25,8 @@ pub fn de_select_resource_config_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidExpressionExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_expression_exception::de_invalid_expression_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::select_resource_config::SelectResourceConfigError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_expression_exception::de_invalid_expression_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::select_resource_config::SelectResourceConfigError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -62,11 +55,8 @@ pub fn de_select_resource_config_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::select_resource_config::SelectResourceConfigError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::select_resource_config::SelectResourceConfigError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

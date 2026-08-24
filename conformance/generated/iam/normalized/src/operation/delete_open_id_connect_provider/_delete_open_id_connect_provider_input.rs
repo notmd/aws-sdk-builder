@@ -48,10 +48,8 @@ impl DeleteOpenIdConnectProviderInputBuilder {
         super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderInput {
-                open_id_connect_provider_arn: self.open_id_connect_provider_arn,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderInput {
+            open_id_connect_provider_arn: self.open_id_connect_provider_arn,
+        })
     }
 }

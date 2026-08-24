@@ -148,8 +148,7 @@ impl PutRolePolicyInputBuilder {
     /// Consumes the builder and constructs a [`PutRolePolicyInput`](crate::operation::put_role_policy::PutRolePolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::put_role_policy::PutRolePolicyInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::put_role_policy::PutRolePolicyInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_role_policy::PutRolePolicyInput {
             role_name: self.role_name,
             policy_name: self.policy_name,

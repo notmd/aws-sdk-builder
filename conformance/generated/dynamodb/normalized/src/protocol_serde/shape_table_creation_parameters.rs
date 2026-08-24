@@ -113,8 +113,7 @@ where
                             );
                         }
                         "KeySchema" => {
-                            builder =
-                                builder.set_key_schema(super::super::protocol_serde::shape_key_schema::de_key_schema(tokens, _value, depth + 1)?);
+                            builder = builder.set_key_schema(super::super::protocol_serde::shape_key_schema::de_key_schema(tokens, _value, depth + 1)?);
                         }
                         "BillingMode" => {
                             builder = builder.set_billing_mode(
@@ -129,9 +128,11 @@ where
                             );
                         }
                         "OnDemandThroughput" => {
-                            builder = builder.set_on_demand_throughput(
-                                super::super::protocol_serde::shape_on_demand_throughput::de_on_demand_throughput(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_on_demand_throughput(super::super::protocol_serde::shape_on_demand_throughput::de_on_demand_throughput(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "SSESpecification" => {
                             builder = builder.set_sse_specification(super::super::protocol_serde::shape_sse_specification::de_sse_specification(
@@ -142,11 +143,7 @@ where
                         }
                         "GlobalSecondaryIndexes" => {
                             builder = builder.set_global_secondary_indexes(
-                                super::super::protocol_serde::shape_global_secondary_index_list::de_global_secondary_index_list(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_global_secondary_index_list::de_global_secondary_index_list(tokens, _value, depth + 1)?,
                             );
                         }
                         "VectorIndexes" => {

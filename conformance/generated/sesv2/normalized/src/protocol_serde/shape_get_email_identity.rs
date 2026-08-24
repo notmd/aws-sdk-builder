@@ -4,10 +4,7 @@ pub fn de_get_email_identity_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::get_email_identity::GetEmailIdentityOutput,
-    super::super::operation::get_email_identity::GetEmailIdentityError,
-> {
+) -> std::result::Result<super::super::operation::get_email_identity::GetEmailIdentityOutput, super::super::operation::get_email_identity::GetEmailIdentityError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::get_email_identity::GetEmailIdentityError::unhandled)?;
@@ -55,9 +52,8 @@ pub fn de_get_email_identity_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_email_identity::GetEmailIdentityError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_email_identity::GetEmailIdentityError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -75,10 +71,7 @@ pub fn de_get_email_identity_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::get_email_identity::GetEmailIdentityOutput,
-    super::super::operation::get_email_identity::GetEmailIdentityError,
-> {
+) -> std::result::Result<super::super::operation::get_email_identity::GetEmailIdentityOutput, super::super::operation::get_email_identity::GetEmailIdentityError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::get_email_identity::builders::GetEmailIdentityOutputBuilder::default();
@@ -114,63 +107,63 @@ pub(crate) fn de_get_email_identity(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "IdentityType" => {
-                        builder = builder.set_identity_type(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| super::super::types::IdentityType::from(u.as_ref())))
-                                .transpose()?,
-                        );
-                    }
-                    "FeedbackForwardingStatus" => {
-                        builder = builder.set_feedback_forwarding_status(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                    }
-                    "VerifiedForSendingStatus" => {
-                        builder = builder.set_verified_for_sending_status(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                    }
-                    "DkimAttributes" => {
-                        builder = builder.set_dkim_attributes(super::super::protocol_serde::shape_dkim_attributes::de_dkim_attributes(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?);
-                    }
-                    "MailFromAttributes" => {
-                        builder = builder.set_mail_from_attributes(
-                            super::super::protocol_serde::shape_mail_from_attributes::de_mail_from_attributes(tokens, _value, depth + 1)?,
-                        );
-                    }
-                    "Policies" => {
-                        builder = builder.set_policies(super::super::protocol_serde::shape_policy_map::de_policy_map(tokens, _value, depth + 1)?);
-                    }
-                    "Tags" => {
-                        builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
-                    }
-                    "ConfigurationSetName" => {
-                        builder = builder.set_configuration_set_name(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                        );
-                    }
-                    "VerificationStatus" => {
-                        builder = builder.set_verification_status(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| super::super::types::VerificationStatus::from(u.as_ref())))
-                                .transpose()?,
-                        );
-                    }
-                    "VerificationInfo" => {
-                        builder = builder.set_verification_info(super::super::protocol_serde::shape_verification_info::de_verification_info(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?);
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "IdentityType" => {
+                    builder = builder.set_identity_type(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::IdentityType::from(u.as_ref())))
+                            .transpose()?,
+                    );
                 }
-            }
+                "FeedbackForwardingStatus" => {
+                    builder = builder.set_feedback_forwarding_status(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                }
+                "VerifiedForSendingStatus" => {
+                    builder = builder.set_verified_for_sending_status(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                }
+                "DkimAttributes" => {
+                    builder = builder.set_dkim_attributes(super::super::protocol_serde::shape_dkim_attributes::de_dkim_attributes(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                "MailFromAttributes" => {
+                    builder = builder.set_mail_from_attributes(super::super::protocol_serde::shape_mail_from_attributes::de_mail_from_attributes(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                "Policies" => {
+                    builder = builder.set_policies(super::super::protocol_serde::shape_policy_map::de_policy_map(tokens, _value, depth + 1)?);
+                }
+                "Tags" => {
+                    builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
+                }
+                "ConfigurationSetName" => {
+                    builder = builder.set_configuration_set_name(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "VerificationStatus" => {
+                    builder = builder.set_verification_status(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::VerificationStatus::from(u.as_ref())))
+                            .transpose()?,
+                    );
+                }
+                "VerificationInfo" => {
+                    builder = builder.set_verification_info(super::super::protocol_serde::shape_verification_info::de_verification_info(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

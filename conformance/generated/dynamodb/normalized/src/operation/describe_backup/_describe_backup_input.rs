@@ -44,8 +44,7 @@ impl DescribeBackupInputBuilder {
     /// Consumes the builder and constructs a [`DescribeBackupInput`](crate::operation::describe_backup::DescribeBackupInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::describe_backup::DescribeBackupInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::describe_backup::DescribeBackupInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::describe_backup::DescribeBackupInput { backup_arn: self.backup_arn })
     }
 }

@@ -203,10 +203,7 @@ impl RepositoryDescriptionBuilder {
         self
     }
     /// <p>An array of external connections associated with the repository.</p>
-    pub fn set_external_connections(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::RepositoryExternalConnectionInfo>>,
-    ) -> Self {
+    pub fn set_external_connections(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::RepositoryExternalConnectionInfo>>) -> Self {
         self.external_connections = input;
         self
     }

@@ -36,10 +36,7 @@ where
                         "SuppressionListImportAction" => {
                             builder = builder.set_suppression_list_import_action(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| super::super::types::SuppressionListImportAction::from(u.as_ref()))
-                                    })
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::SuppressionListImportAction::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }

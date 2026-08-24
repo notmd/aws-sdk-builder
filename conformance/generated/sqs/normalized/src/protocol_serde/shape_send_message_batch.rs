@@ -4,10 +4,7 @@ pub fn de_send_message_batch_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::send_message_batch::SendMessageBatchOutput,
-    super::super::operation::send_message_batch::SendMessageBatchError,
-> {
+) -> std::result::Result<super::super::operation::send_message_batch::SendMessageBatchOutput, super::super::operation::send_message_batch::SendMessageBatchError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::send_message_batch::SendMessageBatchError::unhandled)?;
@@ -25,11 +22,8 @@ pub fn de_send_message_batch_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::BatchEntryIdsNotDistinctBuilder::default();
-                output = super::super::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::send_message_batch::SendMessageBatchError::unhandled)?;
+                output = super::super::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(_response_body, output)
+                    .map_err(super::super::operation::send_message_batch::SendMessageBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -290,10 +284,7 @@ pub fn de_send_message_batch_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::send_message_batch::SendMessageBatchOutput,
-    super::super::operation::send_message_batch::SendMessageBatchError,
-> {
+) -> std::result::Result<super::super::operation::send_message_batch::SendMessageBatchOutput, super::super::operation::send_message_batch::SendMessageBatchError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::send_message_batch::builders::SendMessageBatchOutputBuilder::default();
@@ -343,11 +334,7 @@ pub(crate) fn de_send_message_batch(
                 }
                 "Failed" => {
                     builder = builder.set_failed(
-                        super::super::protocol_serde::shape_batch_result_error_entry_list::de_batch_result_error_entry_list(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_batch_result_error_entry_list::de_batch_result_error_entry_list(tokens, _value, depth + 1)?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

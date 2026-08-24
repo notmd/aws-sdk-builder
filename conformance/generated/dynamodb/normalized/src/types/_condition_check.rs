@@ -62,8 +62,7 @@ pub struct ConditionCheckBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
     pub(crate) condition_expression: ::std::option::Option<::std::string::String>,
     pub(crate) expression_attribute_names: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    pub(crate) expression_attribute_values:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::AttributeValue>>,
+    pub(crate) expression_attribute_values: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::AttributeValue>>,
     pub(crate) return_values_on_condition_check_failure: ::std::option::Option<super::super::types::ReturnValuesOnConditionCheckFailure>,
 }
 impl ConditionCheckBuilder {
@@ -79,10 +78,7 @@ impl ConditionCheckBuilder {
         self
     }
     /// <p>The primary key of the item to be checked. Each element consists of an attribute name and a value for that attribute.</p>
-    pub fn set_key(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::AttributeValue>>,
-    ) -> Self {
+    pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::AttributeValue>>) -> Self {
         self.key = input;
         self
     }
@@ -154,11 +150,7 @@ impl ConditionCheckBuilder {
     /// To override the contents of this collection use [`set_expression_attribute_values`](Self::set_expression_attribute_values).
     ///
     /// <p>One or more values that can be substituted in an expression. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn expression_attribute_values(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: super::super::types::AttributeValue,
-    ) -> Self {
+    pub fn expression_attribute_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::types::AttributeValue) -> Self {
         let mut hash_map = self.expression_attribute_values.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.expression_attribute_values = ::std::option::Option::Some(hash_map);

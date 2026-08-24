@@ -86,10 +86,8 @@ impl SelectResourceConfigInputBuilder {
     /// Consumes the builder and constructs a [`SelectResourceConfigInput`](crate::operation::select_resource_config::SelectResourceConfigInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::select_resource_config::SelectResourceConfigInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::select_resource_config::SelectResourceConfigInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::select_resource_config::SelectResourceConfigInput {
             expression: self.expression,
             limit: self.limit.unwrap_or_default(),

@@ -65,10 +65,8 @@ impl DeleteResourcePolicyInputBuilder {
     /// Consumes the builder and constructs a [`DeleteResourcePolicyInput`](crate::operation::delete_resource_policy::DeleteResourcePolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_resource_policy::DeleteResourcePolicyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_resource_policy::DeleteResourcePolicyInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::delete_resource_policy::DeleteResourcePolicyInput {
             resource_arn: self.resource_arn,
             expected_revision_id: self.expected_revision_id,

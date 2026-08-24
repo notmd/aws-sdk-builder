@@ -70,11 +70,9 @@ impl DeleteAggregationAuthorizationInputBuilder {
         super::super::super::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationInput {
-                authorized_account_id: self.authorized_account_id,
-                authorized_aws_region: self.authorized_aws_region,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_aggregation_authorization::DeleteAggregationAuthorizationInput {
+            authorized_account_id: self.authorized_account_id,
+            authorized_aws_region: self.authorized_aws_region,
+        })
     }
 }

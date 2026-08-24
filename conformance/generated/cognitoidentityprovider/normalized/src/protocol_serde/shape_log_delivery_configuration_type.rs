@@ -30,11 +30,7 @@ where
                         }
                         "LogConfigurations" => {
                             builder = builder.set_log_configurations(
-                                super::super::protocol_serde::shape_log_configuration_list_type::de_log_configuration_list_type(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_log_configuration_list_type::de_log_configuration_list_type(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

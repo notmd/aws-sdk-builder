@@ -2,8 +2,7 @@
 pub(crate) fn de_request_limit_exceeded_json_err(
     _value: &[u8],
     mut builder: super::super::types::error::builders::RequestLimitExceededBuilder,
-) -> ::std::result::Result<super::super::types::error::builders::RequestLimitExceededBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
-{
+) -> ::std::result::Result<super::super::types::error::builders::RequestLimitExceededBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
@@ -12,23 +11,23 @@ pub(crate) fn de_request_limit_exceeded_json_err(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "message" => {
-                        builder = builder.set_message(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                        );
-                    }
-                    "ThrottlingReasons" => {
-                        builder = builder.set_throttling_reasons(
-                            super::super::protocol_serde::shape_throttling_reason_list::de_throttling_reason_list(tokens, _value, depth + 1)?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "message" => {
+                    builder = builder.set_message(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
                 }
-            }
+                "ThrottlingReasons" => {
+                    builder = builder.set_throttling_reasons(super::super::protocol_serde::shape_throttling_reason_list::de_throttling_reason_list(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

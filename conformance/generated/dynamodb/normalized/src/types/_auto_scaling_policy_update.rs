@@ -7,8 +7,7 @@ pub struct AutoScalingPolicyUpdate {
     /// <p>The name of the scaling policy.</p>
     pub policy_name: ::std::option::Option<::std::string::String>,
     /// <p>Represents a target tracking scaling policy configuration.</p>
-    pub target_tracking_scaling_policy_configuration:
-        ::std::option::Option<super::super::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate>,
+    pub target_tracking_scaling_policy_configuration: ::std::option::Option<super::super::types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate>,
 }
 impl AutoScalingPolicyUpdate {
     /// <p>The name of the scaling policy.</p>

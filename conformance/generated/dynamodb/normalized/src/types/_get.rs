@@ -61,10 +61,7 @@ impl GetBuilder {
         self
     }
     /// <p>A map of attribute names to <code>AttributeValue</code> objects that specifies the primary key of the item to retrieve.</p>
-    pub fn set_key(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::AttributeValue>>,
-    ) -> Self {
+    pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::AttributeValue>>) -> Self {
         self.key = input;
         self
     }

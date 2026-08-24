@@ -49,10 +49,8 @@ impl GetInstanceProfileInputBuilder {
     /// Consumes the builder and constructs a [`GetInstanceProfileInput`](crate::operation::get_instance_profile::GetInstanceProfileInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_instance_profile::GetInstanceProfileInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_instance_profile::GetInstanceProfileInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_instance_profile::GetInstanceProfileInput {
             instance_profile_name: self.instance_profile_name,
         })

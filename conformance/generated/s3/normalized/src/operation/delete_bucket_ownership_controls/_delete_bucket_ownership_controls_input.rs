@@ -69,11 +69,9 @@ impl DeleteBucketOwnershipControlsInputBuilder {
         super::super::super::operation::delete_bucket_ownership_controls::DeleteBucketOwnershipControlsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_bucket_ownership_controls::DeleteBucketOwnershipControlsInput {
-                bucket: self.bucket,
-                expected_bucket_owner: self.expected_bucket_owner,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_bucket_ownership_controls::DeleteBucketOwnershipControlsInput {
+            bucket: self.bucket,
+            expected_bucket_owner: self.expected_bucket_owner,
+        })
     }
 }

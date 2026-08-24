@@ -91,12 +91,11 @@ impl DescribeComplianceByResourceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::describe_compliance_by_resource::DescribeComplianceByResource::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = super::super::super::operation::describe_compliance_by_resource::DescribeComplianceByResource::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         super::super::super::operation::describe_compliance_by_resource::DescribeComplianceByResource::orchestrate(&runtime_plugins, input).await
     }
 
@@ -123,10 +122,7 @@ impl DescribeComplianceByResourceFluentBuilder {
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_compliance_by_resource::paginator::DescribeComplianceByResourcePaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(self) -> super::super::super::operation::describe_compliance_by_resource::paginator::DescribeComplianceByResourcePaginator {
-        super::super::super::operation::describe_compliance_by_resource::paginator::DescribeComplianceByResourcePaginator::new(
-            self.handle,
-            self.inner,
-        )
+        super::super::super::operation::describe_compliance_by_resource::paginator::DescribeComplianceByResourcePaginator::new(self.handle, self.inner)
     }
     /// <p>The types of Amazon Web Services resources for which you want compliance information (for example, <code>AWS::EC2::Instance</code>). For this operation, you can specify that the resource type is an Amazon Web Services account by specifying <code>AWS::::Account</code>.</p>
     pub fn resource_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

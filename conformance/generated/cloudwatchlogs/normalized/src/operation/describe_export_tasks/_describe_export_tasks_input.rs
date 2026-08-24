@@ -106,10 +106,8 @@ impl DescribeExportTasksInputBuilder {
     /// Consumes the builder and constructs a [`DescribeExportTasksInput`](crate::operation::describe_export_tasks::DescribeExportTasksInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::describe_export_tasks::DescribeExportTasksInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::describe_export_tasks::DescribeExportTasksInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::describe_export_tasks::DescribeExportTasksInput {
             task_id: self.task_id,
             status_code: self.status_code,

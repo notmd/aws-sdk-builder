@@ -139,8 +139,7 @@ impl GetMfaDeviceOutputBuilder {
     /// - [`serial_number`](crate::operation::get_mfa_device::builders::GetMfaDeviceOutputBuilder::serial_number)
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::get_mfa_device::GetMfaDeviceOutput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::get_mfa_device::GetMfaDeviceOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_mfa_device::GetMfaDeviceOutput {
             user_name: self.user_name,
             serial_number: self.serial_number.ok_or_else(|| {

@@ -13,8 +13,7 @@ impl ::aws_types::request_id::RequestId for DeleteCustomVerificationEmailTemplat
 }
 impl DeleteCustomVerificationEmailTemplateOutput {
     /// Creates a new builder-style object to manufacture [`DeleteCustomVerificationEmailTemplateOutput`](crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateOutputBuilder {
+    pub fn builder() -> super::super::super::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateOutputBuilder {
         super::super::super::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateOutputBuilder::default()
     }
 }

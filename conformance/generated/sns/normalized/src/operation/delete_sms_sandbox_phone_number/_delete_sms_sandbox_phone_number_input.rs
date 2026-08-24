@@ -55,11 +55,9 @@ impl DeleteSmsSandboxPhoneNumberInputBuilder {
         super::super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberInput {
-                phone_number: self.phone_number,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberInput {
+            phone_number: self.phone_number,
+        })
     }
 }
 impl ::std::fmt::Debug for DeleteSmsSandboxPhoneNumberInputBuilder {

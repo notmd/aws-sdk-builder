@@ -44,8 +44,7 @@ impl ListConformancePackComplianceScoresInput {
 }
 impl ListConformancePackComplianceScoresInput {
     /// Creates a new builder-style object to manufacture [`ListConformancePackComplianceScoresInput`](crate::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresInput).
-    pub fn builder(
-    ) -> super::super::super::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresInputBuilder {
+    pub fn builder() -> super::super::super::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresInputBuilder {
         super::super::super::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresInputBuilder::default()
     }
 }

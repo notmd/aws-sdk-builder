@@ -212,13 +212,11 @@ impl PutRuntimeManagementConfigInputBuilder {
         super::super::super::operation::put_runtime_management_config::PutRuntimeManagementConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_runtime_management_config::PutRuntimeManagementConfigInput {
-                function_name: self.function_name,
-                qualifier: self.qualifier,
-                update_runtime_on: self.update_runtime_on,
-                runtime_version_arn: self.runtime_version_arn,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_runtime_management_config::PutRuntimeManagementConfigInput {
+            function_name: self.function_name,
+            qualifier: self.qualifier,
+            update_runtime_on: self.update_runtime_on,
+            runtime_version_arn: self.runtime_version_arn,
+        })
     }
 }

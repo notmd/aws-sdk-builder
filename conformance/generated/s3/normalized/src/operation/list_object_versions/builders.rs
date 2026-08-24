@@ -287,10 +287,7 @@ impl ListObjectVersionsFluentBuilder {
         self
     }
     /// <p>Specifies the optional fields that you want returned in the response. Fields that you do not specify are not returned.</p>
-    pub fn set_optional_object_attributes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::OptionalObjectAttributes>>,
-    ) -> Self {
+    pub fn set_optional_object_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::OptionalObjectAttributes>>) -> Self {
         self.inner = self.inner.set_optional_object_attributes(input);
         self
     }

@@ -34,9 +34,7 @@ impl ::aws_types::request_id::RequestId for ListFunctionVersionsByCapacityProvid
 }
 impl ListFunctionVersionsByCapacityProviderOutput {
     /// Creates a new builder-style object to manufacture [`ListFunctionVersionsByCapacityProviderOutput`](crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderOutputBuilder {
         super::super::super::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderOutputBuilder::default()
     }
 }
@@ -86,9 +84,7 @@ impl ListFunctionVersionsByCapacityProviderOutputBuilder {
         self
     }
     /// <p>A list of function versions that use the specified capacity provider.</p>
-    pub fn get_function_versions(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::FunctionVersionsByCapacityProviderListItem>> {
+    pub fn get_function_versions(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::FunctionVersionsByCapacityProviderListItem>> {
         &self.function_versions
     }
     /// <p>The pagination token that's included if more results are available.</p>

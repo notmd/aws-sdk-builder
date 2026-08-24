@@ -422,10 +422,7 @@ impl AdminCreateUserInputBuilder {
         self
     }
     /// <p>Specify <code>EMAIL</code> if email will be used to send the welcome message. Specify <code>SMS</code> if the phone number will be used. The default value is <code>SMS</code>. You can specify more than one value.</p>
-    pub fn set_desired_delivery_mediums(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeliveryMediumType>>,
-    ) -> Self {
+    pub fn set_desired_delivery_mediums(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeliveryMediumType>>) -> Self {
         self.desired_delivery_mediums = input;
         self
     }
@@ -499,10 +496,7 @@ impl AdminCreateUserInputBuilder {
     /// Consumes the builder and constructs a [`AdminCreateUserInput`](crate::operation::admin_create_user::AdminCreateUserInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::admin_create_user::AdminCreateUserInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::admin_create_user::AdminCreateUserInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::admin_create_user::AdminCreateUserInput {
             user_pool_id: self.user_pool_id,
             username: self.username,

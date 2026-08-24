@@ -24,62 +24,88 @@ pub fn de_list_function_versions_by_capacity_provider_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidParameterValueException" => super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::InvalidParameterValueException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "InvalidParameterValueException" => {
+            super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::InvalidParameterValueException(
+                {
+                    #[allow(unused_mut)]
+                    let mut tmp = {
+                        #[allow(unused_mut)]
+                        let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                        output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(
+                            super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::unhandled,
+                        )?;
+                        let output = output.meta(generic);
+                        output.build()
+                    };
+                    if tmp.message.is_none() {
+                        tmp.message = _error_message;
+                    }
+                    tmp
+                },
+            )
+        }
+        "ResourceNotFoundException" => {
+            super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::ResourceNotFoundException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(_response_body, output).map_err(super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ResourceNotFoundException" => super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::ResourceNotFoundException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(
+                            super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ServiceException" => {
+            super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::ServiceException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ServiceException" => super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::ServiceException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::ServiceExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output).map_err(
+                        super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::unhandled,
+                    )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "TooManyRequestsException" => {
+            super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::TooManyRequestsException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ServiceExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output).map_err(super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "TooManyRequestsException" => super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::TooManyRequestsException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(
+                                super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::unhandled,
+                            )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => super::super::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderError::generic(generic),
     })
 }
@@ -95,7 +121,8 @@ pub fn de_list_function_versions_by_capacity_provider_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = super::super::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderOutputBuilder::default();
+        let mut output =
+            super::super::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderOutputBuilder::default();
         output = super::super::protocol_serde::shape_list_function_versions_by_capacity_provider::de_list_function_versions_by_capacity_provider(
             _response_body,
             output,
@@ -113,7 +140,10 @@ pub fn ser_list_function_versions_by_capacity_provider_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_function_versions_by_capacity_provider_input::ser_list_function_versions_by_capacity_provider_input_input(&mut object, input)?;
+    super::super::protocol_serde::shape_list_function_versions_by_capacity_provider_input::ser_list_function_versions_by_capacity_provider_input_input(
+        &mut object,
+        input,
+    )?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -142,7 +172,13 @@ pub(crate) fn de_list_function_versions_by_capacity_provider(
                     );
                 }
                 "FunctionVersions" => {
-                    builder = builder.set_function_versions(super::super::protocol_serde::shape_function_versions_by_capacity_provider_list::de_function_versions_by_capacity_provider_list(tokens, _value, depth + 1)?);
+                    builder = builder.set_function_versions(
+                        super::super::protocol_serde::shape_function_versions_by_capacity_provider_list::de_function_versions_by_capacity_provider_list(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
                 }
                 "NextMarker" => {
                     builder = builder.set_next_marker(

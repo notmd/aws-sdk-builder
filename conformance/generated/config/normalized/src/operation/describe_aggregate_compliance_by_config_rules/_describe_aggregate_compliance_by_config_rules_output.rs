@@ -29,8 +29,7 @@ impl ::aws_types::request_id::RequestId for DescribeAggregateComplianceByConfigR
 impl DescribeAggregateComplianceByConfigRulesOutput {
     /// Creates a new builder-style object to manufacture [`DescribeAggregateComplianceByConfigRulesOutput`](crate::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesOutput).
     pub fn builder(
-    ) -> super::super::super::operation::describe_aggregate_compliance_by_config_rules::builders::DescribeAggregateComplianceByConfigRulesOutputBuilder
-    {
+    ) -> super::super::super::operation::describe_aggregate_compliance_by_config_rules::builders::DescribeAggregateComplianceByConfigRulesOutputBuilder {
         super::super::super::operation::describe_aggregate_compliance_by_config_rules::builders::DescribeAggregateComplianceByConfigRulesOutputBuilder::default()
     }
 }
@@ -39,8 +38,7 @@ impl DescribeAggregateComplianceByConfigRulesOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeAggregateComplianceByConfigRulesOutputBuilder {
-    pub(crate) aggregate_compliance_by_config_rules:
-        ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregateComplianceByConfigRule>>,
+    pub(crate) aggregate_compliance_by_config_rules: ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregateComplianceByConfigRule>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -65,9 +63,7 @@ impl DescribeAggregateComplianceByConfigRulesOutputBuilder {
         self
     }
     /// <p>Returns a list of AggregateComplianceByConfigRule object.</p>
-    pub fn get_aggregate_compliance_by_config_rules(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AggregateComplianceByConfigRule>> {
+    pub fn get_aggregate_compliance_by_config_rules(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AggregateComplianceByConfigRule>> {
         &self.aggregate_compliance_by_config_rules
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -94,9 +90,7 @@ impl DescribeAggregateComplianceByConfigRulesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeAggregateComplianceByConfigRulesOutput`](crate::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesOutput).
-    pub fn build(
-        self,
-    ) -> super::super::super::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesOutput {
+    pub fn build(self) -> super::super::super::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesOutput {
         super::super::super::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesOutput {
             aggregate_compliance_by_config_rules: self.aggregate_compliance_by_config_rules,
             next_token: self.next_token,

@@ -22,11 +22,8 @@ pub fn de_sign_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::sign::SignError::unhandled)?;
+                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::sign::SignError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -55,9 +52,8 @@ pub fn de_sign_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::DryRunOperationExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::sign::SignError::unhandled)?;
+                output = super::super::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::sign::SignError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -71,11 +67,9 @@ pub fn de_sign_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::sign::SignError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::sign::SignError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -89,9 +83,8 @@ pub fn de_sign_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidKeyUsageExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::sign::SignError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::sign::SignError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -135,9 +128,8 @@ pub fn de_sign_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::sign::SignError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::sign::SignError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -174,8 +166,7 @@ pub fn de_sign_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::sign::builders::SignOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_sign::de_sign(_response_body, output).map_err(super::super::operation::sign::SignError::unhandled)?;
+        output = super::super::protocol_serde::shape_sign::de_sign(_response_body, output).map_err(super::super::operation::sign::SignError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

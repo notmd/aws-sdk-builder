@@ -11,8 +11,6 @@ impl super::Client {
     pub fn invoke_model_with_bidirectional_stream(
         &self,
     ) -> super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamFluentBuilder {
-        super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamFluentBuilder::new(self.handle.clone())
     }
 }

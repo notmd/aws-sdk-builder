@@ -26,11 +26,9 @@ pub fn de_describe_subscription_filters_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::describe_subscription_filters::DescribeSubscriptionFiltersError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::describe_subscription_filters::DescribeSubscriptionFiltersError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -46,11 +44,9 @@ pub fn de_describe_subscription_filters_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::describe_subscription_filters::DescribeSubscriptionFiltersError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::describe_subscription_filters::DescribeSubscriptionFiltersError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -66,11 +62,9 @@ pub fn de_describe_subscription_filters_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::describe_subscription_filters::DescribeSubscriptionFiltersError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::describe_subscription_filters::DescribeSubscriptionFiltersError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -128,23 +122,23 @@ pub(crate) fn de_describe_subscription_filters(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "subscriptionFilters" => {
-                        builder = builder.set_subscription_filters(
-                            super::super::protocol_serde::shape_subscription_filters::de_subscription_filters(tokens, _value, depth + 1)?,
-                        );
-                    }
-                    "nextToken" => {
-                        builder = builder.set_next_token(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "subscriptionFilters" => {
+                    builder = builder.set_subscription_filters(super::super::protocol_serde::shape_subscription_filters::de_subscription_filters(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
-            }
+                "nextToken" => {
+                    builder = builder.set_next_token(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

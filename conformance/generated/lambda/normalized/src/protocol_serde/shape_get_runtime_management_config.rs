@@ -40,26 +40,21 @@ pub fn de_get_runtime_management_config_http_error(
                 tmp
             })
         }
-        "ResourceNotFoundException" => {
-            super::super::operation::get_runtime_management_config::GetRuntimeManagementConfigError::ResourceNotFoundException({
+        "ResourceNotFoundException" => super::super::operation::get_runtime_management_config::GetRuntimeManagementConfigError::ResourceNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::get_runtime_management_config::GetRuntimeManagementConfigError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ServiceException" => super::super::operation::get_runtime_management_config::GetRuntimeManagementConfigError::ServiceException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -75,26 +70,21 @@ pub fn de_get_runtime_management_config_http_error(
             }
             tmp
         }),
-        "TooManyRequestsException" => {
-            super::super::operation::get_runtime_management_config::GetRuntimeManagementConfigError::TooManyRequestsException({
+        "TooManyRequestsException" => super::super::operation::get_runtime_management_config::GetRuntimeManagementConfigError::TooManyRequestsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::get_runtime_management_config::GetRuntimeManagementConfigError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::get_runtime_management_config::GetRuntimeManagementConfigError::generic(generic),
     })
 }

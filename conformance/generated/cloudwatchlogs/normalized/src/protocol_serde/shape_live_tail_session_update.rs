@@ -23,20 +23,12 @@ where
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "sessionMetadata" => {
                             builder = builder.set_session_metadata(
-                                super::super::protocol_serde::shape_live_tail_session_metadata::de_live_tail_session_metadata(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_live_tail_session_metadata::de_live_tail_session_metadata(tokens, _value, depth + 1)?,
                             );
                         }
                         "sessionResults" => {
                             builder = builder.set_session_results(
-                                super::super::protocol_serde::shape_live_tail_session_results::de_live_tail_session_results(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_live_tail_session_results::de_live_tail_session_results(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

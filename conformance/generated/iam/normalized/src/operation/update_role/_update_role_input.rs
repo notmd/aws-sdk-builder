@@ -99,9 +99,7 @@ impl UpdateRoleInputBuilder {
         &self.max_session_duration
     }
     /// Consumes the builder and constructs a [`UpdateRoleInput`](crate::operation::update_role::UpdateRoleInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::update_role::UpdateRoleInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::update_role::UpdateRoleInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::update_role::UpdateRoleInput {
             role_name: self.role_name,
             description: self.description,

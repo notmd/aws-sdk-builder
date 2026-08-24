@@ -238,9 +238,7 @@ impl BatchGetMetricDataQueryBuilder {
         self
     }
     /// <p>An object that contains mapping between <code>MetricDimensionName</code> and <code>MetricDimensionValue</code> to filter metrics by.</p>
-    pub fn get_dimensions(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<super::super::types::MetricDimensionName, ::std::string::String>> {
+    pub fn get_dimensions(&self) -> &::std::option::Option<::std::collections::HashMap<super::super::types::MetricDimensionName, ::std::string::String>> {
         &self.dimensions
     }
     /// <p>Represents the start date for the query interval.</p>

@@ -22,11 +22,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "Input" => {
-                            builder = builder.set_input(super::super::protocol_serde::shape_event_input::de_event_input(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_input(super::super::protocol_serde::shape_event_input::de_event_input(tokens, _value, depth + 1)?);
                         }
                         "ExecutionTimeout" => {
                             builder = builder.set_execution_timeout(

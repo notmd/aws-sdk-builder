@@ -114,10 +114,7 @@ impl PutPublicAccessBlockInputBuilder {
         self
     }
     /// <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn set_public_access_block_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::PublicAccessBlockConfiguration>,
-    ) -> Self {
+    pub fn set_public_access_block_configuration(mut self, input: ::std::option::Option<super::super::super::types::PublicAccessBlockConfiguration>) -> Self {
         self.public_access_block_configuration = input;
         self
     }
@@ -142,10 +139,8 @@ impl PutPublicAccessBlockInputBuilder {
     /// Consumes the builder and constructs a [`PutPublicAccessBlockInput`](crate::operation::put_public_access_block::PutPublicAccessBlockInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::put_public_access_block::PutPublicAccessBlockInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::put_public_access_block::PutPublicAccessBlockInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::put_public_access_block::PutPublicAccessBlockInput {
             bucket: self.bucket,
             content_md5: self.content_md5,

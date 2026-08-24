@@ -64,10 +64,7 @@ impl PutDeliverabilityDashboardOptionInputBuilder {
         self
     }
     /// <p>An array of objects, one for each verified domain that you use to send email and enabled the Deliverability dashboard for.</p>
-    pub fn set_subscribed_domains(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>>,
-    ) -> Self {
+    pub fn set_subscribed_domains(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>>) -> Self {
         self.subscribed_domains = input;
         self
     }

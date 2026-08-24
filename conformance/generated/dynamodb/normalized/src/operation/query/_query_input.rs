@@ -140,8 +140,7 @@ pub struct QueryInput {
     /// <p>You could then use these values in an expression, such as this:</p>
     /// <p><code>ProductStatus IN (:avail, :back, :disc)</code></p>
     /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub expression_attribute_values:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
+    pub expression_attribute_values: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
 }
 impl QueryInput {
     /// <p>The name of the table containing the requested items. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
@@ -187,9 +186,7 @@ impl QueryInput {
         self.consistent_read
     }
     /// <p>This is a legacy parameter. Use <code>KeyConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html">KeyConditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn key_conditions(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::Condition>> {
+    pub fn key_conditions(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::Condition>> {
         self.key_conditions.as_ref()
     }
     /// <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html">QueryFilter</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -208,9 +205,7 @@ impl QueryInput {
     }
     /// <p>The primary key of the first item that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedKey</code> in the previous operation.</p>
     /// <p>The data type for <code>ExclusiveStartKey</code> must be String, Number, or Binary. No set data types are allowed.</p>
-    pub fn exclusive_start_key(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>> {
+    pub fn exclusive_start_key(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>> {
         self.exclusive_start_key.as_ref()
     }
     /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
@@ -345,15 +340,13 @@ pub struct QueryInputBuilder {
     pub(crate) query_filter: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::Condition>>,
     pub(crate) conditional_operator: ::std::option::Option<super::super::super::types::ConditionalOperator>,
     pub(crate) scan_index_forward: ::std::option::Option<bool>,
-    pub(crate) exclusive_start_key:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
+    pub(crate) exclusive_start_key: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
     pub(crate) return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
     pub(crate) projection_expression: ::std::option::Option<::std::string::String>,
     pub(crate) filter_expression: ::std::option::Option<::std::string::String>,
     pub(crate) key_condition_expression: ::std::option::Option<::std::string::String>,
     pub(crate) expression_attribute_names: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    pub(crate) expression_attribute_values:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
+    pub(crate) expression_attribute_values: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
 }
 impl QueryInputBuilder {
     /// <p>The name of the table containing the requested items. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
@@ -515,9 +508,7 @@ impl QueryInputBuilder {
         self
     }
     /// <p>This is a legacy parameter. Use <code>KeyConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.KeyConditions.html">KeyConditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_key_conditions(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::Condition>> {
+    pub fn get_key_conditions(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::Condition>> {
         &self.key_conditions
     }
     /// Adds a key-value pair to `query_filter`.
@@ -540,9 +531,7 @@ impl QueryInputBuilder {
         self
     }
     /// <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.QueryFilter.html">QueryFilter</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_query_filter(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::Condition>> {
+    pub fn get_query_filter(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::Condition>> {
         &self.query_filter
     }
     /// <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -935,11 +924,7 @@ impl QueryInputBuilder {
     /// <p>You could then use these values in an expression, such as this:</p>
     /// <p><code>ProductStatus IN (:avail, :back, :disc)</code></p>
     /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn expression_attribute_values(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: super::super::super::types::AttributeValue,
-    ) -> Self {
+    pub fn expression_attribute_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::AttributeValue) -> Self {
         let mut hash_map = self.expression_attribute_values.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.expression_attribute_values = ::std::option::Option::Some(hash_map);

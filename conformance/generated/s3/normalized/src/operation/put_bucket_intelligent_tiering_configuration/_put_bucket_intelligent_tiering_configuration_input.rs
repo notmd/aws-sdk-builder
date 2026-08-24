@@ -32,8 +32,7 @@ impl PutBucketIntelligentTieringConfigurationInput {
 }
 impl PutBucketIntelligentTieringConfigurationInput {
     /// Creates a new builder-style object to manufacture [`PutBucketIntelligentTieringConfigurationInput`](crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationInput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationInputBuilder
+    pub fn builder() -> super::super::super::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationInputBuilder
     {
         super::super::super::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationInputBuilder::default()
     }
@@ -100,10 +99,7 @@ impl PutBucketIntelligentTieringConfigurationInputBuilder {
         self
     }
     /// <p>Container for S3 Intelligent-Tiering configuration.</p>
-    pub fn set_intelligent_tiering_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::IntelligentTieringConfiguration>,
-    ) -> Self {
+    pub fn set_intelligent_tiering_configuration(mut self, input: ::std::option::Option<super::super::super::types::IntelligentTieringConfiguration>) -> Self {
         self.intelligent_tiering_configuration = input;
         self
     }

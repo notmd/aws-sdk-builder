@@ -133,14 +133,12 @@ impl UpdateLogAnomalyDetectorInputBuilder {
         super::super::super::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorInput {
-                anomaly_detector_arn: self.anomaly_detector_arn,
-                evaluation_frequency: self.evaluation_frequency,
-                filter_pattern: self.filter_pattern,
-                anomaly_visibility_time: self.anomaly_visibility_time,
-                enabled: self.enabled,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::update_log_anomaly_detector::UpdateLogAnomalyDetectorInput {
+            anomaly_detector_arn: self.anomaly_detector_arn,
+            evaluation_frequency: self.evaluation_frequency,
+            filter_pattern: self.filter_pattern,
+            anomaly_visibility_time: self.anomaly_visibility_time,
+            enabled: self.enabled,
+        })
     }
 }

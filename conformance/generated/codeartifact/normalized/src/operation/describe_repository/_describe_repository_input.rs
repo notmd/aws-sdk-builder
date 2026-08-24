@@ -87,10 +87,7 @@ impl DescribeRepositoryInputBuilder {
     /// Consumes the builder and constructs a [`DescribeRepositoryInput`](crate::operation::describe_repository::DescribeRepositoryInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::describe_repository::DescribeRepositoryInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::describe_repository::DescribeRepositoryInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::describe_repository::DescribeRepositoryInput {
             domain: self.domain,
             domain_owner: self.domain_owner,

@@ -26,8 +26,7 @@ impl ListBucketAnalyticsConfigurationsInput {
 }
 impl ListBucketAnalyticsConfigurationsInput {
     /// Creates a new builder-style object to manufacture [`ListBucketAnalyticsConfigurationsInput`](crate::operation::list_bucket_analytics_configurations::ListBucketAnalyticsConfigurationsInput).
-    pub fn builder() -> super::super::super::operation::list_bucket_analytics_configurations::builders::ListBucketAnalyticsConfigurationsInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::list_bucket_analytics_configurations::builders::ListBucketAnalyticsConfigurationsInputBuilder {
         super::super::super::operation::list_bucket_analytics_configurations::builders::ListBucketAnalyticsConfigurationsInputBuilder::default()
     }
 }

@@ -564,10 +564,8 @@ impl GetQueueAttributesInputBuilder {
     /// Consumes the builder and constructs a [`GetQueueAttributesInput`](crate::operation::get_queue_attributes::GetQueueAttributesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_queue_attributes::GetQueueAttributesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_queue_attributes::GetQueueAttributesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_queue_attributes::GetQueueAttributesInput {
             queue_url: self.queue_url,
             attribute_names: self.attribute_names,

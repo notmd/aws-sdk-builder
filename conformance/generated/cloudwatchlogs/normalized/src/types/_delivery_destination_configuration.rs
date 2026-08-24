@@ -46,9 +46,7 @@ impl DeliveryDestinationConfigurationBuilder {
     /// Consumes the builder and constructs a [`DeliveryDestinationConfiguration`](crate::types::DeliveryDestinationConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`destination_resource_arn`](crate::types::builders::DeliveryDestinationConfigurationBuilder::destination_resource_arn)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::DeliveryDestinationConfiguration, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::DeliveryDestinationConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::DeliveryDestinationConfiguration {
             destination_resource_arn: self.destination_resource_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -121,9 +121,11 @@ where
                             );
                         }
                         "scopeConfiguration" => {
-                            builder = builder.set_scope_configuration(
-                                super::super::protocol_serde::shape_scope_configuration::de_scope_configuration(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_scope_configuration(super::super::protocol_serde::shape_scope_configuration::de_scope_configuration(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

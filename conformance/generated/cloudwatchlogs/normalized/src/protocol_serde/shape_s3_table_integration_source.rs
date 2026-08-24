@@ -29,19 +29,12 @@ where
                             );
                         }
                         "dataSource" => {
-                            builder = builder.set_data_source(super::super::protocol_serde::shape_data_source::de_data_source(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_data_source(super::super::protocol_serde::shape_data_source::de_data_source(tokens, _value, depth + 1)?);
                         }
                         "status" => {
                             builder = builder.set_status(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| super::super::types::S3TableIntegrationSourceStatus::from(u.as_ref()))
-                                    })
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::S3TableIntegrationSourceStatus::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }

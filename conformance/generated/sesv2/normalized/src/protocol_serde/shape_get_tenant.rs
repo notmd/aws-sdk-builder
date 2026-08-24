@@ -52,9 +52,8 @@ pub fn de_get_tenant_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_tenant::GetTenantError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_tenant::GetTenantError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -96,10 +95,7 @@ pub fn ser_get_tenant_input(
 pub(crate) fn de_get_tenant(
     _value: &[u8],
     mut builder: super::super::operation::get_tenant::builders::GetTenantOutputBuilder,
-) -> ::std::result::Result<
-    super::super::operation::get_tenant::builders::GetTenantOutputBuilder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
+) -> ::std::result::Result<super::super::operation::get_tenant::builders::GetTenantOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]

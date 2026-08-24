@@ -33,10 +33,7 @@ pub fn ser_create_custom_key_store_input_input(
     if let Some(var_10) = &input.xks_proxy_authentication_credential {
         #[allow(unused_mut)]
         let mut object_11 = object.key("XksProxyAuthenticationCredential").start_object();
-        super::super::protocol_serde::shape_xks_proxy_authentication_credential_type::ser_xks_proxy_authentication_credential_type(
-            &mut object_11,
-            var_10,
-        )?;
+        super::super::protocol_serde::shape_xks_proxy_authentication_credential_type::ser_xks_proxy_authentication_credential_type(&mut object_11, var_10)?;
         object_11.finish();
     }
     if let Some(var_12) = &input.xks_proxy_connectivity {

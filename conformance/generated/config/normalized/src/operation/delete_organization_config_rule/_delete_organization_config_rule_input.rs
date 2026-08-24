@@ -48,10 +48,8 @@ impl DeleteOrganizationConfigRuleInputBuilder {
         super::super::super::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleInput {
-                organization_config_rule_name: self.organization_config_rule_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleInput {
+            organization_config_rule_name: self.organization_config_rule_name,
+        })
     }
 }

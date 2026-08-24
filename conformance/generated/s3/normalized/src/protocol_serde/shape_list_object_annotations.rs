@@ -16,11 +16,7 @@ pub fn de_list_object_annotations_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::list_object_annotations::ListObjectAnnotationsError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::list_object_annotations::ListObjectAnnotationsError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());

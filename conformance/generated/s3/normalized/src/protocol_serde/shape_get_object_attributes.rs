@@ -16,11 +16,7 @@ pub fn de_get_object_attributes_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::get_object_attributes::GetObjectAttributesError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::get_object_attributes::GetObjectAttributesError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -199,10 +195,8 @@ pub fn ser_get_object_attributes_headers(
 pub fn de_get_object_attributes(
     inp: &[u8],
     mut builder: super::super::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder,
-) -> std::result::Result<
-    super::super::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> std::result::Result<super::super::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
+{
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

@@ -10,8 +10,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateReputationEntityCustomerManagedStatusError>`](crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError)
     pub fn update_reputation_entity_customer_managed_status(
         &self,
-    ) -> super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusFluentBuilder
-    {
-        super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusFluentBuilder::new(self.handle.clone())
+    ) -> super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusFluentBuilder {
+        super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

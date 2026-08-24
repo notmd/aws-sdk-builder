@@ -110,10 +110,8 @@ impl RegisterJobDefinitionOutputBuilder {
     /// - [`revision`](crate::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder::revision)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::register_job_definition::RegisterJobDefinitionOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::register_job_definition::RegisterJobDefinitionOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::register_job_definition::RegisterJobDefinitionOutput {
             job_definition_name: self.job_definition_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

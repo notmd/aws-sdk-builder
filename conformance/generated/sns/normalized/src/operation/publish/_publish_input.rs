@@ -60,8 +60,7 @@ pub struct PublishInput {
     /// <p>Valid value: <code>json</code></p>
     pub message_structure: ::std::option::Option<::std::string::String>,
     /// <p>Message attributes for Publish action.</p>
-    pub message_attributes:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::MessageAttributeValue>>,
+    pub message_attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::MessageAttributeValue>>,
     /// <ul>
     /// <li>
     /// <p>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p></li>
@@ -236,8 +235,7 @@ pub struct PublishInputBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
     pub(crate) subject: ::std::option::Option<::std::string::String>,
     pub(crate) message_structure: ::std::option::Option<::std::string::String>,
-    pub(crate) message_attributes:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::MessageAttributeValue>>,
+    pub(crate) message_attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::MessageAttributeValue>>,
     pub(crate) message_deduplication_id: ::std::option::Option<::std::string::String>,
     pub(crate) message_group_id: ::std::option::Option<::std::string::String>,
 }
@@ -461,11 +459,7 @@ impl PublishInputBuilder {
     /// To override the contents of this collection use [`set_message_attributes`](Self::set_message_attributes).
     ///
     /// <p>Message attributes for Publish action.</p>
-    pub fn message_attributes(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: super::super::super::types::MessageAttributeValue,
-    ) -> Self {
+    pub fn message_attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::MessageAttributeValue) -> Self {
         let mut hash_map = self.message_attributes.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.message_attributes = ::std::option::Option::Some(hash_map);
@@ -595,9 +589,7 @@ impl PublishInputBuilder {
         &self.message_group_id
     }
     /// Consumes the builder and constructs a [`PublishInput`](crate::operation::publish::PublishInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::publish::PublishInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::publish::PublishInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::publish::PublishInput {
             topic_arn: self.topic_arn,
             target_arn: self.target_arn,

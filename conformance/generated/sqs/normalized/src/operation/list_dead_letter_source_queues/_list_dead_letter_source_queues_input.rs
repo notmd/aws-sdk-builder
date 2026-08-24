@@ -96,12 +96,10 @@ impl ListDeadLetterSourceQueuesInputBuilder {
         super::super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesInput {
-                queue_url: self.queue_url,
-                next_token: self.next_token,
-                max_results: self.max_results,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesInput {
+            queue_url: self.queue_url,
+            next_token: self.next_token,
+            max_results: self.max_results,
+        })
     }
 }

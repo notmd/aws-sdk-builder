@@ -52,8 +52,7 @@ impl UpdateBucketMetadataAnnotationTableConfigurationOutputBuilder {
     /// Consumes the builder and constructs a [`UpdateBucketMetadataAnnotationTableConfigurationOutput`](crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationOutput).
     pub fn build(
         self,
-    ) -> super::super::super::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationOutput
-    {
+    ) -> super::super::super::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationOutput {
         super::super::super::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

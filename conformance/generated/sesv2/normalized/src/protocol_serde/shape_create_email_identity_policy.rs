@@ -15,7 +15,11 @@ pub fn de_create_email_identity_policy_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -80,26 +84,21 @@ pub fn de_create_email_identity_policy_http_error(
             }
             tmp
         }),
-        "TooManyRequestsException" => {
-            super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::TooManyRequestsException({
+        "TooManyRequestsException" => super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::TooManyRequestsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::generic(generic),
     })
 }

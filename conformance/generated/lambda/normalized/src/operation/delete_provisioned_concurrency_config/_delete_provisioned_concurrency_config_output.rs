@@ -12,8 +12,7 @@ impl ::aws_types::request_id::RequestId for DeleteProvisionedConcurrencyConfigOu
 }
 impl DeleteProvisionedConcurrencyConfigOutput {
     /// Creates a new builder-style object to manufacture [`DeleteProvisionedConcurrencyConfigOutput`](crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigOutputBuilder {
+    pub fn builder() -> super::super::super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigOutputBuilder {
         super::super::super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigOutputBuilder::default()
     }
 }

@@ -15,8 +15,6 @@ impl super::Client {
     pub fn list_bucket_inventory_configurations(
         &self,
     ) -> super::super::operation::list_bucket_inventory_configurations::builders::ListBucketInventoryConfigurationsFluentBuilder {
-        super::super::operation::list_bucket_inventory_configurations::builders::ListBucketInventoryConfigurationsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::list_bucket_inventory_configurations::builders::ListBucketInventoryConfigurationsFluentBuilder::new(self.handle.clone())
     }
 }

@@ -15,7 +15,11 @@ pub fn de_delete_syslog_configuration_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -35,97 +39,75 @@ pub fn de_delete_syslog_configuration_http_error(
             }
             tmp
         }),
-        "InvalidOperationException" => {
-            super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::InvalidOperationException({
+        "InvalidOperationException" => super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::InvalidOperationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidOperationExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_operation_exception::de_invalid_operation_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::InvalidOperationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_operation_exception::de_invalid_operation_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "InvalidParameterException" => {
-            super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::InvalidParameterException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameterException" => super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "OperationAbortedException" => {
-            super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::OperationAbortedException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "OperationAbortedException" => super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::OperationAbortedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::OperationAbortedExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::OperationAbortedExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ResourceNotFoundException" => {
-            super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::ResourceNotFoundException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ResourceNotFoundException" => super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::ResourceNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ServiceUnavailableException" => {
             super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::ServiceUnavailableException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };

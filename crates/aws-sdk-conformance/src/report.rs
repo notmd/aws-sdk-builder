@@ -424,7 +424,7 @@ fn compare_service(
                         std::str::from_utf8(&generated),
                     ) {
                         (Ok(reference), Ok(generated)) => {
-                            let mut patch = diffy::create_patch(&reference, &generated).to_string();
+                            let mut patch = diffy::create_patch(reference, generated).to_string();
                             patch = replace_patch_headers(&patch, &relative_path);
                             report.differences.push(FileDifference {
                                 path: relative_path.display().to_string(),

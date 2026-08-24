@@ -64,9 +64,7 @@ impl GetContactInputBuilder {
         &self.email_address
     }
     /// Consumes the builder and constructs a [`GetContactInput`](crate::operation::get_contact::GetContactInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::get_contact::GetContactInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_contact::GetContactInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_contact::GetContactInput {
             contact_list_name: self.contact_list_name,
             email_address: self.email_address,

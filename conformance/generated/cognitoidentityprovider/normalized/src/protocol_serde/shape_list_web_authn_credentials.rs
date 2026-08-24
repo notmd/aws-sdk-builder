@@ -15,7 +15,11 @@ pub fn de_list_web_authn_credentials_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::list_web_authn_credentials::ListWebAuthnCredentialsError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::list_web_authn_credentials::ListWebAuthnCredentialsError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -50,26 +54,21 @@ pub fn de_list_web_authn_credentials_http_error(
             }
             tmp
         }),
-        "InvalidParameterException" => {
-            super::super::operation::list_web_authn_credentials::ListWebAuthnCredentialsError::InvalidParameterException({
+        "InvalidParameterException" => super::super::operation::list_web_authn_credentials::ListWebAuthnCredentialsError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::list_web_authn_credentials::ListWebAuthnCredentialsError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "LimitExceededException" => super::super::operation::list_web_authn_credentials::ListWebAuthnCredentialsError::LimitExceededException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -100,26 +99,22 @@ pub fn de_list_web_authn_credentials_http_error(
             }
             tmp
         }),
-        "OperationNotEnabledException" => {
-            super::super::operation::list_web_authn_credentials::ListWebAuthnCredentialsError::OperationNotEnabledException({
+        "OperationNotEnabledException" => super::super::operation::list_web_authn_credentials::ListWebAuthnCredentialsError::OperationNotEnabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::list_web_authn_credentials::ListWebAuthnCredentialsError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::list_web_authn_credentials::ListWebAuthnCredentialsError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "PasswordResetRequiredException" => {
             super::super::operation::list_web_authn_credentials::ListWebAuthnCredentialsError::PasswordResetRequiredException({
                 #[allow(unused_mut)]
@@ -145,9 +140,8 @@ pub fn de_list_web_authn_credentials_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::list_web_authn_credentials::ListWebAuthnCredentialsError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_web_authn_credentials::ListWebAuthnCredentialsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -208,7 +202,13 @@ pub(crate) fn de_list_web_authn_credentials(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "Credentials" => {
-                    builder = builder.set_credentials(super::super::protocol_serde::shape_web_authn_credential_description_list_type::de_web_authn_credential_description_list_type(tokens, _value, depth + 1)?);
+                    builder = builder.set_credentials(
+                        super::super::protocol_serde::shape_web_authn_credential_description_list_type::de_web_authn_credential_description_list_type(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
                 }
                 "NextToken" => {
                     builder = builder.set_next_token(

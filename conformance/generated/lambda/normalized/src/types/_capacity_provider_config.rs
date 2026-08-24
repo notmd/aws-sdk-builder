@@ -26,16 +26,12 @@ impl CapacityProviderConfig {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CapacityProviderConfigBuilder {
-    pub(crate) lambda_managed_instances_capacity_provider_config:
-        ::std::option::Option<super::super::types::LambdaManagedInstancesCapacityProviderConfig>,
+    pub(crate) lambda_managed_instances_capacity_provider_config: ::std::option::Option<super::super::types::LambdaManagedInstancesCapacityProviderConfig>,
 }
 impl CapacityProviderConfigBuilder {
     /// <p>Configuration for Lambda-managed instances used by the capacity provider.</p>
     /// This field is required.
-    pub fn lambda_managed_instances_capacity_provider_config(
-        mut self,
-        input: super::super::types::LambdaManagedInstancesCapacityProviderConfig,
-    ) -> Self {
+    pub fn lambda_managed_instances_capacity_provider_config(mut self, input: super::super::types::LambdaManagedInstancesCapacityProviderConfig) -> Self {
         self.lambda_managed_instances_capacity_provider_config = ::std::option::Option::Some(input);
         self
     }

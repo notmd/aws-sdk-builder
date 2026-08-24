@@ -4,10 +4,7 @@ pub fn de_list_async_invokes_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::list_async_invokes::ListAsyncInvokesOutput,
-    super::super::operation::list_async_invokes::ListAsyncInvokesError,
-> {
+) -> std::result::Result<super::super::operation::list_async_invokes::ListAsyncInvokesOutput, super::super::operation::list_async_invokes::ListAsyncInvokesError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::list_async_invokes::ListAsyncInvokesError::unhandled)?;
@@ -89,10 +86,7 @@ pub fn de_list_async_invokes_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::list_async_invokes::ListAsyncInvokesOutput,
-    super::super::operation::list_async_invokes::ListAsyncInvokesError,
-> {
+) -> std::result::Result<super::super::operation::list_async_invokes::ListAsyncInvokesOutput, super::super::operation::list_async_invokes::ListAsyncInvokesError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::list_async_invokes::builders::ListAsyncInvokesOutputBuilder::default();
@@ -137,9 +131,11 @@ pub(crate) fn de_list_async_invokes(
                     );
                 }
                 "asyncInvokeSummaries" => {
-                    builder = builder.set_async_invoke_summaries(
-                        super::super::protocol_serde::shape_async_invoke_summaries::de_async_invoke_summaries(tokens, _value, depth + 1)?,
-                    );
+                    builder = builder.set_async_invoke_summaries(super::super::protocol_serde::shape_async_invoke_summaries::de_async_invoke_summaries(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

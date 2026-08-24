@@ -15,11 +15,7 @@ pub fn de_list_message_move_tasks_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::list_message_move_tasks::ListMessageMoveTasksError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::list_message_move_tasks::ListMessageMoveTasksError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -74,11 +70,8 @@ pub fn de_list_message_move_tasks_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::list_message_move_tasks::ListMessageMoveTasksError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_message_move_tasks::ListMessageMoveTasksError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -150,14 +143,18 @@ pub(crate) fn de_list_message_move_tasks(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "Results" => {
-                        builder = builder.set_results(super::super::protocol_serde::shape_list_message_move_tasks_result_entry_list::de_list_message_move_tasks_result_entry_list(tokens, _value, depth + 1)?);
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "Results" => {
+                    builder = builder.set_results(
+                        super::super::protocol_serde::shape_list_message_move_tasks_result_entry_list::de_list_message_move_tasks_result_entry_list(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
                 }
-            }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

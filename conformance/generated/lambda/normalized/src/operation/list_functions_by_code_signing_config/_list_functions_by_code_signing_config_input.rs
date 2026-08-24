@@ -26,8 +26,7 @@ impl ListFunctionsByCodeSigningConfigInput {
 }
 impl ListFunctionsByCodeSigningConfigInput {
     /// Creates a new builder-style object to manufacture [`ListFunctionsByCodeSigningConfigInput`](crate::operation::list_functions_by_code_signing_config::ListFunctionsByCodeSigningConfigInput).
-    pub fn builder() -> super::super::super::operation::list_functions_by_code_signing_config::builders::ListFunctionsByCodeSigningConfigInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::list_functions_by_code_signing_config::builders::ListFunctionsByCodeSigningConfigInputBuilder {
         super::super::super::operation::list_functions_by_code_signing_config::builders::ListFunctionsByCodeSigningConfigInputBuilder::default()
     }
 }

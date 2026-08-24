@@ -62,9 +62,7 @@ impl ListFunctionEventInvokeConfigsOutputBuilder {
         self
     }
     /// <p>A list of configurations.</p>
-    pub fn get_function_event_invoke_configs(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::FunctionEventInvokeConfig>> {
+    pub fn get_function_event_invoke_configs(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::FunctionEventInvokeConfig>> {
         &self.function_event_invoke_configs
     }
     /// <p>The pagination token that's included if more results are available.</p>

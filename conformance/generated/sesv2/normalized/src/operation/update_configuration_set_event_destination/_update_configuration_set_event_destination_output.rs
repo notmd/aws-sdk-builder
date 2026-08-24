@@ -13,9 +13,7 @@ impl ::aws_types::request_id::RequestId for UpdateConfigurationSetEventDestinati
 }
 impl UpdateConfigurationSetEventDestinationOutput {
     /// Creates a new builder-style object to manufacture [`UpdateConfigurationSetEventDestinationOutput`](crate::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestinationOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::update_configuration_set_event_destination::builders::UpdateConfigurationSetEventDestinationOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::update_configuration_set_event_destination::builders::UpdateConfigurationSetEventDestinationOutputBuilder {
         super::super::super::operation::update_configuration_set_event_destination::builders::UpdateConfigurationSetEventDestinationOutputBuilder::default()
     }
 }

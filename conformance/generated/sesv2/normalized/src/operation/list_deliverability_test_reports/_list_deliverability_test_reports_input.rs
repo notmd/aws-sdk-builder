@@ -74,11 +74,9 @@ impl ListDeliverabilityTestReportsInputBuilder {
         super::super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsInput {
-                next_token: self.next_token,
-                page_size: self.page_size,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsInput {
+            next_token: self.next_token,
+            page_size: self.page_size,
+        })
     }
 }

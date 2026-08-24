@@ -37,9 +37,8 @@ pub fn de_scan_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::scan::ScanError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::scan::ScanError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -48,20 +47,22 @@ pub fn de_scan_http_error(
             }
             tmp
         }),
-        "ProvisionedThroughputExceededException" => super::super::operation::scan::ScanError::ProvisionedThroughputExceededException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "ProvisionedThroughputExceededException" => {
+            super::super::operation::scan::ScanError::ProvisionedThroughputExceededException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ProvisionedThroughputExceededExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_provisioned_throughput_exceeded_exception::de_provisioned_throughput_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::scan::ScanError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::ProvisionedThroughputExceededExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_provisioned_throughput_exceeded_exception::de_provisioned_throughput_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::scan::ScanError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "RequestLimitExceeded" => super::super::operation::scan::ScanError::RequestLimitExceeded({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -82,11 +83,8 @@ pub fn de_scan_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::scan::ScanError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::scan::ScanError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -123,8 +121,7 @@ pub fn de_scan_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::scan::builders::ScanOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_scan::de_scan(_response_body, output).map_err(super::super::operation::scan::ScanError::unhandled)?;
+        output = super::super::protocol_serde::shape_scan::de_scan(_response_body, output).map_err(super::super::operation::scan::ScanError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

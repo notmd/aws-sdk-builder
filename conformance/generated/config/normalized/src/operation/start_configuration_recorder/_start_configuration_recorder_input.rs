@@ -49,10 +49,8 @@ impl StartConfigurationRecorderInputBuilder {
         super::super::super::operation::start_configuration_recorder::StartConfigurationRecorderInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::start_configuration_recorder::StartConfigurationRecorderInput {
-                configuration_recorder_name: self.configuration_recorder_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::start_configuration_recorder::StartConfigurationRecorderInput {
+            configuration_recorder_name: self.configuration_recorder_name,
+        })
     }
 }

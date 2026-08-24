@@ -13,8 +13,7 @@ impl ::aws_types::request_id::RequestId for PutEmailIdentityFeedbackAttributesOu
 }
 impl PutEmailIdentityFeedbackAttributesOutput {
     /// Creates a new builder-style object to manufacture [`PutEmailIdentityFeedbackAttributesOutput`](crate::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesOutputBuilder {
+    pub fn builder() -> super::super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesOutputBuilder {
         super::super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesOutputBuilder::default()
     }
 }

@@ -68,10 +68,7 @@ impl DescribeGlobalTableSettingsOutputBuilder {
         self
     }
     /// <p>The Region-specific settings for the global table.</p>
-    pub fn set_replica_settings(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>>,
-    ) -> Self {
+    pub fn set_replica_settings(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>>) -> Self {
         self.replica_settings = input;
         self
     }

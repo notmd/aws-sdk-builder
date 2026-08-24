@@ -77,11 +77,9 @@ impl SetLogDeliveryConfigurationInputBuilder {
         super::super::super::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationInput {
-                user_pool_id: self.user_pool_id,
-                log_configurations: self.log_configurations,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::set_log_delivery_configuration::SetLogDeliveryConfigurationInput {
+            user_pool_id: self.user_pool_id,
+            log_configurations: self.log_configurations,
+        })
     }
 }

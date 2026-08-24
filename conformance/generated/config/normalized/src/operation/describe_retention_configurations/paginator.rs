@@ -23,9 +23,7 @@ impl DescribeRetentionConfigurationsPaginator {
     ///
     /// This paginator automatically flattens results using `retention_configurations`. Queries to the underlying service
     /// are dispatched lazily.
-    pub fn items(
-        self,
-    ) -> super::super::super::operation::describe_retention_configurations::paginator::DescribeRetentionConfigurationsPaginatorItems {
+    pub fn items(self) -> super::super::super::operation::describe_retention_configurations::paginator::DescribeRetentionConfigurationsPaginatorItems {
         super::super::super::operation::describe_retention_configurations::paginator::DescribeRetentionConfigurationsPaginatorItems(self)
     }
 
@@ -59,13 +57,12 @@ impl DescribeRetentionConfigurationsPaginator {
         // Move individual fields out of self for the borrow checker
         let builder = self.builder;
         let handle = self.handle;
-        let runtime_plugins =
-            super::super::super::operation::describe_retention_configurations::DescribeRetentionConfigurations::operation_runtime_plugins(
-                handle.runtime_plugins.clone(),
-                &handle.conf,
-                ::std::option::Option::None,
-            )
-            .with_operation_plugin(super::super::super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
+        let runtime_plugins = super::super::super::operation::describe_retention_configurations::DescribeRetentionConfigurations::operation_runtime_plugins(
+            handle.runtime_plugins.clone(),
+            &handle.conf,
+            ::std::option::Option::None,
+        )
+        .with_operation_plugin(super::super::super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
         ::aws_smithy_async::future::pagination_stream::PaginationStream::new(::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(
             move |tx| {
                 ::std::boxed::Box::pin(async move {

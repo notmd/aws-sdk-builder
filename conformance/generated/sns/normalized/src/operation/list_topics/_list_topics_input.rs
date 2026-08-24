@@ -41,9 +41,7 @@ impl ListTopicsInputBuilder {
         &self.next_token
     }
     /// Consumes the builder and constructs a [`ListTopicsInput`](crate::operation::list_topics::ListTopicsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::list_topics::ListTopicsInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_topics::ListTopicsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_topics::ListTopicsInput { next_token: self.next_token })
     }
 }

@@ -170,10 +170,7 @@ impl CreateCapacityProviderFluentBuilder {
         self
     }
     /// <p>The scaling configuration that defines how the capacity provider scales compute instances, including maximum vCPU count and scaling policies.</p>
-    pub fn set_capacity_provider_scaling_config(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::CapacityProviderScalingConfig>,
-    ) -> Self {
+    pub fn set_capacity_provider_scaling_config(mut self, input: ::std::option::Option<super::super::super::types::CapacityProviderScalingConfig>) -> Self {
         self.inner = self.inner.set_capacity_provider_scaling_config(input);
         self
     }

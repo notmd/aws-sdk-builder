@@ -64,10 +64,8 @@ impl ListDirectoryBucketsInputBuilder {
     /// Consumes the builder and constructs a [`ListDirectoryBucketsInput`](crate::operation::list_directory_buckets::ListDirectoryBucketsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_directory_buckets::ListDirectoryBucketsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_directory_buckets::ListDirectoryBucketsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_directory_buckets::ListDirectoryBucketsInput {
             continuation_token: self.continuation_token,
             max_directory_buckets: self.max_directory_buckets,

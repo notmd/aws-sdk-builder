@@ -134,9 +134,7 @@ impl CreateAliasInputBuilder {
         &self.target_key_id
     }
     /// Consumes the builder and constructs a [`CreateAliasInput`](crate::operation::create_alias::CreateAliasInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::create_alias::CreateAliasInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::create_alias::CreateAliasInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::create_alias::CreateAliasInput {
             alias_name: self.alias_name,
             target_key_id: self.target_key_id,

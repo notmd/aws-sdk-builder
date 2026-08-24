@@ -57,9 +57,7 @@ impl GetComplianceDetailsByConfigRuleFluentBuilder {
         }
     }
     /// Access the GetComplianceDetailsByConfigRule as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::get_compliance_details_by_config_rule::builders::GetComplianceDetailsByConfigRuleInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::get_compliance_details_by_config_rule::builders::GetComplianceDetailsByConfigRuleInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,14 +81,12 @@ impl GetComplianceDetailsByConfigRuleFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::get_compliance_details_by_config_rule::GetComplianceDetailsByConfigRule::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        super::super::super::operation::get_compliance_details_by_config_rule::GetComplianceDetailsByConfigRule::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = super::super::super::operation::get_compliance_details_by_config_rule::GetComplianceDetailsByConfigRule::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        super::super::super::operation::get_compliance_details_by_config_rule::GetComplianceDetailsByConfigRule::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -115,13 +111,8 @@ impl GetComplianceDetailsByConfigRuleFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::get_compliance_details_by_config_rule::paginator::GetComplianceDetailsByConfigRulePaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> super::super::super::operation::get_compliance_details_by_config_rule::paginator::GetComplianceDetailsByConfigRulePaginator {
-        super::super::super::operation::get_compliance_details_by_config_rule::paginator::GetComplianceDetailsByConfigRulePaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> super::super::super::operation::get_compliance_details_by_config_rule::paginator::GetComplianceDetailsByConfigRulePaginator {
+        super::super::super::operation::get_compliance_details_by_config_rule::paginator::GetComplianceDetailsByConfigRulePaginator::new(self.handle, self.inner)
     }
     /// <p>The name of the Config rule for which you want compliance information.</p>
     pub fn config_rule_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

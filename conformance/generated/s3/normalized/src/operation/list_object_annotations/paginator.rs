@@ -86,16 +86,12 @@ impl ListObjectAnnotationsPaginator {
                         }
                     };
                     loop {
-                        let resp = super::super::super::operation::list_object_annotations::ListObjectAnnotations::orchestrate(
-                            &runtime_plugins,
-                            input.clone(),
-                        )
-                        .await;
+                        let resp =
+                            super::super::super::operation::list_object_annotations::ListObjectAnnotations::orchestrate(&runtime_plugins, input.clone()).await;
                         // If the input member is None or it was an error
                         let done = match resp {
                             ::std::result::Result::Ok(ref resp) => {
-                                let new_token =
-                                    super::super::super::lens::reflens_list_object_annotations_output_output_next_continuation_token(resp);
+                                let new_token = super::super::super::lens::reflens_list_object_annotations_output_output_next_continuation_token(resp);
                                 // Pagination is exhausted when the next token is an empty string
                                 let is_empty = new_token.map(|token| token.is_empty()).unwrap_or(true);
                                 if !is_empty && new_token == input.continuation_token.as_ref() && self.stop_on_duplicate_token {

@@ -44,10 +44,8 @@ impl GetJobQueueSnapshotInputBuilder {
     /// Consumes the builder and constructs a [`GetJobQueueSnapshotInput`](crate::operation::get_job_queue_snapshot::GetJobQueueSnapshotInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_job_queue_snapshot::GetJobQueueSnapshotInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_job_queue_snapshot::GetJobQueueSnapshotInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_job_queue_snapshot::GetJobQueueSnapshotInput { job_queue: self.job_queue })
     }
 }

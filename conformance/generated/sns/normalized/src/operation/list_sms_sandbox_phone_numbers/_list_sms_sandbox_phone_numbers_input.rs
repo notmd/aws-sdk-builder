@@ -68,11 +68,9 @@ impl ListSmsSandboxPhoneNumbersInputBuilder {
         super::super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersInput {
-                next_token: self.next_token,
-                max_results: self.max_results,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersInput {
+            next_token: self.next_token,
+            max_results: self.max_results,
+        })
     }
 }

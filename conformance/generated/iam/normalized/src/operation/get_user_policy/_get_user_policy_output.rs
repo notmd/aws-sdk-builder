@@ -117,8 +117,7 @@ impl GetUserPolicyOutputBuilder {
     /// - [`policy_document`](crate::operation::get_user_policy::builders::GetUserPolicyOutputBuilder::policy_document)
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::get_user_policy::GetUserPolicyOutput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::get_user_policy::GetUserPolicyOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_user_policy::GetUserPolicyOutput {
             user_name: self.user_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

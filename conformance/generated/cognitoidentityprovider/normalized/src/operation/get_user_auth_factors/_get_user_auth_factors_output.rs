@@ -135,10 +135,7 @@ impl GetUserAuthFactorsOutputBuilder {
     }
     /// <p>The authentication types that are available to the user with <code>USER_AUTH</code> sign-in, for example <code>\["PASSWORD", "WEB_AUTHN"\]</code>.</p>
     /// <p><code>PASSWORD</code> can only be used as a first authentication factor. <code>SOFTWARE_TOKEN</code> can only be used as an MFA factor. <code>EMAIL_OTP</code>, <code>SMS_OTP</code>, and <code>WEB_AUTHN</code> can be used as either a first authentication factor or an MFA factor. <code>WEB_AUTHN</code> is available as an MFA factor only when passkey MFA is enabled at the user pool level.</p>
-    pub fn set_configured_user_auth_factors(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AuthFactorType>>,
-    ) -> Self {
+    pub fn set_configured_user_auth_factors(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AuthFactorType>>) -> Self {
         self.configured_user_auth_factors = input;
         self
     }
@@ -161,10 +158,8 @@ impl GetUserAuthFactorsOutputBuilder {
     /// - [`username`](crate::operation::get_user_auth_factors::builders::GetUserAuthFactorsOutputBuilder::username)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_user_auth_factors::GetUserAuthFactorsOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_user_auth_factors::GetUserAuthFactorsOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_user_auth_factors::GetUserAuthFactorsOutput {
             username: self.username.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

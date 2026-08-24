@@ -69,10 +69,7 @@ impl MetadataConfigurationResultBuilder {
         self
     }
     /// <p>The journal table configuration for a metadata configuration.</p>
-    pub fn set_journal_table_configuration_result(
-        mut self,
-        input: ::std::option::Option<super::super::types::JournalTableConfigurationResult>,
-    ) -> Self {
+    pub fn set_journal_table_configuration_result(mut self, input: ::std::option::Option<super::super::types::JournalTableConfigurationResult>) -> Self {
         self.journal_table_configuration_result = input;
         self
     }
@@ -86,10 +83,7 @@ impl MetadataConfigurationResultBuilder {
         self
     }
     /// <p>The inventory table configuration for a metadata configuration.</p>
-    pub fn set_inventory_table_configuration_result(
-        mut self,
-        input: ::std::option::Option<super::super::types::InventoryTableConfigurationResult>,
-    ) -> Self {
+    pub fn set_inventory_table_configuration_result(mut self, input: ::std::option::Option<super::super::types::InventoryTableConfigurationResult>) -> Self {
         self.inventory_table_configuration_result = input;
         self
     }

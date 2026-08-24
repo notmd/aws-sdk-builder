@@ -74,11 +74,9 @@ impl GetObjectLockConfigurationInputBuilder {
         super::super::super::operation::get_object_lock_configuration::GetObjectLockConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_object_lock_configuration::GetObjectLockConfigurationInput {
-                bucket: self.bucket,
-                expected_bucket_owner: self.expected_bucket_owner,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_object_lock_configuration::GetObjectLockConfigurationInput {
+            bucket: self.bucket,
+            expected_bucket_owner: self.expected_bucket_owner,
+        })
     }
 }

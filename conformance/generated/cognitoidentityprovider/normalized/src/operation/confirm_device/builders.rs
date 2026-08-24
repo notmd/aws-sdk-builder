@@ -145,10 +145,7 @@ impl ConfirmDeviceFluentBuilder {
         self
     }
     /// <p>The configuration of the device secret verifier.</p>
-    pub fn set_device_secret_verifier_config(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::DeviceSecretVerifierConfigType>,
-    ) -> Self {
+    pub fn set_device_secret_verifier_config(mut self, input: ::std::option::Option<super::super::super::types::DeviceSecretVerifierConfigType>) -> Self {
         self.inner = self.inner.set_device_secret_verifier_config(input);
         self
     }

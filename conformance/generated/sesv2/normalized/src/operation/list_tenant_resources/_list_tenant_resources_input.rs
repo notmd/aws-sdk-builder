@@ -19,9 +19,7 @@ impl ListTenantResourcesInput {
         self.tenant_name.as_deref()
     }
     /// <p>A map of filter keys and values for filtering the list of tenant resources. Currently, the only supported filter key is <code>RESOURCE_TYPE</code>.</p>
-    pub fn filter(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::ListTenantResourcesFilterKey, ::std::string::String>> {
+    pub fn filter(&self) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::ListTenantResourcesFilterKey, ::std::string::String>> {
         self.filter.as_ref()
     }
     /// <p>The number of results to show in a single call to <code>ListTenantResources</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
@@ -45,8 +43,7 @@ impl ListTenantResourcesInput {
 #[non_exhaustive]
 pub struct ListTenantResourcesInputBuilder {
     pub(crate) tenant_name: ::std::option::Option<::std::string::String>,
-    pub(crate) filter:
-        ::std::option::Option<::std::collections::HashMap<super::super::super::types::ListTenantResourcesFilterKey, ::std::string::String>>,
+    pub(crate) filter: ::std::option::Option<::std::collections::HashMap<super::super::super::types::ListTenantResourcesFilterKey, ::std::string::String>>,
     pub(crate) page_size: ::std::option::Option<i32>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
 }
@@ -71,11 +68,7 @@ impl ListTenantResourcesInputBuilder {
     /// To override the contents of this collection use [`set_filter`](Self::set_filter).
     ///
     /// <p>A map of filter keys and values for filtering the list of tenant resources. Currently, the only supported filter key is <code>RESOURCE_TYPE</code>.</p>
-    pub fn filter(
-        mut self,
-        k: super::super::super::types::ListTenantResourcesFilterKey,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn filter(mut self, k: super::super::super::types::ListTenantResourcesFilterKey, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.filter.unwrap_or_default();
         hash_map.insert(k, v.into());
         self.filter = ::std::option::Option::Some(hash_map);
@@ -126,10 +119,8 @@ impl ListTenantResourcesInputBuilder {
     /// Consumes the builder and constructs a [`ListTenantResourcesInput`](crate::operation::list_tenant_resources::ListTenantResourcesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_tenant_resources::ListTenantResourcesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_tenant_resources::ListTenantResourcesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_tenant_resources::ListTenantResourcesInput {
             tenant_name: self.tenant_name,
             filter: self.filter,

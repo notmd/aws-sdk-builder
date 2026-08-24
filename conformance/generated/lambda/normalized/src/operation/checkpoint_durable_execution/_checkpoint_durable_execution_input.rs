@@ -120,13 +120,11 @@ impl CheckpointDurableExecutionInputBuilder {
         super::super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionInput {
-                durable_execution_arn: self.durable_execution_arn,
-                checkpoint_token: self.checkpoint_token,
-                updates: self.updates,
-                client_token: self.client_token,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionInput {
+            durable_execution_arn: self.durable_execution_arn,
+            checkpoint_token: self.checkpoint_token,
+            updates: self.updates,
+            client_token: self.client_token,
+        })
     }
 }

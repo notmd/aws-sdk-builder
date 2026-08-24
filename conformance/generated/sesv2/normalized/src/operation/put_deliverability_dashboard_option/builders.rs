@@ -58,9 +58,7 @@ impl PutDeliverabilityDashboardOptionFluentBuilder {
         }
     }
     /// Access the PutDeliverabilityDashboardOption as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,14 +82,12 @@ impl PutDeliverabilityDashboardOptionFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOption::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        super::super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOption::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = super::super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOption::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        super::super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOption::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -138,10 +134,7 @@ impl PutDeliverabilityDashboardOptionFluentBuilder {
         self
     }
     /// <p>An array of objects, one for each verified domain that you use to send email and enabled the Deliverability dashboard for.</p>
-    pub fn set_subscribed_domains(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>>,
-    ) -> Self {
+    pub fn set_subscribed_domains(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>>) -> Self {
         self.inner = self.inner.set_subscribed_domains(input);
         self
     }

@@ -55,10 +55,7 @@ impl DescribeComplianceByConfigRuleOutputBuilder {
         self
     }
     /// <p>Indicates whether each of the specified Config rules is compliant.</p>
-    pub fn set_compliance_by_config_rules(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComplianceByConfigRule>>,
-    ) -> Self {
+    pub fn set_compliance_by_config_rules(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComplianceByConfigRule>>) -> Self {
         self.compliance_by_config_rules = input;
         self
     }

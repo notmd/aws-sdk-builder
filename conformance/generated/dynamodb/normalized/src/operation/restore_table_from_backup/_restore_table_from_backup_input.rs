@@ -144,10 +144,7 @@ impl RestoreTableFromBackupInputBuilder {
         self
     }
     /// <p>List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
-    pub fn set_global_secondary_index_override(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>,
-    ) -> Self {
+    pub fn set_global_secondary_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>) -> Self {
         self.global_secondary_index_override = input;
         self
     }
@@ -167,10 +164,7 @@ impl RestoreTableFromBackupInputBuilder {
         self
     }
     /// <p>List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
-    pub fn set_local_secondary_index_override(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>,
-    ) -> Self {
+    pub fn set_local_secondary_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>) -> Self {
         self.local_secondary_index_override = input;
         self
     }

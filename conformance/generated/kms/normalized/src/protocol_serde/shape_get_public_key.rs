@@ -22,11 +22,8 @@ pub fn de_get_public_key_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::get_public_key::GetPublicKeyError::unhandled)?;
+                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_public_key::GetPublicKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -70,11 +67,9 @@ pub fn de_get_public_key_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::get_public_key::GetPublicKeyError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::get_public_key::GetPublicKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -88,9 +83,8 @@ pub fn de_get_public_key_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidKeyUsageExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_public_key::GetPublicKeyError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_public_key::GetPublicKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -134,9 +128,8 @@ pub fn de_get_public_key_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_public_key::GetPublicKeyError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_public_key::GetPublicKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -165,11 +158,9 @@ pub fn de_get_public_key_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UnsupportedOperationExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::get_public_key::GetPublicKeyError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::get_public_key::GetPublicKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -257,11 +248,7 @@ pub(crate) fn de_get_public_key(
                 }
                 "EncryptionAlgorithms" => {
                     builder = builder.set_encryption_algorithms(
-                        super::super::protocol_serde::shape_encryption_algorithm_spec_list::de_encryption_algorithm_spec_list(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_encryption_algorithm_spec_list::de_encryption_algorithm_spec_list(tokens, _value, depth + 1)?,
                     );
                 }
                 "SigningAlgorithms" => {

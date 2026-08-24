@@ -14,8 +14,6 @@ impl super::Client {
     pub fn list_sources_for_s3_table_integration(
         &self,
     ) -> super::super::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationFluentBuilder {
-        super::super::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationFluentBuilder::new(self.handle.clone())
     }
 }

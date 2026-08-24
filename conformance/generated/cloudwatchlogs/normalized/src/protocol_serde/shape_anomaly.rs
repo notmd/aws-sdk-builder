@@ -98,11 +98,7 @@ where
                             builder = builder.set_histogram(super::super::protocol_serde::shape_histogram::de_histogram(tokens, _value, depth + 1)?);
                         }
                         "logSamples" => {
-                            builder = builder.set_log_samples(super::super::protocol_serde::shape_log_samples::de_log_samples(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_log_samples(super::super::protocol_serde::shape_log_samples::de_log_samples(tokens, _value, depth + 1)?);
                         }
                         "patternTokens" => {
                             builder = builder.set_pattern_tokens(super::super::protocol_serde::shape_pattern_tokens::de_pattern_tokens(
@@ -148,9 +144,9 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::anomaly_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::anomaly_correct_errors(builder).build().map_err(|err| {
+                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
+            })?))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

@@ -28,8 +28,10 @@ impl ::aws_types::request_id::RequestId for DescribeOrganizationConformancePackS
 }
 impl DescribeOrganizationConformancePackStatusesOutput {
     /// Creates a new builder-style object to manufacture [`DescribeOrganizationConformancePackStatusesOutput`](crate::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatusesOutput).
-    pub fn builder() -> super::super::super::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesOutputBuilder{
-        super::super::super::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesOutputBuilder::default()
+    pub fn builder(
+    ) -> super::super::super::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesOutputBuilder {
+        super::super::super::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesOutputBuilder::default(
+        )
     }
 }
 
@@ -37,8 +39,7 @@ impl DescribeOrganizationConformancePackStatusesOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeOrganizationConformancePackStatusesOutputBuilder {
-    pub(crate) organization_conformance_pack_statuses:
-        ::std::option::Option<::std::vec::Vec<super::super::super::types::OrganizationConformancePackStatus>>,
+    pub(crate) organization_conformance_pack_statuses: ::std::option::Option<::std::vec::Vec<super::super::super::types::OrganizationConformancePackStatus>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -92,9 +93,7 @@ impl DescribeOrganizationConformancePackStatusesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeOrganizationConformancePackStatusesOutput`](crate::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatusesOutput).
-    pub fn build(
-        self,
-    ) -> super::super::super::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatusesOutput {
+    pub fn build(self) -> super::super::super::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatusesOutput {
         super::super::super::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatusesOutput {
             organization_conformance_pack_statuses: self.organization_conformance_pack_statuses,
             next_token: self.next_token,

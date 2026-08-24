@@ -18,6 +18,8 @@ impl super::Client {
         &self,
     ) -> super::super::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryFluentBuilder
     {
-        super::super::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryFluentBuilder::new(self.handle.clone())
+        super::super::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

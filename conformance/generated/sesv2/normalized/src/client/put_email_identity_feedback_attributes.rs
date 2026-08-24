@@ -10,8 +10,6 @@ impl super::Client {
     pub fn put_email_identity_feedback_attributes(
         &self,
     ) -> super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesFluentBuilder {
-        super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesFluentBuilder::new(self.handle.clone())
     }
 }

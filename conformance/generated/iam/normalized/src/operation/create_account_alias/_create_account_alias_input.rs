@@ -49,10 +49,8 @@ impl CreateAccountAliasInputBuilder {
     /// Consumes the builder and constructs a [`CreateAccountAliasInput`](crate::operation::create_account_alias::CreateAccountAliasInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::create_account_alias::CreateAccountAliasInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::create_account_alias::CreateAccountAliasInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::create_account_alias::CreateAccountAliasInput {
             account_alias: self.account_alias,
         })

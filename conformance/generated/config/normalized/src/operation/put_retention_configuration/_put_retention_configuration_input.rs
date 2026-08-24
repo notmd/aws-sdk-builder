@@ -58,10 +58,8 @@ impl PutRetentionConfigurationInputBuilder {
         super::super::super::operation::put_retention_configuration::PutRetentionConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_retention_configuration::PutRetentionConfigurationInput {
-                retention_period_in_days: self.retention_period_in_days,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_retention_configuration::PutRetentionConfigurationInput {
+            retention_period_in_days: self.retention_period_in_days,
+        })
     }
 }

@@ -15,71 +15,85 @@ pub fn de_put_dedicated_ip_pool_scaling_attributes_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(
-                super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::unhandled(generic),
-            )
-        }
+        None => return Err(super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "BadRequestException" => super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::BadRequestException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "BadRequestException" => {
+            super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::BadRequestException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ConcurrentModificationException" => super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::ConcurrentModificationException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ConcurrentModificationException" => {
+            super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::ConcurrentModificationException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(_response_body, output).map_err(super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "NotFoundException" => super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::NotFoundException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "NotFoundException" => {
+            super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::NotFoundException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "TooManyRequestsException" => super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::TooManyRequestsException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "TooManyRequestsException" => {
+            super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::TooManyRequestsException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(
+                                super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::unhandled,
+                            )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::generic(generic),
     })
 }

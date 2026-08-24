@@ -39,10 +39,7 @@ impl DescribeTableReplicaAutoScalingOutputBuilder {
         self
     }
     /// <p>Represents the auto scaling properties of the table.</p>
-    pub fn set_table_auto_scaling_description(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::TableAutoScalingDescription>,
-    ) -> Self {
+    pub fn set_table_auto_scaling_description(mut self, input: ::std::option::Option<super::super::super::types::TableAutoScalingDescription>) -> Self {
         self.table_auto_scaling_description = input;
         self
     }

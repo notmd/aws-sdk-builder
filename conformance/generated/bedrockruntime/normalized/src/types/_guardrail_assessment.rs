@@ -158,10 +158,7 @@ impl GuardrailAssessmentBuilder {
         self
     }
     /// <p>The automated reasoning policy assessment results, including logical validation findings for the input content.</p>
-    pub fn set_automated_reasoning_policy(
-        mut self,
-        input: ::std::option::Option<super::super::types::GuardrailAutomatedReasoningPolicyAssessment>,
-    ) -> Self {
+    pub fn set_automated_reasoning_policy(mut self, input: ::std::option::Option<super::super::types::GuardrailAutomatedReasoningPolicyAssessment>) -> Self {
         self.automated_reasoning_policy = input;
         self
     }

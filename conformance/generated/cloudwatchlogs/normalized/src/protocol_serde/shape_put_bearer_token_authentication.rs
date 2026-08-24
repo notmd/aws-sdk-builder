@@ -20,34 +20,30 @@ pub fn de_put_bearer_token_authentication_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AccessDeniedException" => {
-            super::super::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationError::AccessDeniedException({
+        "AccessDeniedException" => super::super::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationError::AccessDeniedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidOperationException" => {
             super::super::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationError::InvalidOperationException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidOperationExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_operation_exception::de_invalid_operation_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_operation_exception::de_invalid_operation_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -63,11 +59,9 @@ pub fn de_put_bearer_token_authentication_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -83,11 +77,9 @@ pub fn de_put_bearer_token_authentication_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::OperationAbortedExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -103,11 +95,9 @@ pub fn de_put_bearer_token_authentication_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -123,11 +113,9 @@ pub fn de_put_bearer_token_authentication_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };

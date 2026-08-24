@@ -287,17 +287,15 @@ impl AssumeRoleWithWebIdentityInputBuilder {
         super::super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityInput {
-                role_arn: self.role_arn,
-                role_session_name: self.role_session_name,
-                web_identity_token: self.web_identity_token,
-                provider_id: self.provider_id,
-                policy_arns: self.policy_arns,
-                policy: self.policy,
-                duration_seconds: self.duration_seconds,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityInput {
+            role_arn: self.role_arn,
+            role_session_name: self.role_session_name,
+            web_identity_token: self.web_identity_token,
+            provider_id: self.provider_id,
+            policy_arns: self.policy_arns,
+            policy: self.policy,
+            duration_seconds: self.duration_seconds,
+        })
     }
 }
 impl ::std::fmt::Debug for AssumeRoleWithWebIdentityInputBuilder {

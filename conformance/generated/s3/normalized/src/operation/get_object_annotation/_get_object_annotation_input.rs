@@ -187,10 +187,8 @@ impl GetObjectAnnotationInputBuilder {
     /// Consumes the builder and constructs a [`GetObjectAnnotationInput`](crate::operation::get_object_annotation::GetObjectAnnotationInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_object_annotation::GetObjectAnnotationInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_object_annotation::GetObjectAnnotationInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_object_annotation::GetObjectAnnotationInput {
             bucket: self.bucket,
             key: self.key,

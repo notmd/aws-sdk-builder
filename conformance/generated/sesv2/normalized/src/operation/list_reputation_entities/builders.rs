@@ -134,9 +134,7 @@ impl ListReputationEntitiesFluentBuilder {
         self
     }
     /// <p>An object that contains filters to apply when listing reputation entities. You can filter by entity type, reputation impact, sending status, or entity reference prefix.</p>
-    pub fn get_filter(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::ReputationEntityFilterKey, ::std::string::String>> {
+    pub fn get_filter(&self) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::ReputationEntityFilterKey, ::std::string::String>> {
         self.inner.get_filter()
     }
     /// <p>A token returned from a previous call to <code>ListReputationEntities</code> to indicate the position in the list of reputation entities.</p>

@@ -127,8 +127,7 @@ impl DescribeQueriesInputBuilder {
     /// Consumes the builder and constructs a [`DescribeQueriesInput`](crate::operation::describe_queries::DescribeQueriesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::describe_queries::DescribeQueriesInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::describe_queries::DescribeQueriesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::describe_queries::DescribeQueriesInput {
             log_group_name: self.log_group_name,
             status: self.status,

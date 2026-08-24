@@ -4,8 +4,7 @@ pub fn de_get_transformer_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::get_transformer::GetTransformerOutput, super::super::operation::get_transformer::GetTransformerError>
-{
+) -> std::result::Result<super::super::operation::get_transformer::GetTransformerOutput, super::super::operation::get_transformer::GetTransformerError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::get_transformer::GetTransformerError::unhandled)?;
@@ -23,9 +22,8 @@ pub fn de_get_transformer_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidOperationExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_operation_exception::de_invalid_operation_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_transformer::GetTransformerError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_operation_exception::de_invalid_operation_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_transformer::GetTransformerError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -39,9 +37,8 @@ pub fn de_get_transformer_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_transformer::GetTransformerError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_transformer::GetTransformerError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -55,11 +52,8 @@ pub fn de_get_transformer_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::get_transformer::GetTransformerError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_transformer::GetTransformerError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -73,11 +67,9 @@ pub fn de_get_transformer_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::get_transformer::GetTransformerError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::get_transformer::GetTransformerError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -95,8 +87,7 @@ pub fn de_get_transformer_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::get_transformer::GetTransformerOutput, super::super::operation::get_transformer::GetTransformerError>
-{
+) -> std::result::Result<super::super::operation::get_transformer::GetTransformerOutput, super::super::operation::get_transformer::GetTransformerError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::get_transformer::builders::GetTransformerOutputBuilder::default();
@@ -155,8 +146,7 @@ pub(crate) fn de_get_transformer(
                     );
                 }
                 "transformerConfig" => {
-                    builder =
-                        builder.set_transformer_config(super::super::protocol_serde::shape_processors::de_processors(tokens, _value, depth + 1)?);
+                    builder = builder.set_transformer_config(super::super::protocol_serde::shape_processors::de_processors(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

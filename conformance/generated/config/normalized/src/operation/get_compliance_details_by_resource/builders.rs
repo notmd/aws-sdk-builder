@@ -57,9 +57,7 @@ impl GetComplianceDetailsByResourceFluentBuilder {
         }
     }
     /// Access the GetComplianceDetailsByResource as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::get_compliance_details_by_resource::builders::GetComplianceDetailsByResourceInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::get_compliance_details_by_resource::builders::GetComplianceDetailsByResourceInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,12 +81,11 @@ impl GetComplianceDetailsByResourceFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::get_compliance_details_by_resource::GetComplianceDetailsByResource::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = super::super::super::operation::get_compliance_details_by_resource::GetComplianceDetailsByResource::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         super::super::super::operation::get_compliance_details_by_resource::GetComplianceDetailsByResource::orchestrate(&runtime_plugins, input).await
     }
 
@@ -114,13 +111,8 @@ impl GetComplianceDetailsByResourceFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::get_compliance_details_by_resource::paginator::GetComplianceDetailsByResourcePaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> super::super::super::operation::get_compliance_details_by_resource::paginator::GetComplianceDetailsByResourcePaginator {
-        super::super::super::operation::get_compliance_details_by_resource::paginator::GetComplianceDetailsByResourcePaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> super::super::super::operation::get_compliance_details_by_resource::paginator::GetComplianceDetailsByResourcePaginator {
+        super::super::super::operation::get_compliance_details_by_resource::paginator::GetComplianceDetailsByResourcePaginator::new(self.handle, self.inner)
     }
     /// <p>The type of the Amazon Web Services resource for which you want compliance information.</p>
     pub fn resource_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

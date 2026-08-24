@@ -8,10 +8,7 @@ pub struct ScanPaginator {
 
 impl ScanPaginator {
     /// Create a new paginator-wrapper
-    pub(crate) fn new(
-        handle: std::sync::Arc<super::super::super::client::Handle>,
-        builder: super::super::super::operation::scan::builders::ScanInputBuilder,
-    ) -> Self {
+    pub(crate) fn new(handle: std::sync::Arc<super::super::super::client::Handle>, builder: super::super::super::operation::scan::builders::ScanInputBuilder) -> Self {
         Self {
             handle,
             builder,
@@ -65,12 +62,9 @@ impl ScanPaginator {
         // Move individual fields out of self for the borrow checker
         let builder = self.builder;
         let handle = self.handle;
-        let runtime_plugins = super::super::super::operation::scan::Scan::operation_runtime_plugins(
-            handle.runtime_plugins.clone(),
-            &handle.conf,
-            ::std::option::Option::None,
-        )
-        .with_operation_plugin(super::super::super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
+        let runtime_plugins =
+            super::super::super::operation::scan::Scan::operation_runtime_plugins(handle.runtime_plugins.clone(), &handle.conf, ::std::option::Option::None)
+                .with_operation_plugin(super::super::super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
         ::aws_smithy_async::future::pagination_stream::PaginationStream::new(::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(
             move |tx| {
                 ::std::boxed::Box::pin(async move {
@@ -139,10 +133,7 @@ impl ScanPaginatorItems {
             >,
         >,
     > {
-        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
-            super::super::super::lens::lens_scan_output_output_items(page)
-                .unwrap_or_default()
-                .into_iter()
-        })
+        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send())
+            .flat_map(|page| super::super::super::lens::lens_scan_output_output_items(page).unwrap_or_default().into_iter())
     }
 }

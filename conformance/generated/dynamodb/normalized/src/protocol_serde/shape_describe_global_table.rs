@@ -15,11 +15,7 @@ pub fn de_describe_global_table_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::describe_global_table::DescribeGlobalTableError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::describe_global_table::DescribeGlobalTableError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -62,9 +58,8 @@ pub fn de_describe_global_table_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::describe_global_table::DescribeGlobalTableError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::describe_global_table::DescribeGlobalTableError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

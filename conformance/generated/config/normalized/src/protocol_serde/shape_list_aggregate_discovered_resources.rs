@@ -20,54 +20,64 @@ pub fn de_list_aggregate_discovered_resources_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidLimitException" => super::super::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError::InvalidLimitException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "InvalidLimitException" => {
+            super::super::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError::InvalidLimitException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InvalidLimitExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output).map_err(super::super::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidNextTokenException" => super::super::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError::InvalidNextTokenException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InvalidLimitExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidNextTokenException" => {
+            super::super::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError::InvalidNextTokenException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output).map_err(super::super::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "NoSuchConfigurationAggregatorException" => super::super::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError::NoSuchConfigurationAggregatorException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "NoSuchConfigurationAggregatorException" => {
+            super::super::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError::NoSuchConfigurationAggregatorException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::NoSuchConfigurationAggregatorExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_no_such_configuration_aggregator_exception::de_no_such_configuration_aggregator_exception_json_err(_response_body, output).map_err(super::super::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::NoSuchConfigurationAggregatorExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_no_such_configuration_aggregator_exception::de_no_such_configuration_aggregator_exception_json_err(_response_body, output).map_err(super::super::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "ValidationException" => super::super::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError::ValidationException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError::unhandled)?;
+                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -91,11 +101,9 @@ pub fn de_list_aggregate_discovered_resources_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::list_aggregate_discovered_resources::builders::ListAggregateDiscoveredResourcesOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_list_aggregate_discovered_resources::de_list_aggregate_discovered_resources(_response_body, output)
-                .map_err(super::super::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError::unhandled)?;
+        let mut output = super::super::operation::list_aggregate_discovered_resources::builders::ListAggregateDiscoveredResourcesOutputBuilder::default();
+        output = super::super::protocol_serde::shape_list_aggregate_discovered_resources::de_list_aggregate_discovered_resources(_response_body, output)
+            .map_err(super::super::operation::list_aggregate_discovered_resources::ListAggregateDiscoveredResourcesError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -106,10 +114,7 @@ pub fn ser_list_aggregate_discovered_resources_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_aggregate_discovered_resources_input::ser_list_aggregate_discovered_resources_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_list_aggregate_discovered_resources_input::ser_list_aggregate_discovered_resources_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

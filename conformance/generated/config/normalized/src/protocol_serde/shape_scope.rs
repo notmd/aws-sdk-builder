@@ -54,46 +54,42 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "ComplianceResourceTypes" => {
-                                builder = builder.set_compliance_resource_types(
-                                    super::super::protocol_serde::shape_compliance_resource_types::de_compliance_resource_types(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
-                                );
-                            }
-                            "TagKey" => {
-                                builder = builder.set_tag_key(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                        .transpose()?,
-                                );
-                            }
-                            "TagValue" => {
-                                builder = builder.set_tag_value(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                        .transpose()?,
-                                );
-                            }
-                            "ComplianceResourceId" => {
-                                builder = builder.set_compliance_resource_id(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                        .transpose()?,
-                                );
-                            }
-                            "ServicePrincipals" => {
-                                builder = builder.set_service_principals(
-                                    super::super::protocol_serde::shape_service_principals::de_service_principals(tokens, _value, depth + 1)?,
-                                );
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "ComplianceResourceTypes" => {
+                            builder = builder.set_compliance_resource_types(
+                                super::super::protocol_serde::shape_compliance_resource_types::de_compliance_resource_types(tokens, _value, depth + 1)?,
+                            );
                         }
-                    }
+                        "TagKey" => {
+                            builder = builder.set_tag_key(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "TagValue" => {
+                            builder = builder.set_tag_value(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "ComplianceResourceId" => {
+                            builder = builder.set_compliance_resource_id(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "ServicePrincipals" => {
+                            builder = builder.set_service_principals(super::super::protocol_serde::shape_service_principals::de_service_principals(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

@@ -51,11 +51,7 @@ where
                         }
                         "RoutingConfig" => {
                             builder = builder.set_routing_config(
-                                super::super::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_alias_routing_configuration::de_alias_routing_configuration(tokens, _value, depth + 1)?,
                             );
                         }
                         "RevisionId" => {

@@ -98,10 +98,7 @@ impl SetUserPoolMfaConfigInputBuilder {
         self
     }
     /// <p>Configures a user pool for time-based one-time password (TOTP) MFA. Enables or disables TOTP.</p>
-    pub fn set_software_token_mfa_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::SoftwareTokenMfaConfigType>,
-    ) -> Self {
+    pub fn set_software_token_mfa_configuration(mut self, input: ::std::option::Option<super::super::super::types::SoftwareTokenMfaConfigType>) -> Self {
         self.software_token_mfa_configuration = input;
         self
     }
@@ -157,10 +154,8 @@ impl SetUserPoolMfaConfigInputBuilder {
     /// Consumes the builder and constructs a [`SetUserPoolMfaConfigInput`](crate::operation::set_user_pool_mfa_config::SetUserPoolMfaConfigInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::set_user_pool_mfa_config::SetUserPoolMfaConfigInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::set_user_pool_mfa_config::SetUserPoolMfaConfigInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::set_user_pool_mfa_config::SetUserPoolMfaConfigInput {
             user_pool_id: self.user_pool_id,
             sms_mfa_configuration: self.sms_mfa_configuration,

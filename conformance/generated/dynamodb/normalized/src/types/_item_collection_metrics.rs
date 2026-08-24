@@ -12,9 +12,7 @@ pub struct ItemCollectionMetrics {
 }
 impl ItemCollectionMetrics {
     /// <p>The partition key value of the item collection. This value is the same as the partition key value of the item.</p>
-    pub fn item_collection_key(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::types::AttributeValue>> {
+    pub fn item_collection_key(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::types::AttributeValue>> {
         self.item_collection_key.as_ref()
     }
     /// <p>An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>

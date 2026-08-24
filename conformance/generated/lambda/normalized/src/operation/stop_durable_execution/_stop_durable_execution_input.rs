@@ -65,10 +65,8 @@ impl StopDurableExecutionInputBuilder {
     /// Consumes the builder and constructs a [`StopDurableExecutionInput`](crate::operation::stop_durable_execution::StopDurableExecutionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::stop_durable_execution::StopDurableExecutionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::stop_durable_execution::StopDurableExecutionInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::stop_durable_execution::StopDurableExecutionInput {
             durable_execution_arn: self.durable_execution_arn,
             error: self.error,

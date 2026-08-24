@@ -22,11 +22,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "usage" => {
-                            builder = builder.set_usage(super::super::protocol_serde::shape_token_usage::de_token_usage(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_usage(super::super::protocol_serde::shape_token_usage::de_token_usage(tokens, _value, depth + 1)?);
                         }
                         "metrics" => {
                             builder = builder.set_metrics(super::super::protocol_serde::shape_converse_stream_metrics::de_converse_stream_metrics(
@@ -44,19 +40,12 @@ where
                         }
                         "performanceConfig" => {
                             builder = builder.set_performance_config(
-                                super::super::protocol_serde::shape_performance_configuration::de_performance_configuration(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_performance_configuration::de_performance_configuration(tokens, _value, depth + 1)?,
                             );
                         }
                         "serviceTier" => {
-                            builder = builder.set_service_tier(super::super::protocol_serde::shape_service_tier::de_service_tier(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_service_tier(super::super::protocol_serde::shape_service_tier::de_service_tier(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
@@ -67,9 +56,7 @@ where
                     }
                 }
             }
-            Ok(Some(
-                super::super::serde_util::converse_stream_metadata_event_correct_errors(builder).build(),
-            ))
+            Ok(Some(super::super::serde_util::converse_stream_metadata_event_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

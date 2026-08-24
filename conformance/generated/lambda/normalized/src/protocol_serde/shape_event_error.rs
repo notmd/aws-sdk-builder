@@ -22,11 +22,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "Payload" => {
-                            builder = builder.set_payload(super::super::protocol_serde::shape_error_object::de_error_object(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_payload(super::super::protocol_serde::shape_error_object::de_error_object(tokens, _value, depth + 1)?);
                         }
                         "Truncated" => {
                             builder = builder.set_truncated(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);

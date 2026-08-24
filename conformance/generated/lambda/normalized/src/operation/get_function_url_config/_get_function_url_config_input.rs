@@ -115,10 +115,8 @@ impl GetFunctionUrlConfigInputBuilder {
     /// Consumes the builder and constructs a [`GetFunctionUrlConfigInput`](crate::operation::get_function_url_config::GetFunctionUrlConfigInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_function_url_config::GetFunctionUrlConfigInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_function_url_config::GetFunctionUrlConfigInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_function_url_config::GetFunctionUrlConfigInput {
             function_name: self.function_name,
             qualifier: self.qualifier,

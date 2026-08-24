@@ -38,9 +38,7 @@ impl CreateBucketMetadataTableConfigurationInput {
 }
 impl CreateBucketMetadataTableConfigurationInput {
     /// Creates a new builder-style object to manufacture [`CreateBucketMetadataTableConfigurationInput`](crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationInput).
-    pub fn builder(
-    ) -> super::super::super::operation::create_bucket_metadata_table_configuration::builders::CreateBucketMetadataTableConfigurationInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::create_bucket_metadata_table_configuration::builders::CreateBucketMetadataTableConfigurationInputBuilder {
         super::super::super::operation::create_bucket_metadata_table_configuration::builders::CreateBucketMetadataTableConfigurationInputBuilder::default()
     }
 }

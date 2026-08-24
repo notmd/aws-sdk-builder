@@ -33,8 +33,7 @@ impl PutConfigurationSetDeliveryOptionsInput {
 }
 impl PutConfigurationSetDeliveryOptionsInput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetDeliveryOptionsInput`](crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsInput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsInputBuilder {
+    pub fn builder() -> super::super::super::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsInputBuilder {
         super::super::super::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsInputBuilder::default()
     }
 }

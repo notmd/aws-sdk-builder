@@ -196,8 +196,7 @@ impl RestoreObjectInputBuilder {
     /// Consumes the builder and constructs a [`RestoreObjectInput`](crate::operation::restore_object::RestoreObjectInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::restore_object::RestoreObjectInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::restore_object::RestoreObjectInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::restore_object::RestoreObjectInput {
             bucket: self.bucket,
             key: self.key,

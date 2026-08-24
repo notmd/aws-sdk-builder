@@ -49,8 +49,7 @@ impl ::aws_types::request_id::RequestId for GetDeliverabilityDashboardOptionsOut
 }
 impl GetDeliverabilityDashboardOptionsOutput {
     /// Creates a new builder-style object to manufacture [`GetDeliverabilityDashboardOptionsOutput`](crate::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsOutput).
-    pub fn builder() -> super::super::super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder {
         super::super::super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder::default()
     }
 }
@@ -63,8 +62,7 @@ pub struct GetDeliverabilityDashboardOptionsOutputBuilder {
     pub(crate) subscription_expiry_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) account_status: ::std::option::Option<super::super::super::types::DeliverabilityDashboardAccountStatus>,
     pub(crate) active_subscribed_domains: ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>>,
-    pub(crate) pending_expiration_subscribed_domains:
-        ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>>,
+    pub(crate) pending_expiration_subscribed_domains: ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>>,
     _request_id: Option<String>,
 }
 impl GetDeliverabilityDashboardOptionsOutputBuilder {
@@ -131,9 +129,7 @@ impl GetDeliverabilityDashboardOptionsOutputBuilder {
         self
     }
     /// <p>An array of objects, one for each verified domain that you use to send email and currently has an active Deliverability dashboard subscription that isn’t scheduled to expire at the end of the current calendar month.</p>
-    pub fn get_active_subscribed_domains(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>> {
+    pub fn get_active_subscribed_domains(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>> {
         &self.active_subscribed_domains
     }
     /// Appends an item to `pending_expiration_subscribed_domains`.

@@ -131,10 +131,7 @@ impl PutRemediationConfigurationsFluentBuilder {
         self
     }
     /// <p>A list of remediation configuration objects.</p>
-    pub fn set_remediation_configurations(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationConfiguration>>,
-    ) -> Self {
+    pub fn set_remediation_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationConfiguration>>) -> Self {
         self.inner = self.inner.set_remediation_configurations(input);
         self
     }

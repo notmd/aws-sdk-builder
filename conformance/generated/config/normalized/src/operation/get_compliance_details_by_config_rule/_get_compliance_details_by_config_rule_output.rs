@@ -29,8 +29,7 @@ impl ::aws_types::request_id::RequestId for GetComplianceDetailsByConfigRuleOutp
 }
 impl GetComplianceDetailsByConfigRuleOutput {
     /// Creates a new builder-style object to manufacture [`GetComplianceDetailsByConfigRuleOutput`](crate::operation::get_compliance_details_by_config_rule::GetComplianceDetailsByConfigRuleOutput).
-    pub fn builder() -> super::super::super::operation::get_compliance_details_by_config_rule::builders::GetComplianceDetailsByConfigRuleOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::get_compliance_details_by_config_rule::builders::GetComplianceDetailsByConfigRuleOutputBuilder {
         super::super::super::operation::get_compliance_details_by_config_rule::builders::GetComplianceDetailsByConfigRuleOutputBuilder::default()
     }
 }

@@ -96,10 +96,7 @@ impl ListGroupPoliciesInputBuilder {
     /// Consumes the builder and constructs a [`ListGroupPoliciesInput`](crate::operation::list_group_policies::ListGroupPoliciesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_group_policies::ListGroupPoliciesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_group_policies::ListGroupPoliciesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_group_policies::ListGroupPoliciesInput {
             group_name: self.group_name,
             marker: self.marker,

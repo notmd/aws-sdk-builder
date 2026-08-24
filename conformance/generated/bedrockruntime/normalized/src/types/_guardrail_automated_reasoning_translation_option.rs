@@ -41,10 +41,7 @@ impl GuardrailAutomatedReasoningTranslationOptionBuilder {
         self
     }
     /// <p>Example translations that provide this possible interpretation of the input.</p>
-    pub fn set_translations(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningTranslation>>,
-    ) -> Self {
+    pub fn set_translations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningTranslation>>) -> Self {
         self.translations = input;
         self
     }

@@ -22,11 +22,8 @@ pub fn de_decrypt_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::decrypt::DecryptError::unhandled)?;
+                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::decrypt::DecryptError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -55,9 +52,8 @@ pub fn de_decrypt_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::DryRunOperationExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::decrypt::DecryptError::unhandled)?;
+                output = super::super::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::decrypt::DecryptError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -86,11 +82,8 @@ pub fn de_decrypt_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidCiphertextExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_ciphertext_exception::de_invalid_ciphertext_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::decrypt::DecryptError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_ciphertext_exception::de_invalid_ciphertext_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::decrypt::DecryptError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -104,11 +97,9 @@ pub fn de_decrypt_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::decrypt::DecryptError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::decrypt::DecryptError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -122,9 +113,8 @@ pub fn de_decrypt_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidKeyUsageExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::decrypt::DecryptError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::decrypt::DecryptError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -168,9 +158,8 @@ pub fn de_decrypt_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::decrypt::DecryptError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::decrypt::DecryptError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -207,8 +196,8 @@ pub fn de_decrypt_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::decrypt::builders::DecryptOutputBuilder::default();
-        output = super::super::protocol_serde::shape_decrypt::de_decrypt(_response_body, output)
-            .map_err(super::super::operation::decrypt::DecryptError::unhandled)?;
+        output =
+            super::super::protocol_serde::shape_decrypt::de_decrypt(_response_body, output).map_err(super::super::operation::decrypt::DecryptError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -227,8 +216,7 @@ pub fn ser_decrypt_input(
 pub(crate) fn de_decrypt(
     _value: &[u8],
     mut builder: super::super::operation::decrypt::builders::DecryptOutputBuilder,
-) -> ::std::result::Result<super::super::operation::decrypt::builders::DecryptOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
-{
+) -> ::std::result::Result<super::super::operation::decrypt::builders::DecryptOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]

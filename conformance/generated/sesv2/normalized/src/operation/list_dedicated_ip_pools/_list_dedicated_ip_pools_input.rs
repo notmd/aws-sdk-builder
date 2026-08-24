@@ -65,10 +65,8 @@ impl ListDedicatedIpPoolsInputBuilder {
     /// Consumes the builder and constructs a [`ListDedicatedIpPoolsInput`](crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput {
             next_token: self.next_token,
             page_size: self.page_size,

@@ -4,10 +4,7 @@ pub fn de_put_bucket_policy_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::put_bucket_policy::PutBucketPolicyOutput,
-    super::super::operation::put_bucket_policy::PutBucketPolicyError,
-> {
+) -> std::result::Result<super::super::operation::put_bucket_policy::PutBucketPolicyOutput, super::super::operation::put_bucket_policy::PutBucketPolicyError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::put_bucket_policy::PutBucketPolicyError::unhandled)?;
@@ -22,10 +19,7 @@ pub fn de_put_bucket_policy_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::put_bucket_policy::PutBucketPolicyOutput,
-    super::super::operation::put_bucket_policy::PutBucketPolicyError,
-> {
+) -> std::result::Result<super::super::operation::put_bucket_policy::PutBucketPolicyOutput, super::super::operation::put_bucket_policy::PutBucketPolicyError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::put_bucket_policy::builders::PutBucketPolicyOutputBuilder::default();

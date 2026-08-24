@@ -95,10 +95,7 @@ impl ListSshPublicKeysInputBuilder {
     /// Consumes the builder and constructs a [`ListSshPublicKeysInput`](crate::operation::list_ssh_public_keys::ListSshPublicKeysInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_ssh_public_keys::ListSshPublicKeysInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_ssh_public_keys::ListSshPublicKeysInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_ssh_public_keys::ListSshPublicKeysInput {
             user_name: self.user_name,
             marker: self.marker,

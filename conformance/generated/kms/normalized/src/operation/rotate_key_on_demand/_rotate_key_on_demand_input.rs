@@ -89,10 +89,7 @@ impl RotateKeyOnDemandInputBuilder {
     /// Consumes the builder and constructs a [`RotateKeyOnDemandInput`](crate::operation::rotate_key_on_demand::RotateKeyOnDemandInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::rotate_key_on_demand::RotateKeyOnDemandInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::rotate_key_on_demand::RotateKeyOnDemandInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::rotate_key_on_demand::RotateKeyOnDemandInput { key_id: self.key_id })
     }
 }

@@ -86,7 +86,7 @@ impl<T, U> Coalesce for &(&T, &U) {
 macro_rules! coalesce {
     ($a:expr) => {$a};
     ($a:expr, $b:expr) => {{
-        use crate::endpoint_lib::coalesce::Coalesce;
+        use super::super::endpoint_lib::coalesce::Coalesce;
         let a = $a;
         let b = $b;
         (&&&(&a, &b)).coalesce()(a, b)

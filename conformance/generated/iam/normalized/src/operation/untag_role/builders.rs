@@ -29,20 +29,14 @@ pub struct UntagRoleFluentBuilder {
     inner: super::super::super::operation::untag_role::builders::UntagRoleInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::untag_role::UntagRoleOutput,
-        super::super::super::operation::untag_role::UntagRoleError,
-    > for UntagRoleFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::untag_role::UntagRoleOutput, super::super::super::operation::untag_role::UntagRoleError>
+    for UntagRoleFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::untag_role::UntagRoleOutput,
-            super::super::super::operation::untag_role::UntagRoleError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::untag_role::UntagRoleOutput, super::super::super::operation::untag_role::UntagRoleError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }

@@ -50,7 +50,13 @@ where
                             );
                         }
                         "AuthenticatorTransports" => {
-                            builder = builder.set_authenticator_transports(super::super::protocol_serde::shape_web_authn_authenticator_transports_list::de_web_authn_authenticator_transports_list(tokens, _value, depth + 1)?);
+                            builder = builder.set_authenticator_transports(
+                                super::super::protocol_serde::shape_web_authn_authenticator_transports_list::de_web_authn_authenticator_transports_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
                         }
                         "CreatedAt" => {
                             builder = builder.set_created_at(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(

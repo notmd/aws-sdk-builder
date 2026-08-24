@@ -26,7 +26,12 @@ pub fn de_put_function_code_signing_config_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::CodeSigningConfigNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_code_signing_config_not_found_exception::de_code_signing_config_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_code_signing_config_not_found_exception::de_code_signing_config_not_found_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -62,11 +67,9 @@ pub fn de_put_function_code_signing_config_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceConflictExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -82,11 +85,9 @@ pub fn de_put_function_code_signing_config_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -117,11 +118,9 @@ pub fn de_put_function_code_signing_config_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::put_function_code_signing_config::PutFunctionCodeSigningConfigError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };

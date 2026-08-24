@@ -39,21 +39,23 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "PasswordPolicy" => {
-                                builder = builder.set_password_policy(
-                                    super::super::protocol_serde::shape_password_policy_type::de_password_policy_type(tokens, _value, depth + 1)?,
-                                );
-                            }
-                            "SignInPolicy" => {
-                                builder = builder.set_sign_in_policy(
-                                    super::super::protocol_serde::shape_sign_in_policy_type::de_sign_in_policy_type(tokens, _value, depth + 1)?,
-                                );
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "PasswordPolicy" => {
+                            builder = builder.set_password_policy(super::super::protocol_serde::shape_password_policy_type::de_password_policy_type(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
-                    }
+                        "SignInPolicy" => {
+                            builder = builder.set_sign_in_policy(super::super::protocol_serde::shape_sign_in_policy_type::de_sign_in_policy_type(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

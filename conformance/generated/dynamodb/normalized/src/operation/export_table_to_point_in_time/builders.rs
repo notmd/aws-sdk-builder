@@ -284,10 +284,7 @@ impl ExportTableToPointInTimeFluentBuilder {
         self
     }
     /// <p>Optional object containing the parameters specific to an incremental export.</p>
-    pub fn set_incremental_export_specification(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::IncrementalExportSpecification>,
-    ) -> Self {
+    pub fn set_incremental_export_specification(mut self, input: ::std::option::Option<super::super::super::types::IncrementalExportSpecification>) -> Self {
         self.inner = self.inner.set_incremental_export_specification(input);
         self
     }

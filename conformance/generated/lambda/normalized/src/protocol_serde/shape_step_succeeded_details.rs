@@ -22,18 +22,11 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "Result" => {
-                            builder = builder.set_result(super::super::protocol_serde::shape_event_result::de_event_result(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_result(super::super::protocol_serde::shape_event_result::de_event_result(tokens, _value, depth + 1)?);
                         }
                         "RetryDetails" => {
-                            builder = builder.set_retry_details(super::super::protocol_serde::shape_retry_details::de_retry_details(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_retry_details(super::super::protocol_serde::shape_retry_details::de_retry_details(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

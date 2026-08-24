@@ -17,9 +17,7 @@ pub fn de_get_aggregate_config_rule_compliance_summary_http_error(
         Some(code) => code,
         None => {
             return Err(
-                super::super::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummaryError::unhandled(
-                    generic,
-                ),
+                super::super::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummaryError::unhandled(generic),
             )
         }
     };
@@ -97,7 +95,8 @@ pub fn de_get_aggregate_config_rule_compliance_summary_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = super::super::operation::get_aggregate_config_rule_compliance_summary::builders::GetAggregateConfigRuleComplianceSummaryOutputBuilder::default();
+        let mut output =
+            super::super::operation::get_aggregate_config_rule_compliance_summary::builders::GetAggregateConfigRuleComplianceSummaryOutputBuilder::default();
         output = super::super::protocol_serde::shape_get_aggregate_config_rule_compliance_summary::de_get_aggregate_config_rule_compliance_summary(
             _response_body,
             output,
@@ -113,7 +112,10 @@ pub fn ser_get_aggregate_config_rule_compliance_summary_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_aggregate_config_rule_compliance_summary_input::ser_get_aggregate_config_rule_compliance_summary_input_input(&mut object, input)?;
+    super::super::protocol_serde::shape_get_aggregate_config_rule_compliance_summary_input::ser_get_aggregate_config_rule_compliance_summary_input_input(
+        &mut object,
+        input,
+    )?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -143,11 +145,7 @@ pub(crate) fn de_get_aggregate_config_rule_compliance_summary(
                 }
                 "AggregateComplianceCounts" => {
                     builder = builder.set_aggregate_compliance_counts(
-                        super::super::protocol_serde::shape_aggregate_compliance_count_list::de_aggregate_compliance_count_list(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_aggregate_compliance_count_list::de_aggregate_compliance_count_list(tokens, _value, depth + 1)?,
                     );
                 }
                 "NextToken" => {

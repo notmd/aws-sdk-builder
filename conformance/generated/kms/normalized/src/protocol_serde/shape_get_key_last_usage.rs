@@ -4,10 +4,7 @@ pub fn de_get_key_last_usage_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::get_key_last_usage::GetKeyLastUsageOutput,
-    super::super::operation::get_key_last_usage::GetKeyLastUsageError,
-> {
+) -> std::result::Result<super::super::operation::get_key_last_usage::GetKeyLastUsageOutput, super::super::operation::get_key_last_usage::GetKeyLastUsageError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::get_key_last_usage::GetKeyLastUsageError::unhandled)?;
@@ -25,11 +22,8 @@ pub fn de_get_key_last_usage_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::get_key_last_usage::GetKeyLastUsageError::unhandled)?;
+                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_key_last_usage::GetKeyLastUsageError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -92,10 +86,7 @@ pub fn de_get_key_last_usage_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::get_key_last_usage::GetKeyLastUsageOutput,
-    super::super::operation::get_key_last_usage::GetKeyLastUsageError,
-> {
+) -> std::result::Result<super::super::operation::get_key_last_usage::GetKeyLastUsageOutput, super::super::operation::get_key_last_usage::GetKeyLastUsageError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::get_key_last_usage::builders::GetKeyLastUsageOutputBuilder::default();

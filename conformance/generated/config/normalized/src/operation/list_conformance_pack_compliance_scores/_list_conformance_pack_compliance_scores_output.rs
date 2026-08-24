@@ -27,8 +27,7 @@ impl ::aws_types::request_id::RequestId for ListConformancePackComplianceScoresO
 }
 impl ListConformancePackComplianceScoresOutput {
     /// Creates a new builder-style object to manufacture [`ListConformancePackComplianceScoresOutput`](crate::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresOutputBuilder {
+    pub fn builder() -> super::super::super::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresOutputBuilder {
         super::super::super::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresOutputBuilder::default()
     }
 }
@@ -76,9 +75,7 @@ impl ListConformancePackComplianceScoresOutputBuilder {
         self
     }
     /// <p>A list of <code>ConformancePackComplianceScore</code> objects.</p>
-    pub fn get_conformance_pack_compliance_scores(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackComplianceScore>> {
+    pub fn get_conformance_pack_compliance_scores(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackComplianceScore>> {
         &self.conformance_pack_compliance_scores
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

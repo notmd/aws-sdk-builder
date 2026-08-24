@@ -74,9 +74,7 @@ impl GetServiceLastAccessedDetailsFluentBuilder {
         }
     }
     /// Access the GetServiceLastAccessedDetails as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -100,12 +98,11 @@ impl GetServiceLastAccessedDetailsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetails::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = super::super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetails::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         super::super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetails::orchestrate(&runtime_plugins, input).await
     }
 

@@ -246,17 +246,15 @@ impl UpdateComputeEnvironmentInputBuilder {
         super::super::super::operation::update_compute_environment::UpdateComputeEnvironmentInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::update_compute_environment::UpdateComputeEnvironmentInput {
-                compute_environment: self.compute_environment,
-                state: self.state,
-                unmanagedv_cpus: self.unmanagedv_cpus,
-                compute_resources: self.compute_resources,
-                service_role: self.service_role,
-                update_policy: self.update_policy,
-                context: self.context,
-                ecs_settings: self.ecs_settings,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::update_compute_environment::UpdateComputeEnvironmentInput {
+            compute_environment: self.compute_environment,
+            state: self.state,
+            unmanagedv_cpus: self.unmanagedv_cpus,
+            compute_resources: self.compute_resources,
+            service_role: self.service_role,
+            update_policy: self.update_policy,
+            context: self.context,
+            ecs_settings: self.ecs_settings,
+        })
     }
 }

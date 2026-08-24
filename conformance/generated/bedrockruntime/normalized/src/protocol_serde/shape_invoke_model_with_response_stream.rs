@@ -20,48 +20,28 @@ pub fn de_invoke_model_with_response_stream_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AccessDeniedException" => {
-            super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::AccessDeniedException({
+        "AccessDeniedException" => super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::AccessDeniedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InternalServerException" => {
             super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::InternalServerException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ModelErrorException" => {
-            super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::ModelErrorException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ModelErrorExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_model_error_exception::de_model_error_exception_json_err(_response_body, output)
+                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
                         .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
@@ -72,15 +52,29 @@ pub fn de_invoke_model_with_response_stream_http_error(
                 tmp
             })
         }
+        "ModelErrorException" => super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::ModelErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ModelErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_model_error_exception::de_model_error_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ModelNotReadyException" => {
             super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::ModelNotReadyException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ModelNotReadyExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_model_not_ready_exception::de_model_not_ready_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
+                    output = super::super::protocol_serde::shape_model_not_ready_exception::de_model_not_ready_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -96,11 +90,9 @@ pub fn de_invoke_model_with_response_stream_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ModelStreamErrorExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -110,34 +102,30 @@ pub fn de_invoke_model_with_response_stream_http_error(
                 tmp
             })
         }
-        "ModelTimeoutException" => {
-            super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::ModelTimeoutException({
+        "ModelTimeoutException" => super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::ModelTimeoutException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ModelTimeoutExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::ModelTimeoutExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ResourceNotFoundException" => {
             super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::ResourceNotFoundException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -173,54 +161,48 @@ pub fn de_invoke_model_with_response_stream_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                    output =
+                        super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ThrottlingException" => super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::ThrottlingException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ThrottlingException" => {
-            super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::ThrottlingException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ValidationException" => super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::ValidationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ValidationException" => {
-            super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::ValidationException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamError::generic(generic),
     })
 }
@@ -251,10 +233,7 @@ pub fn ser_invoke_model_with_response_stream_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_invoke_model_with_response_stream_input::ser_invoke_model_with_response_stream_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_invoke_model_with_response_stream_input::ser_invoke_model_with_response_stream_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

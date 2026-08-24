@@ -492,9 +492,7 @@ impl ReEncryptInputBuilder {
         &self.dry_run_modifiers
     }
     /// Consumes the builder and constructs a [`ReEncryptInput`](crate::operation::re_encrypt::ReEncryptInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::re_encrypt::ReEncryptInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::re_encrypt::ReEncryptInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::re_encrypt::ReEncryptInput {
             ciphertext_blob: self.ciphertext_blob,
             source_encryption_context: self.source_encryption_context,

@@ -44,10 +44,7 @@ impl CancelExportTaskInputBuilder {
     /// Consumes the builder and constructs a [`CancelExportTaskInput`](crate::operation::cancel_export_task::CancelExportTaskInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::cancel_export_task::CancelExportTaskInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::cancel_export_task::CancelExportTaskInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::cancel_export_task::CancelExportTaskInput { task_id: self.task_id })
     }
 }

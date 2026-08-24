@@ -38,20 +38,14 @@ pub struct ConverseFluentBuilder {
     inner: super::super::super::operation::converse::builders::ConverseInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::converse::ConverseOutput,
-        super::super::super::operation::converse::ConverseError,
-    > for ConverseFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::converse::ConverseOutput, super::super::super::operation::converse::ConverseError>
+    for ConverseFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::converse::ConverseOutput,
-            super::super::super::operation::converse::ConverseError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::converse::ConverseOutput, super::super::super::operation::converse::ConverseError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -101,11 +95,8 @@ impl ConverseFluentBuilder {
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
     pub fn customize(
         self,
-    ) -> super::super::super::client::customize::CustomizableOperation<
-        super::super::super::operation::converse::ConverseOutput,
-        super::super::super::operation::converse::ConverseError,
-        Self,
-    > {
+    ) -> super::super::super::client::customize::CustomizableOperation<super::super::super::operation::converse::ConverseOutput, super::super::super::operation::converse::ConverseError, Self>
+    {
         super::super::super::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<super::super::super::config::Builder>) -> Self {
@@ -273,11 +264,7 @@ impl ConverseFluentBuilder {
     /// To override the contents of this collection use [`set_prompt_variables`](Self::set_prompt_variables).
     ///
     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
-    pub fn prompt_variables(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: super::super::super::types::PromptVariableValues,
-    ) -> Self {
+    pub fn prompt_variables(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::PromptVariableValues) -> Self {
         self.inner = self.inner.prompt_variables(k.into(), v);
         self
     }

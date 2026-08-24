@@ -98,10 +98,7 @@ impl PutTenantSuppressionAttributesInputBuilder {
     /// <li>
     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list when a message sent to that address results in a hard bounce.</p></li>
     /// </ul>
-    pub fn set_suppressed_reasons(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>,
-    ) -> Self {
+    pub fn set_suppressed_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>) -> Self {
         self.suppressed_reasons = input;
         self
     }
@@ -142,12 +139,10 @@ impl PutTenantSuppressionAttributesInputBuilder {
         super::super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesInput {
-                tenant_name: self.tenant_name,
-                suppressed_reasons: self.suppressed_reasons,
-                suppression_scope: self.suppression_scope,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesInput {
+            tenant_name: self.tenant_name,
+            suppressed_reasons: self.suppressed_reasons,
+            suppression_scope: self.suppression_scope,
+        })
     }
 }

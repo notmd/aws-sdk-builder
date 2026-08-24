@@ -43,11 +43,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "AdditionalVersionWeights" => {
                             builder = builder.set_additional_version_weights(
-                                super::super::protocol_serde::shape_additional_version_weights::de_additional_version_weights(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_additional_version_weights::de_additional_version_weights(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

@@ -169,13 +169,11 @@ impl ListJobsByConsumableResourceInputBuilder {
         super::super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceInput {
-                consumable_resource: self.consumable_resource,
-                filters: self.filters,
-                max_results: self.max_results,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceInput {
+            consumable_resource: self.consumable_resource,
+            filters: self.filters,
+            max_results: self.max_results,
+            next_token: self.next_token,
+        })
     }
 }

@@ -20,34 +20,30 @@ pub fn de_delete_delivery_destination_policy_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "ConflictException" => {
-            super::super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyError::ConflictException({
+        "ConflictException" => super::super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyError::ConflictException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ResourceNotFoundException" => {
             super::super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyError::ResourceNotFoundException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -63,11 +59,9 @@ pub fn de_delete_delivery_destination_policy_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -77,23 +71,21 @@ pub fn de_delete_delivery_destination_policy_http_error(
                 tmp
             })
         }
-        "ValidationException" => {
-            super::super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyError::ValidationException({
+        "ValidationException" => super::super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyError::ValidationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::delete_delivery_destination_policy::DeleteDeliveryDestinationPolicyError::generic(generic),
     })
 }
@@ -109,8 +101,7 @@ pub fn de_delete_delivery_destination_policy_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyOutputBuilder::default();
+        let mut output = super::super::operation::delete_delivery_destination_policy::builders::DeleteDeliveryDestinationPolicyOutputBuilder::default();
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -121,10 +112,7 @@ pub fn ser_delete_delivery_destination_policy_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_delivery_destination_policy_input::ser_delete_delivery_destination_policy_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_delete_delivery_destination_policy_input::ser_delete_delivery_destination_policy_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

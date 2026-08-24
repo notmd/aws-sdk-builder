@@ -210,10 +210,7 @@ impl RestoreTableToPointInTimeInputBuilder {
     }
     /// <p>List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
     /// <p>The <code>WarmThroughput</code> setting is not supported on global secondary indexes when you use <code>RestoreTableToPointInTime</code>. Although <code>WarmThroughput</code> appears in the shared index definition, including it in a <code>GlobalSecondaryIndexOverride</code> entry causes the request to fail with a validation error.</p>
-    pub fn set_global_secondary_index_override(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>,
-    ) -> Self {
+    pub fn set_global_secondary_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>) -> Self {
         self.global_secondary_index_override = input;
         self
     }
@@ -234,10 +231,7 @@ impl RestoreTableToPointInTimeInputBuilder {
         self
     }
     /// <p>List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
-    pub fn set_local_secondary_index_override(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>,
-    ) -> Self {
+    pub fn set_local_secondary_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>) -> Self {
         self.local_secondary_index_override = input;
         self
     }
@@ -314,21 +308,19 @@ impl RestoreTableToPointInTimeInputBuilder {
         super::super::super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeInput {
-                source_table_arn: self.source_table_arn,
-                source_table_name: self.source_table_name,
-                target_table_name: self.target_table_name,
-                use_latest_restorable_time: self.use_latest_restorable_time,
-                restore_date_time: self.restore_date_time,
-                billing_mode_override: self.billing_mode_override,
-                global_secondary_index_override: self.global_secondary_index_override,
-                local_secondary_index_override: self.local_secondary_index_override,
-                provisioned_throughput_override: self.provisioned_throughput_override,
-                on_demand_throughput_override: self.on_demand_throughput_override,
-                sse_specification_override: self.sse_specification_override,
-                vector_index_override: self.vector_index_override,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeInput {
+            source_table_arn: self.source_table_arn,
+            source_table_name: self.source_table_name,
+            target_table_name: self.target_table_name,
+            use_latest_restorable_time: self.use_latest_restorable_time,
+            restore_date_time: self.restore_date_time,
+            billing_mode_override: self.billing_mode_override,
+            global_secondary_index_override: self.global_secondary_index_override,
+            local_secondary_index_override: self.local_secondary_index_override,
+            provisioned_throughput_override: self.provisioned_throughput_override,
+            on_demand_throughput_override: self.on_demand_throughput_override,
+            sse_specification_override: self.sse_specification_override,
+            vector_index_override: self.vector_index_override,
+        })
     }
 }

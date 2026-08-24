@@ -138,10 +138,7 @@ impl UpdateLookupTableInputBuilder {
     /// Consumes the builder and constructs a [`UpdateLookupTableInput`](crate::operation::update_lookup_table::UpdateLookupTableInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::update_lookup_table::UpdateLookupTableInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::update_lookup_table::UpdateLookupTableInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::update_lookup_table::UpdateLookupTableInput {
             lookup_table_arn: self.lookup_table_arn,
             description: self.description,

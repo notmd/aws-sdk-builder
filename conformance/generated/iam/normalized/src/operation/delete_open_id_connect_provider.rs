@@ -209,9 +209,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for DeleteOpe
         let parse_result = if !success && status != 200 || force_error {
             super::super::protocol_serde::shape_delete_open_id_connect_provider::de_delete_open_id_connect_provider_http_error(status, headers, body)
         } else {
-            super::super::protocol_serde::shape_delete_open_id_connect_provider::de_delete_open_id_connect_provider_http_response(
-                status, headers, body,
-            )
+            super::super::protocol_serde::shape_delete_open_id_connect_provider::de_delete_open_id_connect_provider_http_response(status, headers, body)
         };
         super::super::protocol_serde::type_erase_result(parse_result)
     }

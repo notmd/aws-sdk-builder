@@ -10,9 +10,7 @@ impl super::Client {
     ///   - [`applied_function_scaling_config(Option<FunctionScalingConfig>)`](crate::operation::get_function_scaling_config::GetFunctionScalingConfigOutput::applied_function_scaling_config): <p>The scaling configuration that is currently applied to the function. This represents the actual scaling settings in effect.</p>
     ///   - [`requested_function_scaling_config(Option<FunctionScalingConfig>)`](crate::operation::get_function_scaling_config::GetFunctionScalingConfigOutput::requested_function_scaling_config): <p>The scaling configuration that was requested for the function.</p>
     /// - On failure, responds with [`SdkError<GetFunctionScalingConfigError>`](crate::operation::get_function_scaling_config::GetFunctionScalingConfigError)
-    pub fn get_function_scaling_config(
-        &self,
-    ) -> super::super::operation::get_function_scaling_config::builders::GetFunctionScalingConfigFluentBuilder {
+    pub fn get_function_scaling_config(&self) -> super::super::operation::get_function_scaling_config::builders::GetFunctionScalingConfigFluentBuilder {
         super::super::operation::get_function_scaling_config::builders::GetFunctionScalingConfigFluentBuilder::new(self.handle.clone())
     }
 }

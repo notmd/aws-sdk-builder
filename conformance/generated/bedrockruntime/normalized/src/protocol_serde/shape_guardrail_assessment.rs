@@ -68,11 +68,7 @@ where
                         }
                         "appliedGuardrailDetails" => {
                             builder = builder.set_applied_guardrail_details(
-                                super::super::protocol_serde::shape_applied_guardrail_details::de_applied_guardrail_details(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_applied_guardrail_details::de_applied_guardrail_details(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

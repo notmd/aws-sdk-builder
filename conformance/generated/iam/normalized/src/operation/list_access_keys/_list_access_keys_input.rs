@@ -95,8 +95,7 @@ impl ListAccessKeysInputBuilder {
     /// Consumes the builder and constructs a [`ListAccessKeysInput`](crate::operation::list_access_keys::ListAccessKeysInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::list_access_keys::ListAccessKeysInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::list_access_keys::ListAccessKeysInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_access_keys::ListAccessKeysInput {
             user_name: self.user_name,
             marker: self.marker,

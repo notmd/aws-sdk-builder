@@ -15,35 +15,29 @@ pub fn de_create_custom_key_store_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "CloudHsmClusterInUseException" => {
-            super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::CloudHsmClusterInUseException({
+        "CloudHsmClusterInUseException" => super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::CloudHsmClusterInUseException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::CloudHsmClusterInUseExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_cloud_hsm_cluster_in_use_exception::de_cloud_hsm_cluster_in_use_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::CloudHsmClusterInUseExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_cloud_hsm_cluster_in_use_exception::de_cloud_hsm_cluster_in_use_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "CloudHsmClusterInvalidConfigurationException" => {
             super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::CloudHsmClusterInvalidConfigurationException({
                 #[allow(unused_mut)]
@@ -66,7 +60,11 @@ pub fn de_create_custom_key_store_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::CloudHsmClusterNotActiveExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_cloud_hsm_cluster_not_active_exception::de_cloud_hsm_cluster_not_active_exception_json_err(_response_body, output).map_err(super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                    output = super::super::protocol_serde::shape_cloud_hsm_cluster_not_active_exception::de_cloud_hsm_cluster_not_active_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -82,12 +80,11 @@ pub fn de_create_custom_key_store_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::CloudHsmClusterNotFoundExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_cloud_hsm_cluster_not_found_exception::de_cloud_hsm_cluster_not_found_exception_json_err(
-                            _response_body,
-                            output,
-                        )
-                        .map_err(super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                    output = super::super::protocol_serde::shape_cloud_hsm_cluster_not_found_exception::de_cloud_hsm_cluster_not_found_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -103,23 +100,7 @@ pub fn de_create_custom_key_store_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::CustomKeyStoreNameInUseExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_custom_key_store_name_in_use_exception::de_custom_key_store_name_in_use_exception_json_err(_response_body, output).map_err(super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "IncorrectTrustAnchorException" => {
-            super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::IncorrectTrustAnchorException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::IncorrectTrustAnchorExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_incorrect_trust_anchor_exception::de_incorrect_trust_anchor_exception_json_err(
+                    output = super::super::protocol_serde::shape_custom_key_store_name_in_use_exception::de_custom_key_store_name_in_use_exception_json_err(
                         _response_body,
                         output,
                     )
@@ -133,6 +114,24 @@ pub fn de_create_custom_key_store_http_error(
                 tmp
             })
         }
+        "IncorrectTrustAnchorException" => super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::IncorrectTrustAnchorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::IncorrectTrustAnchorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_incorrect_trust_anchor_exception::de_incorrect_trust_anchor_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "KMSInternalException" => super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::KmsInternalException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -201,12 +200,11 @@ pub fn de_create_custom_key_store_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::XksProxyInvalidResponseExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_xks_proxy_invalid_response_exception::de_xks_proxy_invalid_response_exception_json_err(
-                            _response_body,
-                            output,
-                        )
-                        .map_err(super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                    output = super::super::protocol_serde::shape_xks_proxy_invalid_response_exception::de_xks_proxy_invalid_response_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -222,7 +220,12 @@ pub fn de_create_custom_key_store_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::XksProxyUriEndpointInUseExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_xks_proxy_uri_endpoint_in_use_exception::de_xks_proxy_uri_endpoint_in_use_exception_json_err(_response_body, output).map_err(super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_xks_proxy_uri_endpoint_in_use_exception::de_xks_proxy_uri_endpoint_in_use_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -237,7 +240,23 @@ pub fn de_create_custom_key_store_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::XksProxyUriInUseExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_xks_proxy_uri_in_use_exception::de_xks_proxy_uri_in_use_exception_json_err(
+                output =
+                    super::super::protocol_serde::shape_xks_proxy_uri_in_use_exception::de_xks_proxy_uri_in_use_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "XksProxyUriUnreachableException" => super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyUriUnreachableException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::XksProxyUriUnreachableExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_xks_proxy_uri_unreachable_exception::de_xks_proxy_uri_unreachable_exception_json_err(
                     _response_body,
                     output,
                 )
@@ -250,27 +269,6 @@ pub fn de_create_custom_key_store_http_error(
             }
             tmp
         }),
-        "XksProxyUriUnreachableException" => {
-            super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyUriUnreachableException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::XksProxyUriUnreachableExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_xks_proxy_uri_unreachable_exception::de_xks_proxy_uri_unreachable_exception_json_err(
-                            _response_body,
-                            output,
-                        )
-                        .map_err(super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
         "XksProxyVpcEndpointServiceInUseException" => {
             super::super::operation::create_custom_key_store::CreateCustomKeyStoreError::XksProxyVpcEndpointServiceInUseException({
                 #[allow(unused_mut)]

@@ -48,10 +48,8 @@ impl GetLogDeliveryConfigurationInputBuilder {
         super::super::super::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationInput {
-                user_pool_id: self.user_pool_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_log_delivery_configuration::GetLogDeliveryConfigurationInput {
+            user_pool_id: self.user_pool_id,
+        })
     }
 }

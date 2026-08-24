@@ -65,10 +65,8 @@ impl GetPublicAccessBlockInputBuilder {
     /// Consumes the builder and constructs a [`GetPublicAccessBlockInput`](crate::operation::get_public_access_block::GetPublicAccessBlockInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_public_access_block::GetPublicAccessBlockInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_public_access_block::GetPublicAccessBlockInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_public_access_block::GetPublicAccessBlockInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,

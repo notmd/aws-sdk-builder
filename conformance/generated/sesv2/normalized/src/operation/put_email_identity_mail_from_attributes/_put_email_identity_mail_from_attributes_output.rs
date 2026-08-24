@@ -13,8 +13,7 @@ impl ::aws_types::request_id::RequestId for PutEmailIdentityMailFromAttributesOu
 }
 impl PutEmailIdentityMailFromAttributesOutput {
     /// Creates a new builder-style object to manufacture [`PutEmailIdentityMailFromAttributesOutput`](crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesOutputBuilder {
+    pub fn builder() -> super::super::super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesOutputBuilder {
         super::super::super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesOutputBuilder::default()
     }
 }

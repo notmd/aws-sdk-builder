@@ -86,10 +86,8 @@ impl ListResourceServersInputBuilder {
     /// Consumes the builder and constructs a [`ListResourceServersInput`](crate::operation::list_resource_servers::ListResourceServersInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_resource_servers::ListResourceServersInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_resource_servers::ListResourceServersInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_resource_servers::ListResourceServersInput {
             user_pool_id: self.user_pool_id,
             max_results: self.max_results,

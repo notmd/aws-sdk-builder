@@ -65,10 +65,7 @@ impl DeleteBucketCorsInputBuilder {
     /// Consumes the builder and constructs a [`DeleteBucketCorsInput`](crate::operation::delete_bucket_cors::DeleteBucketCorsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_bucket_cors::DeleteBucketCorsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_bucket_cors::DeleteBucketCorsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_bucket_cors::DeleteBucketCorsInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,

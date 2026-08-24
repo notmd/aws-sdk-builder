@@ -113,13 +113,11 @@ impl DisassociateExternalConnectionInputBuilder {
         super::super::super::operation::disassociate_external_connection::DisassociateExternalConnectionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::disassociate_external_connection::DisassociateExternalConnectionInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-                repository: self.repository,
-                external_connection: self.external_connection,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::disassociate_external_connection::DisassociateExternalConnectionInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+            repository: self.repository,
+            external_connection: self.external_connection,
+        })
     }
 }

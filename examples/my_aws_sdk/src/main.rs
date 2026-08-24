@@ -34,7 +34,12 @@ mod tests {
                 } else if request_line.starts_with("HEAD ") {
                     "HTTP/1.1 200 OK\r\nContent-Length: 5\r\n\r\n".to_owned()
                 } else if request_line.contains("list-type=2") {
-                    "HTTP/1.1 200 OK\r\nContent-Length: 0\r\n\r\n<ListBucketResult><Contents><Key>key</Key></Contents></ListBucketResult>".to_owned()
+                    let body =
+                        "<ListBucketResult><Contents><Key>key</Key></Contents></ListBucketResult>";
+                    format!(
+                        "HTTP/1.1 200 OK\r\nContent-Length: {}\r\n\r\n{body}",
+                        body.len()
+                    )
                 } else if request_line.starts_with("GET ") {
                     "HTTP/1.1 200 OK\r\nContent-Length: 7\r\n\r\npayload".to_owned()
                 } else {
@@ -47,8 +52,15 @@ mod tests {
         });
 
         let endpoint = format!("http://{address}");
-        let config = aws_s3_sdk::Config::builder().endpoint_url(endpoint).build();
-        let client = aws_s3_sdk::Client::new(&config);
+        let config = aws_s3_sdk::Config::builder()
+            .behavior_version_latest()
+            .sleep_impl(aws_smithy_async::rt::sleep::TokioSleep::new())
+            .credentials_provider(aws_credential_types::Credentials::for_tests())
+            .region(aws_s3_sdk::config::Region::new("us-east-1"))
+            .http_client(aws_smithy_http_client::Builder::new().build_http())
+            .endpoint_url(endpoint)
+            .build();
+        let client = aws_s3_sdk::Client::from_conf(config);
         let bucket = "bucket";
 
         client.create_bucket().bucket(bucket).send().await.unwrap();
@@ -76,7 +88,7 @@ mod tests {
             .await
             .unwrap();
         assert_eq!(
-            object.body().collect().await.unwrap().into_bytes(),
+            object.body.collect().await.unwrap().into_bytes().as_ref(),
             b"payload"
         );
         let listed = client

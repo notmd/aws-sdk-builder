@@ -41,9 +41,11 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "MetricsDataSource" => {
-                            builder = builder.set_metrics_data_source(
-                                super::super::protocol_serde::shape_metrics_data_source::de_metrics_data_source(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_metrics_data_source(super::super::protocol_serde::shape_metrics_data_source::de_metrics_data_source(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "MessageInsightsDataSource" => {
                             builder = builder.set_message_insights_data_source(

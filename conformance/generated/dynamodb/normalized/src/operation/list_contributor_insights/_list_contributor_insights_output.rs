@@ -62,9 +62,7 @@ impl ListContributorInsightsOutputBuilder {
         self
     }
     /// <p>A list of ContributorInsightsSummary.</p>
-    pub fn get_contributor_insights_summaries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ContributorInsightsSummary>> {
+    pub fn get_contributor_insights_summaries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ContributorInsightsSummary>> {
         &self.contributor_insights_summaries
     }
     /// <p>A token to go to the next page if there is one.</p>

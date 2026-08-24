@@ -125,9 +125,7 @@ impl ConflictExceptionBuilder {
     /// Consumes the builder and constructs a [`ConflictException`](crate::types::error::ConflictException).
     /// This method will fail if any of the following fields are not set:
     /// - [`message`](crate::types::error::builders::ConflictExceptionBuilder::message)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::types::error::ConflictException, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::types::error::ConflictException, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::types::error::ConflictException {
             message: self.message.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

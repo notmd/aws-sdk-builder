@@ -68,10 +68,7 @@ impl ListAsyncInvokesOutputBuilder {
         self
     }
     /// <p>A list of invocation summaries.</p>
-    pub fn set_async_invoke_summaries(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AsyncInvokeSummary>>,
-    ) -> Self {
+    pub fn set_async_invoke_summaries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AsyncInvokeSummary>>) -> Self {
         self.async_invoke_summaries = input;
         self
     }

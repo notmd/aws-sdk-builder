@@ -162,8 +162,7 @@ impl GuardrailChecksSensitiveInformationResultEntryBuilder {
     /// - [`content_index`](crate::types::builders::GuardrailChecksSensitiveInformationResultEntryBuilder::content_index)
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::types::GuardrailChecksSensitiveInformationResultEntry, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::types::GuardrailChecksSensitiveInformationResultEntry, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::GuardrailChecksSensitiveInformationResultEntry {
             r#type: self.r#type.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -54,7 +54,8 @@ impl GetAggregateComplianceDetailsByConfigRuleInput {
 }
 impl GetAggregateComplianceDetailsByConfigRuleInput {
     /// Creates a new builder-style object to manufacture [`GetAggregateComplianceDetailsByConfigRuleInput`](crate::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleInput).
-    pub fn builder() -> super::super::super::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleInputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleInputBuilder {
         super::super::super::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleInputBuilder::default()
     }
 }

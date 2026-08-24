@@ -56,11 +56,9 @@ impl CheckIfPhoneNumberIsOptedOutInputBuilder {
         super::super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutInput {
-                phone_number: self.phone_number,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutInput {
+            phone_number: self.phone_number,
+        })
     }
 }
 impl ::std::fmt::Debug for CheckIfPhoneNumberIsOptedOutInputBuilder {

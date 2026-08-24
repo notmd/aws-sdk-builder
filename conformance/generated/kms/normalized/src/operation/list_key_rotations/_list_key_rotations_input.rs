@@ -157,10 +157,7 @@ impl ListKeyRotationsInputBuilder {
     /// Consumes the builder and constructs a [`ListKeyRotationsInput`](crate::operation::list_key_rotations::ListKeyRotationsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_key_rotations::ListKeyRotationsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_key_rotations::ListKeyRotationsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_key_rotations::ListKeyRotationsInput {
             key_id: self.key_id,
             include_key_material: self.include_key_material,

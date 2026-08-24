@@ -47,10 +47,7 @@ impl DescribeSchedulingPoliciesOutputBuilder {
         self
     }
     /// <p>The list of scheduling policies.</p>
-    pub fn set_scheduling_policies(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SchedulingPolicyDetail>>,
-    ) -> Self {
+    pub fn set_scheduling_policies(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SchedulingPolicyDetail>>) -> Self {
         self.scheduling_policies = input;
         self
     }

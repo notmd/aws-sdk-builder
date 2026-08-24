@@ -484,9 +484,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetAggre
         })
     }
 }
-impl ::aws_types::request_id::RequestId
-    for super::super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError
-{
+impl ::aws_types::request_id::RequestId for super::super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

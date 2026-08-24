@@ -20,23 +20,21 @@ pub fn de_delete_domain_permissions_policy_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AccessDeniedException" => {
-            super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::AccessDeniedException({
+        "AccessDeniedException" => super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::AccessDeniedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ConflictException" => super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::ConflictException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -58,9 +56,8 @@ pub fn de_delete_domain_permissions_policy_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
+                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -76,54 +73,48 @@ pub fn de_delete_domain_permissions_policy_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ThrottlingException" => super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::ThrottlingException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ThrottlingException" => {
-            super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::ThrottlingException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ValidationException" => super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::ValidationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ValidationException" => {
-            super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::ValidationException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::generic(generic),
     })
 }

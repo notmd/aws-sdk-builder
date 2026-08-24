@@ -51,9 +51,7 @@ impl ::std::convert::From<&str> for CustomEmailSenderLambdaVersionType {
     fn from(s: &str) -> Self {
         match s {
             "V1_0" => CustomEmailSenderLambdaVersionType::V10,
-            other => {
-                CustomEmailSenderLambdaVersionType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => CustomEmailSenderLambdaVersionType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

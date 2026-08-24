@@ -35,31 +35,33 @@ pub fn de_send_custom_verification_email_http_error(
             }
             tmp
         }),
-        "LimitExceededException" => {
-            super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::LimitExceededException({
+        "LimitExceededException" => super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::LimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "MailFromDomainNotVerifiedException" => {
             super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::MailFromDomainNotVerifiedException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::MailFromDomainNotVerifiedExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_mail_from_domain_not_verified_exception::de_mail_from_domain_not_verified_exception_json_err(_response_body, output).map_err(super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_mail_from_domain_not_verified_exception::de_mail_from_domain_not_verified_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -99,44 +101,36 @@ pub fn de_send_custom_verification_email_http_error(
             }
             tmp
         }),
-        "SendingPausedException" => {
-            super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::SendingPausedException({
+        "SendingPausedException" => super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::SendingPausedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::SendingPausedExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_sending_paused_exception::de_sending_paused_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "TooManyRequestsException" => {
-            super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::TooManyRequestsException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::SendingPausedExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_sending_paused_exception::de_sending_paused_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "TooManyRequestsException" => super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::TooManyRequestsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::generic(generic),
     })
 }

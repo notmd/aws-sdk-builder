@@ -13,9 +13,7 @@ pub struct ListReputationEntitiesInput {
 }
 impl ListReputationEntitiesInput {
     /// <p>An object that contains filters to apply when listing reputation entities. You can filter by entity type, reputation impact, sending status, or entity reference prefix.</p>
-    pub fn filter(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::ReputationEntityFilterKey, ::std::string::String>> {
+    pub fn filter(&self) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::ReputationEntityFilterKey, ::std::string::String>> {
         self.filter.as_ref()
     }
     /// <p>A token returned from a previous call to <code>ListReputationEntities</code> to indicate the position in the list of reputation entities.</p>
@@ -38,8 +36,7 @@ impl ListReputationEntitiesInput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListReputationEntitiesInputBuilder {
-    pub(crate) filter:
-        ::std::option::Option<::std::collections::HashMap<super::super::super::types::ReputationEntityFilterKey, ::std::string::String>>,
+    pub(crate) filter: ::std::option::Option<::std::collections::HashMap<super::super::super::types::ReputationEntityFilterKey, ::std::string::String>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     pub(crate) page_size: ::std::option::Option<i32>,
 }
@@ -64,9 +61,7 @@ impl ListReputationEntitiesInputBuilder {
         self
     }
     /// <p>An object that contains filters to apply when listing reputation entities. You can filter by entity type, reputation impact, sending status, or entity reference prefix.</p>
-    pub fn get_filter(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::ReputationEntityFilterKey, ::std::string::String>> {
+    pub fn get_filter(&self) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::ReputationEntityFilterKey, ::std::string::String>> {
         &self.filter
     }
     /// <p>A token returned from a previous call to <code>ListReputationEntities</code> to indicate the position in the list of reputation entities.</p>

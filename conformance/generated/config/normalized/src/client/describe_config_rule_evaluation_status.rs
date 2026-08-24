@@ -14,8 +14,6 @@ impl super::Client {
     pub fn describe_config_rule_evaluation_status(
         &self,
     ) -> super::super::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusFluentBuilder {
-        super::super::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusFluentBuilder::new(self.handle.clone())
     }
 }

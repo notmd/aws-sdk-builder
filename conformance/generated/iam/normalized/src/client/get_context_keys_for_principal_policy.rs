@@ -11,8 +11,6 @@ impl super::Client {
     pub fn get_context_keys_for_principal_policy(
         &self,
     ) -> super::super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyFluentBuilder {
-        super::super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyFluentBuilder::new(self.handle.clone())
     }
 }

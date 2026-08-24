@@ -4,10 +4,8 @@
 #[derive(::std::fmt::Debug)]
 pub struct SelectObjectContentOutput {
     /// <p>The array of results.</p>
-    pub payload: super::super::super::event_receiver::EventReceiver<
-        super::super::super::types::SelectObjectContentEventStream,
-        super::super::super::types::error::SelectObjectContentEventStreamError,
-    >,
+    pub payload:
+        super::super::super::event_receiver::EventReceiver<super::super::super::types::SelectObjectContentEventStream, super::super::super::types::error::SelectObjectContentEventStreamError>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -15,10 +13,8 @@ impl SelectObjectContentOutput {
     /// <p>The array of results.</p>
     pub fn payload(
         &self,
-    ) -> &super::super::super::event_receiver::EventReceiver<
-        super::super::super::types::SelectObjectContentEventStream,
-        super::super::super::types::error::SelectObjectContentEventStreamError,
-    > {
+    ) -> &super::super::super::event_receiver::EventReceiver<super::super::super::types::SelectObjectContentEventStream, super::super::super::types::error::SelectObjectContentEventStreamError>
+    {
         &self.payload
     }
 }
@@ -44,10 +40,7 @@ impl SelectObjectContentOutput {
 #[non_exhaustive]
 pub struct SelectObjectContentOutputBuilder {
     pub(crate) payload: ::std::option::Option<
-        super::super::super::event_receiver::EventReceiver<
-            super::super::super::types::SelectObjectContentEventStream,
-            super::super::super::types::error::SelectObjectContentEventStreamError,
-        >,
+        super::super::super::event_receiver::EventReceiver<super::super::super::types::SelectObjectContentEventStream, super::super::super::types::error::SelectObjectContentEventStreamError>,
     >,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
@@ -81,10 +74,7 @@ impl SelectObjectContentOutputBuilder {
     pub fn get_payload(
         &self,
     ) -> &::std::option::Option<
-        super::super::super::event_receiver::EventReceiver<
-            super::super::super::types::SelectObjectContentEventStream,
-            super::super::super::types::error::SelectObjectContentEventStreamError,
-        >,
+        super::super::super::event_receiver::EventReceiver<super::super::super::types::SelectObjectContentEventStream, super::super::super::types::error::SelectObjectContentEventStreamError>,
     > {
         &self.payload
     }
@@ -111,10 +101,8 @@ impl SelectObjectContentOutputBuilder {
     /// - [`payload`](crate::operation::select_object_content::builders::SelectObjectContentOutputBuilder::payload)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::select_object_content::SelectObjectContentOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::select_object_content::SelectObjectContentOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::select_object_content::SelectObjectContentOutput {
             payload: self.payload.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

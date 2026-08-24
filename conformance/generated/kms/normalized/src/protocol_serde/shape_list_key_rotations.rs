@@ -4,10 +4,7 @@ pub fn de_list_key_rotations_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::list_key_rotations::ListKeyRotationsOutput,
-    super::super::operation::list_key_rotations::ListKeyRotationsError,
-> {
+) -> std::result::Result<super::super::operation::list_key_rotations::ListKeyRotationsOutput, super::super::operation::list_key_rotations::ListKeyRotationsError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::list_key_rotations::ListKeyRotationsError::unhandled)?;
@@ -70,9 +67,8 @@ pub fn de_list_key_rotations_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::list_key_rotations::ListKeyRotationsError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_key_rotations::ListKeyRotationsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -101,11 +97,9 @@ pub fn de_list_key_rotations_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UnsupportedOperationExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::list_key_rotations::ListKeyRotationsError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::list_key_rotations::ListKeyRotationsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -123,10 +117,7 @@ pub fn de_list_key_rotations_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::list_key_rotations::ListKeyRotationsOutput,
-    super::super::operation::list_key_rotations::ListKeyRotationsError,
-> {
+) -> std::result::Result<super::super::operation::list_key_rotations::ListKeyRotationsOutput, super::super::operation::list_key_rotations::ListKeyRotationsError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::list_key_rotations::builders::ListKeyRotationsOutputBuilder::default();
@@ -164,11 +155,7 @@ pub(crate) fn de_list_key_rotations(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "Rotations" => {
-                    builder = builder.set_rotations(super::super::protocol_serde::shape_rotations_list::de_rotations_list(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_rotations(super::super::protocol_serde::shape_rotations_list::de_rotations_list(tokens, _value, depth + 1)?);
                 }
                 "NextMarker" => {
                     builder = builder.set_next_marker(

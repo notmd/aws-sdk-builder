@@ -57,9 +57,7 @@ impl DescribeAggregationAuthorizationsFluentBuilder {
         }
     }
     /// Access the DescribeAggregationAuthorizations as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,14 +81,12 @@ impl DescribeAggregationAuthorizationsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizations::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        super::super::super::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizations::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = super::super::super::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizations::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        super::super::super::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizations::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -115,13 +111,8 @@ impl DescribeAggregationAuthorizationsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_aggregation_authorizations::paginator::DescribeAggregationAuthorizationsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> super::super::super::operation::describe_aggregation_authorizations::paginator::DescribeAggregationAuthorizationsPaginator {
-        super::super::super::operation::describe_aggregation_authorizations::paginator::DescribeAggregationAuthorizationsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> super::super::super::operation::describe_aggregation_authorizations::paginator::DescribeAggregationAuthorizationsPaginator {
+        super::super::super::operation::describe_aggregation_authorizations::paginator::DescribeAggregationAuthorizationsPaginator::new(self.handle, self.inner)
     }
     /// <p>The maximum number of AggregationAuthorizations returned on each page. The default is maximum. If you specify 0, Config uses the default.</p>
     pub fn limit(mut self, input: i32) -> Self {

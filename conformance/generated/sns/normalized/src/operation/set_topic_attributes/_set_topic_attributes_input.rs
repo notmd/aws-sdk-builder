@@ -628,10 +628,8 @@ impl SetTopicAttributesInputBuilder {
     /// Consumes the builder and constructs a [`SetTopicAttributesInput`](crate::operation::set_topic_attributes::SetTopicAttributesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::set_topic_attributes::SetTopicAttributesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::set_topic_attributes::SetTopicAttributesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::set_topic_attributes::SetTopicAttributesInput {
             topic_arn: self.topic_arn,
             attribute_name: self.attribute_name,

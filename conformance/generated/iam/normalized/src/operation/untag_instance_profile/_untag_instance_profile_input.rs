@@ -78,10 +78,8 @@ impl UntagInstanceProfileInputBuilder {
     /// Consumes the builder and constructs a [`UntagInstanceProfileInput`](crate::operation::untag_instance_profile::UntagInstanceProfileInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::untag_instance_profile::UntagInstanceProfileInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::untag_instance_profile::UntagInstanceProfileInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::untag_instance_profile::UntagInstanceProfileInput {
             instance_profile_name: self.instance_profile_name,
             tag_keys: self.tag_keys,

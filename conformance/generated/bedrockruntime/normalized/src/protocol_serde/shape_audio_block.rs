@@ -51,18 +51,10 @@ where
                             );
                         }
                         "source" => {
-                            builder = builder.set_source(super::super::protocol_serde::shape_audio_source::de_audio_source(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_source(super::super::protocol_serde::shape_audio_source::de_audio_source(tokens, _value, depth + 1)?);
                         }
                         "error" => {
-                            builder = builder.set_error(super::super::protocol_serde::shape_error_block::de_error_block(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_error(super::super::protocol_serde::shape_error_block::de_error_block(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
@@ -73,9 +65,9 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::audio_block_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::audio_block_correct_errors(builder).build().map_err(|err| {
+                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
+            })?))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

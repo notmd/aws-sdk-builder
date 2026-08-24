@@ -25,8 +25,7 @@ impl PutDedicatedIpPoolScalingAttributesInput {
 }
 impl PutDedicatedIpPoolScalingAttributesInput {
     /// Creates a new builder-style object to manufacture [`PutDedicatedIpPoolScalingAttributesInput`](crate::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesInput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesInputBuilder {
+    pub fn builder() -> super::super::super::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesInputBuilder {
         super::super::super::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesInputBuilder::default()
     }
 }

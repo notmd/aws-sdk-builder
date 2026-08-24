@@ -76,10 +76,8 @@ impl RemoveUserFromGroupInputBuilder {
     /// Consumes the builder and constructs a [`RemoveUserFromGroupInput`](crate::operation::remove_user_from_group::RemoveUserFromGroupInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::remove_user_from_group::RemoveUserFromGroupInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::remove_user_from_group::RemoveUserFromGroupInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::remove_user_from_group::RemoveUserFromGroupInput {
             group_name: self.group_name,
             user_name: self.user_name,

@@ -48,10 +48,8 @@ impl GetDeliveryDestinationPolicyInputBuilder {
         super::super::super::operation::get_delivery_destination_policy::GetDeliveryDestinationPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_delivery_destination_policy::GetDeliveryDestinationPolicyInput {
-                delivery_destination_name: self.delivery_destination_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_delivery_destination_policy::GetDeliveryDestinationPolicyInput {
+            delivery_destination_name: self.delivery_destination_name,
+        })
     }
 }

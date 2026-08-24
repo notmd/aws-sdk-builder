@@ -45,10 +45,7 @@ impl DeleteConfigRuleInputBuilder {
     /// Consumes the builder and constructs a [`DeleteConfigRuleInput`](crate::operation::delete_config_rule::DeleteConfigRuleInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_config_rule::DeleteConfigRuleInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_config_rule::DeleteConfigRuleInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_config_rule::DeleteConfigRuleInput {
             config_rule_name: self.config_rule_name,
         })

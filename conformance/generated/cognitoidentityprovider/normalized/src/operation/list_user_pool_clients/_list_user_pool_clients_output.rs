@@ -55,10 +55,7 @@ impl ListUserPoolClientsOutputBuilder {
         self
     }
     /// <p>An array of app clients and their details. Includes app client ID and name.</p>
-    pub fn set_user_pool_clients(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::UserPoolClientDescription>>,
-    ) -> Self {
+    pub fn set_user_pool_clients(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::UserPoolClientDescription>>) -> Self {
         self.user_pool_clients = input;
         self
     }

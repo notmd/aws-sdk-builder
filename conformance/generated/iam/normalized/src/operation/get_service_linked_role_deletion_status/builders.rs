@@ -57,9 +57,7 @@ impl GetServiceLinkedRoleDeletionStatusFluentBuilder {
         }
     }
     /// Access the GetServiceLinkedRoleDeletionStatus as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,11 +87,7 @@ impl GetServiceLinkedRoleDeletionStatusFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatus::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        super::super::super::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatus::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

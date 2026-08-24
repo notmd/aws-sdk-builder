@@ -77,11 +77,9 @@ impl StartRemediationExecutionInputBuilder {
         super::super::super::operation::start_remediation_execution::StartRemediationExecutionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::start_remediation_execution::StartRemediationExecutionInput {
-                config_rule_name: self.config_rule_name,
-                resource_keys: self.resource_keys,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::start_remediation_execution::StartRemediationExecutionInput {
+            config_rule_name: self.config_rule_name,
+            resource_keys: self.resource_keys,
+        })
     }
 }

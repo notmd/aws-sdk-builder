@@ -129,10 +129,7 @@ impl UpdateTableFluentBuilder {
         self
     }
     /// <p>An array of attributes that describe the key schema for the table and indexes. If you are adding a new global secondary index to the table, <code>AttributeDefinitions</code> must include the key element(s) of the new index.</p>
-    pub fn set_attribute_definitions(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeDefinition>>,
-    ) -> Self {
+    pub fn set_attribute_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeDefinition>>) -> Self {
         self.inner = self.inner.set_attribute_definitions(input);
         self
     }
@@ -249,9 +246,7 @@ impl UpdateTableFluentBuilder {
     /// </ul>
     /// <p>You can create or delete only one global secondary index per <code>UpdateTable</code> operation.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_global_secondary_index_updates(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexUpdate>> {
+    pub fn get_global_secondary_index_updates(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexUpdate>> {
         self.inner.get_global_secondary_index_updates()
     }
     /// <p>Represents the DynamoDB Streams configuration for the table.</p><note>
@@ -416,9 +411,7 @@ impl UpdateTableFluentBuilder {
     /// </ul>
     /// <p>You can create or delete only one witness per <code>UpdateTable</code> operation.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_HowItWorks.html#V2globaltables_HowItWorks.consistency-modes">Multi-Region strong consistency (MRSC)</a> in the Amazon DynamoDB Developer Guide</p>
-    pub fn get_global_table_witness_updates(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTableWitnessGroupUpdate>> {
+    pub fn get_global_table_witness_updates(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTableWitnessGroupUpdate>> {
         self.inner.get_global_table_witness_updates()
     }
     /// <p>Updates the maximum number of read and write units for the specified table in on-demand capacity mode. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
@@ -481,9 +474,7 @@ impl UpdateTableFluentBuilder {
     /// <li>
     /// <p><code>DISABLED</code>: Remove settings replication on a regional table. Settings replication needs to be defined to ENABLED again in order to create a Multi-Account Global Table using this table.</p></li>
     /// </ul>
-    pub fn get_global_table_settings_replication_mode(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::GlobalTableSettingsReplicationMode> {
+    pub fn get_global_table_settings_replication_mode(&self) -> &::std::option::Option<super::super::super::types::GlobalTableSettingsReplicationMode> {
         self.inner.get_global_table_settings_replication_mode()
     }
     ///

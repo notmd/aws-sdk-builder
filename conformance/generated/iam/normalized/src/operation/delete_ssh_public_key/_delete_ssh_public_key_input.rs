@@ -76,10 +76,8 @@ impl DeleteSshPublicKeyInputBuilder {
     /// Consumes the builder and constructs a [`DeleteSshPublicKeyInput`](crate::operation::delete_ssh_public_key::DeleteSshPublicKeyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyInput {
             user_name: self.user_name,
             ssh_public_key_id: self.ssh_public_key_id,

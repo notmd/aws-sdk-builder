@@ -126,20 +126,14 @@ pub struct PutObjectFluentBuilder {
     inner: super::super::super::operation::put_object::builders::PutObjectInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::put_object::PutObjectOutput,
-        super::super::super::operation::put_object::PutObjectError,
-    > for PutObjectFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::put_object::PutObjectOutput, super::super::super::operation::put_object::PutObjectError>
+    for PutObjectFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::put_object::PutObjectOutput,
-            super::super::super::operation::put_object::PutObjectError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::put_object::PutObjectOutput, super::super::super::operation::put_object::PutObjectError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -255,8 +249,7 @@ impl PutObjectFluentBuilder {
             })
         })?;
         let request = context.take_request().expect("request set before transmit");
-        super::super::super::presigning::PresignedRequest::new(request)
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)
+        super::super::super::presigning::PresignedRequest::new(request).map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)
     }
     /// <p>The canned ACL to apply to the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>When adding a new object, you can use headers to grant ACL-based permissions to individual Amazon Web Services accounts or to predefined groups defined by Amazon S3. These permissions are then added to the ACL on the object. By default, all objects are private. Only the owner has full access control. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing ACLs Using the REST API</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -1296,18 +1289,13 @@ impl PutObjectFluentBuilder {
     }
 }
 
-impl super::super::super::client::customize::internal::CustomizablePresigned<super::super::super::operation::put_object::PutObjectError>
-    for PutObjectFluentBuilder
-{
+impl super::super::super::client::customize::internal::CustomizablePresigned<super::super::super::operation::put_object::PutObjectError> for PutObjectFluentBuilder {
     fn presign(
         self,
         config_override: super::super::super::config::Builder,
         presigning_config: super::super::super::presigning::PresigningConfig,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::presigning::PresignedRequest,
-            super::super::super::operation::put_object::PutObjectError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::presigning::PresignedRequest, super::super::super::operation::put_object::PutObjectError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).presigned(presigning_config).await })
     }

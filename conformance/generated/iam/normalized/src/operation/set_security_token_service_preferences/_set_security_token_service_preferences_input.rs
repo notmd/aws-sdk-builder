@@ -16,8 +16,7 @@ impl SetSecurityTokenServicePreferencesInput {
 }
 impl SetSecurityTokenServicePreferencesInput {
     /// Creates a new builder-style object to manufacture [`SetSecurityTokenServicePreferencesInput`](crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesInput).
-    pub fn builder(
-    ) -> super::super::super::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesInputBuilder {
+    pub fn builder() -> super::super::super::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesInputBuilder {
         super::super::super::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesInputBuilder::default()
     }
 }

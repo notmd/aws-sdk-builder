@@ -159,10 +159,7 @@ impl DescribeQuotaShareOutputBuilder {
         self
     }
     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
-    pub fn set_resource_sharing_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::QuotaShareResourceSharingConfiguration>,
-    ) -> Self {
+    pub fn set_resource_sharing_configuration(mut self, input: ::std::option::Option<super::super::super::types::QuotaShareResourceSharingConfiguration>) -> Self {
         self.resource_sharing_configuration = input;
         self
     }
@@ -176,10 +173,7 @@ impl DescribeQuotaShareOutputBuilder {
         self
     }
     /// <p>Specifies the preemption behavior for jobs in a quota share.</p>
-    pub fn set_preemption_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::QuotaSharePreemptionConfiguration>,
-    ) -> Self {
+    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<super::super::super::types::QuotaSharePreemptionConfiguration>) -> Self {
         self.preemption_configuration = input;
         self
     }

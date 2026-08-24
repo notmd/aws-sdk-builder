@@ -302,10 +302,8 @@ impl DeletePackageVersionsInputBuilder {
     /// Consumes the builder and constructs a [`DeletePackageVersionsInput`](crate::operation::delete_package_versions::DeletePackageVersionsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_package_versions::DeletePackageVersionsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_package_versions::DeletePackageVersionsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::delete_package_versions::DeletePackageVersionsInput {
             domain: self.domain,
             domain_owner: self.domain_owner,

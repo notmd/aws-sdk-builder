@@ -45,10 +45,8 @@ impl GetConfigurationSetInputBuilder {
     /// Consumes the builder and constructs a [`GetConfigurationSetInput`](crate::operation::get_configuration_set::GetConfigurationSetInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_configuration_set::GetConfigurationSetInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_configuration_set::GetConfigurationSetInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_configuration_set::GetConfigurationSetInput {
             configuration_set_name: self.configuration_set_name,
         })

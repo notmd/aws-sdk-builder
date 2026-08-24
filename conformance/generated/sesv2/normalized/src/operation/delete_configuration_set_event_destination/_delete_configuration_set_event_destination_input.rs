@@ -21,9 +21,7 @@ impl DeleteConfigurationSetEventDestinationInput {
 }
 impl DeleteConfigurationSetEventDestinationInput {
     /// Creates a new builder-style object to manufacture [`DeleteConfigurationSetEventDestinationInput`](crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationInput).
-    pub fn builder(
-    ) -> super::super::super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationInputBuilder {
         super::super::super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationInputBuilder::default()
     }
 }

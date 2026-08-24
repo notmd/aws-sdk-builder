@@ -119,11 +119,9 @@ impl UploadSigningCertificateInputBuilder {
         super::super::super::operation::upload_signing_certificate::UploadSigningCertificateInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::upload_signing_certificate::UploadSigningCertificateInput {
-                user_name: self.user_name,
-                certificate_body: self.certificate_body,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::upload_signing_certificate::UploadSigningCertificateInput {
+            user_name: self.user_name,
+            certificate_body: self.certificate_body,
+        })
     }
 }

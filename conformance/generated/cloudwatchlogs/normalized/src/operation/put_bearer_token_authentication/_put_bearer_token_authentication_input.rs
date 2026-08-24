@@ -100,11 +100,9 @@ impl PutBearerTokenAuthenticationInputBuilder {
         super::super::super::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationInput {
-                log_group_identifier: self.log_group_identifier,
-                bearer_token_authentication_enabled: self.bearer_token_authentication_enabled,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_bearer_token_authentication::PutBearerTokenAuthenticationInput {
+            log_group_identifier: self.log_group_identifier,
+            bearer_token_authentication_enabled: self.bearer_token_authentication_enabled,
+        })
     }
 }

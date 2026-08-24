@@ -76,8 +76,7 @@ impl GetRolePolicyInputBuilder {
     /// Consumes the builder and constructs a [`GetRolePolicyInput`](crate::operation::get_role_policy::GetRolePolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::get_role_policy::GetRolePolicyInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::get_role_policy::GetRolePolicyInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_role_policy::GetRolePolicyInput {
             role_name: self.role_name,
             policy_name: self.policy_name,

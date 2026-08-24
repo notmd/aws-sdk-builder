@@ -44,10 +44,8 @@ impl GetCapacityProviderInputBuilder {
     /// Consumes the builder and constructs a [`GetCapacityProviderInput`](crate::operation::get_capacity_provider::GetCapacityProviderInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_capacity_provider::GetCapacityProviderInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_capacity_provider::GetCapacityProviderInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_capacity_provider::GetCapacityProviderInput {
             capacity_provider_name: self.capacity_provider_name,
         })

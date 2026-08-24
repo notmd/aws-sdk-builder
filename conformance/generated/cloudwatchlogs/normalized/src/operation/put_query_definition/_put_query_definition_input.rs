@@ -197,10 +197,8 @@ impl PutQueryDefinitionInputBuilder {
     /// Consumes the builder and constructs a [`PutQueryDefinitionInput`](crate::operation::put_query_definition::PutQueryDefinitionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::put_query_definition::PutQueryDefinitionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::put_query_definition::PutQueryDefinitionInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::put_query_definition::PutQueryDefinitionInput {
             query_language: self.query_language,
             name: self.name,

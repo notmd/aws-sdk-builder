@@ -154,8 +154,7 @@ impl UpdateAnomalyInputBuilder {
     /// Consumes the builder and constructs a [`UpdateAnomalyInput`](crate::operation::update_anomaly::UpdateAnomalyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::update_anomaly::UpdateAnomalyInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::update_anomaly::UpdateAnomalyInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::update_anomaly::UpdateAnomalyInput {
             anomaly_id: self.anomaly_id,
             pattern_id: self.pattern_id,

@@ -199,14 +199,12 @@ impl UpdateManagedLoginBrandingInputBuilder {
         super::super::super::operation::update_managed_login_branding::UpdateManagedLoginBrandingInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::update_managed_login_branding::UpdateManagedLoginBrandingInput {
-                user_pool_id: self.user_pool_id,
-                managed_login_branding_id: self.managed_login_branding_id,
-                use_cognito_provided_values: self.use_cognito_provided_values.unwrap_or_default(),
-                settings: self.settings,
-                assets: self.assets,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::update_managed_login_branding::UpdateManagedLoginBrandingInput {
+            user_pool_id: self.user_pool_id,
+            managed_login_branding_id: self.managed_login_branding_id,
+            use_cognito_provided_values: self.use_cognito_provided_values.unwrap_or_default(),
+            settings: self.settings,
+            assets: self.assets,
+        })
     }
 }

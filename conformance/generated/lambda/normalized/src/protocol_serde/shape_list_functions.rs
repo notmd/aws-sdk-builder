@@ -55,9 +55,8 @@ pub fn de_list_functions_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::list_functions::ListFunctionsError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_functions::ListFunctionsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -120,11 +119,7 @@ pub(crate) fn de_list_functions(
                     );
                 }
                 "Functions" => {
-                    builder = builder.set_functions(super::super::protocol_serde::shape_function_list::de_function_list(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_functions(super::super::protocol_serde::shape_function_list::de_function_list(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

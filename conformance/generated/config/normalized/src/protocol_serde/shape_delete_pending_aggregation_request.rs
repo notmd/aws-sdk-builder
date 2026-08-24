@@ -55,8 +55,7 @@ pub fn de_delete_pending_aggregation_request_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestOutputBuilder::default();
+        let mut output = super::super::operation::delete_pending_aggregation_request::builders::DeletePendingAggregationRequestOutputBuilder::default();
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -67,10 +66,7 @@ pub fn ser_delete_pending_aggregation_request_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_pending_aggregation_request_input::ser_delete_pending_aggregation_request_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_delete_pending_aggregation_request_input::ser_delete_pending_aggregation_request_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

@@ -50,26 +50,21 @@ pub fn de_delete_suppressed_destination_http_error(
             }
             tmp
         }),
-        "TooManyRequestsException" => {
-            super::super::operation::delete_suppressed_destination::DeleteSuppressedDestinationError::TooManyRequestsException({
+        "TooManyRequestsException" => super::super::operation::delete_suppressed_destination::DeleteSuppressedDestinationError::TooManyRequestsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::delete_suppressed_destination::DeleteSuppressedDestinationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::delete_suppressed_destination::DeleteSuppressedDestinationError::generic(generic),
     })
 }

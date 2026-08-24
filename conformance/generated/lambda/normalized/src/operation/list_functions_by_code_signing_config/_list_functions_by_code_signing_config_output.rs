@@ -28,8 +28,7 @@ impl ::aws_types::request_id::RequestId for ListFunctionsByCodeSigningConfigOutp
 }
 impl ListFunctionsByCodeSigningConfigOutput {
     /// Creates a new builder-style object to manufacture [`ListFunctionsByCodeSigningConfigOutput`](crate::operation::list_functions_by_code_signing_config::ListFunctionsByCodeSigningConfigOutput).
-    pub fn builder() -> super::super::super::operation::list_functions_by_code_signing_config::builders::ListFunctionsByCodeSigningConfigOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::list_functions_by_code_signing_config::builders::ListFunctionsByCodeSigningConfigOutputBuilder {
         super::super::super::operation::list_functions_by_code_signing_config::builders::ListFunctionsByCodeSigningConfigOutputBuilder::default()
     }
 }

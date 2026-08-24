@@ -135,10 +135,7 @@ impl AdminGetUserAuthFactorsOutputBuilder {
     }
     /// <p>The authentication types that are available to the user with <code>USER_AUTH</code> sign-in, for example <code>\["PASSWORD", "WEB_AUTHN"\]</code>.</p>
     /// <p><code>PASSWORD</code> can only be used as a first authentication factor. <code>SOFTWARE_TOKEN</code> can only be used as an MFA factor. <code>EMAIL_OTP</code>, <code>SMS_OTP</code>, and <code>WEB_AUTHN</code> can be used as either a first authentication factor or an MFA factor. <code>WEB_AUTHN</code> is available as an MFA factor only when passkey MFA is enabled at the user pool level.</p>
-    pub fn set_configured_user_auth_factors(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AuthFactorType>>,
-    ) -> Self {
+    pub fn set_configured_user_auth_factors(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AuthFactorType>>) -> Self {
         self.configured_user_auth_factors = input;
         self
     }
@@ -165,20 +162,18 @@ impl AdminGetUserAuthFactorsOutputBuilder {
         super::super::super::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsOutput {
-                username: self.username.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "username",
-                        "username was not specified but it is required when building AdminGetUserAuthFactorsOutput",
-                    )
-                })?,
-                preferred_mfa_setting: self.preferred_mfa_setting,
-                user_mfa_setting_list: self.user_mfa_setting_list,
-                configured_user_auth_factors: self.configured_user_auth_factors,
-                _request_id: self._request_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsOutput {
+            username: self.username.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "username",
+                    "username was not specified but it is required when building AdminGetUserAuthFactorsOutput",
+                )
+            })?,
+            preferred_mfa_setting: self.preferred_mfa_setting,
+            user_mfa_setting_list: self.user_mfa_setting_list,
+            configured_user_auth_factors: self.configured_user_auth_factors,
+            _request_id: self._request_id,
+        })
     }
 }
 impl ::std::fmt::Debug for AdminGetUserAuthFactorsOutputBuilder {

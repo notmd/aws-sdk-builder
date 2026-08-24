@@ -4,10 +4,7 @@ pub fn de_put_account_policy_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::put_account_policy::PutAccountPolicyOutput,
-    super::super::operation::put_account_policy::PutAccountPolicyError,
-> {
+) -> std::result::Result<super::super::operation::put_account_policy::PutAccountPolicyOutput, super::super::operation::put_account_policy::PutAccountPolicyError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::put_account_policy::PutAccountPolicyError::unhandled)?;
@@ -25,9 +22,8 @@ pub fn de_put_account_policy_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::put_account_policy::PutAccountPolicyError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::put_account_policy::PutAccountPolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -56,9 +52,8 @@ pub fn de_put_account_policy_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::OperationAbortedExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::put_account_policy::PutAccountPolicyError::unhandled)?;
+                output = super::super::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::put_account_policy::PutAccountPolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -72,11 +67,9 @@ pub fn de_put_account_policy_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::put_account_policy::PutAccountPolicyError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::put_account_policy::PutAccountPolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -94,10 +87,7 @@ pub fn de_put_account_policy_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::put_account_policy::PutAccountPolicyOutput,
-    super::super::operation::put_account_policy::PutAccountPolicyError,
-> {
+) -> std::result::Result<super::super::operation::put_account_policy::PutAccountPolicyOutput, super::super::operation::put_account_policy::PutAccountPolicyError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::put_account_policy::builders::PutAccountPolicyOutputBuilder::default();
@@ -135,11 +125,7 @@ pub(crate) fn de_put_account_policy(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "accountPolicy" => {
-                    builder = builder.set_account_policy(super::super::protocol_serde::shape_account_policy::de_account_policy(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_account_policy(super::super::protocol_serde::shape_account_policy::de_account_policy(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

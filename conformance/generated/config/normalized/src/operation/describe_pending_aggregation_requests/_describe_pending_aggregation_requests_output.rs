@@ -28,8 +28,7 @@ impl ::aws_types::request_id::RequestId for DescribePendingAggregationRequestsOu
 }
 impl DescribePendingAggregationRequestsOutput {
     /// Creates a new builder-style object to manufacture [`DescribePendingAggregationRequestsOutput`](crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsOutputBuilder {
+    pub fn builder() -> super::super::super::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsOutputBuilder {
         super::super::super::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsOutputBuilder::default()
     }
 }

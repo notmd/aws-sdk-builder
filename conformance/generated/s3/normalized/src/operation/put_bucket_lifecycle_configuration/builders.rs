@@ -121,9 +121,7 @@ impl PutBucketLifecycleConfigurationFluentBuilder {
         }
     }
     /// Access the PutBucketLifecycleConfiguration as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::put_bucket_lifecycle_configuration::builders::PutBucketLifecycleConfigurationInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::put_bucket_lifecycle_configuration::builders::PutBucketLifecycleConfigurationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -147,14 +145,12 @@ impl PutBucketLifecycleConfigurationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::put_bucket_lifecycle_configuration::PutBucketLifecycleConfiguration::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        super::super::super::operation::put_bucket_lifecycle_configuration::PutBucketLifecycleConfiguration::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = super::super::super::operation::put_bucket_lifecycle_configuration::PutBucketLifecycleConfiguration::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        super::super::super::operation::put_bucket_lifecycle_configuration::PutBucketLifecycleConfiguration::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -282,9 +278,7 @@ impl PutBucketLifecycleConfigurationFluentBuilder {
     /// <p><code>varies_by_storage_class</code> - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.</p></li>
     /// </ul>
     /// <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule. Custom filters always take precedence over the default transition behavior.</p>
-    pub fn get_transition_default_minimum_object_size(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::TransitionDefaultMinimumObjectSize> {
+    pub fn get_transition_default_minimum_object_size(&self) -> &::std::option::Option<super::super::super::types::TransitionDefaultMinimumObjectSize> {
         self.inner.get_transition_default_minimum_object_size()
     }
 }

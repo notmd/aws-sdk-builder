@@ -70,11 +70,9 @@ impl DeleteManagedLoginBrandingInputBuilder {
         super::super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingInput {
-                managed_login_branding_id: self.managed_login_branding_id,
-                user_pool_id: self.user_pool_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_managed_login_branding::DeleteManagedLoginBrandingInput {
+            managed_login_branding_id: self.managed_login_branding_id,
+            user_pool_id: self.user_pool_id,
+        })
     }
 }

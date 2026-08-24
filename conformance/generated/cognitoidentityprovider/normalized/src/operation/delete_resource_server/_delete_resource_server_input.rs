@@ -66,10 +66,8 @@ impl DeleteResourceServerInputBuilder {
     /// Consumes the builder and constructs a [`DeleteResourceServerInput`](crate::operation::delete_resource_server::DeleteResourceServerInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_resource_server::DeleteResourceServerInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_resource_server::DeleteResourceServerInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::delete_resource_server::DeleteResourceServerInput {
             user_pool_id: self.user_pool_id,
             identifier: self.identifier,

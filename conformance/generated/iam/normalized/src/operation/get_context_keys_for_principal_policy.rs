@@ -264,9 +264,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetContextKe
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            super::super::protocol_serde::shape_get_context_keys_for_principal_policy_input::ser_get_context_keys_for_principal_policy_op_input(
-                &input,
-            )?,
+            super::super::protocol_serde::shape_get_context_keys_for_principal_policy_input::ser_get_context_keys_for_principal_policy_op_input(&input)?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();

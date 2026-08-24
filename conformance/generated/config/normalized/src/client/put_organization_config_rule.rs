@@ -12,9 +12,7 @@ impl super::Client {
     /// - On success, responds with [`PutOrganizationConfigRuleOutput`](crate::operation::put_organization_config_rule::PutOrganizationConfigRuleOutput) with field(s):
     ///   - [`organization_config_rule_arn(Option<String>)`](crate::operation::put_organization_config_rule::PutOrganizationConfigRuleOutput::organization_config_rule_arn): <p>The Amazon Resource Name (ARN) of an organization Config rule.</p>
     /// - On failure, responds with [`SdkError<PutOrganizationConfigRuleError>`](crate::operation::put_organization_config_rule::PutOrganizationConfigRuleError)
-    pub fn put_organization_config_rule(
-        &self,
-    ) -> super::super::operation::put_organization_config_rule::builders::PutOrganizationConfigRuleFluentBuilder {
+    pub fn put_organization_config_rule(&self) -> super::super::operation::put_organization_config_rule::builders::PutOrganizationConfigRuleFluentBuilder {
         super::super::operation::put_organization_config_rule::builders::PutOrganizationConfigRuleFluentBuilder::new(self.handle.clone())
     }
 }

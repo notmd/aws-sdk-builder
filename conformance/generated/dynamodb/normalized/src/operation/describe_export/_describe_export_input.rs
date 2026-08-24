@@ -44,8 +44,7 @@ impl DescribeExportInputBuilder {
     /// Consumes the builder and constructs a [`DescribeExportInput`](crate::operation::describe_export::DescribeExportInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::describe_export::DescribeExportInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::describe_export::DescribeExportInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::describe_export::DescribeExportInput { export_arn: self.export_arn })
     }
 }

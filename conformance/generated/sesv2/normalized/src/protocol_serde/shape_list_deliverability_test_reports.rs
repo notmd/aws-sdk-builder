@@ -20,23 +20,21 @@ pub fn de_list_deliverability_test_reports_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "BadRequestException" => {
-            super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError::BadRequestException({
+        "BadRequestException" => super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError::BadRequestException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "NotFoundException" => super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError::NotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -58,11 +56,9 @@ pub fn de_list_deliverability_test_reports_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };

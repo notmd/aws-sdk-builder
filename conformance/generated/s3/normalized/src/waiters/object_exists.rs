@@ -32,10 +32,7 @@ impl ObjectExistsFluentBuilder {
     pub async fn wait(
         self,
         max_wait: ::std::time::Duration,
-    ) -> ::std::result::Result<
-        super::super::waiters::object_exists::ObjectExistsFinalPoll,
-        super::super::waiters::object_exists::WaitUntilObjectExistsError,
-    > {
+    ) -> ::std::result::Result<super::super::waiters::object_exists::ObjectExistsFinalPoll, super::super::waiters::object_exists::WaitUntilObjectExistsError> {
         let input = self
             .inner
             .build()

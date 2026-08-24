@@ -10,8 +10,6 @@ impl super::Client {
     pub fn get_compliance_summary_by_resource_type(
         &self,
     ) -> super::super::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeFluentBuilder {
-        super::super::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeFluentBuilder::new(self.handle.clone())
     }
 }

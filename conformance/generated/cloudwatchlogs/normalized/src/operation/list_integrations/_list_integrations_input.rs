@@ -85,10 +85,7 @@ impl ListIntegrationsInputBuilder {
     /// Consumes the builder and constructs a [`ListIntegrationsInput`](crate::operation::list_integrations::ListIntegrationsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_integrations::ListIntegrationsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_integrations::ListIntegrationsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_integrations::ListIntegrationsInput {
             integration_name_prefix: self.integration_name_prefix,
             integration_type: self.integration_type,

@@ -70,11 +70,9 @@ impl ListSubscriptionsByTopicInputBuilder {
         super::super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicInput {
-                topic_arn: self.topic_arn,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicInput {
+            topic_arn: self.topic_arn,
+            next_token: self.next_token,
+        })
     }
 }

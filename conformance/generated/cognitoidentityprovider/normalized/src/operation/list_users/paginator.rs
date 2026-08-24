@@ -8,10 +8,7 @@ pub struct ListUsersPaginator {
 
 impl ListUsersPaginator {
     /// Create a new paginator-wrapper
-    pub(crate) fn new(
-        handle: std::sync::Arc<super::super::super::client::Handle>,
-        builder: super::super::super::operation::list_users::builders::ListUsersInputBuilder,
-    ) -> Self {
+    pub(crate) fn new(handle: std::sync::Arc<super::super::super::client::Handle>, builder: super::super::super::operation::list_users::builders::ListUsersInputBuilder) -> Self {
         Self {
             handle,
             builder,
@@ -139,10 +136,7 @@ impl ListUsersPaginatorItems {
             >,
         >,
     > {
-        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
-            super::super::super::lens::lens_list_users_output_output_users(page)
-                .unwrap_or_default()
-                .into_iter()
-        })
+        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send())
+            .flat_map(|page| super::super::super::lens::lens_list_users_output_output_users(page).unwrap_or_default().into_iter())
     }
 }

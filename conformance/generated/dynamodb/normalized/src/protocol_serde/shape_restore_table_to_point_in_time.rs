@@ -35,26 +35,21 @@ pub fn de_restore_table_to_point_in_time_http_error(
             }
             tmp
         }),
-        "InvalidEndpointException" => {
-            super::super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError::InvalidEndpointException({
+        "InvalidEndpointException" => super::super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError::InvalidEndpointException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidRestoreTimeException" => {
             super::super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError::InvalidRestoreTimeException({
                 #[allow(unused_mut)]
@@ -75,24 +70,21 @@ pub fn de_restore_table_to_point_in_time_http_error(
                 tmp
             })
         }
-        "LimitExceededException" => {
-            super::super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError::LimitExceededException({
+        "LimitExceededException" => super::super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError::LimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "PointInTimeRecoveryUnavailableException" => {
             super::super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError::PointInTimeRecoveryUnavailableException({
                 #[allow(unused_mut)]
@@ -144,24 +136,21 @@ pub fn de_restore_table_to_point_in_time_http_error(
             }
             tmp
         }),
-        "TableNotFoundException" => {
-            super::super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError::TableNotFoundException({
+        "TableNotFoundException" => super::super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError::TableNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::TableNotFoundExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_table_not_found_exception::de_table_not_found_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::TableNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_table_not_found_exception::de_table_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::restore_table_to_point_in_time::RestoreTableToPointInTimeError::generic(generic),
     })
 }

@@ -23,11 +23,9 @@ pub fn de_copy_object_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ObjectNotInActiveTierErrorBuilder::default();
-                output = super::super::protocol_serde::shape_object_not_in_active_tier_error::de_object_not_in_active_tier_error_xml_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::copy_object::CopyObjectError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_object_not_in_active_tier_error::de_object_not_in_active_tier_error_xml_err(_response_body, output)
+                        .map_err(super::super::operation::copy_object::CopyObjectError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -67,9 +65,8 @@ pub fn de_copy_object_http_response(
             })?,
         );
         output = output.set_expiration(
-            super::super::protocol_serde::shape_copy_object_output::de_expiration_header(_response_headers).map_err(|_| {
-                super::super::operation::copy_object::CopyObjectError::unhandled("Failed to parse Expiration from header `x-amz-expiration")
-            })?,
+            super::super::protocol_serde::shape_copy_object_output::de_expiration_header(_response_headers)
+                .map_err(|_| super::super::operation::copy_object::CopyObjectError::unhandled("Failed to parse Expiration from header `x-amz-expiration"))?,
         );
         output = output.set_request_charged(
             super::super::protocol_serde::shape_copy_object_output::de_request_charged_header(_response_headers).map_err(|_| {
@@ -112,9 +109,8 @@ pub fn de_copy_object_http_response(
             })?,
         );
         output = output.set_version_id(
-            super::super::protocol_serde::shape_copy_object_output::de_version_id_header(_response_headers).map_err(|_| {
-                super::super::operation::copy_object::CopyObjectError::unhandled("Failed to parse VersionId from header `x-amz-version-id")
-            })?,
+            super::super::protocol_serde::shape_copy_object_output::de_version_id_header(_response_headers)
+                .map_err(|_| super::super::operation::copy_object::CopyObjectError::unhandled("Failed to parse VersionId from header `x-amz-version-id"))?,
         );
         output._set_extended_request_id(super::super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));

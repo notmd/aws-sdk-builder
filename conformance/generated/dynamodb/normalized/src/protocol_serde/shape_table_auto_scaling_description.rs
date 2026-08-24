@@ -20,28 +20,32 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "TableName" => {
-                                builder = builder.set_table_name(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                        .transpose()?,
-                                );
-                            }
-                            "TableStatus" => {
-                                builder = builder.set_table_status(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| super::super::types::TableStatus::from(u.as_ref())))
-                                        .transpose()?,
-                                );
-                            }
-                            "Replicas" => {
-                                builder = builder.set_replicas(super::super::protocol_serde::shape_replica_auto_scaling_description_list::de_replica_auto_scaling_description_list(tokens, _value, depth + 1)?);
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "TableName" => {
+                            builder = builder.set_table_name(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
                         }
-                    }
+                        "TableStatus" => {
+                            builder = builder.set_table_status(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::TableStatus::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "Replicas" => {
+                            builder = builder.set_replicas(
+                                super::super::protocol_serde::shape_replica_auto_scaling_description_list::de_replica_auto_scaling_description_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

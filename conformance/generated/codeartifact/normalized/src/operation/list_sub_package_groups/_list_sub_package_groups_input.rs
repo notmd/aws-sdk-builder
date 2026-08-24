@@ -129,10 +129,8 @@ impl ListSubPackageGroupsInputBuilder {
     /// Consumes the builder and constructs a [`ListSubPackageGroupsInput`](crate::operation::list_sub_package_groups::ListSubPackageGroupsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_sub_package_groups::ListSubPackageGroupsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_sub_package_groups::ListSubPackageGroupsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_sub_package_groups::ListSubPackageGroupsInput {
             domain: self.domain,
             domain_owner: self.domain_owner,

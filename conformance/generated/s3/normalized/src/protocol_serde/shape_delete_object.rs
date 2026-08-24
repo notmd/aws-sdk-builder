@@ -30,9 +30,7 @@ pub fn de_delete_object_http_response(
         );
         output = output.set_request_charged(
             super::super::protocol_serde::shape_delete_object_output::de_request_charged_header(_response_headers).map_err(|_| {
-                super::super::operation::delete_object::DeleteObjectError::unhandled(
-                    "Failed to parse RequestCharged from header `x-amz-request-charged",
-                )
+                super::super::operation::delete_object::DeleteObjectError::unhandled("Failed to parse RequestCharged from header `x-amz-request-charged")
             })?,
         );
         output = output.set_version_id(

@@ -55,9 +55,7 @@ impl ::std::convert::From<&str> for ReturnValuesOnConditionCheckFailure {
         match s {
             "ALL_OLD" => ReturnValuesOnConditionCheckFailure::AllOld,
             "NONE" => ReturnValuesOnConditionCheckFailure::None,
-            other => {
-                ReturnValuesOnConditionCheckFailure::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => ReturnValuesOnConditionCheckFailure::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

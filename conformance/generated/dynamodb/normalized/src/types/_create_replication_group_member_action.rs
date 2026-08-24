@@ -134,10 +134,7 @@ impl CreateReplicationGroupMemberActionBuilder {
         self
     }
     /// <p>Replica-specific global secondary index settings.</p>
-    pub fn set_global_secondary_indexes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::ReplicaGlobalSecondaryIndex>>,
-    ) -> Self {
+    pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::ReplicaGlobalSecondaryIndex>>) -> Self {
         self.global_secondary_indexes = input;
         self
     }
@@ -162,9 +159,7 @@ impl CreateReplicationGroupMemberActionBuilder {
     /// Consumes the builder and constructs a [`CreateReplicationGroupMemberAction`](crate::types::CreateReplicationGroupMemberAction).
     /// This method will fail if any of the following fields are not set:
     /// - [`region_name`](crate::types::builders::CreateReplicationGroupMemberActionBuilder::region_name)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::CreateReplicationGroupMemberAction, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::CreateReplicationGroupMemberAction, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::CreateReplicationGroupMemberAction {
             region_name: self.region_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

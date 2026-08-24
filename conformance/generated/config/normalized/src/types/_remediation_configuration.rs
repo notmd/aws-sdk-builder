@@ -55,9 +55,7 @@ impl RemediationConfiguration {
         self.target_version.as_deref()
     }
     /// <p>An object of the RemediationParameterValue.</p>
-    pub fn parameters(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::types::RemediationParameterValue>> {
+    pub fn parameters(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::types::RemediationParameterValue>> {
         self.parameters.as_ref()
     }
     /// <p>The type of a resource.</p>

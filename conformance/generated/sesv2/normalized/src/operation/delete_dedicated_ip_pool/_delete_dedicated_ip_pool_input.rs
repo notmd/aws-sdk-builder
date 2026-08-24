@@ -45,10 +45,8 @@ impl DeleteDedicatedIpPoolInputBuilder {
     /// Consumes the builder and constructs a [`DeleteDedicatedIpPoolInput`](crate::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolInput { pool_name: self.pool_name })
     }
 }

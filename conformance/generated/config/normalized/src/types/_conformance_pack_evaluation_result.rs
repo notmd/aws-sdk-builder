@@ -134,9 +134,7 @@ impl ConformancePackEvaluationResultBuilder {
     /// - [`compliance_type`](crate::types::builders::ConformancePackEvaluationResultBuilder::compliance_type)
     /// - [`config_rule_invoked_time`](crate::types::builders::ConformancePackEvaluationResultBuilder::config_rule_invoked_time)
     /// - [`result_recorded_time`](crate::types::builders::ConformancePackEvaluationResultBuilder::result_recorded_time)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::ConformancePackEvaluationResult, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::ConformancePackEvaluationResult, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::ConformancePackEvaluationResult {
             compliance_type: self.compliance_type.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

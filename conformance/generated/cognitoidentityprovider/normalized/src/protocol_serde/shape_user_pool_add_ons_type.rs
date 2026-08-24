@@ -9,10 +9,7 @@ pub fn ser_user_pool_add_ons_type(
     if let Some(var_1) = &input.advanced_security_additional_flows {
         #[allow(unused_mut)]
         let mut object_2 = object.key("AdvancedSecurityAdditionalFlows").start_object();
-        super::super::protocol_serde::shape_advanced_security_additional_flows_type::ser_advanced_security_additional_flows_type(
-            &mut object_2,
-            var_1,
-        )?;
+        super::super::protocol_serde::shape_advanced_security_additional_flows_type::ser_advanced_security_additional_flows_type(&mut object_2, var_1)?;
         object_2.finish();
     }
     Ok(())
@@ -48,7 +45,13 @@ where
                             );
                         }
                         "AdvancedSecurityAdditionalFlows" => {
-                            builder = builder.set_advanced_security_additional_flows(super::super::protocol_serde::shape_advanced_security_additional_flows_type::de_advanced_security_additional_flows_type(tokens, _value, depth + 1)?);
+                            builder = builder.set_advanced_security_additional_flows(
+                                super::super::protocol_serde::shape_advanced_security_additional_flows_type::de_advanced_security_additional_flows_type(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
@@ -59,11 +62,9 @@ where
                     }
                 }
             }
-            Ok(Some(
-                super::super::serde_util::user_pool_add_ons_type_correct_errors(builder)
-                    .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-            ))
+            Ok(Some(super::super::serde_util::user_pool_add_ons_type_correct_errors(builder).build().map_err(
+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+            )?))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

@@ -4,8 +4,7 @@ pub fn de_list_objects_v2_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::list_objects_v2::ListObjectsV2Output, super::super::operation::list_objects_v2::ListObjectsV2Error>
-{
+) -> std::result::Result<super::super::operation::list_objects_v2::ListObjectsV2Output, super::super::operation::list_objects_v2::ListObjectsV2Error> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::list_objects_v2::ListObjectsV2Error::unhandled)?;
@@ -43,8 +42,7 @@ pub fn de_list_objects_v2_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::list_objects_v2::ListObjectsV2Output, super::super::operation::list_objects_v2::ListObjectsV2Error>
-{
+) -> std::result::Result<super::super::operation::list_objects_v2::ListObjectsV2Output, super::super::operation::list_objects_v2::ListObjectsV2Error> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::list_objects_v2::builders::ListObjectsV2OutputBuilder::default();
@@ -52,9 +50,7 @@ pub fn de_list_objects_v2_http_response(
             .map_err(super::super::operation::list_objects_v2::ListObjectsV2Error::unhandled)?;
         output = output.set_request_charged(
             super::super::protocol_serde::shape_list_objects_v2_output::de_request_charged_header(_response_headers).map_err(|_| {
-                super::super::operation::list_objects_v2::ListObjectsV2Error::unhandled(
-                    "Failed to parse RequestCharged from header `x-amz-request-charged",
-                )
+                super::super::operation::list_objects_v2::ListObjectsV2Error::unhandled("Failed to parse RequestCharged from header `x-amz-request-charged")
             })?,
         );
         output._set_extended_request_id(super::super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));

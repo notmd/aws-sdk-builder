@@ -71,20 +71,12 @@ where
                         }
                         "ExecutionStartedDetails" => {
                             builder = builder.set_execution_started_details(
-                                super::super::protocol_serde::shape_execution_started_details::de_execution_started_details(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_execution_started_details::de_execution_started_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "ExecutionSucceededDetails" => {
                             builder = builder.set_execution_succeeded_details(
-                                super::super::protocol_serde::shape_execution_succeeded_details::de_execution_succeeded_details(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_execution_succeeded_details::de_execution_succeeded_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "ExecutionFailedDetails" => {
@@ -94,20 +86,12 @@ where
                         }
                         "ExecutionTimedOutDetails" => {
                             builder = builder.set_execution_timed_out_details(
-                                super::super::protocol_serde::shape_execution_timed_out_details::de_execution_timed_out_details(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_execution_timed_out_details::de_execution_timed_out_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "ExecutionStoppedDetails" => {
                             builder = builder.set_execution_stopped_details(
-                                super::super::protocol_serde::shape_execution_stopped_details::de_execution_stopped_details(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_execution_stopped_details::de_execution_stopped_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "ContextStartedDetails" => {
@@ -117,11 +101,7 @@ where
                         }
                         "ContextSucceededDetails" => {
                             builder = builder.set_context_succeeded_details(
-                                super::super::protocol_serde::shape_context_succeeded_details::de_context_succeeded_details(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_context_succeeded_details::de_context_succeeded_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "ContextFailedDetails" => {
@@ -130,9 +110,11 @@ where
                             );
                         }
                         "WaitStartedDetails" => {
-                            builder = builder.set_wait_started_details(
-                                super::super::protocol_serde::shape_wait_started_details::de_wait_started_details(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_wait_started_details(super::super::protocol_serde::shape_wait_started_details::de_wait_started_details(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "WaitSucceededDetails" => {
                             builder = builder.set_wait_succeeded_details(
@@ -145,9 +127,11 @@ where
                             );
                         }
                         "StepStartedDetails" => {
-                            builder = builder.set_step_started_details(
-                                super::super::protocol_serde::shape_step_started_details::de_step_started_details(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_step_started_details(super::super::protocol_serde::shape_step_started_details::de_step_started_details(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "StepSucceededDetails" => {
                             builder = builder.set_step_succeeded_details(
@@ -155,9 +139,11 @@ where
                             );
                         }
                         "StepFailedDetails" => {
-                            builder = builder.set_step_failed_details(
-                                super::super::protocol_serde::shape_step_failed_details::de_step_failed_details(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_step_failed_details(super::super::protocol_serde::shape_step_failed_details::de_step_failed_details(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "ChainedInvokeStartedDetails" => {
                             builder = builder.set_chained_invoke_started_details(
@@ -211,11 +197,7 @@ where
                         }
                         "CallbackSucceededDetails" => {
                             builder = builder.set_callback_succeeded_details(
-                                super::super::protocol_serde::shape_callback_succeeded_details::de_callback_succeeded_details(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_callback_succeeded_details::de_callback_succeeded_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "CallbackFailedDetails" => {
@@ -225,11 +207,7 @@ where
                         }
                         "CallbackTimedOutDetails" => {
                             builder = builder.set_callback_timed_out_details(
-                                super::super::protocol_serde::shape_callback_timed_out_details::de_callback_timed_out_details(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_callback_timed_out_details::de_callback_timed_out_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "InvocationCompletedDetails" => {

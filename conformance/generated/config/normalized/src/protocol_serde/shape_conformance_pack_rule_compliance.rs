@@ -31,19 +31,12 @@ where
                         "ComplianceType" => {
                             builder = builder.set_compliance_type(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| super::super::types::ConformancePackComplianceType::from(u.as_ref()))
-                                    })
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::ConformancePackComplianceType::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }
                         "Controls" => {
-                            builder = builder.set_controls(super::super::protocol_serde::shape_controls_list::de_controls_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_controls(super::super::protocol_serde::shape_controls_list::de_controls_list(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

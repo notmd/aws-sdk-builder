@@ -123,9 +123,7 @@ impl GuardrailAutomatedReasoningTranslationBuilder {
         self
     }
     /// <p>References to portions of the original input text that correspond to the premises but could not be fully translated.</p>
-    pub fn get_untranslated_premises(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningInputTextReference>> {
+    pub fn get_untranslated_premises(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningInputTextReference>> {
         &self.untranslated_premises
     }
     /// Appends an item to `untranslated_claims`.
@@ -148,9 +146,7 @@ impl GuardrailAutomatedReasoningTranslationBuilder {
         self
     }
     /// <p>References to portions of the original input text that correspond to the claims but could not be fully translated.</p>
-    pub fn get_untranslated_claims(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningInputTextReference>> {
+    pub fn get_untranslated_claims(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningInputTextReference>> {
         &self.untranslated_claims
     }
     /// <p>A confidence score between 0 and 1 indicating how certain the system is about the logical translation.</p>

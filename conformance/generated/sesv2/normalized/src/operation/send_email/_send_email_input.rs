@@ -346,9 +346,7 @@ impl SendEmailInputBuilder {
         &self.configuration_overrides
     }
     /// Consumes the builder and constructs a [`SendEmailInput`](crate::operation::send_email::SendEmailInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::send_email::SendEmailInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::send_email::SendEmailInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::send_email::SendEmailInput {
             from_email_address: self.from_email_address,
             from_email_address_identity_arn: self.from_email_address_identity_arn,

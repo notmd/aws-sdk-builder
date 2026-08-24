@@ -59,9 +59,7 @@ impl ::std::convert::From<&str> for GlobalTableSettingsReplicationMode {
             "DISABLED" => GlobalTableSettingsReplicationMode::Disabled,
             "ENABLED" => GlobalTableSettingsReplicationMode::Enabled,
             "ENABLED_WITH_OVERRIDES" => GlobalTableSettingsReplicationMode::EnabledWithOverrides,
-            other => {
-                GlobalTableSettingsReplicationMode::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => GlobalTableSettingsReplicationMode::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

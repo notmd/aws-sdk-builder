@@ -187,9 +187,7 @@ impl GetUserOutputBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`username`](crate::operation::get_user::builders::GetUserOutputBuilder::username)
     /// - [`user_attributes`](crate::operation::get_user::builders::GetUserOutputBuilder::user_attributes)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::get_user::GetUserOutput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_user::GetUserOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_user::GetUserOutput {
             username: self.username.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

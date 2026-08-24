@@ -390,10 +390,7 @@ impl CreateTableInputBuilder {
         self
     }
     /// <p>An array of attributes that describe the key schema for the table and indexes.</p>
-    pub fn set_attribute_definitions(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeDefinition>>,
-    ) -> Self {
+    pub fn set_attribute_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeDefinition>>) -> Self {
         self.attribute_definitions = input;
         self
     }
@@ -553,10 +550,7 @@ impl CreateTableInputBuilder {
     /// <p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn set_local_secondary_indexes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>,
-    ) -> Self {
+    pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>) -> Self {
         self.local_secondary_indexes = input;
         self
     }
@@ -650,10 +644,7 @@ impl CreateTableInputBuilder {
     /// <li>
     /// <p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.</p></li>
     /// </ul>
-    pub fn set_global_secondary_indexes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>,
-    ) -> Self {
+    pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>) -> Self {
         self.global_secondary_indexes = input;
         self
     }
@@ -944,9 +935,7 @@ impl CreateTableInputBuilder {
         self
     }
     /// <p>Controls the settings synchronization mode for the global table. For multi-account global tables, this parameter is required and the only supported value is ENABLED. For same-account global tables, this parameter is set to ENABLED_WITH_OVERRIDES.</p>
-    pub fn get_global_table_settings_replication_mode(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::GlobalTableSettingsReplicationMode> {
+    pub fn get_global_table_settings_replication_mode(&self) -> &::std::option::Option<super::super::super::types::GlobalTableSettingsReplicationMode> {
         &self.global_table_settings_replication_mode
     }
     /// Appends an item to `vector_indexes`.
@@ -1012,9 +1001,7 @@ impl CreateTableInputBuilder {
         &self.vector_indexes
     }
     /// Consumes the builder and constructs a [`CreateTableInput`](crate::operation::create_table::CreateTableInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::create_table::CreateTableInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::create_table::CreateTableInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::create_table::CreateTableInput {
             attribute_definitions: self.attribute_definitions,
             table_name: self.table_name,

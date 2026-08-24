@@ -3,10 +3,7 @@ pub(crate) fn de_search_result_content_blocks<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<::std::vec::Vec<super::super::types::SearchResultContentBlock>>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::SearchResultContentBlock>>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -26,11 +23,8 @@ where
                         break;
                     }
                     _ => {
-                        let value = super::super::protocol_serde::shape_search_result_content_block::de_search_result_content_block(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?;
+                        let value =
+                            super::super::protocol_serde::shape_search_result_content_block::de_search_result_content_block(tokens, _value, depth + 1)?;
                         if let Some(value) = value {
                             items.push(value);
                         } else {

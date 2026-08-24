@@ -269,9 +269,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PutServiceLi
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            super::super::protocol_serde::shape_put_service_linked_configuration_recorder::ser_put_service_linked_configuration_recorder_input(
-                &input,
-            )?,
+            super::super::protocol_serde::shape_put_service_linked_configuration_recorder::ser_put_service_linked_configuration_recorder_input(&input)?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
@@ -517,9 +515,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for PutServi
         })
     }
 }
-impl ::aws_types::request_id::RequestId
-    for super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError
-{
+impl ::aws_types::request_id::RequestId for super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

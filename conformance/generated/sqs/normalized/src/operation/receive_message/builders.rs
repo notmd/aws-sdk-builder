@@ -363,9 +363,7 @@ impl ReceiveMessageFluentBuilder {
     /// <li>
     /// <p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li>
     /// </ul>
-    pub fn get_message_system_attribute_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>> {
+    pub fn get_message_system_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>> {
         self.inner.get_message_system_attribute_names()
     }
     ///

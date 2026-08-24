@@ -38,20 +38,14 @@ pub struct ListTermsFluentBuilder {
     inner: super::super::super::operation::list_terms::builders::ListTermsInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::list_terms::ListTermsOutput,
-        super::super::super::operation::list_terms::ListTermsError,
-    > for ListTermsFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::list_terms::ListTermsOutput, super::super::super::operation::list_terms::ListTermsError>
+    for ListTermsFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::list_terms::ListTermsOutput,
-            super::super::super::operation::list_terms::ListTermsError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::list_terms::ListTermsOutput, super::super::super::operation::list_terms::ListTermsError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }

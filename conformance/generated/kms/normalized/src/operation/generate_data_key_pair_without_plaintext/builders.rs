@@ -79,9 +79,7 @@ impl GenerateDataKeyPairWithoutPlaintextFluentBuilder {
         }
     }
     /// Access the GenerateDataKeyPairWithoutPlaintext as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::generate_data_key_pair_without_plaintext::builders::GenerateDataKeyPairWithoutPlaintextInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::generate_data_key_pair_without_plaintext::builders::GenerateDataKeyPairWithoutPlaintextInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -111,11 +109,7 @@ impl GenerateDataKeyPairWithoutPlaintextFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintext::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        super::super::super::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintext::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

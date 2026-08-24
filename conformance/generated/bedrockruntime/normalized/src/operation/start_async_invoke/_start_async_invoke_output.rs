@@ -63,10 +63,7 @@ impl StartAsyncInvokeOutputBuilder {
     /// - [`invocation_arn`](crate::operation::start_async_invoke::builders::StartAsyncInvokeOutputBuilder::invocation_arn)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::start_async_invoke::StartAsyncInvokeOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::start_async_invoke::StartAsyncInvokeOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::start_async_invoke::StartAsyncInvokeOutput {
             invocation_arn: self.invocation_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

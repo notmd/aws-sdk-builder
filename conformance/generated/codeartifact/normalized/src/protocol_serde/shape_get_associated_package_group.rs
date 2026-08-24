@@ -15,7 +15,11 @@ pub fn de_get_associated_package_group_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -35,44 +39,36 @@ pub fn de_get_associated_package_group_http_error(
             }
             tmp
         }),
-        "InternalServerException" => {
-            super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::InternalServerException({
+        "InternalServerException" => super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::InternalServerException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ResourceNotFoundException" => {
-            super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::ResourceNotFoundException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ResourceNotFoundException" => super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::ResourceNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ValidationException" => super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::ValidationException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -138,17 +134,16 @@ pub(crate) fn de_get_associated_package_group(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "packageGroup" => {
-                    builder = builder.set_package_group(
-                        super::super::protocol_serde::shape_package_group_description::de_package_group_description(tokens, _value, depth + 1)?,
-                    );
+                    builder = builder.set_package_group(super::super::protocol_serde::shape_package_group_description::de_package_group_description(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "associationType" => {
                     builder = builder.set_association_type(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| {
-                                s.to_unescaped()
-                                    .map(|u| super::super::types::PackageGroupAssociationType::from(u.as_ref()))
-                            })
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::PackageGroupAssociationType::from(u.as_ref())))
                             .transpose()?,
                     );
                 }

@@ -43,8 +43,7 @@ impl super::super::super::operation::get_bucket_intelligent_tiering_configuratio
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetBucketIntelligentTieringConfigurationFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
-    inner:
-        super::super::super::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationInputBuilder,
+    inner: super::super::super::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
 impl
@@ -77,8 +76,7 @@ impl GetBucketIntelligentTieringConfigurationFluentBuilder {
     /// Access the GetBucketIntelligentTieringConfiguration as a reference.
     pub fn as_input(
         &self,
-    ) -> &super::super::super::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationInputBuilder
-    {
+    ) -> &super::super::super::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -102,16 +100,14 @@ impl GetBucketIntelligentTieringConfigurationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfiguration::operation_runtime_plugins(
-                            self.handle.runtime_plugins.clone(),
-                            &self.handle.conf,
-                            self.config_override,
-                        );
-        super::super::super::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfiguration::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            super::super::super::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfiguration::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        super::super::super::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfiguration::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

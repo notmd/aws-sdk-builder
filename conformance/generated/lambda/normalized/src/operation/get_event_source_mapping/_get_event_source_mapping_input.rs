@@ -44,10 +44,8 @@ impl GetEventSourceMappingInputBuilder {
     /// Consumes the builder and constructs a [`GetEventSourceMappingInput`](crate::operation::get_event_source_mapping::GetEventSourceMappingInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_event_source_mapping::GetEventSourceMappingInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_event_source_mapping::GetEventSourceMappingInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_event_source_mapping::GetEventSourceMappingInput { uuid: self.uuid })
     }
 }

@@ -43,11 +43,9 @@ pub fn de_describe_deliveries_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::describe_deliveries::DescribeDeliveriesError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::describe_deliveries::DescribeDeliveriesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

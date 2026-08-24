@@ -121,10 +121,7 @@ impl ExecuteTransactionFluentBuilder {
         self
     }
     /// <p>The list of PartiQL statements representing the transaction to run.</p>
-    pub fn set_transact_statements(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ParameterizedStatement>>,
-    ) -> Self {
+    pub fn set_transact_statements(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ParameterizedStatement>>) -> Self {
         self.inner = self.inner.set_transact_statements(input);
         self
     }

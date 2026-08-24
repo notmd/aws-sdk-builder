@@ -41,11 +41,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "PutRequest" => {
-                            builder = builder.set_put_request(super::super::protocol_serde::shape_put_request::de_put_request(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_put_request(super::super::protocol_serde::shape_put_request::de_put_request(tokens, _value, depth + 1)?);
                         }
                         "DeleteRequest" => {
                             builder = builder.set_delete_request(super::super::protocol_serde::shape_delete_request::de_delete_request(

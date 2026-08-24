@@ -67,9 +67,9 @@ impl ::std::convert::From<&str> for DeliverySourceConfigurationSchemaValueType {
             "int" => DeliverySourceConfigurationSchemaValueType::Int,
             "long" => DeliverySourceConfigurationSchemaValueType::Long,
             "string" => DeliverySourceConfigurationSchemaValueType::String,
-            other => DeliverySourceConfigurationSchemaValueType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(
-                other.to_owned(),
-            )),
+            other => {
+                DeliverySourceConfigurationSchemaValueType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
+            }
         }
     }
 }

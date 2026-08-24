@@ -22,9 +22,7 @@ pub fn ser_tool_choice(
             super::super::protocol_serde::shape_specific_tool_choice::ser_specific_tool_choice(&mut object_1, inner)?;
             object_1.finish();
         }
-        super::super::types::ToolChoice::Unknown => {
-            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ToolChoice"))
-        }
+        super::super::types::ToolChoice::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ToolChoice")),
     }
     Ok(())
 }

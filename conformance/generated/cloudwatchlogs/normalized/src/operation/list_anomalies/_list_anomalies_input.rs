@@ -106,8 +106,7 @@ impl ListAnomaliesInputBuilder {
     /// Consumes the builder and constructs a [`ListAnomaliesInput`](crate::operation::list_anomalies::ListAnomaliesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::list_anomalies::ListAnomaliesInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::list_anomalies::ListAnomaliesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_anomalies::ListAnomaliesInput {
             anomaly_detector_arn: self.anomaly_detector_arn,
             suppression_state: self.suppression_state,

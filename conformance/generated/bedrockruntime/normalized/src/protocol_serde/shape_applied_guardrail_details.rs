@@ -43,9 +43,11 @@ where
                             );
                         }
                         "guardrailOrigin" => {
-                            builder = builder.set_guardrail_origin(
-                                super::super::protocol_serde::shape_guardrail_origin_list::de_guardrail_origin_list(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_guardrail_origin(super::super::protocol_serde::shape_guardrail_origin_list::de_guardrail_origin_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "guardrailOwnership" => {
                             builder = builder.set_guardrail_ownership(

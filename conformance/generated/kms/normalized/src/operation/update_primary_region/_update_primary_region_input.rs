@@ -116,10 +116,8 @@ impl UpdatePrimaryRegionInputBuilder {
     /// Consumes the builder and constructs a [`UpdatePrimaryRegionInput`](crate::operation::update_primary_region::UpdatePrimaryRegionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::update_primary_region::UpdatePrimaryRegionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::update_primary_region::UpdatePrimaryRegionInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::update_primary_region::UpdatePrimaryRegionInput {
             key_id: self.key_id,
             primary_region: self.primary_region,

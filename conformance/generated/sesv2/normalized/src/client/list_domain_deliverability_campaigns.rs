@@ -16,8 +16,6 @@ impl super::Client {
     pub fn list_domain_deliverability_campaigns(
         &self,
     ) -> super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsFluentBuilder {
-        super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsFluentBuilder::new(self.handle.clone())
     }
 }

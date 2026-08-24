@@ -27,13 +27,9 @@ pub fn de_get_compliance_summary_by_config_rule_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleOutputBuilder::default();
-        output = super::super::protocol_serde::shape_get_compliance_summary_by_config_rule::de_get_compliance_summary_by_config_rule(
-            _response_body,
-            output,
-        )
-        .map_err(super::super::operation::get_compliance_summary_by_config_rule::GetComplianceSummaryByConfigRuleError::unhandled)?;
+        let mut output = super::super::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleOutputBuilder::default();
+        output = super::super::protocol_serde::shape_get_compliance_summary_by_config_rule::de_get_compliance_summary_by_config_rule(_response_body, output)
+            .map_err(super::super::operation::get_compliance_summary_by_config_rule::GetComplianceSummaryByConfigRuleError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

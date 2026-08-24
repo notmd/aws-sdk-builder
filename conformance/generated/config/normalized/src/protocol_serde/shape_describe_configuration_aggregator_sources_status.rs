@@ -9,18 +9,19 @@ pub fn de_describe_configuration_aggregator_sources_status_http_error(
     super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body).map_err(
-        super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled,
-    )?;
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(
-            super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled(
-                generic,
-            ),
-        ),
+        None => {
+            return Err(
+                super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled(
+                    generic,
+                ),
+            )
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -97,8 +98,11 @@ pub fn de_describe_configuration_aggregator_sources_status_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusOutputBuilder::default();
-        output = super::super::protocol_serde::shape_describe_configuration_aggregator_sources_status::de_describe_configuration_aggregator_sources_status(_response_body, output)
-            .map_err(super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
+        output = super::super::protocol_serde::shape_describe_configuration_aggregator_sources_status::de_describe_configuration_aggregator_sources_status(
+            _response_body,
+            output,
+        )
+        .map_err(super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -132,11 +136,7 @@ pub(crate) fn de_describe_configuration_aggregator_sources_status(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "AggregatedSourceStatusList" => {
                     builder = builder.set_aggregated_source_status_list(
-                        super::super::protocol_serde::shape_aggregated_source_status_list::de_aggregated_source_status_list(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_aggregated_source_status_list::de_aggregated_source_status_list(tokens, _value, depth + 1)?,
                     );
                 }
                 "NextToken" => {

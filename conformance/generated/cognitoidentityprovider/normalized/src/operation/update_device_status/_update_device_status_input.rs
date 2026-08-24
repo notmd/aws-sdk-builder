@@ -97,10 +97,8 @@ impl UpdateDeviceStatusInputBuilder {
     /// Consumes the builder and constructs a [`UpdateDeviceStatusInput`](crate::operation::update_device_status::UpdateDeviceStatusInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::update_device_status::UpdateDeviceStatusInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::update_device_status::UpdateDeviceStatusInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::update_device_status::UpdateDeviceStatusInput {
             access_token: self.access_token,
             device_key: self.device_key,

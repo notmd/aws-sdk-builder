@@ -31,8 +31,13 @@ impl DescribeConfigurationAggregatorSourcesStatusPaginator {
     ///
     /// This paginator automatically flattens results using `aggregated_source_status_list`. Queries to the underlying service
     /// are dispatched lazily.
-    pub fn items(self) -> super::super::super::operation::describe_configuration_aggregator_sources_status::paginator::DescribeConfigurationAggregatorSourcesStatusPaginatorItems{
-        super::super::super::operation::describe_configuration_aggregator_sources_status::paginator::DescribeConfigurationAggregatorSourcesStatusPaginatorItems(self)
+    pub fn items(
+        self,
+    ) -> super::super::super::operation::describe_configuration_aggregator_sources_status::paginator::DescribeConfigurationAggregatorSourcesStatusPaginatorItems
+    {
+        super::super::super::operation::describe_configuration_aggregator_sources_status::paginator::DescribeConfigurationAggregatorSourcesStatusPaginatorItems(
+            self,
+        )
     }
 
     /// Stop paginating when the service returns the same pagination token twice in a row.
@@ -90,10 +95,7 @@ impl DescribeConfigurationAggregatorSourcesStatusPaginator {
                         // If the input member is None or it was an error
                         let done = match resp {
                             ::std::result::Result::Ok(ref resp) => {
-                                let new_token =
-                                    super::super::super::lens::reflens_describe_configuration_aggregator_sources_status_output_output_next_token(
-                                        resp,
-                                    );
+                                let new_token = super::super::super::lens::reflens_describe_configuration_aggregator_sources_status_output_output_next_token(resp);
                                 // Pagination is exhausted when the next token is an empty string
                                 let is_empty = new_token.map(|token| token.is_empty()).unwrap_or(true);
                                 if !is_empty && new_token == input.next_token.as_ref() && self.stop_on_duplicate_token {

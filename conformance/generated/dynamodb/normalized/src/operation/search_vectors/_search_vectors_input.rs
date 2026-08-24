@@ -21,8 +21,7 @@ pub struct SearchVectorsInput {
     /// <p>One or more substitution tokens for attribute names in an expression. Use the <code>#</code> character in an expression to dereference an attribute name.</p>
     pub expression_attribute_names: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>One or more values that can be substituted in an expression. Use the <code>:</code> character in an expression to dereference an attribute value.</p>
-    pub expression_attribute_values:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
+    pub expression_attribute_values: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
     /// <p>A string that identifies one or more attributes to retrieve from the index. Separate attribute names with commas. If not specified, the operation returns all attributes projected into the vector index.</p>
     /// <p>Only attributes projected into the vector index can be retrieved.</p>
     pub projection_expression: ::std::option::Option<::std::string::String>,
@@ -104,8 +103,7 @@ pub struct SearchVectorsInputBuilder {
     pub(crate) index_name: ::std::option::Option<::std::string::String>,
     pub(crate) return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
     pub(crate) expression_attribute_names: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    pub(crate) expression_attribute_values:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
+    pub(crate) expression_attribute_values: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
     pub(crate) projection_expression: ::std::option::Option<::std::string::String>,
     pub(crate) search_vector: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeValue>>,
     pub(crate) search_condition_expression: ::std::option::Option<::std::string::String>,
@@ -217,11 +215,7 @@ impl SearchVectorsInputBuilder {
     /// To override the contents of this collection use [`set_expression_attribute_values`](Self::set_expression_attribute_values).
     ///
     /// <p>One or more values that can be substituted in an expression. Use the <code>:</code> character in an expression to dereference an attribute value.</p>
-    pub fn expression_attribute_values(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: super::super::super::types::AttributeValue,
-    ) -> Self {
+    pub fn expression_attribute_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::AttributeValue) -> Self {
         let mut hash_map = self.expression_attribute_values.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.expression_attribute_values = ::std::option::Option::Some(hash_map);
@@ -316,8 +310,7 @@ impl SearchVectorsInputBuilder {
     /// Consumes the builder and constructs a [`SearchVectorsInput`](crate::operation::search_vectors::SearchVectorsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::search_vectors::SearchVectorsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::search_vectors::SearchVectorsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::search_vectors::SearchVectorsInput {
             table_name: self.table_name,
             index_name: self.index_name,

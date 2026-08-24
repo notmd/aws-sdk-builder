@@ -56,10 +56,8 @@ impl StartConfigRulesEvaluationInputBuilder {
         super::super::super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationInput {
-                config_rule_names: self.config_rule_names,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationInput {
+            config_rule_names: self.config_rule_names,
+        })
     }
 }

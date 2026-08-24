@@ -199,14 +199,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutBuck
                 super::super::operation::put_bucket_abac::PutBucketAbacError,
             >::new())
             .with_retry_classifier(
-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::super::operation::put_bucket_abac::PutBucketAbacError>::builder(
-                )
-                .transient_errors({
-                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-                    transient_errors.push("InternalError");
-                    ::std::borrow::Cow::Owned(transient_errors)
-                })
-                .build(),
+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::super::operation::put_bucket_abac::PutBucketAbacError>::builder()
+                    .transient_errors({
+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
+                        transient_errors.push("InternalError");
+                        ::std::borrow::Cow::Owned(transient_errors)
+                    })
+                    .build(),
             );
 
         ::std::borrow::Cow::Owned(rcb)
@@ -279,8 +278,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for PutBucket
         let body = response.body().bytes().expect("body loaded");
         #[allow(unused_mut)]
         let mut force_error = false;
-        ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
-        if matches!(crate::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {
+        ::tracing::debug!(extended_request_id = ?super::super::s3_request_id::RequestIdExt::extended_request_id(response));
+        if matches!(super::super::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {
             force_error = true;
         }
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));

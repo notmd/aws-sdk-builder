@@ -28,9 +28,7 @@ impl ::aws_types::request_id::RequestId for DescribeOrganizationConfigRuleStatus
 }
 impl DescribeOrganizationConfigRuleStatusesOutput {
     /// Creates a new builder-style object to manufacture [`DescribeOrganizationConfigRuleStatusesOutput`](crate::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::describe_organization_config_rule_statuses::builders::DescribeOrganizationConfigRuleStatusesOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::describe_organization_config_rule_statuses::builders::DescribeOrganizationConfigRuleStatusesOutputBuilder {
         super::super::super::operation::describe_organization_config_rule_statuses::builders::DescribeOrganizationConfigRuleStatusesOutputBuilder::default()
     }
 }
@@ -64,9 +62,7 @@ impl DescribeOrganizationConfigRuleStatusesOutputBuilder {
         self
     }
     /// <p>A list of <code>OrganizationConfigRuleStatus</code> objects.</p>
-    pub fn get_organization_config_rule_statuses(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::OrganizationConfigRuleStatus>> {
+    pub fn get_organization_config_rule_statuses(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::OrganizationConfigRuleStatus>> {
         &self.organization_config_rule_statuses
     }
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>

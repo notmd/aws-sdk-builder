@@ -65,10 +65,8 @@ impl GetDurableExecutionInputBuilder {
     /// Consumes the builder and constructs a [`GetDurableExecutionInput`](crate::operation::get_durable_execution::GetDurableExecutionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_durable_execution::GetDurableExecutionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_durable_execution::GetDurableExecutionInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_durable_execution::GetDurableExecutionInput {
             durable_execution_arn: self.durable_execution_arn,
             include_execution_data: self.include_execution_data.unwrap_or_default(),

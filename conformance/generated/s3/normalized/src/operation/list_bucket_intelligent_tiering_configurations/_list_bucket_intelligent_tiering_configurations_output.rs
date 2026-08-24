@@ -46,7 +46,8 @@ impl ::aws_types::request_id::RequestId for ListBucketIntelligentTieringConfigur
 }
 impl ListBucketIntelligentTieringConfigurationsOutput {
     /// Creates a new builder-style object to manufacture [`ListBucketIntelligentTieringConfigurationsOutput`](crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsOutput).
-    pub fn builder() -> super::super::super::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsOutputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsOutputBuilder {
         super::super::super::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsOutputBuilder::default()
     }
 }
@@ -58,8 +59,7 @@ pub struct ListBucketIntelligentTieringConfigurationsOutputBuilder {
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) continuation_token: ::std::option::Option<::std::string::String>,
     pub(crate) next_continuation_token: ::std::option::Option<::std::string::String>,
-    pub(crate) intelligent_tiering_configuration_list:
-        ::std::option::Option<::std::vec::Vec<super::super::super::types::IntelligentTieringConfiguration>>,
+    pub(crate) intelligent_tiering_configuration_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::IntelligentTieringConfiguration>>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
@@ -150,9 +150,7 @@ impl ListBucketIntelligentTieringConfigurationsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListBucketIntelligentTieringConfigurationsOutput`](crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsOutput).
-    pub fn build(
-        self,
-    ) -> super::super::super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsOutput {
+    pub fn build(self) -> super::super::super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsOutput {
         super::super::super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsOutput {
             is_truncated: self.is_truncated,
             continuation_token: self.continuation_token,

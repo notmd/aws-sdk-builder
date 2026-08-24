@@ -143,14 +143,12 @@ impl PutBucketOwnershipControlsInputBuilder {
         super::super::super::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsInput {
-                bucket: self.bucket,
-                content_md5: self.content_md5,
-                expected_bucket_owner: self.expected_bucket_owner,
-                ownership_controls: self.ownership_controls,
-                checksum_algorithm: self.checksum_algorithm,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_bucket_ownership_controls::PutBucketOwnershipControlsInput {
+            bucket: self.bucket,
+            content_md5: self.content_md5,
+            expected_bucket_owner: self.expected_bucket_owner,
+            ownership_controls: self.ownership_controls,
+            checksum_algorithm: self.checksum_algorithm,
+        })
     }
 }

@@ -8,9 +8,7 @@ impl super::Client {
     ///   - [`group_name(impl Into<String>)`](crate::operation::admin_remove_user_from_group::builders::AdminRemoveUserFromGroupFluentBuilder::group_name) / [`set_group_name(Option<String>)`](crate::operation::admin_remove_user_from_group::builders::AdminRemoveUserFromGroupFluentBuilder::set_group_name):<br>required: **true**<br><p>The name of the group that you want to remove the user from, for example <code>MyTestGroup</code>.</p><br>
     /// - On success, responds with [`AdminRemoveUserFromGroupOutput`](crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupOutput)
     /// - On failure, responds with [`SdkError<AdminRemoveUserFromGroupError>`](crate::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupError)
-    pub fn admin_remove_user_from_group(
-        &self,
-    ) -> super::super::operation::admin_remove_user_from_group::builders::AdminRemoveUserFromGroupFluentBuilder {
+    pub fn admin_remove_user_from_group(&self) -> super::super::operation::admin_remove_user_from_group::builders::AdminRemoveUserFromGroupFluentBuilder {
         super::super::operation::admin_remove_user_from_group::builders::AdminRemoveUserFromGroupFluentBuilder::new(self.handle.clone())
     }
 }

@@ -26,8 +26,10 @@ impl DeleteBucketIntelligentTieringConfigurationInput {
 }
 impl DeleteBucketIntelligentTieringConfigurationInput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketIntelligentTieringConfigurationInput`](crate::operation::delete_bucket_intelligent_tiering_configuration::DeleteBucketIntelligentTieringConfigurationInput).
-    pub fn builder() -> super::super::super::operation::delete_bucket_intelligent_tiering_configuration::builders::DeleteBucketIntelligentTieringConfigurationInputBuilder{
-        super::super::super::operation::delete_bucket_intelligent_tiering_configuration::builders::DeleteBucketIntelligentTieringConfigurationInputBuilder::default()
+    pub fn builder(
+    ) -> super::super::super::operation::delete_bucket_intelligent_tiering_configuration::builders::DeleteBucketIntelligentTieringConfigurationInputBuilder {
+        super::super::super::operation::delete_bucket_intelligent_tiering_configuration::builders::DeleteBucketIntelligentTieringConfigurationInputBuilder::default(
+        )
     }
 }
 

@@ -112,12 +112,10 @@ impl GetDiscoveredResourceCountsInputBuilder {
         super::super::super::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsInput {
-                resource_types: self.resource_types,
-                limit: self.limit.unwrap_or_default(),
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsInput {
+            resource_types: self.resource_types,
+            limit: self.limit.unwrap_or_default(),
+            next_token: self.next_token,
+        })
     }
 }

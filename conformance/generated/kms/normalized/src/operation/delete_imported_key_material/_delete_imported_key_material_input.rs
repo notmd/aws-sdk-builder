@@ -129,11 +129,9 @@ impl DeleteImportedKeyMaterialInputBuilder {
         super::super::super::operation::delete_imported_key_material::DeleteImportedKeyMaterialInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_imported_key_material::DeleteImportedKeyMaterialInput {
-                key_id: self.key_id,
-                key_material_id: self.key_material_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_imported_key_material::DeleteImportedKeyMaterialInput {
+            key_id: self.key_id,
+            key_material_id: self.key_material_id,
+        })
     }
 }

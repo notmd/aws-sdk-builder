@@ -20,31 +20,30 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "SubnetIds" => {
-                                builder =
-                                    builder.set_subnet_ids(super::super::protocol_serde::shape_subnet_ids::de_subnet_ids(tokens, _value, depth + 1)?);
-                            }
-                            "SecurityGroupIds" => {
-                                builder = builder.set_security_group_ids(
-                                    super::super::protocol_serde::shape_security_group_ids::de_security_group_ids(tokens, _value, depth + 1)?,
-                                );
-                            }
-                            "VpcId" => {
-                                builder = builder.set_vpc_id(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                        .transpose()?,
-                                );
-                            }
-                            "Ipv6AllowedForDualStack" => {
-                                builder = builder
-                                    .set_ipv6_allowed_for_dual_stack(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "SubnetIds" => {
+                            builder = builder.set_subnet_ids(super::super::protocol_serde::shape_subnet_ids::de_subnet_ids(tokens, _value, depth + 1)?);
                         }
-                    }
+                        "SecurityGroupIds" => {
+                            builder = builder.set_security_group_ids(super::super::protocol_serde::shape_security_group_ids::de_security_group_ids(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        "VpcId" => {
+                            builder = builder.set_vpc_id(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "Ipv6AllowedForDualStack" => {
+                            builder =
+                                builder.set_ipv6_allowed_for_dual_stack(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                        }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

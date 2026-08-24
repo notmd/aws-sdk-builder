@@ -153,14 +153,14 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetObje
                     .as_slice(),
                     |input: &::aws_smithy_runtime_api::client::interceptors::context::Input| {
                         let input: &super::super::operation::get_object::GetObjectInput = input.downcast_ref().expect("correct type");
-                        matches!(input.checksum_mode(), ::std::option::Option::Some(crate::types::ChecksumMode::Enabled))
+                        matches!(input.checksum_mode(), ::std::option::Option::Some(super::super::types::ChecksumMode::Enabled))
                     },
                     |input: &mut ::aws_smithy_runtime_api::client::interceptors::context::Input, cfg: &::aws_smithy_types::config_bag::ConfigBag| {
                         let input = input
                             .downcast_mut::<super::super::operation::get_object::GetObjectInput>()
                             .ok_or("failed to downcast to crate::operation::get_object::GetObjectInput")?;
 
-                        let request_validation_enabled = matches!(input.checksum_mode(), Some(crate::types::ChecksumMode::Enabled));
+                        let request_validation_enabled = matches!(input.checksum_mode(), Some(super::super::types::ChecksumMode::Enabled));
 
                         if !request_validation_enabled {
                             // This value is set by the user on the SdkConfig to indicate their preference
@@ -328,7 +328,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetObject
     ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
         #[allow(unused_mut)]
         let mut force_error = false;
-        ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
+        ::tracing::debug!(extended_request_id = ?super::super::s3_request_id::RequestIdExt::extended_request_id(response));
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
 
         // If this is an error, defer to the non-streaming parser
@@ -363,9 +363,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetObjectReq
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
-        let input = input
-            .downcast::<super::super::operation::get_object::GetObjectInput>()
-            .expect("correct type");
+        let input = input.downcast::<super::super::operation::get_object::GetObjectInput>().expect("correct type");
         let _header_serialization_settings = _cfg
             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
             .cloned()

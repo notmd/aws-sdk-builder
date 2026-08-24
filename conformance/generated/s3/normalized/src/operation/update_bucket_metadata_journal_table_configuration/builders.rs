@@ -78,7 +78,10 @@ impl UpdateBucketMetadataJournalTableConfigurationFluentBuilder {
         }
     }
     /// Access the UpdateBucketMetadataJournalTableConfiguration as a reference.
-    pub fn as_input(&self) -> &super::super::super::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &super::super::super::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -107,7 +110,11 @@ impl UpdateBucketMetadataJournalTableConfigurationFluentBuilder {
                             &self.handle.conf,
                             self.config_override,
                         );
-        super::super::super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfiguration::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfiguration::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -177,10 +184,7 @@ impl UpdateBucketMetadataJournalTableConfigurationFluentBuilder {
         self
     }
     /// <p>The contents of your journal table configuration.</p>
-    pub fn set_journal_table_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::JournalTableConfigurationUpdates>,
-    ) -> Self {
+    pub fn set_journal_table_configuration(mut self, input: ::std::option::Option<super::super::super::types::JournalTableConfigurationUpdates>) -> Self {
         self.inner = self.inner.set_journal_table_configuration(input);
         self
     }

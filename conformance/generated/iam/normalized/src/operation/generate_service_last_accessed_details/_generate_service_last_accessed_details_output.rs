@@ -20,8 +20,7 @@ impl ::aws_types::request_id::RequestId for GenerateServiceLastAccessedDetailsOu
 }
 impl GenerateServiceLastAccessedDetailsOutput {
     /// Creates a new builder-style object to manufacture [`GenerateServiceLastAccessedDetailsOutput`](crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsOutputBuilder {
+    pub fn builder() -> super::super::super::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsOutputBuilder {
         super::super::super::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsOutputBuilder::default()
     }
 }

@@ -298,8 +298,7 @@ impl ListLogGroupsInputBuilder {
     /// Consumes the builder and constructs a [`ListLogGroupsInput`](crate::operation::list_log_groups::ListLogGroupsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::list_log_groups::ListLogGroupsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::list_log_groups::ListLogGroupsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_log_groups::ListLogGroupsInput {
             log_group_name_pattern: self.log_group_name_pattern,
             log_group_class: self.log_group_class,

@@ -35,8 +35,7 @@ impl ::aws_types::request_id::RequestId for GetConformancePackComplianceDetailsO
 }
 impl GetConformancePackComplianceDetailsOutput {
     /// Creates a new builder-style object to manufacture [`GetConformancePackComplianceDetailsOutput`](crate::operation::get_conformance_pack_compliance_details::GetConformancePackComplianceDetailsOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_conformance_pack_compliance_details::builders::GetConformancePackComplianceDetailsOutputBuilder {
+    pub fn builder() -> super::super::super::operation::get_conformance_pack_compliance_details::builders::GetConformancePackComplianceDetailsOutputBuilder {
         super::super::super::operation::get_conformance_pack_compliance_details::builders::GetConformancePackComplianceDetailsOutputBuilder::default()
     }
 }
@@ -46,8 +45,7 @@ impl GetConformancePackComplianceDetailsOutput {
 #[non_exhaustive]
 pub struct GetConformancePackComplianceDetailsOutputBuilder {
     pub(crate) conformance_pack_name: ::std::option::Option<::std::string::String>,
-    pub(crate) conformance_pack_rule_evaluation_results:
-        ::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackEvaluationResult>>,
+    pub(crate) conformance_pack_rule_evaluation_results: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackEvaluationResult>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }

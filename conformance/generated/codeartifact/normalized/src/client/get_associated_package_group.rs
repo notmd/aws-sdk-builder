@@ -12,9 +12,7 @@ impl super::Client {
     ///   - [`package_group(Option<PackageGroupDescription>)`](crate::operation::get_associated_package_group::GetAssociatedPackageGroupOutput::package_group): <p>The package group that is associated with the requested package.</p>
     ///   - [`association_type(Option<PackageGroupAssociationType>)`](crate::operation::get_associated_package_group::GetAssociatedPackageGroupOutput::association_type): <p>Describes the strength of the association between the package and package group. A strong match is also known as an exact match, and a weak match is known as a relative match.</p>
     /// - On failure, responds with [`SdkError<GetAssociatedPackageGroupError>`](crate::operation::get_associated_package_group::GetAssociatedPackageGroupError)
-    pub fn get_associated_package_group(
-        &self,
-    ) -> super::super::operation::get_associated_package_group::builders::GetAssociatedPackageGroupFluentBuilder {
+    pub fn get_associated_package_group(&self) -> super::super::operation::get_associated_package_group::builders::GetAssociatedPackageGroupFluentBuilder {
         super::super::operation::get_associated_package_group::builders::GetAssociatedPackageGroupFluentBuilder::new(self.handle.clone())
     }
 }

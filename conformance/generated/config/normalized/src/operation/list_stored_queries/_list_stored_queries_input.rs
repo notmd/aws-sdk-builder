@@ -64,10 +64,7 @@ impl ListStoredQueriesInputBuilder {
     /// Consumes the builder and constructs a [`ListStoredQueriesInput`](crate::operation::list_stored_queries::ListStoredQueriesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_stored_queries::ListStoredQueriesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_stored_queries::ListStoredQueriesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_stored_queries::ListStoredQueriesInput {
             next_token: self.next_token,
             max_results: self.max_results.unwrap_or_default(),

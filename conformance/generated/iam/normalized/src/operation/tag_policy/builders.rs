@@ -43,20 +43,14 @@ pub struct TagPolicyFluentBuilder {
     inner: super::super::super::operation::tag_policy::builders::TagPolicyInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::tag_policy::TagPolicyOutput,
-        super::super::super::operation::tag_policy::TagPolicyError,
-    > for TagPolicyFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::tag_policy::TagPolicyOutput, super::super::super::operation::tag_policy::TagPolicyError>
+    for TagPolicyFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::tag_policy::TagPolicyOutput,
-            super::super::super::operation::tag_policy::TagPolicyError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::tag_policy::TagPolicyOutput, super::super::super::operation::tag_policy::TagPolicyError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }

@@ -74,9 +74,7 @@ impl PreTokenGenerationVersionConfigTypeBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`lambda_version`](crate::types::builders::PreTokenGenerationVersionConfigTypeBuilder::lambda_version)
     /// - [`lambda_arn`](crate::types::builders::PreTokenGenerationVersionConfigTypeBuilder::lambda_arn)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::PreTokenGenerationVersionConfigType, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::PreTokenGenerationVersionConfigType, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::PreTokenGenerationVersionConfigType {
             lambda_version: self.lambda_version.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

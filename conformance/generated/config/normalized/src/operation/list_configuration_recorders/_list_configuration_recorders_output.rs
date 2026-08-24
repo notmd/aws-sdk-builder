@@ -61,9 +61,7 @@ impl ListConfigurationRecordersOutputBuilder {
         self
     }
     /// <p>A list of <code>ConfigurationRecorderSummary</code> objects that includes.</p>
-    pub fn get_configuration_recorder_summaries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConfigurationRecorderSummary>> {
+    pub fn get_configuration_recorder_summaries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConfigurationRecorderSummary>> {
         &self.configuration_recorder_summaries
     }
     /// <p>The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
@@ -98,17 +96,15 @@ impl ListConfigurationRecordersOutputBuilder {
         super::super::super::operation::list_configuration_recorders::ListConfigurationRecordersOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_configuration_recorders::ListConfigurationRecordersOutput {
-                configuration_recorder_summaries: self.configuration_recorder_summaries.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "configuration_recorder_summaries",
-                        "configuration_recorder_summaries was not specified but it is required when building ListConfigurationRecordersOutput",
-                    )
-                })?,
-                next_token: self.next_token,
-                _request_id: self._request_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_configuration_recorders::ListConfigurationRecordersOutput {
+            configuration_recorder_summaries: self.configuration_recorder_summaries.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "configuration_recorder_summaries",
+                    "configuration_recorder_summaries was not specified but it is required when building ListConfigurationRecordersOutput",
+                )
+            })?,
+            next_token: self.next_token,
+            _request_id: self._request_id,
+        })
     }
 }

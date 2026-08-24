@@ -25,11 +25,8 @@ pub fn de_delete_message_batch_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::BatchEntryIdsNotDistinctBuilder::default();
-                output = super::super::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
+                output = super::super::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -223,11 +220,7 @@ pub(crate) fn de_delete_message_batch(
                 }
                 "Failed" => {
                     builder = builder.set_failed(
-                        super::super::protocol_serde::shape_batch_result_error_entry_list::de_batch_result_error_entry_list(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_batch_result_error_entry_list::de_batch_result_error_entry_list(tokens, _value, depth + 1)?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

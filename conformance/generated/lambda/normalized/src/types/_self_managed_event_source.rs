@@ -26,8 +26,7 @@ impl SelfManagedEventSource {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct SelfManagedEventSourceBuilder {
-    pub(crate) endpoints:
-        ::std::option::Option<::std::collections::HashMap<super::super::types::EndPointType, ::std::vec::Vec<::std::string::String>>>,
+    pub(crate) endpoints: ::std::option::Option<::std::collections::HashMap<super::super::types::EndPointType, ::std::vec::Vec<::std::string::String>>>,
 }
 impl SelfManagedEventSourceBuilder {
     /// Adds a key-value pair to `endpoints`.

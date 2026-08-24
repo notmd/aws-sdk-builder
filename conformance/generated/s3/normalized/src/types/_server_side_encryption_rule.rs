@@ -72,10 +72,7 @@ impl ServerSideEncryptionRuleBuilder {
         self
     }
     /// <p>Specifies the default server-side encryption to apply to new objects in the bucket. If a PUT Object request doesn't specify any server-side encryption, this default encryption will be applied.</p>
-    pub fn set_apply_server_side_encryption_by_default(
-        mut self,
-        input: ::std::option::Option<super::super::types::ServerSideEncryptionByDefault>,
-    ) -> Self {
+    pub fn set_apply_server_side_encryption_by_default(mut self, input: ::std::option::Option<super::super::types::ServerSideEncryptionByDefault>) -> Self {
         self.apply_server_side_encryption_by_default = input;
         self
     }

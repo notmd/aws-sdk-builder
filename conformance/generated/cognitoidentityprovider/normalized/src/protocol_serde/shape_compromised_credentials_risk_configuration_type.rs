@@ -25,10 +25,7 @@ pub(crate) fn de_compromised_credentials_risk_configuration_type<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<super::super::types::CompromisedCredentialsRiskConfigurationType>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<super::super::types::CompromisedCredentialsRiskConfigurationType>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -45,21 +42,25 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "EventFilter" => {
-                                builder = builder.set_event_filter(super::super::protocol_serde::shape_event_filters_type::de_event_filters_type(
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "EventFilter" => {
+                            builder = builder.set_event_filter(super::super::protocol_serde::shape_event_filters_type::de_event_filters_type(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        "Actions" => {
+                            builder = builder.set_actions(
+                                super::super::protocol_serde::shape_compromised_credentials_actions_type::de_compromised_credentials_actions_type(
                                     tokens,
                                     _value,
                                     depth + 1,
-                                )?);
-                            }
-                            "Actions" => {
-                                builder = builder.set_actions(super::super::protocol_serde::shape_compromised_credentials_actions_type::de_compromised_credentials_actions_type(tokens, _value, depth + 1)?);
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                                )?,
+                            );
                         }
-                    }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

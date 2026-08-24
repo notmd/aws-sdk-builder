@@ -66,8 +66,7 @@ impl DescribeTermsInputBuilder {
     /// Consumes the builder and constructs a [`DescribeTermsInput`](crate::operation::describe_terms::DescribeTermsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::describe_terms::DescribeTermsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::describe_terms::DescribeTermsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::describe_terms::DescribeTermsInput {
             terms_id: self.terms_id,
             user_pool_id: self.user_pool_id,

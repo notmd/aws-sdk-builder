@@ -15,11 +15,7 @@ pub fn de_describe_lookup_tables_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::describe_lookup_tables::DescribeLookupTablesError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::describe_lookup_tables::DescribeLookupTablesError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -44,9 +40,8 @@ pub fn de_describe_lookup_tables_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::describe_lookup_tables::DescribeLookupTablesError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::describe_lookup_tables::DescribeLookupTablesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -60,11 +55,8 @@ pub fn de_describe_lookup_tables_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::describe_lookup_tables::DescribeLookupTablesError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::describe_lookup_tables::DescribeLookupTablesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -78,11 +70,9 @@ pub fn de_describe_lookup_tables_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::describe_lookup_tables::DescribeLookupTablesError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::describe_lookup_tables::DescribeLookupTablesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -141,11 +131,7 @@ pub(crate) fn de_describe_lookup_tables(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "lookupTables" => {
-                    builder = builder.set_lookup_tables(super::super::protocol_serde::shape_lookup_tables::de_lookup_tables(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_lookup_tables(super::super::protocol_serde::shape_lookup_tables::de_lookup_tables(tokens, _value, depth + 1)?);
                 }
                 "nextToken" => {
                     builder = builder.set_next_token(

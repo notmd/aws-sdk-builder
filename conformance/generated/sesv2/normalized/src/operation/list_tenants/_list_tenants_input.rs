@@ -63,9 +63,7 @@ impl ListTenantsInputBuilder {
         &self.page_size
     }
     /// Consumes the builder and constructs a [`ListTenantsInput`](crate::operation::list_tenants::ListTenantsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::list_tenants::ListTenantsInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_tenants::ListTenantsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_tenants::ListTenantsInput {
             next_token: self.next_token,
             page_size: self.page_size,

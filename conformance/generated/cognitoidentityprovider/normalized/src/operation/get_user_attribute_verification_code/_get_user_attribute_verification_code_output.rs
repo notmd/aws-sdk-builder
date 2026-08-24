@@ -21,8 +21,7 @@ impl ::aws_types::request_id::RequestId for GetUserAttributeVerificationCodeOutp
 }
 impl GetUserAttributeVerificationCodeOutput {
     /// Creates a new builder-style object to manufacture [`GetUserAttributeVerificationCodeOutput`](crate::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeOutput).
-    pub fn builder() -> super::super::super::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeOutputBuilder {
         super::super::super::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeOutputBuilder::default()
     }
 }

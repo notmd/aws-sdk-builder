@@ -17,9 +17,7 @@ impl GetAccountInput {
 pub struct GetAccountInputBuilder {}
 impl GetAccountInputBuilder {
     /// Consumes the builder and constructs a [`GetAccountInput`](crate::operation::get_account::GetAccountInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::get_account::GetAccountInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_account::GetAccountInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_account::GetAccountInput {})
     }
 }

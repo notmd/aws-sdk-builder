@@ -22,13 +22,11 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "guardrail" => {
-                            builder = builder.set_guardrail(
-                                super::super::protocol_serde::shape_guardrail_trace_assessment::de_guardrail_trace_assessment(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
-                            );
+                            builder = builder.set_guardrail(super::super::protocol_serde::shape_guardrail_trace_assessment::de_guardrail_trace_assessment(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "promptRouter" => {
                             builder = builder.set_prompt_router(super::super::protocol_serde::shape_prompt_router_trace::de_prompt_router_trace(

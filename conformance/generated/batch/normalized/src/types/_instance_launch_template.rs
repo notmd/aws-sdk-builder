@@ -255,10 +255,7 @@ impl InstanceLaunchTemplateBuilder {
         self
     }
     /// <p>The local storage configuration for the managed instances. If not specified, instance store volumes are not available to containers.</p>
-    pub fn set_local_storage_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::types::ManagedInstancesLocalStorageConfiguration>,
-    ) -> Self {
+    pub fn set_local_storage_configuration(mut self, input: ::std::option::Option<super::super::types::ManagedInstancesLocalStorageConfiguration>) -> Self {
         self.local_storage_configuration = input;
         self
     }

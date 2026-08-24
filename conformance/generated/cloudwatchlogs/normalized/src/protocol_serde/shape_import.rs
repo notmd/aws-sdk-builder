@@ -57,11 +57,8 @@ where
                             )?);
                         }
                         "importFilter" => {
-                            builder = builder.set_import_filter(super::super::protocol_serde::shape_import_filter::de_import_filter(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_import_filter(super::super::protocol_serde::shape_import_filter::de_import_filter(tokens, _value, depth + 1)?);
                         }
                         "creationTime" => {
                             builder = builder.set_creation_time(

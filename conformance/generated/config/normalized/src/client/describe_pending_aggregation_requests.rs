@@ -13,8 +13,6 @@ impl super::Client {
     pub fn describe_pending_aggregation_requests(
         &self,
     ) -> super::super::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsFluentBuilder {
-        super::super::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsFluentBuilder::new(self.handle.clone())
     }
 }

@@ -117,8 +117,7 @@ impl GetGroupPolicyOutputBuilder {
     /// - [`policy_document`](crate::operation::get_group_policy::builders::GetGroupPolicyOutputBuilder::policy_document)
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::get_group_policy::GetGroupPolicyOutput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::get_group_policy::GetGroupPolicyOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_group_policy::GetGroupPolicyOutput {
             group_name: self.group_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

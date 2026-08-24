@@ -116,13 +116,11 @@ impl GetOrganizationsAccessReportInputBuilder {
         super::super::super::operation::get_organizations_access_report::GetOrganizationsAccessReportInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_organizations_access_report::GetOrganizationsAccessReportInput {
-                job_id: self.job_id,
-                max_items: self.max_items,
-                marker: self.marker,
-                sort_key: self.sort_key,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_organizations_access_report::GetOrganizationsAccessReportInput {
+            job_id: self.job_id,
+            max_items: self.max_items,
+            marker: self.marker,
+            sort_key: self.sort_key,
+        })
     }
 }

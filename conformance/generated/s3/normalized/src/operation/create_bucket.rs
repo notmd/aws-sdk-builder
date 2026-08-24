@@ -233,8 +233,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for CreateBuc
         let body = response.body().bytes().expect("body loaded");
         #[allow(unused_mut)]
         let mut force_error = false;
-        ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
-        if matches!(crate::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {
+        ::tracing::debug!(extended_request_id = ?super::super::s3_request_id::RequestIdExt::extended_request_id(response));
+        if matches!(super::super::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {
             force_error = true;
         }
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
@@ -287,9 +287,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CreateBucket
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            super::super::protocol_serde::shape_create_bucket_input::ser_create_bucket_configuration_http_payload(
-                &input.create_bucket_configuration,
-            )?,
+            super::super::protocol_serde::shape_create_bucket_input::ser_create_bucket_configuration_http_payload(&input.create_bucket_configuration)?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();

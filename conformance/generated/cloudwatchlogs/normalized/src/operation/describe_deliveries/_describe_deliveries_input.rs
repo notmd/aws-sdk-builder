@@ -64,10 +64,7 @@ impl DescribeDeliveriesInputBuilder {
     /// Consumes the builder and constructs a [`DescribeDeliveriesInput`](crate::operation::describe_deliveries::DescribeDeliveriesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::describe_deliveries::DescribeDeliveriesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::describe_deliveries::DescribeDeliveriesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::describe_deliveries::DescribeDeliveriesInput {
             next_token: self.next_token,
             limit: self.limit,

@@ -48,10 +48,8 @@ impl DeleteConsumableResourceInputBuilder {
         super::super::super::operation::delete_consumable_resource::DeleteConsumableResourceInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_consumable_resource::DeleteConsumableResourceInput {
-                consumable_resource: self.consumable_resource,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_consumable_resource::DeleteConsumableResourceInput {
+            consumable_resource: self.consumable_resource,
+        })
     }
 }

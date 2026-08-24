@@ -153,9 +153,7 @@ impl CloudWatchDimensionConfigurationBuilder {
     /// - [`dimension_name`](crate::types::builders::CloudWatchDimensionConfigurationBuilder::dimension_name)
     /// - [`dimension_value_source`](crate::types::builders::CloudWatchDimensionConfigurationBuilder::dimension_value_source)
     /// - [`default_dimension_value`](crate::types::builders::CloudWatchDimensionConfigurationBuilder::default_dimension_value)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::CloudWatchDimensionConfiguration, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::CloudWatchDimensionConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::CloudWatchDimensionConfiguration {
             dimension_name: self.dimension_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

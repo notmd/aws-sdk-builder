@@ -91,22 +91,20 @@ impl CreateServiceEnvironmentOutputBuilder {
         super::super::super::operation::create_service_environment::CreateServiceEnvironmentOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::create_service_environment::CreateServiceEnvironmentOutput {
-                service_environment_name: self.service_environment_name.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "service_environment_name",
-                        "service_environment_name was not specified but it is required when building CreateServiceEnvironmentOutput",
-                    )
-                })?,
-                service_environment_arn: self.service_environment_arn.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "service_environment_arn",
-                        "service_environment_arn was not specified but it is required when building CreateServiceEnvironmentOutput",
-                    )
-                })?,
-                _request_id: self._request_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::create_service_environment::CreateServiceEnvironmentOutput {
+            service_environment_name: self.service_environment_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "service_environment_name",
+                    "service_environment_name was not specified but it is required when building CreateServiceEnvironmentOutput",
+                )
+            })?,
+            service_environment_arn: self.service_environment_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "service_environment_arn",
+                    "service_environment_arn was not specified but it is required when building CreateServiceEnvironmentOutput",
+                )
+            })?,
+            _request_id: self._request_id,
+        })
     }
 }

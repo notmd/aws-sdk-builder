@@ -100,12 +100,10 @@ impl CreateMultiRegionEndpointInputBuilder {
         super::super::super::operation::create_multi_region_endpoint::CreateMultiRegionEndpointInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::create_multi_region_endpoint::CreateMultiRegionEndpointInput {
-                endpoint_name: self.endpoint_name,
-                details: self.details,
-                tags: self.tags,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::create_multi_region_endpoint::CreateMultiRegionEndpointInput {
+            endpoint_name: self.endpoint_name,
+            details: self.details,
+            tags: self.tags,
+        })
     }
 }

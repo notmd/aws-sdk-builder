@@ -20,8 +20,7 @@ impl InvokeModelWithBidirectionalStreamInput {
 }
 impl InvokeModelWithBidirectionalStreamInput {
     /// Creates a new builder-style object to manufacture [`InvokeModelWithBidirectionalStreamInput`](crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamInput).
-    pub fn builder(
-    ) -> super::super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamInputBuilder {
+    pub fn builder() -> super::super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamInputBuilder {
         super::super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamInputBuilder::default()
     }
 }

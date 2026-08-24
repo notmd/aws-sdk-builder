@@ -26,11 +26,9 @@ pub fn de_describe_compliance_by_resource_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::describe_compliance_by_resource::DescribeComplianceByResourceError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::describe_compliance_by_resource::DescribeComplianceByResourceError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -108,21 +106,23 @@ pub(crate) fn de_describe_compliance_by_resource(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "ComplianceByResources" => {
-                    builder = builder.set_compliance_by_resources(
-                        super::super::protocol_serde::shape_compliance_by_resources::de_compliance_by_resources(tokens, _value, depth + 1)?,
-                    );
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "ComplianceByResources" => {
+                        builder = builder.set_compliance_by_resources(
+                            super::super::protocol_serde::shape_compliance_by_resources::de_compliance_by_resources(tokens, _value, depth + 1)?,
+                        );
+                    }
+                    "NextToken" => {
+                        builder = builder.set_next_token(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?,
+                        );
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                "NextToken" => {
-                    builder = builder.set_next_token(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

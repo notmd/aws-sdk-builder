@@ -58,7 +58,9 @@ impl UpdateReputationEntityCustomerManagedStatusFluentBuilder {
         }
     }
     /// Access the UpdateReputationEntityCustomerManagedStatus as a reference.
-    pub fn as_input(&self) -> &super::super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &super::super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.

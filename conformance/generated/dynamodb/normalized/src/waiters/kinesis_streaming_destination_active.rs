@@ -25,9 +25,7 @@ impl KinesisStreamingDestinationActiveFluentBuilder {
         }
     }
     /// Access the DescribeKinesisStreamingDestination as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::operation::describe_kinesis_streaming_destination::builders::DescribeKinesisStreamingDestinationInputBuilder {
+    pub fn as_input(&self) -> &super::super::operation::describe_kinesis_streaming_destination::builders::DescribeKinesisStreamingDestinationInputBuilder {
         &self.inner
     }
     /// Wait for `kinesis_streaming_destination_active`
@@ -75,11 +73,8 @@ impl KinesisStreamingDestinationActiveFluentBuilder {
             let input = input.clone();
             let runtime_plugins = runtime_plugins.clone();
             async move {
-                super::super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestination::orchestrate(
-                    &runtime_plugins,
-                    input,
-                )
-                .await
+                super::super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestination::orchestrate(&runtime_plugins, input)
+                    .await
             }
         };
         let orchestrator = ::aws_smithy_runtime::client::waiters::WaiterOrchestrator::builder()

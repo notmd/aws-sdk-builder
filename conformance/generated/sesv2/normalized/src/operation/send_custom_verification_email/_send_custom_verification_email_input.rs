@@ -92,12 +92,10 @@ impl SendCustomVerificationEmailInputBuilder {
         super::super::super::operation::send_custom_verification_email::SendCustomVerificationEmailInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::send_custom_verification_email::SendCustomVerificationEmailInput {
-                email_address: self.email_address,
-                template_name: self.template_name,
-                configuration_set_name: self.configuration_set_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::send_custom_verification_email::SendCustomVerificationEmailInput {
+            email_address: self.email_address,
+            template_name: self.template_name,
+            configuration_set_name: self.configuration_set_name,
+        })
     }
 }

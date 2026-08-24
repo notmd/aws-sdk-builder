@@ -11,7 +11,10 @@ impl super::Client {
     ///   - [`arn(String)`](crate::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderOutput::arn): <p>The Amazon Resource Name (ARN) of the specified configuration recorder.</p>
     ///   - [`name(String)`](crate::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderOutput::name): <p>The name of the specified configuration recorder.</p>
     /// - On failure, responds with [`SdkError<PutThirdPartyServiceLinkedConfigurationRecorderError>`](crate::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderError)
-    pub fn put_third_party_service_linked_configuration_recorder(&self) -> super::super::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderFluentBuilder{
+    pub fn put_third_party_service_linked_configuration_recorder(
+        &self,
+    ) -> super::super::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderFluentBuilder
+    {
         super::super::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderFluentBuilder::new(self.handle.clone())
     }
 }

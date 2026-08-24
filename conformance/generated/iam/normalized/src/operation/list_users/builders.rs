@@ -39,20 +39,14 @@ pub struct ListUsersFluentBuilder {
     inner: super::super::super::operation::list_users::builders::ListUsersInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::list_users::ListUsersOutput,
-        super::super::super::operation::list_users::ListUsersError,
-    > for ListUsersFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::list_users::ListUsersOutput, super::super::super::operation::list_users::ListUsersError>
+    for ListUsersFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::list_users::ListUsersOutput,
-            super::super::super::operation::list_users::ListUsersError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::list_users::ListUsersOutput, super::super::super::operation::list_users::ListUsersError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }

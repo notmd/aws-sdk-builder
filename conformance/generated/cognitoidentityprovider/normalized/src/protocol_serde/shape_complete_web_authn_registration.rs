@@ -35,80 +35,69 @@ pub fn de_complete_web_authn_registration_http_error(
             }
             tmp
         }),
-        "InternalErrorException" => {
-            super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::InternalErrorException({
+        "InternalErrorException" => super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidParameterException" => {
             super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::InvalidParameterException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                    output =
+                        super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "LimitExceededException" => super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::LimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "LimitExceededException" => {
-            super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::LimitExceededException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotAuthorizedException" => super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::NotAuthorizedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "NotAuthorizedException" => {
-            super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::NotAuthorizedException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::NotAuthorizedExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::NotAuthorizedExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "OperationNotEnabledException" => {
             super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::OperationNotEnabledException({
                 #[allow(unused_mut)]
@@ -155,11 +144,9 @@ pub fn de_complete_web_authn_registration_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -175,7 +162,12 @@ pub fn de_complete_web_authn_registration_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::WebAuthnChallengeNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_web_authn_challenge_not_found_exception::de_web_authn_challenge_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_web_authn_challenge_not_found_exception::de_web_authn_challenge_not_found_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -191,12 +183,11 @@ pub fn de_complete_web_authn_registration_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::WebAuthnClientMismatchExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_web_authn_client_mismatch_exception::de_web_authn_client_mismatch_exception_json_err(
-                            _response_body,
-                            output,
-                        )
-                        .map_err(super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::unhandled)?;
+                    output = super::super::protocol_serde::shape_web_authn_client_mismatch_exception::de_web_authn_client_mismatch_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -248,7 +239,11 @@ pub fn de_complete_web_authn_registration_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::WebAuthnOriginNotAllowedExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_web_authn_origin_not_allowed_exception::de_web_authn_origin_not_allowed_exception_json_err(_response_body, output).map_err(super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::unhandled)?;
+                    output = super::super::protocol_serde::shape_web_authn_origin_not_allowed_exception::de_web_authn_origin_not_allowed_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };

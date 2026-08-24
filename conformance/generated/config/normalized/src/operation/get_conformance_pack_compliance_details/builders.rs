@@ -57,9 +57,7 @@ impl GetConformancePackComplianceDetailsFluentBuilder {
         }
     }
     /// Access the GetConformancePackComplianceDetails as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::get_conformance_pack_compliance_details::builders::GetConformancePackComplianceDetailsInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::get_conformance_pack_compliance_details::builders::GetConformancePackComplianceDetailsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,11 +87,7 @@ impl GetConformancePackComplianceDetailsFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::get_conformance_pack_compliance_details::GetConformancePackComplianceDetails::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        super::super::super::operation::get_conformance_pack_compliance_details::GetConformancePackComplianceDetails::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

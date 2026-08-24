@@ -42,11 +42,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "NotifyConfiguration" => {
                             builder = builder.set_notify_configuration(
-                                super::super::protocol_serde::shape_notify_configuration_type::de_notify_configuration_type(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_notify_configuration_type::de_notify_configuration_type(tokens, _value, depth + 1)?,
                             );
                         }
                         "Actions" => {

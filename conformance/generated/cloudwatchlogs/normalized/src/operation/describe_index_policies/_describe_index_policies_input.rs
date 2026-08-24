@@ -72,10 +72,8 @@ impl DescribeIndexPoliciesInputBuilder {
     /// Consumes the builder and constructs a [`DescribeIndexPoliciesInput`](crate::operation::describe_index_policies::DescribeIndexPoliciesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::describe_index_policies::DescribeIndexPoliciesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::describe_index_policies::DescribeIndexPoliciesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::describe_index_policies::DescribeIndexPoliciesInput {
             log_group_identifiers: self.log_group_identifiers,
             next_token: self.next_token,

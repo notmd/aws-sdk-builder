@@ -234,42 +234,40 @@ impl UpdateFunctionUrlConfigOutputBuilder {
         super::super::super::operation::update_function_url_config::UpdateFunctionUrlConfigOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::update_function_url_config::UpdateFunctionUrlConfigOutput {
-                function_url: self.function_url.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "function_url",
-                        "function_url was not specified but it is required when building UpdateFunctionUrlConfigOutput",
-                    )
-                })?,
-                function_arn: self.function_arn.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "function_arn",
-                        "function_arn was not specified but it is required when building UpdateFunctionUrlConfigOutput",
-                    )
-                })?,
-                auth_type: self.auth_type.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "auth_type",
-                        "auth_type was not specified but it is required when building UpdateFunctionUrlConfigOutput",
-                    )
-                })?,
-                cors: self.cors,
-                creation_time: self.creation_time.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "creation_time",
-                        "creation_time was not specified but it is required when building UpdateFunctionUrlConfigOutput",
-                    )
-                })?,
-                last_modified_time: self.last_modified_time.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "last_modified_time",
-                        "last_modified_time was not specified but it is required when building UpdateFunctionUrlConfigOutput",
-                    )
-                })?,
-                invoke_mode: self.invoke_mode,
-                _request_id: self._request_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::update_function_url_config::UpdateFunctionUrlConfigOutput {
+            function_url: self.function_url.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "function_url",
+                    "function_url was not specified but it is required when building UpdateFunctionUrlConfigOutput",
+                )
+            })?,
+            function_arn: self.function_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "function_arn",
+                    "function_arn was not specified but it is required when building UpdateFunctionUrlConfigOutput",
+                )
+            })?,
+            auth_type: self.auth_type.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "auth_type",
+                    "auth_type was not specified but it is required when building UpdateFunctionUrlConfigOutput",
+                )
+            })?,
+            cors: self.cors,
+            creation_time: self.creation_time.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "creation_time",
+                    "creation_time was not specified but it is required when building UpdateFunctionUrlConfigOutput",
+                )
+            })?,
+            last_modified_time: self.last_modified_time.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "last_modified_time",
+                    "last_modified_time was not specified but it is required when building UpdateFunctionUrlConfigOutput",
+                )
+            })?,
+            invoke_mode: self.invoke_mode,
+            _request_id: self._request_id,
+        })
     }
 }

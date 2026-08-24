@@ -89,10 +89,7 @@ impl CancelKeyDeletionInputBuilder {
     /// Consumes the builder and constructs a [`CancelKeyDeletionInput`](crate::operation::cancel_key_deletion::CancelKeyDeletionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::cancel_key_deletion::CancelKeyDeletionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::cancel_key_deletion::CancelKeyDeletionInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::cancel_key_deletion::CancelKeyDeletionInput { key_id: self.key_id })
     }
 }

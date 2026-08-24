@@ -43,15 +43,11 @@ impl ConsumedCapacity {
         self.table.as_ref()
     }
     /// <p>The amount of throughput consumed on each local index affected by the operation.</p>
-    pub fn local_secondary_indexes(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::types::Capacity>> {
+    pub fn local_secondary_indexes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::types::Capacity>> {
         self.local_secondary_indexes.as_ref()
     }
     /// <p>The amount of throughput consumed on each global index affected by the operation.</p>
-    pub fn global_secondary_indexes(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::types::Capacity>> {
+    pub fn global_secondary_indexes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::types::Capacity>> {
         self.global_secondary_indexes.as_ref()
     }
     /// <p>The amount of throughput consumed on each vector index affected by the operation. Each entry contains <code>VectorWriteRequestBytes</code> (for write operations) or <code>VectorSearchRequestBytes</code> (for search operations).</p>
@@ -170,9 +166,7 @@ impl ConsumedCapacityBuilder {
         self
     }
     /// <p>The amount of throughput consumed on each local index affected by the operation.</p>
-    pub fn get_local_secondary_indexes(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::Capacity>> {
+    pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::Capacity>> {
         &self.local_secondary_indexes
     }
     /// Adds a key-value pair to `global_secondary_indexes`.
@@ -195,9 +189,7 @@ impl ConsumedCapacityBuilder {
         self
     }
     /// <p>The amount of throughput consumed on each global index affected by the operation.</p>
-    pub fn get_global_secondary_indexes(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::Capacity>> {
+    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::Capacity>> {
         &self.global_secondary_indexes
     }
     /// Adds a key-value pair to `vector_indexes`.
@@ -220,9 +212,7 @@ impl ConsumedCapacityBuilder {
         self
     }
     /// <p>The amount of throughput consumed on each vector index affected by the operation. Each entry contains <code>VectorWriteRequestBytes</code> (for write operations) or <code>VectorSearchRequestBytes</code> (for search operations).</p>
-    pub fn get_vector_indexes(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::VectorCapacity>> {
+    pub fn get_vector_indexes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::VectorCapacity>> {
         &self.vector_indexes
     }
     /// Consumes the builder and constructs a [`ConsumedCapacity`](crate::types::ConsumedCapacity).

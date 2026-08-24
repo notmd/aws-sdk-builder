@@ -449,9 +449,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for PutEmail
         })
     }
 }
-impl ::aws_types::request_id::RequestId
-    for super::super::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesError
-{
+impl ::aws_types::request_id::RequestId for super::super::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

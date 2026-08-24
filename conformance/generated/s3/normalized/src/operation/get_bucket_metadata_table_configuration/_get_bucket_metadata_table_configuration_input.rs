@@ -20,8 +20,7 @@ impl GetBucketMetadataTableConfigurationInput {
 }
 impl GetBucketMetadataTableConfigurationInput {
     /// Creates a new builder-style object to manufacture [`GetBucketMetadataTableConfigurationInput`](crate::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationInput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationInputBuilder {
+    pub fn builder() -> super::super::super::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationInputBuilder {
         super::super::super::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationInputBuilder::default()
     }
 }

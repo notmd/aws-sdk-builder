@@ -66,18 +66,12 @@ where
                             builder = builder.set_binary_value(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?);
                         }
                         "StringListValues" => {
-                            builder = builder.set_string_list_values(super::super::protocol_serde::shape_string_list::de_string_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_string_list_values(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
                         }
                         "BinaryListValues" => {
-                            builder = builder.set_binary_list_values(super::super::protocol_serde::shape_binary_list::de_binary_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_binary_list_values(super::super::protocol_serde::shape_binary_list::de_binary_list(tokens, _value, depth + 1)?);
                         }
                         "DataType" => {
                             builder = builder.set_data_type(
@@ -95,11 +89,9 @@ where
                     }
                 }
             }
-            Ok(Some(
-                super::super::serde_util::message_attribute_value_correct_errors(builder)
-                    .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-            ))
+            Ok(Some(super::super::serde_util::message_attribute_value_correct_errors(builder).build().map_err(
+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+            )?))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

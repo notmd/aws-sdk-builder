@@ -399,10 +399,8 @@ impl CopyPackageVersionsInputBuilder {
     /// Consumes the builder and constructs a [`CopyPackageVersionsInput`](crate::operation::copy_package_versions::CopyPackageVersionsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::copy_package_versions::CopyPackageVersionsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::copy_package_versions::CopyPackageVersionsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::copy_package_versions::CopyPackageVersionsInput {
             domain: self.domain,
             domain_owner: self.domain_owner,

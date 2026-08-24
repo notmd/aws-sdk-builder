@@ -37,9 +37,8 @@ pub fn de_list_terms_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::list_terms::ListTermsError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_terms::ListTermsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -68,11 +67,9 @@ pub fn de_list_terms_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::list_terms::ListTermsError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::list_terms::ListTermsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -86,11 +83,8 @@ pub fn de_list_terms_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::list_terms::ListTermsError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_terms::ListTermsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -104,9 +98,8 @@ pub fn de_list_terms_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::list_terms::ListTermsError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_terms::ListTermsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -150,10 +143,7 @@ pub fn ser_list_terms_input(
 pub(crate) fn de_list_terms(
     _value: &[u8],
     mut builder: super::super::operation::list_terms::builders::ListTermsOutputBuilder,
-) -> ::std::result::Result<
-    super::super::operation::list_terms::builders::ListTermsOutputBuilder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
+) -> ::std::result::Result<super::super::operation::list_terms::builders::ListTermsOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
@@ -164,9 +154,11 @@ pub(crate) fn de_list_terms(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "Terms" => {
-                    builder = builder.set_terms(
-                        super::super::protocol_serde::shape_terms_description_list_type::de_terms_description_list_type(tokens, _value, depth + 1)?,
-                    );
+                    builder = builder.set_terms(super::super::protocol_serde::shape_terms_description_list_type::de_terms_description_list_type(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "NextToken" => {
                     builder = builder.set_next_token(

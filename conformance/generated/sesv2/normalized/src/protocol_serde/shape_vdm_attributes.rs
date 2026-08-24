@@ -42,26 +42,30 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "VdmEnabled" => {
-                            builder = builder.set_vdm_enabled(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| super::super::types::FeatureStatus::from(u.as_ref())))
-                                    .transpose()?,
-                            );
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "VdmEnabled" => {
+                                builder = builder.set_vdm_enabled(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| super::super::types::FeatureStatus::from(u.as_ref())))
+                                        .transpose()?,
+                                );
+                            }
+                            "DashboardAttributes" => {
+                                builder = builder.set_dashboard_attributes(
+                                    super::super::protocol_serde::shape_dashboard_attributes::de_dashboard_attributes(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            "GuardianAttributes" => {
+                                builder = builder.set_guardian_attributes(super::super::protocol_serde::shape_guardian_attributes::de_guardian_attributes(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        "DashboardAttributes" => {
-                            builder = builder.set_dashboard_attributes(
-                                super::super::protocol_serde::shape_dashboard_attributes::de_dashboard_attributes(tokens, _value, depth + 1)?,
-                            );
-                        }
-                        "GuardianAttributes" => {
-                            builder = builder.set_guardian_attributes(
-                                super::super::protocol_serde::shape_guardian_attributes::de_guardian_attributes(tokens, _value, depth + 1)?,
-                            );
-                        }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

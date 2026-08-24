@@ -62,10 +62,7 @@ impl BatchGetAggregateResourceConfigInputBuilder {
         self
     }
     /// <p>A list of aggregate ResourceIdentifiers objects.</p>
-    pub fn set_resource_identifiers(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregateResourceIdentifier>>,
-    ) -> Self {
+    pub fn set_resource_identifiers(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregateResourceIdentifier>>) -> Self {
         self.resource_identifiers = input;
         self
     }

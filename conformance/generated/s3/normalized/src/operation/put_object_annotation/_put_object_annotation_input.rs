@@ -461,10 +461,8 @@ impl PutObjectAnnotationInputBuilder {
     /// Consumes the builder and constructs a [`PutObjectAnnotationInput`](crate::operation::put_object_annotation::PutObjectAnnotationInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::put_object_annotation::PutObjectAnnotationInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::put_object_annotation::PutObjectAnnotationInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::put_object_annotation::PutObjectAnnotationInput {
             bucket: self.bucket,
             key: self.key,

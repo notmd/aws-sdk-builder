@@ -18,8 +18,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<GetServiceLastAccessedDetailsWithEntitiesError>`](crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesError)
     pub fn get_service_last_accessed_details_with_entities(
         &self,
-    ) -> super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesFluentBuilder
-    {
-        super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesFluentBuilder::new(self.handle.clone())
+    ) -> super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesFluentBuilder {
+        super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

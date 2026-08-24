@@ -37,8 +37,7 @@ impl GetComplianceDetailsByConfigRuleInput {
 }
 impl GetComplianceDetailsByConfigRuleInput {
     /// Creates a new builder-style object to manufacture [`GetComplianceDetailsByConfigRuleInput`](crate::operation::get_compliance_details_by_config_rule::GetComplianceDetailsByConfigRuleInput).
-    pub fn builder() -> super::super::super::operation::get_compliance_details_by_config_rule::builders::GetComplianceDetailsByConfigRuleInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::get_compliance_details_by_config_rule::builders::GetComplianceDetailsByConfigRuleInputBuilder {
         super::super::super::operation::get_compliance_details_by_config_rule::builders::GetComplianceDetailsByConfigRuleInputBuilder::default()
     }
 }

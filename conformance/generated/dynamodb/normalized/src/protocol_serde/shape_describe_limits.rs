@@ -4,8 +4,7 @@ pub fn de_describe_limits_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::describe_limits::DescribeLimitsOutput, super::super::operation::describe_limits::DescribeLimitsError>
-{
+) -> std::result::Result<super::super::operation::describe_limits::DescribeLimitsOutput, super::super::operation::describe_limits::DescribeLimitsError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::describe_limits::DescribeLimitsError::unhandled)?;
@@ -38,9 +37,8 @@ pub fn de_describe_limits_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::describe_limits::DescribeLimitsError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::describe_limits::DescribeLimitsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -58,8 +56,7 @@ pub fn de_describe_limits_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::describe_limits::DescribeLimitsOutput, super::super::operation::describe_limits::DescribeLimitsError>
-{
+) -> std::result::Result<super::super::operation::describe_limits::DescribeLimitsOutput, super::super::operation::describe_limits::DescribeLimitsError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::describe_limits::builders::DescribeLimitsOutputBuilder::default();

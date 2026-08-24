@@ -49,10 +49,8 @@ impl GetEmailIdentityPoliciesInputBuilder {
         super::super::super::operation::get_email_identity_policies::GetEmailIdentityPoliciesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_email_identity_policies::GetEmailIdentityPoliciesInput {
-                email_identity: self.email_identity,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_email_identity_policies::GetEmailIdentityPoliciesInput {
+            email_identity: self.email_identity,
+        })
     }
 }

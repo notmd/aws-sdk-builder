@@ -740,10 +740,7 @@ impl PublishVersionOutputBuilder {
         self
     }
     /// <p>The reason code for the last update that was performed on the function.</p>
-    pub fn set_last_update_status_reason_code(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::LastUpdateStatusReasonCode>,
-    ) -> Self {
+    pub fn set_last_update_status_reason_code(mut self, input: ::std::option::Option<super::super::super::types::LastUpdateStatusReasonCode>) -> Self {
         self.last_update_status_reason_code = input;
         self
     }

@@ -88,10 +88,8 @@ impl ConfirmSubscriptionInputBuilder {
     /// Consumes the builder and constructs a [`ConfirmSubscriptionInput`](crate::operation::confirm_subscription::ConfirmSubscriptionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::confirm_subscription::ConfirmSubscriptionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::confirm_subscription::ConfirmSubscriptionInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::confirm_subscription::ConfirmSubscriptionInput {
             topic_arn: self.topic_arn,
             token: self.token,

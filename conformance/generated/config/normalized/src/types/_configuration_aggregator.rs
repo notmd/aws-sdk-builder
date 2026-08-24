@@ -118,10 +118,7 @@ impl ConfigurationAggregatorBuilder {
         self
     }
     /// <p>Provides a list of source accounts and regions to be aggregated.</p>
-    pub fn set_account_aggregation_sources(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::AccountAggregationSource>>,
-    ) -> Self {
+    pub fn set_account_aggregation_sources(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::AccountAggregationSource>>) -> Self {
         self.account_aggregation_sources = input;
         self
     }

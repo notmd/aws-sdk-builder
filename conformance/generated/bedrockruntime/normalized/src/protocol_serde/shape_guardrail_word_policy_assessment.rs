@@ -23,20 +23,12 @@ where
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "customWords" => {
                             builder = builder.set_custom_words(
-                                super::super::protocol_serde::shape_guardrail_custom_word_list::de_guardrail_custom_word_list(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_guardrail_custom_word_list::de_guardrail_custom_word_list(tokens, _value, depth + 1)?,
                             );
                         }
                         "managedWordLists" => {
                             builder = builder.set_managed_word_lists(
-                                super::super::protocol_serde::shape_guardrail_managed_word_list::de_guardrail_managed_word_list(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_guardrail_managed_word_list::de_guardrail_managed_word_list(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

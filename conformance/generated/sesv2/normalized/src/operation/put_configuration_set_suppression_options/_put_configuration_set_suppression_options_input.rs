@@ -59,8 +59,7 @@ impl PutConfigurationSetSuppressionOptionsInput {
 }
 impl PutConfigurationSetSuppressionOptionsInput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetSuppressionOptionsInput`](crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsInput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsInputBuilder {
+    pub fn builder() -> super::super::super::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsInputBuilder {
         super::super::super::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsInputBuilder::default()
     }
 }
@@ -146,10 +145,7 @@ impl PutConfigurationSetSuppressionOptionsInputBuilder {
     /// <li>
     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account or for a specific tenant when a message sent to that address results in a hard bounce.</p></li>
     /// </ul>
-    pub fn set_suppressed_reasons(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>,
-    ) -> Self {
+    pub fn set_suppressed_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>) -> Self {
         self.suppressed_reasons = input;
         self
     }

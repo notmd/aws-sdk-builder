@@ -88,6 +88,15 @@
                      .transient_errors({
                          let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
                          transient_errors.push("InternalError");
+@@ -214,7 +214,7 @@
+     ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
+         #[allow(unused_mut)]
+         let mut force_error = false;
+-        ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
++        ::tracing::debug!(extended_request_id = ?super::super::s3_request_id::RequestIdExt::extended_request_id(response));
+         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+
+         // If this is an error, defer to the non-streaming parser
 @@ -221,8 +221,8 @@
          if (!response.status().is_success() && response.status().as_u16() != 200) || force_error {
              return ::std::option::Option::None;

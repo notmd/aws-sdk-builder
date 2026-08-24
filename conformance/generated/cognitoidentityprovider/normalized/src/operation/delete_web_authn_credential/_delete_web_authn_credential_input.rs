@@ -78,12 +78,10 @@ impl DeleteWebAuthnCredentialInputBuilder {
         super::super::super::operation::delete_web_authn_credential::DeleteWebAuthnCredentialInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_web_authn_credential::DeleteWebAuthnCredentialInput {
-                access_token: self.access_token,
-                credential_id: self.credential_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_web_authn_credential::DeleteWebAuthnCredentialInput {
+            access_token: self.access_token,
+            credential_id: self.credential_id,
+        })
     }
 }
 impl ::std::fmt::Debug for DeleteWebAuthnCredentialInputBuilder {

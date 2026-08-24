@@ -23,11 +23,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "containers" => {
                             builder = builder.set_containers(
-                                super::super::protocol_serde::shape_list_task_container_details::de_list_task_container_details(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_list_task_container_details::de_list_task_container_details(tokens, _value, depth + 1)?,
                             );
                         }
                         "containerInstanceArn" => {

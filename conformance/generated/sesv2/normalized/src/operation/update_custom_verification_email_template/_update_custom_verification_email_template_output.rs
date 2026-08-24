@@ -13,8 +13,7 @@ impl ::aws_types::request_id::RequestId for UpdateCustomVerificationEmailTemplat
 }
 impl UpdateCustomVerificationEmailTemplateOutput {
     /// Creates a new builder-style object to manufacture [`UpdateCustomVerificationEmailTemplateOutput`](crate::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::update_custom_verification_email_template::builders::UpdateCustomVerificationEmailTemplateOutputBuilder {
+    pub fn builder() -> super::super::super::operation::update_custom_verification_email_template::builders::UpdateCustomVerificationEmailTemplateOutputBuilder {
         super::super::super::operation::update_custom_verification_email_template::builders::UpdateCustomVerificationEmailTemplateOutputBuilder::default()
     }
 }

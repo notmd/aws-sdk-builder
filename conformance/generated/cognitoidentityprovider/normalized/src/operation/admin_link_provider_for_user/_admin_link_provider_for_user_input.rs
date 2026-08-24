@@ -162,12 +162,10 @@ impl AdminLinkProviderForUserInputBuilder {
         super::super::super::operation::admin_link_provider_for_user::AdminLinkProviderForUserInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::admin_link_provider_for_user::AdminLinkProviderForUserInput {
-                user_pool_id: self.user_pool_id,
-                destination_user: self.destination_user,
-                source_user: self.source_user,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::admin_link_provider_for_user::AdminLinkProviderForUserInput {
+            user_pool_id: self.user_pool_id,
+            destination_user: self.destination_user,
+            source_user: self.source_user,
+        })
     }
 }

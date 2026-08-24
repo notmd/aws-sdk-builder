@@ -106,12 +106,10 @@ impl GetBucketMetricsConfigurationInputBuilder {
         super::super::super::operation::get_bucket_metrics_configuration::GetBucketMetricsConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_bucket_metrics_configuration::GetBucketMetricsConfigurationInput {
-                bucket: self.bucket,
-                id: self.id,
-                expected_bucket_owner: self.expected_bucket_owner,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_bucket_metrics_configuration::GetBucketMetricsConfigurationInput {
+            bucket: self.bucket,
+            id: self.id,
+            expected_bucket_owner: self.expected_bucket_owner,
+        })
     }
 }

@@ -40,26 +40,21 @@ pub fn de_checkpoint_durable_execution_http_error(
                 tmp
             })
         }
-        "KMSAccessDeniedException" => {
-            super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsAccessDeniedException({
+        "KMSAccessDeniedException" => super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsAccessDeniedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::KmsAccessDeniedExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_kms_access_denied_exception::de_kms_access_denied_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::KmsAccessDeniedExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_kms_access_denied_exception::de_kms_access_denied_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "KMSDisabledException" => super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsDisabledException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -75,26 +70,21 @@ pub fn de_checkpoint_durable_execution_http_error(
             }
             tmp
         }),
-        "KMSInvalidStateException" => {
-            super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsInvalidStateException({
+        "KMSInvalidStateException" => super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsInvalidStateException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "KMSNotFoundException" => super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::KmsNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -125,26 +115,21 @@ pub fn de_checkpoint_durable_execution_http_error(
             }
             tmp
         }),
-        "TooManyRequestsException" => {
-            super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::TooManyRequestsException({
+        "TooManyRequestsException" => super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::TooManyRequestsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::checkpoint_durable_execution::CheckpointDurableExecutionError::generic(generic),
     })
 }

@@ -4,10 +4,8 @@ pub fn de_put_resource_config_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::put_resource_config::PutResourceConfigOutput,
-    super::super::operation::put_resource_config::PutResourceConfigError,
-> {
+) -> std::result::Result<super::super::operation::put_resource_config::PutResourceConfigOutput, super::super::operation::put_resource_config::PutResourceConfigError>
+{
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::put_resource_config::PutResourceConfigError::unhandled)?;
@@ -20,33 +18,36 @@ pub fn de_put_resource_config_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InsufficientPermissionsException" => {
-            super::super::operation::put_resource_config::PutResourceConfigError::InsufficientPermissionsException({
+        "InsufficientPermissionsException" => super::super::operation::put_resource_config::PutResourceConfigError::InsufficientPermissionsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InsufficientPermissionsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_insufficient_permissions_exception::de_insufficient_permissions_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_resource_config::PutResourceConfigError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::InsufficientPermissionsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_insufficient_permissions_exception::de_insufficient_permissions_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::put_resource_config::PutResourceConfigError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "MaxActiveResourcesExceededException" => {
             super::super::operation::put_resource_config::PutResourceConfigError::MaxActiveResourcesExceededException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::MaxActiveResourcesExceededExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_max_active_resources_exceeded_exception::de_max_active_resources_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::put_resource_config::PutResourceConfigError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_max_active_resources_exceeded_exception::de_max_active_resources_exceeded_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::put_resource_config::PutResourceConfigError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -96,10 +97,8 @@ pub fn de_put_resource_config_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::put_resource_config::PutResourceConfigOutput,
-    super::super::operation::put_resource_config::PutResourceConfigError,
-> {
+) -> std::result::Result<super::super::operation::put_resource_config::PutResourceConfigOutput, super::super::operation::put_resource_config::PutResourceConfigError>
+{
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::put_resource_config::builders::PutResourceConfigOutputBuilder::default();

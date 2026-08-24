@@ -79,11 +79,7 @@ where
                         }
                         "destinationConfiguration" => {
                             builder = builder.set_destination_configuration(
-                                super::super::protocol_serde::shape_destination_configuration::de_destination_configuration(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_destination_configuration::de_destination_configuration(tokens, _value, depth + 1)?,
                             );
                         }
                         "creationTime" => {

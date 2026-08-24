@@ -51,9 +51,7 @@ impl GuardrailChecksPromptAttackResultBuilder {
     /// Consumes the builder and constructs a [`GuardrailChecksPromptAttackResult`](crate::types::GuardrailChecksPromptAttackResult).
     /// This method will fail if any of the following fields are not set:
     /// - [`results`](crate::types::builders::GuardrailChecksPromptAttackResultBuilder::results)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::GuardrailChecksPromptAttackResult, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailChecksPromptAttackResult, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::GuardrailChecksPromptAttackResult {
             results: self.results.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

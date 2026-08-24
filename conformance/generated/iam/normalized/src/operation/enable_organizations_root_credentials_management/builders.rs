@@ -64,7 +64,9 @@ impl EnableOrganizationsRootCredentialsManagementFluentBuilder {
         }
     }
     /// Access the EnableOrganizationsRootCredentialsManagement as a reference.
-    pub fn as_input(&self) -> &super::super::super::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &super::super::super::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.

@@ -57,9 +57,7 @@ impl AssociateSourceToS3TableIntegrationFluentBuilder {
         }
     }
     /// Access the AssociateSourceToS3TableIntegration as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,11 +87,7 @@ impl AssociateSourceToS3TableIntegrationFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegration::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        super::super::super::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegration::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

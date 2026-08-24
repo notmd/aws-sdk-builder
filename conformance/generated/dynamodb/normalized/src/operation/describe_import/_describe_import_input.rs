@@ -44,8 +44,7 @@ impl DescribeImportInputBuilder {
     /// Consumes the builder and constructs a [`DescribeImportInput`](crate::operation::describe_import::DescribeImportInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::describe_import::DescribeImportInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::describe_import::DescribeImportInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::describe_import::DescribeImportInput { import_arn: self.import_arn })
     }
 }

@@ -95,9 +95,7 @@ impl ConverseInput {
         self.additional_model_request_fields.as_ref()
     }
     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
-    pub fn prompt_variables(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::PromptVariableValues>> {
+    pub fn prompt_variables(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::PromptVariableValues>> {
         self.prompt_variables.as_ref()
     }
     /// <p>Additional model parameters field paths to return in the response. <code>Converse</code> and <code>ConverseStream</code> return the requested fields as a JSON Pointer object in the <code>additionalModelResponseFields</code> field. The following is example JSON for <code>additionalModelResponseFieldPaths</code>.</p>
@@ -163,8 +161,7 @@ pub struct ConverseInputBuilder {
     pub(crate) tool_config: ::std::option::Option<super::super::super::types::ToolConfiguration>,
     pub(crate) guardrail_config: ::std::option::Option<super::super::super::types::GuardrailConfiguration>,
     pub(crate) additional_model_request_fields: ::std::option::Option<::std::string::String>,
-    pub(crate) prompt_variables:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PromptVariableValues>>,
+    pub(crate) prompt_variables: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PromptVariableValues>>,
     pub(crate) additional_model_response_field_paths: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) request_metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     pub(crate) performance_config: ::std::option::Option<super::super::super::types::PerformanceConfiguration>,
@@ -330,11 +327,7 @@ impl ConverseInputBuilder {
     /// To override the contents of this collection use [`set_prompt_variables`](Self::set_prompt_variables).
     ///
     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
-    pub fn prompt_variables(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: super::super::super::types::PromptVariableValues,
-    ) -> Self {
+    pub fn prompt_variables(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::PromptVariableValues) -> Self {
         let mut hash_map = self.prompt_variables.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.prompt_variables = ::std::option::Option::Some(hash_map);
@@ -453,9 +446,7 @@ impl ConverseInputBuilder {
         &self.output_config
     }
     /// Consumes the builder and constructs a [`ConverseInput`](crate::operation::converse::ConverseInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::converse::ConverseInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::converse::ConverseInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::converse::ConverseInput {
             model_id: self.model_id,
             messages: self.messages,

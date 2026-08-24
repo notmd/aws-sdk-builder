@@ -119,13 +119,11 @@ impl DescribeImportTaskBatchesInputBuilder {
         super::super::super::operation::describe_import_task_batches::DescribeImportTaskBatchesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::describe_import_task_batches::DescribeImportTaskBatchesInput {
-                import_id: self.import_id,
-                batch_import_status: self.batch_import_status,
-                limit: self.limit,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::describe_import_task_batches::DescribeImportTaskBatchesInput {
+            import_id: self.import_id,
+            batch_import_status: self.batch_import_status,
+            limit: self.limit,
+            next_token: self.next_token,
+        })
     }
 }

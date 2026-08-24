@@ -15,11 +15,7 @@ pub fn de_update_primary_region_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::update_primary_region::UpdatePrimaryRegionError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::update_primary_region::UpdatePrimaryRegionError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -74,9 +70,8 @@ pub fn de_update_primary_region_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::update_primary_region::UpdatePrimaryRegionError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::update_primary_region::UpdatePrimaryRegionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -105,11 +100,9 @@ pub fn de_update_primary_region_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UnsupportedOperationExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::update_primary_region::UpdatePrimaryRegionError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::update_primary_region::UpdatePrimaryRegionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

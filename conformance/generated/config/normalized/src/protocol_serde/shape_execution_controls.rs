@@ -35,11 +35,8 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "SsmControls" => {
-                            builder = builder.set_ssm_controls(super::super::protocol_serde::shape_ssm_controls::de_ssm_controls(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_ssm_controls(super::super::protocol_serde::shape_ssm_controls::de_ssm_controls(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

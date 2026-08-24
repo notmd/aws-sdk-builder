@@ -15,7 +15,11 @@ pub fn de_get_domain_statistics_report_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -50,26 +54,21 @@ pub fn de_get_domain_statistics_report_http_error(
             }
             tmp
         }),
-        "TooManyRequestsException" => {
-            super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportError::TooManyRequestsException({
+        "TooManyRequestsException" => super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportError::TooManyRequestsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportError::generic(generic),
     })
 }
@@ -122,18 +121,10 @@ pub(crate) fn de_get_domain_statistics_report(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "OverallVolume" => {
-                    builder = builder.set_overall_volume(super::super::protocol_serde::shape_overall_volume::de_overall_volume(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_overall_volume(super::super::protocol_serde::shape_overall_volume::de_overall_volume(tokens, _value, depth + 1)?);
                 }
                 "DailyVolumes" => {
-                    builder = builder.set_daily_volumes(super::super::protocol_serde::shape_daily_volumes::de_daily_volumes(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_daily_volumes(super::super::protocol_serde::shape_daily_volumes::de_daily_volumes(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

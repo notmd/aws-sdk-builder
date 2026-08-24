@@ -46,11 +46,9 @@ pub fn de_list_durable_executions_by_function_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -81,11 +79,9 @@ pub fn de_list_durable_executions_by_function_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -110,11 +106,9 @@ pub fn de_list_durable_executions_by_function_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_list_durable_executions_by_function::de_list_durable_executions_by_function(_response_body, output)
-                .map_err(super::super::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError::unhandled)?;
+        let mut output = super::super::operation::list_durable_executions_by_function::builders::ListDurableExecutionsByFunctionOutputBuilder::default();
+        output = super::super::protocol_serde::shape_list_durable_executions_by_function::de_list_durable_executions_by_function(_response_body, output)
+            .map_err(super::super::operation::list_durable_executions_by_function::ListDurableExecutionsByFunctionError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -125,10 +119,7 @@ pub fn ser_list_durable_executions_by_function_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_durable_executions_by_function_input::ser_list_durable_executions_by_function_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_list_durable_executions_by_function_input::ser_list_durable_executions_by_function_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

@@ -57,9 +57,7 @@ impl SendDurableExecutionCallbackFailureFluentBuilder {
         }
     }
     /// Access the SendDurableExecutionCallbackFailure as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,11 +87,7 @@ impl SendDurableExecutionCallbackFailureFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailure::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        super::super::super::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailure::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

@@ -44,8 +44,7 @@ impl GetTransformerInputBuilder {
     /// Consumes the builder and constructs a [`GetTransformerInput`](crate::operation::get_transformer::GetTransformerInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::get_transformer::GetTransformerInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::get_transformer::GetTransformerInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_transformer::GetTransformerInput {
             log_group_identifier: self.log_group_identifier,
         })

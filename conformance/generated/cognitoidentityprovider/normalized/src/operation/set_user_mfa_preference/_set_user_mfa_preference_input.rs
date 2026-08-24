@@ -139,10 +139,8 @@ impl SetUserMfaPreferenceInputBuilder {
     /// Consumes the builder and constructs a [`SetUserMfaPreferenceInput`](crate::operation::set_user_mfa_preference::SetUserMfaPreferenceInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::set_user_mfa_preference::SetUserMfaPreferenceInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::set_user_mfa_preference::SetUserMfaPreferenceInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::set_user_mfa_preference::SetUserMfaPreferenceInput {
             sms_mfa_settings: self.sms_mfa_settings,
             software_token_mfa_settings: self.software_token_mfa_settings,

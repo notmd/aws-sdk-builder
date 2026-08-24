@@ -15,11 +15,7 @@ pub fn de_list_dedicated_ip_pools_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -44,9 +40,8 @@ pub fn de_list_dedicated_ip_pools_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -103,21 +98,23 @@ pub(crate) fn de_list_dedicated_ip_pools(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "DedicatedIpPools" => {
-                    builder = builder.set_dedicated_ip_pools(
-                        super::super::protocol_serde::shape_list_of_dedicated_ip_pools::de_list_of_dedicated_ip_pools(tokens, _value, depth + 1)?,
-                    );
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "DedicatedIpPools" => {
+                        builder = builder.set_dedicated_ip_pools(
+                            super::super::protocol_serde::shape_list_of_dedicated_ip_pools::de_list_of_dedicated_ip_pools(tokens, _value, depth + 1)?,
+                        );
+                    }
+                    "NextToken" => {
+                        builder = builder.set_next_token(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?,
+                        );
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                "NextToken" => {
-                    builder = builder.set_next_token(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

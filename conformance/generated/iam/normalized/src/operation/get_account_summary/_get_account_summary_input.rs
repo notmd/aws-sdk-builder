@@ -18,10 +18,7 @@ impl GetAccountSummaryInputBuilder {
     /// Consumes the builder and constructs a [`GetAccountSummaryInput`](crate::operation::get_account_summary::GetAccountSummaryInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_account_summary::GetAccountSummaryInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_account_summary::GetAccountSummaryInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_account_summary::GetAccountSummaryInput {})
     }
 }

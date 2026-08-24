@@ -234,14 +234,12 @@ impl GetAssociatedPackageGroupInputBuilder {
         super::super::super::operation::get_associated_package_group::GetAssociatedPackageGroupInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_associated_package_group::GetAssociatedPackageGroupInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-                format: self.format,
-                namespace: self.namespace,
-                package: self.package,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_associated_package_group::GetAssociatedPackageGroupInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+            format: self.format,
+            namespace: self.namespace,
+            package: self.package,
+        })
     }
 }

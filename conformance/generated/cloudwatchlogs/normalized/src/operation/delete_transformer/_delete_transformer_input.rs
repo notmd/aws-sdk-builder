@@ -44,10 +44,7 @@ impl DeleteTransformerInputBuilder {
     /// Consumes the builder and constructs a [`DeleteTransformerInput`](crate::operation::delete_transformer::DeleteTransformerInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_transformer::DeleteTransformerInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_transformer::DeleteTransformerInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_transformer::DeleteTransformerInput {
             log_group_identifier: self.log_group_identifier,
         })

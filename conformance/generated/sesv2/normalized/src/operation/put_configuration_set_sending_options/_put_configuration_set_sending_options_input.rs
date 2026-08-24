@@ -21,8 +21,7 @@ impl PutConfigurationSetSendingOptionsInput {
 }
 impl PutConfigurationSetSendingOptionsInput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetSendingOptionsInput`](crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsInput).
-    pub fn builder() -> super::super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsInputBuilder {
         super::super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsInputBuilder::default()
     }
 }

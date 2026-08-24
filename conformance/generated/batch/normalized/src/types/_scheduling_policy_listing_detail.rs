@@ -46,9 +46,7 @@ impl SchedulingPolicyListingDetailBuilder {
     /// Consumes the builder and constructs a [`SchedulingPolicyListingDetail`](crate::types::SchedulingPolicyListingDetail).
     /// This method will fail if any of the following fields are not set:
     /// - [`arn`](crate::types::builders::SchedulingPolicyListingDetailBuilder::arn)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::SchedulingPolicyListingDetail, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::SchedulingPolicyListingDetail, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::SchedulingPolicyListingDetail {
             arn: self.arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

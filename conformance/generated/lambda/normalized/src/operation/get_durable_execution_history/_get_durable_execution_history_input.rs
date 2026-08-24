@@ -132,14 +132,12 @@ impl GetDurableExecutionHistoryInputBuilder {
         super::super::super::operation::get_durable_execution_history::GetDurableExecutionHistoryInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_durable_execution_history::GetDurableExecutionHistoryInput {
-                durable_execution_arn: self.durable_execution_arn,
-                include_execution_data: self.include_execution_data,
-                max_items: self.max_items.unwrap_or_default(),
-                marker: self.marker,
-                reverse_order: self.reverse_order,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_durable_execution_history::GetDurableExecutionHistoryInput {
+            durable_execution_arn: self.durable_execution_arn,
+            include_execution_data: self.include_execution_data,
+            max_items: self.max_items.unwrap_or_default(),
+            marker: self.marker,
+            reverse_order: self.reverse_order,
+        })
     }
 }

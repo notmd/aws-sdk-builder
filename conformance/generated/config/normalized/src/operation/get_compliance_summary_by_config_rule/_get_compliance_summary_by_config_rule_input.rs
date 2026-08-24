@@ -5,8 +5,7 @@
 pub struct GetComplianceSummaryByConfigRuleInput {}
 impl GetComplianceSummaryByConfigRuleInput {
     /// Creates a new builder-style object to manufacture [`GetComplianceSummaryByConfigRuleInput`](crate::operation::get_compliance_summary_by_config_rule::GetComplianceSummaryByConfigRuleInput).
-    pub fn builder() -> super::super::super::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleInputBuilder {
         super::super::super::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleInputBuilder::default()
     }
 }

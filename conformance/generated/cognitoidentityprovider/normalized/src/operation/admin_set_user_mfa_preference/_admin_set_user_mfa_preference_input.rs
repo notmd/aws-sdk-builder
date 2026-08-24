@@ -166,16 +166,14 @@ impl AdminSetUserMfaPreferenceInputBuilder {
         super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceInput {
-                sms_mfa_settings: self.sms_mfa_settings,
-                software_token_mfa_settings: self.software_token_mfa_settings,
-                email_mfa_settings: self.email_mfa_settings,
-                web_authn_mfa_settings: self.web_authn_mfa_settings,
-                username: self.username,
-                user_pool_id: self.user_pool_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::admin_set_user_mfa_preference::AdminSetUserMfaPreferenceInput {
+            sms_mfa_settings: self.sms_mfa_settings,
+            software_token_mfa_settings: self.software_token_mfa_settings,
+            email_mfa_settings: self.email_mfa_settings,
+            web_authn_mfa_settings: self.web_authn_mfa_settings,
+            username: self.username,
+            user_pool_id: self.user_pool_id,
+        })
     }
 }
 impl ::std::fmt::Debug for AdminSetUserMfaPreferenceInputBuilder {

@@ -48,10 +48,8 @@ impl GetFunctionRecursionConfigInputBuilder {
         super::super::super::operation::get_function_recursion_config::GetFunctionRecursionConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_function_recursion_config::GetFunctionRecursionConfigInput {
-                function_name: self.function_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_function_recursion_config::GetFunctionRecursionConfigInput {
+            function_name: self.function_name,
+        })
     }
 }

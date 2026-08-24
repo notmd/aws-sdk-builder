@@ -355,10 +355,7 @@ impl CreateUserPoolClientFluentBuilder {
     /// <p><code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh tokens.</p></li>
     /// </ul>
     /// <p>In some environments, you will see the values <code>ADMIN_NO_SRP_AUTH</code>, <code>CUSTOM_AUTH_FLOW_ONLY</code>, or <code>USER_PASSWORD_AUTH</code>. You can't assign these legacy <code>ExplicitAuthFlows</code> values to user pool clients at the same time as values that begin with <code>ALLOW_</code>, like <code>ALLOW_USER_SRP_AUTH</code>.</p>
-    pub fn set_explicit_auth_flows(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ExplicitAuthFlowsType>>,
-    ) -> Self {
+    pub fn set_explicit_auth_flows(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ExplicitAuthFlowsType>>) -> Self {
         self.inner = self.inner.set_explicit_auth_flows(input);
         self
     }
@@ -668,10 +665,7 @@ impl CreateUserPoolClientFluentBuilder {
     }
     /// <p>When <code>ENABLED</code>, suppresses messages that might indicate a valid user exists when someone attempts sign-in. This parameters sets your preference for the errors and responses that you want Amazon Cognito APIs to return during authentication, account confirmation, and password recovery when the user doesn't exist in the user pool. When set to <code>ENABLED</code> and the user doesn't exist, authentication returns an error indicating either the username or password was incorrect. Account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs return a <code>UserNotFoundException</code> exception if the user doesn't exist in the user pool.</p>
     /// <p>Defaults to <code>LEGACY</code>.</p>
-    pub fn set_prevent_user_existence_errors(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::PreventUserExistenceErrorTypes>,
-    ) -> Self {
+    pub fn set_prevent_user_existence_errors(mut self, input: ::std::option::Option<super::super::super::types::PreventUserExistenceErrorTypes>) -> Self {
         self.inner = self.inner.set_prevent_user_existence_errors(input);
         self
     }

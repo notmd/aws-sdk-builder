@@ -80,10 +80,7 @@ impl SourceTableFeatureDetailsBuilder {
         self
     }
     /// <p>Represents the LSI properties for the table when the backup was created. It includes the IndexName, KeySchema and Projection for the LSIs on the table at the time of backup.</p>
-    pub fn set_local_secondary_indexes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::LocalSecondaryIndexInfo>>,
-    ) -> Self {
+    pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::LocalSecondaryIndexInfo>>) -> Self {
         self.local_secondary_indexes = input;
         self
     }
@@ -103,10 +100,7 @@ impl SourceTableFeatureDetailsBuilder {
         self
     }
     /// <p>Represents the GSI properties for the table when the backup was created. It includes the IndexName, KeySchema, Projection, and ProvisionedThroughput for the GSIs on the table at the time of backup.</p>
-    pub fn set_global_secondary_indexes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::GlobalSecondaryIndexInfo>>,
-    ) -> Self {
+    pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GlobalSecondaryIndexInfo>>) -> Self {
         self.global_secondary_indexes = input;
         self
     }

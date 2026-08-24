@@ -15,7 +15,11 @@ pub fn de_update_consumable_resource_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::update_consumable_resource::UpdateConsumableResourceError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::update_consumable_resource::UpdateConsumableResourceError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());

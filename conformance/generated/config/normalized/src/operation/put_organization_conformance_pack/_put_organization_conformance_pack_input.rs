@@ -202,9 +202,7 @@ impl PutOrganizationConformancePackInputBuilder {
         self
     }
     /// <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-    pub fn get_conformance_pack_input_parameters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackInputParameter>> {
+    pub fn get_conformance_pack_input_parameters(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackInputParameter>> {
         &self.conformance_pack_input_parameters
     }
     /// Appends an item to `excluded_accounts`.
@@ -254,17 +252,15 @@ impl PutOrganizationConformancePackInputBuilder {
         super::super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackInput {
-                organization_conformance_pack_name: self.organization_conformance_pack_name,
-                template_s3_uri: self.template_s3_uri,
-                template_body: self.template_body,
-                delivery_s3_bucket: self.delivery_s3_bucket,
-                delivery_s3_key_prefix: self.delivery_s3_key_prefix,
-                conformance_pack_input_parameters: self.conformance_pack_input_parameters,
-                excluded_accounts: self.excluded_accounts,
-                tags: self.tags,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePackInput {
+            organization_conformance_pack_name: self.organization_conformance_pack_name,
+            template_s3_uri: self.template_s3_uri,
+            template_body: self.template_body,
+            delivery_s3_bucket: self.delivery_s3_bucket,
+            delivery_s3_key_prefix: self.delivery_s3_key_prefix,
+            conformance_pack_input_parameters: self.conformance_pack_input_parameters,
+            excluded_accounts: self.excluded_accounts,
+            tags: self.tags,
+        })
     }
 }

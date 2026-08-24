@@ -90,18 +90,12 @@ where
                             )?);
                         }
                         "StepDetails" => {
-                            builder = builder.set_step_details(super::super::protocol_serde::shape_step_details::de_step_details(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_step_details(super::super::protocol_serde::shape_step_details::de_step_details(tokens, _value, depth + 1)?);
                         }
                         "WaitDetails" => {
-                            builder = builder.set_wait_details(super::super::protocol_serde::shape_wait_details::de_wait_details(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_wait_details(super::super::protocol_serde::shape_wait_details::de_wait_details(tokens, _value, depth + 1)?);
                         }
                         "CallbackDetails" => {
                             builder = builder.set_callback_details(super::super::protocol_serde::shape_callback_details::de_callback_details(
@@ -124,9 +118,9 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::operation_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::operation_correct_errors(builder).build().map_err(|err| {
+                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
+            })?))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

@@ -28,8 +28,7 @@ pub fn de_get_bucket_inventory_configuration_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::get_bucket_inventory_configuration::builders::GetBucketInventoryConfigurationOutputBuilder::default();
+        let mut output = super::super::operation::get_bucket_inventory_configuration::builders::GetBucketInventoryConfigurationOutputBuilder::default();
         output = output.set_inventory_configuration(
             super::super::protocol_serde::shape_get_bucket_inventory_configuration_output::de_inventory_configuration_payload(_response_body)?,
         );

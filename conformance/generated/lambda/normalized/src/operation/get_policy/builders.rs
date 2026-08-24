@@ -29,20 +29,14 @@ pub struct GetPolicyFluentBuilder {
     inner: super::super::super::operation::get_policy::builders::GetPolicyInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::get_policy::GetPolicyOutput,
-        super::super::super::operation::get_policy::GetPolicyError,
-    > for GetPolicyFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::get_policy::GetPolicyOutput, super::super::super::operation::get_policy::GetPolicyError>
+    for GetPolicyFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::get_policy::GetPolicyOutput,
-            super::super::super::operation::get_policy::GetPolicyError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::get_policy::GetPolicyOutput, super::super::super::operation::get_policy::GetPolicyError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }

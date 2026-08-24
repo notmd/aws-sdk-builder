@@ -85,9 +85,7 @@ impl ReplicaGlobalSecondaryIndexSettingsUpdateBuilder {
         self
     }
     /// <p>Auto scaling settings for managing a global secondary index replica's read capacity units.</p>
-    pub fn get_provisioned_read_capacity_auto_scaling_settings_update(
-        &self,
-    ) -> &::std::option::Option<super::super::types::AutoScalingSettingsUpdate> {
+    pub fn get_provisioned_read_capacity_auto_scaling_settings_update(&self) -> &::std::option::Option<super::super::types::AutoScalingSettingsUpdate> {
         &self.provisioned_read_capacity_auto_scaling_settings_update
     }
     /// Consumes the builder and constructs a [`ReplicaGlobalSecondaryIndexSettingsUpdate`](crate::types::ReplicaGlobalSecondaryIndexSettingsUpdate).

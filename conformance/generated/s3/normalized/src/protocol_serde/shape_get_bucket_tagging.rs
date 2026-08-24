@@ -4,10 +4,7 @@ pub fn de_get_bucket_tagging_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::get_bucket_tagging::GetBucketTaggingOutput,
-    super::super::operation::get_bucket_tagging::GetBucketTaggingError,
-> {
+) -> std::result::Result<super::super::operation::get_bucket_tagging::GetBucketTaggingOutput, super::super::operation::get_bucket_tagging::GetBucketTaggingError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::get_bucket_tagging::GetBucketTaggingError::unhandled)?;
@@ -22,10 +19,7 @@ pub fn de_get_bucket_tagging_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::get_bucket_tagging::GetBucketTaggingOutput,
-    super::super::operation::get_bucket_tagging::GetBucketTaggingError,
-> {
+) -> std::result::Result<super::super::operation::get_bucket_tagging::GetBucketTaggingOutput, super::super::operation::get_bucket_tagging::GetBucketTaggingError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::get_bucket_tagging::builders::GetBucketTaggingOutputBuilder::default();
@@ -61,8 +55,7 @@ pub fn ser_get_bucket_tagging_headers(
 pub fn de_get_bucket_tagging(
     inp: &[u8],
     mut builder: super::super::operation::get_bucket_tagging::builders::GetBucketTaggingOutputBuilder,
-) -> std::result::Result<super::super::operation::get_bucket_tagging::builders::GetBucketTaggingOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
-{
+) -> std::result::Result<super::super::operation::get_bucket_tagging::builders::GetBucketTaggingOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

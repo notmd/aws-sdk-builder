@@ -15,11 +15,7 @@ pub fn de_get_configuration_set_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::get_configuration_set::GetConfigurationSetError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::get_configuration_set::GetConfigurationSetError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -59,9 +55,8 @@ pub fn de_get_configuration_set_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_configuration_set::GetConfigurationSetError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_configuration_set::GetConfigurationSetError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -165,11 +160,7 @@ pub(crate) fn de_get_configuration_set(
                     )?);
                 }
                 "VdmOptions" => {
-                    builder = builder.set_vdm_options(super::super::protocol_serde::shape_vdm_options::de_vdm_options(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_vdm_options(super::super::protocol_serde::shape_vdm_options::de_vdm_options(tokens, _value, depth + 1)?);
                 }
                 "ArchivingOptions" => {
                     builder = builder.set_archiving_options(super::super::protocol_serde::shape_archiving_options::de_archiving_options(

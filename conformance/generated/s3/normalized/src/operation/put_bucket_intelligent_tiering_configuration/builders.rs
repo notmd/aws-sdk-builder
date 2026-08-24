@@ -68,8 +68,7 @@ impl super::super::super::operation::put_bucket_intelligent_tiering_configuratio
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct PutBucketIntelligentTieringConfigurationFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
-    inner:
-        super::super::super::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationInputBuilder,
+    inner: super::super::super::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
 impl
@@ -102,8 +101,7 @@ impl PutBucketIntelligentTieringConfigurationFluentBuilder {
     /// Access the PutBucketIntelligentTieringConfiguration as a reference.
     pub fn as_input(
         &self,
-    ) -> &super::super::super::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationInputBuilder
-    {
+    ) -> &super::super::super::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -127,16 +125,14 @@ impl PutBucketIntelligentTieringConfigurationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfiguration::operation_runtime_plugins(
-                            self.handle.runtime_plugins.clone(),
-                            &self.handle.conf,
-                            self.config_override,
-                        );
-        super::super::super::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfiguration::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            super::super::super::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfiguration::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        super::super::super::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfiguration::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -206,10 +202,7 @@ impl PutBucketIntelligentTieringConfigurationFluentBuilder {
         self
     }
     /// <p>Container for S3 Intelligent-Tiering configuration.</p>
-    pub fn set_intelligent_tiering_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::IntelligentTieringConfiguration>,
-    ) -> Self {
+    pub fn set_intelligent_tiering_configuration(mut self, input: ::std::option::Option<super::super::super::types::IntelligentTieringConfiguration>) -> Self {
         self.inner = self.inner.set_intelligent_tiering_configuration(input);
         self
     }

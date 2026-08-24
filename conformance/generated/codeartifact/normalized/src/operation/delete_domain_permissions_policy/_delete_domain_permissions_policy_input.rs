@@ -90,12 +90,10 @@ impl DeleteDomainPermissionsPolicyInputBuilder {
         super::super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-                policy_revision: self.policy_revision,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+            policy_revision: self.policy_revision,
+        })
     }
 }

@@ -28,7 +28,8 @@ impl ::aws_types::request_id::RequestId for GetAggregateComplianceDetailsByConfi
 }
 impl GetAggregateComplianceDetailsByConfigRuleOutput {
     /// Creates a new builder-style object to manufacture [`GetAggregateComplianceDetailsByConfigRuleOutput`](crate::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleOutput).
-    pub fn builder() -> super::super::super::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleOutputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleOutputBuilder {
         super::super::super::operation::get_aggregate_compliance_details_by_config_rule::builders::GetAggregateComplianceDetailsByConfigRuleOutputBuilder::default()
     }
 }
@@ -89,9 +90,7 @@ impl GetAggregateComplianceDetailsByConfigRuleOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetAggregateComplianceDetailsByConfigRuleOutput`](crate::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleOutput).
-    pub fn build(
-        self,
-    ) -> super::super::super::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleOutput {
+    pub fn build(self) -> super::super::super::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleOutput {
         super::super::super::operation::get_aggregate_compliance_details_by_config_rule::GetAggregateComplianceDetailsByConfigRuleOutput {
             aggregate_evaluation_results: self.aggregate_evaluation_results,
             next_token: self.next_token,

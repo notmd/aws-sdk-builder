@@ -93,9 +93,7 @@ impl ListUsersInputBuilder {
         &self.max_items
     }
     /// Consumes the builder and constructs a [`ListUsersInput`](crate::operation::list_users::ListUsersInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::list_users::ListUsersInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_users::ListUsersInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_users::ListUsersInput {
             path_prefix: self.path_prefix,
             marker: self.marker,

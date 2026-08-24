@@ -4,10 +4,7 @@ pub fn de_admin_get_device_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::admin_get_device::AdminGetDeviceOutput,
-    super::super::operation::admin_get_device::AdminGetDeviceError,
-> {
+) -> std::result::Result<super::super::operation::admin_get_device::AdminGetDeviceOutput, super::super::operation::admin_get_device::AdminGetDeviceError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
@@ -40,9 +37,8 @@ pub fn de_admin_get_device_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -87,11 +83,9 @@ pub fn de_admin_get_device_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -105,11 +99,8 @@ pub fn de_admin_get_device_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -123,9 +114,8 @@ pub fn de_admin_get_device_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::admin_get_device::AdminGetDeviceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -143,10 +133,7 @@ pub fn de_admin_get_device_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::admin_get_device::AdminGetDeviceOutput,
-    super::super::operation::admin_get_device::AdminGetDeviceError,
-> {
+) -> std::result::Result<super::super::operation::admin_get_device::AdminGetDeviceOutput, super::super::operation::admin_get_device::AdminGetDeviceError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::admin_get_device::builders::AdminGetDeviceOutputBuilder::default();
@@ -184,11 +171,7 @@ pub(crate) fn de_admin_get_device(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "Device" => {
-                    builder = builder.set_device(super::super::protocol_serde::shape_device_type::de_device_type(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_device(super::super::protocol_serde::shape_device_type::de_device_type(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

@@ -15,7 +15,11 @@ pub fn de_get_suppressed_destination_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::get_suppressed_destination::GetSuppressedDestinationError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::get_suppressed_destination::GetSuppressedDestinationError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -55,9 +59,8 @@ pub fn de_get_suppressed_destination_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_suppressed_destination::GetSuppressedDestinationError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_suppressed_destination::GetSuppressedDestinationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -116,9 +119,11 @@ pub(crate) fn de_get_suppressed_destination(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "SuppressedDestination" => {
-                    builder = builder.set_suppressed_destination(
-                        super::super::protocol_serde::shape_suppressed_destination::de_suppressed_destination(tokens, _value, depth + 1)?,
-                    );
+                    builder = builder.set_suppressed_destination(super::super::protocol_serde::shape_suppressed_destination::de_suppressed_destination(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

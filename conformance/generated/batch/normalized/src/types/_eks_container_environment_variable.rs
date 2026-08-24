@@ -67,9 +67,7 @@ impl EksContainerEnvironmentVariableBuilder {
     /// Consumes the builder and constructs a [`EksContainerEnvironmentVariable`](crate::types::EksContainerEnvironmentVariable).
     /// This method will fail if any of the following fields are not set:
     /// - [`name`](crate::types::builders::EksContainerEnvironmentVariableBuilder::name)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::EksContainerEnvironmentVariable, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::EksContainerEnvironmentVariable, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::EksContainerEnvironmentVariable {
             name: self.name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

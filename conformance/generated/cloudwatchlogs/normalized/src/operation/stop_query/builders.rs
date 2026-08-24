@@ -30,20 +30,14 @@ pub struct StopQueryFluentBuilder {
     inner: super::super::super::operation::stop_query::builders::StopQueryInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::stop_query::StopQueryOutput,
-        super::super::super::operation::stop_query::StopQueryError,
-    > for StopQueryFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::stop_query::StopQueryOutput, super::super::super::operation::stop_query::StopQueryError>
+    for StopQueryFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::stop_query::StopQueryOutput,
-            super::super::super::operation::stop_query::StopQueryError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::stop_query::StopQueryOutput, super::super::super::operation::stop_query::StopQueryError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }

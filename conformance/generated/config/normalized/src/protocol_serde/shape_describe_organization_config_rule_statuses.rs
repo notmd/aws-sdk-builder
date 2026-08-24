@@ -16,9 +16,7 @@ pub fn de_describe_organization_config_rule_statuses_http_error(
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(
-                super::super::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesError::unhandled(generic),
-            )
+            return Err(super::super::operation::describe_organization_config_rule_statuses::DescribeOrganizationConfigRuleStatusesError::unhandled(generic))
         }
     };
 
@@ -95,7 +93,8 @@ pub fn de_describe_organization_config_rule_statuses_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = super::super::operation::describe_organization_config_rule_statuses::builders::DescribeOrganizationConfigRuleStatusesOutputBuilder::default();
+        let mut output =
+            super::super::operation::describe_organization_config_rule_statuses::builders::DescribeOrganizationConfigRuleStatusesOutputBuilder::default();
         output = super::super::protocol_serde::shape_describe_organization_config_rule_statuses::de_describe_organization_config_rule_statuses(
             _response_body,
             output,

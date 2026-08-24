@@ -32,8 +32,7 @@ pub struct EvaluationResult {
     /// <p>If the simulation evaluates policies within the same account and includes a resource ARN, then the parameter is present but the response is empty. If the simulation evaluates policies within the same account and specifies all resources (<code>*</code>), then the parameter is not returned.</p>
     /// <p>When you make a cross-account request, Amazon Web Services evaluates the request in the trusting account and the trusted account. The request is allowed only if both evaluations return <code>true</code>. For more information about how policies are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating policies within a single account</a>.</p>
     /// <p>If an Organizations SCP included in the evaluation denies access, the simulation ends. In this case, policy evaluation does not proceed any further and this parameter is not returned.</p>
-    pub eval_decision_details:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::PolicyEvaluationDecisionType>>,
+    pub eval_decision_details: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::PolicyEvaluationDecisionType>>,
     /// <p>The individual results of the simulation of the API operation specified in EvalActionName on each resource.</p>
     pub resource_specific_results: ::std::option::Option<::std::vec::Vec<super::super::types::ResourceSpecificResult>>,
 }
@@ -235,10 +234,7 @@ impl EvaluationResultBuilder {
         self
     }
     /// <p>Contains information about the effect that a permissions boundary has on a policy simulation when the boundary is applied to an IAM entity.</p>
-    pub fn set_permissions_boundary_decision_detail(
-        mut self,
-        input: ::std::option::Option<super::super::types::PermissionsBoundaryDecisionDetail>,
-    ) -> Self {
+    pub fn set_permissions_boundary_decision_detail(mut self, input: ::std::option::Option<super::super::types::PermissionsBoundaryDecisionDetail>) -> Self {
         self.permissions_boundary_decision_detail = input;
         self
     }
@@ -299,10 +295,7 @@ impl EvaluationResultBuilder {
         self
     }
     /// <p>The individual results of the simulation of the API operation specified in EvalActionName on each resource.</p>
-    pub fn set_resource_specific_results(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::ResourceSpecificResult>>,
-    ) -> Self {
+    pub fn set_resource_specific_results(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::ResourceSpecificResult>>) -> Self {
         self.resource_specific_results = input;
         self
     }

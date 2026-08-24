@@ -3,362 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sesv2
-**Progress:** `1204/1204` files compared · `703` matched · `455` mismatches · `1` missing · `45` extra · `58.39%` match (100.00% means fully matched)
-
-### `src/client/create_email_identity_policy.rs`
-
-```diff
---- reference/src/client/create_email_identity_policy.rs
-+++ generated/src/client/create_email_identity_policy.rs
-@@ -8,7 +8,9 @@
-     ///   - [`policy(impl Into<String>)`](crate::operation::create_email_identity_policy::builders::CreateEmailIdentityPolicyFluentBuilder::policy) / [`set_policy(Option<String>)`](crate::operation::create_email_identity_policy::builders::CreateEmailIdentityPolicyFluentBuilder::set_policy):<br>required: **true**<br><p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p> <p>For information about the syntax of sending authorization policies, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html">Amazon SES Developer Guide</a>.</p><br>
-     /// - On success, responds with [`CreateEmailIdentityPolicyOutput`](crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyOutput)
-     /// - On failure, responds with [`SdkError<CreateEmailIdentityPolicyError>`](crate::operation::create_email_identity_policy::CreateEmailIdentityPolicyError)
--    pub fn create_email_identity_policy(&self) -> super::super::operation::create_email_identity_policy::builders::CreateEmailIdentityPolicyFluentBuilder {
-+    pub fn create_email_identity_policy(
-+        &self,
-+    ) -> super::super::operation::create_email_identity_policy::builders::CreateEmailIdentityPolicyFluentBuilder {
-         super::super::operation::create_email_identity_policy::builders::CreateEmailIdentityPolicyFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/create_multi_region_endpoint.rs`
-
-```diff
---- reference/src/client/create_multi_region_endpoint.rs
-+++ generated/src/client/create_multi_region_endpoint.rs
-@@ -10,7 +10,9 @@
-     ///   - [`status(Option<Status>)`](crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointOutput::status): <p>A status of the multi-region endpoint (global-endpoint) right after the create request.</p> <ul>  <li>   <p><code>CREATING</code> – The resource is being provisioned.</p></li>  <li>   <p><code>READY</code> – The resource is ready to use.</p></li>  <li>   <p><code>FAILED</code> – The resource failed to be provisioned.</p></li>  <li>   <p><code>DELETING</code> – The resource is being deleted as requested.</p></li> </ul>
-     ///   - [`endpoint_id(Option<String>)`](crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointOutput::endpoint_id): <p>The ID of the multi-region endpoint (global-endpoint).</p>
-     /// - On failure, responds with [`SdkError<CreateMultiRegionEndpointError>`](crate::operation::create_multi_region_endpoint::CreateMultiRegionEndpointError)
--    pub fn create_multi_region_endpoint(&self) -> super::super::operation::create_multi_region_endpoint::builders::CreateMultiRegionEndpointFluentBuilder {
-+    pub fn create_multi_region_endpoint(
-+        &self,
-+    ) -> super::super::operation::create_multi_region_endpoint::builders::CreateMultiRegionEndpointFluentBuilder {
-         super::super::operation::create_multi_region_endpoint::builders::CreateMultiRegionEndpointFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/delete_email_identity_policy.rs`
-
-```diff
---- reference/src/client/delete_email_identity_policy.rs
-+++ generated/src/client/delete_email_identity_policy.rs
-@@ -7,7 +7,9 @@
-     ///   - [`policy_name(impl Into<String>)`](crate::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyFluentBuilder::policy_name) / [`set_policy_name(Option<String>)`](crate::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyFluentBuilder::set_policy_name):<br>required: **true**<br><p>The name of the policy.</p> <p>The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.</p><br>
-     /// - On success, responds with [`DeleteEmailIdentityPolicyOutput`](crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyOutput)
-     /// - On failure, responds with [`SdkError<DeleteEmailIdentityPolicyError>`](crate::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyError)
--    pub fn delete_email_identity_policy(&self) -> super::super::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyFluentBuilder {
-+    pub fn delete_email_identity_policy(
-+        &self,
-+    ) -> super::super::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyFluentBuilder {
-         super::super::operation::delete_email_identity_policy::builders::DeleteEmailIdentityPolicyFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/delete_multi_region_endpoint.rs`
-
-```diff
---- reference/src/client/delete_multi_region_endpoint.rs
-+++ generated/src/client/delete_multi_region_endpoint.rs
-@@ -7,7 +7,9 @@
-     /// - On success, responds with [`DeleteMultiRegionEndpointOutput`](crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointOutput) with field(s):
-     ///   - [`status(Option<Status>)`](crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointOutput::status): <p>A status of the multi-region endpoint (global-endpoint) right after the delete request.</p> <ul>  <li>   <p><code>CREATING</code> – The resource is being provisioned.</p></li>  <li>   <p><code>READY</code> – The resource is ready to use.</p></li>  <li>   <p><code>FAILED</code> – The resource failed to be provisioned.</p></li>  <li>   <p><code>DELETING</code> – The resource is being deleted as requested.</p></li> </ul>
-     /// - On failure, responds with [`SdkError<DeleteMultiRegionEndpointError>`](crate::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointError)
--    pub fn delete_multi_region_endpoint(&self) -> super::super::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointFluentBuilder {
-+    pub fn delete_multi_region_endpoint(
-+        &self,
-+    ) -> super::super::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointFluentBuilder {
-         super::super::operation::delete_multi_region_endpoint::builders::DeleteMultiRegionEndpointFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/get_custom_verification_email_template.rs`
-
-```diff
---- reference/src/client/get_custom_verification_email_template.rs
-+++ generated/src/client/get_custom_verification_email_template.rs
-@@ -16,6 +16,8 @@
-     pub fn get_custom_verification_email_template(
-         &self,
-     ) -> super::super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateFluentBuilder {
--        super::super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateFluentBuilder::new(self.handle.clone())
-+        super::super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateFluentBuilder::new(
-+            self.handle.clone(),
-+        )
-     }
- }
-```
-
-### `src/client/get_deliverability_dashboard_options.rs`
-
-```diff
---- reference/src/client/get_deliverability_dashboard_options.rs
-+++ generated/src/client/get_deliverability_dashboard_options.rs
-@@ -13,6 +13,8 @@
-     pub fn get_deliverability_dashboard_options(
-         &self,
-     ) -> super::super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsFluentBuilder {
--        super::super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsFluentBuilder::new(self.handle.clone())
-+        super::super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsFluentBuilder::new(
-+            self.handle.clone(),
-+        )
-     }
- }
-```
-
-### `src/client/get_domain_statistics_report.rs`
-
-```diff
---- reference/src/client/get_domain_statistics_report.rs
-+++ generated/src/client/get_domain_statistics_report.rs
-@@ -10,7 +10,9 @@
-     ///   - [`overall_volume(Option<OverallVolume>)`](crate::operation::get_domain_statistics_report::GetDomainStatisticsReportOutput::overall_volume): <p>An object that contains deliverability metrics for the domain that you specified. The data in this object is a summary of all of the data that was collected from the <code>StartDate</code> to the <code>EndDate</code>.</p>
-     ///   - [`daily_volumes(Vec::<DailyVolume>)`](crate::operation::get_domain_statistics_report::GetDomainStatisticsReportOutput::daily_volumes): <p>An object that contains deliverability metrics for the domain that you specified. This object contains data for each day, starting on the <code>StartDate</code> and ending on the <code>EndDate</code>.</p>
-     /// - On failure, responds with [`SdkError<GetDomainStatisticsReportError>`](crate::operation::get_domain_statistics_report::GetDomainStatisticsReportError)
--    pub fn get_domain_statistics_report(&self) -> super::super::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportFluentBuilder {
-+    pub fn get_domain_statistics_report(
-+        &self,
-+    ) -> super::super::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportFluentBuilder {
-         super::super::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/get_email_identity_policies.rs`
-
-```diff
---- reference/src/client/get_email_identity_policies.rs
-+++ generated/src/client/get_email_identity_policies.rs
-@@ -7,7 +7,9 @@
-     /// - On success, responds with [`GetEmailIdentityPoliciesOutput`](crate::operation::get_email_identity_policies::GetEmailIdentityPoliciesOutput) with field(s):
-     ///   - [`policies(Option<HashMap::<String, String>>)`](crate::operation::get_email_identity_policies::GetEmailIdentityPoliciesOutput::policies): <p>A map of policy names to policies.</p>
-     /// - On failure, responds with [`SdkError<GetEmailIdentityPoliciesError>`](crate::operation::get_email_identity_policies::GetEmailIdentityPoliciesError)
--    pub fn get_email_identity_policies(&self) -> super::super::operation::get_email_identity_policies::builders::GetEmailIdentityPoliciesFluentBuilder {
-+    pub fn get_email_identity_policies(
-+        &self,
-+    ) -> super::super::operation::get_email_identity_policies::builders::GetEmailIdentityPoliciesFluentBuilder {
-         super::super::operation::get_email_identity_policies::builders::GetEmailIdentityPoliciesFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/list_domain_deliverability_campaigns.rs`
-
-```diff
---- reference/src/client/list_domain_deliverability_campaigns.rs
-+++ generated/src/client/list_domain_deliverability_campaigns.rs
-@@ -16,6 +16,8 @@
-     pub fn list_domain_deliverability_campaigns(
-         &self,
-     ) -> super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsFluentBuilder {
--        super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsFluentBuilder::new(self.handle.clone())
-+        super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsFluentBuilder::new(
-+            self.handle.clone(),
-+        )
-     }
- }
-```
-
-### `src/client/list_multi_region_endpoints.rs`
-
-```diff
---- reference/src/client/list_multi_region_endpoints.rs
-+++ generated/src/client/list_multi_region_endpoints.rs
-@@ -10,7 +10,9 @@
-     ///   - [`multi_region_endpoints(Option<Vec::<MultiRegionEndpoint>>)`](crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsOutput::multi_region_endpoints): <p>An array that contains key multi-region endpoint (global-endpoint) properties.</p>
-     ///   - [`next_token(Option<String>)`](crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsOutput::next_token): <p>A token indicating that there are additional multi-region endpoints (global-endpoints) available to be listed. Pass this token to a subsequent <code>ListMultiRegionEndpoints</code> call to retrieve the next page.</p>
-     /// - On failure, responds with [`SdkError<ListMultiRegionEndpointsError>`](crate::operation::list_multi_region_endpoints::ListMultiRegionEndpointsError)
--    pub fn list_multi_region_endpoints(&self) -> super::super::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsFluentBuilder {
-+    pub fn list_multi_region_endpoints(
-+        &self,
-+    ) -> super::super::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsFluentBuilder {
-         super::super::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/list_suppressed_destinations.rs`
-
-```diff
---- reference/src/client/list_suppressed_destinations.rs
-+++ generated/src/client/list_suppressed_destinations.rs
-@@ -14,7 +14,9 @@
-     ///   - [`suppressed_destination_summaries(Option<Vec::<SuppressedDestinationSummary>>)`](crate::operation::list_suppressed_destinations::ListSuppressedDestinationsOutput::suppressed_destination_summaries): <p>A list of summaries, each containing a summary for a suppressed email destination.</p>
-     ///   - [`next_token(Option<String>)`](crate::operation::list_suppressed_destinations::ListSuppressedDestinationsOutput::next_token): <p>A token that indicates that there are additional email addresses on the suppression list for your account or for the specified tenant. To view additional suppressed addresses, issue another request to <code>ListSuppressedDestinations</code>, and pass this token in the <code>NextToken</code> parameter.</p>
-     /// - On failure, responds with [`SdkError<ListSuppressedDestinationsError>`](crate::operation::list_suppressed_destinations::ListSuppressedDestinationsError)
--    pub fn list_suppressed_destinations(&self) -> super::super::operation::list_suppressed_destinations::builders::ListSuppressedDestinationsFluentBuilder {
-+    pub fn list_suppressed_destinations(
-+        &self,
-+    ) -> super::super::operation::list_suppressed_destinations::builders::ListSuppressedDestinationsFluentBuilder {
-         super::super::operation::list_suppressed_destinations::builders::ListSuppressedDestinationsFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/put_configuration_set_delivery_options.rs`
-
-```diff
---- reference/src/client/put_configuration_set_delivery_options.rs
-+++ generated/src/client/put_configuration_set_delivery_options.rs
-@@ -12,6 +12,8 @@
-     pub fn put_configuration_set_delivery_options(
-         &self,
-     ) -> super::super::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsFluentBuilder {
--        super::super::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsFluentBuilder::new(self.handle.clone())
-+        super::super::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsFluentBuilder::new(
-+            self.handle.clone(),
-+        )
-     }
- }
-```
-
-### `src/client/put_configuration_set_sending_options.rs`
-
-```diff
---- reference/src/client/put_configuration_set_sending_options.rs
-+++ generated/src/client/put_configuration_set_sending_options.rs
-@@ -10,6 +10,8 @@
-     pub fn put_configuration_set_sending_options(
-         &self,
-     ) -> super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsFluentBuilder {
--        super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsFluentBuilder::new(self.handle.clone())
-+        super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsFluentBuilder::new(
-+            self.handle.clone(),
-+        )
-     }
- }
-```
-
-### `src/client/put_configuration_set_tracking_options.rs`
-
-```diff
---- reference/src/client/put_configuration_set_tracking_options.rs
-+++ generated/src/client/put_configuration_set_tracking_options.rs
-@@ -11,6 +11,8 @@
-     pub fn put_configuration_set_tracking_options(
-         &self,
-     ) -> super::super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsFluentBuilder {
--        super::super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsFluentBuilder::new(self.handle.clone())
-+        super::super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsFluentBuilder::new(
-+            self.handle.clone(),
-+        )
-     }
- }
-```
-
-### `src/client/put_deliverability_dashboard_option.rs`
-
-```diff
---- reference/src/client/put_deliverability_dashboard_option.rs
-+++ generated/src/client/put_deliverability_dashboard_option.rs
-@@ -10,6 +10,8 @@
-     pub fn put_deliverability_dashboard_option(
-         &self,
-     ) -> super::super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionFluentBuilder {
--        super::super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionFluentBuilder::new(self.handle.clone())
-+        super::super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionFluentBuilder::new(
-+            self.handle.clone(),
-+        )
-     }
- }
-```
-
-### `src/client/put_email_identity_configuration_set_attributes.rs`
-
-```diff
---- reference/src/client/put_email_identity_configuration_set_attributes.rs
-+++ generated/src/client/put_email_identity_configuration_set_attributes.rs
-@@ -9,9 +9,8 @@
-     /// - On failure, responds with [`SdkError<PutEmailIdentityConfigurationSetAttributesError>`](crate::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError)
-     pub fn put_email_identity_configuration_set_attributes(
-         &self,
--    ) -> super::super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesFluentBuilder {
--        super::super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesFluentBuilder::new(
--            self.handle.clone(),
--        )
-+    ) -> super::super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesFluentBuilder
-+    {
-+        super::super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/put_email_identity_feedback_attributes.rs`
-
-```diff
---- reference/src/client/put_email_identity_feedback_attributes.rs
-+++ generated/src/client/put_email_identity_feedback_attributes.rs
-@@ -10,6 +10,8 @@
-     pub fn put_email_identity_feedback_attributes(
-         &self,
-     ) -> super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesFluentBuilder {
--        super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesFluentBuilder::new(self.handle.clone())
-+        super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesFluentBuilder::new(
-+            self.handle.clone(),
-+        )
-     }
- }
-```
-
-### `src/client/put_email_identity_mail_from_attributes.rs`
-
-```diff
---- reference/src/client/put_email_identity_mail_from_attributes.rs
-+++ generated/src/client/put_email_identity_mail_from_attributes.rs
-@@ -11,6 +11,8 @@
-     pub fn put_email_identity_mail_from_attributes(
-         &self,
-     ) -> super::super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesFluentBuilder {
--        super::super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesFluentBuilder::new(self.handle.clone())
-+        super::super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesFluentBuilder::new(
-+            self.handle.clone(),
-+        )
-     }
- }
-```
-
-### `src/client/update_email_identity_policy.rs`
-
-```diff
---- reference/src/client/update_email_identity_policy.rs
-+++ generated/src/client/update_email_identity_policy.rs
-@@ -8,7 +8,9 @@
-     ///   - [`policy(impl Into<String>)`](crate::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyFluentBuilder::policy) / [`set_policy(Option<String>)`](crate::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyFluentBuilder::set_policy):<br>required: **true**<br><p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p> <p>For information about the syntax of sending authorization policies, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html">Amazon SES Developer Guide</a>.</p><br>
-     /// - On success, responds with [`UpdateEmailIdentityPolicyOutput`](crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyOutput)
-     /// - On failure, responds with [`SdkError<UpdateEmailIdentityPolicyError>`](crate::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError)
--    pub fn update_email_identity_policy(&self) -> super::super::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyFluentBuilder {
-+    pub fn update_email_identity_policy(
-+        &self,
-+    ) -> super::super::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyFluentBuilder {
-         super::super::operation::update_email_identity_policy::builders::UpdateEmailIdentityPolicyFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/update_reputation_entity_customer_managed_status.rs`
-
-```diff
---- reference/src/client/update_reputation_entity_customer_managed_status.rs
-+++ generated/src/client/update_reputation_entity_customer_managed_status.rs
-@@ -10,9 +10,8 @@
-     /// - On failure, responds with [`SdkError<UpdateReputationEntityCustomerManagedStatusError>`](crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError)
-     pub fn update_reputation_entity_customer_managed_status(
-         &self,
--    ) -> super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusFluentBuilder {
--        super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusFluentBuilder::new(
--            self.handle.clone(),
--        )
-+    ) -> super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusFluentBuilder
-+    {
-+        super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusFluentBuilder::new(self.handle.clone())
-     }
- }
-```
+**Progress:** `1204/1204` files compared · `928` matched · `230` mismatches · `1` missing · `45` extra · `77.08%` match (100.00% means fully matched)
 
 ### `src/config/auth.rs`
 
@@ -400,37 +45,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          _fut
      }
  }
-```
-
-### `src/config/endpoint.rs`
-
-```diff
---- reference/src/config/endpoint.rs
-+++ generated/src/config/endpoint.rs
-@@ -29,7 +29,10 @@
- /// Endpoint resolver trait specific to Amazon Simple Email Service
- pub trait ResolveEndpoint: ::std::marker::Send + ::std::marker::Sync + ::std::fmt::Debug {
-     /// Resolve an endpoint with the given parameters
--    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
-+    fn resolve_endpoint<'a>(
-+        &'a self,
-+        params: &'a super::super::config::endpoint::Params,
-+    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
-
-     /// Convert this service-specific resolver into a `SharedEndpointResolver`
-     ///
-@@ -398,7 +401,10 @@
- }
-
- impl super::super::config::endpoint::ResolveEndpoint for DefaultResolver {
--    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
-+    fn resolve_endpoint<'a>(
-+        &'a self,
-+        params: &'a super::super::config::endpoint::Params,
-+    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
-         // Check single-entry cache (lock-free read via ArcSwap)
-         let cached = self.endpoint_cache.load();
-         if let Some((cached_params, cached_endpoint)) = cached.as_ref() {
 ```
 
 ### `src/config.rs`
@@ -553,71 +167,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  mod lens;
 ```
 
-### `src/operation/batch_get_metric_data/_batch_get_metric_data_input.rs`
-
-```diff
---- reference/src/operation/batch_get_metric_data/_batch_get_metric_data_input.rs
-+++ generated/src/operation/batch_get_metric_data/_batch_get_metric_data_input.rs
-@@ -52,8 +52,10 @@
-     /// Consumes the builder and constructs a [`BatchGetMetricDataInput`](crate::operation::batch_get_metric_data::BatchGetMetricDataInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::batch_get_metric_data::BatchGetMetricDataInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::batch_get_metric_data::BatchGetMetricDataInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::batch_get_metric_data::BatchGetMetricDataInput { queries: self.queries })
-     }
- }
-```
-
-### `src/operation/batch_get_metric_data.rs`
-
-```diff
---- reference/src/operation/batch_get_metric_data.rs
-+++ generated/src/operation/batch_get_metric_data.rs
-@@ -207,9 +207,9 @@
-             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_batch_get_metric_data::ser_batch_get_metric_data_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_batch_get_metric_data::ser_batch_get_metric_data_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/cancel_export_job/_cancel_export_job_input.rs`
-
-```diff
---- reference/src/operation/cancel_export_job/_cancel_export_job_input.rs
-+++ generated/src/operation/cancel_export_job/_cancel_export_job_input.rs
-@@ -45,7 +45,10 @@
-     /// Consumes the builder and constructs a [`CancelExportJobInput`](crate::operation::cancel_export_job::CancelExportJobInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::cancel_export_job::CancelExportJobInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::cancel_export_job::CancelExportJobInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::cancel_export_job::CancelExportJobInput { job_id: self.job_id })
-     }
- }
-```
-
 ### `src/operation/cancel_export_job.rs`
 
 ```diff
 --- reference/src/operation/cancel_export_job.rs
 +++ generated/src/operation/cancel_export_job.rs
-@@ -258,10 +258,16 @@
+@@ -258,10 +258,14 @@
                  ::std::result::Result::Ok(builder.method("PUT").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -626,9 +181,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_cancel_export_job::ser_cancel_export_job_input(
-+            &input,
-+        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_cancel_export_job::ser_cancel_export_job_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -638,90 +191,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/create_configuration_set_event_destination/builders.rs`
-
-```diff
---- reference/src/operation/create_configuration_set_event_destination/builders.rs
-+++ generated/src/operation/create_configuration_set_event_destination/builders.rs
-@@ -60,7 +60,8 @@
-     /// Access the CreateConfigurationSetEventDestination as a reference.
-     pub fn as_input(
-         &self,
--    ) -> &super::super::super::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationInputBuilder {
-+    ) -> &super::super::super::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationInputBuilder
-+    {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -84,14 +85,16 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins =
--            super::super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestination::operation_runtime_plugins(
--                self.handle.runtime_plugins.clone(),
--                &self.handle.conf,
--                self.config_override,
--            );
--        super::super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestination::orchestrate(&runtime_plugins, input)
--            .await
-+        let runtime_plugins = super::super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestination::operation_runtime_plugins(
-+                            self.handle.runtime_plugins.clone(),
-+                            &self.handle.conf,
-+                            self.config_override,
-+                        );
-+        super::super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestination::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
-### `src/operation/create_configuration_set_event_destination.rs`
-
-```diff
---- reference/src/operation/create_configuration_set_event_destination.rs
-+++ generated/src/operation/create_configuration_set_event_destination.rs
-@@ -222,9 +222,7 @@
-                 status, headers, body,
-             )
-         } else {
--            super::super::protocol_serde::shape_create_configuration_set_event_destination::de_create_configuration_set_event_destination_http_response(
--                status, headers, body,
--            )
-+            super::super::protocol_serde::shape_create_configuration_set_event_destination::de_create_configuration_set_event_destination_http_response(status, headers, body)
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -285,7 +283,9 @@
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_create_configuration_set_event_destination::ser_create_configuration_set_event_destination_input(&input)?,
-+            super::super::protocol_serde::shape_create_configuration_set_event_destination::ser_create_configuration_set_event_destination_input(
-+                &input,
-+            )?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
 ### `src/operation/create_contact/_create_contact_input.rs`
 
 ```diff
 --- reference/src/operation/create_contact/_create_contact_input.rs
 +++ generated/src/operation/create_contact/_create_contact_input.rs
-@@ -137,12 +137,13 @@
-     /// Consumes the builder and constructs a [`CreateContactInput`](crate::operation::create_contact::CreateContactInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::create_contact::CreateContactInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<super::super::super::operation::create_contact::CreateContactInput, ::aws_smithy_types::error::operation::BuildError>
-+    {
-         ::std::result::Result::Ok(super::super::super::operation::create_contact::CreateContactInput {
+@@ -142,7 +142,7 @@
              contact_list_name: self.contact_list_name,
              email_address: self.email_address,
              topic_preferences: self.topic_preferences,
@@ -730,470 +205,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              attributes_data: self.attributes_data,
          })
      }
-```
-
-### `src/operation/create_contact_list/_create_contact_list_input.rs`
-
-```diff
---- reference/src/operation/create_contact_list/_create_contact_list_input.rs
-+++ generated/src/operation/create_contact_list/_create_contact_list_input.rs
-@@ -123,7 +123,10 @@
-     /// Consumes the builder and constructs a [`CreateContactListInput`](crate::operation::create_contact_list::CreateContactListInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::create_contact_list::CreateContactListInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::create_contact_list::CreateContactListInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::create_contact_list::CreateContactListInput {
-             contact_list_name: self.contact_list_name,
-             topics: self.topics,
-```
-
-### `src/operation/create_contact_list.rs`
-
-```diff
---- reference/src/operation/create_contact_list.rs
-+++ generated/src/operation/create_contact_list.rs
-@@ -258,7 +258,9 @@
-             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_contact_list::ser_create_contact_list_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_contact_list::ser_create_contact_list_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/create_custom_verification_email_template/builders.rs`
-
-```diff
---- reference/src/operation/create_custom_verification_email_template/builders.rs
-+++ generated/src/operation/create_custom_verification_email_template/builders.rs
-@@ -85,13 +85,16 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins =
--            super::super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplate::operation_runtime_plugins(
--                self.handle.runtime_plugins.clone(),
--                &self.handle.conf,
--                self.config_override,
--            );
--        super::super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplate::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins = super::super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplate::operation_runtime_plugins(
-+                            self.handle.runtime_plugins.clone(),
-+                            &self.handle.conf,
-+                            self.config_override,
-+                        );
-+        super::super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplate::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
-### `src/operation/create_custom_verification_email_template.rs`
-
-```diff
---- reference/src/operation/create_custom_verification_email_template.rs
-+++ generated/src/operation/create_custom_verification_email_template.rs
-@@ -289,7 +289,9 @@
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_create_custom_verification_email_template::ser_create_custom_verification_email_template_input(&input)?,
-+            super::super::protocol_serde::shape_create_custom_verification_email_template::ser_create_custom_verification_email_template_input(
-+                &input,
-+            )?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -477,7 +479,9 @@
-         })
-     }
- }
--impl ::aws_types::request_id::RequestId for super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateError {
-+impl ::aws_types::request_id::RequestId
-+    for super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateError
-+{
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-     }
-```
-
-### `src/operation/create_dedicated_ip_pool/_create_dedicated_ip_pool_input.rs`
-
-```diff
---- reference/src/operation/create_dedicated_ip_pool/_create_dedicated_ip_pool_input.rs
-+++ generated/src/operation/create_dedicated_ip_pool/_create_dedicated_ip_pool_input.rs
-@@ -95,8 +95,10 @@
-     /// Consumes the builder and constructs a [`CreateDedicatedIpPoolInput`](crate::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolInput {
-             pool_name: self.pool_name,
-             tags: self.tags,
-```
-
-### `src/operation/create_deliverability_test_report/_create_deliverability_test_report_input.rs`
-
-```diff
---- reference/src/operation/create_deliverability_test_report/_create_deliverability_test_report_input.rs
-+++ generated/src/operation/create_deliverability_test_report/_create_deliverability_test_report_input.rs
-@@ -121,11 +121,13 @@
-         super::super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportInput {
--            report_name: self.report_name,
--            from_email_address: self.from_email_address,
--            content: self.content,
--            tags: self.tags,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportInput {
-+                report_name: self.report_name,
-+                from_email_address: self.from_email_address,
-+                content: self.content,
-+                tags: self.tags,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/create_deliverability_test_report/builders.rs`
-
-```diff
---- reference/src/operation/create_deliverability_test_report/builders.rs
-+++ generated/src/operation/create_deliverability_test_report/builders.rs
-@@ -57,7 +57,9 @@
-         }
-     }
-     /// Access the CreateDeliverabilityTestReport as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::create_deliverability_test_report::builders::CreateDeliverabilityTestReportInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -81,11 +83,12 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReport::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
-+        let runtime_plugins =
-+            super::super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReport::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-         super::super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReport::orchestrate(&runtime_plugins, input).await
-     }
-
-```
-
-### `src/operation/create_deliverability_test_report.rs`
-
-```diff
---- reference/src/operation/create_deliverability_test_report.rs
-+++ generated/src/operation/create_deliverability_test_report.rs
-@@ -218,9 +218,13 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_create_deliverability_test_report::de_create_deliverability_test_report_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_create_deliverability_test_report::de_create_deliverability_test_report_http_error(
-+                status, headers, body,
-+            )
-         } else {
--            super::super::protocol_serde::shape_create_deliverability_test_report::de_create_deliverability_test_report_http_response(status, headers, body)
-+            super::super::protocol_serde::shape_create_deliverability_test_report::de_create_deliverability_test_report_http_response(
-+                status, headers, body,
-+            )
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-```
-
-### `src/operation/create_email_identity/_create_email_identity_input.rs`
-
-```diff
---- reference/src/operation/create_email_identity/_create_email_identity_input.rs
-+++ generated/src/operation/create_email_identity/_create_email_identity_input.rs
-@@ -121,8 +121,10 @@
-     /// Consumes the builder and constructs a [`CreateEmailIdentityInput`](crate::operation::create_email_identity::CreateEmailIdentityInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::create_email_identity::CreateEmailIdentityInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::create_email_identity::CreateEmailIdentityInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::create_email_identity::CreateEmailIdentityInput {
-             email_identity: self.email_identity,
-             tags: self.tags,
-```
-
-### `src/operation/create_email_identity.rs`
-
-```diff
---- reference/src/operation/create_email_identity.rs
-+++ generated/src/operation/create_email_identity.rs
-@@ -258,9 +258,9 @@
-             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_email_identity::ser_create_email_identity_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_create_email_identity::ser_create_email_identity_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/create_email_identity_policy/_create_email_identity_policy_input.rs`
-
-```diff
---- reference/src/operation/create_email_identity_policy/_create_email_identity_policy_input.rs
-+++ generated/src/operation/create_email_identity_policy/_create_email_identity_policy_input.rs
-@@ -103,10 +103,12 @@
-         super::super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyInput {
--            email_identity: self.email_identity,
--            policy_name: self.policy_name,
--            policy: self.policy,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyInput {
-+                email_identity: self.email_identity,
-+                policy_name: self.policy_name,
-+                policy: self.policy,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/create_email_template/_create_email_template_input.rs`
-
-```diff
---- reference/src/operation/create_email_template/_create_email_template_input.rs
-+++ generated/src/operation/create_email_template/_create_email_template_input.rs
-@@ -96,8 +96,10 @@
-     /// Consumes the builder and constructs a [`CreateEmailTemplateInput`](crate::operation::create_email_template::CreateEmailTemplateInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::create_email_template::CreateEmailTemplateInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::create_email_template::CreateEmailTemplateInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::create_email_template::CreateEmailTemplateInput {
-             template_name: self.template_name,
-             template_content: self.template_content,
-```
-
-### `src/operation/create_email_template.rs`
-
-```diff
---- reference/src/operation/create_email_template.rs
-+++ generated/src/operation/create_email_template.rs
-@@ -253,9 +253,9 @@
-             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_email_template::ser_create_email_template_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_create_email_template::ser_create_email_template_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/create_export_job/_create_export_job_input.rs`
-
-```diff
---- reference/src/operation/create_export_job/_create_export_job_input.rs
-+++ generated/src/operation/create_export_job/_create_export_job_input.rs
-@@ -67,7 +67,10 @@
-     /// Consumes the builder and constructs a [`CreateExportJobInput`](crate::operation::create_export_job::CreateExportJobInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::create_export_job::CreateExportJobInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::create_export_job::CreateExportJobInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::create_export_job::CreateExportJobInput {
-             export_data_source: self.export_data_source,
-             export_destination: self.export_destination,
-```
-
-### `src/operation/create_export_job.rs`
-
-```diff
---- reference/src/operation/create_export_job.rs
-+++ generated/src/operation/create_export_job.rs
-@@ -204,7 +204,9 @@
-             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_export_job::ser_create_export_job_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_export_job::ser_create_export_job_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/create_import_job/_create_import_job_input.rs`
-
-```diff
---- reference/src/operation/create_import_job/_create_import_job_input.rs
-+++ generated/src/operation/create_import_job/_create_import_job_input.rs
-@@ -67,7 +67,10 @@
-     /// Consumes the builder and constructs a [`CreateImportJobInput`](crate::operation::create_import_job::CreateImportJobInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::create_import_job::CreateImportJobInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::create_import_job::CreateImportJobInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::create_import_job::CreateImportJobInput {
-             import_destination: self.import_destination,
-             import_data_source: self.import_data_source,
-```
-
-### `src/operation/create_import_job.rs`
-
-```diff
---- reference/src/operation/create_import_job.rs
-+++ generated/src/operation/create_import_job.rs
-@@ -204,7 +204,9 @@
-             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_import_job::ser_create_import_job_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_import_job::ser_create_import_job_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/create_multi_region_endpoint/_create_multi_region_endpoint_input.rs`
-
-```diff
---- reference/src/operation/create_multi_region_endpoint/_create_multi_region_endpoint_input.rs
-+++ generated/src/operation/create_multi_region_endpoint/_create_multi_region_endpoint_input.rs
-@@ -100,10 +100,12 @@
-         super::super::super::operation::create_multi_region_endpoint::CreateMultiRegionEndpointInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::create_multi_region_endpoint::CreateMultiRegionEndpointInput {
--            endpoint_name: self.endpoint_name,
--            details: self.details,
--            tags: self.tags,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::create_multi_region_endpoint::CreateMultiRegionEndpointInput {
-+                endpoint_name: self.endpoint_name,
-+                details: self.details,
-+                tags: self.tags,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/create_tenant_resource_association/builders.rs`
-
-```diff
---- reference/src/operation/create_tenant_resource_association/builders.rs
-+++ generated/src/operation/create_tenant_resource_association/builders.rs
-@@ -59,7 +59,9 @@
-         }
-     }
-     /// Access the CreateTenantResourceAssociation as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -83,12 +85,14 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociation::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociation::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociation::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociation::orchestrate(&runtime_plugins, input)
-+            .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
-### `src/operation/create_tenant_resource_association.rs`
-
-```diff
---- reference/src/operation/create_tenant_resource_association.rs
-+++ generated/src/operation/create_tenant_resource_association.rs
-@@ -218,7 +218,9 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_create_tenant_resource_association::de_create_tenant_resource_association_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_create_tenant_resource_association::de_create_tenant_resource_association_http_error(
-+                status, headers, body,
-+            )
-         } else {
-             super::super::protocol_serde::shape_create_tenant_resource_association::de_create_tenant_resource_association_http_response(
-                 status, headers, body,
 ```
 
 ### `src/operation/delete_configuration_set.rs`
@@ -1222,65 +233,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/delete_configuration_set_event_destination/builders.rs`
-
-```diff
---- reference/src/operation/delete_configuration_set_event_destination/builders.rs
-+++ generated/src/operation/delete_configuration_set_event_destination/builders.rs
-@@ -60,7 +60,8 @@
-     /// Access the DeleteConfigurationSetEventDestination as a reference.
-     pub fn as_input(
-         &self,
--    ) -> &super::super::super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationInputBuilder {
-+    ) -> &super::super::super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationInputBuilder
-+    {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -84,14 +85,16 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins =
--            super::super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestination::operation_runtime_plugins(
--                self.handle.runtime_plugins.clone(),
--                &self.handle.conf,
--                self.config_override,
--            );
--        super::super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestination::orchestrate(&runtime_plugins, input)
--            .await
-+        let runtime_plugins = super::super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestination::operation_runtime_plugins(
-+                            self.handle.runtime_plugins.clone(),
-+                            &self.handle.conf,
-+                            self.config_override,
-+                        );
-+        super::super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestination::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
 ### `src/operation/delete_configuration_set_event_destination.rs`
 
 ```diff
 --- reference/src/operation/delete_configuration_set_event_destination.rs
 +++ generated/src/operation/delete_configuration_set_event_destination.rs
-@@ -222,9 +222,7 @@
-                 status, headers, body,
-             )
-         } else {
--            super::super::protocol_serde::shape_delete_configuration_set_event_destination::de_delete_configuration_set_event_destination_http_response(
--                status, headers, body,
--            )
-+            super::super::protocol_serde::shape_delete_configuration_set_event_destination::de_delete_configuration_set_event_destination_http_response(status, headers, body)
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -293,10 +291,18 @@
+@@ -293,10 +293,16 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1290,9 +248,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_delete_configuration_set_event_destination::ser_delete_configuration_set_event_destination_input(
-+                &input,
-+            )?,
++            super::super::protocol_serde::shape_delete_configuration_set_event_destination::ser_delete_configuration_set_event_destination_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
@@ -1327,31 +283,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/delete_contact_list/_delete_contact_list_input.rs`
-
-```diff
---- reference/src/operation/delete_contact_list/_delete_contact_list_input.rs
-+++ generated/src/operation/delete_contact_list/_delete_contact_list_input.rs
-@@ -44,7 +44,10 @@
-     /// Consumes the builder and constructs a [`DeleteContactListInput`](crate::operation::delete_contact_list::DeleteContactListInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::delete_contact_list::DeleteContactListInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::delete_contact_list::DeleteContactListInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::delete_contact_list::DeleteContactListInput {
-             contact_list_name: self.contact_list_name,
-         })
-```
-
 ### `src/operation/delete_contact_list.rs`
 
 ```diff
 --- reference/src/operation/delete_contact_list.rs
 +++ generated/src/operation/delete_contact_list.rs
-@@ -262,10 +262,16 @@
+@@ -262,10 +262,14 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1360,9 +297,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_contact_list::ser_delete_contact_list_input(
-+            &input,
-+        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_contact_list::ser_delete_contact_list_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1372,43 +307,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/delete_custom_verification_email_template/builders.rs`
-
-```diff
---- reference/src/operation/delete_custom_verification_email_template/builders.rs
-+++ generated/src/operation/delete_custom_verification_email_template/builders.rs
-@@ -85,13 +85,16 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins =
--            super::super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplate::operation_runtime_plugins(
--                self.handle.runtime_plugins.clone(),
--                &self.handle.conf,
--                self.config_override,
--            );
--        super::super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplate::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins = super::super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplate::operation_runtime_plugins(
-+                            self.handle.runtime_plugins.clone(),
-+                            &self.handle.conf,
-+                            self.config_override,
-+                        );
-+        super::super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplate::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
 ### `src/operation/delete_custom_verification_email_template.rs`
 
 ```diff
 --- reference/src/operation/delete_custom_verification_email_template.rs
 +++ generated/src/operation/delete_custom_verification_email_template.rs
-@@ -276,10 +276,18 @@
+@@ -276,10 +276,16 @@
                  ::std::result::Result::Ok(builder.method("DELETE").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1418,46 +322,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_delete_custom_verification_email_template::ser_delete_custom_verification_email_template_input(
-+                &input,
-+            )?,
++            super::super::protocol_serde::shape_delete_custom_verification_email_template::ser_delete_custom_verification_email_template_input(&input)?,
 +        );
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 +        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-@@ -442,7 +450,9 @@
-         })
-     }
- }
--impl ::aws_types::request_id::RequestId for super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError {
-+impl ::aws_types::request_id::RequestId
-+    for super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError
-+{
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-     }
-```
-
-### `src/operation/delete_dedicated_ip_pool/_delete_dedicated_ip_pool_input.rs`
-
-```diff
---- reference/src/operation/delete_dedicated_ip_pool/_delete_dedicated_ip_pool_input.rs
-+++ generated/src/operation/delete_dedicated_ip_pool/_delete_dedicated_ip_pool_input.rs
-@@ -45,8 +45,10 @@
-     /// Consumes the builder and constructs a [`DeleteDedicatedIpPoolInput`](crate::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolInput { pool_name: self.pool_name })
      }
  }
 ```
@@ -1488,26 +359,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/delete_email_identity/_delete_email_identity_input.rs`
-
-```diff
---- reference/src/operation/delete_email_identity/_delete_email_identity_input.rs
-+++ generated/src/operation/delete_email_identity/_delete_email_identity_input.rs
-@@ -45,8 +45,10 @@
-     /// Consumes the builder and constructs a [`DeleteEmailIdentityInput`](crate::operation::delete_email_identity::DeleteEmailIdentityInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::delete_email_identity::DeleteEmailIdentityInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::delete_email_identity::DeleteEmailIdentityInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::delete_email_identity::DeleteEmailIdentityInput {
-             email_identity: self.email_identity,
-         })
-```
-
 ### `src/operation/delete_email_identity.rs`
 
 ```diff
@@ -1522,37 +373,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_delete_email_identity::ser_delete_email_identity_input(&input)?,
-+        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_email_identity::ser_delete_email_identity_input(
++            &input,
++        )?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 +        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/delete_email_identity_policy/_delete_email_identity_policy_input.rs`
-
-```diff
---- reference/src/operation/delete_email_identity_policy/_delete_email_identity_policy_input.rs
-+++ generated/src/operation/delete_email_identity_policy/_delete_email_identity_policy_input.rs
-@@ -76,9 +76,11 @@
-         super::super::super::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyInput {
--            email_identity: self.email_identity,
--            policy_name: self.policy_name,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyInput {
-+                email_identity: self.email_identity,
-+                policy_name: self.policy_name,
-+            },
-+        )
      }
  }
 ```
@@ -1583,26 +411,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/delete_email_template/_delete_email_template_input.rs`
-
-```diff
---- reference/src/operation/delete_email_template/_delete_email_template_input.rs
-+++ generated/src/operation/delete_email_template/_delete_email_template_input.rs
-@@ -45,8 +45,10 @@
-     /// Consumes the builder and constructs a [`DeleteEmailTemplateInput`](crate::operation::delete_email_template::DeleteEmailTemplateInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::delete_email_template::DeleteEmailTemplateInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::delete_email_template::DeleteEmailTemplateInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::delete_email_template::DeleteEmailTemplateInput {
-             template_name: self.template_name,
-         })
-```
-
 ### `src/operation/delete_email_template.rs`
 
 ```diff
@@ -1617,35 +425,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_delete_email_template::ser_delete_email_template_input(&input)?,
-+        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_email_template::ser_delete_email_template_input(
++            &input,
++        )?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 +        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/delete_multi_region_endpoint/_delete_multi_region_endpoint_input.rs`
-
-```diff
---- reference/src/operation/delete_multi_region_endpoint/_delete_multi_region_endpoint_input.rs
-+++ generated/src/operation/delete_multi_region_endpoint/_delete_multi_region_endpoint_input.rs
-@@ -49,8 +49,10 @@
-         super::super::super::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointInput {
--            endpoint_name: self.endpoint_name,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointInput {
-+                endpoint_name: self.endpoint_name,
-+            },
-+        )
      }
  }
 ```
@@ -1676,29 +463,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/delete_suppressed_destination/_delete_suppressed_destination_input.rs`
-
-```diff
---- reference/src/operation/delete_suppressed_destination/_delete_suppressed_destination_input.rs
-+++ generated/src/operation/delete_suppressed_destination/_delete_suppressed_destination_input.rs
-@@ -70,9 +70,11 @@
-         super::super::super::operation::delete_suppressed_destination::DeleteSuppressedDestinationInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::delete_suppressed_destination::DeleteSuppressedDestinationInput {
--            email_address: self.email_address,
--            tenant_name: self.tenant_name,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::delete_suppressed_destination::DeleteSuppressedDestinationInput {
-+                email_address: self.email_address,
-+                tenant_name: self.tenant_name,
-+            },
-+        )
-     }
- }
-```
-
 ### `src/operation/delete_suppressed_destination.rs`
 
 ```diff
@@ -1725,98 +489,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/delete_tenant_resource_association/builders.rs`
-
-```diff
---- reference/src/operation/delete_tenant_resource_association/builders.rs
-+++ generated/src/operation/delete_tenant_resource_association/builders.rs
-@@ -58,7 +58,9 @@
-         }
-     }
-     /// Access the DeleteTenantResourceAssociation as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -82,12 +84,14 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociation::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociation::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociation::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociation::orchestrate(&runtime_plugins, input)
-+            .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
-### `src/operation/delete_tenant_resource_association.rs`
-
-```diff
---- reference/src/operation/delete_tenant_resource_association.rs
-+++ generated/src/operation/delete_tenant_resource_association.rs
-@@ -218,7 +218,9 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_delete_tenant_resource_association::de_delete_tenant_resource_association_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_delete_tenant_resource_association::de_delete_tenant_resource_association_http_error(
-+                status, headers, body,
-+            )
-         } else {
-             super::super::protocol_serde::shape_delete_tenant_resource_association::de_delete_tenant_resource_association_http_response(
-                 status, headers, body,
-```
-
-### `src/operation/get_account/_get_account_input.rs`
-
-```diff
---- reference/src/operation/get_account/_get_account_input.rs
-+++ generated/src/operation/get_account/_get_account_input.rs
-@@ -17,7 +17,9 @@
- pub struct GetAccountInputBuilder {}
- impl GetAccountInputBuilder {
-     /// Consumes the builder and constructs a [`GetAccountInput`](crate::operation::get_account::GetAccountInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_account::GetAccountInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::get_account::GetAccountInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::get_account::GetAccountInput {})
-     }
- }
-```
-
 ### `src/operation/get_account.rs`
 
 ```diff
 --- reference/src/operation/get_account.rs
 +++ generated/src/operation/get_account.rs
-@@ -175,7 +175,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::get_account::GetAccountInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::get_account::GetAccountInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -200,10 +202,14 @@
+@@ -200,10 +200,14 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1833,70 +511,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
-```
-
-### `src/operation/get_blacklist_reports/_get_blacklist_reports_input.rs`
-
-```diff
---- reference/src/operation/get_blacklist_reports/_get_blacklist_reports_input.rs
-+++ generated/src/operation/get_blacklist_reports/_get_blacklist_reports_input.rs
-@@ -52,8 +52,10 @@
-     /// Consumes the builder and constructs a [`GetBlacklistReportsInput`](crate::operation::get_blacklist_reports::GetBlacklistReportsInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_blacklist_reports::GetBlacklistReportsInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_blacklist_reports::GetBlacklistReportsInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_blacklist_reports::GetBlacklistReportsInput {
-             blacklist_item_names: self.blacklist_item_names,
-         })
-```
-
-### `src/operation/get_blacklist_reports/_get_blacklist_reports_output.rs`
-
-```diff
---- reference/src/operation/get_blacklist_reports/_get_blacklist_reports_output.rs
-+++ generated/src/operation/get_blacklist_reports/_get_blacklist_reports_output.rs
-@@ -10,7 +10,9 @@
- }
- impl GetBlacklistReportsOutput {
-     /// <p>An object that contains information about a blacklist that one of your dedicated IP addresses appears on.</p>
--    pub fn blacklist_report(&self) -> &::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::super::types::BlacklistEntry>> {
-+    pub fn blacklist_report(
-+        &self,
-+    ) -> &::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::super::types::BlacklistEntry>> {
-         &self.blacklist_report
-     }
- }
-@@ -40,7 +42,11 @@
-     /// To override the contents of this collection use [`set_blacklist_report`](Self::set_blacklist_report).
-     ///
-     /// <p>An object that contains information about a blacklist that one of your dedicated IP addresses appears on.</p>
--    pub fn blacklist_report(mut self, k: impl ::std::convert::Into<::std::string::String>, v: ::std::vec::Vec<super::super::super::types::BlacklistEntry>) -> Self {
-+    pub fn blacklist_report(
-+        mut self,
-+        k: impl ::std::convert::Into<::std::string::String>,
-+        v: ::std::vec::Vec<super::super::super::types::BlacklistEntry>,
-+    ) -> Self {
-         let mut hash_map = self.blacklist_report.unwrap_or_default();
-         hash_map.insert(k.into(), v);
-         self.blacklist_report = ::std::option::Option::Some(hash_map);
-@@ -74,8 +80,10 @@
-     /// - [`blacklist_report`](crate::operation::get_blacklist_reports::builders::GetBlacklistReportsOutputBuilder::blacklist_report)
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_blacklist_reports::GetBlacklistReportsOutput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_blacklist_reports::GetBlacklistReportsOutput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_blacklist_reports::GetBlacklistReportsOutput {
-             blacklist_report: self.blacklist_report.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### `src/operation/get_blacklist_reports.rs`
@@ -1924,9 +538,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_get_blacklist_reports::ser_get_blacklist_reports_input(&input)?,
-+        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_blacklist_reports::ser_get_blacklist_reports_input(
++            &input,
++        )?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1934,26 +548,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
-```
-
-### `src/operation/get_configuration_set/_get_configuration_set_input.rs`
-
-```diff
---- reference/src/operation/get_configuration_set/_get_configuration_set_input.rs
-+++ generated/src/operation/get_configuration_set/_get_configuration_set_input.rs
-@@ -45,8 +45,10 @@
-     /// Consumes the builder and constructs a [`GetConfigurationSetInput`](crate::operation::get_configuration_set::GetConfigurationSetInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_configuration_set::GetConfigurationSetInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_configuration_set::GetConfigurationSetInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_configuration_set::GetConfigurationSetInput {
-             configuration_set_name: self.configuration_set_name,
-         })
 ```
 
 ### `src/operation/get_configuration_set.rs`
@@ -1970,9 +564,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_get_configuration_set::ser_get_configuration_set_input(&input)?,
-+        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_configuration_set::ser_get_configuration_set_input(
++            &input,
++        )?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1980,26 +574,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
-```
-
-### `src/operation/get_configuration_set_event_destinations/builders.rs`
-
-```diff
---- reference/src/operation/get_configuration_set_event_destinations/builders.rs
-+++ generated/src/operation/get_configuration_set_event_destinations/builders.rs
-@@ -90,7 +90,11 @@
-                 &self.handle.conf,
-                 self.config_override,
-             );
--        super::super::super::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinations::orchestrate(&runtime_plugins, input).await
-+        super::super::super::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinations::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 ```
 
 ### `src/operation/get_configuration_set_event_destinations.rs`
@@ -2026,54 +600,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
-@@ -442,7 +448,9 @@
-         })
-     }
- }
--impl ::aws_types::request_id::RequestId for super::super::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsError {
-+impl ::aws_types::request_id::RequestId
-+    for super::super::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsError
-+{
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-     }
-```
-
-### `src/operation/get_contact/_get_contact_input.rs`
-
-```diff
---- reference/src/operation/get_contact/_get_contact_input.rs
-+++ generated/src/operation/get_contact/_get_contact_input.rs
-@@ -64,7 +64,9 @@
-         &self.email_address
-     }
-     /// Consumes the builder and constructs a [`GetContactInput`](crate::operation::get_contact::GetContactInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_contact::GetContactInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::get_contact::GetContactInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::get_contact::GetContactInput {
-             contact_list_name: self.contact_list_name,
-             email_address: self.email_address,
-```
-
-### `src/operation/get_contact/_get_contact_output.rs`
-
-```diff
---- reference/src/operation/get_contact/_get_contact_output.rs
-+++ generated/src/operation/get_contact/_get_contact_output.rs
-@@ -146,7 +146,10 @@
-         self
-     }
-     /// <p>The default topic preferences applied to the contact.</p>
--    pub fn set_topic_default_preferences(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TopicPreference>>) -> Self {
-+    pub fn set_topic_default_preferences(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TopicPreference>>,
-+    ) -> Self {
-         self.topic_default_preferences = input;
-         self
-     }
 ```
 
 ### `src/operation/get_contact.rs`
@@ -2081,18 +607,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_contact.rs
 +++ generated/src/operation/get_contact.rs
-@@ -225,7 +225,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::get_contact::GetContactInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::get_contact::GetContactInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -278,10 +280,14 @@
+@@ -278,10 +278,14 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2133,48 +648,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
-```
-
-### `src/operation/get_custom_verification_email_template/builders.rs`
-
-```diff
---- reference/src/operation/get_custom_verification_email_template/builders.rs
-+++ generated/src/operation/get_custom_verification_email_template/builders.rs
-@@ -59,7 +59,9 @@
-         }
-     }
-     /// Access the GetCustomVerificationEmailTemplate as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -83,12 +85,17 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplate::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplate::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplate::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplate::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 ```
 
 ### `src/operation/get_custom_verification_email_template.rs`
@@ -2227,26 +700,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/get_dedicated_ip_pool/_get_dedicated_ip_pool_input.rs`
-
-```diff
---- reference/src/operation/get_dedicated_ip_pool/_get_dedicated_ip_pool_input.rs
-+++ generated/src/operation/get_dedicated_ip_pool/_get_dedicated_ip_pool_input.rs
-@@ -45,8 +45,10 @@
-     /// Consumes the builder and constructs a [`GetDedicatedIpPoolInput`](crate::operation::get_dedicated_ip_pool::GetDedicatedIpPoolInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_dedicated_ip_pool::GetDedicatedIpPoolInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_dedicated_ip_pool::GetDedicatedIpPoolInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_dedicated_ip_pool::GetDedicatedIpPoolInput { pool_name: self.pool_name })
-     }
- }
-```
-
 ### `src/operation/get_dedicated_ip_pool.rs`
 
 ```diff
@@ -2261,52 +714,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_get_dedicated_ip_pool::ser_get_dedicated_ip_pool_input(&input)?,
-+        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/get_dedicated_ips/_get_dedicated_ips_input.rs`
-
-```diff
---- reference/src/operation/get_dedicated_ips/_get_dedicated_ips_input.rs
-+++ generated/src/operation/get_dedicated_ips/_get_dedicated_ips_input.rs
-@@ -86,7 +86,10 @@
-     /// Consumes the builder and constructs a [`GetDedicatedIpsInput`](crate::operation::get_dedicated_ips::GetDedicatedIpsInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_dedicated_ips::GetDedicatedIpsInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_dedicated_ips::GetDedicatedIpsInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_dedicated_ips::GetDedicatedIpsInput {
-             pool_name: self.pool_name,
-             next_token: self.next_token,
-```
-
-### `src/operation/get_dedicated_ips.rs`
-
-```diff
---- reference/src/operation/get_dedicated_ips.rs
-+++ generated/src/operation/get_dedicated_ips.rs
-@@ -275,10 +275,16 @@
-                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from("");
--
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_dedicated_ips::ser_get_dedicated_ips_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_dedicated_ip_pool::ser_get_dedicated_ip_pool_input(
 +            &input,
 +        )?);
 +        if let Some(content_length) = body.content_length() {
@@ -2318,81 +726,28 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/get_deliverability_dashboard_options/_get_deliverability_dashboard_options_output.rs`
+### `src/operation/get_dedicated_ips.rs`
 
 ```diff
---- reference/src/operation/get_deliverability_dashboard_options/_get_deliverability_dashboard_options_output.rs
-+++ generated/src/operation/get_deliverability_dashboard_options/_get_deliverability_dashboard_options_output.rs
-@@ -49,7 +49,8 @@
- }
- impl GetDeliverabilityDashboardOptionsOutput {
-     /// Creates a new builder-style object to manufacture [`GetDeliverabilityDashboardOptionsOutput`](crate::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsOutput).
--    pub fn builder() -> super::super::super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder {
-+    pub fn builder() -> super::super::super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder
-+    {
-         super::super::super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder::default()
+--- reference/src/operation/get_dedicated_ips.rs
++++ generated/src/operation/get_dedicated_ips.rs
+@@ -275,10 +275,14 @@
+                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
+             }
+             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
++            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from("");
+-
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_dedicated_ips::ser_get_dedicated_ips_input(&input)?);
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
+         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
-@@ -62,7 +63,8 @@
-     pub(crate) subscription_expiry_date: ::std::option::Option<::aws_smithy_types::DateTime>,
-     pub(crate) account_status: ::std::option::Option<super::super::super::types::DeliverabilityDashboardAccountStatus>,
-     pub(crate) active_subscribed_domains: ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>>,
--    pub(crate) pending_expiration_subscribed_domains: ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>>,
-+    pub(crate) pending_expiration_subscribed_domains:
-+        ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>>,
-     _request_id: Option<String>,
- }
- impl GetDeliverabilityDashboardOptionsOutputBuilder {
-@@ -129,7 +131,9 @@
-         self
-     }
-     /// <p>An array of objects, one for each verified domain that you use to send email and currently has an active Deliverability dashboard subscription that isn’t scheduled to expire at the end of the current calendar month.</p>
--    pub fn get_active_subscribed_domains(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>> {
-+    pub fn get_active_subscribed_domains(
-+        &self,
-+    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>> {
-         &self.active_subscribed_domains
-     }
-     /// Appends an item to `pending_expiration_subscribed_domains`.
-```
-
-### `src/operation/get_deliverability_dashboard_options/builders.rs`
-
-```diff
---- reference/src/operation/get_deliverability_dashboard_options/builders.rs
-+++ generated/src/operation/get_deliverability_dashboard_options/builders.rs
-@@ -58,7 +58,9 @@
-         }
-     }
-     /// Access the GetDeliverabilityDashboardOptions as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -82,12 +84,14 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptions::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptions::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptions::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptions::orchestrate(&runtime_plugins, input)
-+            .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 ```
 
 ### `src/operation/get_deliverability_dashboard_options.rs`
@@ -2417,64 +772,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 +        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/get_deliverability_test_report/_get_deliverability_test_report_input.rs`
-
-```diff
---- reference/src/operation/get_deliverability_test_report/_get_deliverability_test_report_input.rs
-+++ generated/src/operation/get_deliverability_test_report/_get_deliverability_test_report_input.rs
-@@ -49,6 +49,8 @@
-         super::super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportInput { report_id: self.report_id })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportInput { report_id: self.report_id },
-+        )
-     }
- }
-```
-
-### `src/operation/get_deliverability_test_report/_get_deliverability_test_report_output.rs`
-
-```diff
---- reference/src/operation/get_deliverability_test_report/_get_deliverability_test_report_output.rs
-+++ generated/src/operation/get_deliverability_test_report/_get_deliverability_test_report_output.rs
-@@ -167,18 +167,20 @@
-         super::super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportOutput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportOutput {
--            deliverability_test_report: self.deliverability_test_report,
--            overall_placement: self.overall_placement,
--            isp_placements: self.isp_placements.ok_or_else(|| {
--                ::aws_smithy_types::error::operation::BuildError::missing_field(
--                    "isp_placements",
--                    "isp_placements was not specified but it is required when building GetDeliverabilityTestReportOutput",
--                )
--            })?,
--            message: self.message,
--            tags: self.tags,
--            _request_id: self._request_id,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportOutput {
-+                deliverability_test_report: self.deliverability_test_report,
-+                overall_placement: self.overall_placement,
-+                isp_placements: self.isp_placements.ok_or_else(|| {
-+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                        "isp_placements",
-+                        "isp_placements was not specified but it is required when building GetDeliverabilityTestReportOutput",
-+                    )
-+                })?,
-+                message: self.message,
-+                tags: self.tags,
-+                _request_id: self._request_id,
-+            },
-+        )
      }
  }
 ```
@@ -2505,81 +802,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/get_domain_deliverability_campaign/_get_domain_deliverability_campaign_output.rs`
-
-```diff
---- reference/src/operation/get_domain_deliverability_campaign/_get_domain_deliverability_campaign_output.rs
-+++ generated/src/operation/get_domain_deliverability_campaign/_get_domain_deliverability_campaign_output.rs
-@@ -41,7 +41,10 @@
-         self
-     }
-     /// <p>An object that contains the deliverability data for the campaign.</p>
--    pub fn set_domain_deliverability_campaign(mut self, input: ::std::option::Option<super::super::super::types::DomainDeliverabilityCampaign>) -> Self {
-+    pub fn set_domain_deliverability_campaign(
-+        mut self,
-+        input: ::std::option::Option<super::super::super::types::DomainDeliverabilityCampaign>,
-+    ) -> Self {
-         self.domain_deliverability_campaign = input;
-         self
-     }
-```
-
-### `src/operation/get_domain_deliverability_campaign/builders.rs`
-
-```diff
---- reference/src/operation/get_domain_deliverability_campaign/builders.rs
-+++ generated/src/operation/get_domain_deliverability_campaign/builders.rs
-@@ -57,7 +57,9 @@
-         }
-     }
-     /// Access the GetDomainDeliverabilityCampaign as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -81,12 +83,14 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaign::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaign::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaign::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaign::orchestrate(&runtime_plugins, input)
-+            .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
 ### `src/operation/get_domain_deliverability_campaign.rs`
 
 ```diff
 --- reference/src/operation/get_domain_deliverability_campaign.rs
 +++ generated/src/operation/get_domain_deliverability_campaign.rs
-@@ -213,7 +213,9 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_get_domain_deliverability_campaign::de_get_domain_deliverability_campaign_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_get_domain_deliverability_campaign::de_get_domain_deliverability_campaign_http_error(
-+                status, headers, body,
-+            )
-         } else {
-             super::super::protocol_serde::shape_get_domain_deliverability_campaign::de_get_domain_deliverability_campaign_http_response(
-                 status, headers, body,
-@@ -274,10 +276,16 @@
+@@ -274,10 +274,16 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2596,66 +824,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 +        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/get_domain_statistics_report/_get_domain_statistics_report_input.rs`
-
-```diff
---- reference/src/operation/get_domain_statistics_report/_get_domain_statistics_report_input.rs
-+++ generated/src/operation/get_domain_statistics_report/_get_domain_statistics_report_input.rs
-@@ -93,10 +93,12 @@
-         super::super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportInput {
--            domain: self.domain,
--            start_date: self.start_date,
--            end_date: self.end_date,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportInput {
-+                domain: self.domain,
-+                start_date: self.start_date,
-+                end_date: self.end_date,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/get_domain_statistics_report/_get_domain_statistics_report_output.rs`
-
-```diff
---- reference/src/operation/get_domain_statistics_report/_get_domain_statistics_report_output.rs
-+++ generated/src/operation/get_domain_statistics_report/_get_domain_statistics_report_output.rs
-@@ -95,15 +95,17 @@
-         super::super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportOutput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportOutput {
--            overall_volume: self.overall_volume,
--            daily_volumes: self.daily_volumes.ok_or_else(|| {
--                ::aws_smithy_types::error::operation::BuildError::missing_field(
--                    "daily_volumes",
--                    "daily_volumes was not specified but it is required when building GetDomainStatisticsReportOutput",
--                )
--            })?,
--            _request_id: self._request_id,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportOutput {
-+                overall_volume: self.overall_volume,
-+                daily_volumes: self.daily_volumes.ok_or_else(|| {
-+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                        "daily_volumes",
-+                        "daily_volumes was not specified but it is required when building GetDomainStatisticsReportOutput",
-+                    )
-+                })?,
-+                _request_id: self._request_id,
-+            },
-+        )
      }
  }
 ```
@@ -2704,31 +872,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/get_email_identity/_get_email_identity_input.rs`
-
-```diff
---- reference/src/operation/get_email_identity/_get_email_identity_input.rs
-+++ generated/src/operation/get_email_identity/_get_email_identity_input.rs
-@@ -45,7 +45,10 @@
-     /// Consumes the builder and constructs a [`GetEmailIdentityInput`](crate::operation::get_email_identity::GetEmailIdentityInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_email_identity::GetEmailIdentityInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_email_identity::GetEmailIdentityInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_email_identity::GetEmailIdentityInput {
-             email_identity: self.email_identity,
-         })
-```
-
 ### `src/operation/get_email_identity.rs`
 
 ```diff
 --- reference/src/operation/get_email_identity.rs
 +++ generated/src/operation/get_email_identity.rs
-@@ -258,10 +258,16 @@
+@@ -258,10 +258,14 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2737,35 +886,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_email_identity::ser_get_email_identity_input(
-+            &input,
-+        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_email_identity::ser_get_email_identity_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 +        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/get_email_identity_policies/_get_email_identity_policies_input.rs`
-
-```diff
---- reference/src/operation/get_email_identity_policies/_get_email_identity_policies_input.rs
-+++ generated/src/operation/get_email_identity_policies/_get_email_identity_policies_input.rs
-@@ -49,8 +49,10 @@
-         super::super::super::operation::get_email_identity_policies::GetEmailIdentityPoliciesInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::get_email_identity_policies::GetEmailIdentityPoliciesInput {
--            email_identity: self.email_identity,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::get_email_identity_policies::GetEmailIdentityPoliciesInput {
-+                email_identity: self.email_identity,
-+            },
-+        )
      }
  }
 ```
@@ -2796,50 +922,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/get_email_template/_get_email_template_input.rs`
-
-```diff
---- reference/src/operation/get_email_template/_get_email_template_input.rs
-+++ generated/src/operation/get_email_template/_get_email_template_input.rs
-@@ -45,7 +45,10 @@
-     /// Consumes the builder and constructs a [`GetEmailTemplateInput`](crate::operation::get_email_template::GetEmailTemplateInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_email_template::GetEmailTemplateInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_email_template::GetEmailTemplateInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_email_template::GetEmailTemplateInput {
-             template_name: self.template_name,
-         })
-```
-
-### `src/operation/get_email_template/_get_email_template_output.rs`
-
-```diff
---- reference/src/operation/get_email_template/_get_email_template_output.rs
-+++ generated/src/operation/get_email_template/_get_email_template_output.rs
-@@ -115,7 +115,10 @@
-     /// - [`template_name`](crate::operation::get_email_template::builders::GetEmailTemplateOutputBuilder::template_name)
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_email_template::GetEmailTemplateOutput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_email_template::GetEmailTemplateOutput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_email_template::GetEmailTemplateOutput {
-             template_name: self.template_name.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
-```
-
 ### `src/operation/get_email_template.rs`
 
 ```diff
 --- reference/src/operation/get_email_template.rs
 +++ generated/src/operation/get_email_template.rs
-@@ -258,10 +258,16 @@
+@@ -258,10 +258,14 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2848,9 +936,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_email_template::ser_get_email_template_input(
-+            &input,
-+        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_email_template::ser_get_email_template_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -2908,32 +994,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/get_message_insights/_get_message_insights_input.rs`
-
-```diff
---- reference/src/operation/get_message_insights/_get_message_insights_input.rs
-+++ generated/src/operation/get_message_insights/_get_message_insights_input.rs
-@@ -45,8 +45,10 @@
-     /// Consumes the builder and constructs a [`GetMessageInsightsInput`](crate::operation::get_message_insights::GetMessageInsightsInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_message_insights::GetMessageInsightsInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_message_insights::GetMessageInsightsInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_message_insights::GetMessageInsightsInput { message_id: self.message_id })
-     }
- }
-```
-
 ### `src/operation/get_message_insights.rs`
 
 ```diff
 --- reference/src/operation/get_message_insights.rs
 +++ generated/src/operation/get_message_insights.rs
-@@ -262,10 +262,16 @@
+@@ -262,10 +262,15 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2942,9 +1008,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_message_insights::ser_get_message_insights_input(
-+            &input,
-+        )?);
++        let body =
++            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_message_insights::ser_get_message_insights_input(&input)?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -2980,26 +1045,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/get_reputation_entity/_get_reputation_entity_input.rs`
-
-```diff
---- reference/src/operation/get_reputation_entity/_get_reputation_entity_input.rs
-+++ generated/src/operation/get_reputation_entity/_get_reputation_entity_input.rs
-@@ -67,8 +67,10 @@
-     /// Consumes the builder and constructs a [`GetReputationEntityInput`](crate::operation::get_reputation_entity::GetReputationEntityInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_reputation_entity::GetReputationEntityInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_reputation_entity::GetReputationEntityInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_reputation_entity::GetReputationEntityInput {
-             reputation_entity_reference: self.reputation_entity_reference,
-             reputation_entity_type: self.reputation_entity_type,
-```
-
 ### `src/operation/get_reputation_entity.rs`
 
 ```diff
@@ -3024,37 +1069,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_get_reputation_entity::ser_get_reputation_entity_input(&input)?,
-+        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_reputation_entity::ser_get_reputation_entity_input(
++            &input,
++        )?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 +        }
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/get_suppressed_destination/_get_suppressed_destination_input.rs`
-
-```diff
---- reference/src/operation/get_suppressed_destination/_get_suppressed_destination_input.rs
-+++ generated/src/operation/get_suppressed_destination/_get_suppressed_destination_input.rs
-@@ -70,9 +70,11 @@
-         super::super::super::operation::get_suppressed_destination::GetSuppressedDestinationInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::get_suppressed_destination::GetSuppressedDestinationInput {
--            email_address: self.email_address,
--            tenant_name: self.tenant_name,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::get_suppressed_destination::GetSuppressedDestinationInput {
-+                email_address: self.email_address,
-+                tenant_name: self.tenant_name,
-+            },
-+        )
      }
  }
 ```
@@ -3085,96 +1107,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/get_tenant/_get_tenant_input.rs`
-
-```diff
---- reference/src/operation/get_tenant/_get_tenant_input.rs
-+++ generated/src/operation/get_tenant/_get_tenant_input.rs
-@@ -43,7 +43,9 @@
-         &self.tenant_name
-     }
-     /// Consumes the builder and constructs a [`GetTenantInput`](crate::operation::get_tenant::GetTenantInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_tenant::GetTenantInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::get_tenant::GetTenantInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::get_tenant::GetTenantInput {
-             tenant_name: self.tenant_name,
-         })
-```
-
-### `src/operation/get_tenant/builders.rs`
-
-```diff
---- reference/src/operation/get_tenant/builders.rs
-+++ generated/src/operation/get_tenant/builders.rs
-@@ -29,14 +29,20 @@
-     inner: super::super::super::operation::get_tenant::builders::GetTenantInputBuilder,
-     config_override: ::std::option::Option<super::super::super::config::Builder>,
- }
--impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::get_tenant::GetTenantOutput, super::super::super::operation::get_tenant::GetTenantError>
--    for GetTenantFluentBuilder
-+impl
-+    super::super::super::client::customize::internal::CustomizableSend<
-+        super::super::super::operation::get_tenant::GetTenantOutput,
-+        super::super::super::operation::get_tenant::GetTenantError,
-+    > for GetTenantFluentBuilder
- {
-     fn send(
-         self,
-         config_override: super::super::super::config::Builder,
-     ) -> super::super::super::client::customize::internal::BoxFuture<
--        super::super::super::client::customize::internal::SendResult<super::super::super::operation::get_tenant::GetTenantOutput, super::super::super::operation::get_tenant::GetTenantError>,
-+        super::super::super::client::customize::internal::SendResult<
-+            super::super::super::operation::get_tenant::GetTenantOutput,
-+            super::super::super::operation::get_tenant::GetTenantError,
-+        >,
-     > {
-         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-     }
-```
-
-### `src/operation/list_configuration_sets/_list_configuration_sets_input.rs`
-
-```diff
---- reference/src/operation/list_configuration_sets/_list_configuration_sets_input.rs
-+++ generated/src/operation/list_configuration_sets/_list_configuration_sets_input.rs
-@@ -65,8 +65,10 @@
-     /// Consumes the builder and constructs a [`ListConfigurationSetsInput`](crate::operation::list_configuration_sets::ListConfigurationSetsInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_configuration_sets::ListConfigurationSetsInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_configuration_sets::ListConfigurationSetsInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_configuration_sets::ListConfigurationSetsInput {
-             next_token: self.next_token,
-             page_size: self.page_size,
-```
-
-### `src/operation/list_configuration_sets/paginator.rs`
-
-```diff
---- reference/src/operation/list_configuration_sets/paginator.rs
-+++ generated/src/operation/list_configuration_sets/paginator.rs
-@@ -78,8 +78,11 @@
-                         }
-                     };
-                     loop {
--                        let resp =
--                            super::super::super::operation::list_configuration_sets::ListConfigurationSets::orchestrate(&runtime_plugins, input.clone()).await;
-+                        let resp = super::super::super::operation::list_configuration_sets::ListConfigurationSets::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
-```
-
 ### `src/operation/list_configuration_sets.rs`
 
 ```diff
@@ -3189,52 +1121,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_list_configuration_sets::ser_list_configuration_sets_input(&input)?,
-+        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/list_contact_lists/_list_contact_lists_input.rs`
-
-```diff
---- reference/src/operation/list_contact_lists/_list_contact_lists_input.rs
-+++ generated/src/operation/list_contact_lists/_list_contact_lists_input.rs
-@@ -64,7 +64,10 @@
-     /// Consumes the builder and constructs a [`ListContactListsInput`](crate::operation::list_contact_lists::ListContactListsInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_contact_lists::ListContactListsInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_contact_lists::ListContactListsInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_contact_lists::ListContactListsInput {
-             page_size: self.page_size,
-             next_token: self.next_token,
-```
-
-### `src/operation/list_contact_lists.rs`
-
-```diff
---- reference/src/operation/list_contact_lists.rs
-+++ generated/src/operation/list_contact_lists.rs
-@@ -265,10 +265,16 @@
-                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from("");
--
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_contact_lists::ser_list_contact_lists_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_configuration_sets::ser_list_configuration_sets_input(
 +            &input,
 +        )?);
 +        if let Some(content_length) = body.content_length() {
@@ -3246,70 +1133,28 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/list_custom_verification_email_templates/builders.rs`
+### `src/operation/list_contact_lists.rs`
 
 ```diff
---- reference/src/operation/list_custom_verification_email_templates/builders.rs
-+++ generated/src/operation/list_custom_verification_email_templates/builders.rs
-@@ -91,7 +91,11 @@
-                 &self.handle.conf,
-                 self.config_override,
-             );
--        super::super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplates::orchestrate(&runtime_plugins, input).await
-+        super::super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplates::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
+--- reference/src/operation/list_contact_lists.rs
++++ generated/src/operation/list_contact_lists.rs
+@@ -265,10 +265,14 @@
+                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
+             }
+             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
++            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from("");
+-
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_contact_lists::ser_list_contact_lists_input(&input)?);
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
+         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
-### `src/operation/list_custom_verification_email_templates/paginator.rs`
-
-```diff
---- reference/src/operation/list_custom_verification_email_templates/paginator.rs
-+++ generated/src/operation/list_custom_verification_email_templates/paginator.rs
-@@ -57,13 +57,12 @@
-         // Move individual fields out of self for the borrow checker
-         let builder = self.builder;
-         let handle = self.handle;
--        let runtime_plugins =
--            super::super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplates::operation_runtime_plugins(
--                handle.runtime_plugins.clone(),
--                &handle.conf,
--                ::std::option::Option::None,
--            )
--            .with_operation_plugin(super::super::super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
-+        let runtime_plugins = super::super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplates::operation_runtime_plugins(
-+            handle.runtime_plugins.clone(),
-+            &handle.conf,
-+            ::std::option::Option::None,
-+        )
-+        .with_operation_plugin(super::super::super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
-         ::aws_smithy_async::future::pagination_stream::PaginationStream::new(::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(
-             move |tx| {
-                 ::std::boxed::Box::pin(async move {
-@@ -79,15 +78,12 @@
-                         }
-                     };
-                     loop {
--                        let resp = super::super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplates::orchestrate(
--                            &runtime_plugins,
--                            input.clone(),
--                        )
--                        .await;
-+                        let resp = super::super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplates::orchestrate(&runtime_plugins, input.clone()).await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
--                                let new_token = super::super::super::lens::reflens_list_custom_verification_email_templates_output_output_next_token(resp);
-+                                let new_token =
-+                                    super::super::super::lens::reflens_list_custom_verification_email_templates_output_output_next_token(resp);
-                                 // Pagination is exhausted when the next token is an empty string
-                                 let is_empty = new_token.map(|token| token.is_empty()).unwrap_or(true);
-                                 if !is_empty && new_token == input.next_token.as_ref() && self.stop_on_duplicate_token {
+ }
 ```
 
 ### `src/operation/list_custom_verification_email_templates.rs`
@@ -3336,58 +1181,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
-@@ -434,7 +440,9 @@
-         })
-     }
- }
--impl ::aws_types::request_id::RequestId for super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError {
-+impl ::aws_types::request_id::RequestId
-+    for super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError
-+{
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-     }
-```
-
-### `src/operation/list_dedicated_ip_pools/_list_dedicated_ip_pools_input.rs`
-
-```diff
---- reference/src/operation/list_dedicated_ip_pools/_list_dedicated_ip_pools_input.rs
-+++ generated/src/operation/list_dedicated_ip_pools/_list_dedicated_ip_pools_input.rs
-@@ -65,8 +65,10 @@
-     /// Consumes the builder and constructs a [`ListDedicatedIpPoolsInput`](crate::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsInput {
-             next_token: self.next_token,
-             page_size: self.page_size,
-```
-
-### `src/operation/list_dedicated_ip_pools/paginator.rs`
-
-```diff
---- reference/src/operation/list_dedicated_ip_pools/paginator.rs
-+++ generated/src/operation/list_dedicated_ip_pools/paginator.rs
-@@ -78,8 +78,11 @@
-                         }
-                     };
-                     loop {
--                        let resp =
--                            super::super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPools::orchestrate(&runtime_plugins, input.clone()).await;
-+                        let resp = super::super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPools::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
 ```
 
 ### `src/operation/list_dedicated_ip_pools.rs`
@@ -3404,9 +1197,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_list_dedicated_ip_pools::ser_list_dedicated_ip_pools_input(&input)?,
-+        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_dedicated_ip_pools::ser_list_dedicated_ip_pools_input(
++            &input,
++        )?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -3416,139 +1209,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/list_deliverability_test_reports/_list_deliverability_test_reports_input.rs`
-
-```diff
---- reference/src/operation/list_deliverability_test_reports/_list_deliverability_test_reports_input.rs
-+++ generated/src/operation/list_deliverability_test_reports/_list_deliverability_test_reports_input.rs
-@@ -74,9 +74,11 @@
-         super::super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsInput {
--            next_token: self.next_token,
--            page_size: self.page_size,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsInput {
-+                next_token: self.next_token,
-+                page_size: self.page_size,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/list_deliverability_test_reports/_list_deliverability_test_reports_output.rs`
-
-```diff
---- reference/src/operation/list_deliverability_test_reports/_list_deliverability_test_reports_output.rs
-+++ generated/src/operation/list_deliverability_test_reports/_list_deliverability_test_reports_output.rs
-@@ -54,7 +54,10 @@
-         self
-     }
-     /// <p>An object that contains a lists of predictive inbox placement tests that you've performed.</p>
--    pub fn set_deliverability_test_reports(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeliverabilityTestReport>>) -> Self {
-+    pub fn set_deliverability_test_reports(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeliverabilityTestReport>>,
-+    ) -> Self {
-         self.deliverability_test_reports = input;
-         self
-     }
-@@ -94,15 +97,17 @@
-         super::super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsOutput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsOutput {
--            deliverability_test_reports: self.deliverability_test_reports.ok_or_else(|| {
--                ::aws_smithy_types::error::operation::BuildError::missing_field(
--                    "deliverability_test_reports",
--                    "deliverability_test_reports was not specified but it is required when building ListDeliverabilityTestReportsOutput",
--                )
--            })?,
--            next_token: self.next_token,
--            _request_id: self._request_id,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsOutput {
-+                deliverability_test_reports: self.deliverability_test_reports.ok_or_else(|| {
-+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                        "deliverability_test_reports",
-+                        "deliverability_test_reports was not specified but it is required when building ListDeliverabilityTestReportsOutput",
-+                    )
-+                })?,
-+                next_token: self.next_token,
-+                _request_id: self._request_id,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/list_deliverability_test_reports/builders.rs`
-
-```diff
---- reference/src/operation/list_deliverability_test_reports/builders.rs
-+++ generated/src/operation/list_deliverability_test_reports/builders.rs
-@@ -81,11 +81,12 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReports::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
-+        let runtime_plugins =
-+            super::super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReports::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-         super::super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReports::orchestrate(&runtime_plugins, input).await
-     }
-
-@@ -111,8 +112,13 @@
-     /// Create a paginator for this request
-     ///
-     /// Paginators are used by calling [`send().await`](crate::operation::list_deliverability_test_reports::paginator::ListDeliverabilityTestReportsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
--    pub fn into_paginator(self) -> super::super::super::operation::list_deliverability_test_reports::paginator::ListDeliverabilityTestReportsPaginator {
--        super::super::super::operation::list_deliverability_test_reports::paginator::ListDeliverabilityTestReportsPaginator::new(self.handle, self.inner)
-+    pub fn into_paginator(
-+        self,
-+    ) -> super::super::super::operation::list_deliverability_test_reports::paginator::ListDeliverabilityTestReportsPaginator {
-+        super::super::super::operation::list_deliverability_test_reports::paginator::ListDeliverabilityTestReportsPaginator::new(
-+            self.handle,
-+            self.inner,
-+        )
-     }
-     /// <p>A token returned from a previous call to <code>ListDeliverabilityTestReports</code> to indicate the position in the list of predictive inbox placement tests.</p>
-     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-```
-
 ### `src/operation/list_deliverability_test_reports.rs`
 
 ```diff
 --- reference/src/operation/list_deliverability_test_reports.rs
 +++ generated/src/operation/list_deliverability_test_reports.rs
-@@ -213,9 +213,13 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_list_deliverability_test_reports::de_list_deliverability_test_reports_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_list_deliverability_test_reports::de_list_deliverability_test_reports_http_error(
-+                status, headers, body,
-+            )
-         } else {
--            super::super::protocol_serde::shape_list_deliverability_test_reports::de_list_deliverability_test_reports_http_response(status, headers, body)
-+            super::super::protocol_serde::shape_list_deliverability_test_reports::de_list_deliverability_test_reports_http_response(
-+                status, headers, body,
-+            )
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -274,10 +278,16 @@
+@@ -274,10 +274,16 @@
                  ::std::result::Result::Ok(builder.method("GET").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3567,89 +1233,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
-```
-
-### `src/operation/list_domain_deliverability_campaigns/_list_domain_deliverability_campaigns_output.rs`
-
-```diff
---- reference/src/operation/list_domain_deliverability_campaigns/_list_domain_deliverability_campaigns_output.rs
-+++ generated/src/operation/list_domain_deliverability_campaigns/_list_domain_deliverability_campaigns_output.rs
-@@ -28,7 +28,8 @@
- }
- impl ListDomainDeliverabilityCampaignsOutput {
-     /// Creates a new builder-style object to manufacture [`ListDomainDeliverabilityCampaignsOutput`](crate::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsOutput).
--    pub fn builder() -> super::super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder {
-+    pub fn builder() -> super::super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder
-+    {
-         super::super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder::default()
-     }
- }
-@@ -62,7 +63,9 @@
-         self
-     }
-     /// <p>An array of responses, one for each campaign that used the domain to send email during the specified time range.</p>
--    pub fn get_domain_deliverability_campaigns(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityCampaign>> {
-+    pub fn get_domain_deliverability_campaigns(
-+        &self,
-+    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityCampaign>> {
-         &self.domain_deliverability_campaigns
-     }
-     /// <p>A token that’s returned from a previous call to the <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the position of the campaign in the list of campaigns.</p>
-```
-
-### `src/operation/list_domain_deliverability_campaigns/builders.rs`
-
-```diff
---- reference/src/operation/list_domain_deliverability_campaigns/builders.rs
-+++ generated/src/operation/list_domain_deliverability_campaigns/builders.rs
-@@ -57,7 +57,9 @@
-         }
-     }
-     /// Access the ListDomainDeliverabilityCampaigns as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -81,12 +83,14 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaigns::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaigns::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaigns::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaigns::orchestrate(&runtime_plugins, input)
-+            .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-@@ -111,8 +115,13 @@
-     /// Create a paginator for this request
-     ///
-     /// Paginators are used by calling [`send().await`](crate::operation::list_domain_deliverability_campaigns::paginator::ListDomainDeliverabilityCampaignsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
--    pub fn into_paginator(self) -> super::super::super::operation::list_domain_deliverability_campaigns::paginator::ListDomainDeliverabilityCampaignsPaginator {
--        super::super::super::operation::list_domain_deliverability_campaigns::paginator::ListDomainDeliverabilityCampaignsPaginator::new(self.handle, self.inner)
-+    pub fn into_paginator(
-+        self,
-+    ) -> super::super::super::operation::list_domain_deliverability_campaigns::paginator::ListDomainDeliverabilityCampaignsPaginator {
-+        super::super::super::operation::list_domain_deliverability_campaigns::paginator::ListDomainDeliverabilityCampaignsPaginator::new(
-+            self.handle,
-+            self.inner,
-+        )
-     }
-     /// <p>The first day that you want to obtain deliverability data for.</p>
-     pub fn start_date(mut self, input: ::aws_smithy_types::DateTime) -> Self {
 ```
 
 ### `src/operation/list_domain_deliverability_campaigns.rs`
@@ -3696,26 +1279,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/list_email_identities/_list_email_identities_input.rs`
-
-```diff
---- reference/src/operation/list_email_identities/_list_email_identities_input.rs
-+++ generated/src/operation/list_email_identities/_list_email_identities_input.rs
-@@ -70,8 +70,10 @@
-     /// Consumes the builder and constructs a [`ListEmailIdentitiesInput`](crate::operation::list_email_identities::ListEmailIdentitiesInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_email_identities::ListEmailIdentitiesInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_email_identities::ListEmailIdentitiesInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_email_identities::ListEmailIdentitiesInput {
-             next_token: self.next_token,
-             page_size: self.page_size,
-```
-
 ### `src/operation/list_email_identities.rs`
 
 ```diff
@@ -3730,72 +1293,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_list_email_identities::ser_list_email_identities_input(&input)?,
-+        );
-+        if let Some(content_length) = body.content_length() {
-+            let content_length = content_length.to_string();
-+            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-+        }
-         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
- }
-```
-
-### `src/operation/list_email_templates/_list_email_templates_input.rs`
-
-```diff
---- reference/src/operation/list_email_templates/_list_email_templates_input.rs
-+++ generated/src/operation/list_email_templates/_list_email_templates_input.rs
-@@ -70,8 +70,10 @@
-     /// Consumes the builder and constructs a [`ListEmailTemplatesInput`](crate::operation::list_email_templates::ListEmailTemplatesInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_email_templates::ListEmailTemplatesInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_email_templates::ListEmailTemplatesInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_email_templates::ListEmailTemplatesInput {
-             next_token: self.next_token,
-             page_size: self.page_size,
-```
-
-### `src/operation/list_email_templates/_list_email_templates_output.rs`
-
-```diff
---- reference/src/operation/list_email_templates/_list_email_templates_output.rs
-+++ generated/src/operation/list_email_templates/_list_email_templates_output.rs
-@@ -55,7 +55,10 @@
-         self
-     }
-     /// <p>An array the contains the name and creation time stamp for each template in your Amazon SES account.</p>
--    pub fn set_templates_metadata(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::EmailTemplateMetadata>>) -> Self {
-+    pub fn set_templates_metadata(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::EmailTemplateMetadata>>,
-+    ) -> Self {
-         self.templates_metadata = input;
-         self
-     }
-```
-
-### `src/operation/list_email_templates.rs`
-
-```diff
---- reference/src/operation/list_email_templates.rs
-+++ generated/src/operation/list_email_templates.rs
-@@ -268,10 +268,16 @@
-                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
-             }
-             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
-+            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from("");
--
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_email_templates::ser_list_email_templates_input(
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_email_identities::ser_list_email_identities_input(
 +            &input,
 +        )?);
 +        if let Some(content_length) = body.content_length() {
@@ -3807,68 +1305,29 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/list_multi_region_endpoints/_list_multi_region_endpoints_input.rs`
+### `src/operation/list_email_templates.rs`
 
 ```diff
---- reference/src/operation/list_multi_region_endpoints/_list_multi_region_endpoints_input.rs
-+++ generated/src/operation/list_multi_region_endpoints/_list_multi_region_endpoints_input.rs
-@@ -69,9 +69,11 @@
-         super::super::super::operation::list_multi_region_endpoints::ListMultiRegionEndpointsInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_multi_region_endpoints::ListMultiRegionEndpointsInput {
--            next_token: self.next_token,
--            page_size: self.page_size,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_multi_region_endpoints::ListMultiRegionEndpointsInput {
-+                next_token: self.next_token,
-+                page_size: self.page_size,
-+            },
-+        )
+--- reference/src/operation/list_email_templates.rs
++++ generated/src/operation/list_email_templates.rs
+@@ -268,10 +268,15 @@
+                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
+             }
+             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
++            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
+             builder
+         };
+-        let body = ::aws_smithy_types::body::SdkBody::from("");
+-
++        let body =
++            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_email_templates::ser_list_email_templates_input(&input)?);
++        if let Some(content_length) = body.content_length() {
++            let content_length = content_length.to_string();
++            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
++        }
+         ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
-```
-
-### `src/operation/list_multi_region_endpoints/_list_multi_region_endpoints_output.rs`
-
-```diff
---- reference/src/operation/list_multi_region_endpoints/_list_multi_region_endpoints_output.rs
-+++ generated/src/operation/list_multi_region_endpoints/_list_multi_region_endpoints_output.rs
-@@ -55,7 +55,10 @@
-         self
-     }
-     /// <p>An array that contains key multi-region endpoint (global-endpoint) properties.</p>
--    pub fn set_multi_region_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MultiRegionEndpoint>>) -> Self {
-+    pub fn set_multi_region_endpoints(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MultiRegionEndpoint>>,
-+    ) -> Self {
-         self.multi_region_endpoints = input;
-         self
-     }
-```
-
-### `src/operation/list_multi_region_endpoints/paginator.rs`
-
-```diff
---- reference/src/operation/list_multi_region_endpoints/paginator.rs
-+++ generated/src/operation/list_multi_region_endpoints/paginator.rs
-@@ -86,9 +86,11 @@
-                         }
-                     };
-                     loop {
--                        let resp =
--                            super::super::super::operation::list_multi_region_endpoints::ListMultiRegionEndpoints::orchestrate(&runtime_plugins, input.clone())
--                                .await;
-+                        let resp = super::super::super::operation::list_multi_region_endpoints::ListMultiRegionEndpoints::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
 ```
 
 ### `src/operation/list_multi_region_endpoints.rs`
@@ -3895,288 +1354,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
  }
-```
-
-### `src/operation/list_recommendations/_list_recommendations_input.rs`
-
-```diff
---- reference/src/operation/list_recommendations/_list_recommendations_input.rs
-+++ generated/src/operation/list_recommendations/_list_recommendations_input.rs
-@@ -14,7 +14,9 @@
- }
- impl ListRecommendationsInput {
-     /// <p>Filters applied when retrieving recommendations. Can eiter be an individual filter, or combinations of <code>STATUS</code> and <code>IMPACT</code> or <code>STATUS</code> and <code>TYPE</code></p>
--    pub fn filter(&self) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::ListRecommendationsFilterKey, ::std::string::String>> {
-+    pub fn filter(
-+        &self,
-+    ) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::ListRecommendationsFilterKey, ::std::string::String>> {
-         self.filter.as_ref()
-     }
-     /// <p>A token returned from a previous call to <code>ListRecommendations</code> to indicate the position in the list of recommendations.</p>
-@@ -38,7 +40,8 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
- #[non_exhaustive]
- pub struct ListRecommendationsInputBuilder {
--    pub(crate) filter: ::std::option::Option<::std::collections::HashMap<super::super::super::types::ListRecommendationsFilterKey, ::std::string::String>>,
-+    pub(crate) filter:
-+        ::std::option::Option<::std::collections::HashMap<super::super::super::types::ListRecommendationsFilterKey, ::std::string::String>>,
-     pub(crate) next_token: ::std::option::Option<::std::string::String>,
-     pub(crate) page_size: ::std::option::Option<i32>,
- }
-@@ -48,7 +51,11 @@
-     /// To override the contents of this collection use [`set_filter`](Self::set_filter).
-     ///
-     /// <p>Filters applied when retrieving recommendations. Can eiter be an individual filter, or combinations of <code>STATUS</code> and <code>IMPACT</code> or <code>STATUS</code> and <code>TYPE</code></p>
--    pub fn filter(mut self, k: super::super::super::types::ListRecommendationsFilterKey, v: impl ::std::convert::Into<::std::string::String>) -> Self {
-+    pub fn filter(
-+        mut self,
-+        k: super::super::super::types::ListRecommendationsFilterKey,
-+        v: impl ::std::convert::Into<::std::string::String>,
-+    ) -> Self {
-         let mut hash_map = self.filter.unwrap_or_default();
-         hash_map.insert(k, v.into());
-         self.filter = ::std::option::Option::Some(hash_map);
-@@ -102,8 +109,10 @@
-     /// Consumes the builder and constructs a [`ListRecommendationsInput`](crate::operation::list_recommendations::ListRecommendationsInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_recommendations::ListRecommendationsInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_recommendations::ListRecommendationsInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_recommendations::ListRecommendationsInput {
-             filter: self.filter,
-             next_token: self.next_token,
-```
-
-### `src/operation/list_recommendations/builders.rs`
-
-```diff
---- reference/src/operation/list_recommendations/builders.rs
-+++ generated/src/operation/list_recommendations/builders.rs
-@@ -121,7 +121,11 @@
-     /// To override the contents of this collection use [`set_filter`](Self::set_filter).
-     ///
-     /// <p>Filters applied when retrieving recommendations. Can eiter be an individual filter, or combinations of <code>STATUS</code> and <code>IMPACT</code> or <code>STATUS</code> and <code>TYPE</code></p>
--    pub fn filter(mut self, k: super::super::super::types::ListRecommendationsFilterKey, v: impl ::std::convert::Into<::std::string::String>) -> Self {
-+    pub fn filter(
-+        mut self,
-+        k: super::super::super::types::ListRecommendationsFilterKey,
-+        v: impl ::std::convert::Into<::std::string::String>,
-+    ) -> Self {
-         self.inner = self.inner.filter(k, v.into());
-         self
-     }
-```
-
-### `src/operation/list_recommendations.rs`
-
-```diff
---- reference/src/operation/list_recommendations.rs
-+++ generated/src/operation/list_recommendations.rs
-@@ -253,8 +253,9 @@
-             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
-             builder
-         };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_recommendations::ser_list_recommendations_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_recommendations::ser_list_recommendations_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/list_reputation_entities/_list_reputation_entities_input.rs`
-
-```diff
---- reference/src/operation/list_reputation_entities/_list_reputation_entities_input.rs
-+++ generated/src/operation/list_reputation_entities/_list_reputation_entities_input.rs
-@@ -13,7 +13,9 @@
- }
- impl ListReputationEntitiesInput {
-     /// <p>An object that contains filters to apply when listing reputation entities. You can filter by entity type, reputation impact, sending status, or entity reference prefix.</p>
--    pub fn filter(&self) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::ReputationEntityFilterKey, ::std::string::String>> {
-+    pub fn filter(
-+        &self,
-+    ) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::ReputationEntityFilterKey, ::std::string::String>> {
-         self.filter.as_ref()
-     }
-     /// <p>A token returned from a previous call to <code>ListReputationEntities</code> to indicate the position in the list of reputation entities.</p>
-@@ -36,7 +38,8 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
- #[non_exhaustive]
- pub struct ListReputationEntitiesInputBuilder {
--    pub(crate) filter: ::std::option::Option<::std::collections::HashMap<super::super::super::types::ReputationEntityFilterKey, ::std::string::String>>,
-+    pub(crate) filter:
-+        ::std::option::Option<::std::collections::HashMap<super::super::super::types::ReputationEntityFilterKey, ::std::string::String>>,
-     pub(crate) next_token: ::std::option::Option<::std::string::String>,
-     pub(crate) page_size: ::std::option::Option<i32>,
- }
-@@ -61,7 +64,9 @@
-         self
-     }
-     /// <p>An object that contains filters to apply when listing reputation entities. You can filter by entity type, reputation impact, sending status, or entity reference prefix.</p>
--    pub fn get_filter(&self) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::ReputationEntityFilterKey, ::std::string::String>> {
-+    pub fn get_filter(
-+        &self,
-+    ) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::ReputationEntityFilterKey, ::std::string::String>> {
-         &self.filter
-     }
-     /// <p>A token returned from a previous call to <code>ListReputationEntities</code> to indicate the position in the list of reputation entities.</p>
-```
-
-### `src/operation/list_reputation_entities/builders.rs`
-
-```diff
---- reference/src/operation/list_reputation_entities/builders.rs
-+++ generated/src/operation/list_reputation_entities/builders.rs
-@@ -134,7 +134,9 @@
-         self
-     }
-     /// <p>An object that contains filters to apply when listing reputation entities. You can filter by entity type, reputation impact, sending status, or entity reference prefix.</p>
--    pub fn get_filter(&self) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::ReputationEntityFilterKey, ::std::string::String>> {
-+    pub fn get_filter(
-+        &self,
-+    ) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::ReputationEntityFilterKey, ::std::string::String>> {
-         self.inner.get_filter()
-     }
-     /// <p>A token returned from a previous call to <code>ListReputationEntities</code> to indicate the position in the list of reputation entities.</p>
-```
-
-### `src/operation/list_reputation_entities/paginator.rs`
-
-```diff
---- reference/src/operation/list_reputation_entities/paginator.rs
-+++ generated/src/operation/list_reputation_entities/paginator.rs
-@@ -86,8 +86,11 @@
-                         }
-                     };
-                     loop {
--                        let resp =
--                            super::super::super::operation::list_reputation_entities::ListReputationEntities::orchestrate(&runtime_plugins, input.clone()).await;
-+                        let resp = super::super::super::operation::list_reputation_entities::ListReputationEntities::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
-```
-
-### `src/operation/list_resource_tenants/_list_resource_tenants_input.rs`
-
-```diff
---- reference/src/operation/list_resource_tenants/_list_resource_tenants_input.rs
-+++ generated/src/operation/list_resource_tenants/_list_resource_tenants_input.rs
-@@ -87,8 +87,10 @@
-     /// Consumes the builder and constructs a [`ListResourceTenantsInput`](crate::operation::list_resource_tenants::ListResourceTenantsInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_resource_tenants::ListResourceTenantsInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_resource_tenants::ListResourceTenantsInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_resource_tenants::ListResourceTenantsInput {
-             resource_arn: self.resource_arn,
-             page_size: self.page_size,
-```
-
-### `src/operation/list_resource_tenants.rs`
-
-```diff
---- reference/src/operation/list_resource_tenants.rs
-+++ generated/src/operation/list_resource_tenants.rs
-@@ -258,9 +258,9 @@
-             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_resource_tenants::ser_list_resource_tenants_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_list_resource_tenants::ser_list_resource_tenants_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/list_suppressed_destinations/_list_suppressed_destinations_input.rs`
-
-```diff
---- reference/src/operation/list_suppressed_destinations/_list_suppressed_destinations_input.rs
-+++ generated/src/operation/list_suppressed_destinations/_list_suppressed_destinations_input.rs
-@@ -161,13 +161,15 @@
-         super::super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsInput {
--            tenant_name: self.tenant_name,
--            reasons: self.reasons,
--            start_date: self.start_date,
--            end_date: self.end_date,
--            next_token: self.next_token,
--            page_size: self.page_size,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsInput {
-+                tenant_name: self.tenant_name,
-+                reasons: self.reasons,
-+                start_date: self.start_date,
-+                end_date: self.end_date,
-+                next_token: self.next_token,
-+                page_size: self.page_size,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/list_suppressed_destinations/_list_suppressed_destinations_output.rs`
-
-```diff
---- reference/src/operation/list_suppressed_destinations/_list_suppressed_destinations_output.rs
-+++ generated/src/operation/list_suppressed_destinations/_list_suppressed_destinations_output.rs
-@@ -63,7 +63,9 @@
-         self
-     }
-     /// <p>A list of summaries, each containing a summary for a suppressed email destination.</p>
--    pub fn get_suppressed_destination_summaries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressedDestinationSummary>> {
-+    pub fn get_suppressed_destination_summaries(
-+        &self,
-+    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressedDestinationSummary>> {
-         &self.suppressed_destination_summaries
-     }
-     /// <p>A token that indicates that there are additional email addresses on the suppression list for your account or for the specified tenant. To view additional suppressed addresses, issue another request to <code>ListSuppressedDestinations</code>, and pass this token in the <code>NextToken</code> parameter.</p>
-```
-
-### `src/operation/list_suppressed_destinations/paginator.rs`
-
-```diff
---- reference/src/operation/list_suppressed_destinations/paginator.rs
-+++ generated/src/operation/list_suppressed_destinations/paginator.rs
-@@ -78,9 +78,11 @@
-                         }
-                     };
-                     loop {
--                        let resp =
--                            super::super::super::operation::list_suppressed_destinations::ListSuppressedDestinations::orchestrate(&runtime_plugins, input.clone())
--                                .await;
-+                        let resp = super::super::super::operation::list_suppressed_destinations::ListSuppressedDestinations::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
 ```
 
 ### `src/operation/list_suppressed_destinations.rs`
@@ -4250,46 +1427,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/list_tags_for_resource/_list_tags_for_resource_input.rs`
-
-```diff
---- reference/src/operation/list_tags_for_resource/_list_tags_for_resource_input.rs
-+++ generated/src/operation/list_tags_for_resource/_list_tags_for_resource_input.rs
-@@ -44,8 +44,10 @@
-     /// Consumes the builder and constructs a [`ListTagsForResourceInput`](crate::operation::list_tags_for_resource::ListTagsForResourceInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_tags_for_resource::ListTagsForResourceInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_tags_for_resource::ListTagsForResourceInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_tags_for_resource::ListTagsForResourceInput {
-             resource_arn: self.resource_arn,
-         })
-```
-
-### `src/operation/list_tags_for_resource/_list_tags_for_resource_output.rs`
-
-```diff
---- reference/src/operation/list_tags_for_resource/_list_tags_for_resource_output.rs
-+++ generated/src/operation/list_tags_for_resource/_list_tags_for_resource_output.rs
-@@ -68,8 +68,10 @@
-     /// - [`tags`](crate::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder::tags)
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_tags_for_resource::ListTagsForResourceOutput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_tags_for_resource::ListTagsForResourceOutput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_tags_for_resource::ListTagsForResourceOutput {
-             tags: self.tags.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
-```
-
 ### `src/operation/list_tags_for_resource.rs`
 
 ```diff
@@ -4304,9 +1441,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from("");
 -
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_list_tags_for_resource::ser_list_tags_for_resource_input(&input)?,
-+        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_tags_for_resource::ser_list_tags_for_resource_input(
++            &input,
++        )?);
 +        if let Some(content_length) = body.content_length() {
 +            let content_length = content_length.to_string();
 +            request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -4316,154 +1453,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/list_tenant_resources/_list_tenant_resources_input.rs`
-
-```diff
---- reference/src/operation/list_tenant_resources/_list_tenant_resources_input.rs
-+++ generated/src/operation/list_tenant_resources/_list_tenant_resources_input.rs
-@@ -19,7 +19,9 @@
-         self.tenant_name.as_deref()
-     }
-     /// <p>A map of filter keys and values for filtering the list of tenant resources. Currently, the only supported filter key is <code>RESOURCE_TYPE</code>.</p>
--    pub fn filter(&self) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::ListTenantResourcesFilterKey, ::std::string::String>> {
-+    pub fn filter(
-+        &self,
-+    ) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::ListTenantResourcesFilterKey, ::std::string::String>> {
-         self.filter.as_ref()
-     }
-     /// <p>The number of results to show in a single call to <code>ListTenantResources</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
-@@ -43,7 +45,8 @@
- #[non_exhaustive]
- pub struct ListTenantResourcesInputBuilder {
-     pub(crate) tenant_name: ::std::option::Option<::std::string::String>,
--    pub(crate) filter: ::std::option::Option<::std::collections::HashMap<super::super::super::types::ListTenantResourcesFilterKey, ::std::string::String>>,
-+    pub(crate) filter:
-+        ::std::option::Option<::std::collections::HashMap<super::super::super::types::ListTenantResourcesFilterKey, ::std::string::String>>,
-     pub(crate) page_size: ::std::option::Option<i32>,
-     pub(crate) next_token: ::std::option::Option<::std::string::String>,
- }
-@@ -68,7 +71,11 @@
-     /// To override the contents of this collection use [`set_filter`](Self::set_filter).
-     ///
-     /// <p>A map of filter keys and values for filtering the list of tenant resources. Currently, the only supported filter key is <code>RESOURCE_TYPE</code>.</p>
--    pub fn filter(mut self, k: super::super::super::types::ListTenantResourcesFilterKey, v: impl ::std::convert::Into<::std::string::String>) -> Self {
-+    pub fn filter(
-+        mut self,
-+        k: super::super::super::types::ListTenantResourcesFilterKey,
-+        v: impl ::std::convert::Into<::std::string::String>,
-+    ) -> Self {
-         let mut hash_map = self.filter.unwrap_or_default();
-         hash_map.insert(k, v.into());
-         self.filter = ::std::option::Option::Some(hash_map);
-@@ -119,8 +126,10 @@
-     /// Consumes the builder and constructs a [`ListTenantResourcesInput`](crate::operation::list_tenant_resources::ListTenantResourcesInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_tenant_resources::ListTenantResourcesInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_tenant_resources::ListTenantResourcesInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_tenant_resources::ListTenantResourcesInput {
-             tenant_name: self.tenant_name,
-             filter: self.filter,
-```
-
-### `src/operation/list_tenant_resources/builders.rs`
-
-```diff
---- reference/src/operation/list_tenant_resources/builders.rs
-+++ generated/src/operation/list_tenant_resources/builders.rs
-@@ -135,7 +135,11 @@
-     /// To override the contents of this collection use [`set_filter`](Self::set_filter).
-     ///
-     /// <p>A map of filter keys and values for filtering the list of tenant resources. Currently, the only supported filter key is <code>RESOURCE_TYPE</code>.</p>
--    pub fn filter(mut self, k: super::super::super::types::ListTenantResourcesFilterKey, v: impl ::std::convert::Into<::std::string::String>) -> Self {
-+    pub fn filter(
-+        mut self,
-+        k: super::super::super::types::ListTenantResourcesFilterKey,
-+        v: impl ::std::convert::Into<::std::string::String>,
-+    ) -> Self {
-         self.inner = self.inner.filter(k, v.into());
-         self
-     }
-```
-
-### `src/operation/list_tenant_resources.rs`
-
-```diff
---- reference/src/operation/list_tenant_resources.rs
-+++ generated/src/operation/list_tenant_resources.rs
-@@ -258,9 +258,9 @@
-             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_tenant_resources::ser_list_tenant_resources_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_list_tenant_resources::ser_list_tenant_resources_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/list_tenants/_list_tenants_input.rs`
-
-```diff
---- reference/src/operation/list_tenants/_list_tenants_input.rs
-+++ generated/src/operation/list_tenants/_list_tenants_input.rs
-@@ -63,7 +63,9 @@
-         &self.page_size
-     }
-     /// Consumes the builder and constructs a [`ListTenantsInput`](crate::operation::list_tenants::ListTenantsInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_tenants::ListTenantsInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::list_tenants::ListTenantsInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::list_tenants::ListTenantsInput {
-             next_token: self.next_token,
-             page_size: self.page_size,
-```
-
-### `src/operation/list_tenants/paginator.rs`
-
-```diff
---- reference/src/operation/list_tenants/paginator.rs
-+++ generated/src/operation/list_tenants/paginator.rs
-@@ -139,7 +139,10 @@
-             >,
-         >,
-     > {
--        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send())
--            .flat_map(|page| super::super::super::lens::lens_list_tenants_output_output_tenants(page).unwrap_or_default().into_iter())
-+        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
-+            super::super::super::lens::lens_list_tenants_output_output_tenants(page)
-+                .unwrap_or_default()
-+                .into_iter()
-+        })
-     }
- }
-```
-
 ### `src/operation/put_account_dedicated_ip_warmup_attributes/_put_account_dedicated_ip_warmup_attributes_input.rs`
 
 ```diff
 --- reference/src/operation/put_account_dedicated_ip_warmup_attributes/_put_account_dedicated_ip_warmup_attributes_input.rs
 +++ generated/src/operation/put_account_dedicated_ip_warmup_attributes/_put_account_dedicated_ip_warmup_attributes_input.rs
-@@ -15,7 +15,8 @@
- }
- impl PutAccountDedicatedIpWarmupAttributesInput {
-     /// Creates a new builder-style object to manufacture [`PutAccountDedicatedIpWarmupAttributesInput`](crate::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesInput).
--    pub fn builder() -> super::super::super::operation::put_account_dedicated_ip_warmup_attributes::builders::PutAccountDedicatedIpWarmupAttributesInputBuilder {
-+    pub fn builder(
-+    ) -> super::super::super::operation::put_account_dedicated_ip_warmup_attributes::builders::PutAccountDedicatedIpWarmupAttributesInputBuilder {
-         super::super::super::operation::put_account_dedicated_ip_warmup_attributes::builders::PutAccountDedicatedIpWarmupAttributesInputBuilder::default()
-     }
- }
-@@ -50,7 +51,7 @@
+@@ -50,7 +50,7 @@
      > {
          ::std::result::Result::Ok(
              super::super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesInput {
@@ -4474,322 +1469,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/operation/put_account_dedicated_ip_warmup_attributes/builders.rs`
-
-```diff
---- reference/src/operation/put_account_dedicated_ip_warmup_attributes/builders.rs
-+++ generated/src/operation/put_account_dedicated_ip_warmup_attributes/builders.rs
-@@ -59,7 +59,8 @@
-     /// Access the PutAccountDedicatedIpWarmupAttributes as a reference.
-     pub fn as_input(
-         &self,
--    ) -> &super::super::super::operation::put_account_dedicated_ip_warmup_attributes::builders::PutAccountDedicatedIpWarmupAttributesInputBuilder {
-+    ) -> &super::super::super::operation::put_account_dedicated_ip_warmup_attributes::builders::PutAccountDedicatedIpWarmupAttributesInputBuilder
-+    {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -83,14 +84,16 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins =
--            super::super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributes::operation_runtime_plugins(
--                self.handle.runtime_plugins.clone(),
--                &self.handle.conf,
--                self.config_override,
--            );
--        super::super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributes::orchestrate(&runtime_plugins, input)
--            .await
-+        let runtime_plugins = super::super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributes::operation_runtime_plugins(
-+                            self.handle.runtime_plugins.clone(),
-+                            &self.handle.conf,
-+                            self.config_override,
-+                        );
-+        super::super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributes::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
-### `src/operation/put_account_dedicated_ip_warmup_attributes.rs`
-
-```diff
---- reference/src/operation/put_account_dedicated_ip_warmup_attributes.rs
-+++ generated/src/operation/put_account_dedicated_ip_warmup_attributes.rs
-@@ -171,9 +171,7 @@
-                 status, headers, body,
-             )
-         } else {
--            super::super::protocol_serde::shape_put_account_dedicated_ip_warmup_attributes::de_put_account_dedicated_ip_warmup_attributes_http_response(
--                status, headers, body,
--            )
-+            super::super::protocol_serde::shape_put_account_dedicated_ip_warmup_attributes::de_put_account_dedicated_ip_warmup_attributes_http_response(status, headers, body)
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -218,7 +216,9 @@
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_put_account_dedicated_ip_warmup_attributes::ser_put_account_dedicated_ip_warmup_attributes_input(&input)?,
-+            super::super::protocol_serde::shape_put_account_dedicated_ip_warmup_attributes::ser_put_account_dedicated_ip_warmup_attributes_input(
-+                &input,
-+            )?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -376,7 +376,9 @@
-         })
-     }
- }
--impl ::aws_types::request_id::RequestId for super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesError {
-+impl ::aws_types::request_id::RequestId
-+    for super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesError
-+{
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-     }
-```
-
-### `src/operation/put_account_details/_put_account_details_input.rs`
-
-```diff
---- reference/src/operation/put_account_details/_put_account_details_input.rs
-+++ generated/src/operation/put_account_details/_put_account_details_input.rs
-@@ -181,7 +181,10 @@
-     /// Consumes the builder and constructs a [`PutAccountDetailsInput`](crate::operation::put_account_details::PutAccountDetailsInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::put_account_details::PutAccountDetailsInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::put_account_details::PutAccountDetailsInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::put_account_details::PutAccountDetailsInput {
-             mail_type: self.mail_type,
-             website_url: self.website_url,
-```
-
-### `src/operation/put_account_details.rs`
-
-```diff
---- reference/src/operation/put_account_details.rs
-+++ generated/src/operation/put_account_details.rs
-@@ -207,7 +207,9 @@
-             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_put_account_details::ser_put_account_details_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_put_account_details::ser_put_account_details_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/put_account_pricing_attributes/_put_account_pricing_attributes_input.rs`
-
-```diff
---- reference/src/operation/put_account_pricing_attributes/_put_account_pricing_attributes_input.rs
-+++ generated/src/operation/put_account_pricing_attributes/_put_account_pricing_attributes_input.rs
-@@ -99,6 +99,8 @@
-         super::super::super::operation::put_account_pricing_attributes::PutAccountPricingAttributesInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::put_account_pricing_attributes::PutAccountPricingAttributesInput { plan: self.plan })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::put_account_pricing_attributes::PutAccountPricingAttributesInput { plan: self.plan },
-+        )
-     }
- }
-```
-
 ### `src/operation/put_account_sending_attributes/_put_account_sending_attributes_input.rs`
 
 ```diff
 --- reference/src/operation/put_account_sending_attributes/_put_account_sending_attributes_input.rs
 +++ generated/src/operation/put_account_sending_attributes/_put_account_sending_attributes_input.rs
-@@ -58,8 +58,10 @@
-         super::super::super::operation::put_account_sending_attributes::PutAccountSendingAttributesInput,
+@@ -59,7 +59,7 @@
          ::aws_smithy_types::error::operation::BuildError,
      > {
--        ::std::result::Result::Ok(super::super::super::operation::put_account_sending_attributes::PutAccountSendingAttributesInput {
+         ::std::result::Result::Ok(super::super::super::operation::put_account_sending_attributes::PutAccountSendingAttributesInput {
 -            sending_enabled: self.sending_enabled,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::put_account_sending_attributes::PutAccountSendingAttributesInput {
-+                sending_enabled: self.sending_enabled.unwrap_or_default(),
-+            },
-+        )
++            sending_enabled: self.sending_enabled.unwrap_or_default(),
+         })
      }
  }
-```
-
-### `src/operation/put_account_suppression_attributes/_put_account_suppression_attributes_input.rs`
-
-```diff
---- reference/src/operation/put_account_suppression_attributes/_put_account_suppression_attributes_input.rs
-+++ generated/src/operation/put_account_suppression_attributes/_put_account_suppression_attributes_input.rs
-@@ -72,7 +72,10 @@
-     /// <li>
-     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a hard bounce.</p></li>
-     /// </ul>
--    pub fn set_suppressed_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>) -> Self {
-+    pub fn set_suppressed_reasons(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>,
-+    ) -> Self {
-         self.suppressed_reasons = input;
-         self
-     }
-```
-
-### `src/operation/put_account_suppression_attributes/builders.rs`
-
-```diff
---- reference/src/operation/put_account_suppression_attributes/builders.rs
-+++ generated/src/operation/put_account_suppression_attributes/builders.rs
-@@ -57,7 +57,9 @@
-         }
-     }
-     /// Access the PutAccountSuppressionAttributes as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -81,12 +83,14 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::put_account_suppression_attributes::PutAccountSuppressionAttributes::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::put_account_suppression_attributes::PutAccountSuppressionAttributes::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::put_account_suppression_attributes::PutAccountSuppressionAttributes::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::put_account_suppression_attributes::PutAccountSuppressionAttributes::orchestrate(&runtime_plugins, input)
-+            .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-@@ -131,7 +135,10 @@
-     /// <li>
-     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a hard bounce.</p></li>
-     /// </ul>
--    pub fn set_suppressed_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>) -> Self {
-+    pub fn set_suppressed_reasons(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>,
-+    ) -> Self {
-         self.inner = self.inner.set_suppressed_reasons(input);
-         self
-     }
-```
-
-### `src/operation/put_account_suppression_attributes.rs`
-
-```diff
---- reference/src/operation/put_account_suppression_attributes.rs
-+++ generated/src/operation/put_account_suppression_attributes.rs
-@@ -167,7 +167,9 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_put_account_suppression_attributes::de_put_account_suppression_attributes_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_put_account_suppression_attributes::de_put_account_suppression_attributes_http_error(
-+                status, headers, body,
-+            )
-         } else {
-             super::super::protocol_serde::shape_put_account_suppression_attributes::de_put_account_suppression_attributes_http_response(
-                 status, headers, body,
-```
-
-### `src/operation/put_configuration_set_archiving_options/builders.rs`
-
-```diff
---- reference/src/operation/put_configuration_set_archiving_options/builders.rs
-+++ generated/src/operation/put_configuration_set_archiving_options/builders.rs
-@@ -57,7 +57,9 @@
-         }
-     }
-     /// Access the PutConfigurationSetArchivingOptions as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -87,7 +89,11 @@
-                 &self.handle.conf,
-                 self.config_override,
-             );
--        super::super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptions::orchestrate(&runtime_plugins, input).await
-+        super::super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptions::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
-### `src/operation/put_configuration_set_delivery_options/builders.rs`
-
-```diff
---- reference/src/operation/put_configuration_set_delivery_options/builders.rs
-+++ generated/src/operation/put_configuration_set_delivery_options/builders.rs
-@@ -57,7 +57,9 @@
-         }
-     }
-     /// Access the PutConfigurationSetDeliveryOptions as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -81,12 +83,17 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptions::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptions::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptions::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptions::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 ```
 
 ### `src/operation/put_configuration_set_reputation_options/_put_configuration_set_reputation_options_input.rs`
@@ -4797,20 +1490,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/put_configuration_set_reputation_options/_put_configuration_set_reputation_options_input.rs
 +++ generated/src/operation/put_configuration_set_reputation_options/_put_configuration_set_reputation_options_input.rs
-@@ -21,8 +21,10 @@
- }
- impl PutConfigurationSetReputationOptionsInput {
-     /// Creates a new builder-style object to manufacture [`PutConfigurationSetReputationOptionsInput`](crate::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsInput).
--    pub fn builder() -> super::super::super::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsInputBuilder {
--        super::super::super::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsInputBuilder::default()
-+    pub fn builder(
-+    ) -> super::super::super::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsInputBuilder {
-+        super::super::super::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsInputBuilder::default(
-+        )
-     }
- }
-
-@@ -73,7 +75,7 @@
+@@ -73,7 +73,7 @@
          ::std::result::Result::Ok(
              super::super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsInput {
                  configuration_set_name: self.configuration_set_name,
@@ -4821,42 +1501,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/operation/put_configuration_set_reputation_options/builders.rs`
-
-```diff
---- reference/src/operation/put_configuration_set_reputation_options/builders.rs
-+++ generated/src/operation/put_configuration_set_reputation_options/builders.rs
-@@ -89,7 +89,11 @@
-                 &self.handle.conf,
-                 self.config_override,
-             );
--        super::super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptions::orchestrate(&runtime_plugins, input).await
-+        super::super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptions::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
 ### `src/operation/put_configuration_set_sending_options/_put_configuration_set_sending_options_input.rs`
 
 ```diff
 --- reference/src/operation/put_configuration_set_sending_options/_put_configuration_set_sending_options_input.rs
 +++ generated/src/operation/put_configuration_set_sending_options/_put_configuration_set_sending_options_input.rs
-@@ -21,7 +21,8 @@
- }
- impl PutConfigurationSetSendingOptionsInput {
-     /// Creates a new builder-style object to manufacture [`PutConfigurationSetSendingOptionsInput`](crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsInput).
--    pub fn builder() -> super::super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsInputBuilder {
-+    pub fn builder() -> super::super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsInputBuilder
-+    {
-         super::super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsInputBuilder::default()
-     }
- }
-@@ -73,7 +74,7 @@
+@@ -73,7 +73,7 @@
          ::std::result::Result::Ok(
              super::super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsInput {
                  configuration_set_name: self.configuration_set_name,
@@ -4867,393 +1517,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/operation/put_configuration_set_sending_options/builders.rs`
-
-```diff
---- reference/src/operation/put_configuration_set_sending_options/builders.rs
-+++ generated/src/operation/put_configuration_set_sending_options/builders.rs
-@@ -57,7 +57,9 @@
-         }
-     }
-     /// Access the PutConfigurationSetSendingOptions as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -81,12 +83,14 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptions::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptions::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptions::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptions::orchestrate(&runtime_plugins, input)
-+            .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
-### `src/operation/put_configuration_set_suppression_options/_put_configuration_set_suppression_options_input.rs`
-
-```diff
---- reference/src/operation/put_configuration_set_suppression_options/_put_configuration_set_suppression_options_input.rs
-+++ generated/src/operation/put_configuration_set_suppression_options/_put_configuration_set_suppression_options_input.rs
-@@ -59,7 +59,8 @@
- }
- impl PutConfigurationSetSuppressionOptionsInput {
-     /// Creates a new builder-style object to manufacture [`PutConfigurationSetSuppressionOptionsInput`](crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsInput).
--    pub fn builder() -> super::super::super::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsInputBuilder {
-+    pub fn builder(
-+    ) -> super::super::super::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsInputBuilder {
-         super::super::super::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsInputBuilder::default()
-     }
- }
-@@ -145,7 +146,10 @@
-     /// <li>
-     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account or for a specific tenant when a message sent to that address results in a hard bounce.</p></li>
-     /// </ul>
--    pub fn set_suppressed_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>) -> Self {
-+    pub fn set_suppressed_reasons(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>,
-+    ) -> Self {
-         self.suppressed_reasons = input;
-         self
-     }
-```
-
-### `src/operation/put_configuration_set_suppression_options/builders.rs`
-
-```diff
---- reference/src/operation/put_configuration_set_suppression_options/builders.rs
-+++ generated/src/operation/put_configuration_set_suppression_options/builders.rs
-@@ -83,13 +83,16 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins =
--            super::super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptions::operation_runtime_plugins(
--                self.handle.runtime_plugins.clone(),
--                &self.handle.conf,
--                self.config_override,
--            );
--        super::super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptions::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins = super::super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptions::operation_runtime_plugins(
-+                            self.handle.runtime_plugins.clone(),
-+                            &self.handle.conf,
-+                            self.config_override,
-+                        );
-+        super::super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptions::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-@@ -180,7 +183,10 @@
-     /// <li>
-     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account or for a specific tenant when a message sent to that address results in a hard bounce.</p></li>
-     /// </ul>
--    pub fn set_suppressed_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>) -> Self {
-+    pub fn set_suppressed_reasons(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>,
-+    ) -> Self {
-         self.inner = self.inner.set_suppressed_reasons(input);
-         self
-     }
-```
-
-### `src/operation/put_configuration_set_suppression_options.rs`
-
-```diff
---- reference/src/operation/put_configuration_set_suppression_options.rs
-+++ generated/src/operation/put_configuration_set_suppression_options.rs
-@@ -280,7 +280,9 @@
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_put_configuration_set_suppression_options::ser_put_configuration_set_suppression_options_input(&input)?,
-+            super::super::protocol_serde::shape_put_configuration_set_suppression_options::ser_put_configuration_set_suppression_options_input(
-+                &input,
-+            )?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -448,7 +450,9 @@
-         })
-     }
- }
--impl ::aws_types::request_id::RequestId for super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsError {
-+impl ::aws_types::request_id::RequestId
-+    for super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsError
-+{
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-     }
-```
-
-### `src/operation/put_configuration_set_tracking_options/builders.rs`
-
-```diff
---- reference/src/operation/put_configuration_set_tracking_options/builders.rs
-+++ generated/src/operation/put_configuration_set_tracking_options/builders.rs
-@@ -57,7 +57,9 @@
-         }
-     }
-     /// Access the PutConfigurationSetTrackingOptions as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -81,12 +83,17 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptions::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptions::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptions::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptions::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
-### `src/operation/put_configuration_set_vdm_options/_put_configuration_set_vdm_options_input.rs`
-
-```diff
---- reference/src/operation/put_configuration_set_vdm_options/_put_configuration_set_vdm_options_input.rs
-+++ generated/src/operation/put_configuration_set_vdm_options/_put_configuration_set_vdm_options_input.rs
-@@ -70,9 +70,11 @@
-         super::super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsInput {
--            configuration_set_name: self.configuration_set_name,
--            vdm_options: self.vdm_options,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsInput {
-+                configuration_set_name: self.configuration_set_name,
-+                vdm_options: self.vdm_options,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/put_configuration_set_vdm_options/builders.rs`
-
-```diff
---- reference/src/operation/put_configuration_set_vdm_options/builders.rs
-+++ generated/src/operation/put_configuration_set_vdm_options/builders.rs
-@@ -58,7 +58,9 @@
-         }
-     }
-     /// Access the PutConfigurationSetVdmOptions as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -82,11 +84,12 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptions::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
-+        let runtime_plugins =
-+            super::super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptions::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-         super::super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptions::orchestrate(&runtime_plugins, input).await
-     }
-
-```
-
-### `src/operation/put_configuration_set_vdm_options.rs`
-
-```diff
---- reference/src/operation/put_configuration_set_vdm_options.rs
-+++ generated/src/operation/put_configuration_set_vdm_options.rs
-@@ -213,9 +213,13 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_put_configuration_set_vdm_options::de_put_configuration_set_vdm_options_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_put_configuration_set_vdm_options::de_put_configuration_set_vdm_options_http_error(
-+                status, headers, body,
-+            )
-         } else {
--            super::super::protocol_serde::shape_put_configuration_set_vdm_options::de_put_configuration_set_vdm_options_http_response(status, headers, body)
-+            super::super::protocol_serde::shape_put_configuration_set_vdm_options::de_put_configuration_set_vdm_options_http_response(
-+                status, headers, body,
-+            )
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-```
-
-### `src/operation/put_dedicated_ip_in_pool/_put_dedicated_ip_in_pool_input.rs`
-
-```diff
---- reference/src/operation/put_dedicated_ip_in_pool/_put_dedicated_ip_in_pool_input.rs
-+++ generated/src/operation/put_dedicated_ip_in_pool/_put_dedicated_ip_in_pool_input.rs
-@@ -67,8 +67,10 @@
-     /// Consumes the builder and constructs a [`PutDedicatedIpInPoolInput`](crate::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolInput {
-             ip: self.ip,
-             destination_pool_name: self.destination_pool_name,
-```
-
-### `src/operation/put_dedicated_ip_pool_scaling_attributes/builders.rs`
-
-```diff
---- reference/src/operation/put_dedicated_ip_pool_scaling_attributes/builders.rs
-+++ generated/src/operation/put_dedicated_ip_pool_scaling_attributes/builders.rs
-@@ -59,7 +59,9 @@
-         }
-     }
-     /// Access the PutDedicatedIpPoolScalingAttributes as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -89,7 +91,11 @@
-                 &self.handle.conf,
-                 self.config_override,
-             );
--        super::super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributes::orchestrate(&runtime_plugins, input).await
-+        super::super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributes::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
-### `src/operation/put_dedicated_ip_warmup_attributes/builders.rs`
-
-```diff
---- reference/src/operation/put_dedicated_ip_warmup_attributes/builders.rs
-+++ generated/src/operation/put_dedicated_ip_warmup_attributes/builders.rs
-@@ -57,7 +57,9 @@
-         }
-     }
-     /// Access the PutDedicatedIpWarmupAttributes as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -81,11 +83,12 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributes::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
-+        let runtime_plugins =
-+            super::super::super::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributes::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-         super::super::super::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributes::orchestrate(&runtime_plugins, input).await
-     }
-
-```
-
-### `src/operation/put_dedicated_ip_warmup_attributes.rs`
-
-```diff
---- reference/src/operation/put_dedicated_ip_warmup_attributes.rs
-+++ generated/src/operation/put_dedicated_ip_warmup_attributes.rs
-@@ -213,7 +213,9 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_put_dedicated_ip_warmup_attributes::de_put_dedicated_ip_warmup_attributes_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_put_dedicated_ip_warmup_attributes::de_put_dedicated_ip_warmup_attributes_http_error(
-+                status, headers, body,
-+            )
-         } else {
-             super::super::protocol_serde::shape_put_dedicated_ip_warmup_attributes::de_put_dedicated_ip_warmup_attributes_http_response(
-                 status, headers, body,
-```
-
 ### `src/operation/put_deliverability_dashboard_option/_put_deliverability_dashboard_option_input.rs`
 
 ```diff
 --- reference/src/operation/put_deliverability_dashboard_option/_put_deliverability_dashboard_option_input.rs
 +++ generated/src/operation/put_deliverability_dashboard_option/_put_deliverability_dashboard_option_input.rs
-@@ -64,7 +64,10 @@
-         self
-     }
-     /// <p>An array of objects, one for each verified domain that you use to send email and enabled the Deliverability dashboard for.</p>
--    pub fn set_subscribed_domains(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>>) -> Self {
-+    pub fn set_subscribed_domains(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>>,
-+    ) -> Self {
-         self.subscribed_domains = input;
-         self
-     }
-@@ -81,7 +84,7 @@
+@@ -81,7 +81,7 @@
      > {
          ::std::result::Result::Ok(
              super::super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionInput {
@@ -5262,196 +1531,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  subscribed_domains: self.subscribed_domains,
              },
          )
-```
-
-### `src/operation/put_deliverability_dashboard_option/builders.rs`
-
-```diff
---- reference/src/operation/put_deliverability_dashboard_option/builders.rs
-+++ generated/src/operation/put_deliverability_dashboard_option/builders.rs
-@@ -58,7 +58,9 @@
-         }
-     }
-     /// Access the PutDeliverabilityDashboardOption as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -82,12 +84,14 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOption::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOption::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOption::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOption::orchestrate(&runtime_plugins, input)
-+            .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-@@ -134,7 +138,10 @@
-         self
-     }
-     /// <p>An array of objects, one for each verified domain that you use to send email and enabled the Deliverability dashboard for.</p>
--    pub fn set_subscribed_domains(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>>) -> Self {
-+    pub fn set_subscribed_domains(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityTrackingOption>>,
-+    ) -> Self {
-         self.inner = self.inner.set_subscribed_domains(input);
-         self
-     }
-```
-
-### `src/operation/put_deliverability_dashboard_option.rs`
-
-```diff
---- reference/src/operation/put_deliverability_dashboard_option.rs
-+++ generated/src/operation/put_deliverability_dashboard_option.rs
-@@ -167,7 +167,9 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_put_deliverability_dashboard_option::de_put_deliverability_dashboard_option_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_put_deliverability_dashboard_option::de_put_deliverability_dashboard_option_http_error(
-+                status, headers, body,
-+            )
-         } else {
-             super::super::protocol_serde::shape_put_deliverability_dashboard_option::de_put_deliverability_dashboard_option_http_response(
-                 status, headers, body,
-```
-
-### `src/operation/put_email_identity_configuration_set_attributes/_put_email_identity_configuration_set_attributes_output.rs`
-
-```diff
---- reference/src/operation/put_email_identity_configuration_set_attributes/_put_email_identity_configuration_set_attributes_output.rs
-+++ generated/src/operation/put_email_identity_configuration_set_attributes/_put_email_identity_configuration_set_attributes_output.rs
-@@ -13,10 +13,8 @@
- }
- impl PutEmailIdentityConfigurationSetAttributesOutput {
-     /// Creates a new builder-style object to manufacture [`PutEmailIdentityConfigurationSetAttributesOutput`](crate::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesOutput).
--    pub fn builder(
--    ) -> super::super::super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesOutputBuilder {
--        super::super::super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesOutputBuilder::default(
--        )
-+    pub fn builder() -> super::super::super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesOutputBuilder{
-+        super::super::super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesOutputBuilder::default()
-     }
- }
-
-@@ -37,7 +35,9 @@
-         self
-     }
-     /// Consumes the builder and constructs a [`PutEmailIdentityConfigurationSetAttributesOutput`](crate::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesOutput).
--    pub fn build(self) -> super::super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesOutput {
-+    pub fn build(
-+        self,
-+    ) -> super::super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesOutput {
-         super::super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesOutput {
-             _request_id: self._request_id,
-         }
-```
-
-### `src/operation/put_email_identity_configuration_set_attributes/builders.rs`
-
-```diff
---- reference/src/operation/put_email_identity_configuration_set_attributes/builders.rs
-+++ generated/src/operation/put_email_identity_configuration_set_attributes/builders.rs
-@@ -3,7 +3,9 @@
-
- pub use super::super::super::operation::put_email_identity_configuration_set_attributes::_put_email_identity_configuration_set_attributes_output::PutEmailIdentityConfigurationSetAttributesOutputBuilder;
-
--impl super::super::super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesInputBuilder {
-+impl
-+    super::super::super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesInputBuilder
-+{
-     /// Sends a request with this input using the given client.
-     pub async fn send_with(
-         self,
-@@ -57,9 +59,7 @@
-         }
-     }
-     /// Access the PutEmailIdentityConfigurationSetAttributes as a reference.
--    pub fn as_input(
--        &self,
--    ) -> &super::super::super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesInputBuilder {
-+    pub fn as_input(&self) -> &super::super::super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesInputBuilder{
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -83,12 +83,11 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins =
--            super::super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributes::operation_runtime_plugins(
--                self.handle.runtime_plugins.clone(),
--                &self.handle.conf,
--                self.config_override,
--            );
-+        let runtime_plugins = super::super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributes::operation_runtime_plugins(
-+                            self.handle.runtime_plugins.clone(),
-+                            &self.handle.conf,
-+                            self.config_override,
-+                        );
-         super::super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributes::orchestrate(
-             &runtime_plugins,
-             input,
-```
-
-### `src/operation/put_email_identity_configuration_set_attributes.rs`
-
-```diff
---- reference/src/operation/put_email_identity_configuration_set_attributes.rs
-+++ generated/src/operation/put_email_identity_configuration_set_attributes.rs
-@@ -23,19 +23,14 @@
-             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-         >| {
-             err.map_service_error(|err| {
--                err.downcast::<super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError>()
--                    .expect("correct error type")
--            })
-+                                err.downcast::<super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError>().expect("correct error type")
-+                            })
-         };
-         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-             .await
-             .map_err(map_err)?;
-         let output = context.finalize().map_err(map_err)?;
--        ::std::result::Result::Ok(
--            output
--                .downcast::<super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesOutput>()
--                .expect("correct output type"),
--        )
-+        ::std::result::Result::Ok(output.downcast::<super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesOutput>().expect("correct output type"))
-     }
-
-     pub(crate) async fn orchestrate_with_stop_point(
-@@ -281,11 +276,7 @@
-             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_put_email_identity_configuration_set_attributes::ser_put_email_identity_configuration_set_attributes_input(
--                &input,
--            )?,
--        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_put_email_identity_configuration_set_attributes::ser_put_email_identity_configuration_set_attributes_input(&input)?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/put_email_identity_dkim_attributes/_put_email_identity_dkim_attributes_input.rs`
@@ -5468,60 +1547,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              },
          )
      }
-```
-
-### `src/operation/put_email_identity_dkim_attributes/builders.rs`
-
-```diff
---- reference/src/operation/put_email_identity_dkim_attributes/builders.rs
-+++ generated/src/operation/put_email_identity_dkim_attributes/builders.rs
-@@ -57,7 +57,9 @@
-         }
-     }
-     /// Access the PutEmailIdentityDkimAttributes as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -81,11 +83,12 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributes::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
-+        let runtime_plugins =
-+            super::super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributes::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-         super::super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributes::orchestrate(&runtime_plugins, input).await
-     }
-
-```
-
-### `src/operation/put_email_identity_dkim_attributes.rs`
-
-```diff
---- reference/src/operation/put_email_identity_dkim_attributes.rs
-+++ generated/src/operation/put_email_identity_dkim_attributes.rs
-@@ -213,7 +213,9 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_put_email_identity_dkim_attributes::de_put_email_identity_dkim_attributes_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_put_email_identity_dkim_attributes::de_put_email_identity_dkim_attributes_http_error(
-+                status, headers, body,
-+            )
-         } else {
-             super::super::protocol_serde::shape_put_email_identity_dkim_attributes::de_put_email_identity_dkim_attributes_http_response(
-                 status, headers, body,
 ```
 
 ### `src/operation/put_email_identity_dkim_signing_attributes/_put_email_identity_dkim_signing_attributes_output.rs`
@@ -5561,18 +1586,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn signing_hosted_zone(&self) -> ::std::option::Option<&str> {
          self.signing_hosted_zone.as_deref()
      }
-@@ -82,7 +76,9 @@
- }
- impl PutEmailIdentityDkimSigningAttributesOutput {
-     /// Creates a new builder-style object to manufacture [`PutEmailIdentityDkimSigningAttributesOutput`](crate::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesOutput).
--    pub fn builder() -> super::super::super::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesOutputBuilder {
-+    pub fn builder(
-+    ) -> super::super::super::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesOutputBuilder
-+    {
-         super::super::super::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesOutputBuilder::default()
-     }
- }
-@@ -181,12 +177,9 @@
+@@ -181,12 +175,9 @@
      }
      /// <p>The hosted zone where Amazon SES publishes the DKIM public key TXT records for this email identity. This value indicates the DNS zone that customers must reference when configuring their CNAME records for DKIM authentication.</p>
      /// <p>When configuring DKIM for your domain, create CNAME records in your DNS that point to the selectors in this hosted zone. For example:</p>
@@ -5588,7 +1602,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn signing_hosted_zone(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          self.signing_hosted_zone = ::std::option::Option::Some(input.into());
          self
-@@ -193,12 +186,9 @@
+@@ -193,12 +184,9 @@
      }
      /// <p>The hosted zone where Amazon SES publishes the DKIM public key TXT records for this email identity. This value indicates the DNS zone that customers must reference when configuring their CNAME records for DKIM authentication.</p>
      /// <p>When configuring DKIM for your domain, create CNAME records in your DNS that point to the selectors in this hosted zone. For example:</p>
@@ -5604,7 +1618,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn set_signing_hosted_zone(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
          self.signing_hosted_zone = input;
          self
-@@ -205,12 +195,9 @@
+@@ -205,12 +193,9 @@
      }
      /// <p>The hosted zone where Amazon SES publishes the DKIM public key TXT records for this email identity. This value indicates the DNS zone that customers must reference when configuring their CNAME records for DKIM authentication.</p>
      /// <p>When configuring DKIM for your domain, create CNAME records in your DNS that point to the selectors in this hosted zone. For example:</p>
@@ -5622,104 +1636,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/operation/put_email_identity_dkim_signing_attributes/builders.rs`
-
-```diff
---- reference/src/operation/put_email_identity_dkim_signing_attributes/builders.rs
-+++ generated/src/operation/put_email_identity_dkim_signing_attributes/builders.rs
-@@ -73,7 +73,8 @@
-     /// Access the PutEmailIdentityDkimSigningAttributes as a reference.
-     pub fn as_input(
-         &self,
--    ) -> &super::super::super::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesInputBuilder {
-+    ) -> &super::super::super::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesInputBuilder
-+    {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -97,14 +98,16 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins =
--            super::super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributes::operation_runtime_plugins(
--                self.handle.runtime_plugins.clone(),
--                &self.handle.conf,
--                self.config_override,
--            );
--        super::super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributes::orchestrate(&runtime_plugins, input)
--            .await
-+        let runtime_plugins = super::super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributes::operation_runtime_plugins(
-+                            self.handle.runtime_plugins.clone(),
-+                            &self.handle.conf,
-+                            self.config_override,
-+                        );
-+        super::super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributes::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
-### `src/operation/put_email_identity_dkim_signing_attributes.rs`
-
-```diff
---- reference/src/operation/put_email_identity_dkim_signing_attributes.rs
-+++ generated/src/operation/put_email_identity_dkim_signing_attributes.rs
-@@ -217,9 +217,7 @@
-                 status, headers, body,
-             )
-         } else {
--            super::super::protocol_serde::shape_put_email_identity_dkim_signing_attributes::de_put_email_identity_dkim_signing_attributes_http_response(
--                status, headers, body,
--            )
-+            super::super::protocol_serde::shape_put_email_identity_dkim_signing_attributes::de_put_email_identity_dkim_signing_attributes_http_response(status, headers, body)
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -280,7 +278,9 @@
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_put_email_identity_dkim_signing_attributes::ser_put_email_identity_dkim_signing_attributes_input(&input)?,
-+            super::super::protocol_serde::shape_put_email_identity_dkim_signing_attributes::ser_put_email_identity_dkim_signing_attributes_input(
-+                &input,
-+            )?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -448,7 +448,9 @@
-         })
-     }
- }
--impl ::aws_types::request_id::RequestId for super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError {
-+impl ::aws_types::request_id::RequestId
-+    for super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError
-+{
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-     }
-```
-
 ### `src/operation/put_email_identity_feedback_attributes/_put_email_identity_feedback_attributes_input.rs`
 
 ```diff
 --- reference/src/operation/put_email_identity_feedback_attributes/_put_email_identity_feedback_attributes_input.rs
 +++ generated/src/operation/put_email_identity_feedback_attributes/_put_email_identity_feedback_attributes_input.rs
-@@ -25,7 +25,8 @@
- }
- impl PutEmailIdentityFeedbackAttributesInput {
-     /// Creates a new builder-style object to manufacture [`PutEmailIdentityFeedbackAttributesInput`](crate::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesInput).
--    pub fn builder() -> super::super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesInputBuilder {
-+    pub fn builder(
-+    ) -> super::super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesInputBuilder {
-         super::super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesInputBuilder::default()
-     }
- }
-@@ -83,7 +84,7 @@
+@@ -83,7 +83,7 @@
          ::std::result::Result::Ok(
              super::super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesInput {
                  email_identity: self.email_identity,
@@ -5728,366 +1650,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              },
          )
      }
-```
-
-### `src/operation/put_email_identity_feedback_attributes/builders.rs`
-
-```diff
---- reference/src/operation/put_email_identity_feedback_attributes/builders.rs
-+++ generated/src/operation/put_email_identity_feedback_attributes/builders.rs
-@@ -59,7 +59,9 @@
-         }
-     }
-     /// Access the PutEmailIdentityFeedbackAttributes as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -83,12 +85,17 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributes::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributes::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributes::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributes::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
-### `src/operation/put_email_identity_mail_from_attributes/builders.rs`
-
-```diff
---- reference/src/operation/put_email_identity_mail_from_attributes/builders.rs
-+++ generated/src/operation/put_email_identity_mail_from_attributes/builders.rs
-@@ -57,7 +57,9 @@
-         }
-     }
-     /// Access the PutEmailIdentityMailFromAttributes as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -87,7 +89,11 @@
-                 &self.handle.conf,
-                 self.config_override,
-             );
--        super::super::super::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributes::orchestrate(&runtime_plugins, input).await
-+        super::super::super::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributes::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
-### `src/operation/put_suppressed_destination/_put_suppressed_destination_input.rs`
-
-```diff
---- reference/src/operation/put_suppressed_destination/_put_suppressed_destination_input.rs
-+++ generated/src/operation/put_suppressed_destination/_put_suppressed_destination_input.rs
-@@ -92,10 +92,12 @@
-         super::super::super::operation::put_suppressed_destination::PutSuppressedDestinationInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::put_suppressed_destination::PutSuppressedDestinationInput {
--            email_address: self.email_address,
--            reason: self.reason,
--            tenant_name: self.tenant_name,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::put_suppressed_destination::PutSuppressedDestinationInput {
-+                email_address: self.email_address,
-+                reason: self.reason,
-+                tenant_name: self.tenant_name,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/put_tenant_suppression_attributes/_put_tenant_suppression_attributes_input.rs`
-
-```diff
---- reference/src/operation/put_tenant_suppression_attributes/_put_tenant_suppression_attributes_input.rs
-+++ generated/src/operation/put_tenant_suppression_attributes/_put_tenant_suppression_attributes_input.rs
-@@ -98,7 +98,10 @@
-     /// <li>
-     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list when a message sent to that address results in a hard bounce.</p></li>
-     /// </ul>
--    pub fn set_suppressed_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>) -> Self {
-+    pub fn set_suppressed_reasons(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>,
-+    ) -> Self {
-         self.suppressed_reasons = input;
-         self
-     }
-@@ -139,10 +142,12 @@
-         super::super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesInput {
--            tenant_name: self.tenant_name,
--            suppressed_reasons: self.suppressed_reasons,
--            suppression_scope: self.suppression_scope,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesInput {
-+                tenant_name: self.tenant_name,
-+                suppressed_reasons: self.suppressed_reasons,
-+                suppression_scope: self.suppression_scope,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/put_tenant_suppression_attributes/builders.rs`
-
-```diff
---- reference/src/operation/put_tenant_suppression_attributes/builders.rs
-+++ generated/src/operation/put_tenant_suppression_attributes/builders.rs
-@@ -58,7 +58,9 @@
-         }
-     }
-     /// Access the PutTenantSuppressionAttributes as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -82,11 +84,12 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributes::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
-+        let runtime_plugins =
-+            super::super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributes::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-         super::super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributes::orchestrate(&runtime_plugins, input).await
-     }
-
-@@ -146,7 +149,10 @@
-     /// <li>
-     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list when a message sent to that address results in a hard bounce.</p></li>
-     /// </ul>
--    pub fn set_suppressed_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>) -> Self {
-+    pub fn set_suppressed_reasons(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>,
-+    ) -> Self {
-         self.inner = self.inner.set_suppressed_reasons(input);
-         self
-     }
-```
-
-### `src/operation/put_tenant_suppression_attributes.rs`
-
-```diff
---- reference/src/operation/put_tenant_suppression_attributes.rs
-+++ generated/src/operation/put_tenant_suppression_attributes.rs
-@@ -213,9 +213,13 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_put_tenant_suppression_attributes::de_put_tenant_suppression_attributes_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_put_tenant_suppression_attributes::de_put_tenant_suppression_attributes_http_error(
-+                status, headers, body,
-+            )
-         } else {
--            super::super::protocol_serde::shape_put_tenant_suppression_attributes::de_put_tenant_suppression_attributes_http_response(status, headers, body)
-+            super::super::protocol_serde::shape_put_tenant_suppression_attributes::de_put_tenant_suppression_attributes_http_response(
-+                status, headers, body,
-+            )
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-```
-
-### `src/operation/send_bulk_email/_send_bulk_email_output.rs`
-
-```diff
---- reference/src/operation/send_bulk_email/_send_bulk_email_output.rs
-+++ generated/src/operation/send_bulk_email/_send_bulk_email_output.rs
-@@ -47,7 +47,10 @@
-         self
-     }
-     /// <p>One object per intended recipient. Check each response object and retry any messages with a failure status.</p>
--    pub fn set_bulk_email_entry_results(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::BulkEmailEntryResult>>) -> Self {
-+    pub fn set_bulk_email_entry_results(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::BulkEmailEntryResult>>,
-+    ) -> Self {
-         self.bulk_email_entry_results = input;
-         self
-     }
-@@ -69,7 +72,8 @@
-     /// - [`bulk_email_entry_results`](crate::operation::send_bulk_email::builders::SendBulkEmailOutputBuilder::bulk_email_entry_results)
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::send_bulk_email::SendBulkEmailOutput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<super::super::super::operation::send_bulk_email::SendBulkEmailOutput, ::aws_smithy_types::error::operation::BuildError>
-+    {
-         ::std::result::Result::Ok(super::super::super::operation::send_bulk_email::SendBulkEmailOutput {
-             bulk_email_entry_results: self.bulk_email_entry_results.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
-```
-
-### `src/operation/send_custom_verification_email/_send_custom_verification_email_input.rs`
-
-```diff
---- reference/src/operation/send_custom_verification_email/_send_custom_verification_email_input.rs
-+++ generated/src/operation/send_custom_verification_email/_send_custom_verification_email_input.rs
-@@ -92,10 +92,12 @@
-         super::super::super::operation::send_custom_verification_email::SendCustomVerificationEmailInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::send_custom_verification_email::SendCustomVerificationEmailInput {
--            email_address: self.email_address,
--            template_name: self.template_name,
--            configuration_set_name: self.configuration_set_name,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::send_custom_verification_email::SendCustomVerificationEmailInput {
-+                email_address: self.email_address,
-+                template_name: self.template_name,
-+                configuration_set_name: self.configuration_set_name,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/send_email/_send_email_input.rs`
-
-```diff
---- reference/src/operation/send_email/_send_email_input.rs
-+++ generated/src/operation/send_email/_send_email_input.rs
-@@ -346,7 +346,9 @@
-         &self.configuration_overrides
-     }
-     /// Consumes the builder and constructs a [`SendEmailInput`](crate::operation::send_email::SendEmailInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::send_email::SendEmailInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::send_email::SendEmailInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::send_email::SendEmailInput {
-             from_email_address: self.from_email_address,
-             from_email_address_identity_arn: self.from_email_address_identity_arn,
-```
-
-### `src/operation/send_email/builders.rs`
-
-```diff
---- reference/src/operation/send_email/builders.rs
-+++ generated/src/operation/send_email/builders.rs
-@@ -37,14 +37,20 @@
-     inner: super::super::super::operation::send_email::builders::SendEmailInputBuilder,
-     config_override: ::std::option::Option<super::super::super::config::Builder>,
- }
--impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::send_email::SendEmailOutput, super::super::super::operation::send_email::SendEmailError>
--    for SendEmailFluentBuilder
-+impl
-+    super::super::super::client::customize::internal::CustomizableSend<
-+        super::super::super::operation::send_email::SendEmailOutput,
-+        super::super::super::operation::send_email::SendEmailError,
-+    > for SendEmailFluentBuilder
- {
-     fn send(
-         self,
-         config_override: super::super::super::config::Builder,
-     ) -> super::super::super::client::customize::internal::BoxFuture<
--        super::super::super::client::customize::internal::SendResult<super::super::super::operation::send_email::SendEmailOutput, super::super::super::operation::send_email::SendEmailError>,
-+        super::super::super::client::customize::internal::SendResult<
-+            super::super::super::operation::send_email::SendEmailOutput,
-+            super::super::super::operation::send_email::SendEmailError,
-+        >,
-     > {
-         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-     }
-```
-
-### `src/operation/tag_resource/_tag_resource_input.rs`
-
-```diff
---- reference/src/operation/tag_resource/_tag_resource_input.rs
-+++ generated/src/operation/tag_resource/_tag_resource_input.rs
-@@ -71,7 +71,9 @@
-         &self.tags
-     }
-     /// Consumes the builder and constructs a [`TagResourceInput`](crate::operation::tag_resource::TagResourceInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::tag_resource::TagResourceInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::tag_resource::TagResourceInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::tag_resource::TagResourceInput {
-             resource_arn: self.resource_arn,
-             tags: self.tags,
-```
-
-### `src/operation/test_render_email_template/_test_render_email_template_output.rs`
-
-```diff
---- reference/src/operation/test_render_email_template/_test_render_email_template_output.rs
-+++ generated/src/operation/test_render_email_template/_test_render_email_template_output.rs
-@@ -68,14 +68,16 @@
-         super::super::super::operation::test_render_email_template::TestRenderEmailTemplateOutput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::test_render_email_template::TestRenderEmailTemplateOutput {
--            rendered_template: self.rendered_template.ok_or_else(|| {
--                ::aws_smithy_types::error::operation::BuildError::missing_field(
--                    "rendered_template",
--                    "rendered_template was not specified but it is required when building TestRenderEmailTemplateOutput",
--                )
--            })?,
--            _request_id: self._request_id,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::test_render_email_template::TestRenderEmailTemplateOutput {
-+                rendered_template: self.rendered_template.ok_or_else(|| {
-+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                        "rendered_template",
-+                        "rendered_template was not specified but it is required when building TestRenderEmailTemplateOutput",
-+                    )
-+                })?,
-+                _request_id: self._request_id,
-+            },
-+        )
-     }
- }
 ```
 
 ### `src/operation/untag_resource.rs`
@@ -6125,90 +1687,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/update_configuration_set_event_destination/builders.rs`
-
-```diff
---- reference/src/operation/update_configuration_set_event_destination/builders.rs
-+++ generated/src/operation/update_configuration_set_event_destination/builders.rs
-@@ -60,7 +60,8 @@
-     /// Access the UpdateConfigurationSetEventDestination as a reference.
-     pub fn as_input(
-         &self,
--    ) -> &super::super::super::operation::update_configuration_set_event_destination::builders::UpdateConfigurationSetEventDestinationInputBuilder {
-+    ) -> &super::super::super::operation::update_configuration_set_event_destination::builders::UpdateConfigurationSetEventDestinationInputBuilder
-+    {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -84,14 +85,16 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins =
--            super::super::super::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestination::operation_runtime_plugins(
--                self.handle.runtime_plugins.clone(),
--                &self.handle.conf,
--                self.config_override,
--            );
--        super::super::super::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestination::orchestrate(&runtime_plugins, input)
--            .await
-+        let runtime_plugins = super::super::super::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestination::operation_runtime_plugins(
-+                            self.handle.runtime_plugins.clone(),
-+                            &self.handle.conf,
-+                            self.config_override,
-+                        );
-+        super::super::super::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestination::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
-### `src/operation/update_configuration_set_event_destination.rs`
-
-```diff
---- reference/src/operation/update_configuration_set_event_destination.rs
-+++ generated/src/operation/update_configuration_set_event_destination.rs
-@@ -222,9 +222,7 @@
-                 status, headers, body,
-             )
-         } else {
--            super::super::protocol_serde::shape_update_configuration_set_event_destination::de_update_configuration_set_event_destination_http_response(
--                status, headers, body,
--            )
-+            super::super::protocol_serde::shape_update_configuration_set_event_destination::de_update_configuration_set_event_destination_http_response(status, headers, body)
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -297,7 +295,9 @@
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_update_configuration_set_event_destination::ser_update_configuration_set_event_destination_input(&input)?,
-+            super::super::protocol_serde::shape_update_configuration_set_event_destination::ser_update_configuration_set_event_destination_input(
-+                &input,
-+            )?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-```
-
 ### `src/operation/update_contact/_update_contact_input.rs`
 
 ```diff
 --- reference/src/operation/update_contact/_update_contact_input.rs
 +++ generated/src/operation/update_contact/_update_contact_input.rs
-@@ -137,12 +137,13 @@
-     /// Consumes the builder and constructs a [`UpdateContactInput`](crate::operation::update_contact::UpdateContactInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::update_contact::UpdateContactInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<super::super::super::operation::update_contact::UpdateContactInput, ::aws_smithy_types::error::operation::BuildError>
-+    {
-         ::std::result::Result::Ok(super::super::super::operation::update_contact::UpdateContactInput {
+@@ -142,7 +142,7 @@
              contact_list_name: self.contact_list_name,
              email_address: self.email_address,
              topic_preferences: self.topic_preferences,
@@ -6219,243 +1703,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/operation/update_contact_list/_update_contact_list_input.rs`
-
-```diff
---- reference/src/operation/update_contact_list/_update_contact_list_input.rs
-+++ generated/src/operation/update_contact_list/_update_contact_list_input.rs
-@@ -94,7 +94,10 @@
-     /// Consumes the builder and constructs a [`UpdateContactListInput`](crate::operation::update_contact_list::UpdateContactListInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::update_contact_list::UpdateContactListInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::update_contact_list::UpdateContactListInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::update_contact_list::UpdateContactListInput {
-             contact_list_name: self.contact_list_name,
-             topics: self.topics,
-```
-
-### `src/operation/update_contact_list.rs`
-
-```diff
---- reference/src/operation/update_contact_list.rs
-+++ generated/src/operation/update_contact_list.rs
-@@ -270,7 +270,9 @@
-             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_contact_list::ser_update_contact_list_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_contact_list::ser_update_contact_list_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/update_custom_verification_email_template/builders.rs`
-
-```diff
---- reference/src/operation/update_custom_verification_email_template/builders.rs
-+++ generated/src/operation/update_custom_verification_email_template/builders.rs
-@@ -85,13 +85,16 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins =
--            super::super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplate::operation_runtime_plugins(
--                self.handle.runtime_plugins.clone(),
--                &self.handle.conf,
--                self.config_override,
--            );
--        super::super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplate::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins = super::super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplate::operation_runtime_plugins(
-+                            self.handle.runtime_plugins.clone(),
-+                            &self.handle.conf,
-+                            self.config_override,
-+                        );
-+        super::super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplate::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
-### `src/operation/update_custom_verification_email_template.rs`
-
-```diff
---- reference/src/operation/update_custom_verification_email_template.rs
-+++ generated/src/operation/update_custom_verification_email_template.rs
-@@ -305,7 +305,9 @@
-             builder
-         };
-         let body = ::aws_smithy_types::body::SdkBody::from(
--            super::super::protocol_serde::shape_update_custom_verification_email_template::ser_update_custom_verification_email_template_input(&input)?,
-+            super::super::protocol_serde::shape_update_custom_verification_email_template::ser_update_custom_verification_email_template_input(
-+                &input,
-+            )?,
-         );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-@@ -473,7 +475,9 @@
-         })
-     }
- }
--impl ::aws_types::request_id::RequestId for super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError {
-+impl ::aws_types::request_id::RequestId
-+    for super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError
-+{
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-     }
-```
-
-### `src/operation/update_email_identity_policy/_update_email_identity_policy_input.rs`
-
-```diff
---- reference/src/operation/update_email_identity_policy/_update_email_identity_policy_input.rs
-+++ generated/src/operation/update_email_identity_policy/_update_email_identity_policy_input.rs
-@@ -103,10 +103,12 @@
-         super::super::super::operation::update_email_identity_policy::UpdateEmailIdentityPolicyInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::update_email_identity_policy::UpdateEmailIdentityPolicyInput {
--            email_identity: self.email_identity,
--            policy_name: self.policy_name,
--            policy: self.policy,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::update_email_identity_policy::UpdateEmailIdentityPolicyInput {
-+                email_identity: self.email_identity,
-+                policy_name: self.policy_name,
-+                policy: self.policy,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/update_email_template/_update_email_template_input.rs`
-
-```diff
---- reference/src/operation/update_email_template/_update_email_template_input.rs
-+++ generated/src/operation/update_email_template/_update_email_template_input.rs
-@@ -67,8 +67,10 @@
-     /// Consumes the builder and constructs a [`UpdateEmailTemplateInput`](crate::operation::update_email_template::UpdateEmailTemplateInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::update_email_template::UpdateEmailTemplateInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::update_email_template::UpdateEmailTemplateInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::update_email_template::UpdateEmailTemplateInput {
-             template_name: self.template_name,
-             template_content: self.template_content,
-```
-
-### `src/operation/update_email_template.rs`
-
-```diff
---- reference/src/operation/update_email_template.rs
-+++ generated/src/operation/update_email_template.rs
-@@ -264,9 +264,9 @@
-             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
-             builder
-         };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_email_template::ser_update_email_template_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_update_email_template::ser_update_email_template_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/update_reputation_entity_customer_managed_status/_update_reputation_entity_customer_managed_status_output.rs`
-
-```diff
---- reference/src/operation/update_reputation_entity_customer_managed_status/_update_reputation_entity_customer_managed_status_output.rs
-+++ generated/src/operation/update_reputation_entity_customer_managed_status/_update_reputation_entity_customer_managed_status_output.rs
-@@ -13,8 +13,7 @@
- }
- impl UpdateReputationEntityCustomerManagedStatusOutput {
-     /// Creates a new builder-style object to manufacture [`UpdateReputationEntityCustomerManagedStatusOutput`](crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput).
--    pub fn builder(
--    ) -> super::super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder {
-+    pub fn builder() -> super::super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder{
-         super::super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder::default()
-     }
- }
-@@ -36,7 +35,9 @@
-         self
-     }
-     /// Consumes the builder and constructs a [`UpdateReputationEntityCustomerManagedStatusOutput`](crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput).
--    pub fn build(self) -> super::super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput {
-+    pub fn build(
-+        self,
-+    ) -> super::super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput {
-         super::super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput {
-             _request_id: self._request_id,
-         }
-```
-
-### `src/operation/update_reputation_entity_customer_managed_status/builders.rs`
-
-```diff
---- reference/src/operation/update_reputation_entity_customer_managed_status/builders.rs
-+++ generated/src/operation/update_reputation_entity_customer_managed_status/builders.rs
-@@ -58,9 +58,7 @@
-         }
-     }
-     /// Access the UpdateReputationEntityCustomerManagedStatus as a reference.
--    pub fn as_input(
--        &self,
--    ) -> &super::super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusInputBuilder {
-+    pub fn as_input(&self) -> &super::super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusInputBuilder{
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-```
-
 ### `src/operation/update_reputation_entity_customer_managed_status.rs`
 
 ```diff
 --- reference/src/operation/update_reputation_entity_customer_managed_status.rs
 +++ generated/src/operation/update_reputation_entity_customer_managed_status.rs
-@@ -23,19 +23,14 @@
-             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-         >| {
-             err.map_service_error(|err| {
--                err.downcast::<super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError>()
--                    .expect("correct error type")
--            })
-+                                err.downcast::<super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError>().expect("correct error type")
-+                            })
-         };
-         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-             .await
-             .map_err(map_err)?;
-         let output = context.finalize().map_err(map_err)?;
--        ::std::result::Result::Ok(
--            output
--                .downcast::<super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput>()
--                .expect("correct output type"),
--        )
-+        ::std::result::Result::Ok(output.downcast::<super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput>().expect("correct output type"))
-     }
-
-     pub(crate) async fn orchestrate_with_stop_point(
-@@ -248,8 +243,7 @@
+@@ -248,8 +248,7 @@
                  let input_1 = input_1.as_ref().ok_or_else(|| {
                      ::aws_smithy_types::error::operation::BuildError::missing_field("reputation_entity_type", "cannot be empty or unset")
                  })?;
@@ -6465,31 +1718,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  if reputation_entity_type.is_empty() {
                      return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
                          "reputation_entity_type",
-```
-
-### `src/operation/update_reputation_entity_policy/_update_reputation_entity_policy_input.rs`
-
-```diff
---- reference/src/operation/update_reputation_entity_policy/_update_reputation_entity_policy_input.rs
-+++ generated/src/operation/update_reputation_entity_policy/_update_reputation_entity_policy_input.rs
-@@ -93,10 +93,12 @@
-         super::super::super::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyInput {
--            reputation_entity_type: self.reputation_entity_type,
--            reputation_entity_reference: self.reputation_entity_reference,
--            reputation_entity_policy: self.reputation_entity_policy,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyInput {
-+                reputation_entity_type: self.reputation_entity_type,
-+                reputation_entity_reference: self.reputation_entity_reference,
-+                reputation_entity_policy: self.reputation_entity_policy,
-+            },
-+        )
-     }
- }
 ```
 
 ### `src/operation/update_reputation_entity_policy.rs`
@@ -6497,18 +1725,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/update_reputation_entity_policy.rs
 +++ generated/src/operation/update_reputation_entity_policy.rs
-@@ -220,7 +220,9 @@
-         let parse_result = if !success && status != 200 || force_error {
-             super::super::protocol_serde::shape_update_reputation_entity_policy::de_update_reputation_entity_policy_http_error(status, headers, body)
-         } else {
--            super::super::protocol_serde::shape_update_reputation_entity_policy::de_update_reputation_entity_policy_http_response(status, headers, body)
-+            super::super::protocol_serde::shape_update_reputation_entity_policy::de_update_reputation_entity_policy_http_response(
-+                status, headers, body,
-+            )
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -252,8 +254,7 @@
+@@ -252,8 +252,7 @@
                  let input_1 = input_1.as_ref().ok_or_else(|| {
                      ::aws_smithy_types::error::operation::BuildError::missing_field("reputation_entity_type", "cannot be empty or unset")
                  })?;
@@ -6518,25 +1735,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  if reputation_entity_type.is_empty() {
                      return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
                          "reputation_entity_type",
-```
-
-### `src/protocol_serde/shape_account_suspended_exception.rs`
-
-```diff
---- reference/src/protocol_serde/shape_account_suspended_exception.rs
-+++ generated/src/protocol_serde/shape_account_suspended_exception.rs
-@@ -2,7 +2,10 @@
- pub(crate) fn de_account_suspended_exception_json_err(
-     _value: &[u8],
-     mut builder: super::super::types::error::builders::AccountSuspendedExceptionBuilder,
--) -> ::std::result::Result<super::super::types::error::builders::AccountSuspendedExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-+) -> ::std::result::Result<
-+    super::super::types::error::builders::AccountSuspendedExceptionBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-     let tokens = &mut tokens_owned;
-     #[allow(unused_variables)]
 ```
 
 ### `src/protocol_serde/shape_attachment.rs`
@@ -6560,32 +1758,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_batch_get_metric_data.rs
 +++ generated/src/protocol_serde/shape_batch_get_metric_data.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::batch_get_metric_data::BatchGetMetricDataError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::batch_get_metric_data::BatchGetMetricDataError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -73,8 +77,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::batch_get_metric_data::BatchGetMetricDataError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::batch_get_metric_data::BatchGetMetricDataError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -132,15 +137,15 @@
+@@ -132,15 +132,15 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -6634,43 +1807,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_cancel_export_job.rs
 +++ generated/src/protocol_serde/shape_cancel_export_job.rs
-@@ -4,7 +4,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::cancel_export_job::CancelExportJobOutput, super::super::operation::cancel_export_job::CancelExportJobError> {
-+) -> std::result::Result<
-+    super::super::operation::cancel_export_job::CancelExportJobOutput,
-+    super::super::operation::cancel_export_job::CancelExportJobError,
-+> {
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-         .map_err(super::super::operation::cancel_export_job::CancelExportJobError::unhandled)?;
-@@ -52,8 +55,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::cancel_export_job::CancelExportJobError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::cancel_export_job::CancelExportJobError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -71,7 +75,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::cancel_export_job::CancelExportJobOutput, super::super::operation::cancel_export_job::CancelExportJobError> {
-+) -> std::result::Result<
-+    super::super::operation::cancel_export_job::CancelExportJobOutput,
-+    super::super::operation::cancel_export_job::CancelExportJobError,
-+> {
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::cancel_export_job::builders::CancelExportJobOutputBuilder::default();
-@@ -79,3 +86,46 @@
+@@ -79,3 +79,46 @@
          output.build()
      })
  }
@@ -6719,157 +1856,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +}
 ```
 
-### `src/protocol_serde/shape_cloud_watch_destination.rs`
-
-```diff
---- reference/src/protocol_serde/shape_cloud_watch_destination.rs
-+++ generated/src/protocol_serde/shape_cloud_watch_destination.rs
-@@ -9,7 +9,10 @@
-             {
-                 #[allow(unused_mut)]
-                 let mut object_3 = array_1.value().start_object();
--                super::super::protocol_serde::shape_cloud_watch_dimension_configuration::ser_cloud_watch_dimension_configuration(&mut object_3, item_2)?;
-+                super::super::protocol_serde::shape_cloud_watch_dimension_configuration::ser_cloud_watch_dimension_configuration(
-+                    &mut object_3,
-+                    item_2,
-+                )?;
-                 object_3.finish();
-             }
-         }
-@@ -39,18 +42,14 @@
-             loop {
-                 match tokens.next().transpose()? {
-                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
--                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
--                        "DimensionConfigurations" => {
--                            builder = builder.set_dimension_configurations(
--                                super::super::protocol_serde::shape_cloud_watch_dimension_configurations::de_cloud_watch_dimension_configurations(
--                                    tokens,
--                                    _value,
--                                    depth + 1,
--                                )?,
--                            );
-+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-+                        match key.to_unescaped()?.as_ref() {
-+                            "DimensionConfigurations" => {
-+                                builder = builder.set_dimension_configurations(super::super::protocol_serde::shape_cloud_watch_dimension_configurations::de_cloud_watch_dimension_configurations(tokens, _value, depth + 1)?);
-+                            }
-+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                         }
--                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
--                    },
-+                    }
-                     other => {
-                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                             "expected object key or end object, found: {other:?}"
-@@ -58,9 +57,11 @@
-                     }
-                 }
-             }
--            Ok(Some(super::super::serde_util::cloud_watch_destination_correct_errors(builder).build().map_err(
--                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
--            )?))
-+            Ok(Some(
-+                super::super::serde_util::cloud_watch_destination_correct_errors(builder)
-+                    .build()
-+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
-### `src/protocol_serde/shape_contact.rs`
-
-```diff
---- reference/src/protocol_serde/shape_contact.rs
-+++ generated/src/protocol_serde/shape_contact.rs
-@@ -20,37 +20,35 @@
-             loop {
-                 match tokens.next().transpose()? {
-                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
--                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                        match key.to_unescaped()?.as_ref() {
--                            "EmailAddress" => {
--                                builder = builder.set_email_address(
--                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
--                                        .transpose()?,
--                                );
--                            }
--                            "TopicPreferences" => {
--                                builder = builder.set_topic_preferences(
--                                    super::super::protocol_serde::shape_topic_preference_list::de_topic_preference_list(tokens, _value, depth + 1)?,
--                                );
--                            }
--                            "TopicDefaultPreferences" => {
--                                builder = builder.set_topic_default_preferences(
--                                    super::super::protocol_serde::shape_topic_preference_list::de_topic_preference_list(tokens, _value, depth + 1)?,
--                                );
--                            }
--                            "UnsubscribeAll" => {
--                                builder = builder.set_unsubscribe_all(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
--                            }
--                            "LastUpdatedTimestamp" => {
--                                builder = builder.set_last_updated_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
--                                    tokens.next(),
--                                    ::aws_smithy_types::date_time::Format::EpochSeconds,
--                                )?);
--                            }
--                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                        "EmailAddress" => {
-+                            builder = builder.set_email_address(
-+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                                    .transpose()?,
-+                            );
-+                        }
-+                        "TopicPreferences" => {
-+                            builder = builder.set_topic_preferences(
-+                                super::super::protocol_serde::shape_topic_preference_list::de_topic_preference_list(tokens, _value, depth + 1)?,
-+                            );
-+                        }
-+                        "TopicDefaultPreferences" => {
-+                            builder = builder.set_topic_default_preferences(
-+                                super::super::protocol_serde::shape_topic_preference_list::de_topic_preference_list(tokens, _value, depth + 1)?,
-+                            );
-+                        }
-+                        "UnsubscribeAll" => {
-+                            builder = builder.set_unsubscribe_all(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-+                        }
-+                        "LastUpdatedTimestamp" => {
-+                            builder = builder.set_last_updated_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-+                                tokens.next(),
-+                                ::aws_smithy_types::date_time::Format::EpochSeconds,
-+                            )?);
-                         }
--                    }
-+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+                    },
-                     other => {
-                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                             "expected object key or end object, found: {other:?}"
-```
-
 ### `src/protocol_serde/shape_create_configuration_set.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_create_configuration_set.rs
 +++ generated/src/protocol_serde/shape_create_configuration_set.rs
-@@ -109,8 +109,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::create_configuration_set::CreateConfigurationSetError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::create_configuration_set::CreateConfigurationSetError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -149,3 +150,36 @@
+@@ -149,3 +149,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -6913,166 +1905,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_configuration_set_event_destination.rs
 +++ generated/src/protocol_serde/shape_create_configuration_set_event_destination.rs
-@@ -16,7 +16,9 @@
-     let error_code = match generic.code() {
-         Some(code) => code,
-         None => {
--            return Err(super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::unhandled(generic))
-+            return Err(
-+                super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::unhandled(generic),
-+            )
-         }
-     };
-
-@@ -23,23 +25,22 @@
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-     Err(match error_code {
-         "AlreadyExistsException" => {
--            super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::AlreadyExistsException({
--                #[allow(unused_mut)]
--                let mut tmp = {
-+            super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::AlreadyExistsException(
-+                {
-                     #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::AlreadyExistsExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_already_exists_exception::de_already_exists_exception_json_err(_response_body, output)
--                        .map_err(
--                            super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::unhandled,
--                        )?;
--                    let output = output.meta(generic);
--                    output.build()
--                };
--                if tmp.message.is_none() {
--                    tmp.message = _error_message;
--                }
--                tmp
--            })
-+                    let mut tmp = {
-+                        #[allow(unused_mut)]
-+                        let mut output = super::super::types::error::builders::AlreadyExistsExceptionBuilder::default();
-+                        output = super::super::protocol_serde::shape_already_exists_exception::de_already_exists_exception_json_err(_response_body, output).map_err(super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::unhandled)?;
-+                        let output = output.meta(generic);
-+                        output.build()
-+                    };
-+                    if tmp.message.is_none() {
-+                        tmp.message = _error_message;
-+                    }
-+                    tmp
-+                },
-+            )
-         }
-         "BadRequestException" => {
-             super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::BadRequestException({
-@@ -47,7 +48,8 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(
-+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(
-                         super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::unhandled,
-                     )?;
-                     let output = output.meta(generic);
-@@ -60,23 +62,22 @@
-             })
-         }
-         "LimitExceededException" => {
--            super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::LimitExceededException({
--                #[allow(unused_mut)]
--                let mut tmp = {
-+            super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::LimitExceededException(
-+                {
-                     #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
--                        .map_err(
--                            super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::unhandled,
--                        )?;
--                    let output = output.meta(generic);
--                    output.build()
--                };
--                if tmp.message.is_none() {
--                    tmp.message = _error_message;
--                }
--                tmp
--            })
-+                    let mut tmp = {
-+                        #[allow(unused_mut)]
-+                        let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
-+                        output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::unhandled)?;
-+                        let output = output.meta(generic);
-+                        output.build()
-+                    };
-+                    if tmp.message.is_none() {
-+                        tmp.message = _error_message;
-+                    }
-+                    tmp
-+                },
-+            )
-         }
-         "NotFoundException" => {
-             super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::NotFoundException({
-@@ -84,7 +85,8 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output).map_err(
-+                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-+                        .map_err(
-                         super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::unhandled,
-                     )?;
-                     let output = output.meta(generic);
-@@ -97,24 +99,22 @@
-             })
-         }
-         "TooManyRequestsException" => {
--            super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::TooManyRequestsException({
--                #[allow(unused_mut)]
--                let mut tmp = {
-+            super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::TooManyRequestsException(
-+                {
-                     #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(
--                                super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::unhandled,
--                            )?;
--                    let output = output.meta(generic);
--                    output.build()
--                };
--                if tmp.message.is_none() {
--                    tmp.message = _error_message;
--                }
--                tmp
--            })
-+                    let mut tmp = {
-+                        #[allow(unused_mut)]
-+                        let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                        output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::unhandled)?;
-+                        let output = output.meta(generic);
-+                        output.build()
-+                    };
-+                    if tmp.message.is_none() {
-+                        tmp.message = _error_message;
-+                    }
-+                    tmp
-+                },
-+            )
-         }
-         _ => super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::generic(generic),
-     })
-@@ -131,8 +131,7 @@
- > {
-     Ok({
-         #[allow(unused_mut)]
--        let mut output =
--            super::super::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationOutputBuilder::default();
-+        let mut output = super::super::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationOutputBuilder::default();
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-         output.build()
-     })
-@@ -150,3 +149,36 @@
+@@ -150,3 +150,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -7231,19 +2064,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_contact.rs
 +++ generated/src/protocol_serde/shape_create_contact.rs
-@@ -67,8 +67,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::create_contact::CreateContactError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::create_contact::CreateContactError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -104,3 +105,36 @@
+@@ -104,3 +104,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -7314,45 +2135,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_contact_list.rs
 +++ generated/src/protocol_serde/shape_create_contact_list.rs
-@@ -4,8 +4,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::create_contact_list::CreateContactListOutput, super::super::operation::create_contact_list::CreateContactListError>
--{
-+) -> std::result::Result<
-+    super::super::operation::create_contact_list::CreateContactListOutput,
-+    super::super::operation::create_contact_list::CreateContactListError,
-+> {
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-         .map_err(super::super::operation::create_contact_list::CreateContactListError::unhandled)?;
-@@ -68,8 +70,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::create_contact_list::CreateContactListError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::create_contact_list::CreateContactListError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -87,8 +90,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::create_contact_list::CreateContactListOutput, super::super::operation::create_contact_list::CreateContactListError>
--{
-+) -> std::result::Result<
-+    super::super::operation::create_contact_list::CreateContactListOutput,
-+    super::super::operation::create_contact_list::CreateContactListError,
-+> {
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::create_contact_list::builders::CreateContactListOutputBuilder::default();
-@@ -106,3 +111,36 @@
+@@ -106,3 +106,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -7445,126 +2228,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_custom_verification_email_template.rs
 +++ generated/src/protocol_serde/shape_create_custom_verification_email_template.rs
-@@ -16,7 +16,9 @@
-     let error_code = match generic.code() {
-         Some(code) => code,
-         None => {
--            return Err(super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateError::unhandled(generic))
-+            return Err(
-+                super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateError::unhandled(generic),
-+            )
-         }
-     };
-
-@@ -28,8 +30,9 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::AlreadyExistsExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_already_exists_exception::de_already_exists_exception_json_err(_response_body, output)
--                        .map_err(
-+                    output =
-+                        super::super::protocol_serde::shape_already_exists_exception::de_already_exists_exception_json_err(_response_body, output)
-+                            .map_err(
-                             super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateError::unhandled,
-                         )?;
-                     let output = output.meta(generic);
-@@ -47,9 +50,10 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(
--                        super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateError::unhandled,
--                    )?;
-+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(
-+                            super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -65,8 +69,9 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
--                        .map_err(
-+                    output =
-+                        super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-+                            .map_err(
-                             super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateError::unhandled,
-                         )?;
-                     let output = output.meta(generic);
-@@ -84,9 +89,10 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output).map_err(
--                        super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateError::unhandled,
--                    )?;
-+                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-+                        .map_err(
-+                            super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -97,24 +103,28 @@
-             })
-         }
-         "TooManyRequestsException" => {
--            super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateError::TooManyRequestsException({
--                #[allow(unused_mut)]
--                let mut tmp = {
-+            super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateError::TooManyRequestsException(
-+                {
-                     #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(
--                                super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateError::unhandled,
--                            )?;
--                    let output = output.meta(generic);
--                    output.build()
--                };
--                if tmp.message.is_none() {
--                    tmp.message = _error_message;
--                }
--                tmp
--            })
-+                    let mut tmp = {
-+                        #[allow(unused_mut)]
-+                        let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                        output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                            _response_body,
-+                            output,
-+                        )
-+                        .map_err(
-+                            super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateError::unhandled,
-+                        )?;
-+                        let output = output.meta(generic);
-+                        output.build()
-+                    };
-+                    if tmp.message.is_none() {
-+                        tmp.message = _error_message;
-+                    }
-+                    tmp
-+                },
-+            )
-         }
-         _ => super::super::operation::create_custom_verification_email_template::CreateCustomVerificationEmailTemplateError::generic(generic),
-     })
-@@ -132,7 +142,8 @@
-     Ok({
-         #[allow(unused_mut)]
-         let mut output =
--            super::super::operation::create_custom_verification_email_template::builders::CreateCustomVerificationEmailTemplateOutputBuilder::default();
-+            super::super::operation::create_custom_verification_email_template::builders::CreateCustomVerificationEmailTemplateOutputBuilder::default(
-+            );
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-         output.build()
-     })
-@@ -150,3 +161,36 @@
+@@ -150,3 +150,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -7669,32 +2333,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_dedicated_ip_pool.rs
 +++ generated/src/protocol_serde/shape_create_dedicated_ip_pool.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -90,8 +94,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::create_dedicated_ip_pool::CreateDedicatedIpPoolError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -130,3 +135,36 @@
+@@ -130,3 +130,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -7776,125 +2415,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_deliverability_test_report.rs
 +++ generated/src/protocol_serde/shape_create_deliverability_test_report.rs
-@@ -26,9 +26,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::AccountSuspendedExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_account_suspended_exception::de_account_suspended_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_account_suspended_exception::de_account_suspended_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -38,21 +40,23 @@
-                 tmp
-             })
-         }
--        "BadRequestException" => super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::BadRequestException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "BadRequestException" => {
-+            super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::BadRequestException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         "ConcurrentModificationException" => {
-             super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::ConcurrentModificationException({
-                 #[allow(unused_mut)]
-@@ -79,8 +83,9 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-+                    output =
-+                        super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-+                            .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -96,12 +101,7 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::MailFromDomainNotVerifiedExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_mail_from_domain_not_verified_exception::de_mail_from_domain_not_verified_exception_json_err(
--                            _response_body,
--                            output,
--                        )
--                        .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_mail_from_domain_not_verified_exception::de_mail_from_domain_not_verified_exception_json_err(_response_body, output).map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -147,8 +147,9 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::SendingPausedExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_sending_paused_exception::de_sending_paused_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-+                    output =
-+                        super::super::protocol_serde::shape_sending_paused_exception::de_sending_paused_exception_json_err(_response_body, output)
-+                            .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -164,9 +165,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -206,7 +209,10 @@
- ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-     let mut out = String::new();
-     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
--    super::super::protocol_serde::shape_create_deliverability_test_report_input::ser_create_deliverability_test_report_input_input(&mut object, input)?;
-+    super::super::protocol_serde::shape_create_deliverability_test_report_input::ser_create_deliverability_test_report_input_input(
-+        &mut object,
-+        input,
-+    )?;
-     object.finish();
-     Ok(::aws_smithy_types::body::SdkBody::from(out))
- }
-@@ -227,17 +233,17 @@
+@@ -227,17 +227,17 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -7959,76 +2480,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_email_identity.rs
 +++ generated/src/protocol_serde/shape_create_email_identity.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::create_email_identity::CreateEmailIdentityError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::create_email_identity::CreateEmailIdentityError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -50,24 +54,26 @@
-             }
-             tmp
-         }),
--        "ConcurrentModificationException" => super::super::operation::create_email_identity::CreateEmailIdentityError::ConcurrentModificationException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "ConcurrentModificationException" => {
-+            super::super::operation::create_email_identity::CreateEmailIdentityError::ConcurrentModificationException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
--                    _response_body,
--                    output,
--                )
--                .map_err(super::super::operation::create_email_identity::CreateEmailIdentityError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::create_email_identity::CreateEmailIdentityError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         "LimitExceededException" => super::super::operation::create_email_identity::CreateEmailIdentityError::LimitExceededException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-@@ -103,8 +109,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::create_email_identity::CreateEmailIdentityError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::create_email_identity::CreateEmailIdentityError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -162,13 +169,6 @@
+@@ -162,13 +162,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -8042,7 +2494,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "IdentityType" => {
                      builder = builder.set_identity_type(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -179,6 +179,13 @@
+@@ -179,6 +172,13 @@
                  "VerifiedForSendingStatus" => {
                      builder = builder.set_verified_for_sending_status(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                  }
@@ -8118,60 +2570,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_email_identity_policy.rs
 +++ generated/src/protocol_serde/shape_create_email_identity_policy.rs
-@@ -15,11 +15,7 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => {
--            return Err(super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled(
--                generic,
--            ))
--        }
-+        None => return Err(super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled(generic)),
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -84,21 +80,26 @@
-             }
-             tmp
-         }),
--        "TooManyRequestsException" => super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::TooManyRequestsException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "TooManyRequestsException" => {
-+            super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::TooManyRequestsException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-                     .map_err(super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         _ => super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyError::generic(generic),
-     })
- }
-@@ -129,3 +130,36 @@
+@@ -129,3 +129,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -8239,32 +2638,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_email_template.rs
 +++ generated/src/protocol_serde/shape_create_email_template.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::create_email_template::CreateEmailTemplateError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::create_email_template::CreateEmailTemplateError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -70,8 +74,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::create_email_template::CreateEmailTemplateError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::create_email_template::CreateEmailTemplateError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -110,3 +115,36 @@
+@@ -110,3 +110,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -8353,92 +2727,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/protocol_serde/shape_create_export_job.rs`
-
-```diff
---- reference/src/protocol_serde/shape_create_export_job.rs
-+++ generated/src/protocol_serde/shape_create_export_job.rs
-@@ -4,7 +4,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::create_export_job::CreateExportJobOutput, super::super::operation::create_export_job::CreateExportJobError> {
-+) -> std::result::Result<
-+    super::super::operation::create_export_job::CreateExportJobOutput,
-+    super::super::operation::create_export_job::CreateExportJobError,
-+> {
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-         .map_err(super::super::operation::create_export_job::CreateExportJobError::unhandled)?;
-@@ -67,8 +70,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::create_export_job::CreateExportJobError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::create_export_job::CreateExportJobError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -86,7 +90,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::create_export_job::CreateExportJobOutput, super::super::operation::create_export_job::CreateExportJobError> {
-+) -> std::result::Result<
-+    super::super::operation::create_export_job::CreateExportJobOutput,
-+    super::super::operation::create_export_job::CreateExportJobError,
-+> {
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::create_export_job::builders::CreateExportJobOutputBuilder::default();
-```
-
-### `src/protocol_serde/shape_create_import_job.rs`
-
-```diff
---- reference/src/protocol_serde/shape_create_import_job.rs
-+++ generated/src/protocol_serde/shape_create_import_job.rs
-@@ -4,7 +4,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::create_import_job::CreateImportJobOutput, super::super::operation::create_import_job::CreateImportJobError> {
-+) -> std::result::Result<
-+    super::super::operation::create_import_job::CreateImportJobOutput,
-+    super::super::operation::create_import_job::CreateImportJobError,
-+> {
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-         .map_err(super::super::operation::create_import_job::CreateImportJobError::unhandled)?;
-@@ -52,8 +55,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::create_import_job::CreateImportJobError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::create_import_job::CreateImportJobError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -71,7 +75,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::create_import_job::CreateImportJobOutput, super::super::operation::create_import_job::CreateImportJobError> {
-+) -> std::result::Result<
-+    super::super::operation::create_import_job::CreateImportJobOutput,
-+    super::super::operation::create_import_job::CreateImportJobError,
-+> {
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::create_import_job::builders::CreateImportJobOutputBuilder::default();
-```
-
 ### `src/protocol_serde/shape_create_import_job_input.rs`
 
 ```diff
@@ -8474,60 +2762,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_multi_region_endpoint.rs
 +++ generated/src/protocol_serde/shape_create_multi_region_endpoint.rs
-@@ -15,11 +15,7 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => {
--            return Err(super::super::operation::create_multi_region_endpoint::CreateMultiRegionEndpointError::unhandled(
--                generic,
--            ))
--        }
-+        None => return Err(super::super::operation::create_multi_region_endpoint::CreateMultiRegionEndpointError::unhandled(generic)),
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -69,21 +65,26 @@
-             }
-             tmp
-         }),
--        "TooManyRequestsException" => super::super::operation::create_multi_region_endpoint::CreateMultiRegionEndpointError::TooManyRequestsException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "TooManyRequestsException" => {
-+            super::super::operation::create_multi_region_endpoint::CreateMultiRegionEndpointError::TooManyRequestsException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-                     .map_err(super::super::operation::create_multi_region_endpoint::CreateMultiRegionEndpointError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         _ => super::super::operation::create_multi_region_endpoint::CreateMultiRegionEndpointError::generic(generic),
-     })
- }
-@@ -133,17 +134,17 @@
+@@ -133,17 +133,17 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -8587,19 +2822,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_tenant.rs
 +++ generated/src/protocol_serde/shape_create_tenant.rs
-@@ -67,8 +67,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::create_tenant::CreateTenantError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::create_tenant::CreateTenantError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -123,27 +124,20 @@
+@@ -123,27 +123,20 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -8635,7 +2858,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "TenantArn" => {
                      builder = builder.set_tenant_arn(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -151,18 +145,29 @@
+@@ -151,18 +144,25 @@
                              .transpose()?,
                      );
                  }
@@ -8665,11 +2888,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 +                "SuppressionAttributes" => {
 +                    builder = builder.set_suppression_attributes(
-+                        super::super::protocol_serde::shape_tenant_suppression_attributes::de_tenant_suppression_attributes(
-+                            tokens,
-+                            _value,
-+                            depth + 1,
-+                        )?,
++                        super::super::protocol_serde::shape_tenant_suppression_attributes::de_tenant_suppression_attributes(tokens, _value, depth + 1)?,
                      );
                  }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -8728,121 +2947,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_create_tenant_resource_association.rs
 +++ generated/src/protocol_serde/shape_create_tenant_resource_association.rs
-@@ -26,8 +26,9 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::AlreadyExistsExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_already_exists_exception::de_already_exists_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociationError::unhandled)?;
-+                    output =
-+                        super::super::protocol_serde::shape_already_exists_exception::de_already_exists_exception_json_err(_response_body, output)
-+                            .map_err(super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociationError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -37,36 +38,40 @@
-                 tmp
-             })
-         }
--        "BadRequestException" => super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociationError::BadRequestException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "BadRequestException" => {
-+            super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociationError::BadRequestException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociationError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
--        "NotFoundException" => super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociationError::NotFoundException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociationError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-+        "NotFoundException" => {
-+            super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociationError::NotFoundException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociationError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociationError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         "TooManyRequestsException" => {
-             super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociationError::TooManyRequestsException({
-                 #[allow(unused_mut)]
-@@ -73,9 +78,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociationError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::create_tenant_resource_association::CreateTenantResourceAssociationError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -100,7 +107,8 @@
- > {
-     Ok({
-         #[allow(unused_mut)]
--        let mut output = super::super::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationOutputBuilder::default();
-+        let mut output =
-+            super::super::operation::create_tenant_resource_association::builders::CreateTenantResourceAssociationOutputBuilder::default();
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-         output.build()
-     })
-@@ -111,7 +119,43 @@
- ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-     let mut out = String::new();
-     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
--    super::super::protocol_serde::shape_create_tenant_resource_association_input::ser_create_tenant_resource_association_input_input(&mut object, input)?;
-+    super::super::protocol_serde::shape_create_tenant_resource_association_input::ser_create_tenant_resource_association_input_input(
-+        &mut object,
-+        input,
-+    )?;
+@@ -115,3 +115,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -8904,46 +3009,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/protocol_serde/shape_custom_verification_email_template_metadata.rs`
-
-```diff
---- reference/src/protocol_serde/shape_custom_verification_email_template_metadata.rs
-+++ generated/src/protocol_serde/shape_custom_verification_email_template_metadata.rs
-@@ -3,7 +3,10 @@
-     tokens: &mut ::std::iter::Peekable<I>,
-     _value: &'a [u8],
-     depth: u32,
--) -> ::std::result::Result<Option<super::super::types::CustomVerificationEmailTemplateMetadata>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<
-+    Option<super::super::types::CustomVerificationEmailTemplateMetadata>,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+>
- where
-     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
- {
-```
-
-### `src/protocol_serde/shape_custom_verification_email_templates_list.rs`
-
-```diff
---- reference/src/protocol_serde/shape_custom_verification_email_templates_list.rs
-+++ generated/src/protocol_serde/shape_custom_verification_email_templates_list.rs
-@@ -26,12 +26,7 @@
-                         break;
-                     }
-                     _ => {
--                        let value =
--                            super::super::protocol_serde::shape_custom_verification_email_template_metadata::de_custom_verification_email_template_metadata(
--                                tokens,
--                                _value,
--                                depth + 1,
--                            )?;
-+                        let value = super::super::protocol_serde::shape_custom_verification_email_template_metadata::de_custom_verification_email_template_metadata(tokens, _value, depth + 1)?;
-                         if let Some(value) = value {
-                             items.push(value);
-                         } else {
-```
-
 ### `src/protocol_serde/shape_dashboard_attributes.rs`
 
 ```diff
@@ -8980,66 +3045,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 ```
 
-### `src/protocol_serde/shape_dedicated_ip.rs`
-
-```diff
---- reference/src/protocol_serde/shape_dedicated_ip.rs
-+++ generated/src/protocol_serde/shape_dedicated_ip.rs
-@@ -58,9 +58,9 @@
-                     }
-                 }
-             }
--            Ok(Some(super::super::serde_util::dedicated_ip_correct_errors(builder).build().map_err(|err| {
--                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
--            })?))
-+            Ok(Some(super::super::serde_util::dedicated_ip_correct_errors(builder).build().map_err(
-+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-+            )?))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
-### `src/protocol_serde/shape_dedicated_ip_pool.rs`
-
-```diff
---- reference/src/protocol_serde/shape_dedicated_ip_pool.rs
-+++ generated/src/protocol_serde/shape_dedicated_ip_pool.rs
-@@ -44,9 +44,11 @@
-                     }
-                 }
-             }
--            Ok(Some(super::super::serde_util::dedicated_ip_pool_correct_errors(builder).build().map_err(
--                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
--            )?))
-+            Ok(Some(
-+                super::super::serde_util::dedicated_ip_pool_correct_errors(builder)
-+                    .build()
-+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
 ### `src/protocol_serde/shape_delete_configuration_set.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_delete_configuration_set.rs
 +++ generated/src/protocol_serde/shape_delete_configuration_set.rs
-@@ -79,8 +79,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::delete_configuration_set::DeleteConfigurationSetError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::delete_configuration_set::DeleteConfigurationSetError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -109,3 +110,46 @@
+@@ -109,3 +109,46 @@
          output.build()
      })
  }
@@ -9093,85 +3104,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_configuration_set_event_destination.rs
 +++ generated/src/protocol_serde/shape_delete_configuration_set_event_destination.rs
-@@ -16,7 +16,9 @@
-     let error_code = match generic.code() {
-         Some(code) => code,
-         None => {
--            return Err(super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled(generic))
-+            return Err(
-+                super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled(generic),
-+            )
-         }
-     };
-
-@@ -28,7 +30,8 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(
-+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(
-                         super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled,
-                     )?;
-                     let output = output.meta(generic);
-@@ -46,7 +49,8 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output).map_err(
-+                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-+                        .map_err(
-                         super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled,
-                     )?;
-                     let output = output.meta(generic);
-@@ -59,24 +63,22 @@
-             })
-         }
-         "TooManyRequestsException" => {
--            super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::TooManyRequestsException({
--                #[allow(unused_mut)]
--                let mut tmp = {
-+            super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::TooManyRequestsException(
-+                {
-                     #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(
--                                super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled,
--                            )?;
--                    let output = output.meta(generic);
--                    output.build()
--                };
--                if tmp.message.is_none() {
--                    tmp.message = _error_message;
--                }
--                tmp
--            })
-+                    let mut tmp = {
-+                        #[allow(unused_mut)]
-+                        let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                        output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled)?;
-+                        let output = output.meta(generic);
-+                        output.build()
-+                    };
-+                    if tmp.message.is_none() {
-+                        tmp.message = _error_message;
-+                    }
-+                    tmp
-+                },
-+            )
-         }
-         _ => super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::generic(generic),
-     })
-@@ -93,9 +95,54 @@
- > {
-     Ok({
-         #[allow(unused_mut)]
--        let mut output =
--            super::super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationOutputBuilder::default();
-+        let mut output = super::super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationOutputBuilder::default();
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+@@ -99,3 +99,49 @@
          output.build()
      })
  }
@@ -9228,19 +3161,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_contact.rs
 +++ generated/src/protocol_serde/shape_delete_contact.rs
-@@ -52,8 +52,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::delete_contact::DeleteContactError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::delete_contact::DeleteContactError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -79,3 +80,46 @@
+@@ -79,3 +79,46 @@
          output.build()
      })
  }
@@ -9294,45 +3215,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_contact_list.rs
 +++ generated/src/protocol_serde/shape_delete_contact_list.rs
-@@ -4,8 +4,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::delete_contact_list::DeleteContactListOutput, super::super::operation::delete_contact_list::DeleteContactListError>
--{
-+) -> std::result::Result<
-+    super::super::operation::delete_contact_list::DeleteContactListOutput,
-+    super::super::operation::delete_contact_list::DeleteContactListError,
-+> {
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-         .map_err(super::super::operation::delete_contact_list::DeleteContactListError::unhandled)?;
-@@ -71,8 +73,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::delete_contact_list::DeleteContactListError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::delete_contact_list::DeleteContactListError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -90,8 +93,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::delete_contact_list::DeleteContactListOutput, super::super::operation::delete_contact_list::DeleteContactListError>
--{
-+) -> std::result::Result<
-+    super::super::operation::delete_contact_list::DeleteContactListOutput,
-+    super::super::operation::delete_contact_list::DeleteContactListError,
-+> {
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::delete_contact_list::builders::DeleteContactListOutputBuilder::default();
-@@ -99,3 +104,46 @@
+@@ -99,3 +99,46 @@
          output.build()
      })
  }
@@ -9386,99 +3269,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_custom_verification_email_template.rs
 +++ generated/src/protocol_serde/shape_delete_custom_verification_email_template.rs
-@@ -16,7 +16,9 @@
-     let error_code = match generic.code() {
-         Some(code) => code,
-         None => {
--            return Err(super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError::unhandled(generic))
-+            return Err(
-+                super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError::unhandled(generic),
-+            )
-         }
-     };
-
-@@ -28,9 +30,10 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(
--                        super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError::unhandled,
--                    )?;
-+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(
-+                            super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -46,9 +49,10 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output).map_err(
--                        super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError::unhandled,
--                    )?;
-+                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-+                        .map_err(
-+                            super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -59,24 +63,28 @@
-             })
-         }
-         "TooManyRequestsException" => {
--            super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError::TooManyRequestsException({
--                #[allow(unused_mut)]
--                let mut tmp = {
-+            super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError::TooManyRequestsException(
-+                {
-                     #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(
--                                super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError::unhandled,
--                            )?;
--                    let output = output.meta(generic);
--                    output.build()
--                };
--                if tmp.message.is_none() {
--                    tmp.message = _error_message;
--                }
--                tmp
--            })
-+                    let mut tmp = {
-+                        #[allow(unused_mut)]
-+                        let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                        output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                            _response_body,
-+                            output,
-+                        )
-+                        .map_err(
-+                            super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError::unhandled,
-+                        )?;
-+                        let output = output.meta(generic);
-+                        output.build()
-+                    };
-+                    if tmp.message.is_none() {
-+                        tmp.message = _error_message;
-+                    }
-+                    tmp
-+                },
-+            )
-         }
-         _ => super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError::generic(generic),
-     })
-@@ -94,8 +102,55 @@
-     Ok({
-         #[allow(unused_mut)]
-         let mut output =
--            super::super::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateOutputBuilder::default();
-+            super::super::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateOutputBuilder::default(
-+            );
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
+@@ -99,3 +99,49 @@
          output.build()
      })
  }
@@ -9535,32 +3326,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_dedicated_ip_pool.rs
 +++ generated/src/protocol_serde/shape_delete_dedicated_ip_pool.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -75,8 +79,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::delete_dedicated_ip_pool::DeleteDedicatedIpPoolError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -105,3 +110,46 @@
+@@ -105,3 +105,46 @@
          output.build()
      })
  }
@@ -9614,76 +3380,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_email_identity.rs
 +++ generated/src/protocol_serde/shape_delete_email_identity.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::delete_email_identity::DeleteEmailIdentityError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::delete_email_identity::DeleteEmailIdentityError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -35,24 +39,26 @@
-             }
-             tmp
-         }),
--        "ConcurrentModificationException" => super::super::operation::delete_email_identity::DeleteEmailIdentityError::ConcurrentModificationException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "ConcurrentModificationException" => {
-+            super::super::operation::delete_email_identity::DeleteEmailIdentityError::ConcurrentModificationException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
--                    _response_body,
--                    output,
--                )
--                .map_err(super::super::operation::delete_email_identity::DeleteEmailIdentityError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::delete_email_identity::DeleteEmailIdentityError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         "NotFoundException" => super::super::operation::delete_email_identity::DeleteEmailIdentityError::NotFoundException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-@@ -73,8 +79,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::delete_email_identity::DeleteEmailIdentityError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::delete_email_identity::DeleteEmailIdentityError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -103,3 +110,46 @@
+@@ -103,3 +103,46 @@
          output.build()
      })
  }
@@ -9737,60 +3434,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_email_identity_policy.rs
 +++ generated/src/protocol_serde/shape_delete_email_identity_policy.rs
-@@ -15,11 +15,7 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => {
--            return Err(super::super::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyError::unhandled(
--                generic,
--            ))
--        }
-+        None => return Err(super::super::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyError::unhandled(generic)),
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -54,21 +50,26 @@
-             }
-             tmp
-         }),
--        "TooManyRequestsException" => super::super::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyError::TooManyRequestsException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "TooManyRequestsException" => {
-+            super::super::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyError::TooManyRequestsException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-                     .map_err(super::super::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         _ => super::super::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyError::generic(generic),
-     })
- }
-@@ -89,3 +90,46 @@
+@@ -89,3 +89,46 @@
          output.build()
      })
  }
@@ -9844,32 +3488,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_email_template.rs
 +++ generated/src/protocol_serde/shape_delete_email_template.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::delete_email_template::DeleteEmailTemplateError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::delete_email_template::DeleteEmailTemplateError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -55,8 +59,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::delete_email_template::DeleteEmailTemplateError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::delete_email_template::DeleteEmailTemplateError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -85,3 +90,46 @@
+@@ -85,3 +85,46 @@
          output.build()
      })
  }
@@ -9923,60 +3542,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_multi_region_endpoint.rs
 +++ generated/src/protocol_serde/shape_delete_multi_region_endpoint.rs
-@@ -15,11 +15,7 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => {
--            return Err(super::super::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointError::unhandled(
--                generic,
--            ))
--        }
-+        None => return Err(super::super::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointError::unhandled(generic)),
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -74,21 +70,26 @@
-             }
-             tmp
-         }),
--        "TooManyRequestsException" => super::super::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointError::TooManyRequestsException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "TooManyRequestsException" => {
-+            super::super::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointError::TooManyRequestsException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-                     .map_err(super::super::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         _ => super::super::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointError::generic(generic),
-     })
- }
-@@ -112,6 +113,16 @@
+@@ -112,6 +112,16 @@
      })
  }
 
@@ -10000,47 +3566,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_suppressed_destination.rs
 +++ generated/src/protocol_serde/shape_delete_suppressed_destination.rs
-@@ -50,21 +50,26 @@
-             }
-             tmp
-         }),
--        "TooManyRequestsException" => super::super::operation::delete_suppressed_destination::DeleteSuppressedDestinationError::TooManyRequestsException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "TooManyRequestsException" => {
-+            super::super::operation::delete_suppressed_destination::DeleteSuppressedDestinationError::TooManyRequestsException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-                     .map_err(super::super::operation::delete_suppressed_destination::DeleteSuppressedDestinationError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         _ => super::super::operation::delete_suppressed_destination::DeleteSuppressedDestinationError::generic(generic),
-     })
- }
-@@ -85,3 +90,46 @@
+@@ -85,3 +85,46 @@
          output.build()
      })
  }
@@ -10094,19 +3620,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_tenant.rs
 +++ generated/src/protocol_serde/shape_delete_tenant.rs
-@@ -52,8 +52,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::delete_tenant::DeleteTenantError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::delete_tenant::DeleteTenantError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -89,3 +90,36 @@
+@@ -89,3 +89,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -10150,109 +3664,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_tenant_resource_association.rs
 +++ generated/src/protocol_serde/shape_delete_tenant_resource_association.rs
-@@ -20,36 +20,40 @@
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-     Err(match error_code {
--        "BadRequestException" => super::super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError::BadRequestException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "BadRequestException" => {
-+            super::super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError::BadRequestException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
--        "NotFoundException" => super::super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError::NotFoundException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-+        "NotFoundException" => {
-+            super::super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError::NotFoundException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         "TooManyRequestsException" => {
-             super::super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError::TooManyRequestsException({
-                 #[allow(unused_mut)]
-@@ -56,9 +60,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::delete_tenant_resource_association::DeleteTenantResourceAssociationError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -83,7 +89,8 @@
- > {
-     Ok({
-         #[allow(unused_mut)]
--        let mut output = super::super::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationOutputBuilder::default();
-+        let mut output =
-+            super::super::operation::delete_tenant_resource_association::builders::DeleteTenantResourceAssociationOutputBuilder::default();
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-         output.build()
-     })
-@@ -94,7 +101,43 @@
- ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-     let mut out = String::new();
-     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
--    super::super::protocol_serde::shape_delete_tenant_resource_association_input::ser_delete_tenant_resource_association_input_input(&mut object, input)?;
-+    super::super::protocol_serde::shape_delete_tenant_resource_association_input::ser_delete_tenant_resource_association_input_input(
-+        &mut object,
-+        input,
-+    )?;
+@@ -98,3 +98,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -10314,205 +3726,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/protocol_serde/shape_deliverability_test_reports.rs`
-
-```diff
---- reference/src/protocol_serde/shape_deliverability_test_reports.rs
-+++ generated/src/protocol_serde/shape_deliverability_test_reports.rs
-@@ -3,7 +3,10 @@
-     tokens: &mut ::std::iter::Peekable<I>,
-     _value: &'a [u8],
-     depth: u32,
--) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::DeliverabilityTestReport>>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<
-+    Option<::std::vec::Vec<super::super::types::DeliverabilityTestReport>>,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+>
- where
-     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
- {
-```
-
-### `src/protocol_serde/shape_dkim_attributes.rs`
-
-```diff
---- reference/src/protocol_serde/shape_dkim_attributes.rs
-+++ generated/src/protocol_serde/shape_dkim_attributes.rs
-@@ -32,7 +32,11 @@
-                             );
-                         }
-                         "Tokens" => {
--                            builder = builder.set_tokens(super::super::protocol_serde::shape_dns_token_list::de_dns_token_list(tokens, _value, depth + 1)?);
-+                            builder = builder.set_tokens(super::super::protocol_serde::shape_dns_token_list::de_dns_token_list(
-+                                tokens,
-+                                _value,
-+                                depth + 1,
-+                            )?);
-                         }
-                         "SigningHostedZone" => {
-                             builder = builder.set_signing_hosted_zone(
-@@ -44,7 +48,10 @@
-                         "SigningAttributesOrigin" => {
-                             builder = builder.set_signing_attributes_origin(
-                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                                    .map(|s| s.to_unescaped().map(|u| super::super::types::DkimSigningAttributesOrigin::from(u.as_ref())))
-+                                    .map(|s| {
-+                                        s.to_unescaped()
-+                                            .map(|u| super::super::types::DkimSigningAttributesOrigin::from(u.as_ref()))
-+                                    })
-                                     .transpose()?,
-                             );
-                         }
-```
-
-### `src/protocol_serde/shape_domain_deliverability_campaign_list.rs`
-
-```diff
---- reference/src/protocol_serde/shape_domain_deliverability_campaign_list.rs
-+++ generated/src/protocol_serde/shape_domain_deliverability_campaign_list.rs
-@@ -3,7 +3,10 @@
-     tokens: &mut ::std::iter::Peekable<I>,
-     _value: &'a [u8],
-     depth: u32,
--) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::DomainDeliverabilityCampaign>>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<
-+    Option<::std::vec::Vec<super::super::types::DomainDeliverabilityCampaign>>,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+>
- where
-     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
- {
-```
-
-### `src/protocol_serde/shape_event_destination.rs`
-
-```diff
---- reference/src/protocol_serde/shape_event_destination.rs
-+++ generated/src/protocol_serde/shape_event_destination.rs
-@@ -20,59 +20,57 @@
-             loop {
-                 match tokens.next().transpose()? {
-                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
--                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                        match key.to_unescaped()?.as_ref() {
--                            "Name" => {
--                                builder = builder.set_name(
--                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
--                                        .transpose()?,
--                                );
--                            }
--                            "Enabled" => {
--                                builder = builder.set_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
--                            }
--                            "MatchingEventTypes" => {
--                                builder = builder.set_matching_event_types(super::super::protocol_serde::shape_event_types::de_event_types(
-+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                        "Name" => {
-+                            builder = builder.set_name(
-+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                                    .transpose()?,
-+                            );
-+                        }
-+                        "Enabled" => {
-+                            builder = builder.set_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-+                        }
-+                        "MatchingEventTypes" => {
-+                            builder = builder.set_matching_event_types(super::super::protocol_serde::shape_event_types::de_event_types(
-+                                tokens,
-+                                _value,
-+                                depth + 1,
-+                            )?);
-+                        }
-+                        "KinesisFirehoseDestination" => {
-+                            builder = builder.set_kinesis_firehose_destination(
-+                                super::super::protocol_serde::shape_kinesis_firehose_destination::de_kinesis_firehose_destination(
-                                     tokens,
-                                     _value,
-                                     depth + 1,
--                                )?);
--                            }
--                            "KinesisFirehoseDestination" => {
--                                builder = builder.set_kinesis_firehose_destination(
--                                    super::super::protocol_serde::shape_kinesis_firehose_destination::de_kinesis_firehose_destination(
--                                        tokens,
--                                        _value,
--                                        depth + 1,
--                                    )?,
--                                );
--                            }
--                            "CloudWatchDestination" => {
--                                builder = builder.set_cloud_watch_destination(
--                                    super::super::protocol_serde::shape_cloud_watch_destination::de_cloud_watch_destination(tokens, _value, depth + 1)?,
--                                );
--                            }
--                            "SnsDestination" => {
--                                builder = builder.set_sns_destination(super::super::protocol_serde::shape_sns_destination::de_sns_destination(
--                                    tokens,
--                                    _value,
--                                    depth + 1,
--                                )?);
--                            }
--                            "EventBridgeDestination" => {
--                                builder = builder.set_event_bridge_destination(
--                                    super::super::protocol_serde::shape_event_bridge_destination::de_event_bridge_destination(tokens, _value, depth + 1)?,
--                                );
--                            }
--                            "PinpointDestination" => {
--                                builder = builder.set_pinpoint_destination(
--                                    super::super::protocol_serde::shape_pinpoint_destination::de_pinpoint_destination(tokens, _value, depth + 1)?,
--                                );
--                            }
--                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+                                )?,
-+                            );
-+                        }
-+                        "CloudWatchDestination" => {
-+                            builder = builder.set_cloud_watch_destination(
-+                                super::super::protocol_serde::shape_cloud_watch_destination::de_cloud_watch_destination(tokens, _value, depth + 1)?,
-+                            );
-+                        }
-+                        "SnsDestination" => {
-+                            builder = builder.set_sns_destination(super::super::protocol_serde::shape_sns_destination::de_sns_destination(
-+                                tokens,
-+                                _value,
-+                                depth + 1,
-+                            )?);
-+                        }
-+                        "EventBridgeDestination" => {
-+                            builder = builder.set_event_bridge_destination(
-+                                super::super::protocol_serde::shape_event_bridge_destination::de_event_bridge_destination(tokens, _value, depth + 1)?,
-+                            );
-+                        }
-+                        "PinpointDestination" => {
-+                            builder = builder.set_pinpoint_destination(
-+                                super::super::protocol_serde::shape_pinpoint_destination::de_pinpoint_destination(tokens, _value, depth + 1)?,
-+                            );
-                         }
--                    }
-+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+                    },
-                     other => {
-                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                             "expected object key or end object, found: {other:?}"
-@@ -80,9 +78,11 @@
-                     }
-                 }
-             }
--            Ok(Some(super::super::serde_util::event_destination_correct_errors(builder).build().map_err(
--                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
--            )?))
-+            Ok(Some(
-+                super::super::serde_util::event_destination_correct_errors(builder)
-+                    .build()
-+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
 ### `src/protocol_serde/shape_event_destination_definition.rs`
 
 ```diff
@@ -10527,50 +3740,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          object.key("Enabled").boolean(input.enabled);
      }
      if let Some(var_1) = &input.matching_event_types {
-```
-
-### `src/protocol_serde/shape_export_data_source.rs`
-
-```diff
---- reference/src/protocol_serde/shape_export_data_source.rs
-+++ generated/src/protocol_serde/shape_export_data_source.rs
-@@ -41,11 +41,9 @@
-                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                         "MetricsDataSource" => {
--                            builder = builder.set_metrics_data_source(super::super::protocol_serde::shape_metrics_data_source::de_metrics_data_source(
--                                tokens,
--                                _value,
--                                depth + 1,
--                            )?);
-+                            builder = builder.set_metrics_data_source(
-+                                super::super::protocol_serde::shape_metrics_data_source::de_metrics_data_source(tokens, _value, depth + 1)?,
-+                            );
-                         }
-                         "MessageInsightsDataSource" => {
-                             builder = builder.set_message_insights_data_source(
-```
-
-### `src/protocol_serde/shape_export_destination.rs`
-
-```diff
---- reference/src/protocol_serde/shape_export_destination.rs
-+++ generated/src/protocol_serde/shape_export_destination.rs
-@@ -57,9 +57,11 @@
-                     }
-                 }
-             }
--            Ok(Some(super::super::serde_util::export_destination_correct_errors(builder).build().map_err(
--                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
--            )?))
-+            Ok(Some(
-+                super::super::serde_util::export_destination_correct_errors(builder)
-+                    .build()
-+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_export_dimensions.rs`
@@ -10594,19 +3763,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_account.rs
 +++ generated/src/protocol_serde/shape_get_account.rs
-@@ -37,8 +37,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_account::GetAccountError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::get_account::GetAccountError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -67,11 +68,19 @@
+@@ -67,6 +67,12 @@
      })
  }
 
@@ -10619,16 +3776,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_get_account(
      _value: &[u8],
      mut builder: super::super::operation::get_account::builders::GetAccountOutputBuilder,
--) -> ::std::result::Result<super::super::operation::get_account::builders::GetAccountOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
--{
-+) -> ::std::result::Result<
-+    super::super::operation::get_account::builders::GetAccountOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-     let tokens = &mut tokens_owned;
-     #[allow(unused_variables)]
-@@ -85,13 +94,6 @@
+@@ -85,13 +91,6 @@
                      builder =
                          builder.set_dedicated_ip_auto_warmup_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                  }
@@ -10642,7 +3790,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "EnforcementStatus" => {
                      builder = builder.set_enforcement_status(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -99,13 +101,6 @@
+@@ -99,13 +98,6 @@
                              .transpose()?,
                      );
                  }
@@ -10656,40 +3804,30 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "ProductionAccessEnabled" => {
                      builder = builder.set_production_access_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                  }
-@@ -116,7 +111,12 @@
-                     builder = builder.set_sending_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                 }
-                 "SuppressionAttributes" => {
--                    builder = builder.set_suppression_attributes(super::super::protocol_serde::shape_suppression_attributes::de_suppression_attributes(
-+                    builder = builder.set_suppression_attributes(
-+                        super::super::protocol_serde::shape_suppression_attributes::de_suppression_attributes(tokens, _value, depth + 1)?,
-+                    );
-+                }
-+                "Details" => {
-+                    builder = builder.set_details(super::super::protocol_serde::shape_account_details::de_account_details(
-                         tokens,
-                         _value,
+@@ -122,9 +114,23 @@
                          depth + 1,
-@@ -123,7 +123,18 @@
                      )?);
                  }
-                 "VdmAttributes" => {
--                    builder = builder.set_vdm_attributes(super::super::protocol_serde::shape_vdm_attributes::de_vdm_attributes(tokens, _value, depth + 1)?);
-+                    builder = builder.set_vdm_attributes(super::super::protocol_serde::shape_vdm_attributes::de_vdm_attributes(
++                "Details" => {
++                    builder = builder.set_details(super::super::protocol_serde::shape_account_details::de_account_details(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
 +                    )?);
 +                }
+                 "VdmAttributes" => {
+                     builder = builder.set_vdm_attributes(super::super::protocol_serde::shape_vdm_attributes::de_vdm_attributes(tokens, _value, depth + 1)?);
+                 }
 +                "PricingAttributes" => {
 +                    builder = builder.set_pricing_attributes(super::super::protocol_serde::shape_pricing_attributes::de_pricing_attributes(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
 +                    )?);
-                 }
++                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
+             other => {
 ```
 
 ### `src/protocol_serde/shape_get_blacklist_reports.rs`
@@ -10697,32 +3835,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_blacklist_reports.rs
 +++ generated/src/protocol_serde/shape_get_blacklist_reports.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::get_blacklist_reports::GetBlacklistReportsError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::get_blacklist_reports::GetBlacklistReportsError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -55,8 +59,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_blacklist_reports::GetBlacklistReportsError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::get_blacklist_reports::GetBlacklistReportsError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -90,6 +95,16 @@
+@@ -90,6 +90,16 @@
      })
  }
 
@@ -10746,32 +3859,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_configuration_set.rs
 +++ generated/src/protocol_serde/shape_get_configuration_set.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::get_configuration_set::GetConfigurationSetError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::get_configuration_set::GetConfigurationSetError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -55,8 +59,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_configuration_set::GetConfigurationSetError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::get_configuration_set::GetConfigurationSetError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -88,6 +93,16 @@
+@@ -88,6 +88,16 @@
      })
  }
 
@@ -10788,7 +3876,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_get_configuration_set(
      _value: &[u8],
      mut builder: super::super::operation::get_configuration_set::builders::GetConfigurationSetOutputBuilder,
-@@ -104,13 +119,6 @@
+@@ -104,13 +114,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -10802,7 +3890,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "ConfigurationSetName" => {
                      builder = builder.set_configuration_set_name(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -118,6 +126,13 @@
+@@ -118,6 +121,13 @@
                              .transpose()?,
                      );
                  }
@@ -10816,7 +3904,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "DeliveryOptions" => {
                      builder = builder.set_delivery_options(super::super::protocol_serde::shape_delivery_options::de_delivery_options(
                          tokens,
-@@ -139,6 +154,9 @@
+@@ -139,6 +149,9 @@
                          depth + 1,
                      )?);
                  }
@@ -10826,17 +3914,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "SuppressionOptions" => {
                      builder = builder.set_suppression_options(super::super::protocol_serde::shape_suppression_options::de_suppression_options(
                          tokens,
-@@ -146,18 +164,19 @@
+@@ -146,19 +159,16 @@
                          depth + 1,
                      )?);
                  }
 -                "Tags" => {
 -                    builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
--                }
++                "VdmOptions" => {
++                    builder = builder.set_vdm_options(super::super::protocol_serde::shape_vdm_options::de_vdm_options(tokens, _value, depth + 1)?);
+                 }
 -                "TrackingOptions" => {
 -                    builder = builder.set_tracking_options(super::super::protocol_serde::shape_tracking_options::de_tracking_options(
-+                "VdmOptions" => {
-+                    builder = builder.set_vdm_options(super::super::protocol_serde::shape_vdm_options::de_vdm_options(
++                "ArchivingOptions" => {
++                    builder = builder.set_archiving_options(super::super::protocol_serde::shape_archiving_options::de_archiving_options(
                          tokens,
                          _value,
                          depth + 1,
@@ -10844,15 +3934,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "VdmOptions" => {
 -                    builder = builder.set_vdm_options(super::super::protocol_serde::shape_vdm_options::de_vdm_options(tokens, _value, depth + 1)?);
-+                "ArchivingOptions" => {
-+                    builder = builder.set_archiving_options(super::super::protocol_serde::shape_archiving_options::de_archiving_options(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-                 }
+-                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
+             other => {
 ```
 
 ### `src/protocol_serde/shape_get_configuration_set_event_destinations.rs`
@@ -10860,59 +3945,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_configuration_set_event_destinations.rs
 +++ generated/src/protocol_serde/shape_get_configuration_set_event_destinations.rs
-@@ -16,7 +16,9 @@
-     let error_code = match generic.code() {
-         Some(code) => code,
-         None => {
--            return Err(super::super::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsError::unhandled(generic))
-+            return Err(
-+                super::super::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsError::unhandled(generic),
-+            )
-         }
-     };
-
-@@ -29,7 +31,9 @@
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-                     output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsError::unhandled)?;
-+                        .map_err(
-+                            super::super::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -46,7 +50,9 @@
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-                     output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsError::unhandled)?;
-+                        .map_err(
-+                            super::super::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -62,11 +68,13 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(
--                                super::super::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsError::unhandled,
--                            )?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(
-+                        super::super::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsError::unhandled,
-+                    )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -103,6 +111,19 @@
+@@ -103,6 +103,19 @@
      })
  }
 
@@ -10939,19 +3972,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_contact.rs
 +++ generated/src/protocol_serde/shape_get_contact.rs
-@@ -52,8 +52,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_contact::GetContactError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::get_contact::GetContactError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -82,11 +83,23 @@
+@@ -82,6 +82,16 @@
      })
  }
 
@@ -10968,21 +3989,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_get_contact(
      _value: &[u8],
      mut builder: super::super::operation::get_contact::builders::GetContactOutputBuilder,
--) -> ::std::result::Result<super::super::operation::get_contact::builders::GetContactOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
--{
-+) -> ::std::result::Result<
-+    super::super::operation::get_contact::builders::GetContactOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-     let tokens = &mut tokens_owned;
-     #[allow(unused_variables)]
-@@ -95,59 +108,57 @@
-     loop {
-         match tokens.next().transpose()? {
+@@ -97,13 +107,6 @@
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
--            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                match key.to_unescaped()?.as_ref() {
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                 match key.to_unescaped()?.as_ref() {
 -                    "AttributesData" => {
 -                        builder = builder.set_attributes_data(
 -                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -10990,37 +4000,42 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                                .transpose()?,
 -                        );
 -                    }
--                    "ContactListName" => {
--                        builder = builder.set_contact_list_name(
--                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
--                                .transpose()?,
--                        );
--                    }
+                     "ContactListName" => {
+                         builder = builder.set_contact_list_name(
+                             ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+@@ -111,12 +114,6 @@
+                                 .transpose()?,
+                         );
+                     }
 -                    "CreatedTimestamp" => {
 -                        builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
 -                            tokens.next(),
 -                            ::aws_smithy_types::date_time::Format::EpochSeconds,
 -                        )?);
 -                    }
--                    "EmailAddress" => {
--                        builder = builder.set_email_address(
--                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
--                                .transpose()?,
--                        );
--                    }
+                     "EmailAddress" => {
+                         builder = builder.set_email_address(
+                             ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+@@ -124,10 +121,11 @@
+                                 .transpose()?,
+                         );
+                     }
 -                    "LastUpdatedTimestamp" => {
 -                        builder = builder.set_last_updated_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
 -                            tokens.next(),
 -                            ::aws_smithy_types::date_time::Format::EpochSeconds,
--                        )?);
--                    }
--                    "TopicDefaultPreferences" => {
--                        builder = builder.set_topic_default_preferences(
--                            super::super::protocol_serde::shape_topic_preference_list::de_topic_preference_list(tokens, _value, depth + 1)?,
--                        );
--                    }
++                    "TopicPreferences" => {
++                        builder = builder.set_topic_preferences(super::super::protocol_serde::shape_topic_preference_list::de_topic_preference_list(
++                            tokens,
++                            _value,
++                            depth + 1,
+                         )?);
+                     }
+                     "TopicDefaultPreferences" => {
+@@ -135,16 +133,28 @@
+                             super::super::protocol_serde::shape_topic_preference_list::de_topic_preference_list(tokens, _value, depth + 1)?,
+                         );
+                     }
 -                    "TopicPreferences" => {
 -                        builder = builder.set_topic_preferences(super::super::protocol_serde::shape_topic_preference_list::de_topic_preference_list(
 -                            tokens,
@@ -11028,65 +4043,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            depth + 1,
 -                        )?);
 -                    }
--                    "UnsubscribeAll" => {
--                        builder = builder.set_unsubscribe_all(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
--                    }
--                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                "ContactListName" => {
-+                    builder = builder.set_contact_list_name(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
+                     "UnsubscribeAll" => {
+                         builder = builder.set_unsubscribe_all(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                     }
++                    "AttributesData" => {
++                        builder = builder.set_attributes_data(
++                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                                .transpose()?,
++                        );
++                    }
++                    "CreatedTimestamp" => {
++                        builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
++                            tokens.next(),
++                            ::aws_smithy_types::date_time::Format::EpochSeconds,
++                        )?);
++                    }
++                    "LastUpdatedTimestamp" => {
++                        builder = builder.set_last_updated_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
++                            tokens.next(),
++                            ::aws_smithy_types::date_time::Format::EpochSeconds,
++                        )?);
++                    }
+                     _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                  }
--            }
-+                "EmailAddress" => {
-+                    builder = builder.set_email_address(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
-+                }
-+                "TopicPreferences" => {
-+                    builder = builder.set_topic_preferences(super::super::protocol_serde::shape_topic_preference_list::de_topic_preference_list(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-+                }
-+                "TopicDefaultPreferences" => {
-+                    builder = builder.set_topic_default_preferences(
-+                        super::super::protocol_serde::shape_topic_preference_list::de_topic_preference_list(tokens, _value, depth + 1)?,
-+                    );
-+                }
-+                "UnsubscribeAll" => {
-+                    builder = builder.set_unsubscribe_all(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-+                }
-+                "AttributesData" => {
-+                    builder = builder.set_attributes_data(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
-+                }
-+                "CreatedTimestamp" => {
-+                    builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-+                        tokens.next(),
-+                        ::aws_smithy_types::date_time::Format::EpochSeconds,
-+                    )?);
-+                }
-+                "LastUpdatedTimestamp" => {
-+                    builder = builder.set_last_updated_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-+                        tokens.next(),
-+                        ::aws_smithy_types::date_time::Format::EpochSeconds,
-+                    )?);
-+                }
-+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            },
-             other => {
-                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                     "expected object key or end object, found: {other:?}"
+             }
 ```
 
 ### `src/protocol_serde/shape_get_contact_list.rs`
@@ -11094,43 +4075,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_contact_list.rs
 +++ generated/src/protocol_serde/shape_get_contact_list.rs
-@@ -4,7 +4,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::get_contact_list::GetContactListOutput, super::super::operation::get_contact_list::GetContactListError> {
-+) -> std::result::Result<
-+    super::super::operation::get_contact_list::GetContactListOutput,
-+    super::super::operation::get_contact_list::GetContactListError,
-+> {
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-         .map_err(super::super::operation::get_contact_list::GetContactListError::unhandled)?;
-@@ -52,8 +55,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_contact_list::GetContactListError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::get_contact_list::GetContactListError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -71,7 +75,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::get_contact_list::GetContactListOutput, super::super::operation::get_contact_list::GetContactListError> {
-+) -> std::result::Result<
-+    super::super::operation::get_contact_list::GetContactListOutput,
-+    super::super::operation::get_contact_list::GetContactListError,
-+> {
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::get_contact_list::builders::GetContactListOutputBuilder::default();
-@@ -82,6 +89,16 @@
+@@ -82,6 +82,16 @@
      })
  }
 
@@ -11147,7 +4092,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_get_contact_list(
      _value: &[u8],
      mut builder: super::super::operation::get_contact_list::builders::GetContactListOutputBuilder,
-@@ -105,11 +122,8 @@
+@@ -105,11 +115,8 @@
                              .transpose()?,
                      );
                  }
@@ -11161,7 +4106,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
                  "Description" => {
                      builder = builder.set_description(
-@@ -118,6 +132,12 @@
+@@ -118,6 +125,12 @@
                              .transpose()?,
                      );
                  }
@@ -11174,7 +4119,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "LastUpdatedTimestamp" => {
                      builder = builder.set_last_updated_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
                          tokens.next(),
-@@ -127,9 +147,6 @@
+@@ -127,9 +140,6 @@
                  "Tags" => {
                      builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
                  }
@@ -11191,68 +4136,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_custom_verification_email_template.rs
 +++ generated/src/protocol_serde/shape_get_custom_verification_email_template.rs
-@@ -15,7 +15,9 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled(generic))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -27,7 +29,9 @@
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-                     output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
-+                        .map_err(
-+                            super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -44,7 +48,9 @@
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-                     output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
-+                        .map_err(
-+                            super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -60,9 +66,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -89,14 +97,29 @@
-         #[allow(unused_mut)]
-         let mut output =
-             super::super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateOutputBuilder::default();
--        output =
--            super::super::protocol_serde::shape_get_custom_verification_email_template::de_get_custom_verification_email_template(_response_body, output)
--                .map_err(super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
-+        output = super::super::protocol_serde::shape_get_custom_verification_email_template::de_get_custom_verification_email_template(
-+            _response_body,
-+            output,
-+        )
-+        .map_err(super::super::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateError::unhandled)?;
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-         output.build()
+@@ -97,6 +97,19 @@
      })
  }
 
@@ -11272,7 +4156,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_get_custom_verification_email_template(
      _value: &[u8],
      mut builder: super::super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateOutputBuilder,
-@@ -113,8 +136,8 @@
+@@ -113,8 +126,8 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -11283,7 +4167,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
-@@ -127,16 +150,13 @@
+@@ -127,16 +140,13 @@
                              .transpose()?,
                      );
                  }
@@ -11302,7 +4186,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "TemplateContent" => {
                      builder = builder.set_template_content(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -144,15 +164,18 @@
+@@ -144,15 +154,18 @@
                              .transpose()?,
                      );
                  }
@@ -11332,43 +4216,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_dedicated_ip.rs
 +++ generated/src/protocol_serde/shape_get_dedicated_ip.rs
-@@ -4,7 +4,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::get_dedicated_ip::GetDedicatedIpOutput, super::super::operation::get_dedicated_ip::GetDedicatedIpError> {
-+) -> std::result::Result<
-+    super::super::operation::get_dedicated_ip::GetDedicatedIpOutput,
-+    super::super::operation::get_dedicated_ip::GetDedicatedIpError,
-+> {
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-         .map_err(super::super::operation::get_dedicated_ip::GetDedicatedIpError::unhandled)?;
-@@ -52,8 +55,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_dedicated_ip::GetDedicatedIpError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::get_dedicated_ip::GetDedicatedIpError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -71,7 +75,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::get_dedicated_ip::GetDedicatedIpOutput, super::super::operation::get_dedicated_ip::GetDedicatedIpError> {
-+) -> std::result::Result<
-+    super::super::operation::get_dedicated_ip::GetDedicatedIpOutput,
-+    super::super::operation::get_dedicated_ip::GetDedicatedIpError,
-+> {
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::get_dedicated_ip::builders::GetDedicatedIpOutputBuilder::default();
-@@ -82,6 +89,16 @@
+@@ -82,6 +82,16 @@
      })
  }
 
@@ -11385,19 +4233,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_get_dedicated_ip(
      _value: &[u8],
      mut builder: super::super::operation::get_dedicated_ip::builders::GetDedicatedIpOutputBuilder,
-@@ -99,7 +116,11 @@
-             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                 "DedicatedIp" => {
--                    builder = builder.set_dedicated_ip(super::super::protocol_serde::shape_dedicated_ip::de_dedicated_ip(tokens, _value, depth + 1)?);
-+                    builder = builder.set_dedicated_ip(super::super::protocol_serde::shape_dedicated_ip::de_dedicated_ip(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-                 }
-                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-             },
 ```
 
 ### `src/protocol_serde/shape_get_dedicated_ip_pool.rs`
@@ -11405,32 +4240,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_dedicated_ip_pool.rs
 +++ generated/src/protocol_serde/shape_get_dedicated_ip_pool.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::get_dedicated_ip_pool::GetDedicatedIpPoolError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::get_dedicated_ip_pool::GetDedicatedIpPoolError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -55,8 +59,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_dedicated_ip_pool::GetDedicatedIpPoolError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::get_dedicated_ip_pool::GetDedicatedIpPoolError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -88,6 +93,16 @@
+@@ -88,6 +88,16 @@
      })
  }
 
@@ -11454,43 +4264,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_dedicated_ips.rs
 +++ generated/src/protocol_serde/shape_get_dedicated_ips.rs
-@@ -4,7 +4,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::get_dedicated_ips::GetDedicatedIpsOutput, super::super::operation::get_dedicated_ips::GetDedicatedIpsError> {
-+) -> std::result::Result<
-+    super::super::operation::get_dedicated_ips::GetDedicatedIpsOutput,
-+    super::super::operation::get_dedicated_ips::GetDedicatedIpsError,
-+> {
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-         .map_err(super::super::operation::get_dedicated_ips::GetDedicatedIpsError::unhandled)?;
-@@ -52,8 +55,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_dedicated_ips::GetDedicatedIpsError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::get_dedicated_ips::GetDedicatedIpsError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -71,7 +75,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::get_dedicated_ips::GetDedicatedIpsOutput, super::super::operation::get_dedicated_ips::GetDedicatedIpsError> {
-+) -> std::result::Result<
-+    super::super::operation::get_dedicated_ips::GetDedicatedIpsOutput,
-+    super::super::operation::get_dedicated_ips::GetDedicatedIpsError,
-+> {
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::get_dedicated_ips::builders::GetDedicatedIpsOutputBuilder::default();
-@@ -82,6 +89,16 @@
+@@ -82,6 +82,16 @@
      })
  }
 
@@ -11514,58 +4288,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_deliverability_dashboard_options.rs
 +++ generated/src/protocol_serde/shape_get_deliverability_dashboard_options.rs
-@@ -15,7 +15,9 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsError::unhandled(generic))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -43,8 +45,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsError::unhandled)?;
-+                    output =
-+                        super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-+                            .map_err(
-+                                super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsError::unhandled,
-+                            )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -60,9 +65,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -87,14 +94,24 @@
- > {
-     Ok({
-         #[allow(unused_mut)]
--        let mut output = super::super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder::default();
--        output = super::super::protocol_serde::shape_get_deliverability_dashboard_options::de_get_deliverability_dashboard_options(_response_body, output)
--            .map_err(super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsError::unhandled)?;
-+        let mut output =
-+            super::super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder::default();
-+        output =
-+            super::super::protocol_serde::shape_get_deliverability_dashboard_options::de_get_deliverability_dashboard_options(_response_body, output)
-+                .map_err(super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsError::unhandled)?;
+@@ -91,10 +91,18 @@
+         output = super::super::protocol_serde::shape_get_deliverability_dashboard_options::de_get_deliverability_dashboard_options(_response_body, output)
+             .map_err(super::super::operation::get_deliverability_dashboard_options::GetDeliverabilityDashboardOptionsError::unhandled)?;
          output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
 -        super::super::serde_util::get_deliverability_dashboard_options_output_output_correct_errors(output).build()
 +        super::super::serde_util::get_deliverability_dashboard_options_output_output_correct_errors(output)
@@ -11583,7 +4308,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_get_deliverability_dashboard_options(
      _value: &[u8],
      mut builder: super::super::operation::get_deliverability_dashboard_options::builders::GetDeliverabilityDashboardOptionsOutputBuilder,
-@@ -111,6 +128,15 @@
+@@ -111,6 +119,15 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -11599,7 +4324,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "AccountStatus" => {
                      builder = builder.set_account_status(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -130,9 +156,6 @@
+@@ -130,9 +147,6 @@
                          )?,
                      );
                  }
@@ -11609,7 +4334,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "PendingExpirationSubscribedDomains" => {
                      builder = builder.set_pending_expiration_subscribed_domains(
                          super::super::protocol_serde::shape_domain_deliverability_tracking_options::de_domain_deliverability_tracking_options(
-@@ -142,12 +165,6 @@
+@@ -142,12 +156,6 @@
                          )?,
                      );
                  }
@@ -11629,47 +4354,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_deliverability_test_report.rs
 +++ generated/src/protocol_serde/shape_get_deliverability_test_report.rs
-@@ -50,21 +50,26 @@
-             }
-             tmp
-         }),
--        "TooManyRequestsException" => super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportError::TooManyRequestsException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "TooManyRequestsException" => {
-+            super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportError::TooManyRequestsException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-                     .map_err(super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         _ => super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportError::generic(generic),
-     })
- }
-@@ -90,6 +95,16 @@
+@@ -90,6 +90,16 @@
      })
  }
 
@@ -11686,7 +4371,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_get_deliverability_test_report(
      _value: &[u8],
      mut builder: super::super::operation::get_deliverability_test_report::builders::GetDeliverabilityTestReportOutputBuilder,
-@@ -111,8 +126,19 @@
+@@ -111,6 +121,13 @@
                          super::super::protocol_serde::shape_deliverability_test_report::de_deliverability_test_report(tokens, _value, depth + 1)?,
                      );
                  }
@@ -11698,16 +4383,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                    )?);
 +                }
                  "IspPlacements" => {
--                    builder = builder.set_isp_placements(super::super::protocol_serde::shape_isp_placements::de_isp_placements(tokens, _value, depth + 1)?);
-+                    builder = builder.set_isp_placements(super::super::protocol_serde::shape_isp_placements::de_isp_placements(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
+                     builder = builder.set_isp_placements(super::super::protocol_serde::shape_isp_placements::de_isp_placements(tokens, _value, depth + 1)?);
                  }
-                 "Message" => {
-                     builder = builder.set_message(
-@@ -121,13 +147,6 @@
+@@ -121,13 +138,6 @@
                              .transpose()?,
                      );
                  }
@@ -11728,104 +4406,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_domain_deliverability_campaign.rs
 +++ generated/src/protocol_serde/shape_get_domain_deliverability_campaign.rs
-@@ -20,36 +20,40 @@
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-     Err(match error_code {
--        "BadRequestException" => super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::BadRequestException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "BadRequestException" => {
-+            super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::BadRequestException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
--        "NotFoundException" => super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::NotFoundException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-+        "NotFoundException" => {
-+            super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::NotFoundException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         "TooManyRequestsException" => {
-             super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::TooManyRequestsException({
-                 #[allow(unused_mut)]
-@@ -56,9 +60,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -83,14 +89,29 @@
- > {
-     Ok({
-         #[allow(unused_mut)]
--        let mut output = super::super::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignOutputBuilder::default();
--        output = super::super::protocol_serde::shape_get_domain_deliverability_campaign::de_get_domain_deliverability_campaign(_response_body, output)
--            .map_err(super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled)?;
-+        let mut output =
-+            super::super::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignOutputBuilder::default();
-+        output =
-+            super::super::protocol_serde::shape_get_domain_deliverability_campaign::de_get_domain_deliverability_campaign(_response_body, output)
-+                .map_err(super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled)?;
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-         super::super::serde_util::get_domain_deliverability_campaign_output_output_correct_errors(output).build()
+@@ -91,6 +91,16 @@
      })
  }
 
@@ -11834,10 +4415,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
 +    let mut out = String::new();
 +    let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-+    super::super::protocol_serde::shape_get_domain_deliverability_campaign_input::ser_get_domain_deliverability_campaign_input_input(
-+        &mut object,
-+        input,
-+    )?;
++    super::super::protocol_serde::shape_get_domain_deliverability_campaign_input::ser_get_domain_deliverability_campaign_input_input(&mut object, input)?;
 +    object.finish();
 +    Ok(::aws_smithy_types::body::SdkBody::from(out))
 +}
@@ -11845,19 +4423,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_get_domain_deliverability_campaign(
      _value: &[u8],
      mut builder: super::super::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignOutputBuilder,
-@@ -109,7 +130,11 @@
-             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                 "DomainDeliverabilityCampaign" => {
-                     builder = builder.set_domain_deliverability_campaign(
--                        super::super::protocol_serde::shape_domain_deliverability_campaign::de_domain_deliverability_campaign(tokens, _value, depth + 1)?,
-+                        super::super::protocol_serde::shape_domain_deliverability_campaign::de_domain_deliverability_campaign(
-+                            tokens,
-+                            _value,
-+                            depth + 1,
-+                        )?,
-                     );
-                 }
-                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
 ```
 
 ### `src/protocol_serde/shape_get_domain_statistics_report.rs`
@@ -11865,60 +4430,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_domain_statistics_report.rs
 +++ generated/src/protocol_serde/shape_get_domain_statistics_report.rs
-@@ -15,11 +15,7 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => {
--            return Err(super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportError::unhandled(
--                generic,
--            ))
--        }
-+        None => return Err(super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportError::unhandled(generic)),
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -54,21 +50,26 @@
-             }
-             tmp
-         }),
--        "TooManyRequestsException" => super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportError::TooManyRequestsException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "TooManyRequestsException" => {
-+            super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportError::TooManyRequestsException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-                     .map_err(super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         _ => super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportError::generic(generic),
-     })
- }
-@@ -94,6 +95,16 @@
+@@ -94,6 +94,16 @@
      })
  }
 
@@ -11935,62 +4447,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_get_domain_statistics_report(
      _value: &[u8],
      mut builder: super::super::operation::get_domain_statistics_report::builders::GetDomainStatisticsReportOutputBuilder,
-@@ -110,11 +121,19 @@
+@@ -110,12 +120,12 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
--                "DailyVolumes" => {
--                    builder = builder.set_daily_volumes(super::super::protocol_serde::shape_daily_volumes::de_daily_volumes(tokens, _value, depth + 1)?);
--                }
-                 "OverallVolume" => {
--                    builder = builder.set_overall_volume(super::super::protocol_serde::shape_overall_volume::de_overall_volume(tokens, _value, depth + 1)?);
-+                    builder = builder.set_overall_volume(super::super::protocol_serde::shape_overall_volume::de_overall_volume(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
++                "OverallVolume" => {
++                    builder = builder.set_overall_volume(super::super::protocol_serde::shape_overall_volume::de_overall_volume(tokens, _value, depth + 1)?);
 +                }
-+                "DailyVolumes" => {
-+                    builder = builder.set_daily_volumes(super::super::protocol_serde::shape_daily_volumes::de_daily_volumes(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
+                 "DailyVolumes" => {
+                     builder = builder.set_daily_volumes(super::super::protocol_serde::shape_daily_volumes::de_daily_volumes(tokens, _value, depth + 1)?);
                  }
+-                "OverallVolume" => {
+-                    builder = builder.set_overall_volume(super::super::protocol_serde::shape_overall_volume::de_overall_volume(tokens, _value, depth + 1)?);
+-                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
-```
-
-### `src/protocol_serde/shape_get_email_address_insights.rs`
-
-```diff
---- reference/src/protocol_serde/shape_get_email_address_insights.rs
-+++ generated/src/protocol_serde/shape_get_email_address_insights.rs
-@@ -15,11 +15,7 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => {
--            return Err(super::super::operation::get_email_address_insights::GetEmailAddressInsightsError::unhandled(
--                generic,
--            ))
--        }
-+        None => return Err(super::super::operation::get_email_address_insights::GetEmailAddressInsightsError::unhandled(generic)),
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -44,8 +40,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_email_address_insights::GetEmailAddressInsightsError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::get_email_address_insights::GetEmailAddressInsightsError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
+             other => {
 ```
 
 ### `src/protocol_serde/shape_get_email_identity.rs`
@@ -11998,43 +4470,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_email_identity.rs
 +++ generated/src/protocol_serde/shape_get_email_identity.rs
-@@ -4,7 +4,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::get_email_identity::GetEmailIdentityOutput, super::super::operation::get_email_identity::GetEmailIdentityError> {
-+) -> std::result::Result<
-+    super::super::operation::get_email_identity::GetEmailIdentityOutput,
-+    super::super::operation::get_email_identity::GetEmailIdentityError,
-+> {
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-         .map_err(super::super::operation::get_email_identity::GetEmailIdentityError::unhandled)?;
-@@ -52,8 +55,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_email_identity::GetEmailIdentityError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::get_email_identity::GetEmailIdentityError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -71,7 +75,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::get_email_identity::GetEmailIdentityOutput, super::super::operation::get_email_identity::GetEmailIdentityError> {
-+) -> std::result::Result<
-+    super::super::operation::get_email_identity::GetEmailIdentityOutput,
-+    super::super::operation::get_email_identity::GetEmailIdentityError,
-+> {
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::get_email_identity::builders::GetEmailIdentityOutputBuilder::default();
-@@ -82,6 +89,16 @@
+@@ -82,6 +82,16 @@
      })
  }
 
@@ -12051,25 +4487,33 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_get_email_identity(
      _value: &[u8],
      mut builder: super::super::operation::get_email_identity::builders::GetEmailIdentityOutputBuilder,
-@@ -97,63 +114,63 @@
-     loop {
+@@ -98,13 +108,19 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
--            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "ConfigurationSetName" => {
 -                    builder = builder.set_configuration_set_name(
--                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                "IdentityType" => {
++                    builder = builder.set_identity_type(
+                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
--                            .transpose()?,
--                    );
--                }
--                "DkimAttributes" => {
--                    builder = builder.set_dkim_attributes(super::super::protocol_serde::shape_dkim_attributes::de_dkim_attributes(
--                        tokens,
--                        _value,
--                        depth + 1,
--                    )?);
--                }
++                            .map(|s| s.to_unescaped().map(|u| super::super::types::IdentityType::from(u.as_ref())))
+                             .transpose()?,
+                     );
+                 }
++                "FeedbackForwardingStatus" => {
++                    builder = builder.set_feedback_forwarding_status(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
++                }
++                "VerifiedForSendingStatus" => {
++                    builder = builder.set_verified_for_sending_status(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
++                }
+                 "DkimAttributes" => {
+                     builder = builder.set_dkim_attributes(super::super::protocol_serde::shape_dkim_attributes::de_dkim_attributes(
+                         tokens,
+@@ -112,16 +128,6 @@
+                         depth + 1,
+                     )?);
+                 }
 -                "FeedbackForwardingStatus" => {
 -                    builder = builder.set_feedback_forwarding_status(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
 -                }
@@ -12080,97 +4524,43 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .transpose()?,
 -                    );
 -                }
--                "MailFromAttributes" => {
--                    builder = builder.set_mail_from_attributes(super::super::protocol_serde::shape_mail_from_attributes::de_mail_from_attributes(
--                        tokens,
--                        _value,
--                        depth + 1,
--                    )?);
--                }
--                "Policies" => {
--                    builder = builder.set_policies(super::super::protocol_serde::shape_policy_map::de_policy_map(tokens, _value, depth + 1)?);
--                }
--                "Tags" => {
--                    builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
--                }
+                 "MailFromAttributes" => {
+                     builder = builder.set_mail_from_attributes(super::super::protocol_serde::shape_mail_from_attributes::de_mail_from_attributes(
+                         tokens,
+@@ -135,12 +141,12 @@
+                 "Tags" => {
+                     builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
+                 }
 -                "VerificationInfo" => {
 -                    builder = builder.set_verification_info(super::super::protocol_serde::shape_verification_info::de_verification_info(
 -                        tokens,
 -                        _value,
 -                        depth + 1,
 -                    )?);
--                }
--                "VerificationStatus" => {
--                    builder = builder.set_verification_status(
--                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| super::super::types::VerificationStatus::from(u.as_ref())))
--                            .transpose()?,
--                    );
--                }
++                "ConfigurationSetName" => {
++                    builder = builder.set_configuration_set_name(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
+                 }
+                 "VerificationStatus" => {
+                     builder = builder.set_verification_status(
+@@ -149,8 +155,12 @@
+                             .transpose()?,
+                     );
+                 }
 -                "VerifiedForSendingStatus" => {
 -                    builder = builder.set_verified_for_sending_status(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-+                match key.to_unescaped()?.as_ref() {
-+                    "IdentityType" => {
-+                        builder = builder.set_identity_type(
-+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                                .map(|s| s.to_unescaped().map(|u| super::super::types::IdentityType::from(u.as_ref())))
-+                                .transpose()?,
-+                        );
-+                    }
-+                    "FeedbackForwardingStatus" => {
-+                        builder = builder.set_feedback_forwarding_status(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-+                    }
-+                    "VerifiedForSendingStatus" => {
-+                        builder = builder.set_verified_for_sending_status(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-+                    }
-+                    "DkimAttributes" => {
-+                        builder = builder.set_dkim_attributes(super::super::protocol_serde::shape_dkim_attributes::de_dkim_attributes(
-+                            tokens,
-+                            _value,
-+                            depth + 1,
-+                        )?);
-+                    }
-+                    "MailFromAttributes" => {
-+                        builder = builder.set_mail_from_attributes(
-+                            super::super::protocol_serde::shape_mail_from_attributes::de_mail_from_attributes(tokens, _value, depth + 1)?,
-+                        );
-+                    }
-+                    "Policies" => {
-+                        builder = builder.set_policies(super::super::protocol_serde::shape_policy_map::de_policy_map(tokens, _value, depth + 1)?);
-+                    }
-+                    "Tags" => {
-+                        builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
-+                    }
-+                    "ConfigurationSetName" => {
-+                        builder = builder.set_configuration_set_name(
-+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                                .transpose()?,
-+                        );
-+                    }
-+                    "VerificationStatus" => {
-+                        builder = builder.set_verification_status(
-+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                                .map(|s| s.to_unescaped().map(|u| super::super::types::VerificationStatus::from(u.as_ref())))
-+                                .transpose()?,
-+                        );
-+                    }
-+                    "VerificationInfo" => {
-+                        builder = builder.set_verification_info(super::super::protocol_serde::shape_verification_info::de_verification_info(
-+                            tokens,
-+                            _value,
-+                            depth + 1,
-+                        )?);
-+                    }
-+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                "VerificationInfo" => {
++                    builder = builder.set_verification_info(super::super::protocol_serde::shape_verification_info::de_verification_info(
++                        tokens,
++                        _value,
++                        depth + 1,
++                    )?);
                  }
--                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
--            },
-+            }
-             other => {
-                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                     "expected object key or end object, found: {other:?}"
+                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+             },
 ```
 
 ### `src/protocol_serde/shape_get_email_identity_policies.rs`
@@ -12178,60 +4568,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_email_identity_policies.rs
 +++ generated/src/protocol_serde/shape_get_email_identity_policies.rs
-@@ -15,11 +15,7 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => {
--            return Err(super::super::operation::get_email_identity_policies::GetEmailIdentityPoliciesError::unhandled(
--                generic,
--            ))
--        }
-+        None => return Err(super::super::operation::get_email_identity_policies::GetEmailIdentityPoliciesError::unhandled(generic)),
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -54,21 +50,26 @@
-             }
-             tmp
-         }),
--        "TooManyRequestsException" => super::super::operation::get_email_identity_policies::GetEmailIdentityPoliciesError::TooManyRequestsException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "TooManyRequestsException" => {
-+            super::super::operation::get_email_identity_policies::GetEmailIdentityPoliciesError::TooManyRequestsException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-                     .map_err(super::super::operation::get_email_identity_policies::GetEmailIdentityPoliciesError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         _ => super::super::operation::get_email_identity_policies::GetEmailIdentityPoliciesError::generic(generic),
-     })
- }
-@@ -92,6 +93,16 @@
+@@ -92,6 +92,16 @@
      })
  }
 
@@ -12255,43 +4592,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_email_template.rs
 +++ generated/src/protocol_serde/shape_get_email_template.rs
-@@ -4,7 +4,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::get_email_template::GetEmailTemplateOutput, super::super::operation::get_email_template::GetEmailTemplateError> {
-+) -> std::result::Result<
-+    super::super::operation::get_email_template::GetEmailTemplateOutput,
-+    super::super::operation::get_email_template::GetEmailTemplateError,
-+> {
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-         .map_err(super::super::operation::get_email_template::GetEmailTemplateError::unhandled)?;
-@@ -52,8 +55,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_email_template::GetEmailTemplateError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::get_email_template::GetEmailTemplateError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -71,7 +75,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::get_email_template::GetEmailTemplateOutput, super::super::operation::get_email_template::GetEmailTemplateError> {
-+) -> std::result::Result<
-+    super::super::operation::get_email_template::GetEmailTemplateOutput,
-+    super::super::operation::get_email_template::GetEmailTemplateError,
-+> {
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::get_email_template::builders::GetEmailTemplateOutputBuilder::default();
-@@ -84,6 +91,16 @@
+@@ -84,6 +84,16 @@
      })
  }
 
@@ -12308,52 +4609,36 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_get_email_template(
      _value: &[u8],
      mut builder: super::super::operation::get_email_template::builders::GetEmailTemplateOutputBuilder,
-@@ -99,26 +116,26 @@
-     loop {
+@@ -100,8 +110,12 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
--            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 -                "Tags" => {
 -                    builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
--                }
--                "TemplateContent" => {
--                    builder = builder.set_template_content(super::super::protocol_serde::shape_email_template_content::de_email_template_content(
--                        tokens,
--                        _value,
--                        depth + 1,
--                    )?);
--                }
++                "TemplateName" => {
++                    builder = builder.set_template_name(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
+                 }
+                 "TemplateContent" => {
+                     builder = builder.set_template_content(super::super::protocol_serde::shape_email_template_content::de_email_template_content(
+@@ -110,12 +124,8 @@
+                         depth + 1,
+                     )?);
+                 }
 -                "TemplateName" => {
 -                    builder = builder.set_template_name(
 -                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                            .transpose()?,
 -                    );
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-+                match key.to_unescaped()?.as_ref() {
-+                    "TemplateName" => {
-+                        builder = builder.set_template_name(
-+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                                .transpose()?,
-+                        );
-+                    }
-+                    "TemplateContent" => {
-+                        builder = builder.set_template_content(
-+                            super::super::protocol_serde::shape_email_template_content::de_email_template_content(tokens, _value, depth + 1)?,
-+                        );
-+                    }
-+                    "Tags" => {
-+                        builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
-+                    }
-+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
++                "Tags" => {
++                    builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
                  }
--                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
--            },
-+            }
-             other => {
-                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                     "expected object key or end object, found: {other:?}"
+                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+             },
 ```
 
 ### `src/protocol_serde/shape_get_export_job.rs`
@@ -12361,19 +4646,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_export_job.rs
 +++ generated/src/protocol_serde/shape_get_export_job.rs
-@@ -52,8 +52,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_export_job::GetExportJobError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::get_export_job::GetExportJobError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -82,6 +83,16 @@
+@@ -82,6 +82,16 @@
      })
  }
 
@@ -12390,7 +4663,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_get_export_job(
      _value: &[u8],
      mut builder: super::super::operation::get_export_job::builders::GetExportJobOutputBuilder,
-@@ -98,46 +109,17 @@
+@@ -98,16 +108,32 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -12399,87 +4672,83 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                        tokens.next(),
 -                        ::aws_smithy_types::date_time::Format::EpochSeconds,
 -                    )?);
--                }
++                "JobId" => {
++                    builder = builder.set_job_id(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
++                            .transpose()?,
++                    );
++                }
++                "ExportSourceType" => {
++                    builder = builder.set_export_source_type(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| super::super::types::ExportSourceType::from(u.as_ref())))
++                            .transpose()?,
++                    );
+                 }
 -                "CreatedTimestamp" => {
 -                    builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
 -                        tokens.next(),
 -                        ::aws_smithy_types::date_time::Format::EpochSeconds,
--                    )?);
--                }
--                "ExportDataSource" => {
--                    builder = builder.set_export_data_source(super::super::protocol_serde::shape_export_data_source::de_export_data_source(
--                        tokens,
--                        _value,
--                        depth + 1,
--                    )?);
--                }
--                "ExportDestination" => {
--                    builder = builder.set_export_destination(super::super::protocol_serde::shape_export_destination::de_export_destination(
--                        tokens,
--                        _value,
--                        depth + 1,
--                    )?);
--                }
--                "ExportSourceType" => {
--                    builder = builder.set_export_source_type(
-+                "JobId" => {
-+                    builder = builder.set_job_id(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| super::super::types::ExportSourceType::from(u.as_ref())))
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                             .transpose()?,
-                     );
-                 }
--                "FailureInfo" => {
--                    builder = builder.set_failure_info(super::super::protocol_serde::shape_failure_info::de_failure_info(tokens, _value, depth + 1)?);
--                }
--                "JobId" => {
--                    builder = builder.set_job_id(
-+                "ExportSourceType" => {
-+                    builder = builder.set_export_source_type(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .map(|s| s.to_unescaped().map(|u| super::super::types::ExportSourceType::from(u.as_ref())))
-                             .transpose()?,
-                     );
-                 }
-@@ -148,6 +130,39 @@
-                             .transpose()?,
-                     );
-                 }
++                "JobStatus" => {
++                    builder = builder.set_job_status(
++                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
++                            .map(|s| s.to_unescaped().map(|u| super::super::types::JobStatus::from(u.as_ref())))
++                            .transpose()?,
++                    );
++                }
 +                "ExportDestination" => {
 +                    builder = builder.set_export_destination(super::super::protocol_serde::shape_export_destination::de_export_destination(
 +                        tokens,
 +                        _value,
 +                        depth + 1,
-+                    )?);
-+                }
-+                "ExportDataSource" => {
-+                    builder = builder.set_export_data_source(super::super::protocol_serde::shape_export_data_source::de_export_data_source(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-+                }
+                     )?);
+                 }
+                 "ExportDataSource" => {
+@@ -117,37 +143,21 @@
+                         depth + 1,
+                     )?);
+                 }
+-                "ExportDestination" => {
+-                    builder = builder.set_export_destination(super::super::protocol_serde::shape_export_destination::de_export_destination(
+-                        tokens,
+-                        _value,
+-                        depth + 1,
 +                "CreatedTimestamp" => {
 +                    builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
 +                        tokens.next(),
 +                        ::aws_smithy_types::date_time::Format::EpochSeconds,
-+                    )?);
-+                }
+                     )?);
+                 }
+-                "ExportSourceType" => {
+-                    builder = builder.set_export_source_type(
+-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| super::super::types::ExportSourceType::from(u.as_ref())))
+-                            .transpose()?,
+-                    );
 +                "CompletedTimestamp" => {
 +                    builder = builder.set_completed_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
 +                        tokens.next(),
 +                        ::aws_smithy_types::date_time::Format::EpochSeconds,
 +                    )?);
-+                }
-+                "FailureInfo" => {
-+                    builder = builder.set_failure_info(super::super::protocol_serde::shape_failure_info::de_failure_info(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-+                }
+                 }
+                 "FailureInfo" => {
+                     builder = builder.set_failure_info(super::super::protocol_serde::shape_failure_info::de_failure_info(tokens, _value, depth + 1)?);
+                 }
+-                "JobId" => {
+-                    builder = builder.set_job_id(
+-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+-                            .transpose()?,
+-                    );
+-                }
+-                "JobStatus" => {
+-                    builder = builder.set_job_status(
+-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+-                            .map(|s| s.to_unescaped().map(|u| super::super::types::JobStatus::from(u.as_ref())))
+-                            .transpose()?,
+-                    );
+-                }
                  "Statistics" => {
                      builder = builder.set_statistics(super::super::protocol_serde::shape_export_statistics::de_export_statistics(
                          tokens,
@@ -12490,19 +4759,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_import_job.rs
 +++ generated/src/protocol_serde/shape_get_import_job.rs
-@@ -52,8 +52,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_import_job::GetImportJobError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::get_import_job::GetImportJobError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -82,6 +83,16 @@
+@@ -82,6 +82,16 @@
      })
  }
 
@@ -12519,7 +4776,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_get_import_job(
      _value: &[u8],
      mut builder: super::super::operation::get_import_job::builders::GetImportJobOutputBuilder,
-@@ -98,27 +109,19 @@
+@@ -98,48 +108,29 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -12548,23 +4805,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
 -                "FailureInfo" => {
 -                    builder = builder.set_failure_info(super::super::protocol_serde::shape_failure_info::de_failure_info(tokens, _value, depth + 1)?);
+-                }
+-                "ImportDataSource" => {
+-                    builder = builder.set_import_data_source(super::super::protocol_serde::shape_import_data_source::de_import_data_source(
 +                "ImportDestination" => {
 +                    builder = builder.set_import_destination(super::super::protocol_serde::shape_import_destination::de_import_destination(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-                 }
-                 "ImportDataSource" => {
-                     builder = builder.set_import_data_source(super::super::protocol_serde::shape_import_data_source::de_import_data_source(
-@@ -127,20 +130,13 @@
+                         tokens,
+                         _value,
                          depth + 1,
                      )?);
                  }
 -                "ImportDestination" => {
 -                    builder = builder.set_import_destination(super::super::protocol_serde::shape_import_destination::de_import_destination(
-+                "FailureInfo" => {
-+                    builder = builder.set_failure_info(super::super::protocol_serde::shape_failure_info::de_failure_info(
++                "ImportDataSource" => {
++                    builder = builder.set_import_data_source(super::super::protocol_serde::shape_import_data_source::de_import_data_source(
                          tokens,
                          _value,
                          depth + 1,
@@ -12576,11 +4830,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
 -                            .transpose()?,
 -                    );
--                }
++                "FailureInfo" => {
++                    builder = builder.set_failure_info(super::super::protocol_serde::shape_failure_info::de_failure_info(tokens, _value, depth + 1)?);
+                 }
                  "JobStatus" => {
                      builder = builder.set_job_status(
-                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -148,6 +144,18 @@
+@@ -148,6 +139,18 @@
                              .transpose()?,
                      );
                  }
@@ -12599,7 +4854,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "ProcessedRecordsCount" => {
                      builder = builder.set_processed_records_count(
                          ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-@@ -155,6 +163,13 @@
+@@ -155,6 +158,13 @@
                              .transpose()?,
                      );
                  }
@@ -12620,19 +4875,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_message_insights.rs
 +++ generated/src/protocol_serde/shape_get_message_insights.rs
-@@ -55,8 +55,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_message_insights::GetMessageInsightsError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::get_message_insights::GetMessageInsightsError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -88,6 +89,16 @@
+@@ -88,6 +88,16 @@
      })
  }
 
@@ -12649,7 +4892,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_get_message_insights(
      _value: &[u8],
      mut builder: super::super::operation::get_message_insights::builders::GetMessageInsightsOutputBuilder,
-@@ -104,29 +115,15 @@
+@@ -104,29 +114,15 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -12683,7 +4926,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
                              .map(|s| s.to_unescaped().map(|u| u.into_owned()))
                              .transpose()?,
-@@ -139,6 +136,20 @@
+@@ -139,6 +135,20 @@
                              .transpose()?,
                      );
                  }
@@ -12711,32 +4954,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_multi_region_endpoint.rs
 +++ generated/src/protocol_serde/shape_get_multi_region_endpoint.rs
-@@ -15,11 +15,7 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => {
--            return Err(super::super::operation::get_multi_region_endpoint::GetMultiRegionEndpointError::unhandled(
--                generic,
--            ))
--        }
-+        None => return Err(super::super::operation::get_multi_region_endpoint::GetMultiRegionEndpointError::unhandled(generic)),
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -59,8 +55,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_multi_region_endpoint::GetMultiRegionEndpointError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::get_multi_region_endpoint::GetMultiRegionEndpointError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -92,6 +89,16 @@
+@@ -92,6 +92,16 @@
      })
  }
 
@@ -12753,7 +4971,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_get_multi_region_endpoint(
      _value: &[u8],
      mut builder: super::super::operation::get_multi_region_endpoint::builders::GetMultiRegionEndpointOutputBuilder,
-@@ -108,32 +115,20 @@
+@@ -108,32 +118,20 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -12790,7 +5008,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "Routes" => {
                      builder = builder.set_routes(super::super::protocol_serde::shape_routes::de_routes(tokens, _value, depth + 1)?);
                  }
-@@ -144,6 +139,18 @@
+@@ -144,6 +142,18 @@
                              .transpose()?,
                      );
                  }
@@ -12816,32 +5034,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_reputation_entity.rs
 +++ generated/src/protocol_serde/shape_get_reputation_entity.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::get_reputation_entity::GetReputationEntityError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::get_reputation_entity::GetReputationEntityError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -55,8 +59,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_reputation_entity::GetReputationEntityError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::get_reputation_entity::GetReputationEntityError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -88,6 +93,16 @@
+@@ -88,6 +88,16 @@
      })
  }
 
@@ -12865,32 +5058,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_get_suppressed_destination.rs
 +++ generated/src/protocol_serde/shape_get_suppressed_destination.rs
-@@ -15,11 +15,7 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => {
--            return Err(super::super::operation::get_suppressed_destination::GetSuppressedDestinationError::unhandled(
--                generic,
--            ))
--        }
-+        None => return Err(super::super::operation::get_suppressed_destination::GetSuppressedDestinationError::unhandled(generic)),
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -59,8 +55,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_suppressed_destination::GetSuppressedDestinationError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::get_suppressed_destination::GetSuppressedDestinationError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -92,6 +89,16 @@
+@@ -92,6 +92,16 @@
      })
  }
 
@@ -12907,52 +5075,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_get_suppressed_destination(
      _value: &[u8],
      mut builder: super::super::operation::get_suppressed_destination::builders::GetSuppressedDestinationOutputBuilder,
-@@ -109,11 +116,9 @@
-             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                 "SuppressedDestination" => {
--                    builder = builder.set_suppressed_destination(super::super::protocol_serde::shape_suppressed_destination::de_suppressed_destination(
--                        tokens,
--                        _value,
--                        depth + 1,
--                    )?);
-+                    builder = builder.set_suppressed_destination(
-+                        super::super::protocol_serde::shape_suppressed_destination::de_suppressed_destination(tokens, _value, depth + 1)?,
-+                    );
-                 }
-                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-             },
-```
-
-### `src/protocol_serde/shape_get_tenant.rs`
-
-```diff
---- reference/src/protocol_serde/shape_get_tenant.rs
-+++ generated/src/protocol_serde/shape_get_tenant.rs
-@@ -52,8 +52,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::get_tenant::GetTenantError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::get_tenant::GetTenantError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -95,7 +96,10 @@
- pub(crate) fn de_get_tenant(
-     _value: &[u8],
-     mut builder: super::super::operation::get_tenant::builders::GetTenantOutputBuilder,
--) -> ::std::result::Result<super::super::operation::get_tenant::builders::GetTenantOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-+) -> ::std::result::Result<
-+    super::super::operation::get_tenant::builders::GetTenantOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-     let tokens = &mut tokens_owned;
-     #[allow(unused_variables)]
 ```
 
 ### `src/protocol_serde/shape_guardian_attributes.rs`
@@ -12991,129 +5113,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 ```
 
-### `src/protocol_serde/shape_import_data_source.rs`
-
-```diff
---- reference/src/protocol_serde/shape_import_data_source.rs
-+++ generated/src/protocol_serde/shape_import_data_source.rs
-@@ -57,9 +57,11 @@
-                     }
-                 }
-             }
--            Ok(Some(super::super::serde_util::import_data_source_correct_errors(builder).build().map_err(
--                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
--            )?))
-+            Ok(Some(
-+                super::super::serde_util::import_data_source_correct_errors(builder)
-+                    .build()
-+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
-### `src/protocol_serde/shape_import_job_summary.rs`
-
-```diff
---- reference/src/protocol_serde/shape_import_job_summary.rs
-+++ generated/src/protocol_serde/shape_import_job_summary.rs
-@@ -20,50 +20,50 @@
-             loop {
-                 match tokens.next().transpose()? {
-                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
--                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
--                        "JobId" => {
--                            builder = builder.set_job_id(
--                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
--                                    .transpose()?,
--                            );
--                        }
--                        "ImportDestination" => {
--                            builder = builder.set_import_destination(super::super::protocol_serde::shape_import_destination::de_import_destination(
--                                tokens,
--                                _value,
--                                depth + 1,
--                            )?);
-+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-+                        match key.to_unescaped()?.as_ref() {
-+                            "JobId" => {
-+                                builder = builder.set_job_id(
-+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                                        .transpose()?,
-+                                );
-+                            }
-+                            "ImportDestination" => {
-+                                builder = builder.set_import_destination(
-+                                    super::super::protocol_serde::shape_import_destination::de_import_destination(tokens, _value, depth + 1)?,
-+                                );
-+                            }
-+                            "JobStatus" => {
-+                                builder = builder.set_job_status(
-+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                                        .map(|s| s.to_unescaped().map(|u| super::super::types::JobStatus::from(u.as_ref())))
-+                                        .transpose()?,
-+                                );
-+                            }
-+                            "CreatedTimestamp" => {
-+                                builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-+                                    tokens.next(),
-+                                    ::aws_smithy_types::date_time::Format::EpochSeconds,
-+                                )?);
-+                            }
-+                            "ProcessedRecordsCount" => {
-+                                builder = builder.set_processed_records_count(
-+                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-+                                        .map(i32::try_from)
-+                                        .transpose()?,
-+                                );
-+                            }
-+                            "FailedRecordsCount" => {
-+                                builder = builder.set_failed_records_count(
-+                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-+                                        .map(i32::try_from)
-+                                        .transpose()?,
-+                                );
-+                            }
-+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                         }
--                        "JobStatus" => {
--                            builder = builder.set_job_status(
--                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                                    .map(|s| s.to_unescaped().map(|u| super::super::types::JobStatus::from(u.as_ref())))
--                                    .transpose()?,
--                            );
--                        }
--                        "CreatedTimestamp" => {
--                            builder = builder.set_created_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
--                                tokens.next(),
--                                ::aws_smithy_types::date_time::Format::EpochSeconds,
--                            )?);
--                        }
--                        "ProcessedRecordsCount" => {
--                            builder = builder.set_processed_records_count(
--                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
--                                    .map(i32::try_from)
--                                    .transpose()?,
--                            );
--                        }
--                        "FailedRecordsCount" => {
--                            builder = builder.set_failed_records_count(
--                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
--                                    .map(i32::try_from)
--                                    .transpose()?,
--                            );
--                        }
--                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
--                    },
-+                    }
-                     other => {
-                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                             "expected object key or end object, found: {other:?}"
-```
-
 ### `src/protocol_serde/shape_inbox_placement_tracking_option.rs`
 
 ```diff
@@ -13128,124 +5127,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          object.key("Global").boolean(input.global);
      }
      if let Some(var_1) = &input.tracked_isps {
-@@ -44,8 +44,11 @@
-                             builder = builder.set_global(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                         }
-                         "TrackedIsps" => {
--                            builder =
--                                builder.set_tracked_isps(super::super::protocol_serde::shape_isp_name_list::de_isp_name_list(tokens, _value, depth + 1)?);
-+                            builder = builder.set_tracked_isps(super::super::protocol_serde::shape_isp_name_list::de_isp_name_list(
-+                                tokens,
-+                                _value,
-+                                depth + 1,
-+                            )?);
-                         }
-                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                     },
-```
-
-### `src/protocol_serde/shape_insights_event.rs`
-
-```diff
---- reference/src/protocol_serde/shape_insights_event.rs
-+++ generated/src/protocol_serde/shape_insights_event.rs
-@@ -35,7 +35,11 @@
-                             );
-                         }
-                         "Details" => {
--                            builder = builder.set_details(super::super::protocol_serde::shape_event_details::de_event_details(tokens, _value, depth + 1)?);
-+                            builder = builder.set_details(super::super::protocol_serde::shape_event_details::de_event_details(
-+                                tokens,
-+                                _value,
-+                                depth + 1,
-+                            )?);
-                         }
-                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                     },
-```
-
-### `src/protocol_serde/shape_internal_service_error_exception.rs`
-
-```diff
---- reference/src/protocol_serde/shape_internal_service_error_exception.rs
-+++ generated/src/protocol_serde/shape_internal_service_error_exception.rs
-@@ -2,8 +2,10 @@
- pub(crate) fn de_internal_service_error_exception_json_err(
-     _value: &[u8],
-     mut builder: super::super::types::error::builders::InternalServiceErrorExceptionBuilder,
--) -> ::std::result::Result<super::super::types::error::builders::InternalServiceErrorExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
--{
-+) -> ::std::result::Result<
-+    super::super::types::error::builders::InternalServiceErrorExceptionBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-     let tokens = &mut tokens_owned;
-     #[allow(unused_variables)]
-```
-
-### `src/protocol_serde/shape_invalid_next_token_exception.rs`
-
-```diff
---- reference/src/protocol_serde/shape_invalid_next_token_exception.rs
-+++ generated/src/protocol_serde/shape_invalid_next_token_exception.rs
-@@ -2,7 +2,10 @@
- pub(crate) fn de_invalid_next_token_exception_json_err(
-     _value: &[u8],
-     mut builder: super::super::types::error::builders::InvalidNextTokenExceptionBuilder,
--) -> ::std::result::Result<super::super::types::error::builders::InvalidNextTokenExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-+) -> ::std::result::Result<
-+    super::super::types::error::builders::InvalidNextTokenExceptionBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-     let tokens = &mut tokens_owned;
-     #[allow(unused_variables)]
-```
-
-### `src/protocol_serde/shape_isp_placement.rs`
-
-```diff
---- reference/src/protocol_serde/shape_isp_placement.rs
-+++ generated/src/protocol_serde/shape_isp_placement.rs
-@@ -20,23 +20,21 @@
-             loop {
-                 match tokens.next().transpose()? {
-                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
--                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                        match key.to_unescaped()?.as_ref() {
--                            "IspName" => {
--                                builder = builder.set_isp_name(
--                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
--                                        .transpose()?,
--                                );
--                            }
--                            "PlacementStatistics" => {
--                                builder = builder.set_placement_statistics(
--                                    super::super::protocol_serde::shape_placement_statistics::de_placement_statistics(tokens, _value, depth + 1)?,
--                                );
--                            }
--                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                        "IspName" => {
-+                            builder = builder.set_isp_name(
-+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                                    .transpose()?,
-+                            );
-+                        }
-+                        "PlacementStatistics" => {
-+                            builder = builder.set_placement_statistics(
-+                                super::super::protocol_serde::shape_placement_statistics::de_placement_statistics(tokens, _value, depth + 1)?,
-+                            );
-                         }
--                    }
-+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+                    },
-                     other => {
-                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                             "expected object key or end object, found: {other:?}"
 ```
 
 ### `src/protocol_serde/shape_list_configuration_sets.rs`
@@ -13253,32 +5134,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_configuration_sets.rs
 +++ generated/src/protocol_serde/shape_list_configuration_sets.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::list_configuration_sets::ListConfigurationSetsError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::list_configuration_sets::ListConfigurationSetsError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -40,8 +44,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::list_configuration_sets::ListConfigurationSetsError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::list_configuration_sets::ListConfigurationSetsError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -73,6 +78,16 @@
+@@ -73,6 +73,16 @@
      })
  }
 
@@ -13302,43 +5158,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_contact_lists.rs
 +++ generated/src/protocol_serde/shape_list_contact_lists.rs
-@@ -4,7 +4,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::list_contact_lists::ListContactListsOutput, super::super::operation::list_contact_lists::ListContactListsError> {
-+) -> std::result::Result<
-+    super::super::operation::list_contact_lists::ListContactListsOutput,
-+    super::super::operation::list_contact_lists::ListContactListsError,
-+> {
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-         .map_err(super::super::operation::list_contact_lists::ListContactListsError::unhandled)?;
-@@ -37,8 +40,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::list_contact_lists::ListContactListsError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::list_contact_lists::ListContactListsError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -56,7 +60,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::list_contact_lists::ListContactListsOutput, super::super::operation::list_contact_lists::ListContactListsError> {
-+) -> std::result::Result<
-+    super::super::operation::list_contact_lists::ListContactListsOutput,
-+    super::super::operation::list_contact_lists::ListContactListsError,
-+> {
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::list_contact_lists::builders::ListContactListsOutputBuilder::default();
-@@ -67,6 +74,16 @@
+@@ -67,6 +67,16 @@
      })
  }
 
@@ -13400,48 +5220,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_custom_verification_email_templates.rs
 +++ generated/src/protocol_serde/shape_list_custom_verification_email_templates.rs
-@@ -16,7 +16,9 @@
-     let error_code = match generic.code() {
-         Some(code) => code,
-         None => {
--            return Err(super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError::unhandled(generic))
-+            return Err(
-+                super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError::unhandled(generic),
-+            )
-         }
-     };
-
-@@ -29,7 +31,9 @@
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-                     output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError::unhandled)?;
-+                        .map_err(
-+                            super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -45,11 +49,13 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(
--                                super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError::unhandled,
--                            )?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(
-+                        super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError::unhandled,
-+                    )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -86,6 +92,19 @@
+@@ -86,6 +86,19 @@
      })
  }
 
@@ -13461,46 +5240,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_list_custom_verification_email_templates(
      _value: &[u8],
      mut builder: super::super::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesOutputBuilder,
-@@ -101,25 +120,21 @@
-     loop {
-         match tokens.next().transpose()? {
-             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
--            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
--                "CustomVerificationEmailTemplates" => {
--                    builder = builder.set_custom_verification_email_templates(
--                        super::super::protocol_serde::shape_custom_verification_email_templates_list::de_custom_verification_email_templates_list(
--                            tokens,
--                            _value,
--                            depth + 1,
--                        )?,
--                    );
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-+                match key.to_unescaped()?.as_ref() {
-+                    "CustomVerificationEmailTemplates" => {
-+                        builder = builder.set_custom_verification_email_templates(super::super::protocol_serde::shape_custom_verification_email_templates_list::de_custom_verification_email_templates_list(tokens, _value, depth + 1)?);
-+                    }
-+                    "NextToken" => {
-+                        builder = builder.set_next_token(
-+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                                .transpose()?,
-+                        );
-+                    }
-+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                 }
--                "NextToken" => {
--                    builder = builder.set_next_token(
--                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
--                            .transpose()?,
--                    );
--                }
--                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
--            },
-+            }
-             other => {
-                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                     "expected object key or end object, found: {other:?}"
 ```
 
 ### `src/protocol_serde/shape_list_dedicated_ip_pools.rs`
@@ -13508,32 +5247,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_dedicated_ip_pools.rs
 +++ generated/src/protocol_serde/shape_list_dedicated_ip_pools.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -40,8 +44,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::list_dedicated_ip_pools::ListDedicatedIpPoolsError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -73,6 +78,16 @@
+@@ -73,6 +73,16 @@
      })
  }
 
@@ -13550,44 +5264,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_list_dedicated_ip_pools(
      _value: &[u8],
      mut builder: super::super::operation::list_dedicated_ip_pools::builders::ListDedicatedIpPoolsOutputBuilder,
-@@ -88,23 +103,21 @@
-     loop {
-         match tokens.next().transpose()? {
-             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
--            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                match key.to_unescaped()?.as_ref() {
--                    "DedicatedIpPools" => {
--                        builder = builder.set_dedicated_ip_pools(
--                            super::super::protocol_serde::shape_list_of_dedicated_ip_pools::de_list_of_dedicated_ip_pools(tokens, _value, depth + 1)?,
--                        );
--                    }
--                    "NextToken" => {
--                        builder = builder.set_next_token(
--                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
--                                .transpose()?,
--                        );
--                    }
--                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                "DedicatedIpPools" => {
-+                    builder = builder.set_dedicated_ip_pools(
-+                        super::super::protocol_serde::shape_list_of_dedicated_ip_pools::de_list_of_dedicated_ip_pools(tokens, _value, depth + 1)?,
-+                    );
-+                }
-+                "NextToken" => {
-+                    builder = builder.set_next_token(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
-                 }
--            }
-+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            },
-             other => {
-                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                     "expected object key or end object, found: {other:?}"
 ```
 
 ### `src/protocol_serde/shape_list_deliverability_test_reports.rs`
@@ -13595,60 +5271,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_deliverability_test_reports.rs
 +++ generated/src/protocol_serde/shape_list_deliverability_test_reports.rs
-@@ -20,21 +20,23 @@
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-     Err(match error_code {
--        "BadRequestException" => super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError::BadRequestException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "BadRequestException" => {
-+            super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError::BadRequestException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         "NotFoundException" => super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError::NotFoundException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-@@ -56,9 +58,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -93,6 +97,16 @@
+@@ -93,6 +93,16 @@
      })
  }
 
@@ -13672,86 +5295,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_domain_deliverability_campaigns.rs
 +++ generated/src/protocol_serde/shape_list_domain_deliverability_campaigns.rs
-@@ -15,7 +15,9 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::unhandled(generic))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -37,21 +39,23 @@
-                 tmp
-             })
-         }
--        "NotFoundException" => super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::NotFoundException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "NotFoundException" => {
-+            super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::NotFoundException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         "TooManyRequestsException" => {
-             super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::TooManyRequestsException({
-                 #[allow(unused_mut)]
-@@ -58,9 +62,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -85,9 +91,11 @@
- > {
-     Ok({
-         #[allow(unused_mut)]
--        let mut output = super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder::default();
--        output = super::super::protocol_serde::shape_list_domain_deliverability_campaigns::de_list_domain_deliverability_campaigns(_response_body, output)
--            .map_err(super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::unhandled)?;
-+        let mut output =
-+            super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder::default();
-+        output =
-+            super::super::protocol_serde::shape_list_domain_deliverability_campaigns::de_list_domain_deliverability_campaigns(_response_body, output)
-+                .map_err(super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::unhandled)?;
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-         super::super::serde_util::list_domain_deliverability_campaigns_output_output_correct_errors(output)
-             .build()
-@@ -95,6 +103,19 @@
+@@ -95,6 +95,19 @@
      })
  }
 
@@ -13778,32 +5322,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_email_identities.rs
 +++ generated/src/protocol_serde/shape_list_email_identities.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::list_email_identities::ListEmailIdentitiesError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::list_email_identities::ListEmailIdentitiesError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -40,8 +44,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::list_email_identities::ListEmailIdentitiesError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::list_email_identities::ListEmailIdentitiesError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -73,6 +78,16 @@
+@@ -73,6 +73,16 @@
      })
  }
 
@@ -13827,19 +5346,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_email_templates.rs
 +++ generated/src/protocol_serde/shape_list_email_templates.rs
-@@ -40,8 +40,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::list_email_templates::ListEmailTemplatesError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::list_email_templates::ListEmailTemplatesError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -73,6 +74,16 @@
+@@ -73,6 +73,16 @@
      })
  }
 
@@ -13856,7 +5363,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_list_email_templates(
      _value: &[u8],
      mut builder: super::super::operation::list_email_templates::builders::ListEmailTemplatesOutputBuilder,
-@@ -89,6 +100,11 @@
+@@ -89,6 +99,11 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -13868,7 +5375,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "NextToken" => {
                      builder = builder.set_next_token(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -96,11 +112,6 @@
+@@ -96,11 +111,6 @@
                              .transpose()?,
                      );
                  }
@@ -13880,49 +5387,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
              other => {
-```
-
-### `src/protocol_serde/shape_list_export_jobs.rs`
-
-```diff
---- reference/src/protocol_serde/shape_list_export_jobs.rs
-+++ generated/src/protocol_serde/shape_list_export_jobs.rs
-@@ -4,7 +4,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::list_export_jobs::ListExportJobsOutput, super::super::operation::list_export_jobs::ListExportJobsError> {
-+) -> std::result::Result<
-+    super::super::operation::list_export_jobs::ListExportJobsOutput,
-+    super::super::operation::list_export_jobs::ListExportJobsError,
-+> {
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-         .map_err(super::super::operation::list_export_jobs::ListExportJobsError::unhandled)?;
-@@ -37,8 +40,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::list_export_jobs::ListExportJobsError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::list_export_jobs::ListExportJobsError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -56,7 +60,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::list_export_jobs::ListExportJobsOutput, super::super::operation::list_export_jobs::ListExportJobsError> {
-+) -> std::result::Result<
-+    super::super::operation::list_export_jobs::ListExportJobsOutput,
-+    super::super::operation::list_export_jobs::ListExportJobsError,
-+> {
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::list_export_jobs::builders::ListExportJobsOutputBuilder::default();
 ```
 
 ### `src/protocol_serde/shape_list_export_jobs_input.rs`
@@ -13963,108 +5427,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/protocol_serde/shape_list_import_jobs.rs`
-
-```diff
---- reference/src/protocol_serde/shape_list_import_jobs.rs
-+++ generated/src/protocol_serde/shape_list_import_jobs.rs
-@@ -4,7 +4,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::list_import_jobs::ListImportJobsOutput, super::super::operation::list_import_jobs::ListImportJobsError> {
-+) -> std::result::Result<
-+    super::super::operation::list_import_jobs::ListImportJobsOutput,
-+    super::super::operation::list_import_jobs::ListImportJobsError,
-+> {
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-         .map_err(super::super::operation::list_import_jobs::ListImportJobsError::unhandled)?;
-@@ -37,8 +40,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::list_import_jobs::ListImportJobsError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::list_import_jobs::ListImportJobsError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -56,7 +60,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::list_import_jobs::ListImportJobsOutput, super::super::operation::list_import_jobs::ListImportJobsError> {
-+) -> std::result::Result<
-+    super::super::operation::list_import_jobs::ListImportJobsOutput,
-+    super::super::operation::list_import_jobs::ListImportJobsError,
-+> {
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::list_import_jobs::builders::ListImportJobsOutputBuilder::default();
-```
-
 ### `src/protocol_serde/shape_list_multi_region_endpoints.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_list_multi_region_endpoints.rs
 +++ generated/src/protocol_serde/shape_list_multi_region_endpoints.rs
-@@ -15,11 +15,7 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => {
--            return Err(super::super::operation::list_multi_region_endpoints::ListMultiRegionEndpointsError::unhandled(
--                generic,
--            ))
--        }
-+        None => return Err(super::super::operation::list_multi_region_endpoints::ListMultiRegionEndpointsError::unhandled(generic)),
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -39,21 +35,26 @@
-             }
-             tmp
-         }),
--        "TooManyRequestsException" => super::super::operation::list_multi_region_endpoints::ListMultiRegionEndpointsError::TooManyRequestsException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "TooManyRequestsException" => {
-+            super::super::operation::list_multi_region_endpoints::ListMultiRegionEndpointsError::TooManyRequestsException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-                     .map_err(super::super::operation::list_multi_region_endpoints::ListMultiRegionEndpointsError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         _ => super::super::operation::list_multi_region_endpoints::ListMultiRegionEndpointsError::generic(generic),
-     })
- }
-@@ -77,6 +78,16 @@
+@@ -77,6 +77,16 @@
      })
  }
 
@@ -14081,21 +5449,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_list_multi_region_endpoints(
      _value: &[u8],
      mut builder: super::super::operation::list_multi_region_endpoints::builders::ListMultiRegionEndpointsOutputBuilder,
-@@ -94,11 +105,9 @@
-             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                 "MultiRegionEndpoints" => {
--                    builder = builder.set_multi_region_endpoints(super::super::protocol_serde::shape_multi_region_endpoints::de_multi_region_endpoints(
--                        tokens,
--                        _value,
--                        depth + 1,
--                    )?);
-+                    builder = builder.set_multi_region_endpoints(
-+                        super::super::protocol_serde::shape_multi_region_endpoints::de_multi_region_endpoints(tokens, _value, depth + 1)?,
-+                    );
-                 }
-                 "NextToken" => {
-                     builder = builder.set_next_token(
 ```
 
 ### `src/protocol_serde/shape_list_recommendations.rs`
@@ -14103,56 +5456,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_recommendations.rs
 +++ generated/src/protocol_serde/shape_list_recommendations.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::list_recommendations::ListRecommendationsError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::list_recommendations::ListRecommendationsError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -55,8 +59,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::list_recommendations::ListRecommendationsError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::list_recommendations::ListRecommendationsError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -114,13 +119,6 @@
+@@ -114,6 +114,13 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
--                "NextToken" => {
--                    builder = builder.set_next_token(
--                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
--                            .transpose()?,
--                    );
--                }
-                 "Recommendations" => {
-                     builder = builder.set_recommendations(super::super::protocol_serde::shape_recommendations_list::de_recommendations_list(
-                         tokens,
-@@ -128,6 +126,13 @@
-                         depth + 1,
-                     )?);
-                 }
-+                "NextToken" => {
-+                    builder = builder.set_next_token(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
++                "Recommendations" => {
++                    builder = builder.set_recommendations(super::super::protocol_serde::shape_recommendations_list::de_recommendations_list(
++                        tokens,
++                        _value,
++                        depth + 1,
++                    )?);
 +                }
+                 "NextToken" => {
+                     builder = builder.set_next_token(
+                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+@@ -121,13 +128,6 @@
+                             .transpose()?,
+                     );
+                 }
+-                "Recommendations" => {
+-                    builder = builder.set_recommendations(super::super::protocol_serde::shape_recommendations_list::de_recommendations_list(
+-                        tokens,
+-                        _value,
+-                        depth + 1,
+-                    )?);
+-                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
              other => {
@@ -14163,56 +5491,30 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_reputation_entities.rs
 +++ generated/src/protocol_serde/shape_list_reputation_entities.rs
-@@ -44,8 +44,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::list_reputation_entities::ListReputationEntitiesError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::list_reputation_entities::ListReputationEntitiesError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -102,23 +103,21 @@
-     loop {
-         match tokens.next().transpose()? {
+@@ -104,6 +104,11 @@
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
--            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                match key.to_unescaped()?.as_ref() {
--                    "NextToken" => {
--                        builder = builder.set_next_token(
--                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
--                                .transpose()?,
--                        );
--                    }
+             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                 match key.to_unescaped()?.as_ref() {
++                    "ReputationEntities" => {
++                        builder = builder.set_reputation_entities(
++                            super::super::protocol_serde::shape_reputation_entities_list::de_reputation_entities_list(tokens, _value, depth + 1)?,
++                        );
++                    }
+                     "NextToken" => {
+                         builder = builder.set_next_token(
+                             ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+@@ -111,11 +116,6 @@
+                                 .transpose()?,
+                         );
+                     }
 -                    "ReputationEntities" => {
 -                        builder = builder.set_reputation_entities(
 -                            super::super::protocol_serde::shape_reputation_entities_list::de_reputation_entities_list(tokens, _value, depth + 1)?,
 -                        );
 -                    }
--                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                "ReputationEntities" => {
-+                    builder = builder.set_reputation_entities(
-+                        super::super::protocol_serde::shape_reputation_entities_list::de_reputation_entities_list(tokens, _value, depth + 1)?,
-+                    );
+                     _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                  }
--            }
-+                "NextToken" => {
-+                    builder = builder.set_next_token(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
-+                }
-+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+            },
-             other => {
-                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                     "expected object key or end object, found: {other:?}"
+             }
 ```
 
 ### `src/protocol_serde/shape_list_resource_tenants.rs`
@@ -14220,48 +5522,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_resource_tenants.rs
 +++ generated/src/protocol_serde/shape_list_resource_tenants.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::list_resource_tenants::ListResourceTenantsError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::list_resource_tenants::ListResourceTenantsError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -55,8 +59,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::list_resource_tenants::ListResourceTenantsError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::list_resource_tenants::ListResourceTenantsError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -114,6 +119,15 @@
+@@ -114,6 +114,11 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
 +                "ResourceTenants" => {
 +                    builder = builder.set_resource_tenants(
-+                        super::super::protocol_serde::shape_resource_tenant_metadata_list::de_resource_tenant_metadata_list(
-+                            tokens,
-+                            _value,
-+                            depth + 1,
-+                        )?,
++                        super::super::protocol_serde::shape_resource_tenant_metadata_list::de_resource_tenant_metadata_list(tokens, _value, depth + 1)?,
 +                    );
 +                }
                  "NextToken" => {
                      builder = builder.set_next_token(
                          ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-@@ -121,11 +135,6 @@
+@@ -121,11 +126,6 @@
                              .transpose()?,
                      );
                  }
@@ -14309,87 +5582,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_suppressed_destinations.rs
 +++ generated/src/protocol_serde/shape_list_suppressed_destinations.rs
-@@ -35,21 +35,26 @@
-             }
-             tmp
-         }),
--        "InvalidNextTokenException" => super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsError::InvalidNextTokenException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "InvalidNextTokenException" => {
-+            super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsError::InvalidNextTokenException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-                     .map_err(super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         "NotFoundException" => super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsError::NotFoundException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-@@ -65,21 +70,26 @@
-             }
-             tmp
-         }),
--        "TooManyRequestsException" => super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsError::TooManyRequestsException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "TooManyRequestsException" => {
-+            super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsError::TooManyRequestsException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-                     .map_err(super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         _ => super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsError::generic(generic),
-     })
- }
-@@ -103,6 +113,16 @@
+@@ -103,6 +103,16 @@
      })
  }
 
@@ -14406,7 +5599,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_list_suppressed_destinations(
      _value: &[u8],
      mut builder: super::super::operation::list_suppressed_destinations::builders::ListSuppressedDestinationsOutputBuilder,
-@@ -119,13 +139,6 @@
+@@ -119,13 +129,6 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
@@ -14420,7 +5613,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  "SuppressedDestinationSummaries" => {
                      builder = builder.set_suppressed_destination_summaries(
                          super::super::protocol_serde::shape_suppressed_destination_summaries::de_suppressed_destination_summaries(
-@@ -135,6 +148,13 @@
+@@ -135,6 +138,13 @@
                          )?,
                      );
                  }
@@ -14441,32 +5634,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_tags_for_resource.rs
 +++ generated/src/protocol_serde/shape_list_tags_for_resource.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -55,8 +59,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -90,6 +95,16 @@
+@@ -90,6 +90,16 @@
      })
  }
 
@@ -14490,56 +5658,31 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_tenant_resources.rs
 +++ generated/src/protocol_serde/shape_list_tenant_resources.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::list_tenant_resources::ListTenantResourcesError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::list_tenant_resources::ListTenantResourcesError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -55,8 +59,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::list_tenant_resources::ListTenantResourcesError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::list_tenant_resources::ListTenantResourcesError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -114,13 +119,6 @@
+@@ -114,6 +114,13 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
--                "NextToken" => {
--                    builder = builder.set_next_token(
--                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
--                            .transpose()?,
--                    );
--                }
-                 "TenantResources" => {
-                     builder = builder.set_tenant_resources(super::super::protocol_serde::shape_tenant_resource_list::de_tenant_resource_list(
-                         tokens,
-@@ -128,6 +126,13 @@
-                         depth + 1,
-                     )?);
-                 }
-+                "NextToken" => {
-+                    builder = builder.set_next_token(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
++                "TenantResources" => {
++                    builder = builder.set_tenant_resources(super::super::protocol_serde::shape_tenant_resource_list::de_tenant_resource_list(
++                        tokens,
++                        _value,
++                        depth + 1,
++                    )?);
 +                }
+                 "NextToken" => {
+                     builder = builder.set_next_token(
+                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+@@ -121,13 +128,6 @@
+                             .transpose()?,
+                     );
+                 }
+-                "TenantResources" => {
+-                    builder = builder.set_tenant_resources(super::super::protocol_serde::shape_tenant_resource_list::de_tenant_resource_list(
+-                        tokens,
+-                        _value,
+-                        depth + 1,
+-                    )?);
+-                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
              other => {
@@ -14595,81 +5738,34 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_tenants.rs
 +++ generated/src/protocol_serde/shape_list_tenants.rs
-@@ -37,8 +37,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::list_tenants::ListTenantsError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::list_tenants::ListTenantsError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -80,8 +81,10 @@
- pub(crate) fn de_list_tenants(
-     _value: &[u8],
-     mut builder: super::super::operation::list_tenants::builders::ListTenantsOutputBuilder,
--) -> ::std::result::Result<super::super::operation::list_tenants::builders::ListTenantsOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
--{
-+) -> ::std::result::Result<
-+    super::super::operation::list_tenants::builders::ListTenantsOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-     let tokens = &mut tokens_owned;
-     #[allow(unused_variables)]
-@@ -91,13 +94,6 @@
+@@ -91,6 +91,13 @@
          match tokens.next().transpose()? {
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
--                "NextToken" => {
--                    builder = builder.set_next_token(
--                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
--                            .transpose()?,
--                    );
--                }
-                 "Tenants" => {
-                     builder = builder.set_tenants(super::super::protocol_serde::shape_tenant_info_list::de_tenant_info_list(
-                         tokens,
-@@ -105,6 +101,13 @@
-                         depth + 1,
-                     )?);
-                 }
-+                "NextToken" => {
-+                    builder = builder.set_next_token(
-+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-+                            .transpose()?,
-+                    );
++                "Tenants" => {
++                    builder = builder.set_tenants(super::super::protocol_serde::shape_tenant_info_list::de_tenant_info_list(
++                        tokens,
++                        _value,
++                        depth + 1,
++                    )?);
 +                }
+                 "NextToken" => {
+                     builder = builder.set_next_token(
+                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+@@ -98,13 +105,6 @@
+                             .transpose()?,
+                     );
+                 }
+-                "Tenants" => {
+-                    builder = builder.set_tenants(super::super::protocol_serde::shape_tenant_info_list::de_tenant_info_list(
+-                        tokens,
+-                        _value,
+-                        depth + 1,
+-                    )?);
+-                }
                  _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
              },
              other => {
-```
-
-### `src/protocol_serde/shape_mail_from_attributes.rs`
-
-```diff
---- reference/src/protocol_serde/shape_mail_from_attributes.rs
-+++ generated/src/protocol_serde/shape_mail_from_attributes.rs
-@@ -51,9 +51,11 @@
-                     }
-                 }
-             }
--            Ok(Some(super::super::serde_util::mail_from_attributes_correct_errors(builder).build().map_err(
--                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
--            )?))
-+            Ok(Some(
-+                super::super::serde_util::mail_from_attributes_correct_errors(builder)
-+                    .build()
-+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_message_insights_data_source.rs`
@@ -14694,109 +5790,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          #[allow(unused_mut)]
 ```
 
-### `src/protocol_serde/shape_message_insights_filters.rs`
-
-```diff
---- reference/src/protocol_serde/shape_message_insights_filters.rs
-+++ generated/src/protocol_serde/shape_message_insights_filters.rs
-@@ -84,22 +84,30 @@
-                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                         "FromEmailAddress" => {
-                             builder = builder.set_from_email_address(
--                                super::super::protocol_serde::shape_email_address_filter_list::de_email_address_filter_list(tokens, _value, depth + 1)?,
-+                                super::super::protocol_serde::shape_email_address_filter_list::de_email_address_filter_list(
-+                                    tokens,
-+                                    _value,
-+                                    depth + 1,
-+                                )?,
-                             );
-                         }
-                         "Destination" => {
--                            builder = builder.set_destination(super::super::protocol_serde::shape_email_address_filter_list::de_email_address_filter_list(
--                                tokens,
--                                _value,
--                                depth + 1,
--                            )?);
-+                            builder = builder.set_destination(
-+                                super::super::protocol_serde::shape_email_address_filter_list::de_email_address_filter_list(
-+                                    tokens,
-+                                    _value,
-+                                    depth + 1,
-+                                )?,
-+                            );
-                         }
-                         "Subject" => {
--                            builder = builder.set_subject(super::super::protocol_serde::shape_email_subject_filter_list::de_email_subject_filter_list(
--                                tokens,
--                                _value,
--                                depth + 1,
--                            )?);
-+                            builder = builder.set_subject(
-+                                super::super::protocol_serde::shape_email_subject_filter_list::de_email_subject_filter_list(
-+                                    tokens,
-+                                    _value,
-+                                    depth + 1,
-+                                )?,
-+                            );
-                         }
-                         "Isp" => {
-                             builder = builder.set_isp(super::super::protocol_serde::shape_isp_filter_list::de_isp_filter_list(
-@@ -115,7 +123,11 @@
-                         }
-                         "LastEngagementEvent" => {
-                             builder = builder.set_last_engagement_event(
--                                super::super::protocol_serde::shape_last_engagement_event_list::de_last_engagement_event_list(tokens, _value, depth + 1)?,
-+                                super::super::protocol_serde::shape_last_engagement_event_list::de_last_engagement_event_list(
-+                                    tokens,
-+                                    _value,
-+                                    depth + 1,
-+                                )?,
-                             );
-                         }
-                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-```
-
-### `src/protocol_serde/shape_message_tag.rs`
-
-```diff
---- reference/src/protocol_serde/shape_message_tag.rs
-+++ generated/src/protocol_serde/shape_message_tag.rs
-@@ -57,9 +57,9 @@
-                     }
-                 }
-             }
--            Ok(Some(super::super::serde_util::message_tag_correct_errors(builder).build().map_err(|err| {
--                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
--            })?))
-+            Ok(Some(super::super::serde_util::message_tag_correct_errors(builder).build().map_err(
-+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-+            )?))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
-### `src/protocol_serde/shape_metric_data_result.rs`
-
-```diff
---- reference/src/protocol_serde/shape_metric_data_result.rs
-+++ generated/src/protocol_serde/shape_metric_data_result.rs
-@@ -29,8 +29,11 @@
-                             );
-                         }
-                         "Timestamps" => {
--                            builder =
--                                builder.set_timestamps(super::super::protocol_serde::shape_timestamp_list::de_timestamp_list(tokens, _value, depth + 1)?);
-+                            builder = builder.set_timestamps(super::super::protocol_serde::shape_timestamp_list::de_timestamp_list(
-+                                tokens,
-+                                _value,
-+                                depth + 1,
-+                            )?);
-                         }
-                         "Values" => {
-                             builder = builder.set_values(super::super::protocol_serde::shape_metric_value_list::de_metric_value_list(
-```
-
 ### `src/protocol_serde/shape_metrics_data_source.rs`
 
 ```diff
@@ -14817,34 +5810,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-@@ -84,7 +84,11 @@
-                             );
-                         }
-                         "Metrics" => {
--                            builder = builder.set_metrics(super::super::protocol_serde::shape_export_metrics::de_export_metrics(tokens, _value, depth + 1)?);
-+                            builder = builder.set_metrics(super::super::protocol_serde::shape_export_metrics::de_export_metrics(
-+                                tokens,
-+                                _value,
-+                                depth + 1,
-+                            )?);
-                         }
-                         "StartDate" => {
-                             builder = builder.set_start_date(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-@@ -107,9 +111,11 @@
-                     }
-                 }
-             }
--            Ok(Some(super::super::serde_util::metrics_data_source_correct_errors(builder).build().map_err(
--                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
--            )?))
-+            Ok(Some(
-+                super::super::serde_util::metrics_data_source_correct_errors(builder)
-+                    .build()
-+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_put_account_dedicated_ip_warmup_attributes.rs`
@@ -14852,77 +5817,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_account_dedicated_ip_warmup_attributes.rs
 +++ generated/src/protocol_serde/shape_put_account_dedicated_ip_warmup_attributes.rs
-@@ -16,7 +16,9 @@
-     let error_code = match generic.code() {
-         Some(code) => code,
-         None => {
--            return Err(super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesError::unhandled(generic))
-+            return Err(
-+                super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesError::unhandled(generic),
-+            )
-         }
-     };
-
-@@ -28,7 +30,8 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(
-+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(
-                         super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesError::unhandled,
-                     )?;
-                     let output = output.meta(generic);
-@@ -41,24 +44,22 @@
-             })
-         }
-         "TooManyRequestsException" => {
--            super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesError::TooManyRequestsException({
--                #[allow(unused_mut)]
--                let mut tmp = {
-+            super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesError::TooManyRequestsException(
-+                {
-                     #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(
--                                super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesError::unhandled,
--                            )?;
--                    let output = output.meta(generic);
--                    output.build()
--                };
--                if tmp.message.is_none() {
--                    tmp.message = _error_message;
--                }
--                tmp
--            })
-+                    let mut tmp = {
-+                        #[allow(unused_mut)]
-+                        let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                        output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesError::unhandled)?;
-+                        let output = output.meta(generic);
-+                        output.build()
-+                    };
-+                    if tmp.message.is_none() {
-+                        tmp.message = _error_message;
-+                    }
-+                    tmp
-+                },
-+            )
-         }
-         _ => super::super::operation::put_account_dedicated_ip_warmup_attributes::PutAccountDedicatedIpWarmupAttributesError::generic(generic),
-     })
-@@ -75,8 +76,7 @@
- > {
-     Ok({
-         #[allow(unused_mut)]
--        let mut output =
--            super::super::operation::put_account_dedicated_ip_warmup_attributes::builders::PutAccountDedicatedIpWarmupAttributesOutputBuilder::default();
-+        let mut output = super::super::operation::put_account_dedicated_ip_warmup_attributes::builders::PutAccountDedicatedIpWarmupAttributesOutputBuilder::default();
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-         output.build()
-     })
 @@ -94,3 +94,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
@@ -14967,45 +5861,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_account_details.rs
 +++ generated/src/protocol_serde/shape_put_account_details.rs
-@@ -4,8 +4,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::put_account_details::PutAccountDetailsOutput, super::super::operation::put_account_details::PutAccountDetailsError>
--{
-+) -> std::result::Result<
-+    super::super::operation::put_account_details::PutAccountDetailsOutput,
-+    super::super::operation::put_account_details::PutAccountDetailsError,
-+> {
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-         .map_err(super::super::operation::put_account_details::PutAccountDetailsError::unhandled)?;
-@@ -53,8 +55,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::put_account_details::PutAccountDetailsError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::put_account_details::PutAccountDetailsError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -72,8 +75,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::put_account_details::PutAccountDetailsOutput, super::super::operation::put_account_details::PutAccountDetailsError>
--{
-+) -> std::result::Result<
-+    super::super::operation::put_account_details::PutAccountDetailsOutput,
-+    super::super::operation::put_account_details::PutAccountDetailsError,
-+> {
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::put_account_details::builders::PutAccountDetailsOutputBuilder::default();
-@@ -91,3 +96,36 @@
+@@ -91,3 +91,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -15104,47 +5960,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_account_pricing_attributes.rs
 +++ generated/src/protocol_serde/shape_put_account_pricing_attributes.rs
-@@ -50,21 +50,26 @@
-             }
-             tmp
-         }),
--        "TooManyRequestsException" => super::super::operation::put_account_pricing_attributes::PutAccountPricingAttributesError::TooManyRequestsException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "TooManyRequestsException" => {
-+            super::super::operation::put_account_pricing_attributes::PutAccountPricingAttributesError::TooManyRequestsException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-                     .map_err(super::super::operation::put_account_pricing_attributes::PutAccountPricingAttributesError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         _ => super::super::operation::put_account_pricing_attributes::PutAccountPricingAttributesError::generic(generic),
-     })
- }
-@@ -95,3 +100,36 @@
+@@ -95,3 +95,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -15188,47 +6004,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_account_sending_attributes.rs
 +++ generated/src/protocol_serde/shape_put_account_sending_attributes.rs
-@@ -35,21 +35,26 @@
-             }
-             tmp
-         }),
--        "TooManyRequestsException" => super::super::operation::put_account_sending_attributes::PutAccountSendingAttributesError::TooManyRequestsException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "TooManyRequestsException" => {
-+            super::super::operation::put_account_sending_attributes::PutAccountSendingAttributesError::TooManyRequestsException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-                     .map_err(super::super::operation::put_account_sending_attributes::PutAccountSendingAttributesError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         _ => super::super::operation::put_account_sending_attributes::PutAccountSendingAttributesError::generic(generic),
-     })
- }
-@@ -80,3 +85,36 @@
+@@ -80,3 +80,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -15272,78 +6048,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_account_suppression_attributes.rs
 +++ generated/src/protocol_serde/shape_put_account_suppression_attributes.rs
-@@ -20,21 +20,23 @@
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-     Err(match error_code {
--        "BadRequestException" => super::super::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesError::BadRequestException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "BadRequestException" => {
-+            super::super::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesError::BadRequestException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         "TooManyRequestsException" => {
-             super::super::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesError::TooManyRequestsException({
-                 #[allow(unused_mut)]
-@@ -41,9 +43,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::put_account_suppression_attributes::PutAccountSuppressionAttributesError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -68,7 +72,8 @@
- > {
-     Ok({
-         #[allow(unused_mut)]
--        let mut output = super::super::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesOutputBuilder::default();
-+        let mut output =
-+            super::super::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesOutputBuilder::default();
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-         output.build()
-     })
-@@ -79,7 +84,43 @@
- ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-     let mut out = String::new();
-     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
--    super::super::protocol_serde::shape_put_account_suppression_attributes_input::ser_put_account_suppression_attributes_input_input(&mut object, input)?;
-+    super::super::protocol_serde::shape_put_account_suppression_attributes_input::ser_put_account_suppression_attributes_input_input(
-+        &mut object,
-+        input,
-+    )?;
+@@ -83,3 +83,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -15387,32 +6092,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_account_vdm_attributes.rs
 +++ generated/src/protocol_serde/shape_put_account_vdm_attributes.rs
-@@ -15,11 +15,7 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => {
--            return Err(super::super::operation::put_account_vdm_attributes::PutAccountVdmAttributesError::unhandled(
--                generic,
--            ))
--        }
-+        None => return Err(super::super::operation::put_account_vdm_attributes::PutAccountVdmAttributesError::unhandled(generic)),
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -44,8 +40,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::put_account_vdm_attributes::PutAccountVdmAttributesError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::put_account_vdm_attributes::PutAccountVdmAttributesError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -84,3 +81,36 @@
+@@ -84,3 +84,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -15456,59 +6136,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_configuration_set_archiving_options.rs
 +++ generated/src/protocol_serde/shape_put_configuration_set_archiving_options.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError::unhandled(generic)),
-+        None => {
-+            return Err(
-+                super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError::unhandled(generic),
-+            )
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -27,7 +31,9 @@
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-                     output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError::unhandled)?;
-+                        .map_err(
-+                            super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -44,7 +50,9 @@
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-                     output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError::unhandled)?;
-+                        .map_err(
-+                            super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -60,11 +68,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(
--                                super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError::unhandled,
--                            )?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -108,3 +116,36 @@
+@@ -108,3 +108,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -15573,55 +6201,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_configuration_set_delivery_options.rs
 +++ generated/src/protocol_serde/shape_put_configuration_set_delivery_options.rs
-@@ -15,7 +15,9 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsError::unhandled(generic))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -27,7 +29,9 @@
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-                     output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsError::unhandled)?;
-+                        .map_err(
-+                            super::super::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -44,7 +48,9 @@
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-                     output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsError::unhandled)?;
-+                        .map_err(
-+                            super::super::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -60,9 +66,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -106,3 +114,36 @@
+@@ -106,3 +106,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -15701,59 +6281,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_configuration_set_reputation_options.rs
 +++ generated/src/protocol_serde/shape_put_configuration_set_reputation_options.rs
-@@ -16,7 +16,9 @@
-     let error_code = match generic.code() {
-         Some(code) => code,
-         None => {
--            return Err(super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsError::unhandled(generic))
-+            return Err(
-+                super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsError::unhandled(generic),
-+            )
-         }
-     };
-
-@@ -29,7 +31,9 @@
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-                     output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsError::unhandled)?;
-+                        .map_err(
-+                            super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -46,7 +50,9 @@
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-                     output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsError::unhandled)?;
-+                        .map_err(
-+                            super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -62,11 +68,13 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(
--                                super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsError::unhandled,
--                            )?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(
-+                        super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsError::unhandled,
-+                    )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -110,3 +118,36 @@
+@@ -110,3 +110,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -15818,81 +6346,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_configuration_set_sending_options.rs
 +++ generated/src/protocol_serde/shape_put_configuration_set_sending_options.rs
-@@ -15,7 +15,9 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError::unhandled(generic))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -37,21 +39,23 @@
-                 tmp
-             })
-         }
--        "NotFoundException" => super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError::NotFoundException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "NotFoundException" => {
-+            super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError::NotFoundException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         "TooManyRequestsException" => {
-             super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError::TooManyRequestsException({
-                 #[allow(unused_mut)]
-@@ -58,9 +62,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -85,7 +91,8 @@
- > {
-     Ok({
-         #[allow(unused_mut)]
--        let mut output = super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsOutputBuilder::default();
-+        let mut output =
-+            super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsOutputBuilder::default();
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-         output.build()
-     })
-@@ -103,3 +110,36 @@
+@@ -103,3 +103,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -15957,102 +6411,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_configuration_set_suppression_options.rs
 +++ generated/src/protocol_serde/shape_put_configuration_set_suppression_options.rs
-@@ -16,7 +16,9 @@
-     let error_code = match generic.code() {
-         Some(code) => code,
-         None => {
--            return Err(super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsError::unhandled(generic))
-+            return Err(
-+                super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsError::unhandled(generic),
-+            )
-         }
-     };
-
-@@ -28,9 +30,10 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(
--                        super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsError::unhandled,
--                    )?;
-+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(
-+                            super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -46,9 +49,10 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output).map_err(
--                        super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsError::unhandled,
--                    )?;
-+                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-+                        .map_err(
-+                            super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -59,24 +63,28 @@
-             })
-         }
-         "TooManyRequestsException" => {
--            super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsError::TooManyRequestsException({
--                #[allow(unused_mut)]
--                let mut tmp = {
-+            super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsError::TooManyRequestsException(
-+                {
-                     #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(
--                                super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsError::unhandled,
--                            )?;
--                    let output = output.meta(generic);
--                    output.build()
--                };
--                if tmp.message.is_none() {
--                    tmp.message = _error_message;
--                }
--                tmp
--            })
-+                    let mut tmp = {
-+                        #[allow(unused_mut)]
-+                        let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                        output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                            _response_body,
-+                            output,
-+                        )
-+                        .map_err(
-+                            super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsError::unhandled,
-+                        )?;
-+                        let output = output.meta(generic);
-+                        output.build()
-+                    };
-+                    if tmp.message.is_none() {
-+                        tmp.message = _error_message;
-+                    }
-+                    tmp
-+                },
-+            )
-         }
-         _ => super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsError::generic(generic),
-     })
-@@ -94,7 +102,8 @@
-     Ok({
-         #[allow(unused_mut)]
-         let mut output =
--            super::super::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsOutputBuilder::default();
-+            super::super::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsOutputBuilder::default(
-+            );
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-         output.build()
-     })
-@@ -112,3 +121,36 @@
+@@ -112,3 +112,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -16142,55 +6501,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_configuration_set_tracking_options.rs
 +++ generated/src/protocol_serde/shape_put_configuration_set_tracking_options.rs
-@@ -15,7 +15,9 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsError::unhandled(generic))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -27,7 +29,9 @@
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-                     output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsError::unhandled)?;
-+                        .map_err(
-+                            super::super::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -44,7 +48,9 @@
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-                     output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsError::unhandled)?;
-+                        .map_err(
-+                            super::super::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -60,9 +66,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -106,3 +114,36 @@
+@@ -106,3 +106,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -16260,68 +6571,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_configuration_set_vdm_options.rs
 +++ generated/src/protocol_serde/shape_put_configuration_set_vdm_options.rs
-@@ -20,21 +20,23 @@
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-     Err(match error_code {
--        "BadRequestException" => super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError::BadRequestException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "BadRequestException" => {
-+            super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError::BadRequestException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         "NotFoundException" => super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError::NotFoundException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-@@ -56,9 +58,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -94,7 +98,43 @@
- ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-     let mut out = String::new();
-     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
--    super::super::protocol_serde::shape_put_configuration_set_vdm_options_input::ser_put_configuration_set_vdm_options_input_input(&mut object, input)?;
-+    super::super::protocol_serde::shape_put_configuration_set_vdm_options_input::ser_put_configuration_set_vdm_options_input_input(
-+        &mut object,
-+        input,
-+    )?;
+@@ -98,3 +98,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -16391,32 +6641,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_dedicated_ip_in_pool.rs
 +++ generated/src/protocol_serde/shape_put_dedicated_ip_in_pool.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -55,8 +59,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::put_dedicated_ip_in_pool::PutDedicatedIpInPoolError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -95,3 +100,36 @@
+@@ -95,3 +95,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -16481,150 +6706,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_dedicated_ip_pool_scaling_attributes.rs
 +++ generated/src/protocol_serde/shape_put_dedicated_ip_pool_scaling_attributes.rs
-@@ -15,85 +15,71 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::unhandled(generic)),
-+        None => {
-+            return Err(
-+                super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::unhandled(generic),
-+            )
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-     Err(match error_code {
--        "BadRequestException" => {
--            super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::BadRequestException({
-+        "BadRequestException" => super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::BadRequestException({
-+            #[allow(unused_mut)]
-+            let mut tmp = {
-                 #[allow(unused_mut)]
--                let mut tmp = {
--                    #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::unhandled)?;
--                    let output = output.meta(generic);
--                    output.build()
--                };
--                if tmp.message.is_none() {
--                    tmp.message = _error_message;
--                }
--                tmp
--            })
--        }
--        "ConcurrentModificationException" => {
--            super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::ConcurrentModificationException({
-+                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-+                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::unhandled)?;
-+                let output = output.meta(generic);
-+                output.build()
-+            };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-+            tmp
-+        }),
-+        "ConcurrentModificationException" => super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::ConcurrentModificationException({
-+            #[allow(unused_mut)]
-+            let mut tmp = {
-                 #[allow(unused_mut)]
--                let mut tmp = {
--                    #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
--                        _response_body,
--                        output,
--                    )
--                    .map_err(super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::unhandled)?;
--                    let output = output.meta(generic);
--                    output.build()
--                };
--                if tmp.message.is_none() {
--                    tmp.message = _error_message;
--                }
--                tmp
--            })
--        }
--        "NotFoundException" => {
--            super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::NotFoundException({
-+                let mut output = super::super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
-+                output = super::super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(_response_body, output).map_err(super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::unhandled)?;
-+                let output = output.meta(generic);
-+                output.build()
-+            };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-+            tmp
-+        }),
-+        "NotFoundException" => super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::NotFoundException({
-+            #[allow(unused_mut)]
-+            let mut tmp = {
-                 #[allow(unused_mut)]
--                let mut tmp = {
--                    #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::unhandled)?;
--                    let output = output.meta(generic);
--                    output.build()
--                };
--                if tmp.message.is_none() {
--                    tmp.message = _error_message;
--                }
--                tmp
--            })
--        }
--        "TooManyRequestsException" => {
--            super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::TooManyRequestsException({
-+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::unhandled)?;
-+                let output = output.meta(generic);
-+                output.build()
-+            };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-+            tmp
-+        }),
-+        "TooManyRequestsException" => super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::TooManyRequestsException({
-+            #[allow(unused_mut)]
-+            let mut tmp = {
-                 #[allow(unused_mut)]
--                let mut tmp = {
--                    #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(
--                                super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::unhandled,
--                            )?;
--                    let output = output.meta(generic);
--                    output.build()
--                };
--                if tmp.message.is_none() {
--                    tmp.message = _error_message;
--                }
--                tmp
--            })
--        }
-+                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::unhandled)?;
-+                let output = output.meta(generic);
-+                output.build()
-+            };
-+            if tmp.message.is_none() {
-+                tmp.message = _error_message;
-+            }
-+            tmp
-+        }),
-         _ => super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesError::generic(generic),
-     })
- }
-@@ -128,3 +114,36 @@
+@@ -128,3 +128,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -16689,78 +6771,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_dedicated_ip_warmup_attributes.rs
 +++ generated/src/protocol_serde/shape_put_dedicated_ip_warmup_attributes.rs
-@@ -20,21 +20,23 @@
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-     Err(match error_code {
--        "BadRequestException" => super::super::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesError::BadRequestException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "BadRequestException" => {
-+            super::super::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesError::BadRequestException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         "NotFoundException" => super::super::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesError::NotFoundException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-@@ -56,9 +58,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::put_dedicated_ip_warmup_attributes::PutDedicatedIpWarmupAttributesError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -83,7 +87,8 @@
- > {
-     Ok({
-         #[allow(unused_mut)]
--        let mut output = super::super::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesOutputBuilder::default();
-+        let mut output =
-+            super::super::operation::put_dedicated_ip_warmup_attributes::builders::PutDedicatedIpWarmupAttributesOutputBuilder::default();
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-         output.build()
-     })
-@@ -94,7 +99,43 @@
- ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-     let mut out = String::new();
-     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
--    super::super::protocol_serde::shape_put_dedicated_ip_warmup_attributes_input::ser_put_dedicated_ip_warmup_attributes_input_input(&mut object, input)?;
-+    super::super::protocol_serde::shape_put_dedicated_ip_warmup_attributes_input::ser_put_dedicated_ip_warmup_attributes_input_input(
-+        &mut object,
-+        input,
-+    )?;
+@@ -98,3 +98,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -16827,144 +6838,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_deliverability_dashboard_option.rs
 +++ generated/src/protocol_serde/shape_put_deliverability_dashboard_option.rs
-@@ -26,8 +26,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::AlreadyExistsExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_already_exists_exception::de_already_exists_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError::unhandled)?;
-+                    output =
-+                        super::super::protocol_serde::shape_already_exists_exception::de_already_exists_exception_json_err(_response_body, output)
-+                            .map_err(
-+                                super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError::unhandled,
-+                            )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -37,21 +40,23 @@
-                 tmp
-             })
-         }
--        "BadRequestException" => super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError::BadRequestException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "BadRequestException" => {
-+            super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError::BadRequestException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         "LimitExceededException" => {
-             super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError::LimitExceededException({
-                 #[allow(unused_mut)]
-@@ -58,8 +63,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError::unhandled)?;
-+                    output =
-+                        super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-+                            .map_err(
-+                                super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError::unhandled,
-+                            )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -69,21 +77,23 @@
-                 tmp
-             })
-         }
--        "NotFoundException" => super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError::NotFoundException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "NotFoundException" => {
-+            super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError::NotFoundException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         "TooManyRequestsException" => {
-             super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError::TooManyRequestsException({
-                 #[allow(unused_mut)]
-@@ -90,9 +100,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::put_deliverability_dashboard_option::PutDeliverabilityDashboardOptionError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -117,7 +129,8 @@
- > {
-     Ok({
-         #[allow(unused_mut)]
--        let mut output = super::super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionOutputBuilder::default();
-+        let mut output =
-+            super::super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionOutputBuilder::default();
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-         output.build()
-     })
-@@ -128,7 +141,43 @@
- ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-     let mut out = String::new();
-     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
--    super::super::protocol_serde::shape_put_deliverability_dashboard_option_input::ser_put_deliverability_dashboard_option_input_input(&mut object, input)?;
-+    super::super::protocol_serde::shape_put_deliverability_dashboard_option_input::ser_put_deliverability_dashboard_option_input_input(
-+        &mut object,
-+        input,
-+    )?;
+@@ -132,3 +132,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -17003,59 +6877,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +}
 ```
 
-### `src/protocol_serde/shape_put_deliverability_dashboard_option_input.rs`
-
-```diff
---- reference/src/protocol_serde/shape_put_deliverability_dashboard_option_input.rs
-+++ generated/src/protocol_serde/shape_put_deliverability_dashboard_option_input.rs
-@@ -12,7 +12,10 @@
-             {
-                 #[allow(unused_mut)]
-                 let mut object_5 = array_3.value().start_object();
--                super::super::protocol_serde::shape_domain_deliverability_tracking_option::ser_domain_deliverability_tracking_option(&mut object_5, item_4)?;
-+                super::super::protocol_serde::shape_domain_deliverability_tracking_option::ser_domain_deliverability_tracking_option(
-+                    &mut object_5,
-+                    item_4,
-+                )?;
-                 object_5.finish();
-             }
-         }
-```
-
 ### `src/protocol_serde/shape_put_email_identity_configuration_set_attributes.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_put_email_identity_configuration_set_attributes.rs
 +++ generated/src/protocol_serde/shape_put_email_identity_configuration_set_attributes.rs
-@@ -9,72 +9,66 @@
-     super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError,
- > {
-     #[allow(unused_mut)]
--    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
--        .map_err(super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError::unhandled)?;
-+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body).map_err(
-+        super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError::unhandled,
-+    )?;
-     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
-     let generic = generic_builder.build();
--    let error_code = match generic.code() {
--        Some(code) => code,
--        None => {
--            return Err(
-+    let error_code =
-+        match generic.code() {
-+            Some(code) => code,
-+            None => return Err(
-                 super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError::unhandled(
-                     generic,
-                 ),
--            )
--        }
--    };
-+            ),
-+        };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
+@@ -28,53 +28,47 @@
      Err(match error_code {
          "BadRequestException" => super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError::BadRequestException({
              #[allow(unused_mut)]
@@ -17202,78 +7029,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_email_identity_dkim_attributes.rs
 +++ generated/src/protocol_serde/shape_put_email_identity_dkim_attributes.rs
-@@ -20,21 +20,23 @@
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-     Err(match error_code {
--        "BadRequestException" => super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesError::BadRequestException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "BadRequestException" => {
-+            super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesError::BadRequestException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         "NotFoundException" => super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesError::NotFoundException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-@@ -56,9 +58,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::put_email_identity_dkim_attributes::PutEmailIdentityDkimAttributesError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -83,7 +87,8 @@
- > {
-     Ok({
-         #[allow(unused_mut)]
--        let mut output = super::super::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesOutputBuilder::default();
-+        let mut output =
-+            super::super::operation::put_email_identity_dkim_attributes::builders::PutEmailIdentityDkimAttributesOutputBuilder::default();
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-         output.build()
-     })
-@@ -94,7 +99,43 @@
- ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-     let mut out = String::new();
-     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
--    super::super::protocol_serde::shape_put_email_identity_dkim_attributes_input::ser_put_email_identity_dkim_attributes_input_input(&mut object, input)?;
-+    super::super::protocol_serde::shape_put_email_identity_dkim_attributes_input::ser_put_email_identity_dkim_attributes_input_input(
-+        &mut object,
-+        input,
-+    )?;
+@@ -98,3 +98,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -17333,107 +7089,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/protocol_serde/shape_put_email_identity_dkim_signing_attributes.rs`
-
-```diff
---- reference/src/protocol_serde/shape_put_email_identity_dkim_signing_attributes.rs
-+++ generated/src/protocol_serde/shape_put_email_identity_dkim_signing_attributes.rs
-@@ -16,7 +16,9 @@
-     let error_code = match generic.code() {
-         Some(code) => code,
-         None => {
--            return Err(super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError::unhandled(generic))
-+            return Err(
-+                super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError::unhandled(generic),
-+            )
-         }
-     };
-
-@@ -28,7 +30,8 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(
-+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(
-                         super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError::unhandled,
-                     )?;
-                     let output = output.meta(generic);
-@@ -46,7 +49,8 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output).map_err(
-+                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-+                        .map_err(
-                         super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError::unhandled,
-                     )?;
-                     let output = output.meta(generic);
-@@ -59,24 +63,22 @@
-             })
-         }
-         "TooManyRequestsException" => {
--            super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError::TooManyRequestsException({
--                #[allow(unused_mut)]
--                let mut tmp = {
-+            super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError::TooManyRequestsException(
-+                {
-                     #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(
--                                super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError::unhandled,
--                            )?;
--                    let output = output.meta(generic);
--                    output.build()
--                };
--                if tmp.message.is_none() {
--                    tmp.message = _error_message;
--                }
--                tmp
--            })
-+                    let mut tmp = {
-+                        #[allow(unused_mut)]
-+                        let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                        output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError::unhandled)?;
-+                        let output = output.meta(generic);
-+                        output.build()
-+                    };
-+                    if tmp.message.is_none() {
-+                        tmp.message = _error_message;
-+                    }
-+                    tmp
-+                },
-+            )
-         }
-         _ => super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError::generic(generic),
-     })
-@@ -93,8 +95,7 @@
- > {
-     Ok({
-         #[allow(unused_mut)]
--        let mut output =
--            super::super::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesOutputBuilder::default();
-+        let mut output = super::super::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesOutputBuilder::default();
-         output = super::super::protocol_serde::shape_put_email_identity_dkim_signing_attributes::de_put_email_identity_dkim_signing_attributes(
-             _response_body,
-             output,
-@@ -142,7 +143,11 @@
-                     );
-                 }
-                 "DkimTokens" => {
--                    builder = builder.set_dkim_tokens(super::super::protocol_serde::shape_dns_token_list::de_dns_token_list(tokens, _value, depth + 1)?);
-+                    builder = builder.set_dkim_tokens(super::super::protocol_serde::shape_dns_token_list::de_dns_token_list(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-                 }
-                 "SigningHostedZone" => {
-                     builder = builder.set_signing_hosted_zone(
-```
-
 ### `src/protocol_serde/shape_put_email_identity_dkim_signing_attributes_input.rs`
 
 ```diff
@@ -17471,55 +7126,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_email_identity_feedback_attributes.rs
 +++ generated/src/protocol_serde/shape_put_email_identity_feedback_attributes.rs
-@@ -15,7 +15,9 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesError::unhandled(generic))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -27,7 +29,9 @@
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-                     output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesError::unhandled)?;
-+                        .map_err(
-+                            super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -44,7 +48,9 @@
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-                     output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesError::unhandled)?;
-+                        .map_err(
-+                            super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -60,9 +66,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -106,3 +114,36 @@
+@@ -106,3 +106,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -17584,55 +7191,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_email_identity_mail_from_attributes.rs
 +++ generated/src/protocol_serde/shape_put_email_identity_mail_from_attributes.rs
-@@ -15,7 +15,9 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesError::unhandled(generic))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -27,7 +29,9 @@
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-                     output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesError::unhandled)?;
-+                        .map_err(
-+                            super::super::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -44,7 +48,9 @@
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-                     output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
--                        .map_err(super::super::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesError::unhandled)?;
-+                        .map_err(
-+                            super::super::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -60,9 +66,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -106,3 +114,36 @@
+@@ -106,3 +106,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -17700,32 +7259,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_suppressed_destination.rs
 +++ generated/src/protocol_serde/shape_put_suppressed_destination.rs
-@@ -15,11 +15,7 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => {
--            return Err(super::super::operation::put_suppressed_destination::PutSuppressedDestinationError::unhandled(
--                generic,
--            ))
--        }
-+        None => return Err(super::super::operation::put_suppressed_destination::PutSuppressedDestinationError::unhandled(generic)),
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -59,8 +55,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::put_suppressed_destination::PutSuppressedDestinationError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::put_suppressed_destination::PutSuppressedDestinationError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -99,3 +96,36 @@
+@@ -99,3 +99,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -17769,68 +7303,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_put_tenant_suppression_attributes.rs
 +++ generated/src/protocol_serde/shape_put_tenant_suppression_attributes.rs
-@@ -20,21 +20,23 @@
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-     Err(match error_code {
--        "BadRequestException" => super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesError::BadRequestException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "BadRequestException" => {
-+            super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesError::BadRequestException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         "NotFoundException" => super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesError::NotFoundException({
-             #[allow(unused_mut)]
-             let mut tmp = {
-@@ -56,9 +58,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributesError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -94,7 +98,43 @@
- ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
-     let mut out = String::new();
-     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
--    super::super::protocol_serde::shape_put_tenant_suppression_attributes_input::ser_put_tenant_suppression_attributes_input_input(&mut object, input)?;
-+    super::super::protocol_serde::shape_put_tenant_suppression_attributes_input::ser_put_tenant_suppression_attributes_input_input(
-+        &mut object,
-+        input,
-+    )?;
+@@ -98,3 +98,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -17937,126 +7410,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          object.key("ReputationMetricsEnabled").boolean(input.reputation_metrics_enabled);
      }
      if let Some(var_1) = &input.last_fresh_start {
-```
-
-### `src/protocol_serde/shape_resource_tenant_metadata_list.rs`
-
-```diff
---- reference/src/protocol_serde/shape_resource_tenant_metadata_list.rs
-+++ generated/src/protocol_serde/shape_resource_tenant_metadata_list.rs
-@@ -3,7 +3,10 @@
-     tokens: &mut ::std::iter::Peekable<I>,
-     _value: &'a [u8],
-     depth: u32,
--) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::ResourceTenantMetadata>>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<
-+    Option<::std::vec::Vec<super::super::types::ResourceTenantMetadata>>,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+>
- where
-     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
- {
-@@ -23,7 +26,8 @@
-                         break;
-                     }
-                     _ => {
--                        let value = super::super::protocol_serde::shape_resource_tenant_metadata::de_resource_tenant_metadata(tokens, _value, depth + 1)?;
-+                        let value =
-+                            super::super::protocol_serde::shape_resource_tenant_metadata::de_resource_tenant_metadata(tokens, _value, depth + 1)?;
-                         if let Some(value) = value {
-                             items.push(value);
-                         } else {
-```
-
-### `src/protocol_serde/shape_send_bulk_email.rs`
-
-```diff
---- reference/src/protocol_serde/shape_send_bulk_email.rs
-+++ generated/src/protocol_serde/shape_send_bulk_email.rs
-@@ -4,7 +4,8 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::send_bulk_email::SendBulkEmailOutput, super::super::operation::send_bulk_email::SendBulkEmailError> {
-+) -> std::result::Result<super::super::operation::send_bulk_email::SendBulkEmailOutput, super::super::operation::send_bulk_email::SendBulkEmailError>
-+{
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-         .map_err(super::super::operation::send_bulk_email::SendBulkEmailError::unhandled)?;
-@@ -22,8 +23,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::AccountSuspendedExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_account_suspended_exception::de_account_suspended_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::send_bulk_email::SendBulkEmailError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_account_suspended_exception::de_account_suspended_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::send_bulk_email::SendBulkEmailError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -62,24 +64,22 @@
-             }
-             tmp
-         }),
--        "MailFromDomainNotVerifiedException" => super::super::operation::send_bulk_email::SendBulkEmailError::MailFromDomainNotVerifiedException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "MailFromDomainNotVerifiedException" => {
-+            super::super::operation::send_bulk_email::SendBulkEmailError::MailFromDomainNotVerifiedException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::MailFromDomainNotVerifiedExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_mail_from_domain_not_verified_exception::de_mail_from_domain_not_verified_exception_json_err(
--                    _response_body,
--                    output,
--                )
--                .map_err(super::super::operation::send_bulk_email::SendBulkEmailError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::MailFromDomainNotVerifiedExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_mail_from_domain_not_verified_exception::de_mail_from_domain_not_verified_exception_json_err(_response_body, output).map_err(super::super::operation::send_bulk_email::SendBulkEmailError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         "MessageRejected" => super::super::operation::send_bulk_email::SendBulkEmailError::MessageRejected({
-             #[allow(unused_mut)]
-             let mut tmp = {
-@@ -130,8 +130,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::send_bulk_email::SendBulkEmailError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::send_bulk_email::SendBulkEmailError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -149,7 +150,8 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::send_bulk_email::SendBulkEmailOutput, super::super::operation::send_bulk_email::SendBulkEmailError> {
-+) -> std::result::Result<super::super::operation::send_bulk_email::SendBulkEmailOutput, super::super::operation::send_bulk_email::SendBulkEmailError>
-+{
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::send_bulk_email::builders::SendBulkEmailOutputBuilder::default();
 ```
 
 ### `src/protocol_serde/shape_send_bulk_email_input.rs`
@@ -18187,138 +7540,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/protocol_serde/shape_send_custom_verification_email.rs`
-
-```diff
---- reference/src/protocol_serde/shape_send_custom_verification_email.rs
-+++ generated/src/protocol_serde/shape_send_custom_verification_email.rs
-@@ -35,21 +35,24 @@
-             }
-             tmp
-         }),
--        "LimitExceededException" => super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::LimitExceededException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "LimitExceededException" => {
-+            super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::LimitExceededException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
-+                    output =
-+                        super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-+                            .map_err(super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         "MailFromDomainNotVerifiedException" => {
-             super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::MailFromDomainNotVerifiedException({
-                 #[allow(unused_mut)]
-@@ -56,12 +59,7 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::MailFromDomainNotVerifiedExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_mail_from_domain_not_verified_exception::de_mail_from_domain_not_verified_exception_json_err(
--                            _response_body,
--                            output,
--                        )
--                        .map_err(super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_mail_from_domain_not_verified_exception::de_mail_from_domain_not_verified_exception_json_err(_response_body, output).map_err(super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -101,36 +99,44 @@
-             }
-             tmp
-         }),
--        "SendingPausedException" => super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::SendingPausedException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "SendingPausedException" => {
-+            super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::SendingPausedException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::SendingPausedExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_sending_paused_exception::de_sending_paused_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
--        "TooManyRequestsException" => super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::TooManyRequestsException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::SendingPausedExceptionBuilder::default();
-+                    output =
-+                        super::super::protocol_serde::shape_sending_paused_exception::de_sending_paused_exception_json_err(_response_body, output)
-+                            .map_err(super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-+        "TooManyRequestsException" => {
-+            super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::TooManyRequestsException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-                     .map_err(super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         _ => super::super::operation::send_custom_verification_email::SendCustomVerificationEmailError::generic(generic),
-     })
- }
-```
-
 ### `src/protocol_serde/shape_send_custom_verification_email_input.rs`
 
 ```diff
@@ -18345,89 +7566,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-```
-
-### `src/protocol_serde/shape_send_email.rs`
-
-```diff
---- reference/src/protocol_serde/shape_send_email.rs
-+++ generated/src/protocol_serde/shape_send_email.rs
-@@ -22,8 +22,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::AccountSuspendedExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_account_suspended_exception::de_account_suspended_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::send_email::SendEmailError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_account_suspended_exception::de_account_suspended_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::send_email::SendEmailError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -62,24 +63,22 @@
-             }
-             tmp
-         }),
--        "MailFromDomainNotVerifiedException" => super::super::operation::send_email::SendEmailError::MailFromDomainNotVerifiedException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "MailFromDomainNotVerifiedException" => {
-+            super::super::operation::send_email::SendEmailError::MailFromDomainNotVerifiedException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::MailFromDomainNotVerifiedExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_mail_from_domain_not_verified_exception::de_mail_from_domain_not_verified_exception_json_err(
--                    _response_body,
--                    output,
--                )
--                .map_err(super::super::operation::send_email::SendEmailError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::MailFromDomainNotVerifiedExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_mail_from_domain_not_verified_exception::de_mail_from_domain_not_verified_exception_json_err(_response_body, output).map_err(super::super::operation::send_email::SendEmailError::unhandled)?;
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         "MessageRejected" => super::super::operation::send_email::SendEmailError::MessageRejected({
-             #[allow(unused_mut)]
-             let mut tmp = {
-@@ -130,8 +129,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::send_email::SendEmailError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::send_email::SendEmailError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -173,7 +173,10 @@
- pub(crate) fn de_send_email(
-     _value: &[u8],
-     mut builder: super::super::operation::send_email::builders::SendEmailOutputBuilder,
--) -> ::std::result::Result<super::super::operation::send_email::builders::SendEmailOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-+) -> ::std::result::Result<
-+    super::super::operation::send_email::builders::SendEmailOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-     let tokens = &mut tokens_owned;
-     #[allow(unused_variables)]
 ```
 
 ### `src/protocol_serde/shape_send_email_input.rs`
@@ -18574,120 +7712,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      Ok(())
 ```
 
-### `src/protocol_serde/shape_suppressed_destination.rs`
-
-```diff
---- reference/src/protocol_serde/shape_suppressed_destination.rs
-+++ generated/src/protocol_serde/shape_suppressed_destination.rs
-@@ -66,9 +66,11 @@
-                     }
-                 }
-             }
--            Ok(Some(super::super::serde_util::suppressed_destination_correct_errors(builder).build().map_err(
--                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
--            )?))
-+            Ok(Some(
-+                super::super::serde_util::suppressed_destination_correct_errors(builder)
-+                    .build()
-+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
-### `src/protocol_serde/shape_suppressed_destination_summaries.rs`
-
-```diff
---- reference/src/protocol_serde/shape_suppressed_destination_summaries.rs
-+++ generated/src/protocol_serde/shape_suppressed_destination_summaries.rs
-@@ -3,7 +3,10 @@
-     tokens: &mut ::std::iter::Peekable<I>,
-     _value: &'a [u8],
-     depth: u32,
--) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::SuppressedDestinationSummary>>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<
-+    Option<::std::vec::Vec<super::super::types::SuppressedDestinationSummary>>,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+>
- where
-     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
- {
-```
-
-### `src/protocol_serde/shape_suppression_list_destination.rs`
-
-```diff
---- reference/src/protocol_serde/shape_suppression_list_destination.rs
-+++ generated/src/protocol_serde/shape_suppression_list_destination.rs
-@@ -36,7 +36,10 @@
-                         "SuppressionListImportAction" => {
-                             builder = builder.set_suppression_list_import_action(
-                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                                    .map(|s| s.to_unescaped().map(|u| super::super::types::SuppressionListImportAction::from(u.as_ref())))
-+                                    .map(|s| {
-+                                        s.to_unescaped()
-+                                            .map(|u| super::super::types::SuppressionListImportAction::from(u.as_ref()))
-+                                    })
-                                     .transpose()?,
-                             );
-                         }
-```
-
-### `src/protocol_serde/shape_suppression_validation_attributes.rs`
-
-```diff
---- reference/src/protocol_serde/shape_suppression_validation_attributes.rs
-+++ generated/src/protocol_serde/shape_suppression_validation_attributes.rs
-@@ -52,7 +52,9 @@
-                     }
-                 }
-             }
--            Ok(Some(super::super::serde_util::suppression_validation_attributes_correct_errors(builder).build()))
-+            Ok(Some(
-+                super::super::serde_util::suppression_validation_attributes_correct_errors(builder).build(),
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
-### `src/protocol_serde/shape_suppression_validation_options.rs`
-
-```diff
---- reference/src/protocol_serde/shape_suppression_validation_options.rs
-+++ generated/src/protocol_serde/shape_suppression_validation_options.rs
-@@ -52,7 +52,9 @@
-                     }
-                 }
-             }
--            Ok(Some(super::super::serde_util::suppression_validation_options_correct_errors(builder).build()))
-+            Ok(Some(
-+                super::super::serde_util::suppression_validation_options_correct_errors(builder).build(),
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
-```
-
 ### `src/protocol_serde/shape_tag_resource.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_tag_resource.rs
 +++ generated/src/protocol_serde/shape_tag_resource.rs
-@@ -70,8 +70,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -107,3 +108,36 @@
+@@ -107,3 +107,34 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -18695,10 +7725,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +pub(crate) fn de_tag_resource(
 +    _value: &[u8],
 +    mut builder: super::super::operation::tag_resource::builders::TagResourceOutputBuilder,
-+) -> ::std::result::Result<
-+    super::super::operation::tag_resource::builders::TagResourceOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
++) -> ::std::result::Result<super::super::operation::tag_resource::builders::TagResourceOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
 +    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
@@ -18780,38 +7808,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 ```
 
-### `src/protocol_serde/shape_test_render_email_template.rs`
-
-```diff
---- reference/src/protocol_serde/shape_test_render_email_template.rs
-+++ generated/src/protocol_serde/shape_test_render_email_template.rs
-@@ -15,11 +15,7 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => {
--            return Err(super::super::operation::test_render_email_template::TestRenderEmailTemplateError::unhandled(
--                generic,
--            ))
--        }
-+        None => return Err(super::super::operation::test_render_email_template::TestRenderEmailTemplateError::unhandled(generic)),
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -59,8 +55,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::test_render_email_template::TestRenderEmailTemplateError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::test_render_email_template::TestRenderEmailTemplateError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-```
-
 ### `src/protocol_serde/shape_test_render_email_template_input.rs`
 
 ```diff
@@ -18831,25 +7827,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
      Ok(())
  }
-```
-
-### `src/protocol_serde/shape_too_many_requests_exception.rs`
-
-```diff
---- reference/src/protocol_serde/shape_too_many_requests_exception.rs
-+++ generated/src/protocol_serde/shape_too_many_requests_exception.rs
-@@ -2,7 +2,10 @@
- pub(crate) fn de_too_many_requests_exception_json_err(
-     _value: &[u8],
-     mut builder: super::super::types::error::builders::TooManyRequestsExceptionBuilder,
--) -> ::std::result::Result<super::super::types::error::builders::TooManyRequestsExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-+) -> ::std::result::Result<
-+    super::super::types::error::builders::TooManyRequestsExceptionBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-     let tokens = &mut tokens_owned;
-     #[allow(unused_variables)]
 ```
 
 ### `src/protocol_serde/shape_topic_filter.rs`
@@ -18873,19 +7850,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_untag_resource.rs
 +++ generated/src/protocol_serde/shape_untag_resource.rs
-@@ -70,8 +70,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -97,3 +98,46 @@
+@@ -97,3 +97,46 @@
          output.build()
      })
  }
@@ -18939,88 +7904,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_configuration_set_event_destination.rs
 +++ generated/src/protocol_serde/shape_update_configuration_set_event_destination.rs
-@@ -16,7 +16,9 @@
-     let error_code = match generic.code() {
-         Some(code) => code,
-         None => {
--            return Err(super::super::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestinationError::unhandled(generic))
-+            return Err(
-+                super::super::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestinationError::unhandled(generic),
-+            )
-         }
-     };
-
-@@ -28,7 +30,8 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(
-+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(
-                         super::super::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestinationError::unhandled,
-                     )?;
-                     let output = output.meta(generic);
-@@ -46,7 +49,8 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output).map_err(
-+                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-+                        .map_err(
-                         super::super::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestinationError::unhandled,
-                     )?;
-                     let output = output.meta(generic);
-@@ -59,24 +63,22 @@
-             })
-         }
-         "TooManyRequestsException" => {
--            super::super::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestinationError::TooManyRequestsException({
--                #[allow(unused_mut)]
--                let mut tmp = {
-+            super::super::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestinationError::TooManyRequestsException(
-+                {
-                     #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(
--                                super::super::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestinationError::unhandled,
--                            )?;
--                    let output = output.meta(generic);
--                    output.build()
--                };
--                if tmp.message.is_none() {
--                    tmp.message = _error_message;
--                }
--                tmp
--            })
-+                    let mut tmp = {
-+                        #[allow(unused_mut)]
-+                        let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                        output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestinationError::unhandled)?;
-+                        let output = output.meta(generic);
-+                        output.build()
-+                    };
-+                    if tmp.message.is_none() {
-+                        tmp.message = _error_message;
-+                    }
-+                    tmp
-+                },
-+            )
-         }
-         _ => super::super::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestinationError::generic(generic),
-     })
-@@ -93,8 +95,7 @@
- > {
-     Ok({
-         #[allow(unused_mut)]
--        let mut output =
--            super::super::operation::update_configuration_set_event_destination::builders::UpdateConfigurationSetEventDestinationOutputBuilder::default();
-+        let mut output = super::super::operation::update_configuration_set_event_destination::builders::UpdateConfigurationSetEventDestinationOutputBuilder::default();
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-         output.build()
-     })
-@@ -112,3 +113,36 @@
+@@ -112,3 +112,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -19093,19 +7977,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_contact.rs
 +++ generated/src/protocol_serde/shape_update_contact.rs
-@@ -70,8 +70,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::update_contact::UpdateContactError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::update_contact::UpdateContactError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -107,3 +108,36 @@
+@@ -107,3 +107,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -19197,45 +8069,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_contact_list.rs
 +++ generated/src/protocol_serde/shape_update_contact_list.rs
-@@ -4,8 +4,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::update_contact_list::UpdateContactListOutput, super::super::operation::update_contact_list::UpdateContactListError>
--{
-+) -> std::result::Result<
-+    super::super::operation::update_contact_list::UpdateContactListOutput,
-+    super::super::operation::update_contact_list::UpdateContactListError,
-+> {
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-         .map_err(super::super::operation::update_contact_list::UpdateContactListError::unhandled)?;
-@@ -71,8 +73,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::update_contact_list::UpdateContactListError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::update_contact_list::UpdateContactListError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -90,8 +93,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::update_contact_list::UpdateContactListOutput, super::super::operation::update_contact_list::UpdateContactListError>
--{
-+) -> std::result::Result<
-+    super::super::operation::update_contact_list::UpdateContactListOutput,
-+    super::super::operation::update_contact_list::UpdateContactListError,
-+> {
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::update_contact_list::builders::UpdateContactListOutputBuilder::default();
-@@ -109,3 +114,36 @@
+@@ -109,3 +109,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -19306,102 +8140,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_custom_verification_email_template.rs
 +++ generated/src/protocol_serde/shape_update_custom_verification_email_template.rs
-@@ -16,7 +16,9 @@
-     let error_code = match generic.code() {
-         Some(code) => code,
-         None => {
--            return Err(super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::unhandled(generic))
-+            return Err(
-+                super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::unhandled(generic),
-+            )
-         }
-     };
-
-@@ -28,9 +30,10 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(
--                        super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::unhandled,
--                    )?;
-+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-+                        .map_err(
-+                            super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -46,9 +49,10 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
--                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output).map_err(
--                        super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::unhandled,
--                    )?;
-+                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-+                        .map_err(
-+                            super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::unhandled,
-+                        )?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -59,24 +63,28 @@
-             })
-         }
-         "TooManyRequestsException" => {
--            super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::TooManyRequestsException({
--                #[allow(unused_mut)]
--                let mut tmp = {
-+            super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::TooManyRequestsException(
-+                {
-                     #[allow(unused_mut)]
--                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(
--                                super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::unhandled,
--                            )?;
--                    let output = output.meta(generic);
--                    output.build()
--                };
--                if tmp.message.is_none() {
--                    tmp.message = _error_message;
--                }
--                tmp
--            })
-+                    let mut tmp = {
-+                        #[allow(unused_mut)]
-+                        let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                        output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                            _response_body,
-+                            output,
-+                        )
-+                        .map_err(
-+                            super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::unhandled,
-+                        )?;
-+                        let output = output.meta(generic);
-+                        output.build()
-+                    };
-+                    if tmp.message.is_none() {
-+                        tmp.message = _error_message;
-+                    }
-+                    tmp
-+                },
-+            )
-         }
-         _ => super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::generic(generic),
-     })
-@@ -94,7 +102,8 @@
-     Ok({
-         #[allow(unused_mut)]
-         let mut output =
--            super::super::operation::update_custom_verification_email_template::builders::UpdateCustomVerificationEmailTemplateOutputBuilder::default();
-+            super::super::operation::update_custom_verification_email_template::builders::UpdateCustomVerificationEmailTemplateOutputBuilder::default(
-+            );
-         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-         output.build()
-     })
-@@ -112,3 +121,36 @@
+@@ -112,3 +112,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -19482,60 +8221,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_email_identity_policy.rs
 +++ generated/src/protocol_serde/shape_update_email_identity_policy.rs
-@@ -15,11 +15,7 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => {
--            return Err(super::super::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError::unhandled(
--                generic,
--            ))
--        }
-+        None => return Err(super::super::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError::unhandled(generic)),
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -54,21 +50,26 @@
-             }
-             tmp
-         }),
--        "TooManyRequestsException" => super::super::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError::TooManyRequestsException({
--            #[allow(unused_mut)]
--            let mut tmp = {
-+        "TooManyRequestsException" => {
-+            super::super::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError::TooManyRequestsException({
-                 #[allow(unused_mut)]
--                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                let mut tmp = {
-+                    #[allow(unused_mut)]
-+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-                     .map_err(super::super::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError::unhandled)?;
--                let output = output.meta(generic);
--                output.build()
--            };
--            if tmp.message.is_none() {
--                tmp.message = _error_message;
--            }
--            tmp
--        }),
-+                    let output = output.meta(generic);
-+                    output.build()
-+                };
-+                if tmp.message.is_none() {
-+                    tmp.message = _error_message;
-+                }
-+                tmp
-+            })
-+        }
-         _ => super::super::operation::update_email_identity_policy::UpdateEmailIdentityPolicyError::generic(generic),
-     })
- }
-@@ -99,3 +100,36 @@
+@@ -99,3 +99,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -19603,32 +8289,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_email_template.rs
 +++ generated/src/protocol_serde/shape_update_email_template.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::update_email_template::UpdateEmailTemplateError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::update_email_template::UpdateEmailTemplateError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -55,8 +59,9 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::update_email_template::UpdateEmailTemplateError::unhandled)?;
-+                output =
-+                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-+                        .map_err(super::super::operation::update_email_template::UpdateEmailTemplateError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -95,3 +100,36 @@
+@@ -95,3 +95,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -19698,35 +8359,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_reputation_entity_customer_managed_status.rs
 +++ generated/src/protocol_serde/shape_update_reputation_entity_customer_managed_status.rs
-@@ -9,19 +9,18 @@
-     super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError,
- > {
-     #[allow(unused_mut)]
--    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
--        .map_err(super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError::unhandled)?;
-+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body).map_err(
-+        super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError::unhandled,
-+    )?;
-     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => {
--            return Err(
--                super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError::unhandled(
--                    generic,
--                ),
--            )
--        }
-+        None => return Err(
-+            super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError::unhandled(
-+                generic,
-+            ),
-+        ),
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -28,53 +27,47 @@
+@@ -28,53 +28,47 @@
      Err(match error_code {
          "BadRequestException" => super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusError::BadRequestException({
              #[allow(unused_mut)]
@@ -19808,7 +8441,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      })
  }
 
-@@ -104,3 +97,36 @@
+@@ -104,3 +98,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -19876,22 +8509,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_update_reputation_entity_policy.rs
 +++ generated/src/protocol_serde/shape_update_reputation_entity_policy.rs
-@@ -56,9 +56,11 @@
-                 let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
--                            .map_err(super::super::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -98,3 +100,36 @@
+@@ -98,3 +98,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -19986,57 +8604,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_vdm_attributes<'a, I>(
      tokens: &mut ::std::iter::Peekable<I>,
      _value: &'a [u8],
-@@ -20,30 +42,26 @@
-             loop {
-                 match tokens.next().transpose()? {
-                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
--                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                        match key.to_unescaped()?.as_ref() {
--                            "VdmEnabled" => {
--                                builder = builder.set_vdm_enabled(
--                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                                        .map(|s| s.to_unescaped().map(|u| super::super::types::FeatureStatus::from(u.as_ref())))
--                                        .transpose()?,
--                                );
--                            }
--                            "DashboardAttributes" => {
--                                builder = builder.set_dashboard_attributes(
--                                    super::super::protocol_serde::shape_dashboard_attributes::de_dashboard_attributes(tokens, _value, depth + 1)?,
--                                );
--                            }
--                            "GuardianAttributes" => {
--                                builder = builder.set_guardian_attributes(super::super::protocol_serde::shape_guardian_attributes::de_guardian_attributes(
--                                    tokens,
--                                    _value,
--                                    depth + 1,
--                                )?);
--                            }
--                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-+                        "VdmEnabled" => {
-+                            builder = builder.set_vdm_enabled(
-+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::FeatureStatus::from(u.as_ref())))
-+                                    .transpose()?,
-+                            );
-+                        }
-+                        "DashboardAttributes" => {
-+                            builder = builder.set_dashboard_attributes(
-+                                super::super::protocol_serde::shape_dashboard_attributes::de_dashboard_attributes(tokens, _value, depth + 1)?,
-+                            );
-+                        }
-+                        "GuardianAttributes" => {
-+                            builder = builder.set_guardian_attributes(
-+                                super::super::protocol_serde::shape_guardian_attributes::de_guardian_attributes(tokens, _value, depth + 1)?,
-+                            );
-                         }
--                    }
-+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-+                    },
-                     other => {
-                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                             "expected object key or end object, found: {other:?}"
-@@ -60,25 +78,3 @@
+@@ -60,25 +82,3 @@
          )),
      }
  }
@@ -20208,60 +8776,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_update_contact_input;
 ```
 
-### `src/types/_batch_get_metric_data_query.rs`
-
-```diff
---- reference/src/types/_batch_get_metric_data_query.rs
-+++ generated/src/types/_batch_get_metric_data_query.rs
-@@ -238,7 +238,9 @@
-         self
-     }
-     /// <p>An object that contains mapping between <code>MetricDimensionName</code> and <code>MetricDimensionValue</code> to filter metrics by.</p>
--    pub fn get_dimensions(&self) -> &::std::option::Option<::std::collections::HashMap<super::super::types::MetricDimensionName, ::std::string::String>> {
-+    pub fn get_dimensions(
-+        &self,
-+    ) -> &::std::option::Option<::std::collections::HashMap<super::super::types::MetricDimensionName, ::std::string::String>> {
-         &self.dimensions
-     }
-     /// <p>Represents the start date for the query interval.</p>
-```
-
-### `src/types/_cloud_watch_dimension_configuration.rs`
-
-```diff
---- reference/src/types/_cloud_watch_dimension_configuration.rs
-+++ generated/src/types/_cloud_watch_dimension_configuration.rs
-@@ -153,7 +153,9 @@
-     /// - [`dimension_name`](crate::types::builders::CloudWatchDimensionConfigurationBuilder::dimension_name)
-     /// - [`dimension_value_source`](crate::types::builders::CloudWatchDimensionConfigurationBuilder::dimension_value_source)
-     /// - [`default_dimension_value`](crate::types::builders::CloudWatchDimensionConfigurationBuilder::default_dimension_value)
--    pub fn build(self) -> ::std::result::Result<super::super::types::CloudWatchDimensionConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::types::CloudWatchDimensionConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::types::CloudWatchDimensionConfiguration {
-             dimension_name: self.dimension_name.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
-```
-
-### `src/types/_deliverability_dashboard_account_status.rs`
-
-```diff
---- reference/src/types/_deliverability_dashboard_account_status.rs
-+++ generated/src/types/_deliverability_dashboard_account_status.rs
-@@ -61,7 +61,9 @@
-             "ACTIVE" => DeliverabilityDashboardAccountStatus::Active,
-             "DISABLED" => DeliverabilityDashboardAccountStatus::Disabled,
-             "PENDING_EXPIRATION" => DeliverabilityDashboardAccountStatus::PendingExpiration,
--            other => DeliverabilityDashboardAccountStatus::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
-+            other => {
-+                DeliverabilityDashboardAccountStatus::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-+            }
-         }
-     }
- }
-```
-
 ### `src/types/_dkim_attributes.rs`
 
 ```diff
@@ -20347,24 +8861,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_signing_hosted_zone(&self) -> &::std::option::Option<::std::string::String> {
          &self.signing_hosted_zone
      }
-```
-
-### `src/types/_email_address_insights_confidence_verdict.rs`
-
-```diff
---- reference/src/types/_email_address_insights_confidence_verdict.rs
-+++ generated/src/types/_email_address_insights_confidence_verdict.rs
-@@ -73,7 +73,9 @@
-             "HIGH" => EmailAddressInsightsConfidenceVerdict::High,
-             "LOW" => EmailAddressInsightsConfidenceVerdict::Low,
-             "MEDIUM" => EmailAddressInsightsConfidenceVerdict::Medium,
--            other => EmailAddressInsightsConfidenceVerdict::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
-+            other => {
-+                EmailAddressInsightsConfidenceVerdict::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-+            }
-         }
-     }
- }
 ```
 
 ### `src/types/_import_data_source.rs`
@@ -20475,72 +8971,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        formatter.finish()
 +    }
 +}
-```
-
-### `src/types/_suppression_condition_threshold.rs`
-
-```diff
---- reference/src/types/_suppression_condition_threshold.rs
-+++ generated/src/types/_suppression_condition_threshold.rs
-@@ -66,7 +66,9 @@
-     /// Consumes the builder and constructs a [`SuppressionConditionThreshold`](crate::types::SuppressionConditionThreshold).
-     /// This method will fail if any of the following fields are not set:
-     /// - [`condition_threshold_enabled`](crate::types::builders::SuppressionConditionThresholdBuilder::condition_threshold_enabled)
--    pub fn build(self) -> ::std::result::Result<super::super::types::SuppressionConditionThreshold, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::types::SuppressionConditionThreshold, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::types::SuppressionConditionThreshold {
-             condition_threshold_enabled: self.condition_threshold_enabled.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
-```
-
-### `src/types/_suppression_confidence_threshold.rs`
-
-```diff
---- reference/src/types/_suppression_confidence_threshold.rs
-+++ generated/src/types/_suppression_confidence_threshold.rs
-@@ -34,7 +34,10 @@
-         self
-     }
-     /// <p>The confidence level threshold for suppression decisions.</p>
--    pub fn set_confidence_verdict_threshold(mut self, input: ::std::option::Option<super::super::types::SuppressionConfidenceVerdictThreshold>) -> Self {
-+    pub fn set_confidence_verdict_threshold(
-+        mut self,
-+        input: ::std::option::Option<super::super::types::SuppressionConfidenceVerdictThreshold>,
-+    ) -> Self {
-         self.confidence_verdict_threshold = input;
-         self
-     }
-@@ -45,7 +48,9 @@
-     /// Consumes the builder and constructs a [`SuppressionConfidenceThreshold`](crate::types::SuppressionConfidenceThreshold).
-     /// This method will fail if any of the following fields are not set:
-     /// - [`confidence_verdict_threshold`](crate::types::builders::SuppressionConfidenceThresholdBuilder::confidence_verdict_threshold)
--    pub fn build(self) -> ::std::result::Result<super::super::types::SuppressionConfidenceThreshold, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::types::SuppressionConfidenceThreshold, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::types::SuppressionConfidenceThreshold {
-             confidence_verdict_threshold: self.confidence_verdict_threshold.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
-```
-
-### `src/types/_suppression_confidence_verdict_threshold.rs`
-
-```diff
---- reference/src/types/_suppression_confidence_verdict_threshold.rs
-+++ generated/src/types/_suppression_confidence_verdict_threshold.rs
-@@ -73,7 +73,9 @@
-             "HIGH" => SuppressionConfidenceVerdictThreshold::High,
-             "MANAGED" => SuppressionConfidenceVerdictThreshold::Managed,
-             "MEDIUM" => SuppressionConfidenceVerdictThreshold::Medium,
--            other => SuppressionConfidenceVerdictThreshold::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
-+            other => {
-+                SuppressionConfidenceVerdictThreshold::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-+            }
-         }
-     }
- }
 ```
 
 ### Missing reference files

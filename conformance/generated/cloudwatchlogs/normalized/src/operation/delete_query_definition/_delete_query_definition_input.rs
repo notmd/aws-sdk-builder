@@ -44,10 +44,8 @@ impl DeleteQueryDefinitionInputBuilder {
     /// Consumes the builder and constructs a [`DeleteQueryDefinitionInput`](crate::operation::delete_query_definition::DeleteQueryDefinitionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_query_definition::DeleteQueryDefinitionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_query_definition::DeleteQueryDefinitionInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::delete_query_definition::DeleteQueryDefinitionInput {
             query_definition_id: self.query_definition_id,
         })

@@ -31,9 +31,7 @@ impl DescribeAggregationAuthorizationsPaginator {
     ///
     /// This paginator automatically flattens results using `aggregation_authorizations`. Queries to the underlying service
     /// are dispatched lazily.
-    pub fn items(
-        self,
-    ) -> super::super::super::operation::describe_aggregation_authorizations::paginator::DescribeAggregationAuthorizationsPaginatorItems {
+    pub fn items(self) -> super::super::super::operation::describe_aggregation_authorizations::paginator::DescribeAggregationAuthorizationsPaginatorItems {
         super::super::super::operation::describe_aggregation_authorizations::paginator::DescribeAggregationAuthorizationsPaginatorItems(self)
     }
 
@@ -67,13 +65,12 @@ impl DescribeAggregationAuthorizationsPaginator {
         // Move individual fields out of self for the borrow checker
         let builder = self.builder;
         let handle = self.handle;
-        let runtime_plugins =
-            super::super::super::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizations::operation_runtime_plugins(
-                handle.runtime_plugins.clone(),
-                &handle.conf,
-                ::std::option::Option::None,
-            )
-            .with_operation_plugin(super::super::super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
+        let runtime_plugins = super::super::super::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizations::operation_runtime_plugins(
+            handle.runtime_plugins.clone(),
+            &handle.conf,
+            ::std::option::Option::None,
+        )
+        .with_operation_plugin(super::super::super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
         ::aws_smithy_async::future::pagination_stream::PaginationStream::new(::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(
             move |tx| {
                 ::std::boxed::Box::pin(async move {
@@ -89,12 +86,11 @@ impl DescribeAggregationAuthorizationsPaginator {
                         }
                     };
                     loop {
-                        let resp =
-                            super::super::super::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizations::orchestrate(
-                                &runtime_plugins,
-                                input.clone(),
-                            )
-                            .await;
+                        let resp = super::super::super::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizations::orchestrate(
+                            &runtime_plugins,
+                            input.clone(),
+                        )
+                        .await;
                         // If the input member is None or it was an error
                         let done = match resp {
                             ::std::result::Result::Ok(ref resp) => {

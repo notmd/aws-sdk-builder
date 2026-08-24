@@ -63,9 +63,7 @@ impl ListSuppressedDestinationsOutputBuilder {
         self
     }
     /// <p>A list of summaries, each containing a summary for a suppressed email destination.</p>
-    pub fn get_suppressed_destination_summaries(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressedDestinationSummary>> {
+    pub fn get_suppressed_destination_summaries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressedDestinationSummary>> {
         &self.suppressed_destination_summaries
     }
     /// <p>A token that indicates that there are additional email addresses on the suppression list for your account or for the specified tenant. To view additional suppressed addresses, issue another request to <code>ListSuppressedDestinations</code>, and pass this token in the <code>NextToken</code> parameter.</p>

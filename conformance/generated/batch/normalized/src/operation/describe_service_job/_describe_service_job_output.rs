@@ -233,10 +233,7 @@ impl DescribeServiceJobOutputBuilder {
         self
     }
     /// <p>The configured capacity for the service job, such as the number of instances. The number of instances should be the same value as the <code>serviceRequestPayload.InstanceCount</code> field.</p>
-    pub fn set_capacity_usage(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceJobCapacityUsageDetail>>,
-    ) -> Self {
+    pub fn set_capacity_usage(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceJobCapacityUsageDetail>>) -> Self {
         self.capacity_usage = input;
         self
     }
@@ -450,10 +447,7 @@ impl DescribeServiceJobOutputBuilder {
         self
     }
     /// <p>Specifies the service job behavior when preempted.</p>
-    pub fn set_preemption_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::ServiceJobPreemptionConfiguration>,
-    ) -> Self {
+    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<super::super::super::types::ServiceJobPreemptionConfiguration>) -> Self {
         self.preemption_configuration = input;
         self
     }
@@ -586,10 +580,8 @@ impl DescribeServiceJobOutputBuilder {
     /// - [`status`](crate::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder::status)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::describe_service_job::DescribeServiceJobOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::describe_service_job::DescribeServiceJobOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::describe_service_job::DescribeServiceJobOutput {
             attempts: self.attempts,
             capacity_usage: self.capacity_usage,

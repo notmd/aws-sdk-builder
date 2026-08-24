@@ -60,11 +60,8 @@ where
                             );
                         }
                         "scopeValues" => {
-                            builder = builder.set_scope_values(super::super::protocol_serde::shape_scope_values::de_scope_values(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_scope_values(super::super::protocol_serde::shape_scope_values::de_scope_values(tokens, _value, depth + 1)?);
                         }
                         "allRegions" => {
                             builder = builder.set_all_regions(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
@@ -85,11 +82,9 @@ where
                     }
                 }
             }
-            Ok(Some(
-                super::super::serde_util::scope_configuration_correct_errors(builder)
-                    .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-            ))
+            Ok(Some(super::super::serde_util::scope_configuration_correct_errors(builder).build().map_err(
+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+            )?))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

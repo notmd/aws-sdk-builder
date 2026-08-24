@@ -28,8 +28,7 @@ impl ::aws_types::request_id::RequestId for ListDomainDeliverabilityCampaignsOut
 }
 impl ListDomainDeliverabilityCampaignsOutput {
     /// Creates a new builder-style object to manufacture [`ListDomainDeliverabilityCampaignsOutput`](crate::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsOutput).
-    pub fn builder() -> super::super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder {
         super::super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder::default()
     }
 }
@@ -63,9 +62,7 @@ impl ListDomainDeliverabilityCampaignsOutputBuilder {
         self
     }
     /// <p>An array of responses, one for each campaign that used the domain to send email during the specified time range.</p>
-    pub fn get_domain_deliverability_campaigns(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityCampaign>> {
+    pub fn get_domain_deliverability_campaigns(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DomainDeliverabilityCampaign>> {
         &self.domain_deliverability_campaigns
     }
     /// <p>A token that’s returned from a previous call to the <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the position of the campaign in the list of campaigns.</p>

@@ -49,8 +49,6 @@ impl GetDeliverabilityTestReportInputBuilder {
         super::super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportInput { report_id: self.report_id },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportInput { report_id: self.report_id })
     }
 }

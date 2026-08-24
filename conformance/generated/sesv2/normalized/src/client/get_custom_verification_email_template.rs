@@ -16,8 +16,6 @@ impl super::Client {
     pub fn get_custom_verification_email_template(
         &self,
     ) -> super::super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateFluentBuilder {
-        super::super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateFluentBuilder::new(self.handle.clone())
     }
 }

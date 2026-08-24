@@ -30,7 +30,11 @@ impl GetAggregateConformancePackComplianceSummary {
             .await
             .map_err(map_err)?;
         let output = context.finalize().map_err(map_err)?;
-        ::std::result::Result::Ok(output.downcast::<super::super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryOutput>().expect("correct output type"))
+        ::std::result::Result::Ok(
+            output
+                .downcast::<super::super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryOutput>()
+                .expect("correct output type"),
+        )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
@@ -230,7 +234,9 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetAggregate
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
-        let input = input.downcast::<super::super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryInput>().expect("correct type");
+        let input = input
+            .downcast::<super::super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryInput>()
+            .expect("correct type");
         let _header_serialization_settings = _cfg
             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
             .cloned()

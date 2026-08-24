@@ -32,11 +32,7 @@ where
                             );
                         }
                         "Tokens" => {
-                            builder = builder.set_tokens(super::super::protocol_serde::shape_dns_token_list::de_dns_token_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_tokens(super::super::protocol_serde::shape_dns_token_list::de_dns_token_list(tokens, _value, depth + 1)?);
                         }
                         "SigningHostedZone" => {
                             builder = builder.set_signing_hosted_zone(
@@ -48,10 +44,7 @@ where
                         "SigningAttributesOrigin" => {
                             builder = builder.set_signing_attributes_origin(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| super::super::types::DkimSigningAttributesOrigin::from(u.as_ref()))
-                                    })
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::DkimSigningAttributesOrigin::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }

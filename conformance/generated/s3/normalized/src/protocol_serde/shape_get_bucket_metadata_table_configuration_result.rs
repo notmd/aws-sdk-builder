@@ -47,9 +47,7 @@ pub fn de_get_bucket_metadata_table_configuration_result(
             _ => {}
         }
     }
-    Ok(
-        super::super::serde_util::get_bucket_metadata_table_configuration_result_correct_errors(builder)
-            .build()
-            .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?,
-    )
+    Ok(super::super::serde_util::get_bucket_metadata_table_configuration_result_correct_errors(builder)
+        .build()
+        .map_err(|_| ::aws_smithy_xml::decode::XmlDecodeError::custom("missing field"))?)
 }

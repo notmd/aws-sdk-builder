@@ -54,10 +54,7 @@ impl ListSyslogConfigurationsOutputBuilder {
         self
     }
     /// <p>The list of syslog configurations.</p>
-    pub fn set_syslog_configurations(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SyslogConfiguration>>,
-    ) -> Self {
+    pub fn set_syslog_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SyslogConfiguration>>) -> Self {
         self.syslog_configurations = input;
         self
     }

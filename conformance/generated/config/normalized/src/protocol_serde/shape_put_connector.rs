@@ -50,22 +50,20 @@ pub fn de_put_connector_http_error(
             }
             tmp
         }),
-        "MaxNumberOfConnectorsExceededException" => {
-            super::super::operation::put_connector::PutConnectorError::MaxNumberOfConnectorsExceededException({
+        "MaxNumberOfConnectorsExceededException" => super::super::operation::put_connector::PutConnectorError::MaxNumberOfConnectorsExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::MaxNumberOfConnectorsExceededExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_max_number_of_connectors_exceeded_exception::de_max_number_of_connectors_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::put_connector::PutConnectorError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::MaxNumberOfConnectorsExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_max_number_of_connectors_exceeded_exception::de_max_number_of_connectors_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::put_connector::PutConnectorError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ValidationException" => super::super::operation::put_connector::PutConnectorError::ValidationException({
             #[allow(unused_mut)]
             let mut tmp = {

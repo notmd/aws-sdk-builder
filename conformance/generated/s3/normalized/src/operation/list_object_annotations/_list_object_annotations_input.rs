@@ -202,10 +202,8 @@ impl ListObjectAnnotationsInputBuilder {
     /// Consumes the builder and constructs a [`ListObjectAnnotationsInput`](crate::operation::list_object_annotations::ListObjectAnnotationsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_object_annotations::ListObjectAnnotationsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_object_annotations::ListObjectAnnotationsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_object_annotations::ListObjectAnnotationsInput {
             bucket: self.bucket,
             key: self.key,

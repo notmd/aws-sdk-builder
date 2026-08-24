@@ -4,10 +4,7 @@ pub fn de_get_email_template_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::get_email_template::GetEmailTemplateOutput,
-    super::super::operation::get_email_template::GetEmailTemplateError,
-> {
+) -> std::result::Result<super::super::operation::get_email_template::GetEmailTemplateOutput, super::super::operation::get_email_template::GetEmailTemplateError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::get_email_template::GetEmailTemplateError::unhandled)?;
@@ -55,9 +52,8 @@ pub fn de_get_email_template_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_email_template::GetEmailTemplateError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_email_template::GetEmailTemplateError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -75,10 +71,7 @@ pub fn de_get_email_template_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::get_email_template::GetEmailTemplateOutput,
-    super::super::operation::get_email_template::GetEmailTemplateError,
-> {
+) -> std::result::Result<super::super::operation::get_email_template::GetEmailTemplateOutput, super::super::operation::get_email_template::GetEmailTemplateError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::get_email_template::builders::GetEmailTemplateOutputBuilder::default();
@@ -116,26 +109,26 @@ pub(crate) fn de_get_email_template(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "TemplateName" => {
-                        builder = builder.set_template_name(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                        );
-                    }
-                    "TemplateContent" => {
-                        builder = builder.set_template_content(
-                            super::super::protocol_serde::shape_email_template_content::de_email_template_content(tokens, _value, depth + 1)?,
-                        );
-                    }
-                    "Tags" => {
-                        builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "TemplateName" => {
+                    builder = builder.set_template_name(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
                 }
-            }
+                "TemplateContent" => {
+                    builder = builder.set_template_content(super::super::protocol_serde::shape_email_template_content::de_email_template_content(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                "Tags" => {
+                    builder = builder.set_tags(super::super::protocol_serde::shape_tag_list::de_tag_list(tokens, _value, depth + 1)?);
+                }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

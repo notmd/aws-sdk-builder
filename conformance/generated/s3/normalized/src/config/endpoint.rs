@@ -29,10 +29,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for EndpointOverr
 /// Endpoint resolver trait specific to Amazon Simple Storage Service
 pub trait ResolveEndpoint: ::std::marker::Send + ::std::marker::Sync + ::std::fmt::Debug {
     /// Resolve an endpoint with the given parameters
-    fn resolve_endpoint<'a>(
-        &'a self,
-        params: &'a super::super::config::endpoint::Params,
-    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
+    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
 
     /// Convert this service-specific resolver into a `SharedEndpointResolver`
     ///
@@ -2271,7 +2268,7 @@ impl DefaultResolver {
                         6 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
                             (super::super::endpoint_lib::coalesce::coalesce!(
-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
+                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     0,
                                     6,
@@ -2288,7 +2285,7 @@ impl DefaultResolver {
                         7 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
                             (super::super::endpoint_lib::coalesce::coalesce!(
-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
+                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     0,
                                     7,
@@ -2391,8 +2388,7 @@ impl DefaultResolver {
                             let s3_e_ds = &mut context.s3_e_ds;
                             let partition_resolver = &self.partition_resolver;
                             {
-                                *s3_e_ds =
-                                    Some(super::super::endpoint_lib::ite::ite!(use_dual_stack, ".dualstack".to_string(), "".to_string()).into());
+                                *s3_e_ds = Some(super::super::endpoint_lib::ite::ite!(use_dual_stack, ".dualstack".to_string(), "".to_string()).into());
                                 true
                             }
                         })(&mut _diagnostic_collector),
@@ -2419,7 +2415,7 @@ impl DefaultResolver {
                             {
                                 *s3_e_auth = Some(
                                     super::super::endpoint_lib::ite::ite!(
-                                        crate::endpoint_lib::coalesce::coalesce!(disable_s3_express_session_auth.clone(), false),
+                                        super::super::endpoint_lib::coalesce::coalesce!(disable_s3_express_session_auth.clone(), false),
                                         "sigv4".to_string(),
                                         "sigv4-s3express".to_string()
                                     )
@@ -2505,7 +2501,7 @@ impl DefaultResolver {
                         28 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
                             (super::super::endpoint_lib::coalesce::coalesce!(
-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
+                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     0,
                                     4,
@@ -2522,7 +2518,7 @@ impl DefaultResolver {
                         29 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
                             (super::super::endpoint_lib::coalesce::coalesce!(
-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
+                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     16,
                                     18,
@@ -2544,7 +2540,7 @@ impl DefaultResolver {
                         31 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
                             (super::super::endpoint_lib::coalesce::coalesce!(
-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
+                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     21,
                                     23,
@@ -2561,7 +2557,7 @@ impl DefaultResolver {
                         32 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
                             (super::super::endpoint_lib::coalesce::coalesce!(
-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
+                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     27,
                                     29,
@@ -2657,7 +2653,7 @@ impl DefaultResolver {
                         43 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
                             (super::super::endpoint_lib::coalesce::coalesce!(
-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
+                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     14,
                                     16,
@@ -2688,7 +2684,7 @@ impl DefaultResolver {
                         47 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
                             (super::super::endpoint_lib::coalesce::coalesce!(
-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
+                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     19,
                                     21,
@@ -2746,7 +2742,7 @@ impl DefaultResolver {
                         53 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
                             (super::super::endpoint_lib::coalesce::coalesce!(
-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
+                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     26,
                                     28,
@@ -2763,7 +2759,7 @@ impl DefaultResolver {
                         54 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
                             (super::super::endpoint_lib::coalesce::coalesce!(
-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
+                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     15,
                                     17,
@@ -2790,7 +2786,7 @@ impl DefaultResolver {
                         56 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                             let partition_resolver = &self.partition_resolver;
                             (super::super::endpoint_lib::coalesce::coalesce!(
-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
+                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                     if let Some(param) = bucket { param } else { return false },
                                     20,
                                     22,
@@ -2972,10 +2968,7 @@ impl DefaultResolver {
 }
 
 impl super::super::config::endpoint::ResolveEndpoint for DefaultResolver {
-    fn resolve_endpoint<'a>(
-        &'a self,
-        params: &'a super::super::config::endpoint::Params,
-    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
+    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
         // Check single-entry cache (lock-free read via ArcSwap)
         let cached = self.endpoint_cache.load();
         if let Some((cached_params, cached_endpoint)) = cached.as_ref() {

@@ -15,7 +15,11 @@ pub fn de_list_resource_evaluations_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::list_resource_evaluations::ListResourceEvaluationsError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::list_resource_evaluations::ListResourceEvaluationsError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -25,11 +29,8 @@ pub fn de_list_resource_evaluations_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::list_resource_evaluations::ListResourceEvaluationsError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_resource_evaluations::ListResourceEvaluationsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -63,11 +64,8 @@ pub fn de_list_resource_evaluations_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidTimeRangeExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_time_range_exception::de_invalid_time_range_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::list_resource_evaluations::ListResourceEvaluationsError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_time_range_exception::de_invalid_time_range_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_resource_evaluations::ListResourceEvaluationsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -124,23 +122,23 @@ pub(crate) fn de_list_resource_evaluations(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "ResourceEvaluations" => {
-                        builder = builder.set_resource_evaluations(
-                            super::super::protocol_serde::shape_resource_evaluations::de_resource_evaluations(tokens, _value, depth + 1)?,
-                        );
-                    }
-                    "NextToken" => {
-                        builder = builder.set_next_token(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "ResourceEvaluations" => {
+                    builder = builder.set_resource_evaluations(super::super::protocol_serde::shape_resource_evaluations::de_resource_evaluations(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
-            }
+                "NextToken" => {
+                    builder = builder.set_next_token(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

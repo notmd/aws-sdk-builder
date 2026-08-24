@@ -42,7 +42,11 @@ pub fn de_get_aggregate_resource_config_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::OversizedConfigurationItemExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_oversized_configuration_item_exception::de_oversized_configuration_item_exception_json_err(_response_body, output).map_err(super::super::operation::get_aggregate_resource_config::GetAggregateResourceConfigError::unhandled)?;
+                    output = super::super::protocol_serde::shape_oversized_configuration_item_exception::de_oversized_configuration_item_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::get_aggregate_resource_config::GetAggregateResourceConfigError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };

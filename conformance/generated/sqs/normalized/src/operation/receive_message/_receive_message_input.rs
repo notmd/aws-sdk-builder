@@ -536,9 +536,7 @@ impl ReceiveMessageInputBuilder {
     /// <li>
     /// <p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li>
     /// </ul>
-    pub fn get_message_system_attribute_names(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>> {
+    pub fn get_message_system_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>> {
         &self.message_system_attribute_names
     }
     /// Appends an item to `message_attribute_names`.
@@ -761,8 +759,7 @@ impl ReceiveMessageInputBuilder {
     /// Consumes the builder and constructs a [`ReceiveMessageInput`](crate::operation::receive_message::ReceiveMessageInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::receive_message::ReceiveMessageInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::receive_message::ReceiveMessageInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::receive_message::ReceiveMessageInput {
             queue_url: self.queue_url,
             attribute_names: self.attribute_names,

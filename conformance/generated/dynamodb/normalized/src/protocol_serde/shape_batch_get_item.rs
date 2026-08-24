@@ -37,9 +37,8 @@ pub fn de_batch_get_item_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::batch_get_item::BatchGetItemError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::batch_get_item::BatchGetItemError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -84,11 +83,8 @@ pub fn de_batch_get_item_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::batch_get_item::BatchGetItemError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::batch_get_item::BatchGetItemError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -157,28 +153,30 @@ pub(crate) fn de_batch_get_item(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "Responses" => {
-                    builder = builder.set_responses(super::super::protocol_serde::shape_batch_get_response_map::de_batch_get_response_map(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "Responses" => {
+                        builder = builder.set_responses(super::super::protocol_serde::shape_batch_get_response_map::de_batch_get_response_map(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?);
+                    }
+                    "UnprocessedKeys" => {
+                        builder = builder.set_unprocessed_keys(super::super::protocol_serde::shape_batch_get_request_map::de_batch_get_request_map(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?);
+                    }
+                    "ConsumedCapacity" => {
+                        builder = builder.set_consumed_capacity(
+                            super::super::protocol_serde::shape_consumed_capacity_multiple::de_consumed_capacity_multiple(tokens, _value, depth + 1)?,
+                        );
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                "UnprocessedKeys" => {
-                    builder = builder.set_unprocessed_keys(super::super::protocol_serde::shape_batch_get_request_map::de_batch_get_request_map(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
-                "ConsumedCapacity" => {
-                    builder = builder.set_consumed_capacity(
-                        super::super::protocol_serde::shape_consumed_capacity_multiple::de_consumed_capacity_multiple(tokens, _value, depth + 1)?,
-                    );
-                }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

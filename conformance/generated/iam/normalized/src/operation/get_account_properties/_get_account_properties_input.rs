@@ -18,10 +18,8 @@ impl GetAccountPropertiesInputBuilder {
     /// Consumes the builder and constructs a [`GetAccountPropertiesInput`](crate::operation::get_account_properties::GetAccountPropertiesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_account_properties::GetAccountPropertiesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_account_properties::GetAccountPropertiesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_account_properties::GetAccountPropertiesInput {})
     }
 }

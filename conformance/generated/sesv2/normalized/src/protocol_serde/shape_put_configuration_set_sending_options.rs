@@ -15,9 +15,7 @@ pub fn de_put_configuration_set_sending_options_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError::unhandled(generic))
-        }
+        None => return Err(super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -39,34 +37,30 @@ pub fn de_put_configuration_set_sending_options_http_error(
                 tmp
             })
         }
-        "NotFoundException" => {
-            super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError::NotFoundException({
+        "NotFoundException" => super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "TooManyRequestsException" => {
             super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError::TooManyRequestsException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -91,8 +85,7 @@ pub fn de_put_configuration_set_sending_options_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsOutputBuilder::default();
+        let mut output = super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsOutputBuilder::default();
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

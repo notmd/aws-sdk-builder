@@ -20,30 +20,32 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "BackupDetails" => {
-                            builder = builder.set_backup_details(super::super::protocol_serde::shape_backup_details::de_backup_details(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
-                        }
-                        "SourceTableDetails" => {
-                            builder = builder.set_source_table_details(
-                                super::super::protocol_serde::shape_source_table_details::de_source_table_details(tokens, _value, depth + 1)?,
-                            );
-                        }
-                        "SourceTableFeatureDetails" => {
-                            builder = builder.set_source_table_feature_details(
-                                super::super::protocol_serde::shape_source_table_feature_details::de_source_table_feature_details(
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "BackupDetails" => {
+                                builder = builder.set_backup_details(super::super::protocol_serde::shape_backup_details::de_backup_details(
                                     tokens,
                                     _value,
                                     depth + 1,
-                                )?,
-                            );
+                                )?);
+                            }
+                            "SourceTableDetails" => {
+                                builder = builder.set_source_table_details(
+                                    super::super::protocol_serde::shape_source_table_details::de_source_table_details(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            "SourceTableFeatureDetails" => {
+                                builder = builder.set_source_table_feature_details(
+                                    super::super::protocol_serde::shape_source_table_feature_details::de_source_table_feature_details(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

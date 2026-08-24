@@ -6,7 +6,9 @@ pub fn ser_create_bucket_configuration_http_payload(
         Some(t) => t,
         None => return Ok(super::super::protocol_serde::rest_xml_unset_struct_payload()),
     };
-    Ok(super::super::protocol_serde::shape_create_bucket_input::ser_create_bucket_configuration_payload(payload)?)
+    Ok(super::super::protocol_serde::shape_create_bucket_input::ser_create_bucket_configuration_payload(
+        payload,
+    )?)
 }
 
 pub fn ser_create_bucket_configuration_payload(

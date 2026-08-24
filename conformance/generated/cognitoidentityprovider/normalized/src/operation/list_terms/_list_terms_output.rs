@@ -87,9 +87,7 @@ impl ListTermsOutputBuilder {
     /// Consumes the builder and constructs a [`ListTermsOutput`](crate::operation::list_terms::ListTermsOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`terms`](crate::operation::list_terms::builders::ListTermsOutputBuilder::terms)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::list_terms::ListTermsOutput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_terms::ListTermsOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_terms::ListTermsOutput {
             terms: self.terms.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

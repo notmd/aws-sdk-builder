@@ -23,8 +23,7 @@ where
                         break;
                     }
                     _ => {
-                        let value =
-                            super::super::protocol_serde::shape_attempt_ecs_task_details::de_attempt_ecs_task_details(tokens, _value, depth + 1)?;
+                        let value = super::super::protocol_serde::shape_attempt_ecs_task_details::de_attempt_ecs_task_details(tokens, _value, depth + 1)?;
                         if let Some(value) = value {
                             items.push(value);
                         } else {

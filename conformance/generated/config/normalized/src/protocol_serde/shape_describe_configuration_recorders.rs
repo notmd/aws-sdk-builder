@@ -26,23 +26,11 @@ pub fn de_describe_configuration_recorders_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::NoSuchConfigurationRecorderExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_no_such_configuration_recorder_exception::de_no_such_configuration_recorder_exception_json_err(_response_body, output).map_err(super::super::operation::describe_configuration_recorders::DescribeConfigurationRecordersError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ValidationException" => {
-            super::super::operation::describe_configuration_recorders::DescribeConfigurationRecordersError::ValidationException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                    output =
+                        super::super::protocol_serde::shape_no_such_configuration_recorder_exception::de_no_such_configuration_recorder_exception_json_err(
+                            _response_body,
+                            output,
+                        )
                         .map_err(super::super::operation::describe_configuration_recorders::DescribeConfigurationRecordersError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
@@ -53,6 +41,21 @@ pub fn de_describe_configuration_recorders_http_error(
                 tmp
             })
         }
+        "ValidationException" => super::super::operation::describe_configuration_recorders::DescribeConfigurationRecordersError::ValidationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::describe_configuration_recorders::DescribeConfigurationRecordersError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::describe_configuration_recorders::DescribeConfigurationRecordersError::generic(generic),
     })
 }

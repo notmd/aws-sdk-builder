@@ -106,20 +106,14 @@ pub struct CreateKeyFluentBuilder {
     inner: super::super::super::operation::create_key::builders::CreateKeyInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::create_key::CreateKeyOutput,
-        super::super::super::operation::create_key::CreateKeyError,
-    > for CreateKeyFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::create_key::CreateKeyOutput, super::super::super::operation::create_key::CreateKeyError>
+    for CreateKeyFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::create_key::CreateKeyOutput,
-            super::super::super::operation::create_key::CreateKeyError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::create_key::CreateKeyOutput, super::super::super::operation::create_key::CreateKeyError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }

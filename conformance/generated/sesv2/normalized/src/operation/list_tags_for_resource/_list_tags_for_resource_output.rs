@@ -68,10 +68,8 @@ impl ListTagsForResourceOutputBuilder {
     /// - [`tags`](crate::operation::list_tags_for_resource::builders::ListTagsForResourceOutputBuilder::tags)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_tags_for_resource::ListTagsForResourceOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_tags_for_resource::ListTagsForResourceOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_tags_for_resource::ListTagsForResourceOutput {
             tags: self.tags.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

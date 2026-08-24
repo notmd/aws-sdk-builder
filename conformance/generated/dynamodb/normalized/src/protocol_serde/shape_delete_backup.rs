@@ -37,9 +37,8 @@ pub fn de_delete_backup_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::BackupNotFoundExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_backup_not_found_exception::de_backup_not_found_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::delete_backup::DeleteBackupError::unhandled)?;
+                output = super::super::protocol_serde::shape_backup_not_found_exception::de_backup_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_backup::DeleteBackupError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -68,9 +67,8 @@ pub fn de_delete_backup_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::delete_backup::DeleteBackupError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_backup::DeleteBackupError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

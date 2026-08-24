@@ -43,9 +43,8 @@ pub fn de_list_allowed_repositories_for_group_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
+                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -61,11 +60,9 @@ pub fn de_list_allowed_repositories_for_group_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -95,40 +92,36 @@ pub fn de_list_allowed_repositories_for_group_http_error(
                 tmp
             })
         }
-        "ThrottlingException" => {
-            super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ThrottlingException({
+        "ThrottlingException" => super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ThrottlingException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ValidationException" => {
-            super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ValidationException({
+                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ValidationException" => super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ValidationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::generic(generic),
     })
 }
@@ -144,11 +137,9 @@ pub fn de_list_allowed_repositories_for_group_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_list_allowed_repositories_for_group::de_list_allowed_repositories_for_group(_response_body, output)
-                .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
+        let mut output = super::super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupOutputBuilder::default();
+        output = super::super::protocol_serde::shape_list_allowed_repositories_for_group::de_list_allowed_repositories_for_group(_response_body, output)
+            .map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -159,10 +150,7 @@ pub fn ser_list_allowed_repositories_for_group_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_list_allowed_repositories_for_group_input::ser_list_allowed_repositories_for_group_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_list_allowed_repositories_for_group_input::ser_list_allowed_repositories_for_group_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -182,23 +170,23 @@ pub(crate) fn de_list_allowed_repositories_for_group(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "allowedRepositories" => {
-                        builder = builder.set_allowed_repositories(
-                            super::super::protocol_serde::shape_repository_name_list::de_repository_name_list(tokens, _value, depth + 1)?,
-                        );
-                    }
-                    "nextToken" => {
-                        builder = builder.set_next_token(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "allowedRepositories" => {
+                    builder = builder.set_allowed_repositories(super::super::protocol_serde::shape_repository_name_list::de_repository_name_list(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
-            }
+                "nextToken" => {
+                    builder = builder.set_next_token(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

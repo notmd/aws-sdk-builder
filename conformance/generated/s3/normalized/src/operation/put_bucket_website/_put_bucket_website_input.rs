@@ -139,10 +139,7 @@ impl PutBucketWebsiteInputBuilder {
     /// Consumes the builder and constructs a [`PutBucketWebsiteInput`](crate::operation::put_bucket_website::PutBucketWebsiteInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::put_bucket_website::PutBucketWebsiteInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::put_bucket_website::PutBucketWebsiteInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_bucket_website::PutBucketWebsiteInput {
             bucket: self.bucket,
             content_md5: self.content_md5,

@@ -144,10 +144,8 @@ impl GetObjectRetentionInputBuilder {
     /// Consumes the builder and constructs a [`GetObjectRetentionInput`](crate::operation::get_object_retention::GetObjectRetentionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_object_retention::GetObjectRetentionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_object_retention::GetObjectRetentionInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_object_retention::GetObjectRetentionInput {
             bucket: self.bucket,
             key: self.key,

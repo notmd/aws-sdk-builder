@@ -48,8 +48,6 @@ impl ListPlatformApplicationsInputBuilder {
         super::super::super::operation::list_platform_applications::ListPlatformApplicationsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_platform_applications::ListPlatformApplicationsInput { next_token: self.next_token },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_platform_applications::ListPlatformApplicationsInput { next_token: self.next_token })
     }
 }

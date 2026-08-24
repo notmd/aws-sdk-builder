@@ -77,12 +77,10 @@ impl CreateSmsSandboxPhoneNumberInputBuilder {
         super::super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberInput {
-                phone_number: self.phone_number,
-                language_code: self.language_code,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberInput {
+            phone_number: self.phone_number,
+            language_code: self.language_code,
+        })
     }
 }
 impl ::std::fmt::Debug for CreateSmsSandboxPhoneNumberInputBuilder {

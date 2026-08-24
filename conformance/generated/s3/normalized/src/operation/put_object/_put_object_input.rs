@@ -1690,9 +1690,7 @@ impl PutObjectInputBuilder {
         &self.expected_bucket_owner
     }
     /// Consumes the builder and constructs a [`PutObjectInput`](crate::operation::put_object::PutObjectInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::put_object::PutObjectInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::put_object::PutObjectInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_object::PutObjectInput {
             acl: self.acl,
             body: self.body.unwrap_or_default(),

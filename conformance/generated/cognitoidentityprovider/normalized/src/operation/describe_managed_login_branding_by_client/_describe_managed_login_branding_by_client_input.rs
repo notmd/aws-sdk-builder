@@ -35,10 +35,8 @@ impl ::std::fmt::Debug for DescribeManagedLoginBrandingByClientInput {
 }
 impl DescribeManagedLoginBrandingByClientInput {
     /// Creates a new builder-style object to manufacture [`DescribeManagedLoginBrandingByClientInput`](crate::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientInput).
-    pub fn builder(
-    ) -> super::super::super::operation::describe_managed_login_branding_by_client::builders::DescribeManagedLoginBrandingByClientInputBuilder {
-        super::super::super::operation::describe_managed_login_branding_by_client::builders::DescribeManagedLoginBrandingByClientInputBuilder::default(
-        )
+    pub fn builder() -> super::super::super::operation::describe_managed_login_branding_by_client::builders::DescribeManagedLoginBrandingByClientInputBuilder {
+        super::super::super::operation::describe_managed_login_branding_by_client::builders::DescribeManagedLoginBrandingByClientInputBuilder::default()
     }
 }
 

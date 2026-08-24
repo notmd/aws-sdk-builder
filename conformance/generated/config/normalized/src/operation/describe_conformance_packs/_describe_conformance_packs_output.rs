@@ -54,10 +54,7 @@ impl DescribeConformancePacksOutputBuilder {
         self
     }
     /// <p>Returns a list of <code>ConformancePackDetail</code> objects.</p>
-    pub fn set_conformance_pack_details(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackDetail>>,
-    ) -> Self {
+    pub fn set_conformance_pack_details(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackDetail>>) -> Self {
         self.conformance_pack_details = input;
         self
     }

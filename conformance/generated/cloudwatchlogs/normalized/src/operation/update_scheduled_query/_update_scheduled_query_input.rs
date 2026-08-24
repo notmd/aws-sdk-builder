@@ -329,10 +329,8 @@ impl UpdateScheduledQueryInputBuilder {
     /// Consumes the builder and constructs a [`UpdateScheduledQueryInput`](crate::operation::update_scheduled_query::UpdateScheduledQueryInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::update_scheduled_query::UpdateScheduledQueryInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::update_scheduled_query::UpdateScheduledQueryInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::update_scheduled_query::UpdateScheduledQueryInput {
             identifier: self.identifier,
             description: self.description,

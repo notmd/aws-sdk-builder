@@ -9,18 +9,19 @@ pub fn de_get_aggregate_conformance_pack_compliance_summary_http_error(
     super::super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body).map_err(
-        super::super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::unhandled,
-    )?;
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(
-            super::super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::unhandled(
-                generic,
-            ),
-        ),
+        None => {
+            return Err(
+                super::super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::unhandled(
+                    generic,
+                ),
+            )
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -97,8 +98,14 @@ pub fn de_get_aggregate_conformance_pack_compliance_summary_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryOutputBuilder::default();
-        output = super::super::protocol_serde::shape_get_aggregate_conformance_pack_compliance_summary::de_get_aggregate_conformance_pack_compliance_summary(_response_body, output)
-            .map_err(super::super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::unhandled)?;
+        output =
+            super::super::protocol_serde::shape_get_aggregate_conformance_pack_compliance_summary::de_get_aggregate_conformance_pack_compliance_summary(
+                _response_body,
+                output,
+            )
+            .map_err(
+                super::super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryError::unhandled,
+            )?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

@@ -44,10 +44,8 @@ impl CancelMessageMoveTaskInputBuilder {
     /// Consumes the builder and constructs a [`CancelMessageMoveTaskInput`](crate::operation::cancel_message_move_task::CancelMessageMoveTaskInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::cancel_message_move_task::CancelMessageMoveTaskInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::cancel_message_move_task::CancelMessageMoveTaskInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::cancel_message_move_task::CancelMessageMoveTaskInput {
             task_handle: self.task_handle,
         })

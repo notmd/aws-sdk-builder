@@ -144,10 +144,8 @@ impl UpdateSamlProviderInputBuilder {
     /// Consumes the builder and constructs a [`UpdateSamlProviderInput`](crate::operation::update_saml_provider::UpdateSamlProviderInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::update_saml_provider::UpdateSamlProviderInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::update_saml_provider::UpdateSamlProviderInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::update_saml_provider::UpdateSamlProviderInput {
             saml_metadata_document: self.saml_metadata_document,
             saml_provider_arn: self.saml_provider_arn,

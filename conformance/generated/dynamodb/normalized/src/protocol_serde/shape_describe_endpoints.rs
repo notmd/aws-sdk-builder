@@ -4,10 +4,8 @@ pub fn de_describe_endpoints_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::describe_endpoints::DescribeEndpointsOutput,
-    super::super::operation::describe_endpoints::DescribeEndpointsError,
-> {
+) -> std::result::Result<super::super::operation::describe_endpoints::DescribeEndpointsOutput, super::super::operation::describe_endpoints::DescribeEndpointsError>
+{
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::describe_endpoints::DescribeEndpointsError::unhandled)?;
@@ -21,10 +19,8 @@ pub fn de_describe_endpoints_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::describe_endpoints::DescribeEndpointsOutput,
-    super::super::operation::describe_endpoints::DescribeEndpointsError,
-> {
+) -> std::result::Result<super::super::operation::describe_endpoints::DescribeEndpointsOutput, super::super::operation::describe_endpoints::DescribeEndpointsError>
+{
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::describe_endpoints::builders::DescribeEndpointsOutputBuilder::default();

@@ -39,20 +39,14 @@ pub struct GetGroupFluentBuilder {
     inner: super::super::super::operation::get_group::builders::GetGroupInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::get_group::GetGroupOutput,
-        super::super::super::operation::get_group::GetGroupError,
-    > for GetGroupFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::get_group::GetGroupOutput, super::super::super::operation::get_group::GetGroupError>
+    for GetGroupFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::get_group::GetGroupOutput,
-            super::super::super::operation::get_group::GetGroupError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::get_group::GetGroupOutput, super::super::super::operation::get_group::GetGroupError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -102,11 +96,8 @@ impl GetGroupFluentBuilder {
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
     pub fn customize(
         self,
-    ) -> super::super::super::client::customize::CustomizableOperation<
-        super::super::super::operation::get_group::GetGroupOutput,
-        super::super::super::operation::get_group::GetGroupError,
-        Self,
-    > {
+    ) -> super::super::super::client::customize::CustomizableOperation<super::super::super::operation::get_group::GetGroupOutput, super::super::super::operation::get_group::GetGroupError, Self>
+    {
         super::super::super::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<super::super::super::config::Builder>) -> Self {

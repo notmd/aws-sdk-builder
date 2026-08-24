@@ -44,10 +44,8 @@ impl DeleteRetentionPolicyInputBuilder {
     /// Consumes the builder and constructs a [`DeleteRetentionPolicyInput`](crate::operation::delete_retention_policy::DeleteRetentionPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_retention_policy::DeleteRetentionPolicyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_retention_policy::DeleteRetentionPolicyInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::delete_retention_policy::DeleteRetentionPolicyInput {
             log_group_name: self.log_group_name,
         })

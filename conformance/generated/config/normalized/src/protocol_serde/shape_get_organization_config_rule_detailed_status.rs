@@ -17,9 +17,7 @@ pub fn de_get_organization_config_rule_detailed_status_http_error(
         Some(code) => code,
         None => {
             return Err(
-                super::super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusError::unhandled(
-                    generic,
-                ),
+                super::super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusError::unhandled(generic),
             )
         }
     };
@@ -97,7 +95,8 @@ pub fn de_get_organization_config_rule_detailed_status_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = super::super::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusOutputBuilder::default();
+        let mut output =
+            super::super::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusOutputBuilder::default();
         output = super::super::protocol_serde::shape_get_organization_config_rule_detailed_status::de_get_organization_config_rule_detailed_status(
             _response_body,
             output,
@@ -113,7 +112,10 @@ pub fn ser_get_organization_config_rule_detailed_status_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_organization_config_rule_detailed_status_input::ser_get_organization_config_rule_detailed_status_input_input(&mut object, input)?;
+    super::super::protocol_serde::shape_get_organization_config_rule_detailed_status_input::ser_get_organization_config_rule_detailed_status_input_input(
+        &mut object,
+        input,
+    )?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -133,21 +135,25 @@ pub(crate) fn de_get_organization_config_rule_detailed_status(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "OrganizationConfigRuleDetailedStatus" => {
-                        builder = builder.set_organization_config_rule_detailed_status(super::super::protocol_serde::shape_organization_config_rule_detailed_status::de_organization_config_rule_detailed_status(tokens, _value, depth + 1)?);
-                    }
-                    "NextToken" => {
-                        builder = builder.set_next_token(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "OrganizationConfigRuleDetailedStatus" => {
+                    builder = builder.set_organization_config_rule_detailed_status(
+                        super::super::protocol_serde::shape_organization_config_rule_detailed_status::de_organization_config_rule_detailed_status(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
                 }
-            }
+                "NextToken" => {
+                    builder = builder.set_next_token(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

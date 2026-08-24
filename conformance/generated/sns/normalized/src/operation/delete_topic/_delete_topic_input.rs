@@ -42,9 +42,7 @@ impl DeleteTopicInputBuilder {
         &self.topic_arn
     }
     /// Consumes the builder and constructs a [`DeleteTopicInput`](crate::operation::delete_topic::DeleteTopicInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::delete_topic::DeleteTopicInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::delete_topic::DeleteTopicInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_topic::DeleteTopicInput { topic_arn: self.topic_arn })
     }
 }

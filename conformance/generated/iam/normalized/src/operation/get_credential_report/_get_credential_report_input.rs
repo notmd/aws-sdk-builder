@@ -18,10 +18,8 @@ impl GetCredentialReportInputBuilder {
     /// Consumes the builder and constructs a [`GetCredentialReportInput`](crate::operation::get_credential_report::GetCredentialReportInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_credential_report::GetCredentialReportInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_credential_report::GetCredentialReportInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_credential_report::GetCredentialReportInput {})
     }
 }

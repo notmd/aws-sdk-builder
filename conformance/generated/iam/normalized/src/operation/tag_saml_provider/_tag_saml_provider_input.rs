@@ -78,10 +78,7 @@ impl TagSamlProviderInputBuilder {
     /// Consumes the builder and constructs a [`TagSamlProviderInput`](crate::operation::tag_saml_provider::TagSamlProviderInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::tag_saml_provider::TagSamlProviderInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::tag_saml_provider::TagSamlProviderInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::tag_saml_provider::TagSamlProviderInput {
             saml_provider_arn: self.saml_provider_arn,
             tags: self.tags,

@@ -65,13 +65,11 @@ where
                             );
                         }
                         "EumsSms" => {
-                            builder = builder.set_eums_sms(
-                                super::super::protocol_serde::shape_eums_sms_configuration_type::de_eums_sms_configuration_type(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
-                            );
+                            builder = builder.set_eums_sms(super::super::protocol_serde::shape_eums_sms_configuration_type::de_eums_sms_configuration_type(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

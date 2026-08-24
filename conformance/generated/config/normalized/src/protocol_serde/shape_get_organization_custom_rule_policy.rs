@@ -21,22 +21,20 @@ pub fn de_get_organization_custom_rule_policy_http_error(
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
         "NoSuchOrganizationConfigRuleException" => {
-            super::super::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyError::NoSuchOrganizationConfigRuleException(
-                {
+            super::super::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyError::NoSuchOrganizationConfigRuleException({
+                #[allow(unused_mut)]
+                let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut tmp = {
-                        #[allow(unused_mut)]
-                        let mut output = super::super::types::error::builders::NoSuchOrganizationConfigRuleExceptionBuilder::default();
-                        output = super::super::protocol_serde::shape_no_such_organization_config_rule_exception::de_no_such_organization_config_rule_exception_json_err(_response_body, output).map_err(super::super::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyError::unhandled)?;
-                        let output = output.meta(generic);
-                        output.build()
-                    };
-                    if tmp.message.is_none() {
-                        tmp.message = _error_message;
-                    }
-                    tmp
-                },
-            )
+                    let mut output = super::super::types::error::builders::NoSuchOrganizationConfigRuleExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_no_such_organization_config_rule_exception::de_no_such_organization_config_rule_exception_json_err(_response_body, output).map_err(super::super::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
         }
         "OrganizationAccessDeniedException" => {
             super::super::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyError::OrganizationAccessDeniedException({
@@ -44,12 +42,11 @@ pub fn de_get_organization_custom_rule_policy_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::OrganizationAccessDeniedExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_organization_access_denied_exception::de_organization_access_denied_exception_json_err(
-                            _response_body,
-                            output,
-                        )
-                        .map_err(super::super::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyError::unhandled)?;
+                    output = super::super::protocol_serde::shape_organization_access_denied_exception::de_organization_access_denied_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -74,11 +71,9 @@ pub fn de_get_organization_custom_rule_policy_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::get_organization_custom_rule_policy::builders::GetOrganizationCustomRulePolicyOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_get_organization_custom_rule_policy::de_get_organization_custom_rule_policy(_response_body, output)
-                .map_err(super::super::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyError::unhandled)?;
+        let mut output = super::super::operation::get_organization_custom_rule_policy::builders::GetOrganizationCustomRulePolicyOutputBuilder::default();
+        output = super::super::protocol_serde::shape_get_organization_custom_rule_policy::de_get_organization_custom_rule_policy(_response_body, output)
+            .map_err(super::super::operation::get_organization_custom_rule_policy::GetOrganizationCustomRulePolicyError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -89,10 +84,7 @@ pub fn ser_get_organization_custom_rule_policy_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_organization_custom_rule_policy_input::ser_get_organization_custom_rule_policy_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_get_organization_custom_rule_policy_input::ser_get_organization_custom_rule_policy_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

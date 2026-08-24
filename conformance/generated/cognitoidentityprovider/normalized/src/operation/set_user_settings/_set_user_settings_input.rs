@@ -82,10 +82,7 @@ impl SetUserSettingsInputBuilder {
     /// Consumes the builder and constructs a [`SetUserSettingsInput`](crate::operation::set_user_settings::SetUserSettingsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::set_user_settings::SetUserSettingsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::set_user_settings::SetUserSettingsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::set_user_settings::SetUserSettingsInput {
             access_token: self.access_token,
             mfa_options: self.mfa_options,

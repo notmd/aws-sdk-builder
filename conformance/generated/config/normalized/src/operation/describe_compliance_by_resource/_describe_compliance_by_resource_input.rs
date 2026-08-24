@@ -140,14 +140,12 @@ impl DescribeComplianceByResourceInputBuilder {
         super::super::super::operation::describe_compliance_by_resource::DescribeComplianceByResourceInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::describe_compliance_by_resource::DescribeComplianceByResourceInput {
-                resource_type: self.resource_type,
-                resource_id: self.resource_id,
-                compliance_types: self.compliance_types,
-                limit: self.limit.unwrap_or_default(),
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::describe_compliance_by_resource::DescribeComplianceByResourceInput {
+            resource_type: self.resource_type,
+            resource_id: self.resource_id,
+            compliance_types: self.compliance_types,
+            limit: self.limit.unwrap_or_default(),
+            next_token: self.next_token,
+        })
     }
 }

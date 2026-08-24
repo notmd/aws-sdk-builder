@@ -4,8 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DescribeAggregateComplianceByConformancePacksOutput {
     /// <p>Returns the <code>AggregateComplianceByConformancePack</code> object.</p>
-    pub aggregate_compliance_by_conformance_packs:
-        ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregateComplianceByConformancePack>>,
+    pub aggregate_compliance_by_conformance_packs: ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregateComplianceByConformancePack>>,
     /// <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -29,7 +28,9 @@ impl ::aws_types::request_id::RequestId for DescribeAggregateComplianceByConform
 }
 impl DescribeAggregateComplianceByConformancePacksOutput {
     /// Creates a new builder-style object to manufacture [`DescribeAggregateComplianceByConformancePacksOutput`](crate::operation::describe_aggregate_compliance_by_conformance_packs::DescribeAggregateComplianceByConformancePacksOutput).
-    pub fn builder() -> super::super::super::operation::describe_aggregate_compliance_by_conformance_packs::builders::DescribeAggregateComplianceByConformancePacksOutputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::describe_aggregate_compliance_by_conformance_packs::builders::DescribeAggregateComplianceByConformancePacksOutputBuilder
+    {
         super::super::super::operation::describe_aggregate_compliance_by_conformance_packs::builders::DescribeAggregateComplianceByConformancePacksOutputBuilder::default()
     }
 }
@@ -38,8 +39,7 @@ impl DescribeAggregateComplianceByConformancePacksOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct DescribeAggregateComplianceByConformancePacksOutputBuilder {
-    pub(crate) aggregate_compliance_by_conformance_packs:
-        ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregateComplianceByConformancePack>>,
+    pub(crate) aggregate_compliance_by_conformance_packs: ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregateComplianceByConformancePack>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -93,9 +93,7 @@ impl DescribeAggregateComplianceByConformancePacksOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeAggregateComplianceByConformancePacksOutput`](crate::operation::describe_aggregate_compliance_by_conformance_packs::DescribeAggregateComplianceByConformancePacksOutput).
-    pub fn build(
-        self,
-    ) -> super::super::super::operation::describe_aggregate_compliance_by_conformance_packs::DescribeAggregateComplianceByConformancePacksOutput {
+    pub fn build(self) -> super::super::super::operation::describe_aggregate_compliance_by_conformance_packs::DescribeAggregateComplianceByConformancePacksOutput {
         super::super::super::operation::describe_aggregate_compliance_by_conformance_packs::DescribeAggregateComplianceByConformancePacksOutput {
             aggregate_compliance_by_conformance_packs: self.aggregate_compliance_by_conformance_packs,
             next_token: self.next_token,

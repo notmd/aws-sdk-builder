@@ -36,20 +36,14 @@ pub struct VerifyMacFluentBuilder {
     inner: super::super::super::operation::verify_mac::builders::VerifyMacInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::verify_mac::VerifyMacOutput,
-        super::super::super::operation::verify_mac::VerifyMacError,
-    > for VerifyMacFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::verify_mac::VerifyMacOutput, super::super::super::operation::verify_mac::VerifyMacError>
+    for VerifyMacFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::verify_mac::VerifyMacOutput,
-            super::super::super::operation::verify_mac::VerifyMacError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::verify_mac::VerifyMacOutput, super::super::super::operation::verify_mac::VerifyMacError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }

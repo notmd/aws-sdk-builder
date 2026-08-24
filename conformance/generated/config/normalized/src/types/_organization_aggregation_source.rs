@@ -96,9 +96,7 @@ impl OrganizationAggregationSourceBuilder {
     /// Consumes the builder and constructs a [`OrganizationAggregationSource`](crate::types::OrganizationAggregationSource).
     /// This method will fail if any of the following fields are not set:
     /// - [`role_arn`](crate::types::builders::OrganizationAggregationSourceBuilder::role_arn)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::OrganizationAggregationSource, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::OrganizationAggregationSource, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::OrganizationAggregationSource {
             role_arn: self.role_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

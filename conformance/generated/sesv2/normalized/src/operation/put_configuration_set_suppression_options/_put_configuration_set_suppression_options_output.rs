@@ -13,8 +13,7 @@ impl ::aws_types::request_id::RequestId for PutConfigurationSetSuppressionOption
 }
 impl PutConfigurationSetSuppressionOptionsOutput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetSuppressionOptionsOutput`](crate::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptionsOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsOutputBuilder {
+    pub fn builder() -> super::super::super::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsOutputBuilder {
         super::super::super::operation::put_configuration_set_suppression_options::builders::PutConfigurationSetSuppressionOptionsOutputBuilder::default()
     }
 }

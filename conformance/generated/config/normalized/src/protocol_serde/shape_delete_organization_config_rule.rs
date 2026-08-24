@@ -42,12 +42,11 @@ pub fn de_delete_organization_config_rule_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::OrganizationAccessDeniedExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_organization_access_denied_exception::de_organization_access_denied_exception_json_err(
-                            _response_body,
-                            output,
-                        )
-                        .map_err(super::super::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleError::unhandled)?;
+                    output = super::super::protocol_serde::shape_organization_access_denied_exception::de_organization_access_denied_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -57,24 +56,21 @@ pub fn de_delete_organization_config_rule_http_error(
                 tmp
             })
         }
-        "ResourceInUseException" => {
-            super::super::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleError::ResourceInUseException({
+        "ResourceInUseException" => super::super::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleError::ResourceInUseException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ResourceInUseExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::ResourceInUseExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::delete_organization_config_rule::DeleteOrganizationConfigRuleError::generic(generic),
     })
 }

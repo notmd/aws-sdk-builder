@@ -139,10 +139,7 @@ impl ListLayersPaginatorItems {
             >,
         >,
     > {
-        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
-            super::super::super::lens::lens_list_layers_output_output_layers(page)
-                .unwrap_or_default()
-                .into_iter()
-        })
+        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send())
+            .flat_map(|page| super::super::super::lens::lens_list_layers_output_output_layers(page).unwrap_or_default().into_iter())
     }
 }

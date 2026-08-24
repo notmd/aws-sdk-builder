@@ -78,9 +78,11 @@ where
                             );
                         }
                         "inheritedProperties" => {
-                            builder = builder.set_inherited_properties(
-                                super::super::protocol_serde::shape_inherited_properties::de_inherited_properties(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_inherited_properties(super::super::protocol_serde::shape_inherited_properties::de_inherited_properties(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "logGroupClass" => {
                             builder = builder.set_log_group_class(

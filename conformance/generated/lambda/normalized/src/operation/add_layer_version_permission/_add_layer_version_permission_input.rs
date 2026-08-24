@@ -178,16 +178,14 @@ impl AddLayerVersionPermissionInputBuilder {
         super::super::super::operation::add_layer_version_permission::AddLayerVersionPermissionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::add_layer_version_permission::AddLayerVersionPermissionInput {
-                layer_name: self.layer_name,
-                version_number: self.version_number.unwrap_or_default(),
-                statement_id: self.statement_id,
-                action: self.action,
-                principal: self.principal,
-                organization_id: self.organization_id,
-                revision_id: self.revision_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::add_layer_version_permission::AddLayerVersionPermissionInput {
+            layer_name: self.layer_name,
+            version_number: self.version_number.unwrap_or_default(),
+            statement_id: self.statement_id,
+            action: self.action,
+            principal: self.principal,
+            organization_id: self.organization_id,
+            revision_id: self.revision_id,
+        })
     }
 }

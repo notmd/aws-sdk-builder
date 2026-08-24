@@ -44,10 +44,7 @@ impl DeleteStoredQueryInputBuilder {
     /// Consumes the builder and constructs a [`DeleteStoredQueryInput`](crate::operation::delete_stored_query::DeleteStoredQueryInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_stored_query::DeleteStoredQueryInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_stored_query::DeleteStoredQueryInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_stored_query::DeleteStoredQueryInput { query_name: self.query_name })
     }
 }

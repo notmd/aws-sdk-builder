@@ -15,11 +15,7 @@ pub fn de_delete_delivery_source_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::delete_delivery_source::DeleteDeliverySourceError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::delete_delivery_source::DeleteDeliverySourceError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -44,7 +40,22 @@ pub fn de_delete_delivery_source_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_delivery_source::DeleteDeliverySourceError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ServiceQuotaExceededException" => super::super::operation::delete_delivery_source::DeleteDeliverySourceError::ServiceQuotaExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(
                     _response_body,
                     output,
                 )
@@ -57,36 +68,14 @@ pub fn de_delete_delivery_source_http_error(
             }
             tmp
         }),
-        "ServiceQuotaExceededException" => {
-            super::super::operation::delete_delivery_source::DeleteDeliverySourceError::ServiceQuotaExceededException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::delete_delivery_source::DeleteDeliverySourceError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
         "ServiceUnavailableException" => super::super::operation::delete_delivery_source::DeleteDeliverySourceError::ServiceUnavailableException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::delete_delivery_source::DeleteDeliverySourceError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::delete_delivery_source::DeleteDeliverySourceError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

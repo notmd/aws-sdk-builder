@@ -26,7 +26,12 @@ pub fn de_delete_configuration_recorder_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::NoSuchConfigurationRecorderExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_no_such_configuration_recorder_exception::de_no_such_configuration_recorder_exception_json_err(_response_body, output).map_err(super::super::operation::delete_configuration_recorder::DeleteConfigurationRecorderError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_no_such_configuration_recorder_exception::de_no_such_configuration_recorder_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::delete_configuration_recorder::DeleteConfigurationRecorderError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -42,11 +47,9 @@ pub fn de_delete_configuration_recorder_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::UnmodifiableEntityExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_unmodifiable_entity_exception::de_unmodifiable_entity_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::delete_configuration_recorder::DeleteConfigurationRecorderError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_unmodifiable_entity_exception::de_unmodifiable_entity_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::delete_configuration_recorder::DeleteConfigurationRecorderError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };

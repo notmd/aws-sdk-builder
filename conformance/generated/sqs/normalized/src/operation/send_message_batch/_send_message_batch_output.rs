@@ -98,10 +98,7 @@ impl SendMessageBatchOutputBuilder {
     /// - [`failed`](crate::operation::send_message_batch::builders::SendMessageBatchOutputBuilder::failed)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::send_message_batch::SendMessageBatchOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::send_message_batch::SendMessageBatchOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::send_message_batch::SendMessageBatchOutput {
             successful: self.successful.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

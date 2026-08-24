@@ -26,7 +26,12 @@ where
                         break;
                     }
                     _ => {
-                        let value = super::super::protocol_serde::shape_failed_delete_remediation_exceptions_batch::de_failed_delete_remediation_exceptions_batch(tokens, _value, depth + 1)?;
+                        let value =
+                            super::super::protocol_serde::shape_failed_delete_remediation_exceptions_batch::de_failed_delete_remediation_exceptions_batch(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?;
                         if let Some(value) = value {
                             items.push(value);
                         } else {

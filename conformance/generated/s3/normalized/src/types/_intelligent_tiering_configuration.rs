@@ -120,9 +120,7 @@ impl IntelligentTieringConfigurationBuilder {
     /// - [`id`](crate::types::builders::IntelligentTieringConfigurationBuilder::id)
     /// - [`status`](crate::types::builders::IntelligentTieringConfigurationBuilder::status)
     /// - [`tierings`](crate::types::builders::IntelligentTieringConfigurationBuilder::tierings)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::IntelligentTieringConfiguration, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::IntelligentTieringConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::IntelligentTieringConfiguration {
             id: self.id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

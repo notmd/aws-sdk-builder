@@ -464,9 +464,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for Describe
         })
     }
 }
-impl ::aws_types::request_id::RequestId
-    for super::super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError
-{
+impl ::aws_types::request_id::RequestId for super::super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

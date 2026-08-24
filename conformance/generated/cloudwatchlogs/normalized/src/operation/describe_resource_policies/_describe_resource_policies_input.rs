@@ -110,13 +110,11 @@ impl DescribeResourcePoliciesInputBuilder {
         super::super::super::operation::describe_resource_policies::DescribeResourcePoliciesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::describe_resource_policies::DescribeResourcePoliciesInput {
-                next_token: self.next_token,
-                limit: self.limit,
-                resource_arn: self.resource_arn,
-                policy_scope: self.policy_scope,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::describe_resource_policies::DescribeResourcePoliciesInput {
+            next_token: self.next_token,
+            limit: self.limit,
+            resource_arn: self.resource_arn,
+            policy_scope: self.policy_scope,
+        })
     }
 }

@@ -48,10 +48,7 @@ impl CreateAccessKeyInputBuilder {
     /// Consumes the builder and constructs a [`CreateAccessKeyInput`](crate::operation::create_access_key::CreateAccessKeyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::create_access_key::CreateAccessKeyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::create_access_key::CreateAccessKeyInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::create_access_key::CreateAccessKeyInput { user_name: self.user_name })
     }
 }

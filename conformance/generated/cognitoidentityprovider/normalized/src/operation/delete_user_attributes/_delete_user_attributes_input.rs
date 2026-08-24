@@ -87,10 +87,8 @@ impl DeleteUserAttributesInputBuilder {
     /// Consumes the builder and constructs a [`DeleteUserAttributesInput`](crate::operation::delete_user_attributes::DeleteUserAttributesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_user_attributes::DeleteUserAttributesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_user_attributes::DeleteUserAttributesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::delete_user_attributes::DeleteUserAttributesInput {
             user_attribute_names: self.user_attribute_names,
             access_token: self.access_token,

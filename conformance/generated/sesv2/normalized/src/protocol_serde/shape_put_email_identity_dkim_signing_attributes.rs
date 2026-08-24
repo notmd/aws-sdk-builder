@@ -16,9 +16,7 @@ pub fn de_put_email_identity_dkim_signing_attributes_http_error(
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(
-                super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError::unhandled(generic),
-            )
+            return Err(super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError::unhandled(generic))
         }
     };
 
@@ -30,8 +28,7 @@ pub fn de_put_email_identity_dkim_signing_attributes_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-                        .map_err(
+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(
                         super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError::unhandled,
                     )?;
                     let output = output.meta(generic);
@@ -49,8 +46,7 @@ pub fn de_put_email_identity_dkim_signing_attributes_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                        .map_err(
+                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output).map_err(
                         super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError::unhandled,
                     )?;
                     let output = output.meta(generic);
@@ -63,22 +59,24 @@ pub fn de_put_email_identity_dkim_signing_attributes_http_error(
             })
         }
         "TooManyRequestsException" => {
-            super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError::TooManyRequestsException(
-                {
+            super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError::TooManyRequestsException({
+                #[allow(unused_mut)]
+                let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut tmp = {
-                        #[allow(unused_mut)]
-                        let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                        output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError::unhandled)?;
-                        let output = output.meta(generic);
-                        output.build()
-                    };
-                    if tmp.message.is_none() {
-                        tmp.message = _error_message;
-                    }
-                    tmp
-                },
-            )
+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(
+                                super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError::unhandled,
+                            )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
         }
         _ => super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError::generic(generic),
     })
@@ -95,7 +93,8 @@ pub fn de_put_email_identity_dkim_signing_attributes_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = super::super::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesOutputBuilder::default();
+        let mut output =
+            super::super::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesOutputBuilder::default();
         output = super::super::protocol_serde::shape_put_email_identity_dkim_signing_attributes::de_put_email_identity_dkim_signing_attributes(
             _response_body,
             output,
@@ -143,11 +142,7 @@ pub(crate) fn de_put_email_identity_dkim_signing_attributes(
                     );
                 }
                 "DkimTokens" => {
-                    builder = builder.set_dkim_tokens(super::super::protocol_serde::shape_dns_token_list::de_dns_token_list(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_dkim_tokens(super::super::protocol_serde::shape_dns_token_list::de_dns_token_list(tokens, _value, depth + 1)?);
                 }
                 "SigningHostedZone" => {
                     builder = builder.set_signing_hosted_zone(

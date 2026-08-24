@@ -15,45 +15,36 @@ pub fn de_get_event_source_mapping_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::get_event_source_mapping::GetEventSourceMappingError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::get_event_source_mapping::GetEventSourceMappingError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidParameterValueException" => {
-            super::super::operation::get_event_source_mapping::GetEventSourceMappingError::InvalidParameterValueException({
+        "InvalidParameterValueException" => super::super::operation::get_event_source_mapping::GetEventSourceMappingError::InvalidParameterValueException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::get_event_source_mapping::GetEventSourceMappingError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::get_event_source_mapping::GetEventSourceMappingError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ResourceNotFoundException" => super::super::operation::get_event_source_mapping::GetEventSourceMappingError::ResourceNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::get_event_source_mapping::GetEventSourceMappingError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_event_source_mapping::GetEventSourceMappingError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -82,9 +73,8 @@ pub fn de_get_event_source_mapping_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_event_source_mapping::GetEventSourceMappingError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_event_source_mapping::GetEventSourceMappingError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -230,11 +220,7 @@ pub(crate) fn de_get_event_source_mapping(
                     );
                 }
                 "ScalingConfig" => {
-                    builder = builder.set_scaling_config(super::super::protocol_serde::shape_scaling_config::de_scaling_config(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_scaling_config(super::super::protocol_serde::shape_scaling_config::de_scaling_config(tokens, _value, depth + 1)?);
                 }
                 "FunctionArn" => {
                     builder = builder.set_function_arn(
@@ -342,11 +328,7 @@ pub(crate) fn de_get_event_source_mapping(
                 }
                 "DocumentDBEventSourceConfig" => {
                     builder = builder.set_document_db_event_source_config(
-                        super::super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_document_db_event_source_config::de_document_db_event_source_config(tokens, _value, depth + 1)?,
                     );
                 }
                 "EventSourceMappingArn" => {

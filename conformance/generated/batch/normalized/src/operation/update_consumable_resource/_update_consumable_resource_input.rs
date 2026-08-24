@@ -166,13 +166,11 @@ impl UpdateConsumableResourceInputBuilder {
         super::super::super::operation::update_consumable_resource::UpdateConsumableResourceInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::update_consumable_resource::UpdateConsumableResourceInput {
-                consumable_resource: self.consumable_resource,
-                operation: self.operation,
-                quantity: self.quantity,
-                client_token: self.client_token,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::update_consumable_resource::UpdateConsumableResourceInput {
+            consumable_resource: self.consumable_resource,
+            operation: self.operation,
+            quantity: self.quantity,
+            client_token: self.client_token,
+        })
     }
 }

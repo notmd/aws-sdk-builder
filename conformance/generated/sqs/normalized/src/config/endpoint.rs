@@ -29,10 +29,7 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for EndpointOverr
 /// Endpoint resolver trait specific to Amazon Simple Queue Service
 pub trait ResolveEndpoint: ::std::marker::Send + ::std::marker::Sync + ::std::fmt::Debug {
     /// Resolve an endpoint with the given parameters
-    fn resolve_endpoint<'a>(
-        &'a self,
-        params: &'a super::super::config::endpoint::Params,
-    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
+    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
 
     /// Convert this service-specific resolver into a `SharedEndpointResolver`
     ///
@@ -295,10 +292,7 @@ impl DefaultResolver {
 }
 
 impl super::super::config::endpoint::ResolveEndpoint for DefaultResolver {
-    fn resolve_endpoint<'a>(
-        &'a self,
-        params: &'a super::super::config::endpoint::Params,
-    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
+    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
         // Check single-entry cache (lock-free read via ArcSwap)
         let cached = self.endpoint_cache.load();
         if let Some((cached_params, cached_endpoint)) = cached.as_ref() {

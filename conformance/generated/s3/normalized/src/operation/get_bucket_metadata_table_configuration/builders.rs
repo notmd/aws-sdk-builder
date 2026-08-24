@@ -81,9 +81,7 @@ impl GetBucketMetadataTableConfigurationFluentBuilder {
         }
     }
     /// Access the GetBucketMetadataTableConfiguration as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -113,11 +111,7 @@ impl GetBucketMetadataTableConfigurationFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfiguration::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        super::super::super::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfiguration::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

@@ -52,11 +52,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "labels" => {
-                            builder = builder.set_labels(super::super::protocol_serde::shape_eks_labels_map::de_eks_labels_map(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_labels(super::super::protocol_serde::shape_eks_labels_map::de_eks_labels_map(tokens, _value, depth + 1)?);
                         }
                         "annotations" => {
                             builder = builder.set_annotations(super::super::protocol_serde::shape_eks_annotations_map::de_eks_annotations_map(

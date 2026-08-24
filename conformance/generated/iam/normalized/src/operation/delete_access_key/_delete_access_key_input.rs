@@ -75,10 +75,7 @@ impl DeleteAccessKeyInputBuilder {
     /// Consumes the builder and constructs a [`DeleteAccessKeyInput`](crate::operation::delete_access_key::DeleteAccessKeyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_access_key::DeleteAccessKeyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_access_key::DeleteAccessKeyInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_access_key::DeleteAccessKeyInput {
             user_name: self.user_name,
             access_key_id: self.access_key_id,

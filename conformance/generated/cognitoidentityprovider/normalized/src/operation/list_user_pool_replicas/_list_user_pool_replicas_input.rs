@@ -65,10 +65,8 @@ impl ListUserPoolReplicasInputBuilder {
     /// Consumes the builder and constructs a [`ListUserPoolReplicasInput`](crate::operation::list_user_pool_replicas::ListUserPoolReplicasInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_user_pool_replicas::ListUserPoolReplicasInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_user_pool_replicas::ListUserPoolReplicasInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_user_pool_replicas::ListUserPoolReplicasInput {
             user_pool_id: self.user_pool_id,
             next_token: self.next_token,

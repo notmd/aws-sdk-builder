@@ -225,10 +225,7 @@ impl SubmitServiceJobInputBuilder {
         self
     }
     /// <p>Specifies the service job behavior when preempted.</p>
-    pub fn set_preemption_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::ServiceJobPreemptionConfiguration>,
-    ) -> Self {
+    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<super::super::super::types::ServiceJobPreemptionConfiguration>) -> Self {
         self.preemption_configuration = input;
         self
     }
@@ -287,10 +284,7 @@ impl SubmitServiceJobInputBuilder {
     /// Consumes the builder and constructs a [`SubmitServiceJobInput`](crate::operation::submit_service_job::SubmitServiceJobInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::submit_service_job::SubmitServiceJobInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::submit_service_job::SubmitServiceJobInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::submit_service_job::SubmitServiceJobInput {
             job_name: self.job_name,
             job_queue: self.job_queue,

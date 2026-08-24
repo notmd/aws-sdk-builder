@@ -57,9 +57,7 @@ impl DescribeConfigurationTemplatesFluentBuilder {
         }
     }
     /// Access the DescribeConfigurationTemplates as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::describe_configuration_templates::builders::DescribeConfigurationTemplatesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,12 +81,11 @@ impl DescribeConfigurationTemplatesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::describe_configuration_templates::DescribeConfigurationTemplates::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = super::super::super::operation::describe_configuration_templates::DescribeConfigurationTemplates::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         super::super::super::operation::describe_configuration_templates::DescribeConfigurationTemplates::orchestrate(&runtime_plugins, input).await
     }
 
@@ -114,13 +111,8 @@ impl DescribeConfigurationTemplatesFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_configuration_templates::paginator::DescribeConfigurationTemplatesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> super::super::super::operation::describe_configuration_templates::paginator::DescribeConfigurationTemplatesPaginator {
-        super::super::super::operation::describe_configuration_templates::paginator::DescribeConfigurationTemplatesPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> super::super::super::operation::describe_configuration_templates::paginator::DescribeConfigurationTemplatesPaginator {
+        super::super::super::operation::describe_configuration_templates::paginator::DescribeConfigurationTemplatesPaginator::new(self.handle, self.inner)
     }
     /// <p>Use this parameter to filter the response to include only the configuration templates that apply to the Amazon Web Services service that you specify here.</p>
     pub fn service(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -185,10 +177,7 @@ impl DescribeConfigurationTemplatesFluentBuilder {
         self
     }
     /// <p>Use this parameter to filter the response to include only the configuration templates that apply to the delivery destination types that you specify here.</p>
-    pub fn set_delivery_destination_types(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeliveryDestinationType>>,
-    ) -> Self {
+    pub fn set_delivery_destination_types(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeliveryDestinationType>>) -> Self {
         self.inner = self.inner.set_delivery_destination_types(input);
         self
     }

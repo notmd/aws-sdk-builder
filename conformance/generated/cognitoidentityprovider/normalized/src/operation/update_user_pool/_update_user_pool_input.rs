@@ -267,10 +267,7 @@ impl UpdateUserPoolInputBuilder {
         self
     }
     /// <p>The attributes that you want your user pool to automatically verify. Possible values: <b>email</b>, <b>phone_number</b>. For more information see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves">Verifying contact information at sign-up</a>.</p>
-    pub fn set_auto_verified_attributes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::VerifiedAttributeType>>,
-    ) -> Self {
+    pub fn set_auto_verified_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::VerifiedAttributeType>>) -> Self {
         self.auto_verified_attributes = input;
         self
     }
@@ -328,10 +325,7 @@ impl UpdateUserPoolInputBuilder {
     }
     /// <p>The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.</p>
     /// <p>Set the email message type that corresponds to your <code>DefaultEmailOption</code> selection. For <code>CONFIRM_WITH_LINK</code>, specify an <code>EmailMessageByLink</code> and leave <code>EmailMessage</code> blank. For <code>CONFIRM_WITH_CODE</code>, specify an <code>EmailMessage</code> and leave <code>EmailMessageByLink</code> blank. When you supply both parameters with either choice, Amazon Cognito returns an error.</p>
-    pub fn set_verification_message_template(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::VerificationMessageTemplateType>,
-    ) -> Self {
+    pub fn set_verification_message_template(mut self, input: ::std::option::Option<super::super::super::types::VerificationMessageTemplateType>) -> Self {
         self.verification_message_template = input;
         self
     }
@@ -360,10 +354,7 @@ impl UpdateUserPoolInputBuilder {
         self
     }
     /// <p>The settings for updates to user attributes. These settings include the property <code>AttributesRequireVerificationBeforeUpdate</code>, a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates"> Verifying updates to email addresses and phone numbers</a>.</p>
-    pub fn set_user_attribute_update_settings(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::UserAttributeUpdateSettingsType>,
-    ) -> Self {
+    pub fn set_user_attribute_update_settings(mut self, input: ::std::option::Option<super::super::super::types::UserAttributeUpdateSettingsType>) -> Self {
         self.user_attribute_update_settings = input;
         self
     }
@@ -567,8 +558,7 @@ impl UpdateUserPoolInputBuilder {
     /// Consumes the builder and constructs a [`UpdateUserPoolInput`](crate::operation::update_user_pool::UpdateUserPoolInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::update_user_pool::UpdateUserPoolInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::update_user_pool::UpdateUserPoolInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::update_user_pool::UpdateUserPoolInput {
             user_pool_id: self.user_pool_id,
             policies: self.policies,

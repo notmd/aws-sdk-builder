@@ -66,9 +66,7 @@ impl ExecuteStatementInput {
     }
     /// <p>An optional parameter that returns the item attributes for an <code>ExecuteStatement</code> operation that failed a condition check.</p>
     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
-    pub fn return_values_on_condition_check_failure(
-        &self,
-    ) -> ::std::option::Option<&super::super::super::types::ReturnValuesOnConditionCheckFailure> {
+    pub fn return_values_on_condition_check_failure(&self) -> ::std::option::Option<&super::super::super::types::ReturnValuesOnConditionCheckFailure> {
         self.return_values_on_condition_check_failure.as_ref()
     }
 }
@@ -227,18 +225,13 @@ impl ExecuteStatementInputBuilder {
     }
     /// <p>An optional parameter that returns the item attributes for an <code>ExecuteStatement</code> operation that failed a condition check.</p>
     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
-    pub fn get_return_values_on_condition_check_failure(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::ReturnValuesOnConditionCheckFailure> {
+    pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<super::super::super::types::ReturnValuesOnConditionCheckFailure> {
         &self.return_values_on_condition_check_failure
     }
     /// Consumes the builder and constructs a [`ExecuteStatementInput`](crate::operation::execute_statement::ExecuteStatementInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::execute_statement::ExecuteStatementInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::execute_statement::ExecuteStatementInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::execute_statement::ExecuteStatementInput {
             statement: self.statement,
             parameters: self.parameters,

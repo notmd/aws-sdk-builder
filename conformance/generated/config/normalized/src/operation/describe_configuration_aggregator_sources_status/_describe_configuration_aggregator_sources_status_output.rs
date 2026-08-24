@@ -28,7 +28,8 @@ impl ::aws_types::request_id::RequestId for DescribeConfigurationAggregatorSourc
 }
 impl DescribeConfigurationAggregatorSourcesStatusOutput {
     /// Creates a new builder-style object to manufacture [`DescribeConfigurationAggregatorSourcesStatusOutput`](crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusOutput).
-    pub fn builder() -> super::super::super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusOutputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusOutputBuilder {
         super::super::super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusOutputBuilder::default()
     }
 }
@@ -54,10 +55,7 @@ impl DescribeConfigurationAggregatorSourcesStatusOutputBuilder {
         self
     }
     /// <p>Returns an AggregatedSourceStatus object.</p>
-    pub fn set_aggregated_source_status_list(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregatedSourceStatus>>,
-    ) -> Self {
+    pub fn set_aggregated_source_status_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregatedSourceStatus>>) -> Self {
         self.aggregated_source_status_list = input;
         self
     }
@@ -89,9 +87,7 @@ impl DescribeConfigurationAggregatorSourcesStatusOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeConfigurationAggregatorSourcesStatusOutput`](crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusOutput).
-    pub fn build(
-        self,
-    ) -> super::super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusOutput {
+    pub fn build(self) -> super::super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusOutput {
         super::super::super::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusOutput {
             aggregated_source_status_list: self.aggregated_source_status_list,
             next_token: self.next_token,

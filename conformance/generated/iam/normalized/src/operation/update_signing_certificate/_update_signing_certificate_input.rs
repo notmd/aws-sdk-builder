@@ -101,12 +101,10 @@ impl UpdateSigningCertificateInputBuilder {
         super::super::super::operation::update_signing_certificate::UpdateSigningCertificateInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::update_signing_certificate::UpdateSigningCertificateInput {
-                user_name: self.user_name,
-                certificate_id: self.certificate_id,
-                status: self.status,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::update_signing_certificate::UpdateSigningCertificateInput {
+            user_name: self.user_name,
+            certificate_id: self.certificate_id,
+            status: self.status,
+        })
     }
 }

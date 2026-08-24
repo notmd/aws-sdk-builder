@@ -83,9 +83,7 @@ impl ::std::convert::From<&str> for OrganizationResourceDetailedStatus {
             "UPDATE_FAILED" => OrganizationResourceDetailedStatus::UpdateFailed,
             "UPDATE_IN_PROGRESS" => OrganizationResourceDetailedStatus::UpdateInProgress,
             "UPDATE_SUCCESSFUL" => OrganizationResourceDetailedStatus::UpdateSuccessful,
-            other => {
-                OrganizationResourceDetailedStatus::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => OrganizationResourceDetailedStatus::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

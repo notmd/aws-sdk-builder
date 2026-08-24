@@ -33,8 +33,7 @@ impl ::aws_types::request_id::RequestId for ListPoliciesGrantingServiceAccessOut
 }
 impl ListPoliciesGrantingServiceAccessOutput {
     /// Creates a new builder-style object to manufacture [`ListPoliciesGrantingServiceAccessOutput`](crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessOutput).
-    pub fn builder() -> super::super::super::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessOutputBuilder {
         super::super::super::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessOutputBuilder::default()
     }
 }
@@ -43,8 +42,7 @@ impl ListPoliciesGrantingServiceAccessOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListPoliciesGrantingServiceAccessOutputBuilder {
-    pub(crate) policies_granting_service_access:
-        ::std::option::Option<::std::vec::Vec<super::super::super::types::ListPoliciesGrantingServiceAccessEntry>>,
+    pub(crate) policies_granting_service_access: ::std::option::Option<::std::vec::Vec<super::super::super::types::ListPoliciesGrantingServiceAccessEntry>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,

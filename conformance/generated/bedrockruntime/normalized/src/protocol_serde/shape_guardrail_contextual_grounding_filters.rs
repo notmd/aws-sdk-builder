@@ -26,12 +26,11 @@ where
                         break;
                     }
                     _ => {
-                        let value =
-                            super::super::protocol_serde::shape_guardrail_contextual_grounding_filter::de_guardrail_contextual_grounding_filter(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?;
+                        let value = super::super::protocol_serde::shape_guardrail_contextual_grounding_filter::de_guardrail_contextual_grounding_filter(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?;
                         if let Some(value) = value {
                             items.push(value);
                         } else {

@@ -61,8 +61,7 @@ pub struct PutBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
     pub(crate) condition_expression: ::std::option::Option<::std::string::String>,
     pub(crate) expression_attribute_names: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    pub(crate) expression_attribute_values:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::AttributeValue>>,
+    pub(crate) expression_attribute_values: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::AttributeValue>>,
     pub(crate) return_values_on_condition_check_failure: ::std::option::Option<super::super::types::ReturnValuesOnConditionCheckFailure>,
 }
 impl PutBuilder {
@@ -152,11 +151,7 @@ impl PutBuilder {
     /// To override the contents of this collection use [`set_expression_attribute_values`](Self::set_expression_attribute_values).
     ///
     /// <p>One or more values that can be substituted in an expression.</p>
-    pub fn expression_attribute_values(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: super::super::types::AttributeValue,
-    ) -> Self {
+    pub fn expression_attribute_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::types::AttributeValue) -> Self {
         let mut hash_map = self.expression_attribute_values.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.expression_attribute_values = ::std::option::Option::Some(hash_map);

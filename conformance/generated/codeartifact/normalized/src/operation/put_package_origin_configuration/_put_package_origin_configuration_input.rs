@@ -233,16 +233,14 @@ impl PutPackageOriginConfigurationInputBuilder {
         super::super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-                repository: self.repository,
-                format: self.format,
-                namespace: self.namespace,
-                package: self.package,
-                restrictions: self.restrictions,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+            repository: self.repository,
+            format: self.format,
+            namespace: self.namespace,
+            package: self.package,
+            restrictions: self.restrictions,
+        })
     }
 }

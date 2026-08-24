@@ -15,8 +15,7 @@ impl DeleteCustomVerificationEmailTemplateInput {
 }
 impl DeleteCustomVerificationEmailTemplateInput {
     /// Creates a new builder-style object to manufacture [`DeleteCustomVerificationEmailTemplateInput`](crate::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateInput).
-    pub fn builder(
-    ) -> super::super::super::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateInputBuilder {
+    pub fn builder() -> super::super::super::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateInputBuilder {
         super::super::super::operation::delete_custom_verification_email_template::builders::DeleteCustomVerificationEmailTemplateInputBuilder::default()
     }
 }

@@ -48,8 +48,6 @@ impl ListPhoneNumbersOptedOutInputBuilder {
         super::super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutInput { next_token: self.next_token },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutInput { next_token: self.next_token })
     }
 }

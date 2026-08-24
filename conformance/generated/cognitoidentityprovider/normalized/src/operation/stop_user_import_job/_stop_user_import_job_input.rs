@@ -67,10 +67,7 @@ impl StopUserImportJobInputBuilder {
     /// Consumes the builder and constructs a [`StopUserImportJobInput`](crate::operation::stop_user_import_job::StopUserImportJobInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::stop_user_import_job::StopUserImportJobInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::stop_user_import_job::StopUserImportJobInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::stop_user_import_job::StopUserImportJobInput {
             user_pool_id: self.user_pool_id,
             job_id: self.job_id,

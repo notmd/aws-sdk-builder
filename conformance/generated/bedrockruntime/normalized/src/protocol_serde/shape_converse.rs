@@ -97,11 +97,8 @@ pub fn de_converse_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::converse::ConverseError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::converse::ConverseError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -115,11 +112,9 @@ pub fn de_converse_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::converse::ConverseError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::converse::ConverseError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -193,8 +188,7 @@ pub fn ser_converse_input(
 pub(crate) fn de_converse(
     _value: &[u8],
     mut builder: super::super::operation::converse::builders::ConverseOutputBuilder,
-) -> ::std::result::Result<super::super::operation::converse::builders::ConverseOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
-{
+) -> ::std::result::Result<super::super::operation::converse::builders::ConverseOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
@@ -203,59 +197,49 @@ pub(crate) fn de_converse(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "output" => {
-                    builder = builder.set_output(super::super::protocol_serde::shape_converse_output::de_converse_output(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "output" => {
+                        builder = builder.set_output(super::super::protocol_serde::shape_converse_output::de_converse_output(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?);
+                    }
+                    "stopReason" => {
+                        builder = builder.set_stop_reason(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| super::super::types::StopReason::from(u.as_ref())))
+                                .transpose()?,
+                        );
+                    }
+                    "usage" => {
+                        builder = builder.set_usage(super::super::protocol_serde::shape_token_usage::de_token_usage(tokens, _value, depth + 1)?);
+                    }
+                    "metrics" => {
+                        builder = builder.set_metrics(super::super::protocol_serde::shape_converse_metrics::de_converse_metrics(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?);
+                    }
+                    "additionalModelResponseFields" => {
+                        builder = builder.set_additional_model_response_fields(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    }
+                    "trace" => {
+                        builder = builder.set_trace(super::super::protocol_serde::shape_converse_trace::de_converse_trace(tokens, _value, depth + 1)?);
+                    }
+                    "performanceConfig" => {
+                        builder = builder.set_performance_config(
+                            super::super::protocol_serde::shape_performance_configuration::de_performance_configuration(tokens, _value, depth + 1)?,
+                        );
+                    }
+                    "serviceTier" => {
+                        builder = builder.set_service_tier(super::super::protocol_serde::shape_service_tier::de_service_tier(tokens, _value, depth + 1)?);
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                "stopReason" => {
-                    builder = builder.set_stop_reason(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::StopReason::from(u.as_ref())))
-                            .transpose()?,
-                    );
-                }
-                "usage" => {
-                    builder = builder.set_usage(super::super::protocol_serde::shape_token_usage::de_token_usage(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
-                "metrics" => {
-                    builder = builder.set_metrics(super::super::protocol_serde::shape_converse_metrics::de_converse_metrics(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
-                "additionalModelResponseFields" => {
-                    builder = builder.set_additional_model_response_fields(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
-                }
-                "trace" => {
-                    builder = builder.set_trace(super::super::protocol_serde::shape_converse_trace::de_converse_trace(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
-                "performanceConfig" => {
-                    builder = builder.set_performance_config(
-                        super::super::protocol_serde::shape_performance_configuration::de_performance_configuration(tokens, _value, depth + 1)?,
-                    );
-                }
-                "serviceTier" => {
-                    builder = builder.set_service_tier(super::super::protocol_serde::shape_service_tier::de_service_tier(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

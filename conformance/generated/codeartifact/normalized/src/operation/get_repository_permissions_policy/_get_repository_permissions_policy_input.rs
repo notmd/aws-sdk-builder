@@ -91,12 +91,10 @@ impl GetRepositoryPermissionsPolicyInputBuilder {
         super::super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-                repository: self.repository,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+            repository: self.repository,
+        })
     }
 }

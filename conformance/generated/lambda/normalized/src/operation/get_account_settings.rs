@@ -207,9 +207,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetAccountSe
             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_account_settings::ser_get_account_settings_input(
-            &input,
-        )?);
+        let body =
+            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_account_settings::ser_get_account_settings_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);

@@ -61,11 +61,7 @@ where
                             );
                         }
                         "mountOptions" => {
-                            builder = builder.set_mount_options(super::super::protocol_serde::shape_string_list::de_string_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_mount_options(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

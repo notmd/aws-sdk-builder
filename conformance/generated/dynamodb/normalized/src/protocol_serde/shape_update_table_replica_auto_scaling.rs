@@ -20,32 +20,29 @@ pub fn de_update_table_replica_auto_scaling_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InternalServerError" => {
-            super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::InternalServerError({
+        "InternalServerError" => super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::InternalServerError({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InternalServerErrorBuilder::default();
-                    output = super::super::protocol_serde::shape_internal_server_error::de_internal_server_error_json_err(_response_body, output)
-                        .map_err(super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::InternalServerErrorBuilder::default();
+                output = super::super::protocol_serde::shape_internal_server_error::de_internal_server_error_json_err(_response_body, output)
+                    .map_err(super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "LimitExceededException" => {
             super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::LimitExceededException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
+                    output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -61,9 +58,8 @@ pub fn de_update_table_replica_auto_scaling_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceInUseExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
+                    output = super::super::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -79,11 +75,9 @@ pub fn de_update_table_replica_auto_scaling_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -121,10 +115,7 @@ pub fn ser_update_table_replica_auto_scaling_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_update_table_replica_auto_scaling_input::ser_update_table_replica_auto_scaling_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_update_table_replica_auto_scaling_input::ser_update_table_replica_auto_scaling_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -147,11 +138,7 @@ pub(crate) fn de_update_table_replica_auto_scaling(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "TableAutoScalingDescription" => {
                     builder = builder.set_table_auto_scaling_description(
-                        super::super::protocol_serde::shape_table_auto_scaling_description::de_table_auto_scaling_description(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_table_auto_scaling_description::de_table_auto_scaling_description(tokens, _value, depth + 1)?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

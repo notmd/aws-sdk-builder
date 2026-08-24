@@ -4,10 +4,8 @@ pub fn de_create_global_table_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::create_global_table::CreateGlobalTableOutput,
-    super::super::operation::create_global_table::CreateGlobalTableError,
-> {
+) -> std::result::Result<super::super::operation::create_global_table::CreateGlobalTableOutput, super::super::operation::create_global_table::CreateGlobalTableError>
+{
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::create_global_table::CreateGlobalTableError::unhandled)?;
@@ -20,27 +18,24 @@ pub fn de_create_global_table_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "GlobalTableAlreadyExistsException" => {
-            super::super::operation::create_global_table::CreateGlobalTableError::GlobalTableAlreadyExistsException({
+        "GlobalTableAlreadyExistsException" => super::super::operation::create_global_table::CreateGlobalTableError::GlobalTableAlreadyExistsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::GlobalTableAlreadyExistsExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_global_table_already_exists_exception::de_global_table_already_exists_exception_json_err(
-                            _response_body,
-                            output,
-                        )
-                        .map_err(super::super::operation::create_global_table::CreateGlobalTableError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::GlobalTableAlreadyExistsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_global_table_already_exists_exception::de_global_table_already_exists_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::create_global_table::CreateGlobalTableError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InternalServerError" => super::super::operation::create_global_table::CreateGlobalTableError::InternalServerError({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -61,9 +56,8 @@ pub fn de_create_global_table_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::create_global_table::CreateGlobalTableError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::create_global_table::CreateGlobalTableError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -111,10 +105,8 @@ pub fn de_create_global_table_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::create_global_table::CreateGlobalTableOutput,
-    super::super::operation::create_global_table::CreateGlobalTableError,
-> {
+) -> std::result::Result<super::super::operation::create_global_table::CreateGlobalTableOutput, super::super::operation::create_global_table::CreateGlobalTableError>
+{
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::create_global_table::builders::CreateGlobalTableOutputBuilder::default();

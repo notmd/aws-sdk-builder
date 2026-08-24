@@ -33,20 +33,14 @@ pub struct SubmitJobFluentBuilder {
     inner: super::super::super::operation::submit_job::builders::SubmitJobInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::submit_job::SubmitJobOutput,
-        super::super::super::operation::submit_job::SubmitJobError,
-    > for SubmitJobFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::submit_job::SubmitJobOutput, super::super::super::operation::submit_job::SubmitJobError>
+    for SubmitJobFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::submit_job::SubmitJobOutput,
-            super::super::super::operation::submit_job::SubmitJobError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::submit_job::SubmitJobOutput, super::super::super::operation::submit_job::SubmitJobError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -372,10 +366,7 @@ impl SubmitJobFluentBuilder {
         self
     }
     /// <p>An object that contains overrides for the consumable resources of a job.</p>
-    pub fn set_consumable_resource_properties_override(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::ConsumableResourceProperties>,
-    ) -> Self {
+    pub fn set_consumable_resource_properties_override(mut self, input: ::std::option::Option<super::super::super::types::ConsumableResourceProperties>) -> Self {
         self.inner = self.inner.set_consumable_resource_properties_override(input);
         self
     }

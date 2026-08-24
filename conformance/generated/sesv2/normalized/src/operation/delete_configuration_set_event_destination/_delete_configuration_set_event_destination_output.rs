@@ -13,9 +13,7 @@ impl ::aws_types::request_id::RequestId for DeleteConfigurationSetEventDestinati
 }
 impl DeleteConfigurationSetEventDestinationOutput {
     /// Creates a new builder-style object to manufacture [`DeleteConfigurationSetEventDestinationOutput`](crate::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationOutputBuilder {
         super::super::super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationOutputBuilder::default()
     }
 }

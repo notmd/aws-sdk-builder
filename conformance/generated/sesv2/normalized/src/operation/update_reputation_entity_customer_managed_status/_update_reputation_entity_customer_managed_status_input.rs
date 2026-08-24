@@ -43,8 +43,10 @@ impl UpdateReputationEntityCustomerManagedStatusInput {
 }
 impl UpdateReputationEntityCustomerManagedStatusInput {
     /// Creates a new builder-style object to manufacture [`UpdateReputationEntityCustomerManagedStatusInput`](crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusInput).
-    pub fn builder() -> super::super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusInputBuilder{
-        super::super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusInputBuilder::default()
+    pub fn builder(
+    ) -> super::super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusInputBuilder {
+        super::super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusInputBuilder::default(
+        )
     }
 }
 

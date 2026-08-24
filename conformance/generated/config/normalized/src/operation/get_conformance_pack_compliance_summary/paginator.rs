@@ -31,9 +31,7 @@ impl GetConformancePackComplianceSummaryPaginator {
     ///
     /// This paginator automatically flattens results using `conformance_pack_compliance_summary_list`. Queries to the underlying service
     /// are dispatched lazily.
-    pub fn items(
-        self,
-    ) -> super::super::super::operation::get_conformance_pack_compliance_summary::paginator::GetConformancePackComplianceSummaryPaginatorItems {
+    pub fn items(self) -> super::super::super::operation::get_conformance_pack_compliance_summary::paginator::GetConformancePackComplianceSummaryPaginatorItems {
         super::super::super::operation::get_conformance_pack_compliance_summary::paginator::GetConformancePackComplianceSummaryPaginatorItems(self)
     }
 
@@ -89,12 +87,15 @@ impl GetConformancePackComplianceSummaryPaginator {
                         }
                     };
                     loop {
-                        let resp = super::super::super::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummary::orchestrate(&runtime_plugins, input.clone()).await;
+                        let resp = super::super::super::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummary::orchestrate(
+                            &runtime_plugins,
+                            input.clone(),
+                        )
+                        .await;
                         // If the input member is None or it was an error
                         let done = match resp {
                             ::std::result::Result::Ok(ref resp) => {
-                                let new_token =
-                                    super::super::super::lens::reflens_get_conformance_pack_compliance_summary_output_output_next_token(resp);
+                                let new_token = super::super::super::lens::reflens_get_conformance_pack_compliance_summary_output_output_next_token(resp);
                                 // Pagination is exhausted when the next token is an empty string
                                 let is_empty = new_token.map(|token| token.is_empty()).unwrap_or(true);
                                 if !is_empty && new_token == input.next_token.as_ref() && self.stop_on_duplicate_token {

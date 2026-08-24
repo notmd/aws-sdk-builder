@@ -4,10 +4,7 @@
 #[derive(::std::fmt::Debug)]
 pub struct InvokeModelWithResponseStreamOutput {
     /// <p>Inference response from the model in the format specified by the <code>contentType</code> header. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
-    pub body: super::super::super::event_receiver::EventReceiver<
-        super::super::super::types::ResponseStream,
-        super::super::super::types::error::ResponseStreamError,
-    >,
+    pub body: super::super::super::event_receiver::EventReceiver<super::super::super::types::ResponseStream, super::super::super::types::error::ResponseStreamError>,
     /// <p>The MIME type of the inference result.</p>
     pub content_type: ::std::string::String,
     /// <p>Model performance settings for the request.</p>
@@ -18,12 +15,7 @@ pub struct InvokeModelWithResponseStreamOutput {
 }
 impl InvokeModelWithResponseStreamOutput {
     /// <p>Inference response from the model in the format specified by the <code>contentType</code> header. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
-    pub fn body(
-        &self,
-    ) -> &super::super::super::event_receiver::EventReceiver<
-        super::super::super::types::ResponseStream,
-        super::super::super::types::error::ResponseStreamError,
-    > {
+    pub fn body(&self) -> &super::super::super::event_receiver::EventReceiver<super::super::super::types::ResponseStream, super::super::super::types::error::ResponseStreamError> {
         &self.body
     }
     /// <p>The MIME type of the inference result.</p>
@@ -56,12 +48,8 @@ impl InvokeModelWithResponseStreamOutput {
 #[derive(::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InvokeModelWithResponseStreamOutputBuilder {
-    pub(crate) body: ::std::option::Option<
-        super::super::super::event_receiver::EventReceiver<
-            super::super::super::types::ResponseStream,
-            super::super::super::types::error::ResponseStreamError,
-        >,
-    >,
+    pub(crate) body:
+        ::std::option::Option<super::super::super::event_receiver::EventReceiver<super::super::super::types::ResponseStream, super::super::super::types::error::ResponseStreamError>>,
     pub(crate) content_type: ::std::option::Option<::std::string::String>,
     pub(crate) performance_config_latency: ::std::option::Option<super::super::super::types::PerformanceConfigLatency>,
     pub(crate) service_tier: ::std::option::Option<super::super::super::types::ServiceTierType>,
@@ -72,10 +60,7 @@ impl InvokeModelWithResponseStreamOutputBuilder {
     /// This field is required.
     pub fn body(
         mut self,
-        input: super::super::super::event_receiver::EventReceiver<
-            super::super::super::types::ResponseStream,
-            super::super::super::types::error::ResponseStreamError,
-        >,
+        input: super::super::super::event_receiver::EventReceiver<super::super::super::types::ResponseStream, super::super::super::types::error::ResponseStreamError>,
     ) -> Self {
         self.body = ::std::option::Option::Some(input);
         self
@@ -83,12 +68,7 @@ impl InvokeModelWithResponseStreamOutputBuilder {
     /// <p>Inference response from the model in the format specified by the <code>contentType</code> header. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
     pub fn set_body(
         mut self,
-        input: ::std::option::Option<
-            super::super::super::event_receiver::EventReceiver<
-                super::super::super::types::ResponseStream,
-                super::super::super::types::error::ResponseStreamError,
-            >,
-        >,
+        input: ::std::option::Option<super::super::super::event_receiver::EventReceiver<super::super::super::types::ResponseStream, super::super::super::types::error::ResponseStreamError>>,
     ) -> Self {
         self.body = input;
         self
@@ -96,12 +76,7 @@ impl InvokeModelWithResponseStreamOutputBuilder {
     /// <p>Inference response from the model in the format specified by the <code>contentType</code> header. To see the format and content of this field for different models, refer to <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html">Inference parameters</a>.</p>
     pub fn get_body(
         &self,
-    ) -> &::std::option::Option<
-        super::super::super::event_receiver::EventReceiver<
-            super::super::super::types::ResponseStream,
-            super::super::super::types::error::ResponseStreamError,
-        >,
-    > {
+    ) -> &::std::option::Option<super::super::super::event_receiver::EventReceiver<super::super::super::types::ResponseStream, super::super::super::types::error::ResponseStreamError>> {
         &self.body
     }
     /// <p>The MIME type of the inference result.</p>
@@ -166,24 +141,22 @@ impl InvokeModelWithResponseStreamOutputBuilder {
         super::super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamOutput {
-                body: self.body.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "body",
-                        "body was not specified but it is required when building InvokeModelWithResponseStreamOutput",
-                    )
-                })?,
-                content_type: self.content_type.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "content_type",
-                        "content_type was not specified but it is required when building InvokeModelWithResponseStreamOutput",
-                    )
-                })?,
-                performance_config_latency: self.performance_config_latency,
-                service_tier: self.service_tier,
-                _request_id: self._request_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamOutput {
+            body: self.body.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "body",
+                    "body was not specified but it is required when building InvokeModelWithResponseStreamOutput",
+                )
+            })?,
+            content_type: self.content_type.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "content_type",
+                    "content_type was not specified but it is required when building InvokeModelWithResponseStreamOutput",
+                )
+            })?,
+            performance_config_latency: self.performance_config_latency,
+            service_tier: self.service_tier,
+            _request_id: self._request_id,
+        })
     }
 }

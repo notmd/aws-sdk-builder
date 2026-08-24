@@ -73,8 +73,7 @@ impl PutConnectorInputBuilder {
     /// Consumes the builder and constructs a [`PutConnectorInput`](crate::operation::put_connector::PutConnectorInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::put_connector::PutConnectorInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::put_connector::PutConnectorInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_connector::PutConnectorInput {
             connector_configuration: self.connector_configuration,
             tags: self.tags,

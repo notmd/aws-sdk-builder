@@ -181,10 +181,7 @@ impl PutPublicAccessBlockFluentBuilder {
         self
     }
     /// <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn set_public_access_block_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::PublicAccessBlockConfiguration>,
-    ) -> Self {
+    pub fn set_public_access_block_configuration(mut self, input: ::std::option::Option<super::super::super::types::PublicAccessBlockConfiguration>) -> Self {
         self.inner = self.inner.set_public_access_block_configuration(input);
         self
     }

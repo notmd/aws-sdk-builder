@@ -45,23 +45,27 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "SubnetIds" => {
-                                builder = builder.set_subnet_ids(
-                                    super::super::protocol_serde::shape_capacity_provider_subnet_ids::de_capacity_provider_subnet_ids(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
-                                );
-                            }
-                            "SecurityGroupIds" => {
-                                builder = builder.set_security_group_ids(super::super::protocol_serde::shape_capacity_provider_security_group_ids::de_capacity_provider_security_group_ids(tokens, _value, depth + 1)?);
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "SubnetIds" => {
+                            builder = builder.set_subnet_ids(
+                                super::super::protocol_serde::shape_capacity_provider_subnet_ids::de_capacity_provider_subnet_ids(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
                         }
-                    }
+                        "SecurityGroupIds" => {
+                            builder = builder.set_security_group_ids(
+                                super::super::protocol_serde::shape_capacity_provider_security_group_ids::de_capacity_provider_security_group_ids(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

@@ -3,25 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sns
-**Progress:** `445/445` files compared · `190` matched · `110` mismatches · `145` missing · `0` extra · `42.70%` match (100.00% means fully matched)
-
-### `src/client/create_platform_application.rs`
-
-```diff
---- reference/src/client/create_platform_application.rs
-+++ generated/src/client/create_platform_application.rs
-@@ -9,7 +9,9 @@
-     /// - On success, responds with [`CreatePlatformApplicationOutput`](crate::operation::create_platform_application::CreatePlatformApplicationOutput) with field(s):
-     ///   - [`platform_application_arn(Option<String>)`](crate::operation::create_platform_application::CreatePlatformApplicationOutput::platform_application_arn): <p><code>PlatformApplicationArn</code> is returned.</p>
-     /// - On failure, responds with [`SdkError<CreatePlatformApplicationError>`](crate::operation::create_platform_application::CreatePlatformApplicationError)
--    pub fn create_platform_application(&self) -> super::super::operation::create_platform_application::builders::CreatePlatformApplicationFluentBuilder {
-+    pub fn create_platform_application(
-+        &self,
-+    ) -> super::super::operation::create_platform_application::builders::CreatePlatformApplicationFluentBuilder {
-         super::super::operation::create_platform_application::builders::CreatePlatformApplicationFluentBuilder::new(self.handle.clone())
-     }
- }
-```
+**Progress:** `445/445` files compared · `243` matched · `57` mismatches · `145` missing · `0` extra · `54.61%` match (100.00% means fully matched)
 
 ### `src/client/create_topic.rs`
 
@@ -37,129 +19,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`tags(Tag)`](crate::operation::create_topic::builders::CreateTopicFluentBuilder::tags) / [`set_tags(Option<Vec::<Tag>>)`](crate::operation::create_topic::builders::CreateTopicFluentBuilder::set_tags):<br>required: **false**<br><p>The list of tags to add to a new topic.</p><note>  <p>To be able to tag a topic on creation, you must have the <code>sns:CreateTopic</code> and <code>sns:TagResource</code> permissions.</p> </note><br>
      ///   - [`data_protection_policy(impl Into<String>)`](crate::operation::create_topic::builders::CreateTopicFluentBuilder::data_protection_policy) / [`set_data_protection_policy(Option<String>)`](crate::operation::create_topic::builders::CreateTopicFluentBuilder::set_data_protection_policy):<br>required: **false**<br><p>The body of the policy document you want to use for this topic.</p> <p>You can only add one policy per topic.</p> <p>The policy must be in JSON string format.</p> <p>Length Constraints: Maximum length of 30,720.</p><br>
      /// - On success, responds with [`CreateTopicOutput`](crate::operation::create_topic::CreateTopicOutput) with field(s):
-```
-
-### `src/client/delete_platform_application.rs`
-
-```diff
---- reference/src/client/delete_platform_application.rs
-+++ generated/src/client/delete_platform_application.rs
-@@ -6,7 +6,9 @@
-     ///   - [`platform_application_arn(impl Into<String>)`](crate::operation::delete_platform_application::builders::DeletePlatformApplicationFluentBuilder::platform_application_arn) / [`set_platform_application_arn(Option<String>)`](crate::operation::delete_platform_application::builders::DeletePlatformApplicationFluentBuilder::set_platform_application_arn):<br>required: **true**<br><p><code>PlatformApplicationArn</code> of platform application object to delete.</p><br>
-     /// - On success, responds with [`DeletePlatformApplicationOutput`](crate::operation::delete_platform_application::DeletePlatformApplicationOutput)
-     /// - On failure, responds with [`SdkError<DeletePlatformApplicationError>`](crate::operation::delete_platform_application::DeletePlatformApplicationError)
--    pub fn delete_platform_application(&self) -> super::super::operation::delete_platform_application::builders::DeletePlatformApplicationFluentBuilder {
-+    pub fn delete_platform_application(
-+        &self,
-+    ) -> super::super::operation::delete_platform_application::builders::DeletePlatformApplicationFluentBuilder {
-         super::super::operation::delete_platform_application::builders::DeletePlatformApplicationFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/get_platform_application_attributes.rs`
-
-```diff
---- reference/src/client/get_platform_application_attributes.rs
-+++ generated/src/client/get_platform_application_attributes.rs
-@@ -10,6 +10,8 @@
-     pub fn get_platform_application_attributes(
-         &self,
-     ) -> super::super::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesFluentBuilder {
--        super::super::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesFluentBuilder::new(self.handle.clone())
-+        super::super::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesFluentBuilder::new(
-+            self.handle.clone(),
-+        )
-     }
- }
-```
-
-### `src/client/get_subscription_attributes.rs`
-
-```diff
---- reference/src/client/get_subscription_attributes.rs
-+++ generated/src/client/get_subscription_attributes.rs
-@@ -7,7 +7,9 @@
-     /// - On success, responds with [`GetSubscriptionAttributesOutput`](crate::operation::get_subscription_attributes::GetSubscriptionAttributesOutput) with field(s):
-     ///   - [`attributes(Option<HashMap::<String, String>>)`](crate::operation::get_subscription_attributes::GetSubscriptionAttributesOutput::attributes): <p>A map of the subscription's attributes. Attributes in this map include the following:</p> <ul>  <li>   <p><code>ConfirmationWasAuthenticated</code> – <code>true</code> if the subscription confirmation request was authenticated.</p></li>  <li>   <p><code>DeliveryPolicy</code> – The JSON serialization of the subscription's delivery policy.</p></li>  <li>   <p><code>EffectiveDeliveryPolicy</code> – The JSON serialization of the effective delivery policy that takes into account the topic delivery policy and account system defaults.</p></li>  <li>   <p><code>FilterPolicy</code> – The filter policy JSON that is assigned to the subscription. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html">Amazon SNS Message Filtering</a> in the <i>Amazon SNS Developer Guide</i>.</p></li>  <li>   <p><code>FilterPolicyScope</code> – This attribute lets you choose the filtering scope by using one of the following string value types:</p>   <ul>    <li>     <p><code>MessageAttributes</code> (default) – The filter is applied on the message attributes.</p></li>    <li>     <p><code>MessageBody</code> – The filter is applied on the message body.</p></li>   </ul></li>  <li>   <p><code>Owner</code> – The Amazon Web Services account ID of the subscription's owner.</p></li>  <li>   <p><code>PendingConfirmation</code> – <code>true</code> if the subscription hasn't been confirmed. To confirm a pending subscription, call the <code>ConfirmSubscription</code> action with a confirmation token.</p></li>  <li>   <p><code>RawMessageDelivery</code> – <code>true</code> if raw message delivery is enabled for the subscription. Raw messages are free of JSON formatting and can be sent to HTTP/S and Amazon SQS endpoints.</p></li>  <li>   <p><code>RedrivePolicy</code> – When specified, sends undeliverable messages to the specified Amazon SQS dead-letter queue. Messages that can't be delivered due to client errors (for example, when the subscribed endpoint is unreachable) or server errors (for example, when the service that powers the subscribed endpoint becomes unavailable) are held in the dead-letter queue for further analysis or reprocessing.</p></li>  <li>   <p><code>SubscriptionArn</code> – The subscription's ARN.</p></li>  <li>   <p><code>TopicArn</code> – The topic ARN that the subscription is associated with.</p></li> </ul> <p>The following attribute applies only to Amazon Data Firehose delivery stream subscriptions:</p> <ul>  <li>   <p><code>SubscriptionRoleArn</code> – The ARN of the IAM role that has the following:</p>   <ul>    <li>     <p>Permission to write to the Firehose delivery stream</p></li>    <li>     <p>Amazon SNS listed as a trusted entity</p></li>   </ul>   <p>Specifying a valid ARN for this attribute is required for Firehose delivery stream subscriptions. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout to Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p></li> </ul>
-     /// - On failure, responds with [`SdkError<GetSubscriptionAttributesError>`](crate::operation::get_subscription_attributes::GetSubscriptionAttributesError)
--    pub fn get_subscription_attributes(&self) -> super::super::operation::get_subscription_attributes::builders::GetSubscriptionAttributesFluentBuilder {
-+    pub fn get_subscription_attributes(
-+        &self,
-+    ) -> super::super::operation::get_subscription_attributes::builders::GetSubscriptionAttributesFluentBuilder {
-         super::super::operation::get_subscription_attributes::builders::GetSubscriptionAttributesFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/list_endpoints_by_platform_application.rs`
-
-```diff
---- reference/src/client/list_endpoints_by_platform_application.rs
-+++ generated/src/client/list_endpoints_by_platform_application.rs
-@@ -13,6 +13,8 @@
-     pub fn list_endpoints_by_platform_application(
-         &self,
-     ) -> super::super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationFluentBuilder {
--        super::super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationFluentBuilder::new(self.handle.clone())
-+        super::super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationFluentBuilder::new(
-+            self.handle.clone(),
-+        )
-     }
- }
-```
-
-### `src/client/list_phone_numbers_opted_out.rs`
-
-```diff
---- reference/src/client/list_phone_numbers_opted_out.rs
-+++ generated/src/client/list_phone_numbers_opted_out.rs
-@@ -9,7 +9,9 @@
-     ///   - [`phone_numbers(Option<Vec::<String>>)`](crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutOutput::phone_numbers): <p>A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers.</p>
-     ///   - [`next_token(Option<String>)`](crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutOutput::next_token): <p>A <code>NextToken</code> string is returned when you call the <code>ListPhoneNumbersOptedOut</code> action if additional records are available after the first page of results.</p>
-     /// - On failure, responds with [`SdkError<ListPhoneNumbersOptedOutError>`](crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutError)
--    pub fn list_phone_numbers_opted_out(&self) -> super::super::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutFluentBuilder {
-+    pub fn list_phone_numbers_opted_out(
-+        &self,
-+    ) -> super::super::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutFluentBuilder {
-         super::super::operation::list_phone_numbers_opted_out::builders::ListPhoneNumbersOptedOutFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/list_subscriptions_by_topic.rs`
-
-```diff
---- reference/src/client/list_subscriptions_by_topic.rs
-+++ generated/src/client/list_subscriptions_by_topic.rs
-@@ -10,7 +10,9 @@
-     ///   - [`subscriptions(Option<Vec::<Subscription>>)`](crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicOutput::subscriptions): <p>A list of subscriptions.</p>
-     ///   - [`next_token(Option<String>)`](crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicOutput::next_token): <p>Token to pass along to the next <code>ListSubscriptionsByTopic</code> request. This element is returned if there are more subscriptions to retrieve.</p>
-     /// - On failure, responds with [`SdkError<ListSubscriptionsByTopicError>`](crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicError)
--    pub fn list_subscriptions_by_topic(&self) -> super::super::operation::list_subscriptions_by_topic::builders::ListSubscriptionsByTopicFluentBuilder {
-+    pub fn list_subscriptions_by_topic(
-+        &self,
-+    ) -> super::super::operation::list_subscriptions_by_topic::builders::ListSubscriptionsByTopicFluentBuilder {
-         super::super::operation::list_subscriptions_by_topic::builders::ListSubscriptionsByTopicFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/set_platform_application_attributes.rs`
-
-```diff
---- reference/src/client/set_platform_application_attributes.rs
-+++ generated/src/client/set_platform_application_attributes.rs
-@@ -10,6 +10,8 @@
-     pub fn set_platform_application_attributes(
-         &self,
-     ) -> super::super::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesFluentBuilder {
--        super::super::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesFluentBuilder::new(self.handle.clone())
-+        super::super::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesFluentBuilder::new(
-+            self.handle.clone(),
-+        )
-     }
- }
 ```
 
 ### `src/client/set_sms_attributes.rs`
@@ -178,24 +37,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn set_sms_attributes(&self) -> super::super::operation::set_sms_attributes::builders::SetSMSAttributesFluentBuilder {
 ```
 
-### `src/client/set_subscription_attributes.rs`
-
-```diff
---- reference/src/client/set_subscription_attributes.rs
-+++ generated/src/client/set_subscription_attributes.rs
-@@ -8,7 +8,9 @@
-     ///   - [`attribute_value(impl Into<String>)`](crate::operation::set_subscription_attributes::builders::SetSubscriptionAttributesFluentBuilder::attribute_value) / [`set_attribute_value(Option<String>)`](crate::operation::set_subscription_attributes::builders::SetSubscriptionAttributesFluentBuilder::set_attribute_value):<br>required: **false**<br><p>The new value for the attribute in JSON format.</p><br>
-     /// - On success, responds with [`SetSubscriptionAttributesOutput`](crate::operation::set_subscription_attributes::SetSubscriptionAttributesOutput)
-     /// - On failure, responds with [`SdkError<SetSubscriptionAttributesError>`](crate::operation::set_subscription_attributes::SetSubscriptionAttributesError)
--    pub fn set_subscription_attributes(&self) -> super::super::operation::set_subscription_attributes::builders::SetSubscriptionAttributesFluentBuilder {
-+    pub fn set_subscription_attributes(
-+        &self,
-+    ) -> super::super::operation::set_subscription_attributes::builders::SetSubscriptionAttributesFluentBuilder {
-         super::super::operation::set_subscription_attributes::builders::SetSubscriptionAttributesFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
 ### `src/client/set_topic_attributes.rs`
 
 ```diff
@@ -212,43 +53,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// - On failure, responds with [`SdkError<SetTopicAttributesError>`](crate::operation::set_topic_attributes::SetTopicAttributesError)
 ```
 
-### `src/config/endpoint.rs`
-
-```diff
---- reference/src/config/endpoint.rs
-+++ generated/src/config/endpoint.rs
-@@ -29,7 +29,10 @@
- /// Endpoint resolver trait specific to Amazon Simple Notification Service
- pub trait ResolveEndpoint: ::std::marker::Send + ::std::marker::Sync + ::std::fmt::Debug {
-     /// Resolve an endpoint with the given parameters
--    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
-+    fn resolve_endpoint<'a>(
-+        &'a self,
-+        params: &'a super::super::config::endpoint::Params,
-+    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
-
-     /// Convert this service-specific resolver into a `SharedEndpointResolver`
-     ///
-@@ -286,7 +289,10 @@
- }
-
- impl super::super::config::endpoint::ResolveEndpoint for DefaultResolver {
--    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
-+    fn resolve_endpoint<'a>(
-+        &'a self,
-+        params: &'a super::super::config::endpoint::Params,
-+    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
-         // Check single-entry cache (lock-free read via ArcSwap)
-         let cached = self.endpoint_cache.load();
-         if let Some((cached_params, cached_endpoint)) = cached.as_ref() {
-```
-
 ### `src/operation/add_permission.rs`
 
 ```diff
 --- reference/src/operation/add_permission.rs
 +++ generated/src/operation/add_permission.rs
-@@ -252,11 +252,10 @@
+@@ -252,13 +252,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -258,68 +68,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_add_permission_input::ser_add_permission_input_input_input(
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_add_permission_input::ser_add_permission_op_input(
-             &input,
-         )?);
+-            &input,
+-        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_add_permission_input::ser_add_permission_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
-```
-
-### `src/operation/check_if_phone_number_is_opted_out/_check_if_phone_number_is_opted_out_input.rs`
-
-```diff
---- reference/src/operation/check_if_phone_number_is_opted_out/_check_if_phone_number_is_opted_out_input.rs
-+++ generated/src/operation/check_if_phone_number_is_opted_out/_check_if_phone_number_is_opted_out_input.rs
-@@ -56,9 +56,11 @@
-         super::super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutInput {
--            phone_number: self.phone_number,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOutInput {
-+                phone_number: self.phone_number,
-+            },
-+        )
-     }
- }
- impl ::std::fmt::Debug for CheckIfPhoneNumberIsOptedOutInputBuilder {
-```
-
-### `src/operation/check_if_phone_number_is_opted_out/builders.rs`
-
-```diff
---- reference/src/operation/check_if_phone_number_is_opted_out/builders.rs
-+++ generated/src/operation/check_if_phone_number_is_opted_out/builders.rs
-@@ -58,7 +58,9 @@
-         }
-     }
-     /// Access the CheckIfPhoneNumberIsOptedOut as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::check_if_phone_number_is_opted_out::builders::CheckIfPhoneNumberIsOptedOutInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::check_if_phone_number_is_opted_out::builders::CheckIfPhoneNumberIsOptedOutInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -82,11 +84,12 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOut::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
-+        let runtime_plugins =
-+            super::super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOut::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-         super::super::super::operation::check_if_phone_number_is_opted_out::CheckIfPhoneNumberIsOptedOut::orchestrate(&runtime_plugins, input).await
-     }
-
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/check_if_phone_number_is_opted_out.rs`
@@ -327,18 +81,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/check_if_phone_number_is_opted_out.rs
 +++ generated/src/operation/check_if_phone_number_is_opted_out.rs
-@@ -161,7 +161,9 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_check_if_phone_number_is_opted_out::de_check_if_phone_number_is_opted_out_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_check_if_phone_number_is_opted_out::de_check_if_phone_number_is_opted_out_http_error(
-+                status, headers, body,
-+            )
-         } else {
-             super::super::protocol_serde::shape_check_if_phone_number_is_opted_out::de_check_if_phone_number_is_opted_out_http_response(
-                 status, headers, body,
-@@ -206,12 +208,11 @@
+@@ -206,12 +206,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -353,26 +96,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/confirm_subscription/_confirm_subscription_input.rs`
-
-```diff
---- reference/src/operation/confirm_subscription/_confirm_subscription_input.rs
-+++ generated/src/operation/confirm_subscription/_confirm_subscription_input.rs
-@@ -88,8 +88,10 @@
-     /// Consumes the builder and constructs a [`ConfirmSubscriptionInput`](crate::operation::confirm_subscription::ConfirmSubscriptionInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::confirm_subscription::ConfirmSubscriptionInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::confirm_subscription::ConfirmSubscriptionInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::confirm_subscription::ConfirmSubscriptionInput {
-             topic_arn: self.topic_arn,
-             token: self.token,
 ```
 
 ### `src/operation/confirm_subscription.rs`
@@ -395,31 +118,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/create_platform_application/_create_platform_application_input.rs`
-
-```diff
---- reference/src/operation/create_platform_application/_create_platform_application_input.rs
-+++ generated/src/operation/create_platform_application/_create_platform_application_input.rs
-@@ -98,10 +98,12 @@
-         super::super::super::operation::create_platform_application::CreatePlatformApplicationInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::create_platform_application::CreatePlatformApplicationInput {
--            name: self.name,
--            platform: self.platform,
--            attributes: self.attributes,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::create_platform_application::CreatePlatformApplicationInput {
-+                name: self.name,
-+                platform: self.platform,
-+                attributes: self.attributes,
-+            },
-+        )
-     }
- }
 ```
 
 ### `src/operation/create_platform_application.rs`
@@ -464,30 +162,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/create_sms_sandbox_phone_number/_create_sms_sandbox_phone_number_input.rs`
-
-```diff
---- reference/src/operation/create_sms_sandbox_phone_number/_create_sms_sandbox_phone_number_input.rs
-+++ generated/src/operation/create_sms_sandbox_phone_number/_create_sms_sandbox_phone_number_input.rs
-@@ -77,10 +77,12 @@
-         super::super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberInput {
--            phone_number: self.phone_number,
--            language_code: self.language_code,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberInput {
-+                phone_number: self.phone_number,
-+                language_code: self.language_code,
-+            },
-+        )
-     }
- }
- impl ::std::fmt::Debug for CreateSmsSandboxPhoneNumberInputBuilder {
 ```
 
 ### `src/operation/create_sms_sandbox_phone_number/builders.rs`
@@ -640,18 +314,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  super::super::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
-@@ -163,7 +163,9 @@
-         let parse_result = if !success && status != 200 || force_error {
-             super::super::protocol_serde::shape_create_sms_sandbox_phone_number::de_create_sms_sandbox_phone_number_http_error(status, headers, body)
-         } else {
--            super::super::protocol_serde::shape_create_sms_sandbox_phone_number::de_create_sms_sandbox_phone_number_http_response(status, headers, body)
-+            super::super::protocol_serde::shape_create_sms_sandbox_phone_number::de_create_sms_sandbox_phone_number_http_response(
-+                status, headers, body,
-+            )
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -204,12 +206,11 @@
+@@ -204,12 +204,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -666,7 +329,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -219,12 +220,12 @@
+@@ -219,12 +218,12 @@
      }
  }
  #[derive(Debug)]
@@ -684,30 +347,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/create_topic/_create_topic_input.rs`
-
-```diff
---- reference/src/operation/create_topic/_create_topic_input.rs
-+++ generated/src/operation/create_topic/_create_topic_input.rs
-@@ -685,7 +685,9 @@
-         &self.data_protection_policy
-     }
-     /// Consumes the builder and constructs a [`CreateTopicInput`](crate::operation::create_topic::CreateTopicInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::create_topic::CreateTopicInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::create_topic::CreateTopicInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::create_topic::CreateTopicInput {
-             name: self.name,
-             attributes: self.attributes,
-```
-
 ### `src/operation/create_topic.rs`
 
 ```diff
 --- reference/src/operation/create_topic.rs
 +++ generated/src/operation/create_topic.rs
-@@ -252,13 +252,11 @@
+@@ -252,13 +252,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -719,8 +364,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_topic_input::ser_create_topic_input_input_input(
 -            &input,
 -        )?);
-+        let body =
-+            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_topic_input::ser_create_topic_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_topic_input::ser_create_topic_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -731,7 +375,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_endpoint.rs
 +++ generated/src/operation/delete_endpoint.rs
-@@ -247,13 +247,12 @@
+@@ -247,13 +247,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -743,33 +387,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_delete_endpoint_input::ser_delete_endpoint_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_endpoint_input::ser_delete_endpoint_op_input(
-+            &input,
-+        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_endpoint_input::ser_delete_endpoint_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/delete_platform_application/_delete_platform_application_input.rs`
-
-```diff
---- reference/src/operation/delete_platform_application/_delete_platform_application_input.rs
-+++ generated/src/operation/delete_platform_application/_delete_platform_application_input.rs
-@@ -49,8 +49,10 @@
-         super::super::super::operation::delete_platform_application::DeletePlatformApplicationInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::delete_platform_application::DeletePlatformApplicationInput {
--            platform_application_arn: self.platform_application_arn,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::delete_platform_application::DeletePlatformApplicationInput {
-+                platform_application_arn: self.platform_application_arn,
-+            },
-+        )
-     }
- }
 ```
 
 ### `src/operation/delete_platform_application.rs`
@@ -792,28 +413,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/delete_sms_sandbox_phone_number/_delete_sms_sandbox_phone_number_input.rs`
-
-```diff
---- reference/src/operation/delete_sms_sandbox_phone_number/_delete_sms_sandbox_phone_number_input.rs
-+++ generated/src/operation/delete_sms_sandbox_phone_number/_delete_sms_sandbox_phone_number_input.rs
-@@ -55,9 +55,11 @@
-         super::super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberInput {
--            phone_number: self.phone_number,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberInput {
-+                phone_number: self.phone_number,
-+            },
-+        )
-     }
- }
- impl ::std::fmt::Debug for DeleteSmsSandboxPhoneNumberInputBuilder {
 ```
 
 ### `src/operation/delete_sms_sandbox_phone_number/builders.rs`
@@ -966,18 +565,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  super::super::operation::delete_sms_sandbox_phone_number::DeleteSMSSandboxPhoneNumberError,
-@@ -163,7 +163,9 @@
-         let parse_result = if !success && status != 200 || force_error {
-             super::super::protocol_serde::shape_delete_sms_sandbox_phone_number::de_delete_sms_sandbox_phone_number_http_error(status, headers, body)
-         } else {
--            super::super::protocol_serde::shape_delete_sms_sandbox_phone_number::de_delete_sms_sandbox_phone_number_http_response(status, headers, body)
-+            super::super::protocol_serde::shape_delete_sms_sandbox_phone_number::de_delete_sms_sandbox_phone_number_http_response(
-+                status, headers, body,
-+            )
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -204,12 +206,11 @@
+@@ -204,12 +204,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -992,7 +580,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -219,12 +220,12 @@
+@@ -219,12 +218,12 @@
      }
  }
  #[derive(Debug)]
@@ -1010,30 +598,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/delete_topic/_delete_topic_input.rs`
-
-```diff
---- reference/src/operation/delete_topic/_delete_topic_input.rs
-+++ generated/src/operation/delete_topic/_delete_topic_input.rs
-@@ -42,7 +42,9 @@
-         &self.topic_arn
-     }
-     /// Consumes the builder and constructs a [`DeleteTopicInput`](crate::operation::delete_topic::DeleteTopicInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::delete_topic::DeleteTopicInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::delete_topic::DeleteTopicInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::delete_topic::DeleteTopicInput { topic_arn: self.topic_arn })
-     }
- }
-```
-
 ### `src/operation/delete_topic.rs`
 
 ```diff
 --- reference/src/operation/delete_topic.rs
 +++ generated/src/operation/delete_topic.rs
-@@ -247,13 +247,11 @@
+@@ -247,13 +247,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1045,8 +615,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_topic_input::ser_delete_topic_input_input_input(
 -            &input,
 -        )?);
-+        let body =
-+            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_topic_input::ser_delete_topic_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_topic_input::ser_delete_topic_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -1074,26 +643,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/get_endpoint_attributes/_get_endpoint_attributes_input.rs`
-
-```diff
---- reference/src/operation/get_endpoint_attributes/_get_endpoint_attributes_input.rs
-+++ generated/src/operation/get_endpoint_attributes/_get_endpoint_attributes_input.rs
-@@ -45,8 +45,10 @@
-     /// Consumes the builder and constructs a [`GetEndpointAttributesInput`](crate::operation::get_endpoint_attributes::GetEndpointAttributesInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_endpoint_attributes::GetEndpointAttributesInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_endpoint_attributes::GetEndpointAttributesInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_endpoint_attributes::GetEndpointAttributesInput {
-             endpoint_arn: self.endpoint_arn,
-         })
-```
-
 ### `src/operation/get_endpoint_attributes.rs`
 
 ```diff
@@ -1116,62 +665,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/get_platform_application_attributes/builders.rs`
-
-```diff
---- reference/src/operation/get_platform_application_attributes/builders.rs
-+++ generated/src/operation/get_platform_application_attributes/builders.rs
-@@ -57,7 +57,9 @@
-         }
-     }
-     /// Access the GetPlatformApplicationAttributes as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -81,12 +83,14 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributes::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributes::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributes::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::get_platform_application_attributes::GetPlatformApplicationAttributes::orchestrate(&runtime_plugins, input)
-+            .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
 ### `src/operation/get_platform_application_attributes.rs`
 
 ```diff
 --- reference/src/operation/get_platform_application_attributes.rs
 +++ generated/src/operation/get_platform_application_attributes.rs
-@@ -213,7 +213,9 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_get_platform_application_attributes::de_get_platform_application_attributes_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_get_platform_application_attributes::de_get_platform_application_attributes_http_error(
-+                status, headers, body,
-+            )
-         } else {
-             super::super::protocol_serde::shape_get_platform_application_attributes::de_get_platform_application_attributes_http_response(
-                 status, headers, body,
-@@ -258,14 +260,11 @@
+@@ -258,14 +258,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1188,25 +687,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/get_sms_attributes/_get_sms_attributes_input.rs`
-
-```diff
---- reference/src/operation/get_sms_attributes/_get_sms_attributes_input.rs
-+++ generated/src/operation/get_sms_attributes/_get_sms_attributes_input.rs
-@@ -62,7 +62,10 @@
-     /// Consumes the builder and constructs a [`GetSmsAttributesInput`](crate::operation::get_sms_attributes::GetSmsAttributesInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_sms_attributes::GetSmsAttributesInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_sms_attributes::GetSmsAttributesInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_sms_attributes::GetSmsAttributesInput { attributes: self.attributes })
-     }
- }
 ```
 
 ### `src/operation/get_sms_attributes/builders.rs`
@@ -1359,7 +839,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  super::super::operation::get_sms_attributes::GetSMSAttributesError,
-@@ -201,12 +201,11 @@
+@@ -201,13 +201,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1368,12 +848,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_get_sms_attributes_input::ser_get_sms_attributes_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_sms_attributes_input::ser_get_sms_attributes_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_sms_attributes_input::ser_get_sms_attributes_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 @@ -216,12 +215,12 @@
      }
  }
@@ -1573,27 +1056,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/get_subscription_attributes/_get_subscription_attributes_input.rs`
-
-```diff
---- reference/src/operation/get_subscription_attributes/_get_subscription_attributes_input.rs
-+++ generated/src/operation/get_subscription_attributes/_get_subscription_attributes_input.rs
-@@ -49,8 +49,10 @@
-         super::super::super::operation::get_subscription_attributes::GetSubscriptionAttributesInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::get_subscription_attributes::GetSubscriptionAttributesInput {
--            subscription_arn: self.subscription_arn,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::get_subscription_attributes::GetSubscriptionAttributesInput {
-+                subscription_arn: self.subscription_arn,
-+            },
-+        )
-     }
- }
-```
-
 ### `src/operation/get_subscription_attributes.rs`
 
 ```diff
@@ -1614,26 +1076,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/get_topic_attributes/_get_topic_attributes_input.rs`
-
-```diff
---- reference/src/operation/get_topic_attributes/_get_topic_attributes_input.rs
-+++ generated/src/operation/get_topic_attributes/_get_topic_attributes_input.rs
-@@ -45,8 +45,10 @@
-     /// Consumes the builder and constructs a [`GetTopicAttributesInput`](crate::operation::get_topic_attributes::GetTopicAttributesInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_topic_attributes::GetTopicAttributesInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_topic_attributes::GetTopicAttributesInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_topic_attributes::GetTopicAttributesInput { topic_arn: self.topic_arn })
-     }
- }
 ```
 
 ### `src/operation/get_topic_attributes.rs`
@@ -1658,112 +1100,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/list_endpoints_by_platform_application/builders.rs`
-
-```diff
---- reference/src/operation/list_endpoints_by_platform_application/builders.rs
-+++ generated/src/operation/list_endpoints_by_platform_application/builders.rs
-@@ -58,7 +58,9 @@
-         }
-     }
-     /// Access the ListEndpointsByPlatformApplication as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -82,12 +84,17 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplication::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplication::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplication::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplication::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-@@ -112,8 +119,13 @@
-     /// Create a paginator for this request
-     ///
-     /// Paginators are used by calling [`send().await`](crate::operation::list_endpoints_by_platform_application::paginator::ListEndpointsByPlatformApplicationPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
--    pub fn into_paginator(self) -> super::super::super::operation::list_endpoints_by_platform_application::paginator::ListEndpointsByPlatformApplicationPaginator {
--        super::super::super::operation::list_endpoints_by_platform_application::paginator::ListEndpointsByPlatformApplicationPaginator::new(self.handle, self.inner)
-+    pub fn into_paginator(
-+        self,
-+    ) -> super::super::super::operation::list_endpoints_by_platform_application::paginator::ListEndpointsByPlatformApplicationPaginator {
-+        super::super::super::operation::list_endpoints_by_platform_application::paginator::ListEndpointsByPlatformApplicationPaginator::new(
-+            self.handle,
-+            self.inner,
-+        )
-     }
-     /// <p><code>PlatformApplicationArn</code> for <code>ListEndpointsByPlatformApplicationInput</code> action.</p>
-     pub fn platform_application_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-```
-
-### `src/operation/list_endpoints_by_platform_application/paginator.rs`
-
-```diff
---- reference/src/operation/list_endpoints_by_platform_application/paginator.rs
-+++ generated/src/operation/list_endpoints_by_platform_application/paginator.rs
-@@ -23,7 +23,9 @@
-     ///
-     /// This paginator automatically flattens results using `endpoints`. Queries to the underlying service
-     /// are dispatched lazily.
--    pub fn items(self) -> super::super::super::operation::list_endpoints_by_platform_application::paginator::ListEndpointsByPlatformApplicationPaginatorItems {
-+    pub fn items(
-+        self,
-+    ) -> super::super::super::operation::list_endpoints_by_platform_application::paginator::ListEndpointsByPlatformApplicationPaginatorItems {
-         super::super::super::operation::list_endpoints_by_platform_application::paginator::ListEndpointsByPlatformApplicationPaginatorItems(self)
-     }
-
-@@ -79,15 +81,17 @@
-                         }
-                     };
-                     loop {
--                        let resp = super::super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplication::orchestrate(
--                            &runtime_plugins,
--                            input.clone(),
--                        )
--                        .await;
-+                        let resp =
-+                            super::super::super::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplication::orchestrate(
-+                                &runtime_plugins,
-+                                input.clone(),
-+                            )
-+                            .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
--                                let new_token = super::super::super::lens::reflens_list_endpoints_by_platform_application_output_output_next_token(resp);
-+                                let new_token =
-+                                    super::super::super::lens::reflens_list_endpoints_by_platform_application_output_output_next_token(resp);
-                                 // Pagination is exhausted when the next token is an empty string
-                                 let is_empty = new_token.map(|token| token.is_empty()).unwrap_or(true);
-                                 if !is_empty && new_token == input.next_token.as_ref() && self.stop_on_duplicate_token {
-```
-
 ### `src/operation/list_endpoints_by_platform_application.rs`
 
 ```diff
 --- reference/src/operation/list_endpoints_by_platform_application.rs
 +++ generated/src/operation/list_endpoints_by_platform_application.rs
-@@ -265,12 +265,11 @@
+@@ -265,14 +265,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1774,31 +1116,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_list_endpoints_by_platform_application_input::ser_list_endpoints_by_platform_application_input_input_input(
-+            super::super::protocol_serde::shape_list_endpoints_by_platform_application_input::ser_list_endpoints_by_platform_application_op_input(
-                 &input,
-             )?,
+-                &input,
+-            )?,
++            super::super::protocol_serde::shape_list_endpoints_by_platform_application_input::ser_list_endpoints_by_platform_application_op_input(&input)?,
          );
-```
-
-### `src/operation/list_origination_numbers/paginator.rs`
-
-```diff
---- reference/src/operation/list_origination_numbers/paginator.rs
-+++ generated/src/operation/list_origination_numbers/paginator.rs
-@@ -86,8 +86,11 @@
-                         }
-                     };
-                     loop {
--                        let resp =
--                            super::super::super::operation::list_origination_numbers::ListOriginationNumbers::orchestrate(&runtime_plugins, input.clone()).await;
-+                        let resp = super::super::super::operation::list_origination_numbers::ListOriginationNumbers::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/list_origination_numbers.rs`
@@ -1821,23 +1144,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/list_phone_numbers_opted_out/_list_phone_numbers_opted_out_input.rs`
-
-```diff
---- reference/src/operation/list_phone_numbers_opted_out/_list_phone_numbers_opted_out_input.rs
-+++ generated/src/operation/list_phone_numbers_opted_out/_list_phone_numbers_opted_out_input.rs
-@@ -48,6 +48,8 @@
-         super::super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutInput { next_token: self.next_token })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutInput { next_token: self.next_token },
-+        )
-     }
- }
 ```
 
 ### `src/operation/list_phone_numbers_opted_out/_list_phone_numbers_opted_out_output.rs`
@@ -1894,28 +1200,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +}
 ```
 
-### `src/operation/list_phone_numbers_opted_out/paginator.rs`
-
-```diff
---- reference/src/operation/list_phone_numbers_opted_out/paginator.rs
-+++ generated/src/operation/list_phone_numbers_opted_out/paginator.rs
-@@ -78,9 +78,11 @@
-                         }
-                     };
-                     loop {
--                        let resp =
--                            super::super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOut::orchestrate(&runtime_plugins, input.clone())
--                                .await;
-+                        let resp = super::super::super::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOut::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
-```
-
 ### `src/operation/list_phone_numbers_opted_out.rs`
 
 ```diff
@@ -1938,64 +1222,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/list_platform_applications/_list_platform_applications_input.rs`
-
-```diff
---- reference/src/operation/list_platform_applications/_list_platform_applications_input.rs
-+++ generated/src/operation/list_platform_applications/_list_platform_applications_input.rs
-@@ -48,6 +48,8 @@
-         super::super::super::operation::list_platform_applications::ListPlatformApplicationsInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_platform_applications::ListPlatformApplicationsInput { next_token: self.next_token })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_platform_applications::ListPlatformApplicationsInput { next_token: self.next_token },
-+        )
-     }
- }
-```
-
-### `src/operation/list_platform_applications/_list_platform_applications_output.rs`
-
-```diff
---- reference/src/operation/list_platform_applications/_list_platform_applications_output.rs
-+++ generated/src/operation/list_platform_applications/_list_platform_applications_output.rs
-@@ -55,7 +55,10 @@
-         self
-     }
-     /// <p>Platform applications returned when calling <code>ListPlatformApplications</code> action.</p>
--    pub fn set_platform_applications(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PlatformApplication>>) -> Self {
-+    pub fn set_platform_applications(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PlatformApplication>>,
-+    ) -> Self {
-         self.platform_applications = input;
-         self
-     }
-```
-
-### `src/operation/list_platform_applications/paginator.rs`
-
-```diff
---- reference/src/operation/list_platform_applications/paginator.rs
-+++ generated/src/operation/list_platform_applications/paginator.rs
-@@ -78,9 +78,11 @@
-                         }
-                     };
-                     loop {
--                        let resp =
--                            super::super::super::operation::list_platform_applications::ListPlatformApplications::orchestrate(&runtime_plugins, input.clone())
--                                .await;
-+                        let resp = super::super::super::operation::list_platform_applications::ListPlatformApplications::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
-```
-
 ### `src/operation/list_platform_applications.rs`
 
 ```diff
@@ -2016,64 +1242,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/list_sms_sandbox_phone_numbers/_list_sms_sandbox_phone_numbers_input.rs`
-
-```diff
---- reference/src/operation/list_sms_sandbox_phone_numbers/_list_sms_sandbox_phone_numbers_input.rs
-+++ generated/src/operation/list_sms_sandbox_phone_numbers/_list_sms_sandbox_phone_numbers_input.rs
-@@ -68,9 +68,11 @@
-         super::super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersInput {
--            next_token: self.next_token,
--            max_results: self.max_results,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersInput {
-+                next_token: self.next_token,
-+                max_results: self.max_results,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/list_sms_sandbox_phone_numbers/_list_sms_sandbox_phone_numbers_output.rs`
-
-```diff
---- reference/src/operation/list_sms_sandbox_phone_numbers/_list_sms_sandbox_phone_numbers_output.rs
-+++ generated/src/operation/list_sms_sandbox_phone_numbers/_list_sms_sandbox_phone_numbers_output.rs
-@@ -93,15 +93,17 @@
-         super::super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput {
--            phone_numbers: self.phone_numbers.ok_or_else(|| {
--                ::aws_smithy_types::error::operation::BuildError::missing_field(
--                    "phone_numbers",
--                    "phone_numbers was not specified but it is required when building ListSmsSandboxPhoneNumbersOutput",
--                )
--            })?,
--            next_token: self.next_token,
--            _request_id: self._request_id,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput {
-+                phone_numbers: self.phone_numbers.ok_or_else(|| {
-+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                        "phone_numbers",
-+                        "phone_numbers was not specified but it is required when building ListSmsSandboxPhoneNumbersOutput",
-+                    )
-+                })?,
-+                next_token: self.next_token,
-+                _request_id: self._request_id,
-+            },
-+        )
-     }
- }
 ```
 
 ### `src/operation/list_sms_sandbox_phone_numbers/builders.rs`
@@ -2282,31 +1450,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/list_subscriptions/_list_subscriptions_input.rs`
-
-```diff
---- reference/src/operation/list_subscriptions/_list_subscriptions_input.rs
-+++ generated/src/operation/list_subscriptions/_list_subscriptions_input.rs
-@@ -44,7 +44,10 @@
-     /// Consumes the builder and constructs a [`ListSubscriptionsInput`](crate::operation::list_subscriptions::ListSubscriptionsInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_subscriptions::ListSubscriptionsInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_subscriptions::ListSubscriptionsInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_subscriptions::ListSubscriptionsInput { next_token: self.next_token })
-     }
- }
-```
-
 ### `src/operation/list_subscriptions.rs`
 
 ```diff
 --- reference/src/operation/list_subscriptions.rs
 +++ generated/src/operation/list_subscriptions.rs
-@@ -247,12 +247,11 @@
+@@ -247,13 +247,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2315,57 +1464,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_list_subscriptions_input::ser_list_subscriptions_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_subscriptions_input::ser_list_subscriptions_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_subscriptions_input::ser_list_subscriptions_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/list_subscriptions_by_topic/_list_subscriptions_by_topic_input.rs`
-
-```diff
---- reference/src/operation/list_subscriptions_by_topic/_list_subscriptions_by_topic_input.rs
-+++ generated/src/operation/list_subscriptions_by_topic/_list_subscriptions_by_topic_input.rs
-@@ -70,9 +70,11 @@
-         super::super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicInput {
--            topic_arn: self.topic_arn,
--            next_token: self.next_token,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicInput {
-+                topic_arn: self.topic_arn,
-+                next_token: self.next_token,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/list_subscriptions_by_topic/paginator.rs`
-
-```diff
---- reference/src/operation/list_subscriptions_by_topic/paginator.rs
-+++ generated/src/operation/list_subscriptions_by_topic/paginator.rs
-@@ -78,9 +78,11 @@
-                         }
-                     };
-                     loop {
--                        let resp =
--                            super::super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopic::orchestrate(&runtime_plugins, input.clone())
--                                .await;
-+                        let resp = super::super::super::operation::list_subscriptions_by_topic::ListSubscriptionsByTopic::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/list_subscriptions_by_topic.rs`
@@ -2390,26 +1497,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/list_tags_for_resource/_list_tags_for_resource_input.rs`
-
-```diff
---- reference/src/operation/list_tags_for_resource/_list_tags_for_resource_input.rs
-+++ generated/src/operation/list_tags_for_resource/_list_tags_for_resource_input.rs
-@@ -44,8 +44,10 @@
-     /// Consumes the builder and constructs a [`ListTagsForResourceInput`](crate::operation::list_tags_for_resource::ListTagsForResourceInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_tags_for_resource::ListTagsForResourceInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_tags_for_resource::ListTagsForResourceInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_tags_for_resource::ListTagsForResourceInput {
-             resource_arn: self.resource_arn,
-         })
-```
-
 ### `src/operation/list_tags_for_resource.rs`
 
 ```diff
@@ -2432,61 +1519,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/list_topics/_list_topics_input.rs`
-
-```diff
---- reference/src/operation/list_topics/_list_topics_input.rs
-+++ generated/src/operation/list_topics/_list_topics_input.rs
-@@ -41,7 +41,9 @@
-         &self.next_token
-     }
-     /// Consumes the builder and constructs a [`ListTopicsInput`](crate::operation::list_topics::ListTopicsInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_topics::ListTopicsInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::list_topics::ListTopicsInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::list_topics::ListTopicsInput { next_token: self.next_token })
-     }
- }
-```
-
-### `src/operation/list_topics/paginator.rs`
-
-```diff
---- reference/src/operation/list_topics/paginator.rs
-+++ generated/src/operation/list_topics/paginator.rs
-@@ -131,7 +131,10 @@
-             >,
-         >,
-     > {
--        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send())
--            .flat_map(|page| super::super::super::lens::lens_list_topics_output_output_topics(page).unwrap_or_default().into_iter())
-+        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
-+            super::super::super::lens::lens_list_topics_output_output_topics(page)
-+                .unwrap_or_default()
-+                .into_iter()
-+        })
-     }
- }
-```
-
 ### `src/operation/list_topics.rs`
 
 ```diff
 --- reference/src/operation/list_topics.rs
 +++ generated/src/operation/list_topics.rs
-@@ -220,7 +220,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::list_topics::ListTopicsInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::list_topics::ListTopicsInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -245,12 +247,10 @@
+@@ -245,12 +245,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2503,31 +1541,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
-### `src/operation/opt_in_phone_number/_opt_in_phone_number_input.rs`
-
-```diff
---- reference/src/operation/opt_in_phone_number/_opt_in_phone_number_input.rs
-+++ generated/src/operation/opt_in_phone_number/_opt_in_phone_number_input.rs
-@@ -52,7 +52,10 @@
-     /// Consumes the builder and constructs a [`OptInPhoneNumberInput`](crate::operation::opt_in_phone_number::OptInPhoneNumberInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::opt_in_phone_number::OptInPhoneNumberInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::opt_in_phone_number::OptInPhoneNumberInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::opt_in_phone_number::OptInPhoneNumberInput {
-             phone_number: self.phone_number,
-         })
-```
-
 ### `src/operation/opt_in_phone_number.rs`
 
 ```diff
 --- reference/src/operation/opt_in_phone_number.rs
 +++ generated/src/operation/opt_in_phone_number.rs
-@@ -201,12 +201,11 @@
+@@ -201,13 +201,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2536,121 +1555,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_opt_in_phone_number_input::ser_opt_in_phone_number_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_opt_in_phone_number_input::ser_opt_in_phone_number_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_opt_in_phone_number_input::ser_opt_in_phone_number_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/publish/_publish_input.rs`
-
-```diff
---- reference/src/operation/publish/_publish_input.rs
-+++ generated/src/operation/publish/_publish_input.rs
-@@ -60,7 +60,8 @@
-     /// <p>Valid value: <code>json</code></p>
-     pub message_structure: ::std::option::Option<::std::string::String>,
-     /// <p>Message attributes for Publish action.</p>
--    pub message_attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::MessageAttributeValue>>,
-+    pub message_attributes:
-+        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::MessageAttributeValue>>,
-     /// <ul>
-     /// <li>
-     /// <p>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters <code>(a-z, A-Z, 0-9)</code> and punctuation <code>(!"#$%&amp;'()*+,-./:;&lt;=&gt;?@\[\\]^_`{|}~)</code>.</p></li>
-@@ -235,7 +236,8 @@
-     pub(crate) message: ::std::option::Option<::std::string::String>,
-     pub(crate) subject: ::std::option::Option<::std::string::String>,
-     pub(crate) message_structure: ::std::option::Option<::std::string::String>,
--    pub(crate) message_attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::MessageAttributeValue>>,
-+    pub(crate) message_attributes:
-+        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::MessageAttributeValue>>,
-     pub(crate) message_deduplication_id: ::std::option::Option<::std::string::String>,
-     pub(crate) message_group_id: ::std::option::Option<::std::string::String>,
- }
-@@ -459,7 +461,11 @@
-     /// To override the contents of this collection use [`set_message_attributes`](Self::set_message_attributes).
-     ///
-     /// <p>Message attributes for Publish action.</p>
--    pub fn message_attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::MessageAttributeValue) -> Self {
-+    pub fn message_attributes(
-+        mut self,
-+        k: impl ::std::convert::Into<::std::string::String>,
-+        v: super::super::super::types::MessageAttributeValue,
-+    ) -> Self {
-         let mut hash_map = self.message_attributes.unwrap_or_default();
-         hash_map.insert(k.into(), v);
-         self.message_attributes = ::std::option::Option::Some(hash_map);
-@@ -589,7 +595,9 @@
-         &self.message_group_id
-     }
-     /// Consumes the builder and constructs a [`PublishInput`](crate::operation::publish::PublishInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::publish::PublishInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::publish::PublishInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::publish::PublishInput {
-             topic_arn: self.topic_arn,
-             target_arn: self.target_arn,
-```
-
-### `src/operation/publish/builders.rs`
-
-```diff
---- reference/src/operation/publish/builders.rs
-+++ generated/src/operation/publish/builders.rs
-@@ -35,14 +35,20 @@
-     inner: super::super::super::operation::publish::builders::PublishInputBuilder,
-     config_override: ::std::option::Option<super::super::super::config::Builder>,
- }
--impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::publish::PublishOutput, super::super::super::operation::publish::PublishError>
--    for PublishFluentBuilder
-+impl
-+    super::super::super::client::customize::internal::CustomizableSend<
-+        super::super::super::operation::publish::PublishOutput,
-+        super::super::super::operation::publish::PublishError,
-+    > for PublishFluentBuilder
- {
-     fn send(
-         self,
-         config_override: super::super::super::config::Builder,
-     ) -> super::super::super::client::customize::internal::BoxFuture<
--        super::super::super::client::customize::internal::SendResult<super::super::super::operation::publish::PublishOutput, super::super::super::operation::publish::PublishError>,
-+        super::super::super::client::customize::internal::SendResult<
-+            super::super::super::operation::publish::PublishOutput,
-+            super::super::super::operation::publish::PublishError,
-+        >,
-     > {
-         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-     }
-@@ -92,8 +98,11 @@
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-     pub fn customize(
-         self,
--    ) -> super::super::super::client::customize::CustomizableOperation<super::super::super::operation::publish::PublishOutput, super::super::super::operation::publish::PublishError, Self>
--    {
-+    ) -> super::super::super::client::customize::CustomizableOperation<
-+        super::super::super::operation::publish::PublishOutput,
-+        super::super::super::operation::publish::PublishError,
-+        Self,
-+    > {
-         super::super::super::client::customize::CustomizableOperation::new(self)
-     }
-     pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<super::super::super::config::Builder>) -> Self {
-@@ -324,7 +333,11 @@
-     /// To override the contents of this collection use [`set_message_attributes`](Self::set_message_attributes).
-     ///
-     /// <p>Message attributes for Publish action.</p>
--    pub fn message_attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::MessageAttributeValue) -> Self {
-+    pub fn message_attributes(
-+        mut self,
-+        k: impl ::std::convert::Into<::std::string::String>,
-+        v: super::super::super::types::MessageAttributeValue,
-+    ) -> Self {
-         self.inner = self.inner.message_attributes(k.into(), v);
-         self
-     }
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/publish.rs`
@@ -2658,28 +1571,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/publish.rs
 +++ generated/src/operation/publish.rs
-@@ -18,11 +18,15 @@
-             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-         >,
-     > {
--        let map_err =
--            |err: ::aws_smithy_runtime_api::client::result::SdkError<
--                ::aws_smithy_runtime_api::client::interceptors::context::Error,
--                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
--            >| { err.map_service_error(|err| err.downcast::<super::super::operation::publish::PublishError>().expect("correct error type")) };
-+        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-+        >| {
-+            err.map_service_error(|err| {
-+                err.downcast::<super::super::operation::publish::PublishError>()
-+                    .expect("correct error type")
-+            })
-+        };
-         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-             .await
-             .map_err(map_err)?;
-@@ -271,11 +275,10 @@
+@@ -271,11 +271,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2700,7 +1592,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/publish_batch.rs
 +++ generated/src/operation/publish_batch.rs
-@@ -247,11 +247,10 @@
+@@ -247,13 +247,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2710,10 +1602,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_publish_batch_input::ser_publish_batch_input_input_input(
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_publish_batch_input::ser_publish_batch_op_input(
-             &input,
-         )?);
+-            &input,
+-        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_publish_batch_input::ser_publish_batch_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/put_data_protection_policy.rs`
@@ -2738,31 +1632,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/remove_permission/_remove_permission_input.rs`
-
-```diff
---- reference/src/operation/remove_permission/_remove_permission_input.rs
-+++ generated/src/operation/remove_permission/_remove_permission_input.rs
-@@ -67,7 +67,10 @@
-     /// Consumes the builder and constructs a [`RemovePermissionInput`](crate::operation::remove_permission::RemovePermissionInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::remove_permission::RemovePermissionInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::remove_permission::RemovePermissionInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::remove_permission::RemovePermissionInput {
-             topic_arn: self.topic_arn,
-             label: self.label,
-```
-
 ### `src/operation/remove_permission.rs`
 
 ```diff
 --- reference/src/operation/remove_permission.rs
 +++ generated/src/operation/remove_permission.rs
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2771,32 +1646,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_remove_permission_input::ser_remove_permission_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_remove_permission_input::ser_remove_permission_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_remove_permission_input::ser_remove_permission_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/set_endpoint_attributes/_set_endpoint_attributes_input.rs`
-
-```diff
---- reference/src/operation/set_endpoint_attributes/_set_endpoint_attributes_input.rs
-+++ generated/src/operation/set_endpoint_attributes/_set_endpoint_attributes_input.rs
-@@ -112,8 +112,10 @@
-     /// Consumes the builder and constructs a [`SetEndpointAttributesInput`](crate::operation::set_endpoint_attributes::SetEndpointAttributesInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::set_endpoint_attributes::SetEndpointAttributesInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::set_endpoint_attributes::SetEndpointAttributesInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::set_endpoint_attributes::SetEndpointAttributesInput {
-             endpoint_arn: self.endpoint_arn,
-             attributes: self.attributes,
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/set_endpoint_attributes.rs`
@@ -2821,62 +1679,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/set_platform_application_attributes/builders.rs`
-
-```diff
---- reference/src/operation/set_platform_application_attributes/builders.rs
-+++ generated/src/operation/set_platform_application_attributes/builders.rs
-@@ -57,7 +57,9 @@
-         }
-     }
-     /// Access the SetPlatformApplicationAttributes as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::set_platform_application_attributes::builders::SetPlatformApplicationAttributesInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -81,12 +83,14 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributes::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributes::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributes::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::set_platform_application_attributes::SetPlatformApplicationAttributes::orchestrate(&runtime_plugins, input)
-+            .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
 ### `src/operation/set_platform_application_attributes.rs`
 
 ```diff
 --- reference/src/operation/set_platform_application_attributes.rs
 +++ generated/src/operation/set_platform_application_attributes.rs
-@@ -213,7 +213,9 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_set_platform_application_attributes::de_set_platform_application_attributes_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_set_platform_application_attributes::de_set_platform_application_attributes_http_error(
-+                status, headers, body,
-+            )
-         } else {
-             super::super::protocol_serde::shape_set_platform_application_attributes::de_set_platform_application_attributes_http_response(
-                 status, headers, body,
-@@ -258,14 +260,11 @@
+@@ -258,14 +258,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2945,18 +1753,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p><code>DeliveryStatusIAMRole</code> – The ARN of the IAM role that allows Amazon SNS to write logs about SMS deliveries in CloudWatch Logs. For each SMS message that you send, Amazon SNS writes a log that includes the message price, the success or failure status, the reason for failure (if the message failed), the message dwell time, and other information.</p>
      /// <p><code>DeliveryStatusSuccessSamplingRate</code> – The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value can be an integer from 0 - 100. For example, to write logs only for failed deliveries, set this value to <code>0</code>. To write logs for 10% of your successful deliveries, set it to <code>10</code>.</p>
      /// <p><code>DefaultSenderID</code> – A string, such as your business brand, that is displayed as the sender on the receiving device. Support for sender IDs varies by country. The sender ID can be 1 - 11 alphanumeric characters, and it must contain at least one letter.</p>
-@@ -225,7 +225,10 @@
-     /// Consumes the builder and constructs a [`SetSmsAttributesInput`](crate::operation::set_sms_attributes::SetSmsAttributesInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::set_sms_attributes::SetSmsAttributesInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::set_sms_attributes::SetSmsAttributesInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::set_sms_attributes::SetSmsAttributesInput { attributes: self.attributes })
-     }
- }
 ```
 
 ### `src/operation/set_sms_attributes/builders.rs`
@@ -3139,7 +1935,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  super::super::operation::set_sms_attributes::SetSMSAttributesError,
-@@ -201,12 +201,11 @@
+@@ -201,13 +201,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3148,12 +1944,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_set_sms_attributes_input::ser_set_sms_attributes_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_set_sms_attributes_input::ser_set_sms_attributes_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_set_sms_attributes_input::ser_set_sms_attributes_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 @@ -216,12 +215,12 @@
      }
  }
@@ -3170,31 +1969,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/set_subscription_attributes/_set_subscription_attributes_input.rs`
-
-```diff
---- reference/src/operation/set_subscription_attributes/_set_subscription_attributes_input.rs
-+++ generated/src/operation/set_subscription_attributes/_set_subscription_attributes_input.rs
-@@ -247,10 +247,12 @@
-         super::super::super::operation::set_subscription_attributes::SetSubscriptionAttributesInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::set_subscription_attributes::SetSubscriptionAttributesInput {
--            subscription_arn: self.subscription_arn,
--            attribute_name: self.attribute_name,
--            attribute_value: self.attribute_value,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::set_subscription_attributes::SetSubscriptionAttributesInput {
-+                subscription_arn: self.subscription_arn,
-+                attribute_name: self.attribute_name,
-+                attribute_value: self.attribute_value,
-+            },
-+        )
-     }
- }
 ```
 
 ### `src/operation/set_subscription_attributes.rs`
@@ -3217,26 +1991,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/set_topic_attributes/_set_topic_attributes_input.rs`
-
-```diff
---- reference/src/operation/set_topic_attributes/_set_topic_attributes_input.rs
-+++ generated/src/operation/set_topic_attributes/_set_topic_attributes_input.rs
-@@ -628,8 +628,10 @@
-     /// Consumes the builder and constructs a [`SetTopicAttributesInput`](crate::operation::set_topic_attributes::SetTopicAttributesInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::set_topic_attributes::SetTopicAttributesInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::set_topic_attributes::SetTopicAttributesInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::set_topic_attributes::SetTopicAttributesInput {
-             topic_arn: self.topic_arn,
-             attribute_name: self.attribute_name,
 ```
 
 ### `src/operation/set_topic_attributes.rs`
@@ -3266,16 +2020,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/subscribe/_subscribe_input.rs
 +++ generated/src/operation/subscribe/_subscribe_input.rs
-@@ -589,13 +589,15 @@
-         &self.return_subscription_arn
-     }
-     /// Consumes the builder and constructs a [`SubscribeInput`](crate::operation::subscribe::SubscribeInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::subscribe::SubscribeInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::subscribe::SubscribeInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::subscribe::SubscribeInput {
-             topic_arn: self.topic_arn,
+@@ -595,7 +595,7 @@
              protocol: self.protocol,
              endpoint: self.endpoint,
              attributes: self.attributes,
@@ -3286,66 +2031,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/subscribe/builders.rs`
-
-```diff
---- reference/src/operation/subscribe/builders.rs
-+++ generated/src/operation/subscribe/builders.rs
-@@ -31,14 +31,20 @@
-     inner: super::super::super::operation::subscribe::builders::SubscribeInputBuilder,
-     config_override: ::std::option::Option<super::super::super::config::Builder>,
- }
--impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::subscribe::SubscribeOutput, super::super::super::operation::subscribe::SubscribeError>
--    for SubscribeFluentBuilder
-+impl
-+    super::super::super::client::customize::internal::CustomizableSend<
-+        super::super::super::operation::subscribe::SubscribeOutput,
-+        super::super::super::operation::subscribe::SubscribeError,
-+    > for SubscribeFluentBuilder
- {
-     fn send(
-         self,
-         config_override: super::super::super::config::Builder,
-     ) -> super::super::super::client::customize::internal::BoxFuture<
--        super::super::super::client::customize::internal::SendResult<super::super::super::operation::subscribe::SubscribeOutput, super::super::super::operation::subscribe::SubscribeError>,
-+        super::super::super::client::customize::internal::SendResult<
-+            super::super::super::operation::subscribe::SubscribeOutput,
-+            super::super::super::operation::subscribe::SubscribeError,
-+        >,
-     > {
-         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-     }
-```
-
 ### `src/operation/subscribe.rs`
 
 ```diff
 --- reference/src/operation/subscribe.rs
 +++ generated/src/operation/subscribe.rs
-@@ -22,7 +22,10 @@
-             ::aws_smithy_runtime_api::client::interceptors::context::Error,
-             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-         >| {
--            err.map_service_error(|err| err.downcast::<super::super::operation::subscribe::SubscribeError>().expect("correct error type"))
-+            err.map_service_error(|err| {
-+                err.downcast::<super::super::operation::subscribe::SubscribeError>()
-+                    .expect("correct error type")
-+            })
-         };
-         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-             .await
-@@ -227,7 +230,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::subscribe::SubscribeInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::subscribe::SubscribeInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -252,11 +257,10 @@
+@@ -252,11 +252,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3361,30 +2052,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
-### `src/operation/tag_resource/_tag_resource_input.rs`
-
-```diff
---- reference/src/operation/tag_resource/_tag_resource_input.rs
-+++ generated/src/operation/tag_resource/_tag_resource_input.rs
-@@ -71,7 +71,9 @@
-         &self.tags
-     }
-     /// Consumes the builder and constructs a [`TagResourceInput`](crate::operation::tag_resource::TagResourceInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::tag_resource::TagResourceInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::tag_resource::TagResourceInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::tag_resource::TagResourceInput {
-             resource_arn: self.resource_arn,
-             tags: self.tags,
-```
-
 ### `src/operation/tag_resource.rs`
 
 ```diff
 --- reference/src/operation/tag_resource.rs
 +++ generated/src/operation/tag_resource.rs
-@@ -247,13 +247,11 @@
+@@ -247,13 +247,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3396,29 +2069,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_resource_input::ser_tag_resource_input_input_input(
 -            &input,
 -        )?);
-+        let body =
-+            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_resource_input::ser_tag_resource_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_resource_input::ser_tag_resource_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/unsubscribe/_unsubscribe_input.rs`
-
-```diff
---- reference/src/operation/unsubscribe/_unsubscribe_input.rs
-+++ generated/src/operation/unsubscribe/_unsubscribe_input.rs
-@@ -43,7 +43,9 @@
-         &self.subscription_arn
-     }
-     /// Consumes the builder and constructs a [`UnsubscribeInput`](crate::operation::unsubscribe::UnsubscribeInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::unsubscribe::UnsubscribeInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::unsubscribe::UnsubscribeInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::unsubscribe::UnsubscribeInput {
-             subscription_arn: self.subscription_arn,
-         })
 ```
 
 ### `src/operation/unsubscribe.rs`
@@ -3426,18 +2080,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/unsubscribe.rs
 +++ generated/src/operation/unsubscribe.rs
-@@ -220,7 +220,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::unsubscribe::UnsubscribeInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::unsubscribe::UnsubscribeInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -245,12 +247,10 @@
+@@ -245,12 +245,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3459,7 +2102,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/untag_resource.rs
 +++ generated/src/operation/untag_resource.rs
-@@ -247,11 +247,10 @@
+@@ -247,13 +247,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3469,34 +2112,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_resource_input::ser_untag_resource_input_input_input(
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_resource_input::ser_untag_resource_op_input(
-             &input,
-         )?);
+-            &input,
+-        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_resource_input::ser_untag_resource_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
-```
-
-### `src/operation/verify_sms_sandbox_phone_number/_verify_sms_sandbox_phone_number_input.rs`
-
-```diff
---- reference/src/operation/verify_sms_sandbox_phone_number/_verify_sms_sandbox_phone_number_input.rs
-+++ generated/src/operation/verify_sms_sandbox_phone_number/_verify_sms_sandbox_phone_number_input.rs
-@@ -78,10 +78,12 @@
-         super::super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberInput {
--            phone_number: self.phone_number,
--            one_time_password: self.one_time_password,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberInput {
-+                phone_number: self.phone_number,
-+                one_time_password: self.one_time_password,
-+            },
-+        )
-     }
- }
- impl ::std::fmt::Debug for VerifySmsSandboxPhoneNumberInputBuilder {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/verify_sms_sandbox_phone_number/builders.rs`
@@ -3672,18 +2293,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -209,7 +209,9 @@
-         let parse_result = if !success && status != 200 || force_error {
-             super::super::protocol_serde::shape_verify_sms_sandbox_phone_number::de_verify_sms_sandbox_phone_number_http_error(status, headers, body)
-         } else {
--            super::super::protocol_serde::shape_verify_sms_sandbox_phone_number::de_verify_sms_sandbox_phone_number_http_response(status, headers, body)
-+            super::super::protocol_serde::shape_verify_sms_sandbox_phone_number::de_verify_sms_sandbox_phone_number_http_response(
-+                status, headers, body,
-+            )
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -250,12 +252,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3698,7 +2308,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -265,12 +266,12 @@
+@@ -265,12 +264,12 @@
      }
  }
  #[derive(Debug)]
@@ -3714,24 +2324,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/types/_sms_sandbox_phone_number_verification_status.rs`
-
-```diff
---- reference/src/types/_sms_sandbox_phone_number_verification_status.rs
-+++ generated/src/types/_sms_sandbox_phone_number_verification_status.rs
-@@ -58,7 +58,9 @@
-         match s {
-             "Pending" => SmsSandboxPhoneNumberVerificationStatus::Pending,
-             "Verified" => SmsSandboxPhoneNumberVerificationStatus::Verified,
--            other => SmsSandboxPhoneNumberVerificationStatus::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
-+            other => {
-+                SmsSandboxPhoneNumberVerificationStatus::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-+            }
-         }
-     }
- }
 ```
 
 ### `src/types/error/_validation_exception.rs`
@@ -3761,17 +2353,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          Ok(())
      }
-@@ -79,7 +81,9 @@
-     /// Consumes the builder and constructs a [`ValidationException`](crate::types::error::ValidationException).
-     /// This method will fail if any of the following fields are not set:
-     /// - [`message`](crate::types::error::builders::ValidationExceptionBuilder::message)
--    pub fn build(self) -> ::std::result::Result<super::super::super::types::error::ValidationException, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::types::error::ValidationException, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::types::error::ValidationException {
-             message: self.message.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### `src/types/error/_verification_exception.rs`
@@ -3801,17 +2382,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          Ok(())
      }
-@@ -105,7 +107,9 @@
-     /// This method will fail if any of the following fields are not set:
-     /// - [`message`](crate::types::error::builders::VerificationExceptionBuilder::message)
-     /// - [`status`](crate::types::error::builders::VerificationExceptionBuilder::status)
--    pub fn build(self) -> ::std::result::Result<super::super::super::types::error::VerificationException, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::types::error::VerificationException, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::types::error::VerificationException {
-             message: self.message.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### Missing reference files

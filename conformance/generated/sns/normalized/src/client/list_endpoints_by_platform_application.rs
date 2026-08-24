@@ -13,8 +13,6 @@ impl super::Client {
     pub fn list_endpoints_by_platform_application(
         &self,
     ) -> super::super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationFluentBuilder {
-        super::super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationFluentBuilder::new(self.handle.clone())
     }
 }

@@ -153,15 +153,13 @@ impl ListRepositoriesInDomainInputBuilder {
         super::super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-                administrator_account: self.administrator_account,
-                repository_prefix: self.repository_prefix,
-                max_results: self.max_results,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+            administrator_account: self.administrator_account,
+            repository_prefix: self.repository_prefix,
+            max_results: self.max_results,
+            next_token: self.next_token,
+        })
     }
 }

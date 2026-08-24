@@ -13,10 +13,8 @@ impl ::aws_types::request_id::RequestId for PutDedicatedIpPoolScalingAttributesO
 }
 impl PutDedicatedIpPoolScalingAttributesOutput {
     /// Creates a new builder-style object to manufacture [`PutDedicatedIpPoolScalingAttributesOutput`](crate::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributesOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesOutputBuilder {
-        super::super::super::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesOutputBuilder::default(
-        )
+    pub fn builder() -> super::super::super::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesOutputBuilder {
+        super::super::super::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesOutputBuilder::default()
     }
 }
 

@@ -201,9 +201,7 @@ impl ConformancePackDetailBuilder {
         self
     }
     /// <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-    pub fn get_conformance_pack_input_parameters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::types::ConformancePackInputParameter>> {
+    pub fn get_conformance_pack_input_parameters(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::ConformancePackInputParameter>> {
         &self.conformance_pack_input_parameters
     }
     /// <p>The last time a conformation pack update was requested.</p>

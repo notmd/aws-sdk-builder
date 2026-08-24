@@ -22,11 +22,8 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "ResourceKey" => {
-                            builder = builder.set_resource_key(super::super::protocol_serde::shape_resource_key::de_resource_key(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_resource_key(super::super::protocol_serde::shape_resource_key::de_resource_key(tokens, _value, depth + 1)?);
                         }
                         "State" => {
                             builder = builder.set_state(
@@ -37,11 +34,7 @@ where
                         }
                         "StepDetails" => {
                             builder = builder.set_step_details(
-                                super::super::protocol_serde::shape_remediation_execution_steps::de_remediation_execution_steps(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_remediation_execution_steps::de_remediation_execution_steps(tokens, _value, depth + 1)?,
                             );
                         }
                         "InvocationTime" => {

@@ -20,44 +20,46 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "UserPoolId" => {
-                            builder = builder.set_user_pool_id(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
-                            );
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "UserPoolId" => {
+                                builder = builder.set_user_pool_id(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
+                            "ClientId" => {
+                                builder = builder.set_client_id(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
+                            "CompromisedCredentialsRiskConfiguration" => {
+                                builder = builder.set_compromised_credentials_risk_configuration(super::super::protocol_serde::shape_compromised_credentials_risk_configuration_type::de_compromised_credentials_risk_configuration_type(tokens, _value, depth + 1)?);
+                            }
+                            "AccountTakeoverRiskConfiguration" => {
+                                builder = builder.set_account_takeover_risk_configuration(super::super::protocol_serde::shape_account_takeover_risk_configuration_type::de_account_takeover_risk_configuration_type(tokens, _value, depth + 1)?);
+                            }
+                            "RiskExceptionConfiguration" => {
+                                builder = builder.set_risk_exception_configuration(
+                                    super::super::protocol_serde::shape_risk_exception_configuration_type::de_risk_exception_configuration_type(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
+                            }
+                            "LastModifiedDate" => {
+                                builder = builder.set_last_modified_date(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                                    tokens.next(),
+                                    ::aws_smithy_types::date_time::Format::EpochSeconds,
+                                )?);
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        "ClientId" => {
-                            builder = builder.set_client_id(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
-                            );
-                        }
-                        "CompromisedCredentialsRiskConfiguration" => {
-                            builder = builder.set_compromised_credentials_risk_configuration(super::super::protocol_serde::shape_compromised_credentials_risk_configuration_type::de_compromised_credentials_risk_configuration_type(tokens, _value, depth + 1)?);
-                        }
-                        "AccountTakeoverRiskConfiguration" => {
-                            builder = builder.set_account_takeover_risk_configuration(super::super::protocol_serde::shape_account_takeover_risk_configuration_type::de_account_takeover_risk_configuration_type(tokens, _value, depth + 1)?);
-                        }
-                        "RiskExceptionConfiguration" => {
-                            builder = builder.set_risk_exception_configuration(
-                                super::super::protocol_serde::shape_risk_exception_configuration_type::de_risk_exception_configuration_type(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
-                            );
-                        }
-                        "LastModifiedDate" => {
-                            builder = builder.set_last_modified_date(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-                                tokens.next(),
-                                ::aws_smithy_types::date_time::Format::EpochSeconds,
-                            )?);
-                        }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

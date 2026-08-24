@@ -20,8 +20,7 @@ impl ::aws_types::request_id::RequestId for GenerateOrganizationsAccessReportOut
 }
 impl GenerateOrganizationsAccessReportOutput {
     /// Creates a new builder-style object to manufacture [`GenerateOrganizationsAccessReportOutput`](crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportOutput).
-    pub fn builder() -> super::super::super::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportOutputBuilder {
         super::super::super::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportOutputBuilder::default()
     }
 }

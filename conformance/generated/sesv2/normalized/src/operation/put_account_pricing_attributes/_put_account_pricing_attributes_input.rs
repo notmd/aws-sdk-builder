@@ -99,8 +99,6 @@ impl PutAccountPricingAttributesInputBuilder {
         super::super::super::operation::put_account_pricing_attributes::PutAccountPricingAttributesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_account_pricing_attributes::PutAccountPricingAttributesInput { plan: self.plan },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_account_pricing_attributes::PutAccountPricingAttributesInput { plan: self.plan })
     }
 }

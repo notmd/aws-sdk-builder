@@ -38,9 +38,8 @@ pub fn de_create_bucket_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::BucketAlreadyOwnedByYouBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_bucket_already_owned_by_you::de_bucket_already_owned_by_you_xml_err(_response_body, output)
-                        .map_err(super::super::operation::create_bucket::CreateBucketError::unhandled)?;
+                output = super::super::protocol_serde::shape_bucket_already_owned_by_you::de_bucket_already_owned_by_you_xml_err(_response_body, output)
+                    .map_err(super::super::operation::create_bucket::CreateBucketError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -68,9 +67,8 @@ pub fn de_create_bucket_http_response(
             })?,
         );
         output = output.set_location(
-            super::super::protocol_serde::shape_create_bucket_output::de_location_header(_response_headers).map_err(|_| {
-                super::super::operation::create_bucket::CreateBucketError::unhandled("Failed to parse Location from header `Location")
-            })?,
+            super::super::protocol_serde::shape_create_bucket_output::de_location_header(_response_headers)
+                .map_err(|_| super::super::operation::create_bucket::CreateBucketError::unhandled("Failed to parse Location from header `Location"))?,
         );
         output._set_extended_request_id(super::super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));

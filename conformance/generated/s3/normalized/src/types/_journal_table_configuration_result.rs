@@ -184,9 +184,7 @@ impl JournalTableConfigurationResultBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`table_status`](crate::types::builders::JournalTableConfigurationResultBuilder::table_status)
     /// - [`table_name`](crate::types::builders::JournalTableConfigurationResultBuilder::table_name)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::JournalTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::JournalTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::JournalTableConfigurationResult {
             table_status: self.table_status.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -50,10 +50,7 @@ impl GuardrailAutomatedReasoningTranslationAmbiguousFindingBuilder {
         self
     }
     /// <p>Different logical interpretations that were detected during translation of the input.</p>
-    pub fn set_options(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningTranslationOption>>,
-    ) -> Self {
+    pub fn set_options(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningTranslationOption>>) -> Self {
         self.options = input;
         self
     }

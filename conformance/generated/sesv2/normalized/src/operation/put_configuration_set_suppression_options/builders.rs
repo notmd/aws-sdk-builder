@@ -83,16 +83,13 @@ impl PutConfigurationSetSuppressionOptionsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptions::operation_runtime_plugins(
-                            self.handle.runtime_plugins.clone(),
-                            &self.handle.conf,
-                            self.config_override,
-                        );
-        super::super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptions::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            super::super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptions::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        super::super::super::operation::put_configuration_set_suppression_options::PutConfigurationSetSuppressionOptions::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -183,10 +180,7 @@ impl PutConfigurationSetSuppressionOptionsFluentBuilder {
     /// <li>
     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account or for a specific tenant when a message sent to that address results in a hard bounce.</p></li>
     /// </ul>
-    pub fn set_suppressed_reasons(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>,
-    ) -> Self {
+    pub fn set_suppressed_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>) -> Self {
         self.inner = self.inner.set_suppressed_reasons(input);
         self
     }

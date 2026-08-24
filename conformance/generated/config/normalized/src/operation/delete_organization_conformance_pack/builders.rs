@@ -64,9 +64,7 @@ impl DeleteOrganizationConformancePackFluentBuilder {
         }
     }
     /// Access the DeleteOrganizationConformancePack as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -90,14 +88,12 @@ impl DeleteOrganizationConformancePackFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePack::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        super::super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePack::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = super::super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePack::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        super::super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePack::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

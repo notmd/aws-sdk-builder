@@ -28,7 +28,9 @@ impl ::aws_types::request_id::RequestId for DisableOrganizationsRootCredentialsM
 }
 impl DisableOrganizationsRootCredentialsManagementOutput {
     /// Creates a new builder-style object to manufacture [`DisableOrganizationsRootCredentialsManagementOutput`](crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementOutput).
-    pub fn builder() -> super::super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementOutputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementOutputBuilder
+    {
         super::super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementOutputBuilder::default()
     }
 }
@@ -86,9 +88,7 @@ impl DisableOrganizationsRootCredentialsManagementOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DisableOrganizationsRootCredentialsManagementOutput`](crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementOutput).
-    pub fn build(
-        self,
-    ) -> super::super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementOutput {
+    pub fn build(self) -> super::super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementOutput {
         super::super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementOutput {
             organization_id: self.organization_id,
             enabled_features: self.enabled_features,

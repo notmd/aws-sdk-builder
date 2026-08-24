@@ -75,10 +75,8 @@ impl DeleteUserPoolClientInputBuilder {
     /// Consumes the builder and constructs a [`DeleteUserPoolClientInput`](crate::operation::delete_user_pool_client::DeleteUserPoolClientInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_user_pool_client::DeleteUserPoolClientInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_user_pool_client::DeleteUserPoolClientInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::delete_user_pool_client::DeleteUserPoolClientInput {
             user_pool_id: self.user_pool_id,
             client_id: self.client_id,

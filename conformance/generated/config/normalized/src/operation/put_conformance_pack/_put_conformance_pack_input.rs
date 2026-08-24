@@ -210,9 +210,7 @@ impl PutConformancePackInputBuilder {
         self
     }
     /// <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-    pub fn get_conformance_pack_input_parameters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackInputParameter>> {
+    pub fn get_conformance_pack_input_parameters(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackInputParameter>> {
         &self.conformance_pack_input_parameters
     }
     /// <p>An object of type <code>TemplateSSMDocumentDetails</code>, which contains the name or the Amazon Resource Name (ARN) of the Amazon Web Services Systems Manager document (SSM document) and the version of the SSM document that is used to create a conformance pack.</p>
@@ -252,10 +250,8 @@ impl PutConformancePackInputBuilder {
     /// Consumes the builder and constructs a [`PutConformancePackInput`](crate::operation::put_conformance_pack::PutConformancePackInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::put_conformance_pack::PutConformancePackInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::put_conformance_pack::PutConformancePackInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::put_conformance_pack::PutConformancePackInput {
             conformance_pack_name: self.conformance_pack_name,
             template_s3_uri: self.template_s3_uri,

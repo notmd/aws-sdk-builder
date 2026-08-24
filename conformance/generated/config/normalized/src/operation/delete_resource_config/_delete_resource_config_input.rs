@@ -66,10 +66,8 @@ impl DeleteResourceConfigInputBuilder {
     /// Consumes the builder and constructs a [`DeleteResourceConfigInput`](crate::operation::delete_resource_config::DeleteResourceConfigInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_resource_config::DeleteResourceConfigInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_resource_config::DeleteResourceConfigInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::delete_resource_config::DeleteResourceConfigInput {
             resource_type: self.resource_type,
             resource_id: self.resource_id,

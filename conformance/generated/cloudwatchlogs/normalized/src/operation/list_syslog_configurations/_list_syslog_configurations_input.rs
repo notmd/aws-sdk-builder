@@ -110,13 +110,11 @@ impl ListSyslogConfigurationsInputBuilder {
         super::super::super::operation::list_syslog_configurations::ListSyslogConfigurationsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_syslog_configurations::ListSyslogConfigurationsInput {
-                log_group_identifier: self.log_group_identifier,
-                vpc_endpoint_id: self.vpc_endpoint_id,
-                next_token: self.next_token,
-                max_results: self.max_results.unwrap_or_default(),
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_syslog_configurations::ListSyslogConfigurationsInput {
+            log_group_identifier: self.log_group_identifier,
+            vpc_endpoint_id: self.vpc_endpoint_id,
+            next_token: self.next_token,
+            max_results: self.max_results.unwrap_or_default(),
+        })
     }
 }

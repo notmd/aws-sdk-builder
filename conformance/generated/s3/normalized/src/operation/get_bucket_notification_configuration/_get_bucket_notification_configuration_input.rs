@@ -24,8 +24,7 @@ impl GetBucketNotificationConfigurationInput {
 }
 impl GetBucketNotificationConfigurationInput {
     /// Creates a new builder-style object to manufacture [`GetBucketNotificationConfigurationInput`](crate::operation::get_bucket_notification_configuration::GetBucketNotificationConfigurationInput).
-    pub fn builder() -> super::super::super::operation::get_bucket_notification_configuration::builders::GetBucketNotificationConfigurationInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::get_bucket_notification_configuration::builders::GetBucketNotificationConfigurationInputBuilder {
         super::super::super::operation::get_bucket_notification_configuration::builders::GetBucketNotificationConfigurationInputBuilder::default()
     }
 }

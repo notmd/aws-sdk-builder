@@ -48,10 +48,8 @@ impl GetResourceEvaluationSummaryInputBuilder {
         super::super::super::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryInput {
-                resource_evaluation_id: self.resource_evaluation_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_resource_evaluation_summary::GetResourceEvaluationSummaryInput {
+            resource_evaluation_id: self.resource_evaluation_id,
+        })
     }
 }

@@ -15,8 +15,6 @@ impl super::Client {
     pub fn get_compliance_details_by_config_rule(
         &self,
     ) -> super::super::operation::get_compliance_details_by_config_rule::builders::GetComplianceDetailsByConfigRuleFluentBuilder {
-        super::super::operation::get_compliance_details_by_config_rule::builders::GetComplianceDetailsByConfigRuleFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::get_compliance_details_by_config_rule::builders::GetComplianceDetailsByConfigRuleFluentBuilder::new(self.handle.clone())
     }
 }

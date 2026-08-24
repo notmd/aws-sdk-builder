@@ -15,7 +15,11 @@ pub fn de_admin_update_user_attributes_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -86,33 +90,33 @@ pub fn de_admin_update_user_attributes_http_error(
                 tmp
             })
         }
-        "InvalidParameterException" => {
-            super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InvalidParameterException({
+        "InvalidParameterException" => super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidSmsRoleAccessPolicyException" => {
             super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::InvalidSmsRoleAccessPolicyException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(_response_body, output).map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -173,66 +177,51 @@ pub fn de_admin_update_user_attributes_http_error(
                 tmp
             })
         }
-        "ResourceNotFoundException" => {
-            super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::ResourceNotFoundException({
+        "ResourceNotFoundException" => super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::ResourceNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "TooManyRequestsException" => {
-            super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::TooManyRequestsException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "TooManyRequestsException" => super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::TooManyRequestsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "UnexpectedLambdaException" => {
-            super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::UnexpectedLambdaException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "UnexpectedLambdaException" => super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::UnexpectedLambdaException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "UserLambdaValidationException" => {
             super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesError::UserLambdaValidationException({
                 #[allow(unused_mut)]

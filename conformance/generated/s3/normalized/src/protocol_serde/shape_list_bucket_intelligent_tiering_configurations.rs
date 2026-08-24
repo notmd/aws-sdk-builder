@@ -9,9 +9,8 @@ pub fn de_list_bucket_intelligent_tiering_configurations_http_error(
     super::super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body).map_err(
-        super::super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsError::unhandled,
-    )?;
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsError::unhandled)?;
     generic_builder = super::super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
@@ -30,14 +29,11 @@ pub fn de_list_bucket_intelligent_tiering_configurations_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_list_bucket_intelligent_tiering_configurations::de_list_bucket_intelligent_tiering_configurations(
-                _response_body,
-                output,
-            )
-            .map_err(
-                super::super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsError::unhandled,
-            )?;
+        output = super::super::protocol_serde::shape_list_bucket_intelligent_tiering_configurations::de_list_bucket_intelligent_tiering_configurations(
+            _response_body,
+            output,
+        )
+        .map_err(super::super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsError::unhandled)?;
         output._set_extended_request_id(super::super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()

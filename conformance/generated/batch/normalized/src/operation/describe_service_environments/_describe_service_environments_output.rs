@@ -54,10 +54,7 @@ impl DescribeServiceEnvironmentsOutputBuilder {
         self
     }
     /// <p>The list of service environments that match the request.</p>
-    pub fn set_service_environments(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceEnvironmentDetail>>,
-    ) -> Self {
+    pub fn set_service_environments(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceEnvironmentDetail>>) -> Self {
         self.service_environments = input;
         self
     }

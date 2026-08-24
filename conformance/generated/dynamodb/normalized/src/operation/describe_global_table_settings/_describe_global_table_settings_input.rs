@@ -48,10 +48,8 @@ impl DescribeGlobalTableSettingsInputBuilder {
         super::super::super::operation::describe_global_table_settings::DescribeGlobalTableSettingsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::describe_global_table_settings::DescribeGlobalTableSettingsInput {
-                global_table_name: self.global_table_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::describe_global_table_settings::DescribeGlobalTableSettingsInput {
+            global_table_name: self.global_table_name,
+        })
     }
 }

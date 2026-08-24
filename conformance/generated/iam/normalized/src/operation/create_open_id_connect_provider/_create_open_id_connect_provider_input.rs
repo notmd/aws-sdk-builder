@@ -190,13 +190,11 @@ impl CreateOpenIdConnectProviderInputBuilder {
         super::super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderInput {
-                url: self.url,
-                client_id_list: self.client_id_list,
-                thumbprint_list: self.thumbprint_list,
-                tags: self.tags,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderInput {
+            url: self.url,
+            client_id_list: self.client_id_list,
+            thumbprint_list: self.thumbprint_list,
+            tags: self.tags,
+        })
     }
 }

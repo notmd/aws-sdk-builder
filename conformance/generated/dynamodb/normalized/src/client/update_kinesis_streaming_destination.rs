@@ -15,8 +15,6 @@ impl super::Client {
     pub fn update_kinesis_streaming_destination(
         &self,
     ) -> super::super::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationFluentBuilder {
-        super::super::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationFluentBuilder::new(self.handle.clone())
     }
 }

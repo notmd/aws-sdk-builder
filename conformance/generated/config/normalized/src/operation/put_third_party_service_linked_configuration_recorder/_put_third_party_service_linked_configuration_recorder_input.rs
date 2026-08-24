@@ -34,7 +34,9 @@ impl PutThirdPartyServiceLinkedConfigurationRecorderInput {
 }
 impl PutThirdPartyServiceLinkedConfigurationRecorderInput {
     /// Creates a new builder-style object to manufacture [`PutThirdPartyServiceLinkedConfigurationRecorderInput`](crate::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderInput).
-    pub fn builder() -> super::super::super::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderInputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderInputBuilder
+    {
         super::super::super::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderInputBuilder::default()
     }
 }
@@ -121,11 +123,13 @@ impl PutThirdPartyServiceLinkedConfigurationRecorderInputBuilder {
         super::super::super::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(super::super::super::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderInput {
-            service_principal: self.service_principal,
-            connector_arn: self.connector_arn,
-            scope_configuration: self.scope_configuration,
-            tags: self.tags,
-        })
+        ::std::result::Result::Ok(
+            super::super::super::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderInput {
+                service_principal: self.service_principal,
+                connector_arn: self.connector_arn,
+                scope_configuration: self.scope_configuration,
+                tags: self.tags,
+            },
+        )
     }
 }

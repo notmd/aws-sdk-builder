@@ -9,10 +9,7 @@ pub fn ser_instance_launch_template(
     if let Some(var_1) = &input.network_configuration {
         #[allow(unused_mut)]
         let mut object_2 = object.key("networkConfiguration").start_object();
-        super::super::protocol_serde::shape_managed_instances_network_configuration::ser_managed_instances_network_configuration(
-            &mut object_2,
-            var_1,
-        )?;
+        super::super::protocol_serde::shape_managed_instances_network_configuration::ser_managed_instances_network_configuration(&mut object_2, var_1)?;
         object_2.finish();
     }
     if let Some(var_3) = &input.instance_requirements {
@@ -27,10 +24,7 @@ pub fn ser_instance_launch_template(
     if let Some(var_6) = &input.storage_configuration {
         #[allow(unused_mut)]
         let mut object_7 = object.key("storageConfiguration").start_object();
-        super::super::protocol_serde::shape_managed_instances_storage_configuration::ser_managed_instances_storage_configuration(
-            &mut object_7,
-            var_6,
-        )?;
+        super::super::protocol_serde::shape_managed_instances_storage_configuration::ser_managed_instances_storage_configuration(&mut object_7, var_6)?;
         object_7.finish();
     }
     if let Some(var_8) = &input.monitoring {
@@ -90,7 +84,13 @@ where
                             );
                         }
                         "networkConfiguration" => {
-                            builder = builder.set_network_configuration(super::super::protocol_serde::shape_managed_instances_network_configuration::de_managed_instances_network_configuration(tokens, _value, depth + 1)?);
+                            builder = builder.set_network_configuration(
+                                super::super::protocol_serde::shape_managed_instances_network_configuration::de_managed_instances_network_configuration(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
                         }
                         "instanceRequirements" => {
                             builder = builder.set_instance_requirements(
@@ -109,7 +109,13 @@ where
                             );
                         }
                         "storageConfiguration" => {
-                            builder = builder.set_storage_configuration(super::super::protocol_serde::shape_managed_instances_storage_configuration::de_managed_instances_storage_configuration(tokens, _value, depth + 1)?);
+                            builder = builder.set_storage_configuration(
+                                super::super::protocol_serde::shape_managed_instances_storage_configuration::de_managed_instances_storage_configuration(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
                         }
                         "monitoring" => {
                             builder = builder.set_monitoring(

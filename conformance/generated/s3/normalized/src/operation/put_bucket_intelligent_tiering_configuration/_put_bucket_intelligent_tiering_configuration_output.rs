@@ -18,8 +18,7 @@ impl ::aws_types::request_id::RequestId for PutBucketIntelligentTieringConfigura
 }
 impl PutBucketIntelligentTieringConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`PutBucketIntelligentTieringConfigurationOutput`](crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationOutputBuilder
+    pub fn builder() -> super::super::super::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationOutputBuilder
     {
         super::super::super::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationOutputBuilder::default()
     }
@@ -52,9 +51,7 @@ impl PutBucketIntelligentTieringConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`PutBucketIntelligentTieringConfigurationOutput`](crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationOutput).
-    pub fn build(
-        self,
-    ) -> super::super::super::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationOutput {
+    pub fn build(self) -> super::super::super::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationOutput {
         super::super::super::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

@@ -77,11 +77,7 @@ where
                         }
                         "SchemaAttributes" => {
                             builder = builder.set_schema_attributes(
-                                super::super::protocol_serde::shape_schema_attributes_list_type::de_schema_attributes_list_type(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_schema_attributes_list_type::de_schema_attributes_list_type(tokens, _value, depth + 1)?,
                             );
                         }
                         "AutoVerifiedAttributes" => {
@@ -95,11 +91,7 @@ where
                         }
                         "AliasAttributes" => {
                             builder = builder.set_alias_attributes(
-                                super::super::protocol_serde::shape_alias_attributes_list_type::de_alias_attributes_list_type(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_alias_attributes_list_type::de_alias_attributes_list_type(tokens, _value, depth + 1)?,
                             );
                         }
                         "UsernameAttributes" => {
@@ -166,11 +158,7 @@ where
                         }
                         "DeviceConfiguration" => {
                             builder = builder.set_device_configuration(
-                                super::super::protocol_serde::shape_device_configuration_type::de_device_configuration_type(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_device_configuration_type::de_device_configuration_type(tokens, _value, depth + 1)?,
                             );
                         }
                         "EstimatedNumberOfUsers" => {
@@ -186,9 +174,11 @@ where
                             );
                         }
                         "SmsConfiguration" => {
-                            builder = builder.set_sms_configuration(
-                                super::super::protocol_serde::shape_sms_configuration_type::de_sms_configuration_type(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_sms_configuration(super::super::protocol_serde::shape_sms_configuration_type::de_sms_configuration_type(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "UserPoolTags" => {
                             builder = builder.set_user_pool_tags(super::super::protocol_serde::shape_user_pool_tags_type::de_user_pool_tags_type(
@@ -235,17 +225,15 @@ where
                             );
                         }
                         "UserPoolAddOns" => {
-                            builder = builder.set_user_pool_add_ons(
-                                super::super::protocol_serde::shape_user_pool_add_ons_type::de_user_pool_add_ons_type(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_user_pool_add_ons(super::super::protocol_serde::shape_user_pool_add_ons_type::de_user_pool_add_ons_type(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "UsernameConfiguration" => {
                             builder = builder.set_username_configuration(
-                                super::super::protocol_serde::shape_username_configuration_type::de_username_configuration_type(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_username_configuration_type::de_username_configuration_type(tokens, _value, depth + 1)?,
                             );
                         }
                         "Arn" => {
@@ -272,17 +260,15 @@ where
                             );
                         }
                         "KeyConfiguration" => {
-                            builder = builder.set_key_configuration(
-                                super::super::protocol_serde::shape_key_configuration_type::de_key_configuration_type(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_key_configuration(super::super::protocol_serde::shape_key_configuration_type::de_key_configuration_type(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "IssuerConfiguration" => {
                             builder = builder.set_issuer_configuration(
-                                super::super::protocol_serde::shape_issuer_configuration_type::de_issuer_configuration_type(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_issuer_configuration_type::de_issuer_configuration_type(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

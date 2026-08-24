@@ -48,10 +48,8 @@ impl DeleteDataProtectionPolicyInputBuilder {
         super::super::super::operation::delete_data_protection_policy::DeleteDataProtectionPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_data_protection_policy::DeleteDataProtectionPolicyInput {
-                log_group_identifier: self.log_group_identifier,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_data_protection_policy::DeleteDataProtectionPolicyInput {
+            log_group_identifier: self.log_group_identifier,
+        })
     }
 }

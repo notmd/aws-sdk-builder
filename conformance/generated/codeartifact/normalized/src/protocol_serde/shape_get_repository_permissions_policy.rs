@@ -20,32 +20,29 @@ pub fn de_get_repository_permissions_policy_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AccessDeniedException" => {
-            super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::AccessDeniedException({
+        "AccessDeniedException" => super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::AccessDeniedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InternalServerException" => {
             super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::InternalServerException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
+                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -61,54 +58,48 @@ pub fn de_get_repository_permissions_policy_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ThrottlingException" => super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::ThrottlingException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ThrottlingException" => {
-            super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::ThrottlingException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ValidationException" => super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::ValidationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ValidationException" => {
-            super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::ValidationException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::generic(generic),
     })
 }
@@ -137,10 +128,7 @@ pub fn ser_get_repository_permissions_policy_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_repository_permissions_policy_input::ser_get_repository_permissions_policy_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_get_repository_permissions_policy_input::ser_get_repository_permissions_policy_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

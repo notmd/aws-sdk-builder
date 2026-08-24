@@ -22,9 +22,8 @@ pub fn de_invoke_async_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::Ec2AccessDeniedExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_ec2_access_denied_exception::de_ec2_access_denied_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
+                output = super::super::protocol_serde::shape_ec2_access_denied_exception::de_ec2_access_denied_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -101,9 +100,8 @@ pub fn de_invoke_async_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::EfsMountFailureExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_efs_mount_failure_exception::de_efs_mount_failure_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
+                output = super::super::protocol_serde::shape_efs_mount_failure_exception::de_efs_mount_failure_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -117,9 +115,8 @@ pub fn de_invoke_async_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::EfsMountTimeoutExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_efs_mount_timeout_exception::de_efs_mount_timeout_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
+                output = super::super::protocol_serde::shape_efs_mount_timeout_exception::de_efs_mount_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -133,9 +130,8 @@ pub fn de_invoke_async_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::EniLimitReachedExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_eni_limit_reached_exception::de_eni_limit_reached_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
+                output = super::super::protocol_serde::shape_eni_limit_reached_exception::de_eni_limit_reached_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -200,9 +196,8 @@ pub fn de_invoke_async_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidSubnetIdExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_subnet_id_exception::de_invalid_subnet_id_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_subnet_id_exception::de_invalid_subnet_id_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -216,9 +211,8 @@ pub fn de_invoke_async_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsAccessDeniedExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_access_denied_exception::de_kms_access_denied_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_access_denied_exception::de_kms_access_denied_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -247,9 +241,8 @@ pub fn de_invoke_async_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -278,11 +271,8 @@ pub fn de_invoke_async_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ModeNotSupportedExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_mode_not_supported_exception::de_mode_not_supported_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
+                output = super::super::protocol_serde::shape_mode_not_supported_exception::de_mode_not_supported_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -296,9 +286,8 @@ pub fn de_invoke_async_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceConflictExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -312,11 +301,8 @@ pub fn de_invoke_async_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -330,12 +316,11 @@ pub fn de_invoke_async_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::S3FilesMountConnectivityExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_s3_files_mount_connectivity_exception::de_s3_files_mount_connectivity_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
+                output = super::super::protocol_serde::shape_s3_files_mount_connectivity_exception::de_s3_files_mount_connectivity_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -433,11 +418,9 @@ pub fn de_invoke_async_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::SnapStartNotReadyExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_snap_start_not_ready_exception::de_snap_start_not_ready_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_snap_start_not_ready_exception::de_snap_start_not_ready_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -446,30 +429,29 @@ pub fn de_invoke_async_http_error(
             }
             tmp
         }),
-        "SnapStartRegenerationFailureException" => super::super::operation::invoke_async::InvokeAsyncError::SnapStartRegenerationFailureException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "SnapStartRegenerationFailureException" => {
+            super::super::operation::invoke_async::InvokeAsyncError::SnapStartRegenerationFailureException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::SnapStartRegenerationFailureExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_snap_start_regeneration_failure_exception::de_snap_start_regeneration_failure_exception_json_err(_response_body, output).map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::SnapStartRegenerationFailureExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_snap_start_regeneration_failure_exception::de_snap_start_regeneration_failure_exception_json_err(_response_body, output).map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "SnapStartTimeoutException" => super::super::operation::invoke_async::InvokeAsyncError::SnapStartTimeoutException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::SnapStartTimeoutExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_snap_start_timeout_exception::de_snap_start_timeout_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
+                output = super::super::protocol_serde::shape_snap_start_timeout_exception::de_snap_start_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -478,20 +460,22 @@ pub fn de_invoke_async_http_error(
             }
             tmp
         }),
-        "SubnetIPAddressLimitReachedException" => super::super::operation::invoke_async::InvokeAsyncError::SubnetIpAddressLimitReachedException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "SubnetIPAddressLimitReachedException" => {
+            super::super::operation::invoke_async::InvokeAsyncError::SubnetIpAddressLimitReachedException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::SubnetIpAddressLimitReachedExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_subnet_ip_address_limit_reached_exception::de_subnet_ip_address_limit_reached_exception_json_err(_response_body, output).map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::SubnetIpAddressLimitReachedExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_subnet_ip_address_limit_reached_exception::de_subnet_ip_address_limit_reached_exception_json_err(_response_body, output).map_err(super::super::operation::invoke_async::InvokeAsyncError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => super::super::operation::invoke_async::InvokeAsyncError::generic(generic),
     })
 }
@@ -525,10 +509,8 @@ pub fn ser_invoke_async_input(
 pub(crate) fn de_invoke_async(
     _value: &[u8],
     mut builder: super::super::operation::invoke_async::builders::InvokeAsyncOutputBuilder,
-) -> ::std::result::Result<
-    super::super::operation::invoke_async::builders::InvokeAsyncOutputBuilder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
+) -> ::std::result::Result<super::super::operation::invoke_async::builders::InvokeAsyncOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+{
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]

@@ -33,20 +33,14 @@ pub struct CancelJobFluentBuilder {
     inner: super::super::super::operation::cancel_job::builders::CancelJobInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::cancel_job::CancelJobOutput,
-        super::super::super::operation::cancel_job::CancelJobError,
-    > for CancelJobFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::cancel_job::CancelJobOutput, super::super::super::operation::cancel_job::CancelJobError>
+    for CancelJobFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::cancel_job::CancelJobOutput,
-            super::super::super::operation::cancel_job::CancelJobError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::cancel_job::CancelJobOutput, super::super::super::operation::cancel_job::CancelJobError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }

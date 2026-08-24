@@ -96,10 +96,7 @@ impl ListQuotaSharesInputBuilder {
     /// Consumes the builder and constructs a [`ListQuotaSharesInput`](crate::operation::list_quota_shares::ListQuotaSharesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_quota_shares::ListQuotaSharesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_quota_shares::ListQuotaSharesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_quota_shares::ListQuotaSharesInput {
             job_queue: self.job_queue,
             max_results: self.max_results,

@@ -247,12 +247,10 @@ impl SetSubscriptionAttributesInputBuilder {
         super::super::super::operation::set_subscription_attributes::SetSubscriptionAttributesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::set_subscription_attributes::SetSubscriptionAttributesInput {
-                subscription_arn: self.subscription_arn,
-                attribute_name: self.attribute_name,
-                attribute_value: self.attribute_value,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::set_subscription_attributes::SetSubscriptionAttributesInput {
+            subscription_arn: self.subscription_arn,
+            attribute_name: self.attribute_name,
+            attribute_value: self.attribute_value,
+        })
     }
 }

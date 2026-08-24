@@ -326,10 +326,7 @@ impl RegisterJobDefinitionFluentBuilder {
     /// <p>Jobs with the <code>MANAGED_INSTANCES</code> platform capability must use <code>ecsProperties</code> (not <code>containerProperties</code>) and do not support multi-node parallel jobs.</p><note>
     /// <p>If the job runs on Amazon EKS resources, then you must not specify <code>platformCapabilities</code>.</p>
     /// </note>
-    pub fn set_platform_capabilities(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PlatformCapability>>,
-    ) -> Self {
+    pub fn set_platform_capabilities(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PlatformCapability>>) -> Self {
         self.inner = self.inner.set_platform_capabilities(input);
         self
     }
@@ -374,10 +371,7 @@ impl RegisterJobDefinitionFluentBuilder {
         self
     }
     /// <p>Contains a list of consumable resources required by the job.</p>
-    pub fn set_consumable_resource_properties(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::ConsumableResourceProperties>,
-    ) -> Self {
+    pub fn set_consumable_resource_properties(mut self, input: ::std::option::Option<super::super::super::types::ConsumableResourceProperties>) -> Self {
         self.inner = self.inner.set_consumable_resource_properties(input);
         self
     }

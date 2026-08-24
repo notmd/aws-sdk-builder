@@ -360,9 +360,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetOutbo
         })
     }
 }
-impl ::aws_types::request_id::RequestId
-    for super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError
-{
+impl ::aws_types::request_id::RequestId for super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

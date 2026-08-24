@@ -20,52 +20,29 @@ pub fn de_delete_user_pool_client_secret_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InternalServerException" => {
-            super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::InternalServerException({
+        "InternalServerException" => super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::InternalServerException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidParameterException" => {
             super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::InvalidParameterException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "LimitExceededException" => {
-            super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::LimitExceededException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
                     output =
-                        super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
+                        super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                             .map_err(super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
@@ -76,17 +53,30 @@ pub fn de_delete_user_pool_client_secret_http_error(
                 tmp
             })
         }
+        "LimitExceededException" => super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::LimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ResourceNotFoundException" => {
             super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::ResourceNotFoundException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -96,26 +86,21 @@ pub fn de_delete_user_pool_client_secret_http_error(
                 tmp
             })
         }
-        "TooManyRequestsException" => {
-            super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::TooManyRequestsException({
+        "TooManyRequestsException" => super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::TooManyRequestsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretError::generic(generic),
     })
 }

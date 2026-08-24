@@ -94,10 +94,7 @@ impl ConfirmDeviceInputBuilder {
         self
     }
     /// <p>The configuration of the device secret verifier.</p>
-    pub fn set_device_secret_verifier_config(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::DeviceSecretVerifierConfigType>,
-    ) -> Self {
+    pub fn set_device_secret_verifier_config(mut self, input: ::std::option::Option<super::super::super::types::DeviceSecretVerifierConfigType>) -> Self {
         self.device_secret_verifier_config = input;
         self
     }
@@ -122,8 +119,7 @@ impl ConfirmDeviceInputBuilder {
     /// Consumes the builder and constructs a [`ConfirmDeviceInput`](crate::operation::confirm_device::ConfirmDeviceInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::confirm_device::ConfirmDeviceInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::confirm_device::ConfirmDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::confirm_device::ConfirmDeviceInput {
             access_token: self.access_token,
             device_key: self.device_key,

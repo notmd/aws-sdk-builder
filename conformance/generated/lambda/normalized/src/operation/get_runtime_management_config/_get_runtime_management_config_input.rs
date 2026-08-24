@@ -119,11 +119,9 @@ impl GetRuntimeManagementConfigInputBuilder {
         super::super::super::operation::get_runtime_management_config::GetRuntimeManagementConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_runtime_management_config::GetRuntimeManagementConfigInput {
-                function_name: self.function_name,
-                qualifier: self.qualifier,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_runtime_management_config::GetRuntimeManagementConfigInput {
+            function_name: self.function_name,
+            qualifier: self.qualifier,
+        })
     }
 }

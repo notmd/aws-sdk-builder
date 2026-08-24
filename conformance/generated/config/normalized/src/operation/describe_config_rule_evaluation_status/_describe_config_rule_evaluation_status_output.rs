@@ -29,8 +29,7 @@ impl ::aws_types::request_id::RequestId for DescribeConfigRuleEvaluationStatusOu
 }
 impl DescribeConfigRuleEvaluationStatusOutput {
     /// Creates a new builder-style object to manufacture [`DescribeConfigRuleEvaluationStatusOutput`](crate::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusOutputBuilder {
+    pub fn builder() -> super::super::super::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusOutputBuilder {
         super::super::super::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusOutputBuilder::default()
     }
 }
@@ -64,9 +63,7 @@ impl DescribeConfigRuleEvaluationStatusOutputBuilder {
         self
     }
     /// <p>Status information about your Config managed rules.</p>
-    pub fn get_config_rules_evaluation_status(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConfigRuleEvaluationStatus>> {
+    pub fn get_config_rules_evaluation_status(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConfigRuleEvaluationStatus>> {
         &self.config_rules_evaluation_status
     }
     /// <p>The string that you use in a subsequent request to get the next page of results in a paginated response.</p>

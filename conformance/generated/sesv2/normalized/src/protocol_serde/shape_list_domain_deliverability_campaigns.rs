@@ -15,9 +15,7 @@ pub fn de_list_domain_deliverability_campaigns_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::unhandled(generic))
-        }
+        None => return Err(super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -39,34 +37,30 @@ pub fn de_list_domain_deliverability_campaigns_http_error(
                 tmp
             })
         }
-        "NotFoundException" => {
-            super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::NotFoundException({
+        "NotFoundException" => super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "TooManyRequestsException" => {
             super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::TooManyRequestsException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -91,11 +85,9 @@ pub fn de_list_domain_deliverability_campaigns_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_list_domain_deliverability_campaigns::de_list_domain_deliverability_campaigns(_response_body, output)
-                .map_err(super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::unhandled)?;
+        let mut output = super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsOutputBuilder::default();
+        output = super::super::protocol_serde::shape_list_domain_deliverability_campaigns::de_list_domain_deliverability_campaigns(_response_body, output)
+            .map_err(super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         super::super::serde_util::list_domain_deliverability_campaigns_output_output_correct_errors(output)
             .build()

@@ -27,9 +27,7 @@ impl ReplicaSettingsUpdate {
         self.replica_provisioned_read_capacity_units
     }
     /// <p>Auto scaling settings for managing a global table replica's read capacity units.</p>
-    pub fn replica_provisioned_read_capacity_auto_scaling_settings_update(
-        &self,
-    ) -> ::std::option::Option<&super::super::types::AutoScalingSettingsUpdate> {
+    pub fn replica_provisioned_read_capacity_auto_scaling_settings_update(&self) -> ::std::option::Option<&super::super::types::AutoScalingSettingsUpdate> {
         self.replica_provisioned_read_capacity_auto_scaling_settings_update.as_ref()
     }
     /// <p>Represents the settings of a global secondary index for a global table that will be modified.</p>

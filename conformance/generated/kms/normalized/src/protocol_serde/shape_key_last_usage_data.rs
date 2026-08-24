@@ -24,10 +24,7 @@ where
                         "Operation" => {
                             builder = builder.set_operation(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| super::super::types::KeyLastUsageTrackingOperation::from(u.as_ref()))
-                                    })
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::KeyLastUsageTrackingOperation::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }

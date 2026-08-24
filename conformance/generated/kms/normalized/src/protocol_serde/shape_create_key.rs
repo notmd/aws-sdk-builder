@@ -38,7 +38,11 @@ pub fn de_create_key_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::CustomKeyStoreInvalidStateExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_custom_key_store_invalid_state_exception::de_custom_key_store_invalid_state_exception_json_err(_response_body, output).map_err(super::super::operation::create_key::CreateKeyError::unhandled)?;
+                output = super::super::protocol_serde::shape_custom_key_store_invalid_state_exception::de_custom_key_store_invalid_state_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::create_key::CreateKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -70,11 +74,8 @@ pub fn de_create_key_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::create_key::CreateKeyError::unhandled)?;
+                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::create_key::CreateKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -166,11 +167,9 @@ pub fn de_create_key_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UnsupportedOperationExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::create_key::CreateKeyError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::create_key::CreateKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -197,30 +196,31 @@ pub fn de_create_key_http_error(
             }
             tmp
         }),
-        "XksKeyInvalidConfigurationException" => {
-            super::super::operation::create_key::CreateKeyError::XksKeyInvalidConfigurationException({
+        "XksKeyInvalidConfigurationException" => super::super::operation::create_key::CreateKeyError::XksKeyInvalidConfigurationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::XksKeyInvalidConfigurationExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_xks_key_invalid_configuration_exception::de_xks_key_invalid_configuration_exception_json_err(_response_body, output).map_err(super::super::operation::create_key::CreateKeyError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::XksKeyInvalidConfigurationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_xks_key_invalid_configuration_exception::de_xks_key_invalid_configuration_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::create_key::CreateKeyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "XksKeyNotFoundException" => super::super::operation::create_key::CreateKeyError::XksKeyNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::XksKeyNotFoundExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_xks_key_not_found_exception::de_xks_key_not_found_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::create_key::CreateKeyError::unhandled)?;
+                output = super::super::protocol_serde::shape_xks_key_not_found_exception::de_xks_key_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::create_key::CreateKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -262,10 +262,7 @@ pub fn ser_create_key_input(
 pub(crate) fn de_create_key(
     _value: &[u8],
     mut builder: super::super::operation::create_key::builders::CreateKeyOutputBuilder,
-) -> ::std::result::Result<
-    super::super::operation::create_key::builders::CreateKeyOutputBuilder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
+) -> ::std::result::Result<super::super::operation::create_key::builders::CreateKeyOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
@@ -276,11 +273,7 @@ pub(crate) fn de_create_key(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "KeyMetadata" => {
-                    builder = builder.set_key_metadata(super::super::protocol_serde::shape_key_metadata::de_key_metadata(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_key_metadata(super::super::protocol_serde::shape_key_metadata::de_key_metadata(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

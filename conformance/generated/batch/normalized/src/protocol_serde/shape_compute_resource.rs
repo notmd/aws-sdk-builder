@@ -186,11 +186,8 @@ where
                             );
                         }
                         "instanceTypes" => {
-                            builder = builder.set_instance_types(super::super::protocol_serde::shape_string_list::de_string_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_instance_types(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
                         }
                         "imageId" => {
                             builder = builder.set_image_id(
@@ -200,18 +197,11 @@ where
                             );
                         }
                         "subnets" => {
-                            builder = builder.set_subnets(super::super::protocol_serde::shape_string_list::de_string_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_subnets(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
                         }
                         "securityGroupIds" => {
-                            builder = builder.set_security_group_ids(super::super::protocol_serde::shape_string_list::de_string_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_security_group_ids(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
                         }
                         "ec2KeyPair" => {
                             builder = builder.set_ec2_key_pair(
@@ -261,22 +251,22 @@ where
                             );
                         }
                         "ec2Configuration" => {
-                            builder = builder.set_ec2_configuration(
-                                super::super::protocol_serde::shape_ec2_configuration_list::de_ec2_configuration_list(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_ec2_configuration(super::super::protocol_serde::shape_ec2_configuration_list::de_ec2_configuration_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "scalingPolicy" => {
-                            builder = builder.set_scaling_policy(
-                                super::super::protocol_serde::shape_compute_scaling_policy::de_compute_scaling_policy(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_scaling_policy(super::super::protocol_serde::shape_compute_scaling_policy::de_compute_scaling_policy(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "managedInstancesProvider" => {
                             builder = builder.set_managed_instances_provider(
-                                super::super::protocol_serde::shape_managed_instances_provider::de_managed_instances_provider(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_managed_instances_provider::de_managed_instances_provider(tokens, _value, depth + 1)?,
                             );
                         }
                         "capacityTags" => {

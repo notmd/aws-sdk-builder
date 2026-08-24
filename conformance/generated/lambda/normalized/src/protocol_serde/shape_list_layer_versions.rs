@@ -4,10 +4,8 @@ pub fn de_list_layer_versions_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::list_layer_versions::ListLayerVersionsOutput,
-    super::super::operation::list_layer_versions::ListLayerVersionsError,
-> {
+) -> std::result::Result<super::super::operation::list_layer_versions::ListLayerVersionsOutput, super::super::operation::list_layer_versions::ListLayerVersionsError>
+{
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::list_layer_versions::ListLayerVersionsError::unhandled)?;
@@ -43,11 +41,8 @@ pub fn de_list_layer_versions_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::list_layer_versions::ListLayerVersionsError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_layer_versions::ListLayerVersionsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -76,9 +71,8 @@ pub fn de_list_layer_versions_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::list_layer_versions::ListLayerVersionsError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_layer_versions::ListLayerVersionsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -96,10 +90,8 @@ pub fn de_list_layer_versions_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::list_layer_versions::ListLayerVersionsOutput,
-    super::super::operation::list_layer_versions::ListLayerVersionsError,
-> {
+) -> std::result::Result<super::super::operation::list_layer_versions::ListLayerVersionsOutput, super::super::operation::list_layer_versions::ListLayerVersionsError>
+{
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::list_layer_versions::builders::ListLayerVersionsOutputBuilder::default();

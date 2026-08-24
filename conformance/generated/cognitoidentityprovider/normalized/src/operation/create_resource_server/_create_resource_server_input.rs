@@ -122,10 +122,8 @@ impl CreateResourceServerInputBuilder {
     /// Consumes the builder and constructs a [`CreateResourceServerInput`](crate::operation::create_resource_server::CreateResourceServerInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::create_resource_server::CreateResourceServerInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::create_resource_server::CreateResourceServerInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::create_resource_server::CreateResourceServerInput {
             user_pool_id: self.user_pool_id,
             identifier: self.identifier,

@@ -112,10 +112,7 @@ where
                         "PasswordHashingAlgorithm" => {
                             builder = builder.set_password_hashing_algorithm(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| super::super::types::PasswordHashingAlgorithmType::from(u.as_ref()))
-                                    })
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::PasswordHashingAlgorithmType::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }

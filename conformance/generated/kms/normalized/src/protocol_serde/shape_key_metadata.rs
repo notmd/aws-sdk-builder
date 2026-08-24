@@ -144,11 +144,7 @@ where
                         }
                         "SigningAlgorithms" => {
                             builder = builder.set_signing_algorithms(
-                                super::super::protocol_serde::shape_signing_algorithm_spec_list::de_signing_algorithm_spec_list(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_signing_algorithm_spec_list::de_signing_algorithm_spec_list(tokens, _value, depth + 1)?,
                             );
                         }
                         "KeyAgreementAlgorithms" => {
@@ -165,11 +161,7 @@ where
                         }
                         "MultiRegionConfiguration" => {
                             builder = builder.set_multi_region_configuration(
-                                super::super::protocol_serde::shape_multi_region_configuration::de_multi_region_configuration(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_multi_region_configuration::de_multi_region_configuration(tokens, _value, depth + 1)?,
                             );
                         }
                         "PendingDeletionWindowInDays" => {
@@ -180,17 +172,15 @@ where
                             );
                         }
                         "MacAlgorithms" => {
-                            builder = builder.set_mac_algorithms(
-                                super::super::protocol_serde::shape_mac_algorithm_spec_list::de_mac_algorithm_spec_list(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_mac_algorithms(super::super::protocol_serde::shape_mac_algorithm_spec_list::de_mac_algorithm_spec_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "XksKeyConfiguration" => {
                             builder = builder.set_xks_key_configuration(
-                                super::super::protocol_serde::shape_xks_key_configuration_type::de_xks_key_configuration_type(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_xks_key_configuration_type::de_xks_key_configuration_type(tokens, _value, depth + 1)?,
                             );
                         }
                         "CurrentKeyMaterialId" => {
@@ -209,9 +199,9 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::key_metadata_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::key_metadata_correct_errors(builder).build().map_err(|err| {
+                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
+            })?))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

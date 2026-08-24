@@ -72,11 +72,7 @@ where
                         }
                         "CustomDomainConfig" => {
                             builder = builder.set_custom_domain_config(
-                                super::super::protocol_serde::shape_custom_domain_config_type::de_custom_domain_config_type(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_custom_domain_config_type::de_custom_domain_config_type(tokens, _value, depth + 1)?,
                             );
                         }
                         "ManagedLoginVersion" => {
@@ -87,11 +83,7 @@ where
                             );
                         }
                         "Routing" => {
-                            builder = builder.set_routing(super::super::protocol_serde::shape_routing_type::de_routing_type(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_routing(super::super::protocol_serde::shape_routing_type::de_routing_type(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

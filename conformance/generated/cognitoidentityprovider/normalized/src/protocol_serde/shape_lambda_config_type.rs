@@ -36,10 +36,7 @@ pub fn ser_lambda_config_type(
     if let Some(var_11) = &input.pre_token_generation_config {
         #[allow(unused_mut)]
         let mut object_12 = object.key("PreTokenGenerationConfig").start_object();
-        super::super::protocol_serde::shape_pre_token_generation_version_config_type::ser_pre_token_generation_version_config_type(
-            &mut object_12,
-            var_11,
-        )?;
+        super::super::protocol_serde::shape_pre_token_generation_version_config_type::ser_pre_token_generation_version_config_type(&mut object_12, var_11)?;
         object_12.finish();
     }
     if let Some(var_13) = &input.custom_sms_sender {
@@ -51,10 +48,7 @@ pub fn ser_lambda_config_type(
     if let Some(var_15) = &input.custom_email_sender {
         #[allow(unused_mut)]
         let mut object_16 = object.key("CustomEmailSender").start_object();
-        super::super::protocol_serde::shape_custom_email_lambda_version_config_type::ser_custom_email_lambda_version_config_type(
-            &mut object_16,
-            var_15,
-        )?;
+        super::super::protocol_serde::shape_custom_email_lambda_version_config_type::ser_custom_email_lambda_version_config_type(&mut object_16, var_15)?;
         object_16.finish();
     }
     if let Some(var_17) = &input.kms_key_id {
@@ -166,10 +160,22 @@ where
                                 builder = builder.set_pre_token_generation_config(super::super::protocol_serde::shape_pre_token_generation_version_config_type::de_pre_token_generation_version_config_type(tokens, _value, depth + 1)?);
                             }
                             "CustomSMSSender" => {
-                                builder = builder.set_custom_sms_sender(super::super::protocol_serde::shape_custom_sms_lambda_version_config_type::de_custom_sms_lambda_version_config_type(tokens, _value, depth + 1)?);
+                                builder = builder.set_custom_sms_sender(
+                                    super::super::protocol_serde::shape_custom_sms_lambda_version_config_type::de_custom_sms_lambda_version_config_type(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "CustomEmailSender" => {
-                                builder = builder.set_custom_email_sender(super::super::protocol_serde::shape_custom_email_lambda_version_config_type::de_custom_email_lambda_version_config_type(tokens, _value, depth + 1)?);
+                                builder = builder.set_custom_email_sender(
+                                    super::super::protocol_serde::shape_custom_email_lambda_version_config_type::de_custom_email_lambda_version_config_type(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "KMSKeyID" => {
                                 builder = builder.set_kms_key_id(

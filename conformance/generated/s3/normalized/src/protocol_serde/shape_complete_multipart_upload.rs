@@ -62,13 +62,11 @@ pub fn de_complete_multipart_upload_http_response(
             })?,
         );
         output = output.set_server_side_encryption(
-            super::super::protocol_serde::shape_complete_multipart_upload_output::de_server_side_encryption_header(_response_headers).map_err(
-                |_| {
-                    super::super::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
-                        "Failed to parse ServerSideEncryption from header `x-amz-server-side-encryption",
-                    )
-                },
-            )?,
+            super::super::protocol_serde::shape_complete_multipart_upload_output::de_server_side_encryption_header(_response_headers).map_err(|_| {
+                super::super::operation::complete_multipart_upload::CompleteMultipartUploadError::unhandled(
+                    "Failed to parse ServerSideEncryption from header `x-amz-server-side-encryption",
+                )
+            })?,
         );
         output = output.set_version_id(
             super::super::protocol_serde::shape_complete_multipart_upload_output::de_version_id_header(_response_headers).map_err(|_| {

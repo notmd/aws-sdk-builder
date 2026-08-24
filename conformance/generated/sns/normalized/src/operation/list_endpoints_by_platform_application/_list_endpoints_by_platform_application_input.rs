@@ -21,8 +21,7 @@ impl ListEndpointsByPlatformApplicationInput {
 }
 impl ListEndpointsByPlatformApplicationInput {
     /// Creates a new builder-style object to manufacture [`ListEndpointsByPlatformApplicationInput`](crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationInput).
-    pub fn builder(
-    ) -> super::super::super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationInputBuilder {
+    pub fn builder() -> super::super::super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationInputBuilder {
         super::super::super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationInputBuilder::default()
     }
 }

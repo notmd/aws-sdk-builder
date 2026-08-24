@@ -48,8 +48,8 @@ impl DeleteUserPermissionsBoundaryInputBuilder {
         super::super::super::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryInput { user_name: self.user_name },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryInput {
+            user_name: self.user_name,
+        })
     }
 }

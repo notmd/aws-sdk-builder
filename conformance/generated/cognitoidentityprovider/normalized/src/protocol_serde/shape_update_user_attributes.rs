@@ -15,11 +15,7 @@ pub fn de_update_user_attributes_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -44,11 +40,9 @@ pub fn de_update_user_attributes_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::CodeDeliveryFailureExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_code_delivery_failure_exception::de_code_delivery_failure_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_code_delivery_failure_exception::de_code_delivery_failure_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -133,34 +127,31 @@ pub fn de_update_user_attributes_http_error(
                 tmp
             })
         }
-        "InvalidLambdaResponseException" => {
-            super::super::operation::update_user_attributes::UpdateUserAttributesError::InvalidLambdaResponseException({
+        "InvalidLambdaResponseException" => super::super::operation::update_user_attributes::UpdateUserAttributesError::InvalidLambdaResponseException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidParameterException" => super::super::operation::update_user_attributes::UpdateUserAttributesError::InvalidParameterException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -175,7 +166,12 @@ pub fn de_update_user_attributes_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(_response_body, output).map_err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -221,7 +217,23 @@ pub fn de_update_user_attributes_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "PasswordResetRequiredException" => super::super::operation::update_user_attributes::UpdateUserAttributesError::PasswordResetRequiredException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::PasswordResetRequiredExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_password_reset_required_exception::de_password_reset_required_exception_json_err(
                     _response_body,
                     output,
                 )
@@ -234,36 +246,13 @@ pub fn de_update_user_attributes_http_error(
             }
             tmp
         }),
-        "PasswordResetRequiredException" => {
-            super::super::operation::update_user_attributes::UpdateUserAttributesError::PasswordResetRequiredException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::PasswordResetRequiredExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_password_reset_required_exception::de_password_reset_required_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
         "ResourceNotFoundException" => super::super::operation::update_user_attributes::UpdateUserAttributesError::ResourceNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -277,9 +266,8 @@ pub fn de_update_user_attributes_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -293,9 +281,8 @@ pub fn de_update_user_attributes_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                output = super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -304,36 +291,31 @@ pub fn de_update_user_attributes_http_error(
             }
             tmp
         }),
-        "UserLambdaValidationException" => {
-            super::super::operation::update_user_attributes::UpdateUserAttributesError::UserLambdaValidationException({
+        "UserLambdaValidationException" => super::super::operation::update_user_attributes::UpdateUserAttributesError::UserLambdaValidationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::UserLambdaValidationExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::UserLambdaValidationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "UserNotConfirmedException" => super::super::operation::update_user_attributes::UpdateUserAttributesError::UserNotConfirmedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UserNotConfirmedExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
+                output = super::super::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::update_user_attributes::UpdateUserAttributesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -408,11 +390,7 @@ pub(crate) fn de_update_user_attributes(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "CodeDeliveryDetailsList" => {
                     builder = builder.set_code_delivery_details_list(
-                        super::super::protocol_serde::shape_code_delivery_details_list_type::de_code_delivery_details_list_type(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_code_delivery_details_list_type::de_code_delivery_details_list_type(tokens, _value, depth + 1)?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

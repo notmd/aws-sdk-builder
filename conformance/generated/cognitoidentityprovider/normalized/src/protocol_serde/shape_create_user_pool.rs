@@ -4,10 +4,7 @@ pub fn de_create_user_pool_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::create_user_pool::CreateUserPoolOutput,
-    super::super::operation::create_user_pool::CreateUserPoolError,
-> {
+) -> std::result::Result<super::super::operation::create_user_pool::CreateUserPoolOutput, super::super::operation::create_user_pool::CreateUserPoolError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::create_user_pool::CreateUserPoolError::unhandled)?;
@@ -25,12 +22,11 @@ pub fn de_create_user_pool_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::FeatureUnavailableInTierExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_feature_unavailable_in_tier_exception::de_feature_unavailable_in_tier_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::create_user_pool::CreateUserPoolError::unhandled)?;
+                output = super::super::protocol_serde::shape_feature_unavailable_in_tier_exception::de_feature_unavailable_in_tier_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::create_user_pool::CreateUserPoolError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -75,9 +71,8 @@ pub fn de_create_user_pool_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::create_user_pool::CreateUserPoolError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::create_user_pool::CreateUserPoolError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -86,22 +81,24 @@ pub fn de_create_user_pool_http_error(
             }
             tmp
         }),
-        "InvalidSmsRoleAccessPolicyException" => {
-            super::super::operation::create_user_pool::CreateUserPoolError::InvalidSmsRoleAccessPolicyException({
+        "InvalidSmsRoleAccessPolicyException" => super::super::operation::create_user_pool::CreateUserPoolError::InvalidSmsRoleAccessPolicyException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(_response_body, output).map_err(super::super::operation::create_user_pool::CreateUserPoolError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::create_user_pool::CreateUserPoolError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidSmsRoleTrustRelationshipException" => {
             super::super::operation::create_user_pool::CreateUserPoolError::InvalidSmsRoleTrustRelationshipException({
                 #[allow(unused_mut)]
@@ -171,9 +168,8 @@ pub fn de_create_user_pool_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::create_user_pool::CreateUserPoolError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::create_user_pool::CreateUserPoolError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -187,9 +183,8 @@ pub fn de_create_user_pool_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UserPoolTaggingExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_user_pool_tagging_exception::de_user_pool_tagging_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::create_user_pool::CreateUserPoolError::unhandled)?;
+                output = super::super::protocol_serde::shape_user_pool_tagging_exception::de_user_pool_tagging_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::create_user_pool::CreateUserPoolError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -207,10 +202,7 @@ pub fn de_create_user_pool_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::create_user_pool::CreateUserPoolOutput,
-    super::super::operation::create_user_pool::CreateUserPoolError,
-> {
+) -> std::result::Result<super::super::operation::create_user_pool::CreateUserPoolOutput, super::super::operation::create_user_pool::CreateUserPoolError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::create_user_pool::builders::CreateUserPoolOutputBuilder::default();
@@ -248,11 +240,7 @@ pub(crate) fn de_create_user_pool(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "UserPool" => {
-                    builder = builder.set_user_pool(super::super::protocol_serde::shape_user_pool_type::de_user_pool_type(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_user_pool(super::super::protocol_serde::shape_user_pool_type::de_user_pool_type(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

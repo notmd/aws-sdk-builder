@@ -15,11 +15,7 @@ pub fn de_get_conformance_pack_compliance_summary_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(
-                super::super::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryError::unhandled(generic),
-            )
-        }
+        None => return Err(super::super::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -31,9 +27,7 @@ pub fn de_get_conformance_pack_compliance_summary_http_error(
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidLimitExceptionBuilder::default();
                     output = super::super::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output)
-                        .map_err(
-                            super::super::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryError::unhandled,
-                        )?;
+                        .map_err(super::super::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -49,7 +43,25 @@ pub fn de_get_conformance_pack_compliance_summary_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(
+                    output =
+                        super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "NoSuchConformancePackException" => {
+            super::super::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryError::NoSuchConformancePackException({
+                #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::NoSuchConformancePackExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_no_such_conformance_pack_exception::de_no_such_conformance_pack_exception_json_err(
                         _response_body,
                         output,
                     )
@@ -62,31 +74,6 @@ pub fn de_get_conformance_pack_compliance_summary_http_error(
                 }
                 tmp
             })
-        }
-        "NoSuchConformancePackException" => {
-            super::super::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryError::NoSuchConformancePackException(
-                {
-                    #[allow(unused_mut)]
-                    let mut tmp = {
-                        #[allow(unused_mut)]
-                        let mut output = super::super::types::error::builders::NoSuchConformancePackExceptionBuilder::default();
-                        output =
-                            super::super::protocol_serde::shape_no_such_conformance_pack_exception::de_no_such_conformance_pack_exception_json_err(
-                                _response_body,
-                                output,
-                            )
-                            .map_err(
-                                super::super::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryError::unhandled,
-                            )?;
-                        let output = output.meta(generic);
-                        output.build()
-                    };
-                    if tmp.message.is_none() {
-                        tmp.message = _error_message;
-                    }
-                    tmp
-                },
-            )
         }
         _ => super::super::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryError::generic(generic),
     })
@@ -105,11 +92,9 @@ pub fn de_get_conformance_pack_compliance_summary_http_response(
         #[allow(unused_mut)]
         let mut output =
             super::super::operation::get_conformance_pack_compliance_summary::builders::GetConformancePackComplianceSummaryOutputBuilder::default();
-        output = super::super::protocol_serde::shape_get_conformance_pack_compliance_summary::de_get_conformance_pack_compliance_summary(
-            _response_body,
-            output,
-        )
-        .map_err(super::super::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryError::unhandled)?;
+        output =
+            super::super::protocol_serde::shape_get_conformance_pack_compliance_summary::de_get_conformance_pack_compliance_summary(_response_body, output)
+                .map_err(super::super::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -143,21 +128,25 @@ pub(crate) fn de_get_conformance_pack_compliance_summary(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "ConformancePackComplianceSummaryList" => {
-                        builder = builder.set_conformance_pack_compliance_summary_list(super::super::protocol_serde::shape_conformance_pack_compliance_summary_list::de_conformance_pack_compliance_summary_list(tokens, _value, depth + 1)?);
-                    }
-                    "NextToken" => {
-                        builder = builder.set_next_token(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "ConformancePackComplianceSummaryList" => {
+                    builder = builder.set_conformance_pack_compliance_summary_list(
+                        super::super::protocol_serde::shape_conformance_pack_compliance_summary_list::de_conformance_pack_compliance_summary_list(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
                 }
-            }
+                "NextToken" => {
+                    builder = builder.set_next_token(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

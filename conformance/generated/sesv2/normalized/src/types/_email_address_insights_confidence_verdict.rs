@@ -73,9 +73,7 @@ impl ::std::convert::From<&str> for EmailAddressInsightsConfidenceVerdict {
             "HIGH" => EmailAddressInsightsConfidenceVerdict::High,
             "LOW" => EmailAddressInsightsConfidenceVerdict::Low,
             "MEDIUM" => EmailAddressInsightsConfidenceVerdict::Medium,
-            other => {
-                EmailAddressInsightsConfidenceVerdict::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => EmailAddressInsightsConfidenceVerdict::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

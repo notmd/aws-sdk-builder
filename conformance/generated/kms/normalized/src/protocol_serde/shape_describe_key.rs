@@ -22,11 +22,8 @@ pub fn de_describe_key_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::describe_key::DescribeKeyError::unhandled)?;
+                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::describe_key::DescribeKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -113,10 +110,8 @@ pub fn ser_describe_key_input(
 pub(crate) fn de_describe_key(
     _value: &[u8],
     mut builder: super::super::operation::describe_key::builders::DescribeKeyOutputBuilder,
-) -> ::std::result::Result<
-    super::super::operation::describe_key::builders::DescribeKeyOutputBuilder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
+) -> ::std::result::Result<super::super::operation::describe_key::builders::DescribeKeyOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+{
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
@@ -127,11 +122,7 @@ pub(crate) fn de_describe_key(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "KeyMetadata" => {
-                    builder = builder.set_key_metadata(super::super::protocol_serde::shape_key_metadata::de_key_metadata(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_key_metadata(super::super::protocol_serde::shape_key_metadata::de_key_metadata(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

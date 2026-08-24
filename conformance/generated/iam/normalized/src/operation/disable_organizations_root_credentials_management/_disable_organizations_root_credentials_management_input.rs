@@ -5,7 +5,9 @@
 pub struct DisableOrganizationsRootCredentialsManagementInput {}
 impl DisableOrganizationsRootCredentialsManagementInput {
     /// Creates a new builder-style object to manufacture [`DisableOrganizationsRootCredentialsManagementInput`](crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementInput).
-    pub fn builder() -> super::super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementInputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementInputBuilder
+    {
         super::super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementInputBuilder::default()
     }
 }

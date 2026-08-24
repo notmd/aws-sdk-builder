@@ -111,13 +111,11 @@ impl DescribeSubscriptionFiltersInputBuilder {
         super::super::super::operation::describe_subscription_filters::DescribeSubscriptionFiltersInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::describe_subscription_filters::DescribeSubscriptionFiltersInput {
-                log_group_name: self.log_group_name,
-                filter_name_prefix: self.filter_name_prefix,
-                next_token: self.next_token,
-                limit: self.limit,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::describe_subscription_filters::DescribeSubscriptionFiltersInput {
+            log_group_name: self.log_group_name,
+            filter_name_prefix: self.filter_name_prefix,
+            next_token: self.next_token,
+            limit: self.limit,
+        })
     }
 }

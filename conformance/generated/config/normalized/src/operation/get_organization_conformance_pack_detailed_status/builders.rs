@@ -57,7 +57,10 @@ impl GetOrganizationConformancePackDetailedStatusFluentBuilder {
         }
     }
     /// Access the GetOrganizationConformancePackDetailedStatus as a reference.
-    pub fn as_input(&self) -> &super::super::super::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &super::super::super::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -115,8 +118,13 @@ impl GetOrganizationConformancePackDetailedStatusFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::get_organization_conformance_pack_detailed_status::paginator::GetOrganizationConformancePackDetailedStatusPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> super::super::super::operation::get_organization_conformance_pack_detailed_status::paginator::GetOrganizationConformancePackDetailedStatusPaginator{
-        super::super::super::operation::get_organization_conformance_pack_detailed_status::paginator::GetOrganizationConformancePackDetailedStatusPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> super::super::super::operation::get_organization_conformance_pack_detailed_status::paginator::GetOrganizationConformancePackDetailedStatusPaginator {
+        super::super::super::operation::get_organization_conformance_pack_detailed_status::paginator::GetOrganizationConformancePackDetailedStatusPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The name of organization conformance pack for which you want status details for member accounts.</p>
     pub fn organization_conformance_pack_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

@@ -41,11 +41,9 @@ pub fn de_describe_contributor_insights_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::describe_contributor_insights::DescribeContributorInsightsError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::describe_contributor_insights::DescribeContributorInsightsError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -120,11 +118,7 @@ pub(crate) fn de_describe_contributor_insights(
                 }
                 "ContributorInsightsRuleList" => {
                     builder = builder.set_contributor_insights_rule_list(
-                        super::super::protocol_serde::shape_contributor_insights_rule_list::de_contributor_insights_rule_list(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_contributor_insights_rule_list::de_contributor_insights_rule_list(tokens, _value, depth + 1)?,
                     );
                 }
                 "ContributorInsightsStatus" => {

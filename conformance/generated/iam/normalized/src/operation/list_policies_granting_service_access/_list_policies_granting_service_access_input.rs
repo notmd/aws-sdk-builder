@@ -30,8 +30,7 @@ impl ListPoliciesGrantingServiceAccessInput {
 }
 impl ListPoliciesGrantingServiceAccessInput {
     /// Creates a new builder-style object to manufacture [`ListPoliciesGrantingServiceAccessInput`](crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessInput).
-    pub fn builder() -> super::super::super::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessInputBuilder {
         super::super::super::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessInputBuilder::default()
     }
 }

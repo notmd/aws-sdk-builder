@@ -183,10 +183,7 @@ impl CreateExportTaskInputBuilder {
     /// Consumes the builder and constructs a [`CreateExportTaskInput`](crate::operation::create_export_task::CreateExportTaskInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::create_export_task::CreateExportTaskInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::create_export_task::CreateExportTaskInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::create_export_task::CreateExportTaskInput {
             task_name: self.task_name,
             log_group_name: self.log_group_name,

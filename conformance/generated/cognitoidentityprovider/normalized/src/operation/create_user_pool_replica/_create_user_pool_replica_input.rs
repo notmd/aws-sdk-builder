@@ -100,10 +100,8 @@ impl CreateUserPoolReplicaInputBuilder {
     /// Consumes the builder and constructs a [`CreateUserPoolReplicaInput`](crate::operation::create_user_pool_replica::CreateUserPoolReplicaInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::create_user_pool_replica::CreateUserPoolReplicaInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::create_user_pool_replica::CreateUserPoolReplicaInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::create_user_pool_replica::CreateUserPoolReplicaInput {
             user_pool_id: self.user_pool_id,
             region_name: self.region_name,

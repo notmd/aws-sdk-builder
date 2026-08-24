@@ -4,10 +4,8 @@ pub fn de_cancel_key_deletion_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::cancel_key_deletion::CancelKeyDeletionOutput,
-    super::super::operation::cancel_key_deletion::CancelKeyDeletionError,
-> {
+) -> std::result::Result<super::super::operation::cancel_key_deletion::CancelKeyDeletionOutput, super::super::operation::cancel_key_deletion::CancelKeyDeletionError>
+{
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::cancel_key_deletion::CancelKeyDeletionError::unhandled)?;
@@ -25,11 +23,8 @@ pub fn de_cancel_key_deletion_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::cancel_key_deletion::CancelKeyDeletionError::unhandled)?;
+                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::cancel_key_deletion::CancelKeyDeletionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -73,9 +68,8 @@ pub fn de_cancel_key_deletion_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::cancel_key_deletion::CancelKeyDeletionError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::cancel_key_deletion::CancelKeyDeletionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -108,10 +102,8 @@ pub fn de_cancel_key_deletion_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::cancel_key_deletion::CancelKeyDeletionOutput,
-    super::super::operation::cancel_key_deletion::CancelKeyDeletionError,
-> {
+) -> std::result::Result<super::super::operation::cancel_key_deletion::CancelKeyDeletionOutput, super::super::operation::cancel_key_deletion::CancelKeyDeletionError>
+{
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::cancel_key_deletion::builders::CancelKeyDeletionOutputBuilder::default();

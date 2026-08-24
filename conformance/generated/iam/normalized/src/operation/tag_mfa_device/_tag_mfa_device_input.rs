@@ -78,8 +78,7 @@ impl TagMfaDeviceInputBuilder {
     /// Consumes the builder and constructs a [`TagMfaDeviceInput`](crate::operation::tag_mfa_device::TagMfaDeviceInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::tag_mfa_device::TagMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::tag_mfa_device::TagMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::tag_mfa_device::TagMfaDeviceInput {
             serial_number: self.serial_number,
             tags: self.tags,

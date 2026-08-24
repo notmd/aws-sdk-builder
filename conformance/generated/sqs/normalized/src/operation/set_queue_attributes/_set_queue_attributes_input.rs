@@ -201,9 +201,7 @@ impl SetQueueAttributesInput {
     /// </ul>
     /// <p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
     /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub fn attributes(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
+    pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
         self.attributes.as_ref()
     }
 }
@@ -536,18 +534,14 @@ impl SetQueueAttributesInputBuilder {
     /// </ul>
     /// <p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
     /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub fn get_attributes(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
         &self.attributes
     }
     /// Consumes the builder and constructs a [`SetQueueAttributesInput`](crate::operation::set_queue_attributes::SetQueueAttributesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::set_queue_attributes::SetQueueAttributesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::set_queue_attributes::SetQueueAttributesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::set_queue_attributes::SetQueueAttributesInput {
             queue_url: self.queue_url,
             attributes: self.attributes,

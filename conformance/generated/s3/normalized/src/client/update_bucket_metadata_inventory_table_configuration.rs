@@ -10,7 +10,10 @@ impl super::Client {
     ///   - [`expected_bucket_owner(impl Into<String>)`](crate::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationFluentBuilder::expected_bucket_owner) / [`set_expected_bucket_owner(Option<String>)`](crate::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationFluentBuilder::set_expected_bucket_owner):<br>required: **false**<br><p>The expected owner of the general purpose bucket that corresponds to the metadata table configuration that you want to enable or disable an inventory table for.</p><br>
     /// - On success, responds with [`UpdateBucketMetadataInventoryTableConfigurationOutput`](crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput)
     /// - On failure, responds with [`SdkError<UpdateBucketMetadataInventoryTableConfigurationError>`](crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationError)
-    pub fn update_bucket_metadata_inventory_table_configuration(&self) -> super::super::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationFluentBuilder{
+    pub fn update_bucket_metadata_inventory_table_configuration(
+        &self,
+    ) -> super::super::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationFluentBuilder
+    {
         super::super::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

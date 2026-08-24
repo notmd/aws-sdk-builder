@@ -48,10 +48,7 @@ impl DescribeConfigurationRecordersOutputBuilder {
         self
     }
     /// <p>A list that contains the descriptions of the specified configuration recorders.</p>
-    pub fn set_configuration_recorders(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConfigurationRecorder>>,
-    ) -> Self {
+    pub fn set_configuration_recorders(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConfigurationRecorder>>) -> Self {
         self.configuration_recorders = input;
         self
     }

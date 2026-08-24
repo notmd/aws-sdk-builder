@@ -4,20 +4,15 @@
 #[derive(::std::fmt::Debug)]
 pub struct StartLiveTailOutput {
     /// <p>An object that includes the stream returned by your request. It can include both log events and exceptions.</p>
-    pub response_stream: super::super::super::event_receiver::EventReceiver<
-        super::super::super::types::StartLiveTailResponseStream,
-        super::super::super::types::error::StartLiveTailResponseStreamError,
-    >,
+    pub response_stream:
+        super::super::super::event_receiver::EventReceiver<super::super::super::types::StartLiveTailResponseStream, super::super::super::types::error::StartLiveTailResponseStreamError>,
     _request_id: Option<String>,
 }
 impl StartLiveTailOutput {
     /// <p>An object that includes the stream returned by your request. It can include both log events and exceptions.</p>
     pub fn response_stream(
         &self,
-    ) -> &super::super::super::event_receiver::EventReceiver<
-        super::super::super::types::StartLiveTailResponseStream,
-        super::super::super::types::error::StartLiveTailResponseStreamError,
-    > {
+    ) -> &super::super::super::event_receiver::EventReceiver<super::super::super::types::StartLiveTailResponseStream, super::super::super::types::error::StartLiveTailResponseStreamError> {
         &self.response_stream
     }
 }
@@ -38,10 +33,7 @@ impl StartLiveTailOutput {
 #[non_exhaustive]
 pub struct StartLiveTailOutputBuilder {
     pub(crate) response_stream: ::std::option::Option<
-        super::super::super::event_receiver::EventReceiver<
-            super::super::super::types::StartLiveTailResponseStream,
-            super::super::super::types::error::StartLiveTailResponseStreamError,
-        >,
+        super::super::super::event_receiver::EventReceiver<super::super::super::types::StartLiveTailResponseStream, super::super::super::types::error::StartLiveTailResponseStreamError>,
     >,
     _request_id: Option<String>,
 }
@@ -49,10 +41,7 @@ impl StartLiveTailOutputBuilder {
     /// <p>An object that includes the stream returned by your request. It can include both log events and exceptions.</p>
     pub fn response_stream(
         mut self,
-        input: super::super::super::event_receiver::EventReceiver<
-            super::super::super::types::StartLiveTailResponseStream,
-            super::super::super::types::error::StartLiveTailResponseStreamError,
-        >,
+        input: super::super::super::event_receiver::EventReceiver<super::super::super::types::StartLiveTailResponseStream, super::super::super::types::error::StartLiveTailResponseStreamError>,
     ) -> Self {
         self.response_stream = ::std::option::Option::Some(input);
         self
@@ -61,10 +50,7 @@ impl StartLiveTailOutputBuilder {
     pub fn set_response_stream(
         mut self,
         input: ::std::option::Option<
-            super::super::super::event_receiver::EventReceiver<
-                super::super::super::types::StartLiveTailResponseStream,
-                super::super::super::types::error::StartLiveTailResponseStreamError,
-            >,
+            super::super::super::event_receiver::EventReceiver<super::super::super::types::StartLiveTailResponseStream, super::super::super::types::error::StartLiveTailResponseStreamError>,
         >,
     ) -> Self {
         self.response_stream = input;
@@ -74,10 +60,7 @@ impl StartLiveTailOutputBuilder {
     pub fn get_response_stream(
         &self,
     ) -> &::std::option::Option<
-        super::super::super::event_receiver::EventReceiver<
-            super::super::super::types::StartLiveTailResponseStream,
-            super::super::super::types::error::StartLiveTailResponseStreamError,
-        >,
+        super::super::super::event_receiver::EventReceiver<super::super::super::types::StartLiveTailResponseStream, super::super::super::types::error::StartLiveTailResponseStreamError>,
     > {
         &self.response_stream
     }
@@ -95,8 +78,7 @@ impl StartLiveTailOutputBuilder {
     /// - [`response_stream`](crate::operation::start_live_tail::builders::StartLiveTailOutputBuilder::response_stream)
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::start_live_tail::StartLiveTailOutput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::start_live_tail::StartLiveTailOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::start_live_tail::StartLiveTailOutput {
             response_stream: self.response_stream.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

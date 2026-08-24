@@ -163,15 +163,13 @@ impl GetScheduledQueryHistoryInputBuilder {
         super::super::super::operation::get_scheduled_query_history::GetScheduledQueryHistoryInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_scheduled_query_history::GetScheduledQueryHistoryInput {
-                identifier: self.identifier,
-                start_time: self.start_time,
-                end_time: self.end_time,
-                execution_statuses: self.execution_statuses,
-                max_results: self.max_results,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_scheduled_query_history::GetScheduledQueryHistoryInput {
+            identifier: self.identifier,
+            start_time: self.start_time,
+            end_time: self.end_time,
+            execution_statuses: self.execution_statuses,
+            max_results: self.max_results,
+            next_token: self.next_token,
+        })
     }
 }

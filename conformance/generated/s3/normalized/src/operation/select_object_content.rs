@@ -122,31 +122,16 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for SelectO
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
-        let mut rcb =
-            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("SelectObjectContent")
-                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                    SelectObjectContentTelemetryInputCaptureInterceptor,
-                ))
-                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                    SelectObjectContentEndpointParamsInterceptor,
-                ))
-                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                    super::super::operation::select_object_content::SelectObjectContentError,
-                >::new())
-                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                    super::super::operation::select_object_content::SelectObjectContentError,
-                >::new())
-                .with_retry_classifier(
-                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                        super::super::operation::select_object_content::SelectObjectContentError,
-                    >::builder()
-                    .transient_errors({
-                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-                        transient_errors.push("InternalError");
-                        ::std::borrow::Cow::Owned(transient_errors)
-                    })
-                    .build(),
-                );
+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("SelectObjectContent")
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(SelectObjectContentTelemetryInputCaptureInterceptor))
+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(SelectObjectContentEndpointParamsInterceptor))
+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::select_object_content::SelectObjectContentError>::new())
+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::select_object_content::SelectObjectContentError>::new())
+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::super::operation::select_object_content::SelectObjectContentError>::builder().transient_errors({
+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
+                                            transient_errors.push("InternalError");
+                                            ::std::borrow::Cow::Owned(transient_errors)
+                                            }).build());
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -229,7 +214,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for SelectObj
     ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
         #[allow(unused_mut)]
         let mut force_error = false;
-        ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
+        ::tracing::debug!(extended_request_id = ?super::super::s3_request_id::RequestIdExt::extended_request_id(response));
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
 
         // If this is an error, defer to the non-streaming parser
@@ -248,13 +233,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for SelectObj
     ) -> ::aws_smithy_runtime_api::client::interceptors::context::OutputOrError {
         // For streaming operations, we only hit this case if its an error
         let body = response.body().bytes().expect("body loaded");
-        super::super::protocol_serde::type_erase_result(
-            super::super::protocol_serde::shape_select_object_content::de_select_object_content_http_error(
-                response.status().as_u16(),
-                response.headers(),
-                body,
-            ),
-        )
+        super::super::protocol_serde::type_erase_result(super::super::protocol_serde::shape_select_object_content::de_select_object_content_http_error(
+            response.status().as_u16(),
+            response.headers(),
+            body,
+        ))
     }
 }
 #[derive(Debug)]
@@ -318,9 +301,9 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for SelectObject
             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(
-            super::super::protocol_serde::shape_select_object_content::ser_select_object_content_op_input(&input)?,
-        );
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_select_object_content::ser_select_object_content_op_input(
+            &input,
+        )?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);

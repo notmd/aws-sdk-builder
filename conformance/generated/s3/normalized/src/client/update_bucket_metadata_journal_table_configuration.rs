@@ -10,7 +10,10 @@ impl super::Client {
     ///   - [`expected_bucket_owner(impl Into<String>)`](crate::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationFluentBuilder::expected_bucket_owner) / [`set_expected_bucket_owner(Option<String>)`](crate::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationFluentBuilder::set_expected_bucket_owner):<br>required: **false**<br><p>The expected owner of the general purpose bucket that corresponds to the metadata table configuration that you want to enable or disable journal table record expiration for.</p><br>
     /// - On success, responds with [`UpdateBucketMetadataJournalTableConfigurationOutput`](crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationOutput)
     /// - On failure, responds with [`SdkError<UpdateBucketMetadataJournalTableConfigurationError>`](crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationError)
-    pub fn update_bucket_metadata_journal_table_configuration(&self) -> super::super::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationFluentBuilder{
+    pub fn update_bucket_metadata_journal_table_configuration(
+        &self,
+    ) -> super::super::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationFluentBuilder
+    {
         super::super::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

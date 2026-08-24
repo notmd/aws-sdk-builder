@@ -15,11 +15,7 @@ pub fn de_describe_user_import_job_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::describe_user_import_job::DescribeUserImportJobError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::describe_user_import_job::DescribeUserImportJobError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -44,9 +40,8 @@ pub fn de_describe_user_import_job_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::describe_user_import_job::DescribeUserImportJobError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::describe_user_import_job::DescribeUserImportJobError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -70,36 +65,29 @@ pub fn de_describe_user_import_job_http_error(
             }
             tmp
         }),
-        "OperationNotEnabledException" => {
-            super::super::operation::describe_user_import_job::DescribeUserImportJobError::OperationNotEnabledException({
+        "OperationNotEnabledException" => super::super::operation::describe_user_import_job::DescribeUserImportJobError::OperationNotEnabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::describe_user_import_job::DescribeUserImportJobError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::describe_user_import_job::DescribeUserImportJobError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ResourceNotFoundException" => super::super::operation::describe_user_import_job::DescribeUserImportJobError::ResourceNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::describe_user_import_job::DescribeUserImportJobError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::describe_user_import_job::DescribeUserImportJobError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -113,9 +101,8 @@ pub fn de_describe_user_import_job_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::describe_user_import_job::DescribeUserImportJobError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::describe_user_import_job::DescribeUserImportJobError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

@@ -110,10 +110,8 @@ impl ListMfaDeviceTagsOutputBuilder {
     /// - [`tags`](crate::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsOutputBuilder::tags)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput {
             tags: self.tags.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

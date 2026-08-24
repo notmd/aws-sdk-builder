@@ -22,8 +22,7 @@ impl RemoveClientIdFromOpenIdConnectProviderInput {
 }
 impl RemoveClientIdFromOpenIdConnectProviderInput {
     /// Creates a new builder-style object to manufacture [`RemoveClientIdFromOpenIdConnectProviderInput`](crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderInput).
-    pub fn builder(
-    ) -> super::super::super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderInputBuilder
+    pub fn builder() -> super::super::super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderInputBuilder
     {
         super::super::super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderInputBuilder::default()
     }

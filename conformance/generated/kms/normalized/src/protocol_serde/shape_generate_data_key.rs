@@ -4,10 +4,7 @@ pub fn de_generate_data_key_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::generate_data_key::GenerateDataKeyOutput,
-    super::super::operation::generate_data_key::GenerateDataKeyError,
-> {
+) -> std::result::Result<super::super::operation::generate_data_key::GenerateDataKeyOutput, super::super::operation::generate_data_key::GenerateDataKeyError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::generate_data_key::GenerateDataKeyError::unhandled)?;
@@ -25,11 +22,8 @@ pub fn de_generate_data_key_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::generate_data_key::GenerateDataKeyError::unhandled)?;
+                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::generate_data_key::GenerateDataKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -58,9 +52,8 @@ pub fn de_generate_data_key_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::DryRunOperationExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::generate_data_key::GenerateDataKeyError::unhandled)?;
+                output = super::super::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::generate_data_key::GenerateDataKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -74,11 +67,9 @@ pub fn de_generate_data_key_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::generate_data_key::GenerateDataKeyError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::generate_data_key::GenerateDataKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -92,9 +83,8 @@ pub fn de_generate_data_key_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidKeyUsageExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::generate_data_key::GenerateDataKeyError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::generate_data_key::GenerateDataKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -138,9 +128,8 @@ pub fn de_generate_data_key_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::generate_data_key::GenerateDataKeyError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::generate_data_key::GenerateDataKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -173,10 +162,7 @@ pub fn de_generate_data_key_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::generate_data_key::GenerateDataKeyOutput,
-    super::super::operation::generate_data_key::GenerateDataKeyError,
-> {
+) -> std::result::Result<super::super::operation::generate_data_key::GenerateDataKeyOutput, super::super::operation::generate_data_key::GenerateDataKeyError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::generate_data_key::builders::GenerateDataKeyOutputBuilder::default();

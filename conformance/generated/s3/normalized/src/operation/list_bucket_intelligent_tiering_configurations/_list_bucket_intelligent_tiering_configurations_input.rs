@@ -26,7 +26,8 @@ impl ListBucketIntelligentTieringConfigurationsInput {
 }
 impl ListBucketIntelligentTieringConfigurationsInput {
     /// Creates a new builder-style object to manufacture [`ListBucketIntelligentTieringConfigurationsInput`](crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsInput).
-    pub fn builder() -> super::super::super::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsInputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsInputBuilder {
         super::super::super::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsInputBuilder::default()
     }
 }

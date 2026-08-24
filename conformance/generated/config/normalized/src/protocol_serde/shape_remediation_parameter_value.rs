@@ -48,11 +48,8 @@ where
                             )?);
                         }
                         "StaticValue" => {
-                            builder = builder.set_static_value(super::super::protocol_serde::shape_static_value::de_static_value(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_static_value(super::super::protocol_serde::shape_static_value::de_static_value(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

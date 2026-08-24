@@ -52,11 +52,7 @@ where
                             builder = builder.set_limits(super::super::protocol_serde::shape_eks_limits::de_eks_limits(tokens, _value, depth + 1)?);
                         }
                         "requests" => {
-                            builder = builder.set_requests(super::super::protocol_serde::shape_eks_requests::de_eks_requests(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_requests(super::super::protocol_serde::shape_eks_requests::de_eks_requests(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

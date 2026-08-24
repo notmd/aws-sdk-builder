@@ -10,9 +10,7 @@ pub struct GetBucketMetadataTableConfigurationOutput {
 }
 impl GetBucketMetadataTableConfigurationOutput {
     /// <p>The metadata table configuration for the general purpose bucket.</p>
-    pub fn get_bucket_metadata_table_configuration_result(
-        &self,
-    ) -> ::std::option::Option<&super::super::super::types::GetBucketMetadataTableConfigurationResult> {
+    pub fn get_bucket_metadata_table_configuration_result(&self) -> ::std::option::Option<&super::super::super::types::GetBucketMetadataTableConfigurationResult> {
         self.get_bucket_metadata_table_configuration_result.as_ref()
     }
 }
@@ -28,8 +26,7 @@ impl ::aws_types::request_id::RequestId for GetBucketMetadataTableConfigurationO
 }
 impl GetBucketMetadataTableConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`GetBucketMetadataTableConfigurationOutput`](crate::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationOutputBuilder {
+    pub fn builder() -> super::super::super::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationOutputBuilder {
         super::super::super::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationOutputBuilder::default()
     }
 }
@@ -38,17 +35,13 @@ impl GetBucketMetadataTableConfigurationOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetBucketMetadataTableConfigurationOutputBuilder {
-    pub(crate) get_bucket_metadata_table_configuration_result:
-        ::std::option::Option<super::super::super::types::GetBucketMetadataTableConfigurationResult>,
+    pub(crate) get_bucket_metadata_table_configuration_result: ::std::option::Option<super::super::super::types::GetBucketMetadataTableConfigurationResult>,
     _extended_request_id: Option<String>,
     _request_id: Option<String>,
 }
 impl GetBucketMetadataTableConfigurationOutputBuilder {
     /// <p>The metadata table configuration for the general purpose bucket.</p>
-    pub fn get_bucket_metadata_table_configuration_result(
-        mut self,
-        input: super::super::super::types::GetBucketMetadataTableConfigurationResult,
-    ) -> Self {
+    pub fn get_bucket_metadata_table_configuration_result(mut self, input: super::super::super::types::GetBucketMetadataTableConfigurationResult) -> Self {
         self.get_bucket_metadata_table_configuration_result = ::std::option::Option::Some(input);
         self
     }

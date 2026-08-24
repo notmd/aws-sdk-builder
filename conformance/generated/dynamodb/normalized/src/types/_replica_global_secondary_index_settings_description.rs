@@ -201,9 +201,7 @@ impl ReplicaGlobalSecondaryIndexSettingsDescriptionBuilder {
         self
     }
     /// <p>Auto scaling settings for a global secondary index replica's write capacity units.</p>
-    pub fn get_provisioned_write_capacity_auto_scaling_settings(
-        &self,
-    ) -> &::std::option::Option<super::super::types::AutoScalingSettingsDescription> {
+    pub fn get_provisioned_write_capacity_auto_scaling_settings(&self) -> &::std::option::Option<super::super::types::AutoScalingSettingsDescription> {
         &self.provisioned_write_capacity_auto_scaling_settings
     }
     /// Consumes the builder and constructs a [`ReplicaGlobalSecondaryIndexSettingsDescription`](crate::types::ReplicaGlobalSecondaryIndexSettingsDescription).
@@ -211,8 +209,7 @@ impl ReplicaGlobalSecondaryIndexSettingsDescriptionBuilder {
     /// - [`index_name`](crate::types::builders::ReplicaGlobalSecondaryIndexSettingsDescriptionBuilder::index_name)
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::types::ReplicaGlobalSecondaryIndexSettingsDescription, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::types::ReplicaGlobalSecondaryIndexSettingsDescription, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::ReplicaGlobalSecondaryIndexSettingsDescription {
             index_name: self.index_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

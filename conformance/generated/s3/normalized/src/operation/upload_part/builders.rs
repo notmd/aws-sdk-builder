@@ -253,8 +253,7 @@ impl UploadPartFluentBuilder {
             })
         })?;
         let request = context.take_request().expect("request set before transmit");
-        super::super::super::presigning::PresignedRequest::new(request)
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)
+        super::super::super::presigning::PresignedRequest::new(request).map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)
     }
     /// <p>Object data.</p>
     pub fn body(mut self, input: ::aws_smithy_types::byte_stream::ByteStream) -> Self {
@@ -631,18 +630,13 @@ impl UploadPartFluentBuilder {
     }
 }
 
-impl super::super::super::client::customize::internal::CustomizablePresigned<super::super::super::operation::upload_part::UploadPartError>
-    for UploadPartFluentBuilder
-{
+impl super::super::super::client::customize::internal::CustomizablePresigned<super::super::super::operation::upload_part::UploadPartError> for UploadPartFluentBuilder {
     fn presign(
         self,
         config_override: super::super::super::config::Builder,
         presigning_config: super::super::super::presigning::PresigningConfig,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::presigning::PresignedRequest,
-            super::super::super::operation::upload_part::UploadPartError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::presigning::PresignedRequest, super::super::super::operation::upload_part::UploadPartError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).presigned(presigning_config).await })
     }

@@ -28,7 +28,9 @@ pub fn de_get_bucket_intelligent_tiering_configuration_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = super::super::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationOutputBuilder::default();
+        let mut output =
+            super::super::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationOutputBuilder::default(
+            );
         output = output.set_intelligent_tiering_configuration(
             super::super::protocol_serde::shape_get_bucket_intelligent_tiering_configuration_output::de_intelligent_tiering_configuration_payload(
                 _response_body,

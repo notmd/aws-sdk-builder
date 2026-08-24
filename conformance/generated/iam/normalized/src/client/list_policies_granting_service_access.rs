@@ -14,8 +14,6 @@ impl super::Client {
     pub fn list_policies_granting_service_access(
         &self,
     ) -> super::super::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessFluentBuilder {
-        super::super::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessFluentBuilder::new(self.handle.clone())
     }
 }

@@ -49,9 +49,7 @@ impl OrganizationConfigRule {
         self.last_update_time.as_ref()
     }
     /// <p>An object that specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have debug logging enabled, and other custom rule metadata, such as resource type, resource ID of Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
-    pub fn organization_custom_policy_rule_metadata(
-        &self,
-    ) -> ::std::option::Option<&super::super::types::OrganizationCustomPolicyRuleMetadataNoPolicy> {
+    pub fn organization_custom_policy_rule_metadata(&self) -> ::std::option::Option<&super::super::types::OrganizationCustomPolicyRuleMetadataNoPolicy> {
         self.organization_custom_policy_rule_metadata.as_ref()
     }
 }
@@ -111,10 +109,7 @@ impl OrganizationConfigRuleBuilder {
         self
     }
     /// <p>An <code>OrganizationManagedRuleMetadata</code> object.</p>
-    pub fn set_organization_managed_rule_metadata(
-        mut self,
-        input: ::std::option::Option<super::super::types::OrganizationManagedRuleMetadata>,
-    ) -> Self {
+    pub fn set_organization_managed_rule_metadata(mut self, input: ::std::option::Option<super::super::types::OrganizationManagedRuleMetadata>) -> Self {
         self.organization_managed_rule_metadata = input;
         self
     }
@@ -128,10 +123,7 @@ impl OrganizationConfigRuleBuilder {
         self
     }
     /// <p>An <code>OrganizationCustomRuleMetadata</code> object.</p>
-    pub fn set_organization_custom_rule_metadata(
-        mut self,
-        input: ::std::option::Option<super::super::types::OrganizationCustomRuleMetadata>,
-    ) -> Self {
+    pub fn set_organization_custom_rule_metadata(mut self, input: ::std::option::Option<super::super::types::OrganizationCustomRuleMetadata>) -> Self {
         self.organization_custom_rule_metadata = input;
         self
     }
@@ -187,9 +179,7 @@ impl OrganizationConfigRuleBuilder {
         self
     }
     /// <p>An object that specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have debug logging enabled, and other custom rule metadata, such as resource type, resource ID of Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
-    pub fn get_organization_custom_policy_rule_metadata(
-        &self,
-    ) -> &::std::option::Option<super::super::types::OrganizationCustomPolicyRuleMetadataNoPolicy> {
+    pub fn get_organization_custom_policy_rule_metadata(&self) -> &::std::option::Option<super::super::types::OrganizationCustomPolicyRuleMetadataNoPolicy> {
         &self.organization_custom_policy_rule_metadata
     }
     /// Consumes the builder and constructs a [`OrganizationConfigRule`](crate::types::OrganizationConfigRule).

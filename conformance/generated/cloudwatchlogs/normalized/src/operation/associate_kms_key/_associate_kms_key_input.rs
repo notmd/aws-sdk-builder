@@ -136,10 +136,7 @@ impl AssociateKmsKeyInputBuilder {
     /// Consumes the builder and constructs a [`AssociateKmsKeyInput`](crate::operation::associate_kms_key::AssociateKmsKeyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::associate_kms_key::AssociateKmsKeyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::associate_kms_key::AssociateKmsKeyInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::associate_kms_key::AssociateKmsKeyInput {
             log_group_name: self.log_group_name,
             kms_key_id: self.kms_key_id,

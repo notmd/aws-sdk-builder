@@ -29,23 +29,15 @@ where
                             );
                         }
                         "SearchSchema" => {
-                            builder = builder.set_search_schema(super::super::protocol_serde::shape_search_schema::de_search_schema(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_search_schema(super::super::protocol_serde::shape_search_schema::de_search_schema(tokens, _value, depth + 1)?);
                         }
                         "Projection" => {
-                            builder =
-                                builder.set_projection(super::super::protocol_serde::shape_projection::de_projection(tokens, _value, depth + 1)?);
+                            builder = builder.set_projection(super::super::protocol_serde::shape_projection::de_projection(tokens, _value, depth + 1)?);
                         }
                         "VectorAttribute" => {
                             builder = builder.set_vector_attribute(
-                                super::super::protocol_serde::shape_vector_attribute_definition::de_vector_attribute_definition(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_vector_attribute_definition::de_vector_attribute_definition(tokens, _value, depth + 1)?,
                             );
                         }
                         "Dimensions" => {

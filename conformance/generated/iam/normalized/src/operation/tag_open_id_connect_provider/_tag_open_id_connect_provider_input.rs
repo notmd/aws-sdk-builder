@@ -82,11 +82,9 @@ impl TagOpenIdConnectProviderInputBuilder {
         super::super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderInput {
-                open_id_connect_provider_arn: self.open_id_connect_provider_arn,
-                tags: self.tags,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderInput {
+            open_id_connect_provider_arn: self.open_id_connect_provider_arn,
+            tags: self.tags,
+        })
     }
 }

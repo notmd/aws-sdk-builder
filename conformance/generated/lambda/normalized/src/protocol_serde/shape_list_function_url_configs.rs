@@ -15,7 +15,11 @@ pub fn de_list_function_url_configs_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::list_function_url_configs::ListFunctionUrlConfigsError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::list_function_url_configs::ListFunctionUrlConfigsError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -45,11 +49,8 @@ pub fn de_list_function_url_configs_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::list_function_url_configs::ListFunctionUrlConfigsError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_function_url_configs::ListFunctionUrlConfigsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -78,9 +79,8 @@ pub fn de_list_function_url_configs_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::list_function_url_configs::ListFunctionUrlConfigsError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_function_url_configs::ListFunctionUrlConfigsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -139,21 +139,23 @@ pub(crate) fn de_list_function_url_configs(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "FunctionUrlConfigs" => {
-                    builder = builder.set_function_url_configs(
-                        super::super::protocol_serde::shape_function_url_config_list::de_function_url_config_list(tokens, _value, depth + 1)?,
-                    );
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "FunctionUrlConfigs" => {
+                        builder = builder.set_function_url_configs(
+                            super::super::protocol_serde::shape_function_url_config_list::de_function_url_config_list(tokens, _value, depth + 1)?,
+                        );
+                    }
+                    "NextMarker" => {
+                        builder = builder.set_next_marker(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?,
+                        );
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                "NextMarker" => {
-                    builder = builder.set_next_marker(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

@@ -20,34 +20,30 @@ pub fn de_describe_conformance_pack_status_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidLimitException" => {
-            super::super::operation::describe_conformance_pack_status::DescribeConformancePackStatusError::InvalidLimitException({
+        "InvalidLimitException" => super::super::operation::describe_conformance_pack_status::DescribeConformancePackStatusError::InvalidLimitException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidLimitExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::describe_conformance_pack_status::DescribeConformancePackStatusError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::InvalidLimitExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::describe_conformance_pack_status::DescribeConformancePackStatusError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidNextTokenException" => {
             super::super::operation::describe_conformance_pack_status::DescribeConformancePackStatusError::InvalidNextTokenException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::describe_conformance_pack_status::DescribeConformancePackStatusError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::describe_conformance_pack_status::DescribeConformancePackStatusError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };

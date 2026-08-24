@@ -48,10 +48,8 @@ impl DeleteRetentionConfigurationInputBuilder {
         super::super::super::operation::delete_retention_configuration::DeleteRetentionConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_retention_configuration::DeleteRetentionConfigurationInput {
-                retention_configuration_name: self.retention_configuration_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_retention_configuration::DeleteRetentionConfigurationInput {
+            retention_configuration_name: self.retention_configuration_name,
+        })
     }
 }

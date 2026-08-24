@@ -22,9 +22,11 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "taskProperties" => {
-                            builder = builder.set_task_properties(
-                                super::super::protocol_serde::shape_list_ecs_task_details::de_list_ecs_task_details(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_task_properties(super::super::protocol_serde::shape_list_ecs_task_details::de_list_ecs_task_details(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

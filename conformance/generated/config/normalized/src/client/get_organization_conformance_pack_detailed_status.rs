@@ -16,6 +16,8 @@ impl super::Client {
         &self,
     ) -> super::super::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusFluentBuilder
     {
-        super::super::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusFluentBuilder::new(self.handle.clone())
+        super::super::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

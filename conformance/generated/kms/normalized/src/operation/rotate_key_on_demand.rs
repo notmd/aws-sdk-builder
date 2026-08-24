@@ -255,9 +255,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for RotateKeyOnD
             );
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_rotate_key_on_demand::ser_rotate_key_on_demand_input(
-            &input,
-        )?);
+        let body =
+            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_rotate_key_on_demand::ser_rotate_key_on_demand_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);

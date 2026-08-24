@@ -57,9 +57,7 @@ impl GetComplianceSummaryByResourceTypeFluentBuilder {
         }
     }
     /// Access the GetComplianceSummaryByResourceType as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,11 +87,7 @@ impl GetComplianceSummaryByResourceTypeFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceType::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        super::super::super::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceType::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

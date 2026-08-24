@@ -39,10 +39,7 @@ impl DeleteRequestBuilder {
         self
     }
     /// <p>A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema.</p>
-    pub fn set_key(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::AttributeValue>>,
-    ) -> Self {
+    pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::AttributeValue>>) -> Self {
         self.key = input;
         self
     }

@@ -80,8 +80,7 @@ impl TestTransformerInputBuilder {
     /// Consumes the builder and constructs a [`TestTransformerInput`](crate::operation::test_transformer::TestTransformerInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::test_transformer::TestTransformerInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::test_transformer::TestTransformerInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::test_transformer::TestTransformerInput {
             transformer_config: self.transformer_config,
             log_event_messages: self.log_event_messages,

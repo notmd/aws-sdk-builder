@@ -12,8 +12,7 @@ impl ::aws_types::request_id::RequestId for SetSecurityTokenServicePreferencesOu
 }
 impl SetSecurityTokenServicePreferencesOutput {
     /// Creates a new builder-style object to manufacture [`SetSecurityTokenServicePreferencesOutput`](crate::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferencesOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesOutputBuilder {
+    pub fn builder() -> super::super::super::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesOutputBuilder {
         super::super::super::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesOutputBuilder::default()
     }
 }

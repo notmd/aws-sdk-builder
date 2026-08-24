@@ -23,9 +23,8 @@ impl DisassociateSourceFromS3TableIntegration {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError>(
-                )
-                .expect("correct error type")
+                err.downcast::<super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError>()
+                    .expect("correct error type")
             })
         };
         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
@@ -214,9 +213,13 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for Disassoci
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            super::super::protocol_serde::shape_disassociate_source_from_s3_table_integration::de_disassociate_source_from_s3_table_integration_http_error(status, headers, body)
+            super::super::protocol_serde::shape_disassociate_source_from_s3_table_integration::de_disassociate_source_from_s3_table_integration_http_error(
+                status, headers, body,
+            )
         } else {
-            super::super::protocol_serde::shape_disassociate_source_from_s3_table_integration::de_disassociate_source_from_s3_table_integration_http_response(status, headers, body)
+            super::super::protocol_serde::shape_disassociate_source_from_s3_table_integration::de_disassociate_source_from_s3_table_integration_http_response(
+                status, headers, body,
+            )
         };
         super::super::protocol_serde::type_erase_result(parse_result)
     }
@@ -265,7 +268,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for Disassociate
             );
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_disassociate_source_from_s3_table_integration::ser_disassociate_source_from_s3_table_integration_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(
+            super::super::protocol_serde::shape_disassociate_source_from_s3_table_integration::ser_disassociate_source_from_s3_table_integration_input(
+                &input,
+            )?,
+        );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);

@@ -16,8 +16,6 @@ impl super::Client {
     pub fn describe_conformance_pack_compliance(
         &self,
     ) -> super::super::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceFluentBuilder {
-        super::super::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceFluentBuilder::new(self.handle.clone())
     }
 }

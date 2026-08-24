@@ -60,10 +60,7 @@ impl CountTokensOutputBuilder {
     /// Consumes the builder and constructs a [`CountTokensOutput`](crate::operation::count_tokens::CountTokensOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`input_tokens`](crate::operation::count_tokens::builders::CountTokensOutputBuilder::input_tokens)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::count_tokens::CountTokensOutput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::count_tokens::CountTokensOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::count_tokens::CountTokensOutput {
             input_tokens: self.input_tokens.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

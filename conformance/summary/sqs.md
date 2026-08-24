@@ -3,7 +3,25 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sqs
-**Progress:** `294/294` files compared · `187` matched · `105` mismatches · `2` missing · `0` extra · `63.61%` match (100.00% means fully matched)
+**Progress:** `294/294` files compared · `229` matched · `64` mismatches · `1` missing · `0` extra · `77.89%` match (100.00% means fully matched)
+
+### `src/aws_query_compatible_errors.rs`
+
+```diff
+--- reference/src/aws_query_compatible_errors.rs
++++ generated/src/aws_query_compatible_errors.rs
+@@ -12,8 +12,8 @@
+ /// Obtains custom error code and error type from the given `headers`.
+ ///
+ /// Looks up a value for the `X_AMZN_QUERY_ERROR` header and if found, the value should be in the
+-/// form of `<error code>;<error type>`. The function then splits it into two parts and returns
+-/// a (error code, error type) as a tuple.
++/// form of `<error code>;<error type>`. The function then splits it into two parts and returns a
++/// (error code, error type) as a tuple.
+ ///
+ /// Any execution path besides the above happy path will yield a `None`.
+ pub fn parse_aws_query_compatible_error(headers: &Headers) -> Option<(&str, &str)> {
+```
 
 ### `src/client/change_message_visibility.rs`
 
@@ -176,37 +194,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn set_queue_attributes(&self) -> super::super::operation::set_queue_attributes::builders::SetQueueAttributesFluentBuilder {
 ```
 
-### `src/config/endpoint.rs`
-
-```diff
---- reference/src/config/endpoint.rs
-+++ generated/src/config/endpoint.rs
-@@ -29,7 +29,10 @@
- /// Endpoint resolver trait specific to Amazon Simple Queue Service
- pub trait ResolveEndpoint: ::std::marker::Send + ::std::marker::Sync + ::std::fmt::Debug {
-     /// Resolve an endpoint with the given parameters
--    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
-+    fn resolve_endpoint<'a>(
-+        &'a self,
-+        params: &'a super::super::config::endpoint::Params,
-+    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
-
-     /// Convert this service-specific resolver into a `SharedEndpointResolver`
-     ///
-@@ -292,7 +295,10 @@
- }
-
- impl super::super::config::endpoint::ResolveEndpoint for DefaultResolver {
--    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
-+    fn resolve_endpoint<'a>(
-+        &'a self,
-+        params: &'a super::super::config::endpoint::Params,
-+    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
-         // Check single-entry cache (lock-free read via ArcSwap)
-         let cached = self.endpoint_cache.load();
-         if let Some((cached_params, cached_endpoint)) = cached.as_ref() {
-```
-
 ### `src/operation/add_permission.rs`
 
 ```diff
@@ -221,26 +208,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_add_permission::ser_add_permission_input(&input)?);
-```
-
-### `src/operation/cancel_message_move_task/_cancel_message_move_task_input.rs`
-
-```diff
---- reference/src/operation/cancel_message_move_task/_cancel_message_move_task_input.rs
-+++ generated/src/operation/cancel_message_move_task/_cancel_message_move_task_input.rs
-@@ -44,8 +44,10 @@
-     /// Consumes the builder and constructs a [`CancelMessageMoveTaskInput`](crate::operation::cancel_message_move_task::CancelMessageMoveTaskInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::cancel_message_move_task::CancelMessageMoveTaskInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::cancel_message_move_task::CancelMessageMoveTaskInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::cancel_message_move_task::CancelMessageMoveTaskInput {
-             task_handle: self.task_handle,
-         })
 ```
 
 ### `src/operation/cancel_message_move_task.rs`
@@ -291,152 +258,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          let body = ::aws_smithy_types::body::SdkBody::from(
 ```
 
-### `src/operation/change_message_visibility_batch/_change_message_visibility_batch_input.rs`
-
-```diff
---- reference/src/operation/change_message_visibility_batch/_change_message_visibility_batch_input.rs
-+++ generated/src/operation/change_message_visibility_batch/_change_message_visibility_batch_input.rs
-@@ -68,7 +68,10 @@
-         self
-     }
-     /// <p>Lists the receipt handles of the messages for which the visibility timeout must be changed.</p>
--    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchRequestEntry>>) -> Self {
-+    pub fn set_entries(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchRequestEntry>>,
-+    ) -> Self {
-         self.entries = input;
-         self
-     }
-@@ -83,9 +86,11 @@
-         super::super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchInput {
--            queue_url: self.queue_url,
--            entries: self.entries,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchInput {
-+                queue_url: self.queue_url,
-+                entries: self.entries,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/change_message_visibility_batch/_change_message_visibility_batch_output.rs`
-
-```diff
---- reference/src/operation/change_message_visibility_batch/_change_message_visibility_batch_output.rs
-+++ generated/src/operation/change_message_visibility_batch/_change_message_visibility_batch_output.rs
-@@ -55,7 +55,10 @@
-         self
-     }
-     /// <p>A list of <code> <code>ChangeMessageVisibilityBatchResultEntry</code> </code> items.</p>
--    pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchResultEntry>>) -> Self {
-+    pub fn set_successful(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchResultEntry>>,
-+    ) -> Self {
-         self.successful = input;
-         self
-     }
-@@ -102,20 +105,22 @@
-         super::super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchOutput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchOutput {
--            successful: self.successful.ok_or_else(|| {
--                ::aws_smithy_types::error::operation::BuildError::missing_field(
--                    "successful",
--                    "successful was not specified but it is required when building ChangeMessageVisibilityBatchOutput",
--                )
--            })?,
--            failed: self.failed.ok_or_else(|| {
--                ::aws_smithy_types::error::operation::BuildError::missing_field(
--                    "failed",
--                    "failed was not specified but it is required when building ChangeMessageVisibilityBatchOutput",
--                )
--            })?,
--            _request_id: self._request_id,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchOutput {
-+                successful: self.successful.ok_or_else(|| {
-+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                        "successful",
-+                        "successful was not specified but it is required when building ChangeMessageVisibilityBatchOutput",
-+                    )
-+                })?,
-+                failed: self.failed.ok_or_else(|| {
-+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                        "failed",
-+                        "failed was not specified but it is required when building ChangeMessageVisibilityBatchOutput",
-+                    )
-+                })?,
-+                _request_id: self._request_id,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/change_message_visibility_batch/builders.rs`
-
-```diff
---- reference/src/operation/change_message_visibility_batch/builders.rs
-+++ generated/src/operation/change_message_visibility_batch/builders.rs
-@@ -83,11 +83,12 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatch::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
-+        let runtime_plugins =
-+            super::super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatch::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-         super::super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatch::orchestrate(&runtime_plugins, input).await
-     }
-
-@@ -138,7 +139,10 @@
-         self
-     }
-     /// <p>Lists the receipt handles of the messages for which the visibility timeout must be changed.</p>
--    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchRequestEntry>>) -> Self {
-+    pub fn set_entries(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchRequestEntry>>,
-+    ) -> Self {
-         self.inner = self.inner.set_entries(input);
-         self
-     }
-```
-
 ### `src/operation/change_message_visibility_batch.rs`
 
 ```diff
 --- reference/src/operation/change_message_visibility_batch.rs
 +++ generated/src/operation/change_message_visibility_batch.rs
-@@ -209,7 +209,9 @@
-         let parse_result = if !success && status != 200 || force_error {
-             super::super::protocol_serde::shape_change_message_visibility_batch::de_change_message_visibility_batch_http_error(status, headers, body)
-         } else {
--            super::super::protocol_serde::shape_change_message_visibility_batch::de_change_message_visibility_batch_http_response(status, headers, body)
-+            super::super::protocol_serde::shape_change_message_visibility_batch::de_change_message_visibility_batch_http_response(
-+                status, headers, body,
-+            )
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -256,8 +258,6 @@
+@@ -256,8 +256,6 @@
                  ::http_1x::header::HeaderName::from_static("x-amz-target"),
                  "AmazonSQS.ChangeMessageVisibilityBatch",
              );
@@ -445,64 +272,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
-```
-
-### `src/operation/create_queue/_create_queue_input.rs`
-
-```diff
---- reference/src/operation/create_queue/_create_queue_input.rs
-+++ generated/src/operation/create_queue/_create_queue_input.rs
-@@ -240,7 +240,9 @@
-     /// </ul>
-     /// <p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
-     /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
--    pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
-+    pub fn attributes(
-+        &self,
-+    ) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
-         self.attributes.as_ref()
-     }
-     /// <p>Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-tags.html">Tagging Your Amazon SQS Queues</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-@@ -626,7 +628,9 @@
-     /// </ul>
-     /// <p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
-     /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
--    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
-+    pub fn get_attributes(
-+        &self,
-+    ) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
-         &self.attributes
-     }
-     /// Adds a key-value pair to `tags`.
-@@ -695,7 +699,9 @@
-         &self.tags
-     }
-     /// Consumes the builder and constructs a [`CreateQueueInput`](crate::operation::create_queue::CreateQueueInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::create_queue::CreateQueueInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::create_queue::CreateQueueInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::create_queue::CreateQueueInput {
-             queue_name: self.queue_name,
-             attributes: self.attributes,
-```
-
-### `src/operation/create_queue/builders.rs`
-
-```diff
---- reference/src/operation/create_queue/builders.rs
-+++ generated/src/operation/create_queue/builders.rs
-@@ -476,7 +476,9 @@
-     /// </ul>
-     /// <p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
-     /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
--    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
-+    pub fn get_attributes(
-+        &self,
-+    ) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
-         self.inner.get_attributes()
-     }
-     ///
 ```
 
 ### `src/operation/create_queue.rs`
@@ -545,64 +314,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      InvalidSecurity(super::super::types::error::InvalidSecurity),
 ```
 
-### `src/operation/delete_message_batch/_delete_message_batch_input.rs`
-
-```diff
---- reference/src/operation/delete_message_batch/_delete_message_batch_input.rs
-+++ generated/src/operation/delete_message_batch/_delete_message_batch_input.rs
-@@ -79,8 +79,10 @@
-     /// Consumes the builder and constructs a [`DeleteMessageBatchInput`](crate::operation::delete_message_batch::DeleteMessageBatchInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::delete_message_batch::DeleteMessageBatchInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::delete_message_batch::DeleteMessageBatchInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::delete_message_batch::DeleteMessageBatchInput {
-             queue_url: self.queue_url,
-             entries: self.entries,
-```
-
-### `src/operation/delete_message_batch/_delete_message_batch_output.rs`
-
-```diff
---- reference/src/operation/delete_message_batch/_delete_message_batch_output.rs
-+++ generated/src/operation/delete_message_batch/_delete_message_batch_output.rs
-@@ -55,7 +55,10 @@
-         self
-     }
-     /// <p>A list of <code> <code>DeleteMessageBatchResultEntry</code> </code> items.</p>
--    pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMessageBatchResultEntry>>) -> Self {
-+    pub fn set_successful(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMessageBatchResultEntry>>,
-+    ) -> Self {
-         self.successful = input;
-         self
-     }
-@@ -98,8 +101,10 @@
-     /// - [`failed`](crate::operation::delete_message_batch::builders::DeleteMessageBatchOutputBuilder::failed)
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::delete_message_batch::DeleteMessageBatchOutput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::delete_message_batch::DeleteMessageBatchOutput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::delete_message_batch::DeleteMessageBatchOutput {
-             successful: self.successful.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
-```
-
 ### `src/operation/delete_message_batch.rs`
 
 ```diff
 --- reference/src/operation/delete_message_batch.rs
 +++ generated/src/operation/delete_message_batch.rs
-@@ -253,12 +253,11 @@
+@@ -253,8 +253,6 @@
                  ::http_1x::header::HeaderName::from_static("x-amz-target"),
                  "AmazonSQS.DeleteMessageBatch",
              );
@@ -610,32 +327,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_message_batch::ser_delete_message_batch_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_message_batch::ser_delete_message_batch_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/delete_queue/_delete_queue_input.rs`
-
-```diff
---- reference/src/operation/delete_queue/_delete_queue_input.rs
-+++ generated/src/operation/delete_queue/_delete_queue_input.rs
-@@ -48,7 +48,9 @@
-         &self.queue_url
-     }
-     /// Consumes the builder and constructs a [`DeleteQueueInput`](crate::operation::delete_queue::DeleteQueueInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::delete_queue::DeleteQueueInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::delete_queue::DeleteQueueInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::delete_queue::DeleteQueueInput { queue_url: self.queue_url })
-     }
- }
+         let body =
 ```
 
 ### `src/operation/delete_queue.rs`
@@ -654,61 +346,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_queue::ser_delete_queue_input(&input)?);
 ```
 
-### `src/operation/get_queue_attributes/_get_queue_attributes_input.rs`
-
-```diff
---- reference/src/operation/get_queue_attributes/_get_queue_attributes_input.rs
-+++ generated/src/operation/get_queue_attributes/_get_queue_attributes_input.rs
-@@ -564,8 +564,10 @@
-     /// Consumes the builder and constructs a [`GetQueueAttributesInput`](crate::operation::get_queue_attributes::GetQueueAttributesInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_queue_attributes::GetQueueAttributesInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_queue_attributes::GetQueueAttributesInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_queue_attributes::GetQueueAttributesInput {
-             queue_url: self.queue_url,
-             attribute_names: self.attribute_names,
-```
-
-### `src/operation/get_queue_attributes/_get_queue_attributes_output.rs`
-
-```diff
---- reference/src/operation/get_queue_attributes/_get_queue_attributes_output.rs
-+++ generated/src/operation/get_queue_attributes/_get_queue_attributes_output.rs
-@@ -10,7 +10,9 @@
- }
- impl GetQueueAttributesOutput {
-     /// <p>A map of attributes to their respective values.</p>
--    pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
-+    pub fn attributes(
-+        &self,
-+    ) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
-         self.attributes.as_ref()
-     }
- }
-@@ -54,7 +56,9 @@
-         self
-     }
-     /// <p>A map of attributes to their respective values.</p>
--    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
-+    pub fn get_attributes(
-+        &self,
-+    ) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
-         &self.attributes
-     }
-     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
-```
-
 ### `src/operation/get_queue_attributes.rs`
 
 ```diff
 --- reference/src/operation/get_queue_attributes.rs
 +++ generated/src/operation/get_queue_attributes.rs
-@@ -253,12 +253,11 @@
+@@ -253,8 +253,6 @@
                  ::http_1x::header::HeaderName::from_static("x-amz-target"),
                  "AmazonSQS.GetQueueAttributes",
              );
@@ -716,33 +359,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_queue_attributes::ser_get_queue_attributes_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_queue_attributes::ser_get_queue_attributes_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/get_queue_url/_get_queue_url_input.rs`
-
-```diff
---- reference/src/operation/get_queue_url/_get_queue_url_input.rs
-+++ generated/src/operation/get_queue_url/_get_queue_url_input.rs
-@@ -64,7 +64,10 @@
-         &self.queue_owner_aws_account_id
-     }
-     /// Consumes the builder and constructs a [`GetQueueUrlInput`](crate::operation::get_queue_url::GetQueueUrlInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_queue_url::GetQueueUrlInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::get_queue_url::GetQueueUrlInput, ::aws_smithy_types::error::operation::BuildError>
-+    {
-         ::std::result::Result::Ok(super::super::super::operation::get_queue_url::GetQueueUrlInput {
-             queue_name: self.queue_name,
-             queue_owner_aws_account_id: self.queue_owner_aws_account_id,
+         let body =
 ```
 
 ### `src/operation/get_queue_url.rs`
@@ -761,66 +378,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_queue_url::ser_get_queue_url_input(&input)?);
 ```
 
-### `src/operation/list_dead_letter_source_queues/_list_dead_letter_source_queues_input.rs`
-
-```diff
---- reference/src/operation/list_dead_letter_source_queues/_list_dead_letter_source_queues_input.rs
-+++ generated/src/operation/list_dead_letter_source_queues/_list_dead_letter_source_queues_input.rs
-@@ -96,10 +96,12 @@
-         super::super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesInput {
--            queue_url: self.queue_url,
--            next_token: self.next_token,
--            max_results: self.max_results,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesInput {
-+                queue_url: self.queue_url,
-+                next_token: self.next_token,
-+                max_results: self.max_results,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/list_dead_letter_source_queues/_list_dead_letter_source_queues_output.rs`
-
-```diff
---- reference/src/operation/list_dead_letter_source_queues/_list_dead_letter_source_queues_output.rs
-+++ generated/src/operation/list_dead_letter_source_queues/_list_dead_letter_source_queues_output.rs
-@@ -94,15 +94,17 @@
-         super::super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesOutput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesOutput {
--            queue_urls: self.queue_urls.ok_or_else(|| {
--                ::aws_smithy_types::error::operation::BuildError::missing_field(
--                    "queue_urls",
--                    "queue_urls was not specified but it is required when building ListDeadLetterSourceQueuesOutput",
--                )
--            })?,
--            next_token: self.next_token,
--            _request_id: self._request_id,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesOutput {
-+                queue_urls: self.queue_urls.ok_or_else(|| {
-+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                        "queue_urls",
-+                        "queue_urls was not specified but it is required when building ListDeadLetterSourceQueuesOutput",
-+                    )
-+                })?,
-+                next_token: self.next_token,
-+                _request_id: self._request_id,
-+            },
-+        )
-     }
- }
-```
-
 ### `src/operation/list_dead_letter_source_queues.rs`
 
 ```diff
@@ -837,32 +394,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          let body = ::aws_smithy_types::body::SdkBody::from(
 ```
 
-### `src/operation/list_message_move_tasks/_list_message_move_tasks_input.rs`
-
-```diff
---- reference/src/operation/list_message_move_tasks/_list_message_move_tasks_input.rs
-+++ generated/src/operation/list_message_move_tasks/_list_message_move_tasks_input.rs
-@@ -65,8 +65,10 @@
-     /// Consumes the builder and constructs a [`ListMessageMoveTasksInput`](crate::operation::list_message_move_tasks::ListMessageMoveTasksInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_message_move_tasks::ListMessageMoveTasksInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_message_move_tasks::ListMessageMoveTasksInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_message_move_tasks::ListMessageMoveTasksInput {
-             source_arn: self.source_arn,
-             max_results: self.max_results,
-```
-
 ### `src/operation/list_message_move_tasks.rs`
 
 ```diff
 --- reference/src/operation/list_message_move_tasks.rs
 +++ generated/src/operation/list_message_move_tasks.rs
-@@ -256,13 +256,11 @@
+@@ -256,8 +256,6 @@
                  ::http_1x::header::HeaderName::from_static("x-amz-target"),
                  "AmazonSQS.ListMessageMoveTasks",
              );
@@ -870,15 +407,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_message_move_tasks::ser_list_message_move_tasks_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_list_message_move_tasks::ser_list_message_move_tasks_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_message_move_tasks::ser_list_message_move_tasks_input(
 ```
 
 ### `src/operation/list_queue_tags.rs`
@@ -897,41 +426,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_queue_tags::ser_list_queue_tags_input(&input)?);
 ```
 
-### `src/operation/list_queues/_list_queues_input.rs`
-
-```diff
---- reference/src/operation/list_queues/_list_queues_input.rs
-+++ generated/src/operation/list_queues/_list_queues_input.rs
-@@ -89,7 +89,9 @@
-         &self.max_results
-     }
-     /// Consumes the builder and constructs a [`ListQueuesInput`](crate::operation::list_queues::ListQueuesInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_queues::ListQueuesInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::list_queues::ListQueuesInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::list_queues::ListQueuesInput {
-             queue_name_prefix: self.queue_name_prefix,
-             next_token: self.next_token,
-```
-
 ### `src/operation/list_queues.rs`
 
 ```diff
 --- reference/src/operation/list_queues.rs
 +++ generated/src/operation/list_queues.rs
-@@ -225,7 +225,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::list_queues::ListQueuesInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::list_queues::ListQueuesInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -256,8 +258,6 @@
+@@ -256,8 +256,6 @@
                  ::http_1x::header::HeaderName::from_static("x-amz-target"),
                  "AmazonSQS.ListQueues",
              );
@@ -942,41 +442,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_queues::ser_list_queues_input(&input)?);
 ```
 
-### `src/operation/purge_queue/_purge_queue_input.rs`
-
-```diff
---- reference/src/operation/purge_queue/_purge_queue_input.rs
-+++ generated/src/operation/purge_queue/_purge_queue_input.rs
-@@ -48,7 +48,9 @@
-         &self.queue_url
-     }
-     /// Consumes the builder and constructs a [`PurgeQueueInput`](crate::operation::purge_queue::PurgeQueueInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::purge_queue::PurgeQueueInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::purge_queue::PurgeQueueInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::purge_queue::PurgeQueueInput { queue_url: self.queue_url })
-     }
- }
-```
-
 ### `src/operation/purge_queue.rs`
 
 ```diff
 --- reference/src/operation/purge_queue.rs
 +++ generated/src/operation/purge_queue.rs
-@@ -220,7 +220,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::purge_queue::PurgeQueueInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::purge_queue::PurgeQueueInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -251,8 +253,6 @@
+@@ -251,8 +251,6 @@
                  ::http_1x::header::HeaderName::from_static("x-amz-target"),
                  "AmazonSQS.PurgeQueue",
              );
@@ -1003,45 +474,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn attribute_names(&self) -> &[super::super::super::types::QueueAttributeName] {
          self.attribute_names.as_deref().unwrap_or_default()
      }
-@@ -536,7 +536,9 @@
-     /// <li>
-     /// <p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li>
-     /// </ul>
--    pub fn get_message_system_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>> {
-+    pub fn get_message_system_attribute_names(
-+        &self,
-+    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>> {
-         &self.message_system_attribute_names
-     }
-     /// Appends an item to `message_attribute_names`.
-@@ -759,7 +761,8 @@
-     /// Consumes the builder and constructs a [`ReceiveMessageInput`](crate::operation::receive_message::ReceiveMessageInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::receive_message::ReceiveMessageInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<super::super::super::operation::receive_message::ReceiveMessageInput, ::aws_smithy_types::error::operation::BuildError>
-+    {
-         ::std::result::Result::Ok(super::super::super::operation::receive_message::ReceiveMessageInput {
-             queue_url: self.queue_url,
-             attribute_names: self.attribute_names,
-```
-
-### `src/operation/receive_message/builders.rs`
-
-```diff
---- reference/src/operation/receive_message/builders.rs
-+++ generated/src/operation/receive_message/builders.rs
-@@ -363,7 +363,9 @@
-     /// <li>
-     /// <p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li>
-     /// </ul>
--    pub fn get_message_system_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>> {
-+    pub fn get_message_system_attribute_names(
-+        &self,
-+    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>> {
-         self.inner.get_message_system_attribute_names()
-     }
-     ///
 ```
 
 ### `src/operation/receive_message.rs`
@@ -1070,31 +502,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_receive_message::ser_receive_message_input(&input)?);
 ```
 
-### `src/operation/remove_permission/_remove_permission_input.rs`
-
-```diff
---- reference/src/operation/remove_permission/_remove_permission_input.rs
-+++ generated/src/operation/remove_permission/_remove_permission_input.rs
-@@ -72,7 +72,10 @@
-     /// Consumes the builder and constructs a [`RemovePermissionInput`](crate::operation::remove_permission::RemovePermissionInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::remove_permission::RemovePermissionInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::remove_permission::RemovePermissionInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::remove_permission::RemovePermissionInput {
-             queue_url: self.queue_url,
-             label: self.label,
-```
-
 ### `src/operation/remove_permission.rs`
 
 ```diff
 --- reference/src/operation/remove_permission.rs
 +++ generated/src/operation/remove_permission.rs
-@@ -258,11 +258,11 @@
+@@ -258,8 +258,6 @@
                  ::http_1x::header::HeaderName::from_static("x-amz-target"),
                  "AmazonSQS.RemovePermission",
              );
@@ -1102,162 +515,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_remove_permission::ser_remove_permission_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_remove_permission::ser_remove_permission_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/send_message/_send_message_input.rs`
-
-```diff
---- reference/src/operation/send_message/_send_message_input.rs
-+++ generated/src/operation/send_message/_send_message_input.rs
-@@ -18,7 +18,8 @@
-     /// </note>
-     pub delay_seconds: ::std::option::Option<i32>,
-     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
--    pub message_attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::MessageAttributeValue>>,
-+    pub message_attributes:
-+        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::MessageAttributeValue>>,
-     /// <p>The message system attribute to send. Each message system attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p><important>
-     /// <ul>
-     /// <li>
-@@ -28,7 +29,10 @@
-     /// </ul>
-     /// </important>
-     pub message_system_attributes: ::std::option::Option<
--        ::std::collections::HashMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>,
-+        ::std::collections::HashMap<
-+            super::super::super::types::MessageSystemAttributeNameForSends,
-+            super::super::super::types::MessageSystemAttributeValue,
-+        >,
-     >,
-     /// <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
-     /// <p>The token used for deduplication of sent messages. If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, any messages sent with the same <code>MessageDeduplicationId</code> are accepted successfully but aren't delivered during the 5-minute deduplication interval. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html"> Exactly-once processing</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-@@ -107,7 +111,10 @@
-     pub fn message_system_attributes(
-         &self,
-     ) -> ::std::option::Option<
--        &::std::collections::HashMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>,
-+        &::std::collections::HashMap<
-+            super::super::super::types::MessageSystemAttributeNameForSends,
-+            super::super::super::types::MessageSystemAttributeValue,
-+        >,
-     > {
-         self.message_system_attributes.as_ref()
-     }
-@@ -169,9 +176,13 @@
-     pub(crate) queue_url: ::std::option::Option<::std::string::String>,
-     pub(crate) message_body: ::std::option::Option<::std::string::String>,
-     pub(crate) delay_seconds: ::std::option::Option<i32>,
--    pub(crate) message_attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::MessageAttributeValue>>,
-+    pub(crate) message_attributes:
-+        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::MessageAttributeValue>>,
-     pub(crate) message_system_attributes: ::std::option::Option<
--        ::std::collections::HashMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>,
-+        ::std::collections::HashMap<
-+            super::super::super::types::MessageSystemAttributeNameForSends,
-+            super::super::super::types::MessageSystemAttributeValue,
-+        >,
-     >,
-     pub(crate) message_deduplication_id: ::std::option::Option<::std::string::String>,
-     pub(crate) message_group_id: ::std::option::Option<::std::string::String>,
-@@ -247,7 +258,11 @@
-     /// To override the contents of this collection use [`set_message_attributes`](Self::set_message_attributes).
-     ///
-     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
--    pub fn message_attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::MessageAttributeValue) -> Self {
-+    pub fn message_attributes(
-+        mut self,
-+        k: impl ::std::convert::Into<::std::string::String>,
-+        v: super::super::super::types::MessageAttributeValue,
-+    ) -> Self {
-         let mut hash_map = self.message_attributes.unwrap_or_default();
-         hash_map.insert(k.into(), v);
-         self.message_attributes = ::std::option::Option::Some(hash_map);
-@@ -300,7 +315,10 @@
-     pub fn set_message_system_attributes(
-         mut self,
-         input: ::std::option::Option<
--            ::std::collections::HashMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>,
-+            ::std::collections::HashMap<
-+                super::super::super::types::MessageSystemAttributeNameForSends,
-+                super::super::super::types::MessageSystemAttributeValue,
-+            >,
-         >,
-     ) -> Self {
-         self.message_system_attributes = input;
-@@ -317,7 +335,10 @@
-     pub fn get_message_system_attributes(
-         &self,
-     ) -> &::std::option::Option<
--        ::std::collections::HashMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>,
-+        ::std::collections::HashMap<
-+            super::super::super::types::MessageSystemAttributeNameForSends,
-+            super::super::super::types::MessageSystemAttributeValue,
-+        >,
-     > {
-         &self.message_system_attributes
-     }
-@@ -455,7 +476,9 @@
-         &self.message_group_id
-     }
-     /// Consumes the builder and constructs a [`SendMessageInput`](crate::operation::send_message::SendMessageInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::send_message::SendMessageInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::send_message::SendMessageInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::send_message::SendMessageInput {
-             queue_url: self.queue_url,
-             message_body: self.message_body,
-```
-
-### `src/operation/send_message/builders.rs`
-
-```diff
---- reference/src/operation/send_message/builders.rs
-+++ generated/src/operation/send_message/builders.rs
-@@ -181,7 +181,11 @@
-     /// To override the contents of this collection use [`set_message_attributes`](Self::set_message_attributes).
-     ///
-     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
--    pub fn message_attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::MessageAttributeValue) -> Self {
-+    pub fn message_attributes(
-+        mut self,
-+        k: impl ::std::convert::Into<::std::string::String>,
-+        v: super::super::super::types::MessageAttributeValue,
-+    ) -> Self {
-         self.inner = self.inner.message_attributes(k.into(), v);
-         self
-     }
-@@ -231,7 +235,10 @@
-     pub fn set_message_system_attributes(
-         mut self,
-         input: ::std::option::Option<
--            ::std::collections::HashMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>,
-+            ::std::collections::HashMap<
-+                super::super::super::types::MessageSystemAttributeNameForSends,
-+                super::super::super::types::MessageSystemAttributeValue,
-+            >,
-         >,
-     ) -> Self {
-         self.inner = self.inner.set_message_system_attributes(input);
-@@ -248,7 +255,10 @@
-     pub fn get_message_system_attributes(
-         &self,
-     ) -> &::std::option::Option<
--        ::std::collections::HashMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>,
-+        ::std::collections::HashMap<
-+            super::super::super::types::MessageSystemAttributeNameForSends,
-+            super::super::super::types::MessageSystemAttributeValue,
-+        >,
-     > {
-         self.inner.get_message_system_attributes()
-     }
+         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_remove_permission::ser_remove_permission_input(&input)?);
 ```
 
 ### `src/operation/send_message.rs`
@@ -1276,50 +534,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_send_message::ser_send_message_input(&input)?);
 ```
 
-### `src/operation/send_message_batch/_send_message_batch_input.rs`
-
-```diff
---- reference/src/operation/send_message_batch/_send_message_batch_input.rs
-+++ generated/src/operation/send_message_batch/_send_message_batch_input.rs
-@@ -79,7 +79,10 @@
-     /// Consumes the builder and constructs a [`SendMessageBatchInput`](crate::operation::send_message_batch::SendMessageBatchInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::send_message_batch::SendMessageBatchInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::send_message_batch::SendMessageBatchInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::send_message_batch::SendMessageBatchInput {
-             queue_url: self.queue_url,
-             entries: self.entries,
-```
-
-### `src/operation/send_message_batch/_send_message_batch_output.rs`
-
-```diff
---- reference/src/operation/send_message_batch/_send_message_batch_output.rs
-+++ generated/src/operation/send_message_batch/_send_message_batch_output.rs
-@@ -98,7 +98,10 @@
-     /// - [`failed`](crate::operation::send_message_batch::builders::SendMessageBatchOutputBuilder::failed)
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::send_message_batch::SendMessageBatchOutput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::send_message_batch::SendMessageBatchOutput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::send_message_batch::SendMessageBatchOutput {
-             successful: self.successful.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
-```
-
 ### `src/operation/send_message_batch.rs`
 
 ```diff
 --- reference/src/operation/send_message_batch.rs
 +++ generated/src/operation/send_message_batch.rs
-@@ -253,11 +253,11 @@
+@@ -253,8 +253,6 @@
                  ::http_1x::header::HeaderName::from_static("x-amz-target"),
                  "AmazonSQS.SendMessageBatch",
              );
@@ -1327,71 +547,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_send_message_batch::ser_send_message_batch_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_send_message_batch::ser_send_message_batch_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/set_queue_attributes/_set_queue_attributes_input.rs`
-
-```diff
---- reference/src/operation/set_queue_attributes/_set_queue_attributes_input.rs
-+++ generated/src/operation/set_queue_attributes/_set_queue_attributes_input.rs
-@@ -201,7 +201,9 @@
-     /// </ul>
-     /// <p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
-     /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
--    pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
-+    pub fn attributes(
-+        &self,
-+    ) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
-         self.attributes.as_ref()
-     }
- }
-@@ -534,14 +536,18 @@
-     /// </ul>
-     /// <p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
-     /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
--    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
-+    pub fn get_attributes(
-+        &self,
-+    ) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
-         &self.attributes
-     }
-     /// Consumes the builder and constructs a [`SetQueueAttributesInput`](crate::operation::set_queue_attributes::SetQueueAttributesInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::set_queue_attributes::SetQueueAttributesInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::set_queue_attributes::SetQueueAttributesInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::set_queue_attributes::SetQueueAttributesInput {
-             queue_url: self.queue_url,
-             attributes: self.attributes,
-```
-
-### `src/operation/set_queue_attributes/builders.rs`
-
-```diff
---- reference/src/operation/set_queue_attributes/builders.rs
-+++ generated/src/operation/set_queue_attributes/builders.rs
-@@ -429,7 +429,9 @@
-     /// </ul>
-     /// <p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
-     /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
--    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
-+    pub fn get_attributes(
-+        &self,
-+    ) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
-         self.inner.get_attributes()
-     }
- }
+         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_send_message_batch::ser_send_message_batch_input(&input)?);
 ```
 
 ### `src/operation/set_queue_attributes.rs`
@@ -1399,7 +555,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/set_queue_attributes.rs
 +++ generated/src/operation/set_queue_attributes.rs
-@@ -253,12 +253,11 @@
+@@ -253,8 +253,6 @@
                  ::http_1x::header::HeaderName::from_static("x-amz-target"),
                  "AmazonSQS.SetQueueAttributes",
              );
@@ -1407,34 +563,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
--        let body =
--            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_set_queue_attributes::ser_set_queue_attributes_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_set_queue_attributes::ser_set_queue_attributes_input(
-+            &input,
-+        )?);
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/start_message_move_task/_start_message_move_task_input.rs`
-
-```diff
---- reference/src/operation/start_message_move_task/_start_message_move_task_input.rs
-+++ generated/src/operation/start_message_move_task/_start_message_move_task_input.rs
-@@ -86,8 +86,10 @@
-     /// Consumes the builder and constructs a [`StartMessageMoveTaskInput`](crate::operation::start_message_move_task::StartMessageMoveTaskInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::start_message_move_task::StartMessageMoveTaskInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::start_message_move_task::StartMessageMoveTaskInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::start_message_move_task::StartMessageMoveTaskInput {
-             source_arn: self.source_arn,
-             destination_arn: self.destination_arn,
+         let body =
 ```
 
 ### `src/operation/start_message_move_task.rs`
@@ -1442,7 +571,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/start_message_move_task.rs
 +++ generated/src/operation/start_message_move_task.rs
-@@ -261,13 +261,11 @@
+@@ -261,8 +261,6 @@
                  ::http_1x::header::HeaderName::from_static("x-amz-target"),
                  "AmazonSQS.StartMessageMoveTask",
              );
@@ -1450,78 +579,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -                _header_serialization_settings.set_default_header(builder, ::http_1x::header::HeaderName::from_static("x-amzn-query-mode"), "true");
              builder
          };
--        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_start_message_move_task::ser_start_message_move_task_input(
--            &input,
--        )?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_start_message_move_task::ser_start_message_move_task_input(&input)?,
-+        );
-         if let Some(content_length) = body.content_length() {
-             let content_length = content_length.to_string();
-             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/tag_queue/_tag_queue_input.rs`
-
-```diff
---- reference/src/operation/tag_queue/_tag_queue_input.rs
-+++ generated/src/operation/tag_queue/_tag_queue_input.rs
-@@ -69,7 +69,9 @@
-         &self.tags
-     }
-     /// Consumes the builder and constructs a [`TagQueueInput`](crate::operation::tag_queue::TagQueueInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::tag_queue::TagQueueInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::tag_queue::TagQueueInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::tag_queue::TagQueueInput {
-             queue_url: self.queue_url,
-             tags: self.tags,
-```
-
-### `src/operation/tag_queue/builders.rs`
-
-```diff
---- reference/src/operation/tag_queue/builders.rs
-+++ generated/src/operation/tag_queue/builders.rs
-@@ -43,14 +43,20 @@
-     inner: super::super::super::operation::tag_queue::builders::TagQueueInputBuilder,
-     config_override: ::std::option::Option<super::super::super::config::Builder>,
- }
--impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::tag_queue::TagQueueOutput, super::super::super::operation::tag_queue::TagQueueError>
--    for TagQueueFluentBuilder
-+impl
-+    super::super::super::client::customize::internal::CustomizableSend<
-+        super::super::super::operation::tag_queue::TagQueueOutput,
-+        super::super::super::operation::tag_queue::TagQueueError,
-+    > for TagQueueFluentBuilder
- {
-     fn send(
-         self,
-         config_override: super::super::super::config::Builder,
-     ) -> super::super::super::client::customize::internal::BoxFuture<
--        super::super::super::client::customize::internal::SendResult<super::super::super::operation::tag_queue::TagQueueOutput, super::super::super::operation::tag_queue::TagQueueError>,
-+        super::super::super::client::customize::internal::SendResult<
-+            super::super::super::operation::tag_queue::TagQueueOutput,
-+            super::super::super::operation::tag_queue::TagQueueError,
-+        >,
-     > {
-         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-     }
-@@ -100,8 +106,11 @@
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-     pub fn customize(
-         self,
--    ) -> super::super::super::client::customize::CustomizableOperation<super::super::super::operation::tag_queue::TagQueueOutput, super::super::super::operation::tag_queue::TagQueueError, Self>
--    {
-+    ) -> super::super::super::client::customize::CustomizableOperation<
-+        super::super::super::operation::tag_queue::TagQueueOutput,
-+        super::super::super::operation::tag_queue::TagQueueError,
-+        Self,
-+    > {
-         super::super::super::client::customize::CustomizableOperation::new(self)
-     }
-     pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<super::super::super::config::Builder>) -> Self {
+         let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_start_message_move_task::ser_start_message_move_task_input(
 ```
 
 ### `src/operation/tag_queue.rs`
@@ -1529,39 +587,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/tag_queue.rs
 +++ generated/src/operation/tag_queue.rs
-@@ -18,11 +18,15 @@
-             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-         >,
-     > {
--        let map_err =
--            |err: ::aws_smithy_runtime_api::client::result::SdkError<
--                ::aws_smithy_runtime_api::client::interceptors::context::Error,
--                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
--            >| { err.map_service_error(|err| err.downcast::<super::super::operation::tag_queue::TagQueueError>().expect("correct error type")) };
-+        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-+        >| {
-+            err.map_service_error(|err| {
-+                err.downcast::<super::super::operation::tag_queue::TagQueueError>()
-+                    .expect("correct error type")
-+            })
-+        };
-         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-             .await
-             .map_err(map_err)?;
-@@ -216,7 +220,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::tag_queue::TagQueueInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::tag_queue::TagQueueInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -247,8 +253,6 @@
+@@ -247,8 +247,6 @@
                  ::http_1x::header::HeaderName::from_static("x-amz-target"),
                  "AmazonSQS.TagQueue",
              );
@@ -1572,41 +598,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_queue::ser_tag_queue_input(&input)?);
 ```
 
-### `src/operation/untag_queue/_untag_queue_input.rs`
-
-```diff
---- reference/src/operation/untag_queue/_untag_queue_input.rs
-+++ generated/src/operation/untag_queue/_untag_queue_input.rs
-@@ -71,7 +71,9 @@
-         &self.tag_keys
-     }
-     /// Consumes the builder and constructs a [`UntagQueueInput`](crate::operation::untag_queue::UntagQueueInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::untag_queue::UntagQueueInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::untag_queue::UntagQueueInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::untag_queue::UntagQueueInput {
-             queue_url: self.queue_url,
-             tag_keys: self.tag_keys,
-```
-
 ### `src/operation/untag_queue.rs`
 
 ```diff
 --- reference/src/operation/untag_queue.rs
 +++ generated/src/operation/untag_queue.rs
-@@ -220,7 +220,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::untag_queue::UntagQueueInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::untag_queue::UntagQueueInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -251,8 +253,6 @@
+@@ -251,8 +251,6 @@
                  ::http_1x::header::HeaderName::from_static("x-amz-target"),
                  "AmazonSQS.UntagQueue",
              );
@@ -1679,58 +676,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +}
 ```
 
-### `src/protocol_serde/shape_batch_entry_ids_not_distinct.rs`
-
-```diff
---- reference/src/protocol_serde/shape_batch_entry_ids_not_distinct.rs
-+++ generated/src/protocol_serde/shape_batch_entry_ids_not_distinct.rs
-@@ -2,7 +2,10 @@
- pub(crate) fn de_batch_entry_ids_not_distinct_json_err(
-     _value: &[u8],
-     mut builder: super::super::types::error::builders::BatchEntryIdsNotDistinctBuilder,
--) -> ::std::result::Result<super::super::types::error::builders::BatchEntryIdsNotDistinctBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-+) -> ::std::result::Result<
-+    super::super::types::error::builders::BatchEntryIdsNotDistinctBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-     let tokens = &mut tokens_owned;
-     #[allow(unused_variables)]
-```
-
 ### `src/protocol_serde/shape_cancel_message_move_task.rs`
 
 ```diff
 --- reference/src/protocol_serde/shape_cancel_message_move_task.rs
 +++ generated/src/protocol_serde/shape_cancel_message_move_task.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::cancel_message_move_task::CancelMessageMoveTaskError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::cancel_message_move_task::CancelMessageMoveTaskError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -70,8 +74,11 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::cancel_message_move_task::CancelMessageMoveTaskError::unhandled)?;
-+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-+                    _response_body,
-+                    output,
-+                )
-+                .map_err(super::super::operation::cancel_message_move_task::CancelMessageMoveTaskError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -80,23 +87,21 @@
+@@ -80,23 +80,21 @@
              }
              tmp
          }),
@@ -1775,20 +726,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_change_message_visibility.rs
 +++ generated/src/protocol_serde/shape_change_message_visibility.rs
-@@ -15,11 +15,7 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => {
--            return Err(super::super::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled(
--                generic,
--            ))
--        }
-+        None => return Err(super::super::operation::change_message_visibility::ChangeMessageVisibilityError::unhandled(generic)),
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -54,24 +50,22 @@
+@@ -54,24 +54,22 @@
              }
              tmp
          }),
@@ -1828,7 +766,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -116,23 +110,21 @@
+@@ -116,23 +114,21 @@
              }
              tmp
          }),
@@ -1866,7 +804,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          _ => super::super::operation::change_message_visibility::ChangeMessageVisibilityError::generic(generic),
      })
  }
-@@ -163,3 +155,36 @@
+@@ -163,3 +159,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -1910,7 +848,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_change_message_visibility_batch.rs
 +++ generated/src/protocol_serde/shape_change_message_visibility_batch.rs
-@@ -20,15 +20,17 @@
+@@ -20,7 +20,7 @@
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
@@ -1919,20 +857,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::BatchEntryIdsNotDistinct({
                  #[allow(unused_mut)]
                  let mut tmp = {
-                     #[allow(unused_mut)]
-                     let mut output = super::super::types::error::builders::BatchEntryIdsNotDistinctBuilder::default();
--                    output =
--                        super::super::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(_response_body, output)
--                            .map_err(super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
-+                    output = super::super::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(
-+                        _response_body,
-+                        output,
-+                    )
-+                    .map_err(super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
-                     let output = output.meta(generic);
-                     output.build()
-                 };
-@@ -38,23 +40,21 @@
+@@ -38,23 +38,21 @@
                  tmp
              })
          }
@@ -1970,7 +895,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          "InvalidAddress" => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::InvalidAddress({
              #[allow(unused_mut)]
              let mut tmp = {
-@@ -70,23 +70,21 @@
+@@ -70,23 +68,21 @@
              }
              tmp
          }),
@@ -2008,7 +933,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          "InvalidSecurity" => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::InvalidSecurity({
              #[allow(unused_mut)]
              let mut tmp = {
-@@ -102,23 +100,21 @@
+@@ -102,23 +98,21 @@
              }
              tmp
          }),
@@ -2046,7 +971,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          "RequestThrottled" => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::RequestThrottled({
              #[allow(unused_mut)]
              let mut tmp = {
-@@ -134,7 +130,7 @@
+@@ -134,7 +128,7 @@
              }
              tmp
          }),
@@ -2055,16 +980,45 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::TooManyEntriesInBatchRequest({
                  #[allow(unused_mut)]
                  let mut tmp = {
-@@ -154,7 +150,7 @@
+@@ -154,23 +148,21 @@
                  tmp
              })
          }
 -        "AWS.SimpleQueueService.UnsupportedOperation" => {
-+        "UnsupportedOperation" => {
-             super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::UnsupportedOperation({
+-            super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::UnsupportedOperation({
++        "UnsupportedOperation" => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::UnsupportedOperation({
++            #[allow(unused_mut)]
++            let mut tmp = {
                  #[allow(unused_mut)]
-                 let mut tmp = {
-@@ -223,13 +219,15 @@
+-                let mut tmp = {
+-                    #[allow(unused_mut)]
+-                    let mut output = super::super::types::error::builders::UnsupportedOperationBuilder::default();
+-                    output = super::super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+-                        .map_err(super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
+-                    let output = output.meta(generic);
+-                    output.build()
+-                };
+-                if tmp.message.is_none() {
+-                    tmp.message = _error_message;
+-                }
+-                tmp
+-            })
+-        }
++                let mut output = super::super::types::error::builders::UnsupportedOperationBuilder::default();
++                output = super::super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
++                    .map_err(super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
++                let output = output.meta(generic);
++                output.build()
++            };
++            if tmp.message.is_none() {
++                tmp.message = _error_message;
++            }
++            tmp
++        }),
+         _ => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::generic(generic),
+     })
+ }
+@@ -223,9 +215,7 @@
              Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
              Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                  "Successful" => {
@@ -2075,34 +1029,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  }
                  "Failed" => {
                      builder = builder.set_failed(
--                        super::super::protocol_serde::shape_batch_result_error_entry_list::de_batch_result_error_entry_list(tokens, _value, depth + 1)?,
-+                        super::super::protocol_serde::shape_batch_result_error_entry_list::de_batch_result_error_entry_list(
-+                            tokens,
-+                            _value,
-+                            depth + 1,
-+                        )?,
-                     );
-                 }
-                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-```
-
-### `src/protocol_serde/shape_change_message_visibility_batch_result_entry.rs`
-
-```diff
---- reference/src/protocol_serde/shape_change_message_visibility_batch_result_entry.rs
-+++ generated/src/protocol_serde/shape_change_message_visibility_batch_result_entry.rs
-@@ -3,7 +3,10 @@
-     tokens: &mut ::std::iter::Peekable<I>,
-     _value: &'a [u8],
-     depth: u32,
--) -> ::std::result::Result<Option<super::super::types::ChangeMessageVisibilityBatchResultEntry>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<
-+    Option<super::super::types::ChangeMessageVisibilityBatchResultEntry>,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+>
- where
-     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
- {
 ```
 
 ### `src/protocol_serde/shape_create_queue.rs`
@@ -2137,19 +1063,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -170,8 +170,10 @@
- pub(crate) fn de_create_queue(
-     _value: &[u8],
-     mut builder: super::super::operation::create_queue::builders::CreateQueueOutputBuilder,
--) -> ::std::result::Result<super::super::operation::create_queue::builders::CreateQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
--{
-+) -> ::std::result::Result<
-+    super::super::operation::create_queue::builders::CreateQueueOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-     let tokens = &mut tokens_owned;
-     #[allow(unused_variables)]
 ```
 
 ### `src/protocol_serde/shape_delete_message.rs`
@@ -2219,7 +1132,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_delete_message_batch.rs
 +++ generated/src/protocol_serde/shape_delete_message_batch.rs
-@@ -20,25 +20,25 @@
+@@ -20,25 +20,22 @@
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
@@ -2246,11 +1159,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        }
 -        "AWS.SimpleQueueService.EmptyBatchRequest" => super::super::operation::delete_message_batch::DeleteMessageBatchError::EmptyBatchRequest({
 +                let mut output = super::super::types::error::builders::BatchEntryIdsNotDistinctBuilder::default();
-+                output = super::super::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(
-+                    _response_body,
-+                    output,
-+                )
-+                .map_err(super::super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
++                output = super::super::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(_response_body, output)
++                    .map_err(super::super::operation::delete_message_batch::DeleteMessageBatchError::unhandled)?;
 +                let output = output.meta(generic);
 +                output.build()
 +            };
@@ -2263,7 +1173,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -68,7 +68,7 @@
+@@ -68,7 +65,7 @@
              }
              tmp
          }),
@@ -2272,7 +1182,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -98,7 +98,7 @@
+@@ -98,7 +95,7 @@
              }
              tmp
          }),
@@ -2281,7 +1191,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -128,27 +128,25 @@
+@@ -128,27 +125,25 @@
              }
              tmp
          }),
@@ -2327,38 +1237,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -225,7 +223,11 @@
-                 }
-                 "Failed" => {
-                     builder = builder.set_failed(
--                        super::super::protocol_serde::shape_batch_result_error_entry_list::de_batch_result_error_entry_list(tokens, _value, depth + 1)?,
-+                        super::super::protocol_serde::shape_batch_result_error_entry_list::de_batch_result_error_entry_list(
-+                            tokens,
-+                            _value,
-+                            depth + 1,
-+                        )?,
-                     );
-                 }
-                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-```
-
-### `src/protocol_serde/shape_delete_message_batch_input.rs`
-
-```diff
---- reference/src/protocol_serde/shape_delete_message_batch_input.rs
-+++ generated/src/protocol_serde/shape_delete_message_batch_input.rs
-@@ -12,7 +12,10 @@
-             {
-                 #[allow(unused_mut)]
-                 let mut object_5 = array_3.value().start_object();
--                super::super::protocol_serde::shape_delete_message_batch_request_entry::ser_delete_message_batch_request_entry(&mut object_5, item_4)?;
-+                super::super::protocol_serde::shape_delete_message_batch_request_entry::ser_delete_message_batch_request_entry(
-+                    &mut object_5,
-+                    item_4,
-+                )?;
-                 object_5.finish();
-             }
-         }
 ```
 
 ### `src/protocol_serde/shape_delete_queue.rs`
@@ -2384,7 +1262,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -119,3 +119,36 @@
+@@ -119,3 +119,34 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -2392,10 +1270,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +pub(crate) fn de_delete_queue(
 +    _value: &[u8],
 +    mut builder: super::super::operation::delete_queue::builders::DeleteQueueOutputBuilder,
-+) -> ::std::result::Result<
-+    super::super::operation::delete_queue::builders::DeleteQueueOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
++) -> ::std::result::Result<super::super::operation::delete_queue::builders::DeleteQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
 +    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
@@ -2471,19 +1347,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -125,8 +125,10 @@
- pub(crate) fn de_get_queue_url(
-     _value: &[u8],
-     mut builder: super::super::operation::get_queue_url::builders::GetQueueUrlOutputBuilder,
--) -> ::std::result::Result<super::super::operation::get_queue_url::builders::GetQueueUrlOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
--{
-+) -> ::std::result::Result<
-+    super::super::operation::get_queue_url::builders::GetQueueUrlOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-     let tokens = &mut tokens_owned;
-     #[allow(unused_variables)]
 ```
 
 ### `src/protocol_serde/shape_invalid_id_format.rs`
@@ -2587,19 +1450,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          _ => super::super::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesError::generic(generic),
      })
  }
-@@ -151,7 +147,11 @@
-             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                 "queueUrls" => {
--                    builder = builder.set_queue_urls(super::super::protocol_serde::shape_queue_url_list::de_queue_url_list(tokens, _value, depth + 1)?);
-+                    builder = builder.set_queue_urls(super::super::protocol_serde::shape_queue_url_list::de_queue_url_list(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-                 }
-                 "NextToken" => {
-                     builder = builder.set_next_token(
 ```
 
 ### `src/protocol_serde/shape_list_message_move_tasks.rs`
@@ -2607,34 +1457,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_message_move_tasks.rs
 +++ generated/src/protocol_serde/shape_list_message_move_tasks.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::list_message_move_tasks::ListMessageMoveTasksError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::list_message_move_tasks::ListMessageMoveTasksError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -70,8 +74,11 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::list_message_move_tasks::ListMessageMoveTasksError::unhandled)?;
-+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-+                    _response_body,
-+                    output,
-+                )
-+                .map_err(super::super::operation::list_message_move_tasks::ListMessageMoveTasksError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -80,23 +87,21 @@
+@@ -80,23 +80,21 @@
              }
              tmp
          }),
@@ -2672,32 +1495,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          _ => super::super::operation::list_message_move_tasks::ListMessageMoveTasksError::generic(generic),
      })
  }
-@@ -145,18 +150,14 @@
-     loop {
-         match tokens.next().transpose()? {
-             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
--            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
--                "Results" => {
--                    builder = builder.set_results(
--                        super::super::protocol_serde::shape_list_message_move_tasks_result_entry_list::de_list_message_move_tasks_result_entry_list(
--                            tokens,
--                            _value,
--                            depth + 1,
--                        )?,
--                    );
-+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-+                match key.to_unescaped()?.as_ref() {
-+                    "Results" => {
-+                        builder = builder.set_results(super::super::protocol_serde::shape_list_message_move_tasks_result_entry_list::de_list_message_move_tasks_result_entry_list(tokens, _value, depth + 1)?);
-+                    }
-+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                 }
--                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
--            },
-+            }
-             other => {
-                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
-                     "expected object key or end object, found: {other:?}"
 ```
 
 ### `src/protocol_serde/shape_list_queue_tags.rs`
@@ -2705,17 +1502,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_list_queue_tags.rs
 +++ generated/src/protocol_serde/shape_list_queue_tags.rs
-@@ -4,7 +4,8 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::list_queue_tags::ListQueueTagsOutput, super::super::operation::list_queue_tags::ListQueueTagsError> {
-+) -> std::result::Result<super::super::operation::list_queue_tags::ListQueueTagsOutput, super::super::operation::list_queue_tags::ListQueueTagsError>
-+{
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-         .map_err(super::super::operation::list_queue_tags::ListQueueTagsError::unhandled)?;
-@@ -47,7 +48,7 @@
+@@ -47,7 +47,7 @@
              }
              tmp
          }),
@@ -2724,7 +1511,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -77,7 +78,7 @@
+@@ -77,7 +77,7 @@
              }
              tmp
          }),
@@ -2733,16 +1520,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -101,7 +102,8 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::list_queue_tags::ListQueueTagsOutput, super::super::operation::list_queue_tags::ListQueueTagsError> {
-+) -> std::result::Result<super::super::operation::list_queue_tags::ListQueueTagsOutput, super::super::operation::list_queue_tags::ListQueueTagsError>
-+{
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::list_queue_tags::builders::ListQueueTagsOutputBuilder::default();
 ```
 
 ### `src/protocol_serde/shape_list_queues.rs`
@@ -2759,97 +1536,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -110,8 +110,10 @@
- pub(crate) fn de_list_queues(
-     _value: &[u8],
-     mut builder: super::super::operation::list_queues::builders::ListQueuesOutputBuilder,
--) -> ::std::result::Result<super::super::operation::list_queues::builders::ListQueuesOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
--{
-+) -> ::std::result::Result<
-+    super::super::operation::list_queues::builders::ListQueuesOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-     let tokens = &mut tokens_owned;
-     #[allow(unused_variables)]
-@@ -122,7 +124,11 @@
-             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                 "QueueUrls" => {
--                    builder = builder.set_queue_urls(super::super::protocol_serde::shape_queue_url_list::de_queue_url_list(tokens, _value, depth + 1)?);
-+                    builder = builder.set_queue_urls(super::super::protocol_serde::shape_queue_url_list::de_queue_url_list(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-                 }
-                 "NextToken" => {
-                     builder = builder.set_next_token(
-```
-
-### `src/protocol_serde/shape_message.rs`
-
-```diff
---- reference/src/protocol_serde/shape_message.rs
-+++ generated/src/protocol_serde/shape_message.rs
-@@ -67,7 +67,11 @@
-                         }
-                         "MessageAttributes" => {
-                             builder = builder.set_message_attributes(
--                                super::super::protocol_serde::shape_message_body_attribute_map::de_message_body_attribute_map(tokens, _value, depth + 1)?,
-+                                super::super::protocol_serde::shape_message_body_attribute_map::de_message_body_attribute_map(
-+                                    tokens,
-+                                    _value,
-+                                    depth + 1,
-+                                )?,
-                             );
-                         }
-                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-```
-
-### `src/protocol_serde/shape_message_attribute_value.rs`
-
-```diff
---- reference/src/protocol_serde/shape_message_attribute_value.rs
-+++ generated/src/protocol_serde/shape_message_attribute_value.rs
-@@ -66,12 +66,18 @@
-                             builder = builder.set_binary_value(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?);
-                         }
-                         "StringListValues" => {
--                            builder =
--                                builder.set_string_list_values(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
-+                            builder = builder.set_string_list_values(super::super::protocol_serde::shape_string_list::de_string_list(
-+                                tokens,
-+                                _value,
-+                                depth + 1,
-+                            )?);
-                         }
-                         "BinaryListValues" => {
--                            builder =
--                                builder.set_binary_list_values(super::super::protocol_serde::shape_binary_list::de_binary_list(tokens, _value, depth + 1)?);
-+                            builder = builder.set_binary_list_values(super::super::protocol_serde::shape_binary_list::de_binary_list(
-+                                tokens,
-+                                _value,
-+                                depth + 1,
-+                            )?);
-                         }
-                         "DataType" => {
-                             builder = builder.set_data_type(
-@@ -89,9 +95,11 @@
-                     }
-                 }
-             }
--            Ok(Some(super::super::serde_util::message_attribute_value_correct_errors(builder).build().map_err(
--                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
--            )?))
-+            Ok(Some(
-+                super::super::serde_util::message_attribute_value_correct_errors(builder)
-+                    .build()
-+                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-+            ))
-         }
-         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
-             "expected start object or null",
 ```
 
 ### `src/protocol_serde/shape_message_not_inflight.rs`
@@ -2920,7 +1606,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -134,3 +134,36 @@
+@@ -134,3 +134,34 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -2928,10 +1614,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +pub(crate) fn de_purge_queue(
 +    _value: &[u8],
 +    mut builder: super::super::operation::purge_queue::builders::PurgeQueueOutputBuilder,
-+) -> ::std::result::Result<
-+    super::super::operation::purge_queue::builders::PurgeQueueOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
++) -> ::std::result::Result<super::super::operation::purge_queue::builders::PurgeQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
 +    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
@@ -2980,17 +1664,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_receive_message.rs
 +++ generated/src/protocol_serde/shape_receive_message.rs
-@@ -4,7 +4,8 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::receive_message::ReceiveMessageOutput, super::super::operation::receive_message::ReceiveMessageError> {
-+) -> std::result::Result<super::super::operation::receive_message::ReceiveMessageOutput, super::super::operation::receive_message::ReceiveMessageError>
-+{
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-         .map_err(super::super::operation::receive_message::ReceiveMessageError::unhandled)?;
-@@ -47,7 +48,7 @@
+@@ -47,7 +47,7 @@
              }
              tmp
          }),
@@ -2999,7 +1673,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -62,7 +63,7 @@
+@@ -62,7 +62,7 @@
              }
              tmp
          }),
@@ -3008,7 +1682,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -77,7 +78,7 @@
+@@ -77,7 +77,7 @@
              }
              tmp
          }),
@@ -3017,7 +1691,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -92,7 +93,7 @@
+@@ -92,7 +92,7 @@
              }
              tmp
          }),
@@ -3026,7 +1700,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -107,7 +108,7 @@
+@@ -107,7 +107,7 @@
              }
              tmp
          }),
@@ -3035,7 +1709,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -122,7 +123,7 @@
+@@ -122,7 +122,7 @@
              }
              tmp
          }),
@@ -3044,7 +1718,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -137,7 +138,7 @@
+@@ -137,7 +137,7 @@
              }
              tmp
          }),
@@ -3053,7 +1727,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -167,7 +168,7 @@
+@@ -167,7 +167,7 @@
              }
              tmp
          }),
@@ -3062,7 +1736,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -197,7 +198,7 @@
+@@ -197,7 +197,7 @@
              }
              tmp
          }),
@@ -3071,29 +1745,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -221,7 +222,8 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::receive_message::ReceiveMessageOutput, super::super::operation::receive_message::ReceiveMessageError> {
-+) -> std::result::Result<super::super::operation::receive_message::ReceiveMessageOutput, super::super::operation::receive_message::ReceiveMessageError>
-+{
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::receive_message::builders::ReceiveMessageOutputBuilder::default();
-@@ -259,7 +261,11 @@
-             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                 "Messages" => {
--                    builder = builder.set_messages(super::super::protocol_serde::shape_message_list::de_message_list(tokens, _value, depth + 1)?);
-+                    builder = builder.set_messages(super::super::protocol_serde::shape_message_list::de_message_list(
-+                        tokens,
-+                        _value,
-+                        depth + 1,
-+                    )?);
-                 }
-                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-             },
 ```
 
 ### `src/protocol_serde/shape_remove_permission.rs`
@@ -3101,19 +1752,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_remove_permission.rs
 +++ generated/src/protocol_serde/shape_remove_permission.rs
-@@ -4,7 +4,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::remove_permission::RemovePermissionOutput, super::super::operation::remove_permission::RemovePermissionError> {
-+) -> std::result::Result<
-+    super::super::operation::remove_permission::RemovePermissionOutput,
-+    super::super::operation::remove_permission::RemovePermissionError,
-+> {
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-         .map_err(super::super::operation::remove_permission::RemovePermissionError::unhandled)?;
-@@ -47,7 +50,7 @@
+@@ -47,7 +47,7 @@
              }
              tmp
          }),
@@ -3122,7 +1761,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -77,7 +80,7 @@
+@@ -77,7 +77,7 @@
              }
              tmp
          }),
@@ -3131,19 +1770,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -101,7 +104,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::remove_permission::RemovePermissionOutput, super::super::operation::remove_permission::RemovePermissionError> {
-+) -> std::result::Result<
-+    super::super::operation::remove_permission::RemovePermissionOutput,
-+    super::super::operation::remove_permission::RemovePermissionError,
-+> {
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::remove_permission::builders::RemovePermissionOutputBuilder::default();
-@@ -119,3 +125,36 @@
+@@ -119,3 +119,36 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -3180,25 +1807,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    }
 +    Ok(builder)
 +}
-```
-
-### `src/protocol_serde/shape_resource_not_found_exception.rs`
-
-```diff
---- reference/src/protocol_serde/shape_resource_not_found_exception.rs
-+++ generated/src/protocol_serde/shape_resource_not_found_exception.rs
-@@ -2,7 +2,10 @@
- pub(crate) fn de_resource_not_found_exception_json_err(
-     _value: &[u8],
-     mut builder: super::super::types::error::builders::ResourceNotFoundExceptionBuilder,
--) -> ::std::result::Result<super::super::types::error::builders::ResourceNotFoundExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
-+) -> ::std::result::Result<
-+    super::super::types::error::builders::ResourceNotFoundExceptionBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-     let tokens = &mut tokens_owned;
-     #[allow(unused_variables)]
 ```
 
 ### `src/protocol_serde/shape_send_message.rs`
@@ -3287,19 +1895,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -245,8 +245,10 @@
- pub(crate) fn de_send_message(
-     _value: &[u8],
-     mut builder: super::super::operation::send_message::builders::SendMessageOutputBuilder,
--) -> ::std::result::Result<super::super::operation::send_message::builders::SendMessageOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
--{
-+) -> ::std::result::Result<
-+    super::super::operation::send_message::builders::SendMessageOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-     let tokens = &mut tokens_owned;
-     #[allow(unused_variables)]
 ```
 
 ### `src/protocol_serde/shape_send_message_batch.rs`
@@ -3307,19 +1902,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_send_message_batch.rs
 +++ generated/src/protocol_serde/shape_send_message_batch.rs
-@@ -4,7 +4,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::send_message_batch::SendMessageBatchOutput, super::super::operation::send_message_batch::SendMessageBatchError> {
-+) -> std::result::Result<
-+    super::super::operation::send_message_batch::SendMessageBatchOutput,
-+    super::super::operation::send_message_batch::SendMessageBatchError,
-+> {
-     #[allow(unused_mut)]
-     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
-         .map_err(super::super::operation::send_message_batch::SendMessageBatchError::unhandled)?;
-@@ -17,13 +20,16 @@
+@@ -17,7 +17,7 @@
 
      let _error_message = generic.message().map(|msg| msg.to_owned());
      Err(match error_code {
@@ -3328,18 +1911,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::BatchEntryIdsNotDistinctBuilder::default();
--                output = super::super::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(_response_body, output)
--                    .map_err(super::super::operation::send_message_batch::SendMessageBatchError::unhandled)?;
-+                output = super::super::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(
-+                    _response_body,
-+                    output,
-+                )
-+                .map_err(super::super::operation::send_message_batch::SendMessageBatchError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -32,7 +38,7 @@
+@@ -32,7 +32,7 @@
              }
              tmp
          }),
@@ -3348,7 +1920,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -47,7 +53,7 @@
+@@ -47,7 +47,7 @@
              }
              tmp
          }),
@@ -3357,7 +1929,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -77,7 +83,7 @@
+@@ -77,7 +77,7 @@
              }
              tmp
          }),
@@ -3366,7 +1938,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -107,7 +113,7 @@
+@@ -107,7 +107,7 @@
              }
              tmp
          }),
@@ -3375,7 +1947,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -122,7 +128,7 @@
+@@ -122,7 +122,7 @@
              }
              tmp
          }),
@@ -3384,7 +1956,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -137,7 +143,7 @@
+@@ -137,7 +137,7 @@
              }
              tmp
          }),
@@ -3393,7 +1965,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -152,7 +158,7 @@
+@@ -152,7 +152,7 @@
              }
              tmp
          }),
@@ -3402,7 +1974,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -167,7 +173,7 @@
+@@ -167,7 +167,7 @@
              }
              tmp
          }),
@@ -3411,7 +1983,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -182,7 +188,7 @@
+@@ -182,7 +182,7 @@
              }
              tmp
          }),
@@ -3420,7 +1992,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -197,7 +203,7 @@
+@@ -197,7 +197,7 @@
              }
              tmp
          }),
@@ -3429,7 +2001,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -212,7 +218,7 @@
+@@ -212,7 +212,7 @@
              }
              tmp
          }),
@@ -3438,7 +2010,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -242,27 +248,25 @@
+@@ -242,27 +242,25 @@
              }
              tmp
          }),
@@ -3484,50 +2056,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -286,7 +290,10 @@
-     _response_status: u16,
-     _response_headers: &::aws_smithy_runtime_api::http::Headers,
-     _response_body: &[u8],
--) -> std::result::Result<super::super::operation::send_message_batch::SendMessageBatchOutput, super::super::operation::send_message_batch::SendMessageBatchError> {
-+) -> std::result::Result<
-+    super::super::operation::send_message_batch::SendMessageBatchOutput,
-+    super::super::operation::send_message_batch::SendMessageBatchError,
-+> {
-     Ok({
-         #[allow(unused_mut)]
-         let mut output = super::super::operation::send_message_batch::builders::SendMessageBatchOutputBuilder::default();
-@@ -336,7 +343,11 @@
-                 }
-                 "Failed" => {
-                     builder = builder.set_failed(
--                        super::super::protocol_serde::shape_batch_result_error_entry_list::de_batch_result_error_entry_list(tokens, _value, depth + 1)?,
-+                        super::super::protocol_serde::shape_batch_result_error_entry_list::de_batch_result_error_entry_list(
-+                            tokens,
-+                            _value,
-+                            depth + 1,
-+                        )?,
-                     );
-                 }
-                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-```
-
-### `src/protocol_serde/shape_send_message_batch_result_entry_list.rs`
-
-```diff
---- reference/src/protocol_serde/shape_send_message_batch_result_entry_list.rs
-+++ generated/src/protocol_serde/shape_send_message_batch_result_entry_list.rs
-@@ -3,7 +3,10 @@
-     tokens: &mut ::std::iter::Peekable<I>,
-     _value: &'a [u8],
-     depth: u32,
--) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::SendMessageBatchResultEntry>>, ::aws_smithy_json::deserialize::error::DeserializeError>
-+) -> ::std::result::Result<
-+    Option<::std::vec::Vec<super::super::types::SendMessageBatchResultEntry>>,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+>
- where
-     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
- {
 ```
 
 ### `src/protocol_serde/shape_set_queue_attributes.rs`
@@ -3597,34 +2125,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_start_message_move_task.rs
 +++ generated/src/protocol_serde/shape_start_message_move_task.rs
-@@ -15,7 +15,11 @@
-     let generic = generic_builder.build();
-     let error_code = match generic.code() {
-         Some(code) => code,
--        None => return Err(super::super::operation::start_message_move_task::StartMessageMoveTaskError::unhandled(generic)),
-+        None => {
-+            return Err(super::super::operation::start_message_move_task::StartMessageMoveTaskError::unhandled(
-+                generic,
-+            ))
-+        }
-     };
-
-     let _error_message = generic.message().map(|msg| msg.to_owned());
-@@ -70,8 +74,11 @@
-             let mut tmp = {
-                 #[allow(unused_mut)]
-                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
--                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
--                    .map_err(super::super::operation::start_message_move_task::StartMessageMoveTaskError::unhandled)?;
-+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-+                    _response_body,
-+                    output,
-+                )
-+                .map_err(super::super::operation::start_message_move_task::StartMessageMoveTaskError::unhandled)?;
-                 let output = output.meta(generic);
-                 output.build()
-             };
-@@ -80,23 +87,21 @@
+@@ -80,23 +80,21 @@
              }
              tmp
          }),
@@ -3687,7 +2188,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -119,3 +119,34 @@
+@@ -119,3 +119,33 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -3695,8 +2196,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +pub(crate) fn de_tag_queue(
 +    _value: &[u8],
 +    mut builder: super::super::operation::tag_queue::builders::TagQueueOutputBuilder,
-+) -> ::std::result::Result<super::super::operation::tag_queue::builders::TagQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
-+{
++) -> ::std::result::Result<super::super::operation::tag_queue::builders::TagQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
 +    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
@@ -3724,26 +2224,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +}
 ```
 
-### `src/protocol_serde/shape_too_many_entries_in_batch_request.rs`
-
-```diff
---- reference/src/protocol_serde/shape_too_many_entries_in_batch_request.rs
-+++ generated/src/protocol_serde/shape_too_many_entries_in_batch_request.rs
-@@ -2,8 +2,10 @@
- pub(crate) fn de_too_many_entries_in_batch_request_json_err(
-     _value: &[u8],
-     mut builder: super::super::types::error::builders::TooManyEntriesInBatchRequestBuilder,
--) -> ::std::result::Result<super::super::types::error::builders::TooManyEntriesInBatchRequestBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
--{
-+) -> ::std::result::Result<
-+    super::super::types::error::builders::TooManyEntriesInBatchRequestBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
-     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
-     let tokens = &mut tokens_owned;
-     #[allow(unused_variables)]
-```
-
 ### `src/protocol_serde/shape_untag_queue.rs`
 
 ```diff
@@ -3767,7 +2247,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-@@ -119,3 +119,36 @@
+@@ -119,3 +119,34 @@
      object.finish();
      Ok(::aws_smithy_types::body::SdkBody::from(out))
  }
@@ -3775,10 +2255,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +pub(crate) fn de_untag_queue(
 +    _value: &[u8],
 +    mut builder: super::super::operation::untag_queue::builders::UntagQueueOutputBuilder,
-+) -> ::std::result::Result<
-+    super::super::operation::untag_queue::builders::UntagQueueOutputBuilder,
-+    ::aws_smithy_json::deserialize::error::DeserializeError,
-+> {
++) -> ::std::result::Result<super::super::operation::untag_queue::builders::UntagQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
++{
 +    let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
 +    let tokens = &mut tokens_owned;
 +    #[allow(unused_variables)]
@@ -3845,89 +2323,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) mod shape_batch_request_too_long;
 ```
 
-### `src/types/_delete_message_batch_request_entry.rs`
-
-```diff
---- reference/src/types/_delete_message_batch_request_entry.rs
-+++ generated/src/types/_delete_message_batch_request_entry.rs
-@@ -85,7 +85,9 @@
-     /// This method will fail if any of the following fields are not set:
-     /// - [`id`](crate::types::builders::DeleteMessageBatchRequestEntryBuilder::id)
-     /// - [`receipt_handle`](crate::types::builders::DeleteMessageBatchRequestEntryBuilder::receipt_handle)
--    pub fn build(self) -> ::std::result::Result<super::super::types::DeleteMessageBatchRequestEntry, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::types::DeleteMessageBatchRequestEntry, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::types::DeleteMessageBatchRequestEntry {
-             id: self.id.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
-```
-
-### `src/types/_delete_message_batch_result_entry.rs`
-
-```diff
---- reference/src/types/_delete_message_batch_result_entry.rs
-+++ generated/src/types/_delete_message_batch_result_entry.rs
-@@ -46,7 +46,9 @@
-     /// Consumes the builder and constructs a [`DeleteMessageBatchResultEntry`](crate::types::DeleteMessageBatchResultEntry).
-     /// This method will fail if any of the following fields are not set:
-     /// - [`id`](crate::types::builders::DeleteMessageBatchResultEntryBuilder::id)
--    pub fn build(self) -> ::std::result::Result<super::super::types::DeleteMessageBatchResultEntry, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::types::DeleteMessageBatchResultEntry, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::types::DeleteMessageBatchResultEntry {
-             id: self.id.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
-```
-
-### `src/types/_message.rs`
-
-```diff
---- reference/src/types/_message.rs
-+++ generated/src/types/_message.rs
-@@ -71,7 +71,9 @@
-     /// <p><code>SequenceNumber</code></p></li>
-     /// </ul>
-     /// <p><code>ApproximateFirstReceiveTimestamp</code> and <code>SentTimestamp</code> are each returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
--    pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<super::super::types::MessageSystemAttributeName, ::std::string::String>> {
-+    pub fn attributes(
-+        &self,
-+    ) -> ::std::option::Option<&::std::collections::HashMap<super::super::types::MessageSystemAttributeName, ::std::string::String>> {
-         self.attributes.as_ref()
-     }
-     /// <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
-@@ -102,7 +104,8 @@
-     pub(crate) body: ::std::option::Option<::std::string::String>,
-     pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<super::super::types::MessageSystemAttributeName, ::std::string::String>>,
-     pub(crate) md5_of_message_attributes: ::std::option::Option<::std::string::String>,
--    pub(crate) message_attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::MessageAttributeValue>>,
-+    pub(crate) message_attributes:
-+        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::MessageAttributeValue>>,
- }
- impl MessageBuilder {
-     /// <p>A unique identifier for the message. A <code>MessageId</code>is considered unique across all Amazon Web Services accounts for an extended period of time.</p>
-```
-
-### `src/types/_message_system_attribute_name_for_sends.rs`
-
-```diff
---- reference/src/types/_message_system_attribute_name_for_sends.rs
-+++ generated/src/types/_message_system_attribute_name_for_sends.rs
-@@ -51,7 +51,9 @@
-     fn from(s: &str) -> Self {
-         match s {
-             "AWSTraceHeader" => MessageSystemAttributeNameForSends::AwsTraceHeader,
--            other => MessageSystemAttributeNameForSends::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
-+            other => {
-+                MessageSystemAttributeNameForSends::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-+            }
-         }
-     }
- }
-```
-
 ### Missing reference files
 
-- `src/aws_query_compatible_errors.rs`
 - `src/long_polling.rs`

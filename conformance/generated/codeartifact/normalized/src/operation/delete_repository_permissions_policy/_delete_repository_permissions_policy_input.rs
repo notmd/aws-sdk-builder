@@ -32,8 +32,7 @@ impl DeleteRepositoryPermissionsPolicyInput {
 }
 impl DeleteRepositoryPermissionsPolicyInput {
     /// Creates a new builder-style object to manufacture [`DeleteRepositoryPermissionsPolicyInput`](crate::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyInput).
-    pub fn builder() -> super::super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyInputBuilder {
         super::super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyInputBuilder::default()
     }
 }

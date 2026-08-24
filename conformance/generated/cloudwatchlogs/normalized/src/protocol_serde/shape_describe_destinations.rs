@@ -15,11 +15,7 @@ pub fn de_describe_destinations_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::describe_destinations::DescribeDestinationsError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::describe_destinations::DescribeDestinationsError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -29,9 +25,8 @@ pub fn de_describe_destinations_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::describe_destinations::DescribeDestinationsError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::describe_destinations::DescribeDestinationsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -45,11 +40,9 @@ pub fn de_describe_destinations_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::describe_destinations::DescribeDestinationsError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::describe_destinations::DescribeDestinationsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -108,11 +101,7 @@ pub(crate) fn de_describe_destinations(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "destinations" => {
-                    builder = builder.set_destinations(super::super::protocol_serde::shape_destinations::de_destinations(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_destinations(super::super::protocol_serde::shape_destinations::de_destinations(tokens, _value, depth + 1)?);
                 }
                 "nextToken" => {
                     builder = builder.set_next_token(

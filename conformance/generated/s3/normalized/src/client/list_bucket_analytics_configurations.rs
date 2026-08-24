@@ -15,8 +15,6 @@ impl super::Client {
     pub fn list_bucket_analytics_configurations(
         &self,
     ) -> super::super::operation::list_bucket_analytics_configurations::builders::ListBucketAnalyticsConfigurationsFluentBuilder {
-        super::super::operation::list_bucket_analytics_configurations::builders::ListBucketAnalyticsConfigurationsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::list_bucket_analytics_configurations::builders::ListBucketAnalyticsConfigurationsFluentBuilder::new(self.handle.clone())
     }
 }

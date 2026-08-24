@@ -20,26 +20,33 @@ pub fn de_get_user_attribute_verification_code_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "CodeDeliveryFailureException" => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::CodeDeliveryFailureException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "CodeDeliveryFailureException" => {
+            super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::CodeDeliveryFailureException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::CodeDeliveryFailureExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_code_delivery_failure_exception::de_code_delivery_failure_exception_json_err(_response_body, output).map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::CodeDeliveryFailureExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_code_delivery_failure_exception::de_code_delivery_failure_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "ForbiddenException" => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::ForbiddenException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ForbiddenExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_forbidden_exception::de_forbidden_exception_json_err(_response_body, output).map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
+                output = super::super::protocol_serde::shape_forbidden_exception::de_forbidden_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -48,230 +55,297 @@ pub fn de_get_user_attribute_verification_code_http_error(
             }
             tmp
         }),
-        "InternalErrorException" => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::InternalErrorException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "InternalErrorException" => {
+            super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::InternalErrorException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output).map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidEmailRoleAccessPolicyException" => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::InvalidEmailRoleAccessPolicyException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidEmailRoleAccessPolicyException" => {
+            super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::InvalidEmailRoleAccessPolicyException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InvalidEmailRoleAccessPolicyExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_email_role_access_policy_exception::de_invalid_email_role_access_policy_exception_json_err(_response_body, output).map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidLambdaResponseException" => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::InvalidLambdaResponseException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InvalidEmailRoleAccessPolicyExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_invalid_email_role_access_policy_exception::de_invalid_email_role_access_policy_exception_json_err(_response_body, output).map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidLambdaResponseException" => {
+            super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::InvalidLambdaResponseException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(_response_body, output).map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidParameterException" => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::InvalidParameterException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidParameterException" => {
+            super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::InvalidParameterException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output).map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidSmsRoleAccessPolicyException" => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::InvalidSmsRoleAccessPolicyException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidSmsRoleAccessPolicyException" => {
+            super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::InvalidSmsRoleAccessPolicyException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(_response_body, output).map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidSmsRoleTrustRelationshipException" => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::InvalidSmsRoleTrustRelationshipException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidSmsRoleTrustRelationshipException" => {
+            super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::InvalidSmsRoleTrustRelationshipException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_sms_role_trust_relationship_exception::de_invalid_sms_role_trust_relationship_exception_json_err(_response_body, output).map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "LimitExceededException" => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::LimitExceededException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InvalidSmsRoleTrustRelationshipExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_invalid_sms_role_trust_relationship_exception::de_invalid_sms_role_trust_relationship_exception_json_err(_response_body, output).map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "LimitExceededException" => {
+            super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::LimitExceededException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "NotAuthorizedException" => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::NotAuthorizedException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "NotAuthorizedException" => {
+            super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::NotAuthorizedException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::NotAuthorizedExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output).map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "OperationNotEnabledException" => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::OperationNotEnabledException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::NotAuthorizedExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "OperationNotEnabledException" => {
+            super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::OperationNotEnabledException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output).map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "PasswordResetRequiredException" => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::PasswordResetRequiredException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "PasswordResetRequiredException" => {
+            super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::PasswordResetRequiredException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::PasswordResetRequiredExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_password_reset_required_exception::de_password_reset_required_exception_json_err(_response_body, output).map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ResourceNotFoundException" => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::ResourceNotFoundException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::PasswordResetRequiredExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_password_reset_required_exception::de_password_reset_required_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ResourceNotFoundException" => {
+            super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::ResourceNotFoundException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "TooManyRequestsException" => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::TooManyRequestsException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "TooManyRequestsException" => {
+            super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::TooManyRequestsException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "UnexpectedLambdaException" => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::UnexpectedLambdaException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "UnexpectedLambdaException" => {
+            super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::UnexpectedLambdaException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output).map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "UserLambdaValidationException" => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::UserLambdaValidationException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "UserLambdaValidationException" => {
+            super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::UserLambdaValidationException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::UserLambdaValidationExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(_response_body, output).map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "UserNotConfirmedException" => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::UserNotConfirmedException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::UserLambdaValidationExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "UserNotConfirmedException" => {
+            super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::UserNotConfirmedException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::UserNotConfirmedExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(_response_body, output).map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "UserNotFoundException" => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::UserNotFoundException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::UserNotConfirmedExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "UserNotFoundException" => {
+            super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::UserNotFoundException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::UserNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::UserNotFoundExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::generic(generic),
     })
 }
@@ -287,11 +361,9 @@ pub fn de_get_user_attribute_verification_code_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_get_user_attribute_verification_code::de_get_user_attribute_verification_code(_response_body, output)
-                .map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
+        let mut output = super::super::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeOutputBuilder::default();
+        output = super::super::protocol_serde::shape_get_user_attribute_verification_code::de_get_user_attribute_verification_code(_response_body, output)
+            .map_err(super::super::operation::get_user_attribute_verification_code::GetUserAttributeVerificationCodeError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

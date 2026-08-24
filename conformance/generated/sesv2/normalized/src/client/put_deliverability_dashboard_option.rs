@@ -10,8 +10,6 @@ impl super::Client {
     pub fn put_deliverability_dashboard_option(
         &self,
     ) -> super::super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionFluentBuilder {
-        super::super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::put_deliverability_dashboard_option::builders::PutDeliverabilityDashboardOptionFluentBuilder::new(self.handle.clone())
     }
 }

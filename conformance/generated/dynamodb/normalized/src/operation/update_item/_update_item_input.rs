@@ -10,8 +10,7 @@ pub struct UpdateItemInput {
     /// <p>For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
     pub key: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
     /// <p>This is a legacy parameter. Use <code>UpdateExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html">AttributeUpdates</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub attribute_updates:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValueUpdate>>,
+    pub attribute_updates: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValueUpdate>>,
     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub expected: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::ExpectedAttributeValue>>,
     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -132,8 +131,7 @@ pub struct UpdateItemInput {
     /// <p>You could then use these values in an expression, such as this:</p>
     /// <p><code>ProductStatus IN (:avail, :back, :disc)</code></p>
     /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub expression_attribute_values:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
+    pub expression_attribute_values: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
     /// <p>An optional parameter that returns the item attributes for an <code>UpdateItem</code> operation that failed a condition check.</p>
     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
     pub return_values_on_condition_check_failure: ::std::option::Option<super::super::super::types::ReturnValuesOnConditionCheckFailure>,
@@ -155,9 +153,7 @@ impl UpdateItemInput {
         self.attribute_updates.as_ref()
     }
     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn expected(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::ExpectedAttributeValue>> {
+    pub fn expected(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::ExpectedAttributeValue>> {
         self.expected.as_ref()
     }
     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -299,9 +295,7 @@ impl UpdateItemInput {
     }
     /// <p>An optional parameter that returns the item attributes for an <code>UpdateItem</code> operation that failed a condition check.</p>
     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
-    pub fn return_values_on_condition_check_failure(
-        &self,
-    ) -> ::std::option::Option<&super::super::super::types::ReturnValuesOnConditionCheckFailure> {
+    pub fn return_values_on_condition_check_failure(&self) -> ::std::option::Option<&super::super::super::types::ReturnValuesOnConditionCheckFailure> {
         self.return_values_on_condition_check_failure.as_ref()
     }
 }
@@ -318,10 +312,8 @@ impl UpdateItemInput {
 pub struct UpdateItemInputBuilder {
     pub(crate) table_name: ::std::option::Option<::std::string::String>,
     pub(crate) key: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
-    pub(crate) attribute_updates:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValueUpdate>>,
-    pub(crate) expected:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::ExpectedAttributeValue>>,
+    pub(crate) attribute_updates: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValueUpdate>>,
+    pub(crate) expected: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::ExpectedAttributeValue>>,
     pub(crate) conditional_operator: ::std::option::Option<super::super::super::types::ConditionalOperator>,
     pub(crate) return_values: ::std::option::Option<super::super::super::types::ReturnValue>,
     pub(crate) return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
@@ -329,8 +321,7 @@ pub struct UpdateItemInputBuilder {
     pub(crate) update_expression: ::std::option::Option<::std::string::String>,
     pub(crate) condition_expression: ::std::option::Option<::std::string::String>,
     pub(crate) expression_attribute_names: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-    pub(crate) expression_attribute_values:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
+    pub(crate) expression_attribute_values: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
     pub(crate) return_values_on_condition_check_failure: ::std::option::Option<super::super::super::types::ReturnValuesOnConditionCheckFailure>,
 }
 impl UpdateItemInputBuilder {
@@ -363,10 +354,7 @@ impl UpdateItemInputBuilder {
     }
     /// <p>The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.</p>
     /// <p>For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
-    pub fn set_key(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
-    ) -> Self {
+    pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>) -> Self {
         self.key = input;
         self
     }
@@ -380,11 +368,7 @@ impl UpdateItemInputBuilder {
     /// To override the contents of this collection use [`set_attribute_updates`](Self::set_attribute_updates).
     ///
     /// <p>This is a legacy parameter. Use <code>UpdateExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributeUpdates.html">AttributeUpdates</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn attribute_updates(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: super::super::super::types::AttributeValueUpdate,
-    ) -> Self {
+    pub fn attribute_updates(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::AttributeValueUpdate) -> Self {
         let mut hash_map = self.attribute_updates.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.attribute_updates = ::std::option::Option::Some(hash_map);
@@ -424,9 +408,7 @@ impl UpdateItemInputBuilder {
         self
     }
     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_expected(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::ExpectedAttributeValue>> {
+    pub fn get_expected(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::ExpectedAttributeValue>> {
         &self.expected
     }
     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -546,10 +528,7 @@ impl UpdateItemInputBuilder {
         self
     }
     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-    pub fn set_return_item_collection_metrics(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
-    ) -> Self {
+    pub fn set_return_item_collection_metrics(mut self, input: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>) -> Self {
         self.return_item_collection_metrics = input;
         self
     }
@@ -845,11 +824,7 @@ impl UpdateItemInputBuilder {
     /// <p>You could then use these values in an expression, such as this:</p>
     /// <p><code>ProductStatus IN (:avail, :back, :disc)</code></p>
     /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn expression_attribute_values(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: super::super::super::types::AttributeValue,
-    ) -> Self {
+    pub fn expression_attribute_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::AttributeValue) -> Self {
         let mut hash_map = self.expression_attribute_values.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.expression_attribute_values = ::std::option::Option::Some(hash_map);
@@ -900,15 +875,11 @@ impl UpdateItemInputBuilder {
     }
     /// <p>An optional parameter that returns the item attributes for an <code>UpdateItem</code> operation that failed a condition check.</p>
     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
-    pub fn get_return_values_on_condition_check_failure(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::ReturnValuesOnConditionCheckFailure> {
+    pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<super::super::super::types::ReturnValuesOnConditionCheckFailure> {
         &self.return_values_on_condition_check_failure
     }
     /// Consumes the builder and constructs a [`UpdateItemInput`](crate::operation::update_item::UpdateItemInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::update_item::UpdateItemInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::update_item::UpdateItemInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::update_item::UpdateItemInput {
             table_name: self.table_name,
             key: self.key,

@@ -4,10 +4,7 @@ pub fn de_list_quota_shares_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::list_quota_shares::ListQuotaSharesOutput,
-    super::super::operation::list_quota_shares::ListQuotaSharesError,
-> {
+) -> std::result::Result<super::super::operation::list_quota_shares::ListQuotaSharesOutput, super::super::operation::list_quota_shares::ListQuotaSharesError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::list_quota_shares::ListQuotaSharesError::unhandled)?;
@@ -59,10 +56,7 @@ pub fn de_list_quota_shares_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::list_quota_shares::ListQuotaSharesOutput,
-    super::super::operation::list_quota_shares::ListQuotaSharesError,
-> {
+) -> std::result::Result<super::super::operation::list_quota_shares::ListQuotaSharesOutput, super::super::operation::list_quota_shares::ListQuotaSharesError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::list_quota_shares::builders::ListQuotaSharesOutputBuilder::default();

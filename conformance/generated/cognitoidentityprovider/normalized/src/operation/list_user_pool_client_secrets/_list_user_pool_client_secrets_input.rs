@@ -101,13 +101,11 @@ impl ListUserPoolClientSecretsInputBuilder {
         super::super::super::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsInput {
-                user_pool_id: self.user_pool_id,
-                client_id: self.client_id,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_user_pool_client_secrets::ListUserPoolClientSecretsInput {
+            user_pool_id: self.user_pool_id,
+            client_id: self.client_id,
+            next_token: self.next_token,
+        })
     }
 }
 impl ::std::fmt::Debug for ListUserPoolClientSecretsInputBuilder {

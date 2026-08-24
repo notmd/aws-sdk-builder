@@ -342,8 +342,7 @@ impl AdminGetUserOutputBuilder {
     /// - [`username`](crate::operation::admin_get_user::builders::AdminGetUserOutputBuilder::username)
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::admin_get_user::AdminGetUserOutput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::admin_get_user::AdminGetUserOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::admin_get_user::AdminGetUserOutput {
             username: self.username.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

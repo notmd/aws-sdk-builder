@@ -15,47 +15,40 @@ pub fn de_update_user_pool_client_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::update_user_pool_client::UpdateUserPoolClientError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::update_user_pool_client::UpdateUserPoolClientError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "ConcurrentModificationException" => {
-            super::super::operation::update_user_pool_client::UpdateUserPoolClientError::ConcurrentModificationException({
+        "ConcurrentModificationException" => super::super::operation::update_user_pool_client::UpdateUserPoolClientError::ConcurrentModificationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::update_user_pool_client::UpdateUserPoolClientError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::update_user_pool_client::UpdateUserPoolClientError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "FeatureUnavailableInTierException" => {
             super::super::operation::update_user_pool_client::UpdateUserPoolClientError::FeatureUnavailableInTierException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::FeatureUnavailableInTierExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_feature_unavailable_in_tier_exception::de_feature_unavailable_in_tier_exception_json_err(
-                            _response_body,
-                            output,
-                        )
-                        .map_err(super::super::operation::update_user_pool_client::UpdateUserPoolClientError::unhandled)?;
+                    output = super::super::protocol_serde::shape_feature_unavailable_in_tier_exception::de_feature_unavailable_in_tier_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::update_user_pool_client::UpdateUserPoolClientError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -85,11 +78,9 @@ pub fn de_update_user_pool_client_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidOAuthFlowExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_o_auth_flow_exception::de_invalid_o_auth_flow_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::update_user_pool_client::UpdateUserPoolClientError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_invalid_o_auth_flow_exception::de_invalid_o_auth_flow_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::update_user_pool_client::UpdateUserPoolClientError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -103,9 +94,8 @@ pub fn de_update_user_pool_client_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::update_user_pool_client::UpdateUserPoolClientError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::update_user_pool_client::UpdateUserPoolClientError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -129,36 +119,29 @@ pub fn de_update_user_pool_client_http_error(
             }
             tmp
         }),
-        "OperationNotEnabledException" => {
-            super::super::operation::update_user_pool_client::UpdateUserPoolClientError::OperationNotEnabledException({
+        "OperationNotEnabledException" => super::super::operation::update_user_pool_client::UpdateUserPoolClientError::OperationNotEnabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::update_user_pool_client::UpdateUserPoolClientError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::update_user_pool_client::UpdateUserPoolClientError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ResourceNotFoundException" => super::super::operation::update_user_pool_client::UpdateUserPoolClientError::ResourceNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::update_user_pool_client::UpdateUserPoolClientError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::update_user_pool_client::UpdateUserPoolClientError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -172,11 +155,9 @@ pub fn de_update_user_pool_client_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ScopeDoesNotExistExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_scope_does_not_exist_exception::de_scope_does_not_exist_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::update_user_pool_client::UpdateUserPoolClientError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_scope_does_not_exist_exception::de_scope_does_not_exist_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::update_user_pool_client::UpdateUserPoolClientError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -190,9 +171,8 @@ pub fn de_update_user_pool_client_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::update_user_pool_client::UpdateUserPoolClientError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::update_user_pool_client::UpdateUserPoolClientError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

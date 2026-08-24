@@ -147,13 +147,11 @@ impl CreateConsumableResourceInputBuilder {
         super::super::super::operation::create_consumable_resource::CreateConsumableResourceInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::create_consumable_resource::CreateConsumableResourceInput {
-                consumable_resource_name: self.consumable_resource_name,
-                total_quantity: self.total_quantity,
-                resource_type: self.resource_type,
-                tags: self.tags,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::create_consumable_resource::CreateConsumableResourceInput {
+            consumable_resource_name: self.consumable_resource_name,
+            total_quantity: self.total_quantity,
+            resource_type: self.resource_type,
+            tags: self.tags,
+        })
     }
 }

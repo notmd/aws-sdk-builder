@@ -36,9 +36,7 @@ impl PutOrganizationConfigRuleInput {
         self.excluded_accounts.as_deref().unwrap_or_default()
     }
     /// <p>An <code>OrganizationCustomPolicyRuleMetadata</code> object. This object specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have debug logging enabled, and other custom rule metadata, such as resource type, resource ID of Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
-    pub fn organization_custom_policy_rule_metadata(
-        &self,
-    ) -> ::std::option::Option<&super::super::super::types::OrganizationCustomPolicyRuleMetadata> {
+    pub fn organization_custom_policy_rule_metadata(&self) -> ::std::option::Option<&super::super::super::types::OrganizationCustomPolicyRuleMetadata> {
         self.organization_custom_policy_rule_metadata.as_ref()
     }
     /// <p>The tags for the organization Config rule. Each tag consists of a key and an optional value, both of which you define.</p>
@@ -88,10 +86,7 @@ impl PutOrganizationConfigRuleInputBuilder {
         self
     }
     /// <p>An <code>OrganizationManagedRuleMetadata</code> object. This object specifies organization managed rule metadata such as resource type and ID of Amazon Web Services resource along with the rule identifier. It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
-    pub fn set_organization_managed_rule_metadata(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::OrganizationManagedRuleMetadata>,
-    ) -> Self {
+    pub fn set_organization_managed_rule_metadata(mut self, input: ::std::option::Option<super::super::super::types::OrganizationManagedRuleMetadata>) -> Self {
         self.organization_managed_rule_metadata = input;
         self
     }
@@ -105,10 +100,7 @@ impl PutOrganizationConfigRuleInputBuilder {
         self
     }
     /// <p>An <code>OrganizationCustomRuleMetadata</code> object. This object specifies organization custom rule metadata such as resource type, resource ID of Amazon Web Services resource, Lambda function ARN, and organization trigger types that trigger Config to evaluate your Amazon Web Services resources against a rule. It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
-    pub fn set_organization_custom_rule_metadata(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::OrganizationCustomRuleMetadata>,
-    ) -> Self {
+    pub fn set_organization_custom_rule_metadata(mut self, input: ::std::option::Option<super::super::super::types::OrganizationCustomRuleMetadata>) -> Self {
         self.organization_custom_rule_metadata = input;
         self
     }
@@ -150,9 +142,7 @@ impl PutOrganizationConfigRuleInputBuilder {
         self
     }
     /// <p>An <code>OrganizationCustomPolicyRuleMetadata</code> object. This object specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have debug logging enabled, and other custom rule metadata, such as resource type, resource ID of Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
-    pub fn get_organization_custom_policy_rule_metadata(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::OrganizationCustomPolicyRuleMetadata> {
+    pub fn get_organization_custom_policy_rule_metadata(&self) -> &::std::option::Option<super::super::super::types::OrganizationCustomPolicyRuleMetadata> {
         &self.organization_custom_policy_rule_metadata
     }
     /// Appends an item to `tags`.
@@ -182,15 +172,13 @@ impl PutOrganizationConfigRuleInputBuilder {
         super::super::super::operation::put_organization_config_rule::PutOrganizationConfigRuleInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_organization_config_rule::PutOrganizationConfigRuleInput {
-                organization_config_rule_name: self.organization_config_rule_name,
-                organization_managed_rule_metadata: self.organization_managed_rule_metadata,
-                organization_custom_rule_metadata: self.organization_custom_rule_metadata,
-                excluded_accounts: self.excluded_accounts,
-                organization_custom_policy_rule_metadata: self.organization_custom_policy_rule_metadata,
-                tags: self.tags,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_organization_config_rule::PutOrganizationConfigRuleInput {
+            organization_config_rule_name: self.organization_config_rule_name,
+            organization_managed_rule_metadata: self.organization_managed_rule_metadata,
+            organization_custom_rule_metadata: self.organization_custom_rule_metadata,
+            excluded_accounts: self.excluded_accounts,
+            organization_custom_policy_rule_metadata: self.organization_custom_policy_rule_metadata,
+            tags: self.tags,
+        })
     }
 }

@@ -10,8 +10,6 @@ impl super::Client {
     pub fn disable_organizations_root_sessions(
         &self,
     ) -> super::super::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsFluentBuilder {
-        super::super::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsFluentBuilder::new(self.handle.clone())
     }
 }

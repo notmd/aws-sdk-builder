@@ -226,10 +226,7 @@ impl SubmitServiceJobFluentBuilder {
         self
     }
     /// <p>Specifies the service job behavior when preempted.</p>
-    pub fn set_preemption_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::ServiceJobPreemptionConfiguration>,
-    ) -> Self {
+    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<super::super::super::types::ServiceJobPreemptionConfiguration>) -> Self {
         self.inner = self.inner.set_preemption_configuration(input);
         self
     }

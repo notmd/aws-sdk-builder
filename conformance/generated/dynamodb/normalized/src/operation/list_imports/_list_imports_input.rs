@@ -83,9 +83,7 @@ impl ListImportsInputBuilder {
         &self.next_token
     }
     /// Consumes the builder and constructs a [`ListImportsInput`](crate::operation::list_imports::ListImportsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::list_imports::ListImportsInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_imports::ListImportsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_imports::ListImportsInput {
             table_arn: self.table_arn,
             page_size: self.page_size,

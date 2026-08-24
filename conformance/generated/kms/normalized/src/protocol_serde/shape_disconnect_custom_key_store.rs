@@ -15,7 +15,11 @@ pub fn de_disconnect_custom_key_store_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -26,7 +30,12 @@ pub fn de_disconnect_custom_key_store_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::CustomKeyStoreInvalidStateExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_custom_key_store_invalid_state_exception::de_custom_key_store_invalid_state_exception_json_err(_response_body, output).map_err(super::super::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_custom_key_store_invalid_state_exception::de_custom_key_store_invalid_state_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -42,12 +51,11 @@ pub fn de_disconnect_custom_key_store_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::CustomKeyStoreNotFoundExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_custom_key_store_not_found_exception::de_custom_key_store_not_found_exception_json_err(
-                            _response_body,
-                            output,
-                        )
-                        .map_err(super::super::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError::unhandled)?;
+                    output = super::super::protocol_serde::shape_custom_key_store_not_found_exception::de_custom_key_store_not_found_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::disconnect_custom_key_store::DisconnectCustomKeyStoreError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };

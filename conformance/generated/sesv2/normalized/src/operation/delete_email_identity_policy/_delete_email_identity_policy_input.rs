@@ -76,11 +76,9 @@ impl DeleteEmailIdentityPolicyInputBuilder {
         super::super::super::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyInput {
-                email_identity: self.email_identity,
-                policy_name: self.policy_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_email_identity_policy::DeleteEmailIdentityPolicyInput {
+            email_identity: self.email_identity,
+            policy_name: self.policy_name,
+        })
     }
 }

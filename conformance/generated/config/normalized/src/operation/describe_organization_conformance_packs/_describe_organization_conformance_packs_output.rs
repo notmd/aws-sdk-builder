@@ -28,10 +28,8 @@ impl ::aws_types::request_id::RequestId for DescribeOrganizationConformancePacks
 }
 impl DescribeOrganizationConformancePacksOutput {
     /// Creates a new builder-style object to manufacture [`DescribeOrganizationConformancePacksOutput`](crate::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksOutputBuilder {
-        super::super::super::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksOutputBuilder::default(
-        )
+    pub fn builder() -> super::super::super::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksOutputBuilder {
+        super::super::super::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksOutputBuilder::default()
     }
 }
 
@@ -64,9 +62,7 @@ impl DescribeOrganizationConformancePacksOutputBuilder {
         self
     }
     /// <p>Returns a list of OrganizationConformancePacks objects.</p>
-    pub fn get_organization_conformance_packs(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::OrganizationConformancePack>> {
+    pub fn get_organization_conformance_packs(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::OrganizationConformancePack>> {
         &self.organization_conformance_packs
     }
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>

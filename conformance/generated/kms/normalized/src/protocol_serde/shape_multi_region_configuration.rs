@@ -20,30 +20,30 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "MultiRegionKeyType" => {
-                                builder = builder.set_multi_region_key_type(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| super::super::types::MultiRegionKeyType::from(u.as_ref())))
-                                        .transpose()?,
-                                );
-                            }
-                            "PrimaryKey" => {
-                                builder = builder.set_primary_key(super::super::protocol_serde::shape_multi_region_key::de_multi_region_key(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?);
-                            }
-                            "ReplicaKeys" => {
-                                builder = builder.set_replica_keys(
-                                    super::super::protocol_serde::shape_multi_region_key_list::de_multi_region_key_list(tokens, _value, depth + 1)?,
-                                );
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "MultiRegionKeyType" => {
+                            builder = builder.set_multi_region_key_type(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::MultiRegionKeyType::from(u.as_ref())))
+                                    .transpose()?,
+                            );
                         }
-                    }
+                        "PrimaryKey" => {
+                            builder = builder.set_primary_key(super::super::protocol_serde::shape_multi_region_key::de_multi_region_key(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        "ReplicaKeys" => {
+                            builder = builder.set_replica_keys(super::super::protocol_serde::shape_multi_region_key_list::de_multi_region_key_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

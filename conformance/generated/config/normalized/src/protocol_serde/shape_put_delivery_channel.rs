@@ -26,7 +26,11 @@ pub fn de_put_delivery_channel_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InsufficientDeliveryPolicyExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_insufficient_delivery_policy_exception::de_insufficient_delivery_policy_exception_json_err(_response_body, output).map_err(super::super::operation::put_delivery_channel::PutDeliveryChannelError::unhandled)?;
+                    output = super::super::protocol_serde::shape_insufficient_delivery_policy_exception::de_insufficient_delivery_policy_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::put_delivery_channel::PutDeliveryChannelError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -42,7 +46,12 @@ pub fn de_put_delivery_channel_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidDeliveryChannelNameExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_delivery_channel_name_exception::de_invalid_delivery_channel_name_exception_json_err(_response_body, output).map_err(super::super::operation::put_delivery_channel::PutDeliveryChannelError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_delivery_channel_name_exception::de_invalid_delivery_channel_name_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::put_delivery_channel::PutDeliveryChannelError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -57,11 +66,9 @@ pub fn de_put_delivery_channel_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidS3KeyPrefixExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_s3_key_prefix_exception::de_invalid_s3_key_prefix_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::put_delivery_channel::PutDeliveryChannelError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_invalid_s3_key_prefix_exception::de_invalid_s3_key_prefix_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::put_delivery_channel::PutDeliveryChannelError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -93,11 +100,9 @@ pub fn de_put_delivery_channel_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidSnsTopicArnExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_sns_topic_arn_exception::de_invalid_sns_topic_arn_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::put_delivery_channel::PutDeliveryChannelError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_invalid_sns_topic_arn_exception::de_invalid_sns_topic_arn_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::put_delivery_channel::PutDeliveryChannelError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

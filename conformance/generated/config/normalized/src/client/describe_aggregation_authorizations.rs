@@ -13,8 +13,6 @@ impl super::Client {
     pub fn describe_aggregation_authorizations(
         &self,
     ) -> super::super::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsFluentBuilder {
-        super::super::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsFluentBuilder::new(self.handle.clone())
     }
 }

@@ -71,9 +71,7 @@ impl UntagQueueInputBuilder {
         &self.tag_keys
     }
     /// Consumes the builder and constructs a [`UntagQueueInput`](crate::operation::untag_queue::UntagQueueInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::untag_queue::UntagQueueInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::untag_queue::UntagQueueInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::untag_queue::UntagQueueInput {
             queue_url: self.queue_url,
             tag_keys: self.tag_keys,

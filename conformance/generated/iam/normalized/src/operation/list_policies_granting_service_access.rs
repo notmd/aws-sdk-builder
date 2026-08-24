@@ -269,9 +269,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListPolicies
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            super::super::protocol_serde::shape_list_policies_granting_service_access_input::ser_list_policies_granting_service_access_op_input(
-                &input,
-            )?,
+            super::super::protocol_serde::shape_list_policies_granting_service_access_input::ser_list_policies_granting_service_access_op_input(&input)?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();

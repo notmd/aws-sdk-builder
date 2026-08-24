@@ -4,10 +4,7 @@ pub fn de_filter_log_events_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::filter_log_events::FilterLogEventsOutput,
-    super::super::operation::filter_log_events::FilterLogEventsError,
-> {
+) -> std::result::Result<super::super::operation::filter_log_events::FilterLogEventsOutput, super::super::operation::filter_log_events::FilterLogEventsError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::filter_log_events::FilterLogEventsError::unhandled)?;
@@ -25,9 +22,8 @@ pub fn de_filter_log_events_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::filter_log_events::FilterLogEventsError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::filter_log_events::FilterLogEventsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -41,11 +37,8 @@ pub fn de_filter_log_events_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::filter_log_events::FilterLogEventsError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::filter_log_events::FilterLogEventsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -59,11 +52,9 @@ pub fn de_filter_log_events_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::filter_log_events::FilterLogEventsError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::filter_log_events::FilterLogEventsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -81,10 +72,7 @@ pub fn de_filter_log_events_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::filter_log_events::FilterLogEventsOutput,
-    super::super::operation::filter_log_events::FilterLogEventsError,
-> {
+) -> std::result::Result<super::super::operation::filter_log_events::FilterLogEventsOutput, super::super::operation::filter_log_events::FilterLogEventsError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::filter_log_events::builders::FilterLogEventsOutputBuilder::default();
@@ -120,30 +108,30 @@ pub(crate) fn de_filter_log_events(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "events" => {
-                        builder = builder.set_events(super::super::protocol_serde::shape_filtered_log_events::de_filtered_log_events(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?);
-                    }
-                    "searchedLogStreams" => {
-                        builder = builder.set_searched_log_streams(
-                            super::super::protocol_serde::shape_searched_log_streams::de_searched_log_streams(tokens, _value, depth + 1)?,
-                        );
-                    }
-                    "nextToken" => {
-                        builder = builder.set_next_token(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "events" => {
+                    builder = builder.set_events(super::super::protocol_serde::shape_filtered_log_events::de_filtered_log_events(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
-            }
+                "searchedLogStreams" => {
+                    builder = builder.set_searched_log_streams(super::super::protocol_serde::shape_searched_log_streams::de_searched_log_streams(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                "nextToken" => {
+                    builder = builder.set_next_token(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

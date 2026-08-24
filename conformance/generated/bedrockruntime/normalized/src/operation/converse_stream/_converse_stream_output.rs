@@ -4,20 +4,14 @@
 #[derive(::std::fmt::Debug)]
 pub struct ConverseStreamOutput {
     /// <p>The output stream that the model generated.</p>
-    pub stream: super::super::super::event_receiver::EventReceiver<
-        super::super::super::types::ConverseStreamOutput,
-        super::super::super::types::error::ConverseStreamOutputError,
-    >,
+    pub stream: super::super::super::event_receiver::EventReceiver<super::super::super::types::ConverseStreamOutput, super::super::super::types::error::ConverseStreamOutputError>,
     _request_id: Option<String>,
 }
 impl ConverseStreamOutput {
     /// <p>The output stream that the model generated.</p>
     pub fn stream(
         &self,
-    ) -> &super::super::super::event_receiver::EventReceiver<
-        super::super::super::types::ConverseStreamOutput,
-        super::super::super::types::error::ConverseStreamOutputError,
-    > {
+    ) -> &super::super::super::event_receiver::EventReceiver<super::super::super::types::ConverseStreamOutput, super::super::super::types::error::ConverseStreamOutputError> {
         &self.stream
     }
 }
@@ -38,10 +32,7 @@ impl ConverseStreamOutput {
 #[non_exhaustive]
 pub struct ConverseStreamOutputBuilder {
     pub(crate) stream: ::std::option::Option<
-        super::super::super::event_receiver::EventReceiver<
-            super::super::super::types::ConverseStreamOutput,
-            super::super::super::types::error::ConverseStreamOutputError,
-        >,
+        super::super::super::event_receiver::EventReceiver<super::super::super::types::ConverseStreamOutput, super::super::super::types::error::ConverseStreamOutputError>,
     >,
     _request_id: Option<String>,
 }
@@ -49,10 +40,7 @@ impl ConverseStreamOutputBuilder {
     /// <p>The output stream that the model generated.</p>
     pub fn stream(
         mut self,
-        input: super::super::super::event_receiver::EventReceiver<
-            super::super::super::types::ConverseStreamOutput,
-            super::super::super::types::error::ConverseStreamOutputError,
-        >,
+        input: super::super::super::event_receiver::EventReceiver<super::super::super::types::ConverseStreamOutput, super::super::super::types::error::ConverseStreamOutputError>,
     ) -> Self {
         self.stream = ::std::option::Option::Some(input);
         self
@@ -61,10 +49,7 @@ impl ConverseStreamOutputBuilder {
     pub fn set_stream(
         mut self,
         input: ::std::option::Option<
-            super::super::super::event_receiver::EventReceiver<
-                super::super::super::types::ConverseStreamOutput,
-                super::super::super::types::error::ConverseStreamOutputError,
-            >,
+            super::super::super::event_receiver::EventReceiver<super::super::super::types::ConverseStreamOutput, super::super::super::types::error::ConverseStreamOutputError>,
         >,
     ) -> Self {
         self.stream = input;
@@ -74,10 +59,7 @@ impl ConverseStreamOutputBuilder {
     pub fn get_stream(
         &self,
     ) -> &::std::option::Option<
-        super::super::super::event_receiver::EventReceiver<
-            super::super::super::types::ConverseStreamOutput,
-            super::super::super::types::error::ConverseStreamOutputError,
-        >,
+        super::super::super::event_receiver::EventReceiver<super::super::super::types::ConverseStreamOutput, super::super::super::types::error::ConverseStreamOutputError>,
     > {
         &self.stream
     }
@@ -95,8 +77,7 @@ impl ConverseStreamOutputBuilder {
     /// - [`stream`](crate::operation::converse_stream::builders::ConverseStreamOutputBuilder::stream)
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::converse_stream::ConverseStreamOutput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::converse_stream::ConverseStreamOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::converse_stream::ConverseStreamOutput {
             stream: self.stream.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

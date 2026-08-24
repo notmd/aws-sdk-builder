@@ -15,8 +15,6 @@ impl super::Client {
     pub fn describe_remediation_execution_status(
         &self,
     ) -> super::super::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusFluentBuilder {
-        super::super::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusFluentBuilder::new(self.handle.clone())
     }
 }

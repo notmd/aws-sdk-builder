@@ -25,11 +25,8 @@ pub fn de_disable_key_rotation_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
+                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -88,9 +85,8 @@ pub fn de_disable_key_rotation_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -119,11 +115,9 @@ pub fn de_disable_key_rotation_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UnsupportedOperationExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::disable_key_rotation::DisableKeyRotationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

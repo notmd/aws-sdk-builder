@@ -15,11 +15,7 @@ pub fn de_get_user_pool_mfa_config_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -44,9 +40,8 @@ pub fn de_get_user_pool_mfa_config_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -75,11 +70,8 @@ pub fn de_get_user_pool_mfa_config_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -93,9 +85,8 @@ pub fn de_get_user_pool_mfa_config_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -162,17 +153,15 @@ pub(crate) fn de_get_user_pool_mfa_config(
                 }
                 "SoftwareTokenMfaConfiguration" => {
                     builder = builder.set_software_token_mfa_configuration(
-                        super::super::protocol_serde::shape_software_token_mfa_config_type::de_software_token_mfa_config_type(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_software_token_mfa_config_type::de_software_token_mfa_config_type(tokens, _value, depth + 1)?,
                     );
                 }
                 "EmailMfaConfiguration" => {
-                    builder = builder.set_email_mfa_configuration(
-                        super::super::protocol_serde::shape_email_mfa_config_type::de_email_mfa_config_type(tokens, _value, depth + 1)?,
-                    );
+                    builder = builder.set_email_mfa_configuration(super::super::protocol_serde::shape_email_mfa_config_type::de_email_mfa_config_type(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "MfaConfiguration" => {
                     builder = builder.set_mfa_configuration(

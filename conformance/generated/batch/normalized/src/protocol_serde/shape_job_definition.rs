@@ -64,11 +64,8 @@ where
                             );
                         }
                         "parameters" => {
-                            builder = builder.set_parameters(super::super::protocol_serde::shape_parameters_map::de_parameters_map(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_parameters(super::super::protocol_serde::shape_parameters_map::de_parameters_map(tokens, _value, depth + 1)?);
                         }
                         "retryStrategy" => {
                             builder = builder.set_retry_strategy(super::super::protocol_serde::shape_retry_strategy::de_retry_strategy(
@@ -78,16 +75,14 @@ where
                             )?);
                         }
                         "containerProperties" => {
-                            builder = builder.set_container_properties(
-                                super::super::protocol_serde::shape_container_properties::de_container_properties(tokens, _value, depth + 1)?,
-                            );
-                        }
-                        "timeout" => {
-                            builder = builder.set_timeout(super::super::protocol_serde::shape_job_timeout::de_job_timeout(
+                            builder = builder.set_container_properties(super::super::protocol_serde::shape_container_properties::de_container_properties(
                                 tokens,
                                 _value,
                                 depth + 1,
                             )?);
+                        }
+                        "timeout" => {
+                            builder = builder.set_timeout(super::super::protocol_serde::shape_job_timeout::de_job_timeout(tokens, _value, depth + 1)?);
                         }
                         "nodeProperties" => {
                             builder = builder.set_node_properties(super::super::protocol_serde::shape_node_properties::de_node_properties(

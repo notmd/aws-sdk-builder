@@ -19,8 +19,7 @@ impl GetComplianceSummaryByResourceTypeInput {
 }
 impl GetComplianceSummaryByResourceTypeInput {
     /// Creates a new builder-style object to manufacture [`GetComplianceSummaryByResourceTypeInput`](crate::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeInput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeInputBuilder {
+    pub fn builder() -> super::super::super::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeInputBuilder {
         super::super::super::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeInputBuilder::default()
     }
 }

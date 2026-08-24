@@ -67,10 +67,8 @@ impl GetReputationEntityInputBuilder {
     /// Consumes the builder and constructs a [`GetReputationEntityInput`](crate::operation::get_reputation_entity::GetReputationEntityInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_reputation_entity::GetReputationEntityInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_reputation_entity::GetReputationEntityInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_reputation_entity::GetReputationEntityInput {
             reputation_entity_reference: self.reputation_entity_reference,
             reputation_entity_type: self.reputation_entity_type,

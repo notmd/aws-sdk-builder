@@ -20,10 +20,8 @@ impl ::aws_types::request_id::RequestId for AssociateSourceToS3TableIntegrationO
 }
 impl AssociateSourceToS3TableIntegrationOutput {
     /// Creates a new builder-style object to manufacture [`AssociateSourceToS3TableIntegrationOutput`](crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationOutputBuilder {
-        super::super::super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationOutputBuilder::default(
-        )
+    pub fn builder() -> super::super::super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationOutputBuilder {
+        super::super::super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationOutputBuilder::default()
     }
 }
 

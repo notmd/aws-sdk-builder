@@ -13,7 +13,8 @@ impl ::aws_types::request_id::RequestId for UpdateReputationEntityCustomerManage
 }
 impl UpdateReputationEntityCustomerManagedStatusOutput {
     /// Creates a new builder-style object to manufacture [`UpdateReputationEntityCustomerManagedStatusOutput`](crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput).
-    pub fn builder() -> super::super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder {
         super::super::super::operation::update_reputation_entity_customer_managed_status::builders::UpdateReputationEntityCustomerManagedStatusOutputBuilder::default()
     }
 }
@@ -35,9 +36,7 @@ impl UpdateReputationEntityCustomerManagedStatusOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateReputationEntityCustomerManagedStatusOutput`](crate::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput).
-    pub fn build(
-        self,
-    ) -> super::super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput {
+    pub fn build(self) -> super::super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput {
         super::super::super::operation::update_reputation_entity_customer_managed_status::UpdateReputationEntityCustomerManagedStatusOutput {
             _request_id: self._request_id,
         }

@@ -172,10 +172,7 @@ impl UpdateGlobalTableSettingsFluentBuilder {
         self.inner.get_global_table_provisioned_write_capacity_units()
     }
     /// <p>Auto scaling settings for managing provisioned write capacity for the global table.</p>
-    pub fn global_table_provisioned_write_capacity_auto_scaling_settings_update(
-        mut self,
-        input: super::super::super::types::AutoScalingSettingsUpdate,
-    ) -> Self {
+    pub fn global_table_provisioned_write_capacity_auto_scaling_settings_update(mut self, input: super::super::super::types::AutoScalingSettingsUpdate) -> Self {
         self.inner = self.inner.global_table_provisioned_write_capacity_auto_scaling_settings_update(input);
         self
     }
@@ -199,10 +196,7 @@ impl UpdateGlobalTableSettingsFluentBuilder {
     /// To override the contents of this collection use [`set_global_table_global_secondary_index_settings_update`](Self::set_global_table_global_secondary_index_settings_update).
     ///
     /// <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
-    pub fn global_table_global_secondary_index_settings_update(
-        mut self,
-        input: super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate,
-    ) -> Self {
+    pub fn global_table_global_secondary_index_settings_update(mut self, input: super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate) -> Self {
         self.inner = self.inner.global_table_global_secondary_index_settings_update(input);
         self
     }
@@ -231,10 +225,7 @@ impl UpdateGlobalTableSettingsFluentBuilder {
         self
     }
     /// <p>Represents the settings for a global table in a Region that will be modified.</p>
-    pub fn set_replica_settings_update(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsUpdate>>,
-    ) -> Self {
+    pub fn set_replica_settings_update(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsUpdate>>) -> Self {
         self.inner = self.inner.set_replica_settings_update(input);
         self
     }

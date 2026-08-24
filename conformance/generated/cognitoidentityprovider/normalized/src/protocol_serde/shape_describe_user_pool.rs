@@ -4,10 +4,7 @@ pub fn de_describe_user_pool_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::describe_user_pool::DescribeUserPoolOutput,
-    super::super::operation::describe_user_pool::DescribeUserPoolError,
-> {
+) -> std::result::Result<super::super::operation::describe_user_pool::DescribeUserPoolOutput, super::super::operation::describe_user_pool::DescribeUserPoolError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::describe_user_pool::DescribeUserPoolError::unhandled)?;
@@ -40,9 +37,8 @@ pub fn de_describe_user_pool_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::describe_user_pool::DescribeUserPoolError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::describe_user_pool::DescribeUserPoolError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -71,11 +67,9 @@ pub fn de_describe_user_pool_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::describe_user_pool::DescribeUserPoolError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::describe_user_pool::DescribeUserPoolError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -89,11 +83,8 @@ pub fn de_describe_user_pool_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::describe_user_pool::DescribeUserPoolError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::describe_user_pool::DescribeUserPoolError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -107,9 +98,8 @@ pub fn de_describe_user_pool_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::describe_user_pool::DescribeUserPoolError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::describe_user_pool::DescribeUserPoolError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -123,9 +113,8 @@ pub fn de_describe_user_pool_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UserPoolTaggingExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_user_pool_tagging_exception::de_user_pool_tagging_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::describe_user_pool::DescribeUserPoolError::unhandled)?;
+                output = super::super::protocol_serde::shape_user_pool_tagging_exception::de_user_pool_tagging_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::describe_user_pool::DescribeUserPoolError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -143,10 +132,7 @@ pub fn de_describe_user_pool_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::describe_user_pool::DescribeUserPoolOutput,
-    super::super::operation::describe_user_pool::DescribeUserPoolError,
-> {
+) -> std::result::Result<super::super::operation::describe_user_pool::DescribeUserPoolOutput, super::super::operation::describe_user_pool::DescribeUserPoolError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::describe_user_pool::builders::DescribeUserPoolOutputBuilder::default();
@@ -184,11 +170,7 @@ pub(crate) fn de_describe_user_pool(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "UserPool" => {
-                    builder = builder.set_user_pool(super::super::protocol_serde::shape_user_pool_type::de_user_pool_type(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_user_pool(super::super::protocol_serde::shape_user_pool_type::de_user_pool_type(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

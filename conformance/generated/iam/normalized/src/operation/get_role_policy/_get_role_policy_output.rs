@@ -117,8 +117,7 @@ impl GetRolePolicyOutputBuilder {
     /// - [`policy_document`](crate::operation::get_role_policy::builders::GetRolePolicyOutputBuilder::policy_document)
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::get_role_policy::GetRolePolicyOutput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::get_role_policy::GetRolePolicyOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_role_policy::GetRolePolicyOutput {
             role_name: self.role_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

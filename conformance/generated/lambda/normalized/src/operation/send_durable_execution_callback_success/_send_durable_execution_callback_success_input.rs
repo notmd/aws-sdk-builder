@@ -28,8 +28,7 @@ impl ::std::fmt::Debug for SendDurableExecutionCallbackSuccessInput {
 }
 impl SendDurableExecutionCallbackSuccessInput {
     /// Creates a new builder-style object to manufacture [`SendDurableExecutionCallbackSuccessInput`](crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessInput).
-    pub fn builder(
-    ) -> super::super::super::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessInputBuilder {
+    pub fn builder() -> super::super::super::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessInputBuilder {
         super::super::super::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessInputBuilder::default()
     }
 }

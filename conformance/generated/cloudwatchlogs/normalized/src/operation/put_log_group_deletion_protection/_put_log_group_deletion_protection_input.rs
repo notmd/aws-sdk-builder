@@ -100,11 +100,9 @@ impl PutLogGroupDeletionProtectionInputBuilder {
         super::super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionInput {
-                log_group_identifier: self.log_group_identifier,
-                deletion_protection_enabled: self.deletion_protection_enabled,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionInput {
+            log_group_identifier: self.log_group_identifier,
+            deletion_protection_enabled: self.deletion_protection_enabled,
+        })
     }
 }

@@ -318,10 +318,7 @@ impl ImportKeyMaterialInputBuilder {
     /// Consumes the builder and constructs a [`ImportKeyMaterialInput`](crate::operation::import_key_material::ImportKeyMaterialInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::import_key_material::ImportKeyMaterialInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::import_key_material::ImportKeyMaterialInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::import_key_material::ImportKeyMaterialInput {
             key_id: self.key_id,
             import_token: self.import_token,

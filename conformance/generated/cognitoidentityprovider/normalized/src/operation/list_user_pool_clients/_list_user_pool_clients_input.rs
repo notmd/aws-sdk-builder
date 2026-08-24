@@ -87,10 +87,8 @@ impl ListUserPoolClientsInputBuilder {
     /// Consumes the builder and constructs a [`ListUserPoolClientsInput`](crate::operation::list_user_pool_clients::ListUserPoolClientsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_user_pool_clients::ListUserPoolClientsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_user_pool_clients::ListUserPoolClientsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_user_pool_clients::ListUserPoolClientsInput {
             user_pool_id: self.user_pool_id,
             max_results: self.max_results,

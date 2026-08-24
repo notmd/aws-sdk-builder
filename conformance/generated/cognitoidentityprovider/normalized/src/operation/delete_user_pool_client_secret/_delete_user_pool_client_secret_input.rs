@@ -102,13 +102,11 @@ impl DeleteUserPoolClientSecretInputBuilder {
         super::super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretInput {
-                user_pool_id: self.user_pool_id,
-                client_id: self.client_id,
-                client_secret_id: self.client_secret_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_user_pool_client_secret::DeleteUserPoolClientSecretInput {
+            user_pool_id: self.user_pool_id,
+            client_id: self.client_id,
+            client_secret_id: self.client_secret_id,
+        })
     }
 }
 impl ::std::fmt::Debug for DeleteUserPoolClientSecretInputBuilder {

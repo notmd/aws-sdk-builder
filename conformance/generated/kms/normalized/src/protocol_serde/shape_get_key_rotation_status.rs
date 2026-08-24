@@ -15,11 +15,7 @@ pub fn de_get_key_rotation_status_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::get_key_rotation_status::GetKeyRotationStatusError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::get_key_rotation_status::GetKeyRotationStatusError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -29,11 +25,8 @@ pub fn de_get_key_rotation_status_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::get_key_rotation_status::GetKeyRotationStatusError::unhandled)?;
+                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_key_rotation_status::GetKeyRotationStatusError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -77,9 +70,8 @@ pub fn de_get_key_rotation_status_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_key_rotation_status::GetKeyRotationStatusError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_key_rotation_status::GetKeyRotationStatusError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -103,26 +95,22 @@ pub fn de_get_key_rotation_status_http_error(
             }
             tmp
         }),
-        "UnsupportedOperationException" => {
-            super::super::operation::get_key_rotation_status::GetKeyRotationStatusError::UnsupportedOperationException({
+        "UnsupportedOperationException" => super::super::operation::get_key_rotation_status::GetKeyRotationStatusError::UnsupportedOperationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::UnsupportedOperationExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::get_key_rotation_status::GetKeyRotationStatusError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::UnsupportedOperationExceptionBuilder::default();
+                output =
+                    super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::get_key_rotation_status::GetKeyRotationStatusError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::get_key_rotation_status::GetKeyRotationStatusError::generic(generic),
     })
 }

@@ -9,10 +9,7 @@ pub fn ser_cloud_watch_destination(
             {
                 #[allow(unused_mut)]
                 let mut object_3 = array_1.value().start_object();
-                super::super::protocol_serde::shape_cloud_watch_dimension_configuration::ser_cloud_watch_dimension_configuration(
-                    &mut object_3,
-                    item_2,
-                )?;
+                super::super::protocol_serde::shape_cloud_watch_dimension_configuration::ser_cloud_watch_dimension_configuration(&mut object_3, item_2)?;
                 object_3.finish();
             }
         }
@@ -42,14 +39,18 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "DimensionConfigurations" => {
-                                builder = builder.set_dimension_configurations(super::super::protocol_serde::shape_cloud_watch_dimension_configurations::de_cloud_watch_dimension_configurations(tokens, _value, depth + 1)?);
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "DimensionConfigurations" => {
+                            builder = builder.set_dimension_configurations(
+                                super::super::protocol_serde::shape_cloud_watch_dimension_configurations::de_cloud_watch_dimension_configurations(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
                         }
-                    }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"
@@ -57,11 +58,9 @@ where
                     }
                 }
             }
-            Ok(Some(
-                super::super::serde_util::cloud_watch_destination_correct_errors(builder)
-                    .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-            ))
+            Ok(Some(super::super::serde_util::cloud_watch_destination_correct_errors(builder).build().map_err(
+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+            )?))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

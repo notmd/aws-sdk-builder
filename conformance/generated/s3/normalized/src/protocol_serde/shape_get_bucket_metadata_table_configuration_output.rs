@@ -7,10 +7,8 @@ pub(crate) fn de_get_bucket_metadata_table_configuration_result_payload(
 > {
     (!body.is_empty())
         .then(|| {
-            super::super::protocol_serde::shape_get_bucket_metadata_table_configuration_output::de_get_bucket_metadata_table_configuration_result(
-                body,
-            )
-            .map_err(super::super::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationError::unhandled)
+            super::super::protocol_serde::shape_get_bucket_metadata_table_configuration_output::de_get_bucket_metadata_table_configuration_result(body)
+                .map_err(super::super::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationError::unhandled)
         })
         .transpose()
 }

@@ -23,10 +23,8 @@ impl ListCustomVerificationEmailTemplatesInput {
 }
 impl ListCustomVerificationEmailTemplatesInput {
     /// Creates a new builder-style object to manufacture [`ListCustomVerificationEmailTemplatesInput`](crate::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesInput).
-    pub fn builder(
-    ) -> super::super::super::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesInputBuilder {
-        super::super::super::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesInputBuilder::default(
-        )
+    pub fn builder() -> super::super::super::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesInputBuilder {
+        super::super::super::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesInputBuilder::default()
     }
 }
 

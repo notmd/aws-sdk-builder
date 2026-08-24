@@ -41,10 +41,7 @@ impl GuardrailAutomatedReasoningScenarioBuilder {
         self
     }
     /// <p>List of logical assignments and statements that define this scenario.</p>
-    pub fn set_statements(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningStatement>>,
-    ) -> Self {
+    pub fn set_statements(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningStatement>>) -> Self {
         self.statements = input;
         self
     }

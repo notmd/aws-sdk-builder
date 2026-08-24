@@ -15,7 +15,11 @@ pub fn de_delete_function_url_config_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -40,46 +44,36 @@ pub fn de_delete_function_url_config_http_error(
                 tmp
             })
         }
-        "ResourceConflictException" => {
-            super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigError::ResourceConflictException({
+        "ResourceConflictException" => super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigError::ResourceConflictException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ResourceConflictExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::ResourceConflictExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ResourceNotFoundException" => {
-            super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigError::ResourceNotFoundException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ResourceNotFoundException" => super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigError::ResourceNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ServiceException" => super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigError::ServiceException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -100,9 +94,8 @@ pub fn de_delete_function_url_config_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_function_url_config::DeleteFunctionUrlConfigError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

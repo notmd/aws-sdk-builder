@@ -62,10 +62,8 @@ impl StopDurableExecutionOutputBuilder {
     /// - [`stop_timestamp`](crate::operation::stop_durable_execution::builders::StopDurableExecutionOutputBuilder::stop_timestamp)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::stop_durable_execution::StopDurableExecutionOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::stop_durable_execution::StopDurableExecutionOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::stop_durable_execution::StopDurableExecutionOutput {
             stop_timestamp: self.stop_timestamp.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

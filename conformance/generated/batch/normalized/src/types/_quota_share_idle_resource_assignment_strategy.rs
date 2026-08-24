@@ -51,9 +51,7 @@ impl ::std::convert::From<&str> for QuotaShareIdleResourceAssignmentStrategy {
     fn from(s: &str) -> Self {
         match s {
             "FIFO" => QuotaShareIdleResourceAssignmentStrategy::Fifo,
-            other => QuotaShareIdleResourceAssignmentStrategy::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(
-                other.to_owned(),
-            )),
+            other => QuotaShareIdleResourceAssignmentStrategy::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

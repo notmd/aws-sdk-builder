@@ -149,10 +149,7 @@ impl StartAsyncInvokeInputBuilder {
     /// Consumes the builder and constructs a [`StartAsyncInvokeInput`](crate::operation::start_async_invoke::StartAsyncInvokeInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::start_async_invoke::StartAsyncInvokeInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::start_async_invoke::StartAsyncInvokeInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::start_async_invoke::StartAsyncInvokeInput {
             client_request_token: self.client_request_token,
             model_id: self.model_id,

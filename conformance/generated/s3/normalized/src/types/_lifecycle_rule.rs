@@ -282,10 +282,7 @@ impl LifecycleRuleBuilder {
         self
     }
     /// <p>Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config"> Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn set_abort_incomplete_multipart_upload(
-        mut self,
-        input: ::std::option::Option<super::super::types::AbortIncompleteMultipartUpload>,
-    ) -> Self {
+    pub fn set_abort_incomplete_multipart_upload(mut self, input: ::std::option::Option<super::super::types::AbortIncompleteMultipartUpload>) -> Self {
         self.abort_incomplete_multipart_upload = input;
         self
     }

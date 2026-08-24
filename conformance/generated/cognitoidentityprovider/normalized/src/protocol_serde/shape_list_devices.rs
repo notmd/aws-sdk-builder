@@ -52,9 +52,8 @@ pub fn de_list_devices_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::list_devices::ListDevicesError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_devices::ListDevicesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -63,20 +62,22 @@ pub fn de_list_devices_http_error(
             }
             tmp
         }),
-        "InvalidUserPoolConfigurationException" => super::super::operation::list_devices::ListDevicesError::InvalidUserPoolConfigurationException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "InvalidUserPoolConfigurationException" => {
+            super::super::operation::list_devices::ListDevicesError::InvalidUserPoolConfigurationException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InvalidUserPoolConfigurationExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_user_pool_configuration_exception::de_invalid_user_pool_configuration_exception_json_err(_response_body, output).map_err(super::super::operation::list_devices::ListDevicesError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InvalidUserPoolConfigurationExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_invalid_user_pool_configuration_exception::de_invalid_user_pool_configuration_exception_json_err(_response_body, output).map_err(super::super::operation::list_devices::ListDevicesError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "NotAuthorizedException" => super::super::operation::list_devices::ListDevicesError::NotAuthorizedException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -97,11 +98,9 @@ pub fn de_list_devices_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::list_devices::ListDevicesError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::list_devices::ListDevicesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -133,11 +132,8 @@ pub fn de_list_devices_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::list_devices::ListDevicesError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_devices::ListDevicesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -151,9 +147,8 @@ pub fn de_list_devices_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::list_devices::ListDevicesError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_devices::ListDevicesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -167,11 +162,8 @@ pub fn de_list_devices_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UserNotConfirmedExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::list_devices::ListDevicesError::unhandled)?;
+                output = super::super::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_devices::ListDevicesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -228,10 +220,8 @@ pub fn ser_list_devices_input(
 pub(crate) fn de_list_devices(
     _value: &[u8],
     mut builder: super::super::operation::list_devices::builders::ListDevicesOutputBuilder,
-) -> ::std::result::Result<
-    super::super::operation::list_devices::builders::ListDevicesOutputBuilder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
+) -> ::std::result::Result<super::super::operation::list_devices::builders::ListDevicesOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+{
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]

@@ -139,10 +139,7 @@ impl PutBucketLoggingInputBuilder {
     /// Consumes the builder and constructs a [`PutBucketLoggingInput`](crate::operation::put_bucket_logging::PutBucketLoggingInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::put_bucket_logging::PutBucketLoggingInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::put_bucket_logging::PutBucketLoggingInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_bucket_logging::PutBucketLoggingInput {
             bucket: self.bucket,
             bucket_logging_status: self.bucket_logging_status,

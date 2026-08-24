@@ -97,16 +97,14 @@ impl DeleteServiceLinkedRoleOutputBuilder {
         super::super::super::operation::delete_service_linked_role::DeleteServiceLinkedRoleOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_service_linked_role::DeleteServiceLinkedRoleOutput {
-                deletion_task_id: self.deletion_task_id.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "deletion_task_id",
-                        "deletion_task_id was not specified but it is required when building DeleteServiceLinkedRoleOutput",
-                    )
-                })?,
-                _request_id: self._request_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_service_linked_role::DeleteServiceLinkedRoleOutput {
+            deletion_task_id: self.deletion_task_id.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "deletion_task_id",
+                    "deletion_task_id was not specified but it is required when building DeleteServiceLinkedRoleOutput",
+                )
+            })?,
+            _request_id: self._request_id,
+        })
     }
 }

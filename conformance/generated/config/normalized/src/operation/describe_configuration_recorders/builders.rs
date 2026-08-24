@@ -60,9 +60,7 @@ impl DescribeConfigurationRecordersFluentBuilder {
         }
     }
     /// Access the DescribeConfigurationRecorders as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::describe_configuration_recorders::builders::DescribeConfigurationRecordersInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::describe_configuration_recorders::builders::DescribeConfigurationRecordersInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,12 +84,11 @@ impl DescribeConfigurationRecordersFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::describe_configuration_recorders::DescribeConfigurationRecorders::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = super::super::super::operation::describe_configuration_recorders::DescribeConfigurationRecorders::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         super::super::super::operation::describe_configuration_recorders::DescribeConfigurationRecorders::orchestrate(&runtime_plugins, input).await
     }
 

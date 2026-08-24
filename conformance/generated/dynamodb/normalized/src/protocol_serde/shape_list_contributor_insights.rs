@@ -15,7 +15,11 @@ pub fn de_list_contributor_insights_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::list_contributor_insights::ListContributorInsightsError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::list_contributor_insights::ListContributorInsightsError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -40,11 +44,8 @@ pub fn de_list_contributor_insights_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::list_contributor_insights::ListContributorInsightsError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_contributor_insights::ListContributorInsightsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -104,11 +105,7 @@ pub(crate) fn de_list_contributor_insights(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "ContributorInsightsSummaries" => {
                     builder = builder.set_contributor_insights_summaries(
-                        super::super::protocol_serde::shape_contributor_insights_summaries::de_contributor_insights_summaries(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_contributor_insights_summaries::de_contributor_insights_summaries(tokens, _value, depth + 1)?,
                     );
                 }
                 "NextToken" => {

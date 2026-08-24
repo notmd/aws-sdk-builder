@@ -312,19 +312,17 @@ impl UpdatePackageVersionsStatusInputBuilder {
         super::super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-                repository: self.repository,
-                format: self.format,
-                namespace: self.namespace,
-                package: self.package,
-                versions: self.versions,
-                version_revisions: self.version_revisions,
-                expected_status: self.expected_status,
-                target_status: self.target_status,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+            repository: self.repository,
+            format: self.format,
+            namespace: self.namespace,
+            package: self.package,
+            versions: self.versions,
+            version_revisions: self.version_revisions,
+            expected_status: self.expected_status,
+            target_status: self.target_status,
+        })
     }
 }

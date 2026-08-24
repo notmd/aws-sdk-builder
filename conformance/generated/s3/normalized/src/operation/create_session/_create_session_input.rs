@@ -191,8 +191,7 @@ impl CreateSessionInputBuilder {
     /// Consumes the builder and constructs a [`CreateSessionInput`](crate::operation::create_session::CreateSessionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::create_session::CreateSessionInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::create_session::CreateSessionInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::create_session::CreateSessionInput {
             session_mode: self.session_mode,
             bucket: self.bucket,

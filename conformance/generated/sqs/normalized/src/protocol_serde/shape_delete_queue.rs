@@ -123,10 +123,8 @@ pub fn ser_delete_queue_input(
 pub(crate) fn de_delete_queue(
     _value: &[u8],
     mut builder: super::super::operation::delete_queue::builders::DeleteQueueOutputBuilder,
-) -> ::std::result::Result<
-    super::super::operation::delete_queue::builders::DeleteQueueOutputBuilder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
+) -> ::std::result::Result<super::super::operation::delete_queue::builders::DeleteQueueOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+{
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]

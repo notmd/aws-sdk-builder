@@ -5,13 +5,37 @@ edition = "2024"
 publish = false
 
 [dependencies]
+arc-swap = "1.7.1"
 aws-sdk-builder-s3 = { path = "../../crates/aws-sdk-builder-s3" }
 aws-sdk-builder-sqs = { path = "../../crates/aws-sdk-builder-sqs" }
+aws-credential-types = { version = "1.3.0", features = ["test-util"] }
 aws-runtime = "1.9.1"
+aws-sigv4 = "1.5.1"
+aws-smithy-async = { version = "1.3.0", features = ["rt-tokio"] }
+aws-smithy-checksums = "0.65.0"
+aws-smithy-http = "0.64.0"
+aws-smithy-http-client = { version = "1.2.0", features = ["default-client"] }
+aws-smithy-json = "0.63.0"
+aws-smithy-observability = "0.3.0"
+aws-smithy-runtime = "1.14.0"
 aws-types = "1.5.0"
-aws-smithy-runtime-api = "1.15.0"
-aws-smithy-types = "1.6.2"
+aws-smithy-schema = "0.2.0"
+aws-smithy-runtime-api = { version = "1.15.0", features = ["http-1x", "http-02x"] }
+aws-smithy-types = { version = "1.6.2", features = ["http-body-0-4-x", "http-body-1-x"] }
+aws-smithy-xml = "0.62.0"
+bytes = "1.12.1"
+fastrand = "2.3.0"
+hex = "0.4.3"
+http = "0.2.12"
 http-1x = { package = "http", version = "1.5.0" }
+http-body-1x = { package = "http-body", version = "1.1.0" }
+percent-encoding = "2.3.2"
+regex-lite = "0.1.9"
+hmac = "0.13.0"
+lru = "0.18.2"
+sha2 = "0.11.0"
+tracing = "0.1.44"
+url = "2.5.8"
 
 [build-dependencies]
 aws-sdk-builder-s3 = { path = "../../crates/aws-sdk-builder-s3" }

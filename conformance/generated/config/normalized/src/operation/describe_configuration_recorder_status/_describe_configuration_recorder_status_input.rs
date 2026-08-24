@@ -33,8 +33,7 @@ impl DescribeConfigurationRecorderStatusInput {
 }
 impl DescribeConfigurationRecorderStatusInput {
     /// Creates a new builder-style object to manufacture [`DescribeConfigurationRecorderStatusInput`](crate::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusInput).
-    pub fn builder(
-    ) -> super::super::super::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusInputBuilder {
+    pub fn builder() -> super::super::super::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusInputBuilder {
         super::super::super::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusInputBuilder::default()
     }
 }

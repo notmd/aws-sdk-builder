@@ -159,9 +159,7 @@ impl UpdateTermsInputBuilder {
         &self.links
     }
     /// Consumes the builder and constructs a [`UpdateTermsInput`](crate::operation::update_terms::UpdateTermsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::update_terms::UpdateTermsInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::update_terms::UpdateTermsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::update_terms::UpdateTermsInput {
             terms_id: self.terms_id,
             user_pool_id: self.user_pool_id,

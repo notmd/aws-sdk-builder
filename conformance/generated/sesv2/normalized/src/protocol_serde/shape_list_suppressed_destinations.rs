@@ -35,26 +35,21 @@ pub fn de_list_suppressed_destinations_http_error(
             }
             tmp
         }),
-        "InvalidNextTokenException" => {
-            super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsError::InvalidNextTokenException({
+        "InvalidNextTokenException" => super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsError::InvalidNextTokenException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "NotFoundException" => super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsError::NotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -70,26 +65,21 @@ pub fn de_list_suppressed_destinations_http_error(
             }
             tmp
         }),
-        "TooManyRequestsException" => {
-            super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsError::TooManyRequestsException({
+        "TooManyRequestsException" => super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsError::TooManyRequestsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsError::generic(generic),
     })
 }

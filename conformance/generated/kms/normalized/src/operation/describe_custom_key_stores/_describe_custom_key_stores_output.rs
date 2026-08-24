@@ -61,10 +61,7 @@ impl DescribeCustomKeyStoresOutputBuilder {
         self
     }
     /// <p>Contains metadata about each custom key store.</p>
-    pub fn set_custom_key_stores(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::CustomKeyStoresListEntry>>,
-    ) -> Self {
+    pub fn set_custom_key_stores(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::CustomKeyStoresListEntry>>) -> Self {
         self.custom_key_stores = input;
         self
     }

@@ -55,10 +55,7 @@ impl ChangeMessageVisibilityBatchOutputBuilder {
         self
     }
     /// <p>A list of <code> <code>ChangeMessageVisibilityBatchResultEntry</code> </code> items.</p>
-    pub fn set_successful(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchResultEntry>>,
-    ) -> Self {
+    pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchResultEntry>>) -> Self {
         self.successful = input;
         self
     }
@@ -105,22 +102,20 @@ impl ChangeMessageVisibilityBatchOutputBuilder {
         super::super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchOutput {
-                successful: self.successful.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "successful",
-                        "successful was not specified but it is required when building ChangeMessageVisibilityBatchOutput",
-                    )
-                })?,
-                failed: self.failed.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "failed",
-                        "failed was not specified but it is required when building ChangeMessageVisibilityBatchOutput",
-                    )
-                })?,
-                _request_id: self._request_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchOutput {
+            successful: self.successful.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "successful",
+                    "successful was not specified but it is required when building ChangeMessageVisibilityBatchOutput",
+                )
+            })?,
+            failed: self.failed.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "failed",
+                    "failed was not specified but it is required when building ChangeMessageVisibilityBatchOutput",
+                )
+            })?,
+            _request_id: self._request_id,
+        })
     }
 }

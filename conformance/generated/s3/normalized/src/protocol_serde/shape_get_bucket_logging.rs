@@ -4,10 +4,7 @@ pub fn de_get_bucket_logging_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::get_bucket_logging::GetBucketLoggingOutput,
-    super::super::operation::get_bucket_logging::GetBucketLoggingError,
-> {
+) -> std::result::Result<super::super::operation::get_bucket_logging::GetBucketLoggingOutput, super::super::operation::get_bucket_logging::GetBucketLoggingError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::get_bucket_logging::GetBucketLoggingError::unhandled)?;
@@ -22,10 +19,7 @@ pub fn de_get_bucket_logging_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::get_bucket_logging::GetBucketLoggingOutput,
-    super::super::operation::get_bucket_logging::GetBucketLoggingError,
-> {
+) -> std::result::Result<super::super::operation::get_bucket_logging::GetBucketLoggingOutput, super::super::operation::get_bucket_logging::GetBucketLoggingError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::get_bucket_logging::builders::GetBucketLoggingOutputBuilder::default();
@@ -59,8 +53,7 @@ pub fn ser_get_bucket_logging_headers(
 pub fn de_get_bucket_logging(
     inp: &[u8],
     mut builder: super::super::operation::get_bucket_logging::builders::GetBucketLoggingOutputBuilder,
-) -> std::result::Result<super::super::operation::get_bucket_logging::builders::GetBucketLoggingOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
-{
+) -> std::result::Result<super::super::operation::get_bucket_logging::builders::GetBucketLoggingOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

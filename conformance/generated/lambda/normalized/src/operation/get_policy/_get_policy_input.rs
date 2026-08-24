@@ -113,9 +113,7 @@ impl GetPolicyInputBuilder {
         &self.qualifier
     }
     /// Consumes the builder and constructs a [`GetPolicyInput`](crate::operation::get_policy::GetPolicyInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::get_policy::GetPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_policy::GetPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_policy::GetPolicyInput {
             function_name: self.function_name,
             qualifier: self.qualifier,

@@ -14,8 +14,7 @@ impl SendDurableExecutionCallbackHeartbeatInput {
 }
 impl SendDurableExecutionCallbackHeartbeatInput {
     /// Creates a new builder-style object to manufacture [`SendDurableExecutionCallbackHeartbeatInput`](crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput).
-    pub fn builder(
-    ) -> super::super::super::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatInputBuilder {
+    pub fn builder() -> super::super::super::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatInputBuilder {
         super::super::super::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatInputBuilder::default()
     }
 }

@@ -15,11 +15,7 @@ pub fn de_confirm_forgot_password_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -84,34 +80,31 @@ pub fn de_confirm_forgot_password_http_error(
             }
             tmp
         }),
-        "InvalidLambdaResponseException" => {
-            super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::InvalidLambdaResponseException({
+        "InvalidLambdaResponseException" => super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::InvalidLambdaResponseException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::InvalidLambdaResponseExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_lambda_response_exception::de_invalid_lambda_response_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidParameterException" => super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::InvalidParameterException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -125,9 +118,8 @@ pub fn de_confirm_forgot_password_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidPasswordExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_password_exception::de_invalid_password_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_password_exception::de_invalid_password_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -166,26 +158,22 @@ pub fn de_confirm_forgot_password_http_error(
             }
             tmp
         }),
-        "OperationNotEnabledException" => {
-            super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::OperationNotEnabledException({
+        "OperationNotEnabledException" => super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::OperationNotEnabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "PasswordHistoryPolicyViolationException" => {
             super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::PasswordHistoryPolicyViolationException({
                 #[allow(unused_mut)]
@@ -207,7 +195,22 @@ pub fn de_confirm_forgot_password_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "TooManyFailedAttemptsException" => super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::TooManyFailedAttemptsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::TooManyFailedAttemptsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_too_many_failed_attempts_exception::de_too_many_failed_attempts_exception_json_err(
                     _response_body,
                     output,
                 )
@@ -220,34 +223,13 @@ pub fn de_confirm_forgot_password_http_error(
             }
             tmp
         }),
-        "TooManyFailedAttemptsException" => {
-            super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::TooManyFailedAttemptsException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::TooManyFailedAttemptsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_failed_attempts_exception::de_too_many_failed_attempts_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
         "TooManyRequestsException" => super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::TooManyRequestsException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -261,9 +243,8 @@ pub fn de_confirm_forgot_password_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::unhandled)?;
+                output = super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -272,36 +253,31 @@ pub fn de_confirm_forgot_password_http_error(
             }
             tmp
         }),
-        "UserLambdaValidationException" => {
-            super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::UserLambdaValidationException({
+        "UserLambdaValidationException" => super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::UserLambdaValidationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::UserLambdaValidationExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::UserLambdaValidationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "UserNotConfirmedException" => super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::UserNotConfirmedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UserNotConfirmedExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::unhandled)?;
+                output = super::super::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::confirm_forgot_password::ConfirmForgotPasswordError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

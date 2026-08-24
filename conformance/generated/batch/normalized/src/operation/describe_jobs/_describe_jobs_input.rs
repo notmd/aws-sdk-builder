@@ -52,8 +52,7 @@ impl DescribeJobsInputBuilder {
     /// Consumes the builder and constructs a [`DescribeJobsInput`](crate::operation::describe_jobs::DescribeJobsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::describe_jobs::DescribeJobsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::describe_jobs::DescribeJobsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::describe_jobs::DescribeJobsInput { jobs: self.jobs })
     }
 }

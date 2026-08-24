@@ -59,9 +59,7 @@ impl ::std::convert::From<&str> for GuardrailChecksPromptAttackCategory {
             "JAILBREAK" => GuardrailChecksPromptAttackCategory::Jailbreak,
             "PROMPT_INJECTION" => GuardrailChecksPromptAttackCategory::PromptInjection,
             "PROMPT_LEAKAGE" => GuardrailChecksPromptAttackCategory::PromptLeakage,
-            other => {
-                GuardrailChecksPromptAttackCategory::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => GuardrailChecksPromptAttackCategory::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

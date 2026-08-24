@@ -3,10 +3,7 @@ pub(crate) fn de_organization_custom_policy_rule_metadata_no_policy<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<super::super::types::OrganizationCustomPolicyRuleMetadataNoPolicy>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<super::super::types::OrganizationCustomPolicyRuleMetadataNoPolicy>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -49,9 +46,11 @@ where
                             );
                         }
                         "ResourceTypesScope" => {
-                            builder = builder.set_resource_types_scope(
-                                super::super::protocol_serde::shape_resource_types_scope::de_resource_types_scope(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_resource_types_scope(super::super::protocol_serde::shape_resource_types_scope::de_resource_types_scope(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "ResourceIdScope" => {
                             builder = builder.set_resource_id_scope(
@@ -83,11 +82,7 @@ where
                         }
                         "DebugLogDeliveryAccounts" => {
                             builder = builder.set_debug_log_delivery_accounts(
-                                super::super::protocol_serde::shape_debug_log_delivery_accounts::de_debug_log_delivery_accounts(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_debug_log_delivery_accounts::de_debug_log_delivery_accounts(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

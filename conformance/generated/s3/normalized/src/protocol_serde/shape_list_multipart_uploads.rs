@@ -14,9 +14,7 @@ pub fn de_list_multipart_uploads_http_error(
     generic_builder = super::super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(super::super::operation::list_multipart_uploads::ListMultipartUploadsError::generic(
-        generic,
-    ))
+    Err(super::super::operation::list_multipart_uploads::ListMultipartUploadsError::generic(generic))
 }
 
 #[allow(clippy::unnecessary_wraps)]

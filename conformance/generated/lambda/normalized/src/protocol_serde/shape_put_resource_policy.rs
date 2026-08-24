@@ -4,10 +4,8 @@ pub fn de_put_resource_policy_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::put_resource_policy::PutResourcePolicyOutput,
-    super::super::operation::put_resource_policy::PutResourcePolicyError,
-> {
+) -> std::result::Result<super::super::operation::put_resource_policy::PutResourcePolicyOutput, super::super::operation::put_resource_policy::PutResourcePolicyError>
+{
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::put_resource_policy::PutResourcePolicyError::unhandled)?;
@@ -61,11 +59,9 @@ pub fn de_put_resource_policy_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::PreconditionFailedExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_precondition_failed_exception::de_precondition_failed_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::put_resource_policy::PutResourcePolicyError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_precondition_failed_exception::de_precondition_failed_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::put_resource_policy::PutResourcePolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -94,9 +90,8 @@ pub fn de_put_resource_policy_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceConflictExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::put_resource_policy::PutResourcePolicyError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::put_resource_policy::PutResourcePolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -110,11 +105,8 @@ pub fn de_put_resource_policy_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::put_resource_policy::PutResourcePolicyError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::put_resource_policy::PutResourcePolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -143,9 +135,8 @@ pub fn de_put_resource_policy_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::put_resource_policy::PutResourcePolicyError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::put_resource_policy::PutResourcePolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -163,10 +154,8 @@ pub fn de_put_resource_policy_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::put_resource_policy::PutResourcePolicyOutput,
-    super::super::operation::put_resource_policy::PutResourcePolicyError,
-> {
+) -> std::result::Result<super::super::operation::put_resource_policy::PutResourcePolicyOutput, super::super::operation::put_resource_policy::PutResourcePolicyError>
+{
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::put_resource_policy::builders::PutResourcePolicyOutputBuilder::default();

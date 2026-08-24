@@ -437,9 +437,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetConfo
         })
     }
 }
-impl ::aws_types::request_id::RequestId
-    for super::super::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryError
-{
+impl ::aws_types::request_id::RequestId for super::super::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

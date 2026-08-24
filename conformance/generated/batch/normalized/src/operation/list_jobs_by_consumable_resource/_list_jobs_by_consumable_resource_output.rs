@@ -53,10 +53,7 @@ impl ListJobsByConsumableResourceOutputBuilder {
         self
     }
     /// <p>The list of jobs that require the specified consumable resources.</p>
-    pub fn set_jobs(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ListJobsByConsumableResourceSummary>>,
-    ) -> Self {
+    pub fn set_jobs(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ListJobsByConsumableResourceSummary>>) -> Self {
         self.jobs = input;
         self
     }
@@ -96,17 +93,15 @@ impl ListJobsByConsumableResourceOutputBuilder {
         super::super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput {
-                jobs: self.jobs.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "jobs",
-                        "jobs was not specified but it is required when building ListJobsByConsumableResourceOutput",
-                    )
-                })?,
-                next_token: self.next_token,
-                _request_id: self._request_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput {
+            jobs: self.jobs.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "jobs",
+                    "jobs was not specified but it is required when building ListJobsByConsumableResourceOutput",
+                )
+            })?,
+            next_token: self.next_token,
+            _request_id: self._request_id,
+        })
     }
 }

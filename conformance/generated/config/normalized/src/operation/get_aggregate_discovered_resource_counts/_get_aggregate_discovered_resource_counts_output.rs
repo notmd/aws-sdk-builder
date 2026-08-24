@@ -40,10 +40,8 @@ impl ::aws_types::request_id::RequestId for GetAggregateDiscoveredResourceCounts
 }
 impl GetAggregateDiscoveredResourceCountsOutput {
     /// Creates a new builder-style object to manufacture [`GetAggregateDiscoveredResourceCountsOutput`](crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsOutputBuilder {
-        super::super::super::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsOutputBuilder::default(
-        )
+    pub fn builder() -> super::super::super::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsOutputBuilder {
+        super::super::super::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsOutputBuilder::default()
     }
 }
 
@@ -99,10 +97,7 @@ impl GetAggregateDiscoveredResourceCountsOutputBuilder {
         self
     }
     /// <p>Returns a list of GroupedResourceCount objects.</p>
-    pub fn set_grouped_resource_counts(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GroupedResourceCount>>,
-    ) -> Self {
+    pub fn set_grouped_resource_counts(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GroupedResourceCount>>) -> Self {
         self.grouped_resource_counts = input;
         self
     }

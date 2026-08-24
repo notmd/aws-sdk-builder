@@ -55,9 +55,9 @@ impl ::std::convert::From<&str> for GuardrailAutomatedReasoningLogicWarningType 
         match s {
             "ALWAYS_FALSE" => GuardrailAutomatedReasoningLogicWarningType::AlwaysFalse,
             "ALWAYS_TRUE" => GuardrailAutomatedReasoningLogicWarningType::AlwaysTrue,
-            other => GuardrailAutomatedReasoningLogicWarningType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(
-                other.to_owned(),
-            )),
+            other => {
+                GuardrailAutomatedReasoningLogicWarningType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
+            }
         }
     }
 }

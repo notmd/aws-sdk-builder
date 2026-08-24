@@ -46,11 +46,9 @@ pub fn de_remove_layer_version_permission_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::PreconditionFailedExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_precondition_failed_exception::de_precondition_failed_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_precondition_failed_exception::de_precondition_failed_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -66,11 +64,9 @@ pub fn de_remove_layer_version_permission_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -101,11 +97,9 @@ pub fn de_remove_layer_version_permission_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };

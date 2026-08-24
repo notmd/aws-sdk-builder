@@ -149,9 +149,11 @@ where
                                 );
                             }
                             "DestinationConfig" => {
-                                builder = builder.set_destination_config(
-                                    super::super::protocol_serde::shape_destination_config::de_destination_config(tokens, _value, depth + 1)?,
-                                );
+                                builder = builder.set_destination_config(super::super::protocol_serde::shape_destination_config::de_destination_config(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
                             }
                             "Topics" => {
                                 builder = builder.set_topics(super::super::protocol_serde::shape_topics::de_topics(tokens, _value, depth + 1)?);
@@ -170,11 +172,7 @@ where
                             }
                             "SelfManagedEventSource" => {
                                 builder = builder.set_self_managed_event_source(
-                                    super::super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
+                                    super::super::protocol_serde::shape_self_managed_event_source::de_self_managed_event_source(tokens, _value, depth + 1)?,
                                 );
                             }
                             "MaximumRecordAgeInSeconds" => {
@@ -215,7 +213,13 @@ where
                                 builder = builder.set_amazon_managed_kafka_event_source_config(super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::de_amazon_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
                             }
                             "SelfManagedKafkaEventSourceConfig" => {
-                                builder = builder.set_self_managed_kafka_event_source_config(super::super::protocol_serde::shape_self_managed_kafka_event_source_config::de_self_managed_kafka_event_source_config(tokens, _value, depth + 1)?);
+                                builder = builder.set_self_managed_kafka_event_source_config(
+                                    super::super::protocol_serde::shape_self_managed_kafka_event_source_config::de_self_managed_kafka_event_source_config(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "DocumentDBEventSourceConfig" => {
                                 builder = builder.set_document_db_event_source_config(
@@ -235,11 +239,7 @@ where
                             }
                             "ProvisionedPollerConfig" => {
                                 builder = builder.set_provisioned_poller_config(
-                                    super::super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
+                                    super::super::protocol_serde::shape_provisioned_poller_config::de_provisioned_poller_config(tokens, _value, depth + 1)?,
                                 );
                             }
                             _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

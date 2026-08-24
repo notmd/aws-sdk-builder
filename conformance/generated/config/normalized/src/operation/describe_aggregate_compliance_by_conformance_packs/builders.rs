@@ -59,7 +59,10 @@ impl DescribeAggregateComplianceByConformancePacksFluentBuilder {
         }
     }
     /// Access the DescribeAggregateComplianceByConformancePacks as a reference.
-    pub fn as_input(&self) -> &super::super::super::operation::describe_aggregate_compliance_by_conformance_packs::builders::DescribeAggregateComplianceByConformancePacksInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &super::super::super::operation::describe_aggregate_compliance_by_conformance_packs::builders::DescribeAggregateComplianceByConformancePacksInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -88,7 +91,11 @@ impl DescribeAggregateComplianceByConformancePacksFluentBuilder {
                             &self.handle.conf,
                             self.config_override,
                         );
-        super::super::super::operation::describe_aggregate_compliance_by_conformance_packs::DescribeAggregateComplianceByConformancePacks::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::describe_aggregate_compliance_by_conformance_packs::DescribeAggregateComplianceByConformancePacks::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -113,8 +120,13 @@ impl DescribeAggregateComplianceByConformancePacksFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_aggregate_compliance_by_conformance_packs::paginator::DescribeAggregateComplianceByConformancePacksPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> super::super::super::operation::describe_aggregate_compliance_by_conformance_packs::paginator::DescribeAggregateComplianceByConformancePacksPaginator{
-        super::super::super::operation::describe_aggregate_compliance_by_conformance_packs::paginator::DescribeAggregateComplianceByConformancePacksPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> super::super::super::operation::describe_aggregate_compliance_by_conformance_packs::paginator::DescribeAggregateComplianceByConformancePacksPaginator {
+        super::super::super::operation::describe_aggregate_compliance_by_conformance_packs::paginator::DescribeAggregateComplianceByConformancePacksPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The name of the configuration aggregator.</p>
     pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

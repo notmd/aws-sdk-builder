@@ -79,9 +79,8 @@ pub fn de_associate_software_token_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -105,36 +104,29 @@ pub fn de_associate_software_token_http_error(
             }
             tmp
         }),
-        "OperationNotEnabledException" => {
-            super::super::operation::associate_software_token::AssociateSoftwareTokenError::OperationNotEnabledException({
+        "OperationNotEnabledException" => super::super::operation::associate_software_token::AssociateSoftwareTokenError::OperationNotEnabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ResourceNotFoundException" => super::super::operation::associate_software_token::AssociateSoftwareTokenError::ResourceNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -149,7 +141,11 @@ pub fn de_associate_software_token_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::SoftwareTokenMfaNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_software_token_mfa_not_found_exception::de_software_token_mfa_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
+                    output = super::super::protocol_serde::shape_software_token_mfa_not_found_exception::de_software_token_mfa_not_found_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::associate_software_token::AssociateSoftwareTokenError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };

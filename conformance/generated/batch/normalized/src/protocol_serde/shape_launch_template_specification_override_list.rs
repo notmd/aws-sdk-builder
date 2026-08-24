@@ -26,12 +26,11 @@ where
                         break;
                     }
                     _ => {
-                        let value =
-                            super::super::protocol_serde::shape_launch_template_specification_override::de_launch_template_specification_override(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?;
+                        let value = super::super::protocol_serde::shape_launch_template_specification_override::de_launch_template_specification_override(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?;
                         if let Some(value) = value {
                             items.push(value);
                         } else {

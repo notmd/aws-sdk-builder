@@ -15,11 +15,7 @@ pub fn de_put_subscription_filter_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::put_subscription_filter::PutSubscriptionFilterError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::put_subscription_filter::PutSubscriptionFilterError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -29,9 +25,8 @@ pub fn de_put_subscription_filter_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidOperationExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_operation_exception::de_invalid_operation_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::put_subscription_filter::PutSubscriptionFilterError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_operation_exception::de_invalid_operation_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::put_subscription_filter::PutSubscriptionFilterError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -45,9 +40,8 @@ pub fn de_put_subscription_filter_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::put_subscription_filter::PutSubscriptionFilterError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::put_subscription_filter::PutSubscriptionFilterError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -76,9 +70,8 @@ pub fn de_put_subscription_filter_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::OperationAbortedExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::put_subscription_filter::PutSubscriptionFilterError::unhandled)?;
+                output = super::super::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::put_subscription_filter::PutSubscriptionFilterError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -92,11 +85,8 @@ pub fn de_put_subscription_filter_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::put_subscription_filter::PutSubscriptionFilterError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::put_subscription_filter::PutSubscriptionFilterError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -110,11 +100,9 @@ pub fn de_put_subscription_filter_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::put_subscription_filter::PutSubscriptionFilterError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::put_subscription_filter::PutSubscriptionFilterError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

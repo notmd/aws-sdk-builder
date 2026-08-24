@@ -54,10 +54,7 @@ where
                         "FactorConfiguration" => {
                             builder = builder.set_factor_configuration(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| super::super::types::WebAuthnFactorConfigurationType::from(u.as_ref()))
-                                    })
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::WebAuthnFactorConfigurationType::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }

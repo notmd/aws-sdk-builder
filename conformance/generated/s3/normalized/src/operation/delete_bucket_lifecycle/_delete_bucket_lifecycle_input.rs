@@ -75,10 +75,8 @@ impl DeleteBucketLifecycleInputBuilder {
     /// Consumes the builder and constructs a [`DeleteBucketLifecycleInput`](crate::operation::delete_bucket_lifecycle::DeleteBucketLifecycleInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_bucket_lifecycle::DeleteBucketLifecycleInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_bucket_lifecycle::DeleteBucketLifecycleInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::delete_bucket_lifecycle::DeleteBucketLifecycleInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,

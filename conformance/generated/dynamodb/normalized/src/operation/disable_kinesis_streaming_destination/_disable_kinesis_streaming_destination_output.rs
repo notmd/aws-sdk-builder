@@ -38,8 +38,7 @@ impl ::aws_types::request_id::RequestId for DisableKinesisStreamingDestinationOu
 }
 impl DisableKinesisStreamingDestinationOutput {
     /// Creates a new builder-style object to manufacture [`DisableKinesisStreamingDestinationOutput`](crate::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestinationOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::disable_kinesis_streaming_destination::builders::DisableKinesisStreamingDestinationOutputBuilder {
+    pub fn builder() -> super::super::super::operation::disable_kinesis_streaming_destination::builders::DisableKinesisStreamingDestinationOutputBuilder {
         super::super::super::operation::disable_kinesis_streaming_destination::builders::DisableKinesisStreamingDestinationOutputBuilder::default()
     }
 }
@@ -111,9 +110,7 @@ impl DisableKinesisStreamingDestinationOutputBuilder {
         self
     }
     /// <p>The destination for the Kinesis streaming information that is being enabled.</p>
-    pub fn get_enable_kinesis_streaming_configuration(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::EnableKinesisStreamingConfiguration> {
+    pub fn get_enable_kinesis_streaming_configuration(&self) -> &::std::option::Option<super::super::super::types::EnableKinesisStreamingConfiguration> {
         &self.enable_kinesis_streaming_configuration
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

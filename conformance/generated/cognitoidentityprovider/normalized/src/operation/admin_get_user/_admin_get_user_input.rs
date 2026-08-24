@@ -75,8 +75,7 @@ impl AdminGetUserInputBuilder {
     /// Consumes the builder and constructs a [`AdminGetUserInput`](crate::operation::admin_get_user::AdminGetUserInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::admin_get_user::AdminGetUserInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::admin_get_user::AdminGetUserInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::admin_get_user::AdminGetUserInput {
             user_pool_id: self.user_pool_id,
             username: self.username,

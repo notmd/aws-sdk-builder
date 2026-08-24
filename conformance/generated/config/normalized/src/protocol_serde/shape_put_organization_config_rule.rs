@@ -15,7 +15,11 @@ pub fn de_put_organization_config_rule_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::put_organization_config_rule::PutOrganizationConfigRuleError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::put_organization_config_rule::PutOrganizationConfigRuleError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -61,22 +65,20 @@ pub fn de_put_organization_config_rule_http_error(
             })
         }
         "MaxNumberOfOrganizationConfigRulesExceededException" => {
-            super::super::operation::put_organization_config_rule::PutOrganizationConfigRuleError::MaxNumberOfOrganizationConfigRulesExceededException(
-                {
+            super::super::operation::put_organization_config_rule::PutOrganizationConfigRuleError::MaxNumberOfOrganizationConfigRulesExceededException({
+                #[allow(unused_mut)]
+                let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut tmp = {
-                        #[allow(unused_mut)]
-                        let mut output = super::super::types::error::builders::MaxNumberOfOrganizationConfigRulesExceededExceptionBuilder::default();
-                        output = super::super::protocol_serde::shape_max_number_of_organization_config_rules_exceeded_exception::de_max_number_of_organization_config_rules_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::put_organization_config_rule::PutOrganizationConfigRuleError::unhandled)?;
-                        let output = output.meta(generic);
-                        output.build()
-                    };
-                    if tmp.message.is_none() {
-                        tmp.message = _error_message;
-                    }
-                    tmp
-                },
-            )
+                    let mut output = super::super::types::error::builders::MaxNumberOfOrganizationConfigRulesExceededExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_max_number_of_organization_config_rules_exceeded_exception::de_max_number_of_organization_config_rules_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::put_organization_config_rule::PutOrganizationConfigRuleError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
         }
         "NoAvailableOrganizationException" => {
             super::super::operation::put_organization_config_rule::PutOrganizationConfigRuleError::NoAvailableOrganizationException({
@@ -84,12 +86,11 @@ pub fn de_put_organization_config_rule_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::NoAvailableOrganizationExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_no_available_organization_exception::de_no_available_organization_exception_json_err(
-                            _response_body,
-                            output,
-                        )
-                        .map_err(super::super::operation::put_organization_config_rule::PutOrganizationConfigRuleError::unhandled)?;
+                    output = super::super::protocol_serde::shape_no_available_organization_exception::de_no_available_organization_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::put_organization_config_rule::PutOrganizationConfigRuleError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -105,12 +106,11 @@ pub fn de_put_organization_config_rule_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::OrganizationAccessDeniedExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_organization_access_denied_exception::de_organization_access_denied_exception_json_err(
-                            _response_body,
-                            output,
-                        )
-                        .map_err(super::super::operation::put_organization_config_rule::PutOrganizationConfigRuleError::unhandled)?;
+                    output = super::super::protocol_serde::shape_organization_access_denied_exception::de_organization_access_denied_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::put_organization_config_rule::PutOrganizationConfigRuleError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };

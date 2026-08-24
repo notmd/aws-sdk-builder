@@ -49,10 +49,8 @@ impl GetSubscriptionAttributesInputBuilder {
         super::super::super::operation::get_subscription_attributes::GetSubscriptionAttributesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_subscription_attributes::GetSubscriptionAttributesInput {
-                subscription_arn: self.subscription_arn,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_subscription_attributes::GetSubscriptionAttributesInput {
+            subscription_arn: self.subscription_arn,
+        })
     }
 }

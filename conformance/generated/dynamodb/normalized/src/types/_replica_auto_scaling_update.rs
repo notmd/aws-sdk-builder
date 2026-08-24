@@ -7,8 +7,7 @@ pub struct ReplicaAutoScalingUpdate {
     /// <p>The Region where the replica exists.</p>
     pub region_name: ::std::string::String,
     /// <p>Represents the auto scaling settings of global secondary indexes that will be modified.</p>
-    pub replica_global_secondary_index_updates:
-        ::std::option::Option<::std::vec::Vec<super::super::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate>>,
+    pub replica_global_secondary_index_updates: ::std::option::Option<::std::vec::Vec<super::super::types::ReplicaGlobalSecondaryIndexAutoScalingUpdate>>,
     /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
     pub replica_provisioned_read_capacity_auto_scaling_update: ::std::option::Option<super::super::types::AutoScalingSettingsUpdate>,
 }
@@ -100,9 +99,7 @@ impl ReplicaAutoScalingUpdateBuilder {
         self
     }
     /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
-    pub fn get_replica_provisioned_read_capacity_auto_scaling_update(
-        &self,
-    ) -> &::std::option::Option<super::super::types::AutoScalingSettingsUpdate> {
+    pub fn get_replica_provisioned_read_capacity_auto_scaling_update(&self) -> &::std::option::Option<super::super::types::AutoScalingSettingsUpdate> {
         &self.replica_provisioned_read_capacity_auto_scaling_update
     }
     /// Consumes the builder and constructs a [`ReplicaAutoScalingUpdate`](crate::types::ReplicaAutoScalingUpdate).

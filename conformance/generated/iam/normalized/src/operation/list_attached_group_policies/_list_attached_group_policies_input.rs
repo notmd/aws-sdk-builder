@@ -126,13 +126,11 @@ impl ListAttachedGroupPoliciesInputBuilder {
         super::super::super::operation::list_attached_group_policies::ListAttachedGroupPoliciesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_attached_group_policies::ListAttachedGroupPoliciesInput {
-                group_name: self.group_name,
-                path_prefix: self.path_prefix,
-                marker: self.marker,
-                max_items: self.max_items,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_attached_group_policies::ListAttachedGroupPoliciesInput {
+            group_name: self.group_name,
+            path_prefix: self.path_prefix,
+            marker: self.marker,
+            max_items: self.max_items,
+        })
     }
 }

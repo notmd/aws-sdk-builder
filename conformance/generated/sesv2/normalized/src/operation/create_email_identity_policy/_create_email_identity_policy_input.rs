@@ -103,12 +103,10 @@ impl CreateEmailIdentityPolicyInputBuilder {
         super::super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyInput {
-                email_identity: self.email_identity,
-                policy_name: self.policy_name,
-                policy: self.policy,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::create_email_identity_policy::CreateEmailIdentityPolicyInput {
+            email_identity: self.email_identity,
+            policy_name: self.policy_name,
+            policy: self.policy,
+        })
     }
 }

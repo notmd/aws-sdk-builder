@@ -523,9 +523,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for Generate
         })
     }
 }
-impl ::aws_types::request_id::RequestId
-    for super::super::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextError
-{
+impl ::aws_types::request_id::RequestId for super::super::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

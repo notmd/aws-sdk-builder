@@ -35,20 +35,14 @@ pub struct PublishFluentBuilder {
     inner: super::super::super::operation::publish::builders::PublishInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::publish::PublishOutput,
-        super::super::super::operation::publish::PublishError,
-    > for PublishFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::publish::PublishOutput, super::super::super::operation::publish::PublishError>
+    for PublishFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::publish::PublishOutput,
-            super::super::super::operation::publish::PublishError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::publish::PublishOutput, super::super::super::operation::publish::PublishError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -98,11 +92,8 @@ impl PublishFluentBuilder {
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
     pub fn customize(
         self,
-    ) -> super::super::super::client::customize::CustomizableOperation<
-        super::super::super::operation::publish::PublishOutput,
-        super::super::super::operation::publish::PublishError,
-        Self,
-    > {
+    ) -> super::super::super::client::customize::CustomizableOperation<super::super::super::operation::publish::PublishOutput, super::super::super::operation::publish::PublishError, Self>
+    {
         super::super::super::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<super::super::super::config::Builder>) -> Self {
@@ -333,11 +324,7 @@ impl PublishFluentBuilder {
     /// To override the contents of this collection use [`set_message_attributes`](Self::set_message_attributes).
     ///
     /// <p>Message attributes for Publish action.</p>
-    pub fn message_attributes(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: super::super::super::types::MessageAttributeValue,
-    ) -> Self {
+    pub fn message_attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::MessageAttributeValue) -> Self {
         self.inner = self.inner.message_attributes(k.into(), v);
         self
     }

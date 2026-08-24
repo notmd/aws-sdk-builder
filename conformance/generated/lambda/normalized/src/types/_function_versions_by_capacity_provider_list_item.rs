@@ -71,8 +71,7 @@ impl FunctionVersionsByCapacityProviderListItemBuilder {
     /// - [`state`](crate::types::builders::FunctionVersionsByCapacityProviderListItemBuilder::state)
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::types::FunctionVersionsByCapacityProviderListItem, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::types::FunctionVersionsByCapacityProviderListItem, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::FunctionVersionsByCapacityProviderListItem {
             function_arn: self.function_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

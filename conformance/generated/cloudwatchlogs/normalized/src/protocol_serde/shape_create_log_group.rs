@@ -4,10 +4,7 @@ pub fn de_create_log_group_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::create_log_group::CreateLogGroupOutput,
-    super::super::operation::create_log_group::CreateLogGroupError,
-> {
+) -> std::result::Result<super::super::operation::create_log_group::CreateLogGroupOutput, super::super::operation::create_log_group::CreateLogGroupError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::create_log_group::CreateLogGroupError::unhandled)?;
@@ -25,9 +22,8 @@ pub fn de_create_log_group_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::create_log_group::CreateLogGroupError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::create_log_group::CreateLogGroupError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -56,9 +52,8 @@ pub fn de_create_log_group_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::OperationAbortedExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::create_log_group::CreateLogGroupError::unhandled)?;
+                output = super::super::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::create_log_group::CreateLogGroupError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -90,11 +85,9 @@ pub fn de_create_log_group_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::create_log_group::CreateLogGroupError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::create_log_group::CreateLogGroupError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -112,10 +105,7 @@ pub fn de_create_log_group_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::create_log_group::CreateLogGroupOutput,
-    super::super::operation::create_log_group::CreateLogGroupError,
-> {
+) -> std::result::Result<super::super::operation::create_log_group::CreateLogGroupOutput, super::super::operation::create_log_group::CreateLogGroupError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::create_log_group::builders::CreateLogGroupOutputBuilder::default();

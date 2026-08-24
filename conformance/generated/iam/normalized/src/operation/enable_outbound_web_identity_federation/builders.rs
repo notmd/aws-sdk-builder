@@ -57,9 +57,7 @@ impl EnableOutboundWebIdentityFederationFluentBuilder {
         }
     }
     /// Access the EnableOutboundWebIdentityFederation as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::enable_outbound_web_identity_federation::builders::EnableOutboundWebIdentityFederationInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::enable_outbound_web_identity_federation::builders::EnableOutboundWebIdentityFederationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,11 +87,7 @@ impl EnableOutboundWebIdentityFederationFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederation::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        super::super::super::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederation::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

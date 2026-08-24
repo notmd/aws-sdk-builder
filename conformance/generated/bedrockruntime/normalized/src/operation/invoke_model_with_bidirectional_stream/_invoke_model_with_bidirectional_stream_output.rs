@@ -28,8 +28,7 @@ impl ::aws_types::request_id::RequestId for InvokeModelWithBidirectionalStreamOu
 }
 impl InvokeModelWithBidirectionalStreamOutput {
     /// Creates a new builder-style object to manufacture [`InvokeModelWithBidirectionalStreamOutput`](crate::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder {
+    pub fn builder() -> super::super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder {
         super::super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder::default()
     }
 }

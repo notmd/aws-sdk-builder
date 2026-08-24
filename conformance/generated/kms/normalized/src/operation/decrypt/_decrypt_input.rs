@@ -347,9 +347,7 @@ impl DecryptInputBuilder {
         &self.dry_run_modifiers
     }
     /// Consumes the builder and constructs a [`DecryptInput`](crate::operation::decrypt::DecryptInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::decrypt::DecryptInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::decrypt::DecryptInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::decrypt::DecryptInput {
             ciphertext_blob: self.ciphertext_blob,
             encryption_context: self.encryption_context,

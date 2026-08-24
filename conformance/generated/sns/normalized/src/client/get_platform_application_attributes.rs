@@ -10,8 +10,6 @@ impl super::Client {
     pub fn get_platform_application_attributes(
         &self,
     ) -> super::super::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesFluentBuilder {
-        super::super::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::get_platform_application_attributes::builders::GetPlatformApplicationAttributesFluentBuilder::new(self.handle.clone())
     }
 }

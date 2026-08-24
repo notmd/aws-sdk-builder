@@ -20,8 +20,7 @@ pub struct BatchWriteItemInput {
     /// <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p></li>
     /// </ul></li>
     /// </ul>
-    pub request_items:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::super::types::WriteRequest>>>,
+    pub request_items: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::super::types::WriteRequest>>>,
     /// <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is returned in the response:</p>
     /// <ul>
     /// <li>
@@ -87,8 +86,7 @@ impl BatchWriteItemInput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct BatchWriteItemInputBuilder {
-    pub(crate) request_items:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::super::types::WriteRequest>>>,
+    pub(crate) request_items: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::super::types::WriteRequest>>>,
     pub(crate) return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
     pub(crate) return_item_collection_metrics: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
 }
@@ -113,11 +111,7 @@ impl BatchWriteItemInputBuilder {
     /// <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn request_items(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: ::std::vec::Vec<super::super::super::types::WriteRequest>,
-    ) -> Self {
+    pub fn request_items(mut self, k: impl ::std::convert::Into<::std::string::String>, v: ::std::vec::Vec<super::super::super::types::WriteRequest>) -> Self {
         let mut hash_map = self.request_items.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.request_items = ::std::option::Option::Some(hash_map);
@@ -214,10 +208,7 @@ impl BatchWriteItemInputBuilder {
         self
     }
     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-    pub fn set_return_item_collection_metrics(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
-    ) -> Self {
+    pub fn set_return_item_collection_metrics(mut self, input: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>) -> Self {
         self.return_item_collection_metrics = input;
         self
     }
@@ -228,8 +219,7 @@ impl BatchWriteItemInputBuilder {
     /// Consumes the builder and constructs a [`BatchWriteItemInput`](crate::operation::batch_write_item::BatchWriteItemInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::batch_write_item::BatchWriteItemInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::batch_write_item::BatchWriteItemInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::batch_write_item::BatchWriteItemInput {
             request_items: self.request_items,
             return_consumed_capacity: self.return_consumed_capacity,

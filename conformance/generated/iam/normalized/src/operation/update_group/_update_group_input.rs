@@ -99,9 +99,7 @@ impl UpdateGroupInputBuilder {
         &self.new_group_name
     }
     /// Consumes the builder and constructs a [`UpdateGroupInput`](crate::operation::update_group::UpdateGroupInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::update_group::UpdateGroupInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::update_group::UpdateGroupInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::update_group::UpdateGroupInput {
             group_name: self.group_name,
             new_path: self.new_path,

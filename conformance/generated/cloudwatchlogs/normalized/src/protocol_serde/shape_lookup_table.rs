@@ -43,11 +43,8 @@ where
                             );
                         }
                         "tableFields" => {
-                            builder = builder.set_table_fields(super::super::protocol_serde::shape_table_fields::de_table_fields(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_table_fields(super::super::protocol_serde::shape_table_fields::de_table_fields(tokens, _value, depth + 1)?);
                         }
                         "recordsCount" => {
                             builder = builder.set_records_count(

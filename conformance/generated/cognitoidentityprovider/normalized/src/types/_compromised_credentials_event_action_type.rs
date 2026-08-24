@@ -55,9 +55,7 @@ impl ::std::convert::From<&str> for CompromisedCredentialsEventActionType {
         match s {
             "BLOCK" => CompromisedCredentialsEventActionType::Block,
             "NO_ACTION" => CompromisedCredentialsEventActionType::NoAction,
-            other => {
-                CompromisedCredentialsEventActionType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => CompromisedCredentialsEventActionType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

@@ -23,10 +23,8 @@ impl ::aws_types::request_id::RequestId for GetConfigurationSetEventDestinations
 }
 impl GetConfigurationSetEventDestinationsOutput {
     /// Creates a new builder-style object to manufacture [`GetConfigurationSetEventDestinationsOutput`](crate::operation::get_configuration_set_event_destinations::GetConfigurationSetEventDestinationsOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_configuration_set_event_destinations::builders::GetConfigurationSetEventDestinationsOutputBuilder {
-        super::super::super::operation::get_configuration_set_event_destinations::builders::GetConfigurationSetEventDestinationsOutputBuilder::default(
-        )
+    pub fn builder() -> super::super::super::operation::get_configuration_set_event_destinations::builders::GetConfigurationSetEventDestinationsOutputBuilder {
+        super::super::super::operation::get_configuration_set_event_destinations::builders::GetConfigurationSetEventDestinationsOutputBuilder::default()
     }
 }
 

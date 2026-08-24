@@ -26,12 +26,11 @@ where
                         break;
                     }
                     _ => {
-                        let value =
-                            super::super::protocol_serde::shape_organization_conformance_pack_status::de_organization_conformance_pack_status(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?;
+                        let value = super::super::protocol_serde::shape_organization_conformance_pack_status::de_organization_conformance_pack_status(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?;
                         if let Some(value) = value {
                             items.push(value);
                         } else {

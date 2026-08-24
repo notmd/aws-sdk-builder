@@ -45,8 +45,7 @@ impl UpdateCustomVerificationEmailTemplateInput {
 }
 impl UpdateCustomVerificationEmailTemplateInput {
     /// Creates a new builder-style object to manufacture [`UpdateCustomVerificationEmailTemplateInput`](crate::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateInput).
-    pub fn builder(
-    ) -> super::super::super::operation::update_custom_verification_email_template::builders::UpdateCustomVerificationEmailTemplateInputBuilder {
+    pub fn builder() -> super::super::super::operation::update_custom_verification_email_template::builders::UpdateCustomVerificationEmailTemplateInputBuilder {
         super::super::super::operation::update_custom_verification_email_template::builders::UpdateCustomVerificationEmailTemplateInputBuilder::default()
     }
 }

@@ -33,8 +33,7 @@ impl DescribeConfigRuleEvaluationStatusInput {
 }
 impl DescribeConfigRuleEvaluationStatusInput {
     /// Creates a new builder-style object to manufacture [`DescribeConfigRuleEvaluationStatusInput`](crate::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusInput).
-    pub fn builder(
-    ) -> super::super::super::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusInputBuilder {
+    pub fn builder() -> super::super::super::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusInputBuilder {
         super::super::super::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusInputBuilder::default()
     }
 }

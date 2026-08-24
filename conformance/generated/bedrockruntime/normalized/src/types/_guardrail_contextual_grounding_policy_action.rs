@@ -55,9 +55,7 @@ impl ::std::convert::From<&str> for GuardrailContextualGroundingPolicyAction {
         match s {
             "BLOCKED" => GuardrailContextualGroundingPolicyAction::Blocked,
             "NONE" => GuardrailContextualGroundingPolicyAction::None,
-            other => GuardrailContextualGroundingPolicyAction::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(
-                other.to_owned(),
-            )),
+            other => GuardrailContextualGroundingPolicyAction::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

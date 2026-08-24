@@ -32,7 +32,8 @@ impl GetOrganizationConformancePackDetailedStatusInput {
 }
 impl GetOrganizationConformancePackDetailedStatusInput {
     /// Creates a new builder-style object to manufacture [`GetOrganizationConformancePackDetailedStatusInput`](crate::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusInput).
-    pub fn builder() -> super::super::super::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusInputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusInputBuilder {
         super::super::super::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusInputBuilder::default()
     }
 }

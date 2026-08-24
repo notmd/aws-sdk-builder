@@ -200,10 +200,7 @@ impl TransactWriteItemsFluentBuilder {
         self
     }
     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections (if any), that were modified during the operation and are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-    pub fn set_return_item_collection_metrics(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
-    ) -> Self {
+    pub fn set_return_item_collection_metrics(mut self, input: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>) -> Self {
         self.inner = self.inner.set_return_item_collection_metrics(input);
         self
     }

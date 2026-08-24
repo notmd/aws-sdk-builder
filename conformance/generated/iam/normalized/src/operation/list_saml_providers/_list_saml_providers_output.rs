@@ -48,10 +48,7 @@ impl ListSamlProvidersOutputBuilder {
         self
     }
     /// <p>The list of SAML provider resource objects defined in IAM for this Amazon Web Services account.</p>
-    pub fn set_saml_provider_list(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SamlProviderListEntry>>,
-    ) -> Self {
+    pub fn set_saml_provider_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SamlProviderListEntry>>) -> Self {
         self.saml_provider_list = input;
         self
     }

@@ -320,18 +320,16 @@ impl ListPackageVersionAssetsInputBuilder {
         super::super::super::operation::list_package_version_assets::ListPackageVersionAssetsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_package_version_assets::ListPackageVersionAssetsInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-                repository: self.repository,
-                format: self.format,
-                namespace: self.namespace,
-                package: self.package,
-                package_version: self.package_version,
-                max_results: self.max_results,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_package_version_assets::ListPackageVersionAssetsInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+            repository: self.repository,
+            format: self.format,
+            namespace: self.namespace,
+            package: self.package,
+            package_version: self.package_version,
+            max_results: self.max_results,
+            next_token: self.next_token,
+        })
     }
 }

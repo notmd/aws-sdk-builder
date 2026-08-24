@@ -758,8 +758,7 @@ impl CreateFunctionInputBuilder {
     /// Consumes the builder and constructs a [`CreateFunctionInput`](crate::operation::create_function::CreateFunctionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::create_function::CreateFunctionInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::create_function::CreateFunctionInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::create_function::CreateFunctionInput {
             function_name: self.function_name,
             runtime: self.runtime,

@@ -26,8 +26,7 @@ impl DisableKinesisStreamingDestinationInput {
 }
 impl DisableKinesisStreamingDestinationInput {
     /// Creates a new builder-style object to manufacture [`DisableKinesisStreamingDestinationInput`](crate::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestinationInput).
-    pub fn builder() -> super::super::super::operation::disable_kinesis_streaming_destination::builders::DisableKinesisStreamingDestinationInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::disable_kinesis_streaming_destination::builders::DisableKinesisStreamingDestinationInputBuilder {
         super::super::super::operation::disable_kinesis_streaming_destination::builders::DisableKinesisStreamingDestinationInputBuilder::default()
     }
 }
@@ -85,9 +84,7 @@ impl DisableKinesisStreamingDestinationInputBuilder {
         self
     }
     /// <p>The source for the Kinesis streaming information that is being enabled.</p>
-    pub fn get_enable_kinesis_streaming_configuration(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::EnableKinesisStreamingConfiguration> {
+    pub fn get_enable_kinesis_streaming_configuration(&self) -> &::std::option::Option<super::super::super::types::EnableKinesisStreamingConfiguration> {
         &self.enable_kinesis_streaming_configuration
     }
     /// Consumes the builder and constructs a [`DisableKinesisStreamingDestinationInput`](crate::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestinationInput).

@@ -20,72 +20,72 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "IndexName" => {
-                            builder = builder.set_index_name(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
-                            );
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "IndexName" => {
+                                builder = builder.set_index_name(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
+                            "KeySchema" => {
+                                builder = builder.set_key_schema(super::super::protocol_serde::shape_key_schema::de_key_schema(tokens, _value, depth + 1)?);
+                            }
+                            "Projection" => {
+                                builder = builder.set_projection(super::super::protocol_serde::shape_projection::de_projection(tokens, _value, depth + 1)?);
+                            }
+                            "IndexStatus" => {
+                                builder = builder.set_index_status(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| super::super::types::IndexStatus::from(u.as_ref())))
+                                        .transpose()?,
+                                );
+                            }
+                            "Backfilling" => {
+                                builder = builder.set_backfilling(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                            }
+                            "ProvisionedThroughput" => {
+                                builder = builder.set_provisioned_throughput(
+                                    super::super::protocol_serde::shape_provisioned_throughput_description::de_provisioned_throughput_description(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
+                            }
+                            "IndexSizeBytes" => {
+                                builder = builder.set_index_size_bytes(
+                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                        .map(i64::try_from)
+                                        .transpose()?,
+                                );
+                            }
+                            "ItemCount" => {
+                                builder = builder.set_item_count(
+                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                        .map(i64::try_from)
+                                        .transpose()?,
+                                );
+                            }
+                            "IndexArn" => {
+                                builder = builder.set_index_arn(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
+                            "OnDemandThroughput" => {
+                                builder = builder.set_on_demand_throughput(
+                                    super::super::protocol_serde::shape_on_demand_throughput::de_on_demand_throughput(tokens, _value, depth + 1)?,
+                                );
+                            }
+                            "WarmThroughput" => {
+                                builder = builder.set_warm_throughput(super::super::protocol_serde::shape_global_secondary_index_warm_throughput_description::de_global_secondary_index_warm_throughput_description(tokens, _value, depth + 1)?);
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        "KeySchema" => {
-                            builder =
-                                builder.set_key_schema(super::super::protocol_serde::shape_key_schema::de_key_schema(tokens, _value, depth + 1)?);
-                        }
-                        "Projection" => {
-                            builder =
-                                builder.set_projection(super::super::protocol_serde::shape_projection::de_projection(tokens, _value, depth + 1)?);
-                        }
-                        "IndexStatus" => {
-                            builder = builder.set_index_status(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| super::super::types::IndexStatus::from(u.as_ref())))
-                                    .transpose()?,
-                            );
-                        }
-                        "Backfilling" => {
-                            builder = builder.set_backfilling(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                        }
-                        "ProvisionedThroughput" => {
-                            builder = builder.set_provisioned_throughput(
-                                super::super::protocol_serde::shape_provisioned_throughput_description::de_provisioned_throughput_description(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
-                            );
-                        }
-                        "IndexSizeBytes" => {
-                            builder = builder.set_index_size_bytes(
-                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                                    .map(i64::try_from)
-                                    .transpose()?,
-                            );
-                        }
-                        "ItemCount" => {
-                            builder = builder.set_item_count(
-                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                                    .map(i64::try_from)
-                                    .transpose()?,
-                            );
-                        }
-                        "IndexArn" => {
-                            builder = builder.set_index_arn(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
-                            );
-                        }
-                        "OnDemandThroughput" => {
-                            builder = builder.set_on_demand_throughput(
-                                super::super::protocol_serde::shape_on_demand_throughput::de_on_demand_throughput(tokens, _value, depth + 1)?,
-                            );
-                        }
-                        "WarmThroughput" => {
-                            builder = builder.set_warm_throughput(super::super::protocol_serde::shape_global_secondary_index_warm_throughput_description::de_global_secondary_index_warm_throughput_description(tokens, _value, depth + 1)?);
-                        }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

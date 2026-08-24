@@ -58,9 +58,7 @@ impl PutTenantSuppressionAttributesFluentBuilder {
         }
     }
     /// Access the PutTenantSuppressionAttributes as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::put_tenant_suppression_attributes::builders::PutTenantSuppressionAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,12 +82,11 @@ impl PutTenantSuppressionAttributesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributes::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = super::super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributes::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         super::super::super::operation::put_tenant_suppression_attributes::PutTenantSuppressionAttributes::orchestrate(&runtime_plugins, input).await
     }
 
@@ -149,10 +146,7 @@ impl PutTenantSuppressionAttributesFluentBuilder {
     /// <li>
     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list when a message sent to that address results in a hard bounce.</p></li>
     /// </ul>
-    pub fn set_suppressed_reasons(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>,
-    ) -> Self {
+    pub fn set_suppressed_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>) -> Self {
         self.inner = self.inner.set_suppressed_reasons(input);
         self
     }

@@ -3,43 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sts
-**Progress:** `146/146` files compared · `77` matched · `27` mismatches · `42` missing · `0` extra · `52.74%` match (100.00% means fully matched)
-
-### `src/client/assume_role_with_web_identity.rs`
-
-```diff
---- reference/src/client/assume_role_with_web_identity.rs
-+++ generated/src/client/assume_role_with_web_identity.rs
-@@ -19,7 +19,9 @@
-     ///   - [`audience(Option<String>)`](crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityOutput::audience): <p>The intended audience (also known as client ID) of the web identity token. This is traditionally the client identifier issued to the application that requested the web identity token.</p>
-     ///   - [`source_identity(Option<String>)`](crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityOutput::source_identity): <p>The value of the source identity that is returned in the JSON web token (JWT) from the identity provider.</p> <p>You can require users to set a source identity value when they assume a role. You do this by using the <code>sts:SourceIdentity</code> condition key in a role trust policy. That way, actions that are taken with the role are associated with that user. After the source identity is set, the value cannot be changed. It is present in the request for all actions that are taken by the role and persists across <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#id_roles_terms-and-concepts">chained role</a> sessions. You can configure your identity provider to use an attribute associated with your users, like user name or email, as the source identity when calling <code>AssumeRoleWithWebIdentity</code>. You do this by adding a claim to the JSON web token. To learn more about OIDC tokens and claims, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html">Using Tokens with User Pools</a> in the <i>Amazon Cognito Developer Guide</i>. For more information about using source identity, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor and control actions taken with assumed roles</a> in the <i>IAM User Guide</i>.</p> <p>The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-</p>
-     /// - On failure, responds with [`SdkError<AssumeRoleWithWebIdentityError>`](crate::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityError)
--    pub fn assume_role_with_web_identity(&self) -> super::super::operation::assume_role_with_web_identity::builders::AssumeRoleWithWebIdentityFluentBuilder {
-+    pub fn assume_role_with_web_identity(
-+        &self,
-+    ) -> super::super::operation::assume_role_with_web_identity::builders::AssumeRoleWithWebIdentityFluentBuilder {
-         super::super::operation::assume_role_with_web_identity::builders::AssumeRoleWithWebIdentityFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/decode_authorization_message.rs`
-
-```diff
---- reference/src/client/decode_authorization_message.rs
-+++ generated/src/client/decode_authorization_message.rs
-@@ -7,7 +7,9 @@
-     /// - On success, responds with [`DecodeAuthorizationMessageOutput`](crate::operation::decode_authorization_message::DecodeAuthorizationMessageOutput) with field(s):
-     ///   - [`decoded_message(Option<String>)`](crate::operation::decode_authorization_message::DecodeAuthorizationMessageOutput::decoded_message): <p>The API returns a response with the decoded message.</p>
-     /// - On failure, responds with [`SdkError<DecodeAuthorizationMessageError>`](crate::operation::decode_authorization_message::DecodeAuthorizationMessageError)
--    pub fn decode_authorization_message(&self) -> super::super::operation::decode_authorization_message::builders::DecodeAuthorizationMessageFluentBuilder {
-+    pub fn decode_authorization_message(
-+        &self,
-+    ) -> super::super::operation::decode_authorization_message::builders::DecodeAuthorizationMessageFluentBuilder {
-         super::super::operation::decode_authorization_message::builders::DecodeAuthorizationMessageFluentBuilder::new(self.handle.clone())
-     }
- }
-```
+**Progress:** `146/146` files compared · `90` matched · `14` mismatches · `42` missing · `0` extra · `61.64%` match (100.00% means fully matched)
 
 ### `src/client.rs`
 
@@ -101,55 +65,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  /// A client has a function for every operation that can be performed by the service.
 ```
 
-### `src/config/endpoint.rs`
-
-```diff
---- reference/src/config/endpoint.rs
-+++ generated/src/config/endpoint.rs
-@@ -29,7 +29,10 @@
- /// Endpoint resolver trait specific to AWS Security Token Service
- pub trait ResolveEndpoint: ::std::marker::Send + ::std::marker::Sync + ::std::fmt::Debug {
-     /// Resolve an endpoint with the given parameters
--    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
-+    fn resolve_endpoint<'a>(
-+        &'a self,
-+        params: &'a super::super::config::endpoint::Params,
-+    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
-
-     /// Convert this service-specific resolver into a `SharedEndpointResolver`
-     ///
-@@ -391,7 +394,10 @@
- }
-
- impl super::super::config::endpoint::ResolveEndpoint for DefaultResolver {
--    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
-+    fn resolve_endpoint<'a>(
-+        &'a self,
-+        params: &'a super::super::config::endpoint::Params,
-+    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
-         // Check single-entry cache (lock-free read via ArcSwap)
-         let cached = self.endpoint_cache.load();
-         if let Some((cached_params, cached_endpoint)) = cached.as_ref() {
-```
-
-### `src/operation/assume_role/_assume_role_input.rs`
-
-```diff
---- reference/src/operation/assume_role/_assume_role_input.rs
-+++ generated/src/operation/assume_role/_assume_role_input.rs
-@@ -461,7 +461,9 @@
-         &self.provided_contexts
-     }
-     /// Consumes the builder and constructs a [`AssumeRoleInput`](crate::operation::assume_role::AssumeRoleInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::assume_role::AssumeRoleInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::assume_role::AssumeRoleInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::assume_role::AssumeRoleInput {
-             role_arn: self.role_arn,
-             role_session_name: self.role_session_name,
-```
-
 ### `src/operation/assume_role.rs`
 
 ```diff
@@ -174,18 +89,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -257,7 +251,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::assume_role::AssumeRoleInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::assume_role::AssumeRoleInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -282,12 +278,10 @@
+@@ -282,12 +276,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -200,26 +104,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/assume_role_with_saml/_assume_role_with_saml_input.rs`
-
-```diff
---- reference/src/operation/assume_role_with_saml/_assume_role_with_saml_input.rs
-+++ generated/src/operation/assume_role_with_saml/_assume_role_with_saml_input.rs
-@@ -236,8 +236,10 @@
-     /// Consumes the builder and constructs a [`AssumeRoleWithSamlInput`](crate::operation::assume_role_with_saml::AssumeRoleWithSamlInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlInput {
-             role_arn: self.role_arn,
-             principal_arn: self.principal_arn,
 ```
 
 ### `src/operation/assume_role_with_saml/builders.rs`
@@ -470,40 +354,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/assume_role_with_web_identity/_assume_role_with_web_identity_input.rs`
-
-```diff
---- reference/src/operation/assume_role_with_web_identity/_assume_role_with_web_identity_input.rs
-+++ generated/src/operation/assume_role_with_web_identity/_assume_role_with_web_identity_input.rs
-@@ -287,15 +287,17 @@
-         super::super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityInput {
--            role_arn: self.role_arn,
--            role_session_name: self.role_session_name,
--            web_identity_token: self.web_identity_token,
--            provider_id: self.provider_id,
--            policy_arns: self.policy_arns,
--            policy: self.policy,
--            duration_seconds: self.duration_seconds,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::assume_role_with_web_identity::AssumeRoleWithWebIdentityInput {
-+                role_arn: self.role_arn,
-+                role_session_name: self.role_session_name,
-+                web_identity_token: self.web_identity_token,
-+                provider_id: self.provider_id,
-+                policy_arns: self.policy_arns,
-+                policy: self.policy,
-+                duration_seconds: self.duration_seconds,
-+            },
-+        )
-     }
- }
- impl ::std::fmt::Debug for AssumeRoleWithWebIdentityInputBuilder {
-```
-
 ### `src/operation/assume_role_with_web_identity.rs`
 
 ```diff
@@ -577,24 +427,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for AssumeRoleWithWebIdentityError {
 ```
 
-### `src/operation/assume_root/_assume_root_input.rs`
-
-```diff
---- reference/src/operation/assume_root/_assume_root_input.rs
-+++ generated/src/operation/assume_root/_assume_root_input.rs
-@@ -150,7 +150,9 @@
-         &self.duration_seconds
-     }
-     /// Consumes the builder and constructs a [`AssumeRootInput`](crate::operation::assume_root::AssumeRootInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::assume_root::AssumeRootInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::assume_root::AssumeRootInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::assume_root::AssumeRootInput {
-             target_principal: self.target_principal,
-             task_policy_arn: self.task_policy_arn,
-```
-
 ### `src/operation/assume_root.rs`
 
 ```diff
@@ -619,18 +451,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -227,7 +221,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::assume_root::AssumeRootInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::assume_root::AssumeRootInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -252,12 +248,10 @@
+@@ -252,12 +246,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -645,27 +466,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/decode_authorization_message/_decode_authorization_message_input.rs`
-
-```diff
---- reference/src/operation/decode_authorization_message/_decode_authorization_message_input.rs
-+++ generated/src/operation/decode_authorization_message/_decode_authorization_message_input.rs
-@@ -48,8 +48,10 @@
-         super::super::super::operation::decode_authorization_message::DecodeAuthorizationMessageInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::decode_authorization_message::DecodeAuthorizationMessageInput {
--            encoded_message: self.encoded_message,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::decode_authorization_message::DecodeAuthorizationMessageInput {
-+                encoded_message: self.encoded_message,
-+            },
-+        )
-     }
- }
 ```
 
 ### `src/operation/decode_authorization_message.rs`
@@ -711,25 +511,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/get_access_key_info/_get_access_key_info_input.rs`
-
-```diff
---- reference/src/operation/get_access_key_info/_get_access_key_info_input.rs
-+++ generated/src/operation/get_access_key_info/_get_access_key_info_input.rs
-@@ -49,7 +49,10 @@
-     /// Consumes the builder and constructs a [`GetAccessKeyInfoInput`](crate::operation::get_access_key_info::GetAccessKeyInfoInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_access_key_info::GetAccessKeyInfoInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_access_key_info::GetAccessKeyInfoInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_access_key_info::GetAccessKeyInfoInput {
-             access_key_id: self.access_key_id,
-         })
-```
-
 ### `src/operation/get_access_key_info.rs`
 
 ```diff
@@ -755,7 +536,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -254,12 +247,11 @@
+@@ -254,13 +247,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -764,31 +545,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_get_access_key_info_input::ser_get_access_key_info_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_access_key_info_input::ser_get_access_key_info_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_access_key_info_input::ser_get_access_key_info_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/get_caller_identity/_get_caller_identity_input.rs`
-
-```diff
---- reference/src/operation/get_caller_identity/_get_caller_identity_input.rs
-+++ generated/src/operation/get_caller_identity/_get_caller_identity_input.rs
-@@ -18,7 +18,10 @@
-     /// Consumes the builder and constructs a [`GetCallerIdentityInput`](crate::operation::get_caller_identity::GetCallerIdentityInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_caller_identity::GetCallerIdentityInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_caller_identity::GetCallerIdentityInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_caller_identity::GetCallerIdentityInput {})
-     }
- }
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/get_caller_identity.rs`
@@ -889,26 +654,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/get_federation_token/_get_federation_token_input.rs`
-
-```diff
---- reference/src/operation/get_federation_token/_get_federation_token_input.rs
-+++ generated/src/operation/get_federation_token/_get_federation_token_input.rs
-@@ -239,8 +239,10 @@
-     /// Consumes the builder and constructs a [`GetFederationTokenInput`](crate::operation::get_federation_token::GetFederationTokenInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_federation_token::GetFederationTokenInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_federation_token::GetFederationTokenInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_federation_token::GetFederationTokenInput {
-             name: self.name,
-             policy: self.policy,
-```
-
 ### `src/operation/get_federation_token.rs`
 
 ```diff
@@ -968,25 +713,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/get_session_token/_get_session_token_input.rs`
-
-```diff
---- reference/src/operation/get_session_token/_get_session_token_input.rs
-+++ generated/src/operation/get_session_token/_get_session_token_input.rs
-@@ -95,7 +95,10 @@
-     /// Consumes the builder and constructs a [`GetSessionTokenInput`](crate::operation::get_session_token::GetSessionTokenInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_session_token::GetSessionTokenInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_session_token::GetSessionTokenInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_session_token::GetSessionTokenInput {
-             duration_seconds: self.duration_seconds,
-             serial_number: self.serial_number,
-```
-
 ### `src/operation/get_session_token.rs`
 
 ```diff
@@ -1011,7 +737,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::borrow::Cow::Owned(rcb)
      }
-@@ -259,12 +253,11 @@
+@@ -259,13 +253,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1020,32 +746,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_get_session_token_input::ser_get_session_token_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_session_token_input::ser_get_session_token_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_session_token_input::ser_get_session_token_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/get_web_identity_token/_get_web_identity_token_input.rs`
-
-```diff
---- reference/src/operation/get_web_identity_token/_get_web_identity_token_input.rs
-+++ generated/src/operation/get_web_identity_token/_get_web_identity_token_input.rs
-@@ -123,8 +123,10 @@
-     /// Consumes the builder and constructs a [`GetWebIdentityTokenInput`](crate::operation::get_web_identity_token::GetWebIdentityTokenInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_web_identity_token::GetWebIdentityTokenInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_web_identity_token::GetWebIdentityTokenInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_web_identity_token::GetWebIdentityTokenInput {
-             audience: self.audience,
-             duration_seconds: self.duration_seconds,
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/get_web_identity_token.rs`

@@ -117,10 +117,8 @@ impl BatchExecuteStatementInputBuilder {
     /// Consumes the builder and constructs a [`BatchExecuteStatementInput`](crate::operation::batch_execute_statement::BatchExecuteStatementInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::batch_execute_statement::BatchExecuteStatementInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::batch_execute_statement::BatchExecuteStatementInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::batch_execute_statement::BatchExecuteStatementInput {
             statements: self.statements,
             return_consumed_capacity: self.return_consumed_capacity,

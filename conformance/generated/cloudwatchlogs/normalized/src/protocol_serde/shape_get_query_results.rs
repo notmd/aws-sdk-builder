@@ -4,10 +4,7 @@ pub fn de_get_query_results_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::get_query_results::GetQueryResultsOutput,
-    super::super::operation::get_query_results::GetQueryResultsError,
-> {
+) -> std::result::Result<super::super::operation::get_query_results::GetQueryResultsOutput, super::super::operation::get_query_results::GetQueryResultsError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::get_query_results::GetQueryResultsError::unhandled)?;
@@ -25,9 +22,8 @@ pub fn de_get_query_results_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_query_results::GetQueryResultsError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_query_results::GetQueryResultsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -41,11 +37,8 @@ pub fn de_get_query_results_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::get_query_results::GetQueryResultsError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_query_results::GetQueryResultsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -59,11 +52,9 @@ pub fn de_get_query_results_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::get_query_results::GetQueryResultsError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::get_query_results::GetQueryResultsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -81,10 +72,7 @@ pub fn de_get_query_results_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::get_query_results::GetQueryResultsOutput,
-    super::super::operation::get_query_results::GetQueryResultsError,
-> {
+) -> std::result::Result<super::super::operation::get_query_results::GetQueryResultsOutput, super::super::operation::get_query_results::GetQueryResultsError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::get_query_results::builders::GetQueryResultsOutputBuilder::default();
@@ -129,11 +117,7 @@ pub(crate) fn de_get_query_results(
                     );
                 }
                 "results" => {
-                    builder = builder.set_results(super::super::protocol_serde::shape_query_results::de_query_results(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_results(super::super::protocol_serde::shape_query_results::de_query_results(tokens, _value, depth + 1)?);
                 }
                 "statistics" => {
                     builder = builder.set_statistics(super::super::protocol_serde::shape_query_statistics::de_query_statistics(

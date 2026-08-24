@@ -142,10 +142,7 @@ impl PutConfigurationAggregatorFluentBuilder {
         self
     }
     /// <p>A list of AccountAggregationSource object.</p>
-    pub fn set_account_aggregation_sources(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccountAggregationSource>>,
-    ) -> Self {
+    pub fn set_account_aggregation_sources(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccountAggregationSource>>) -> Self {
         self.inner = self.inner.set_account_aggregation_sources(input);
         self
     }
@@ -159,10 +156,7 @@ impl PutConfigurationAggregatorFluentBuilder {
         self
     }
     /// <p>An OrganizationAggregationSource object.</p>
-    pub fn set_organization_aggregation_source(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::OrganizationAggregationSource>,
-    ) -> Self {
+    pub fn set_organization_aggregation_source(mut self, input: ::std::option::Option<super::super::super::types::OrganizationAggregationSource>) -> Self {
         self.inner = self.inner.set_organization_aggregation_source(input);
         self
     }

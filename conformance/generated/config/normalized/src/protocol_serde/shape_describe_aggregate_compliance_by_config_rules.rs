@@ -17,9 +17,7 @@ pub fn de_describe_aggregate_compliance_by_config_rules_http_error(
         Some(code) => code,
         None => {
             return Err(
-                super::super::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesError::unhandled(
-                    generic,
-                ),
+                super::super::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesError::unhandled(generic),
             )
         }
     };
@@ -97,7 +95,9 @@ pub fn de_describe_aggregate_compliance_by_config_rules_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = super::super::operation::describe_aggregate_compliance_by_config_rules::builders::DescribeAggregateComplianceByConfigRulesOutputBuilder::default();
+        let mut output =
+            super::super::operation::describe_aggregate_compliance_by_config_rules::builders::DescribeAggregateComplianceByConfigRulesOutputBuilder::default(
+            );
         output = super::super::protocol_serde::shape_describe_aggregate_compliance_by_config_rules::de_describe_aggregate_compliance_by_config_rules(
             _response_body,
             output,
@@ -113,7 +113,10 @@ pub fn ser_describe_aggregate_compliance_by_config_rules_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_describe_aggregate_compliance_by_config_rules_input::ser_describe_aggregate_compliance_by_config_rules_input_input(&mut object, input)?;
+    super::super::protocol_serde::shape_describe_aggregate_compliance_by_config_rules_input::ser_describe_aggregate_compliance_by_config_rules_input_input(
+        &mut object,
+        input,
+    )?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -133,21 +136,25 @@ pub(crate) fn de_describe_aggregate_compliance_by_config_rules(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "AggregateComplianceByConfigRules" => {
-                        builder = builder.set_aggregate_compliance_by_config_rules(super::super::protocol_serde::shape_aggregate_compliance_by_config_rule_list::de_aggregate_compliance_by_config_rule_list(tokens, _value, depth + 1)?);
-                    }
-                    "NextToken" => {
-                        builder = builder.set_next_token(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "AggregateComplianceByConfigRules" => {
+                    builder = builder.set_aggregate_compliance_by_config_rules(
+                        super::super::protocol_serde::shape_aggregate_compliance_by_config_rule_list::de_aggregate_compliance_by_config_rule_list(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
                 }
-            }
+                "NextToken" => {
+                    builder = builder.set_next_token(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

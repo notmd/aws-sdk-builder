@@ -12,10 +12,7 @@ pub fn ser_put_deliverability_dashboard_option_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_5 = array_3.value().start_object();
-                super::super::protocol_serde::shape_domain_deliverability_tracking_option::ser_domain_deliverability_tracking_option(
-                    &mut object_5,
-                    item_4,
-                )?;
+                super::super::protocol_serde::shape_domain_deliverability_tracking_option::ser_domain_deliverability_tracking_option(&mut object_5, item_4)?;
                 object_5.finish();
             }
         }

@@ -29,8 +29,7 @@ impl ::aws_types::request_id::RequestId for ListEndpointsByPlatformApplicationOu
 }
 impl ListEndpointsByPlatformApplicationOutput {
     /// Creates a new builder-style object to manufacture [`ListEndpointsByPlatformApplicationOutput`](crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationOutputBuilder {
+    pub fn builder() -> super::super::super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationOutputBuilder {
         super::super::super::operation::list_endpoints_by_platform_application::builders::ListEndpointsByPlatformApplicationOutputBuilder::default()
     }
 }

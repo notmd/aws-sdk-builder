@@ -25,9 +25,8 @@ pub fn de_delete_metric_filter_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::delete_metric_filter::DeleteMetricFilterError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_metric_filter::DeleteMetricFilterError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -41,9 +40,8 @@ pub fn de_delete_metric_filter_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::OperationAbortedExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::delete_metric_filter::DeleteMetricFilterError::unhandled)?;
+                output = super::super::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_metric_filter::DeleteMetricFilterError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -57,11 +55,8 @@ pub fn de_delete_metric_filter_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::delete_metric_filter::DeleteMetricFilterError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_metric_filter::DeleteMetricFilterError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -75,11 +70,9 @@ pub fn de_delete_metric_filter_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::delete_metric_filter::DeleteMetricFilterError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::delete_metric_filter::DeleteMetricFilterError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

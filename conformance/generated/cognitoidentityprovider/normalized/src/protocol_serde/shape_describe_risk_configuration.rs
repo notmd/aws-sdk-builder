@@ -15,7 +15,11 @@ pub fn de_describe_risk_configuration_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::describe_risk_configuration::DescribeRiskConfigurationError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::describe_risk_configuration::DescribeRiskConfigurationError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -35,26 +39,21 @@ pub fn de_describe_risk_configuration_http_error(
             }
             tmp
         }),
-        "InvalidParameterException" => {
-            super::super::operation::describe_risk_configuration::DescribeRiskConfigurationError::InvalidParameterException({
+        "InvalidParameterException" => super::super::operation::describe_risk_configuration::DescribeRiskConfigurationError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::describe_risk_configuration::DescribeRiskConfigurationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "NotAuthorizedException" => super::super::operation::describe_risk_configuration::DescribeRiskConfigurationError::NotAuthorizedException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -90,53 +89,47 @@ pub fn de_describe_risk_configuration_http_error(
                 tmp
             })
         }
-        "ResourceNotFoundException" => {
-            super::super::operation::describe_risk_configuration::DescribeRiskConfigurationError::ResourceNotFoundException({
+        "ResourceNotFoundException" => super::super::operation::describe_risk_configuration::DescribeRiskConfigurationError::ResourceNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::describe_risk_configuration::DescribeRiskConfigurationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "TooManyRequestsException" => {
-            super::super::operation::describe_risk_configuration::DescribeRiskConfigurationError::TooManyRequestsException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "TooManyRequestsException" => super::super::operation::describe_risk_configuration::DescribeRiskConfigurationError::TooManyRequestsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::describe_risk_configuration::DescribeRiskConfigurationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "UserPoolAddOnNotEnabledException" => {
             super::super::operation::describe_risk_configuration::DescribeRiskConfigurationError::UserPoolAddOnNotEnabledException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::UserPoolAddOnNotEnabledExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_user_pool_add_on_not_enabled_exception::de_user_pool_add_on_not_enabled_exception_json_err(_response_body, output).map_err(super::super::operation::describe_risk_configuration::DescribeRiskConfigurationError::unhandled)?;
+                    output = super::super::protocol_serde::shape_user_pool_add_on_not_enabled_exception::de_user_pool_add_on_not_enabled_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::describe_risk_configuration::DescribeRiskConfigurationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -196,9 +189,11 @@ pub(crate) fn de_describe_risk_configuration(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "RiskConfiguration" => {
-                    builder = builder.set_risk_configuration(
-                        super::super::protocol_serde::shape_risk_configuration_type::de_risk_configuration_type(tokens, _value, depth + 1)?,
-                    );
+                    builder = builder.set_risk_configuration(super::super::protocol_serde::shape_risk_configuration_type::de_risk_configuration_type(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

@@ -4,10 +4,7 @@ pub fn de_delete_job_queue_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::delete_job_queue::DeleteJobQueueOutput,
-    super::super::operation::delete_job_queue::DeleteJobQueueError,
-> {
+) -> std::result::Result<super::super::operation::delete_job_queue::DeleteJobQueueOutput, super::super::operation::delete_job_queue::DeleteJobQueueError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::delete_job_queue::DeleteJobQueueError::unhandled)?;
@@ -59,10 +56,7 @@ pub fn de_delete_job_queue_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::delete_job_queue::DeleteJobQueueOutput,
-    super::super::operation::delete_job_queue::DeleteJobQueueError,
-> {
+) -> std::result::Result<super::super::operation::delete_job_queue::DeleteJobQueueOutput, super::super::operation::delete_job_queue::DeleteJobQueueError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::delete_job_queue::builders::DeleteJobQueueOutputBuilder::default();

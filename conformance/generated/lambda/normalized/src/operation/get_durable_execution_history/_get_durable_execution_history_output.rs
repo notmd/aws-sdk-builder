@@ -94,17 +94,15 @@ impl GetDurableExecutionHistoryOutputBuilder {
         super::super::super::operation::get_durable_execution_history::GetDurableExecutionHistoryOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_durable_execution_history::GetDurableExecutionHistoryOutput {
-                events: self.events.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "events",
-                        "events was not specified but it is required when building GetDurableExecutionHistoryOutput",
-                    )
-                })?,
-                next_marker: self.next_marker,
-                _request_id: self._request_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_durable_execution_history::GetDurableExecutionHistoryOutput {
+            events: self.events.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "events",
+                    "events was not specified but it is required when building GetDurableExecutionHistoryOutput",
+                )
+            })?,
+            next_marker: self.next_marker,
+            _request_id: self._request_id,
+        })
     }
 }

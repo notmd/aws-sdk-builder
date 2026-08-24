@@ -94,9 +94,7 @@ impl ListDevicesInputBuilder {
         &self.pagination_token
     }
     /// Consumes the builder and constructs a [`ListDevicesInput`](crate::operation::list_devices::ListDevicesInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::list_devices::ListDevicesInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_devices::ListDevicesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_devices::ListDevicesInput {
             access_token: self.access_token,
             limit: self.limit,

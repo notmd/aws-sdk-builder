@@ -21,7 +21,8 @@ impl PutEmailIdentityConfigurationSetAttributesInput {
 }
 impl PutEmailIdentityConfigurationSetAttributesInput {
     /// Creates a new builder-style object to manufacture [`PutEmailIdentityConfigurationSetAttributesInput`](crate::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesInput).
-    pub fn builder() -> super::super::super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesInputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesInputBuilder {
         super::super::super::operation::put_email_identity_configuration_set_attributes::builders::PutEmailIdentityConfigurationSetAttributesInputBuilder::default()
     }
 }

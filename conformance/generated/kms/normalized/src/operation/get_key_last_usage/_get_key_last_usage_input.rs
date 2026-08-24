@@ -89,10 +89,7 @@ impl GetKeyLastUsageInputBuilder {
     /// Consumes the builder and constructs a [`GetKeyLastUsageInput`](crate::operation::get_key_last_usage::GetKeyLastUsageInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_key_last_usage::GetKeyLastUsageInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_key_last_usage::GetKeyLastUsageInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_key_last_usage::GetKeyLastUsageInput { key_id: self.key_id })
     }
 }

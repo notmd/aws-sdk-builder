@@ -16,98 +16,126 @@ pub fn de_update_package_group_origin_configuration_http_error(
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(
-                super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled(generic),
-            )
+            return Err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled(generic))
         }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AccessDeniedException" => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::AccessDeniedException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "AccessDeniedException" => {
+            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::AccessDeniedException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InternalServerException" => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::InternalServerException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                        .map_err(
+                            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InternalServerException" => {
+            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::InternalServerException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ResourceNotFoundException" => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::ResourceNotFoundException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                        .map_err(
+                            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ResourceNotFoundException" => {
+            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::ResourceNotFoundException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ServiceQuotaExceededException" => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::ServiceQuotaExceededException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(
+                            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ServiceQuotaExceededException" => {
+            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::ServiceQuotaExceededException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ThrottlingException" => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::ThrottlingException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ThrottlingException" => {
+            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::ThrottlingException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ValidationException" => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::ValidationException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(
+                        super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
+                    )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ValidationException" => {
+            super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::ValidationException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(
+                        super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
+                    )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::generic(generic),
     })
 }
@@ -124,8 +152,7 @@ pub fn de_update_package_group_origin_configuration_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output =
-            super::super::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationOutputBuilder::default(
-            );
+            super::super::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationOutputBuilder::default();
         output = super::super::protocol_serde::shape_update_package_group_origin_configuration::de_update_package_group_origin_configuration(
             _response_body,
             output,
@@ -164,19 +191,25 @@ pub(crate) fn de_update_package_group_origin_configuration(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "packageGroup" => {
-                        builder = builder.set_package_group(
-                            super::super::protocol_serde::shape_package_group_description::de_package_group_description(tokens, _value, depth + 1)?,
-                        );
-                    }
-                    "allowedRepositoryUpdates" => {
-                        builder = builder.set_allowed_repository_updates(super::super::protocol_serde::shape_package_group_allowed_repository_updates::de_package_group_allowed_repository_updates(tokens, _value, depth + 1)?);
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "packageGroup" => {
+                    builder = builder.set_package_group(super::super::protocol_serde::shape_package_group_description::de_package_group_description(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
-            }
+                "allowedRepositoryUpdates" => {
+                    builder = builder.set_allowed_repository_updates(
+                        super::super::protocol_serde::shape_package_group_allowed_repository_updates::de_package_group_allowed_repository_updates(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
+                }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

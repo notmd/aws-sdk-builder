@@ -44,10 +44,8 @@ impl ::aws_types::request_id::RequestId for GenerateDataKeyPairWithoutPlaintextO
 }
 impl GenerateDataKeyPairWithoutPlaintextOutput {
     /// Creates a new builder-style object to manufacture [`GenerateDataKeyPairWithoutPlaintextOutput`](crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::generate_data_key_pair_without_plaintext::builders::GenerateDataKeyPairWithoutPlaintextOutputBuilder {
-        super::super::super::operation::generate_data_key_pair_without_plaintext::builders::GenerateDataKeyPairWithoutPlaintextOutputBuilder::default(
-        )
+    pub fn builder() -> super::super::super::operation::generate_data_key_pair_without_plaintext::builders::GenerateDataKeyPairWithoutPlaintextOutputBuilder {
+        super::super::super::operation::generate_data_key_pair_without_plaintext::builders::GenerateDataKeyPairWithoutPlaintextOutputBuilder::default()
     }
 }
 

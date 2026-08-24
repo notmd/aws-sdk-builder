@@ -67,9 +67,7 @@ impl ::std::convert::From<&str> for GuardrailChecksContentFilterCategory {
             "MISCONDUCT" => GuardrailChecksContentFilterCategory::Misconduct,
             "SEXUAL" => GuardrailChecksContentFilterCategory::Sexual,
             "VIOLENCE" => GuardrailChecksContentFilterCategory::Violence,
-            other => {
-                GuardrailChecksContentFilterCategory::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => GuardrailChecksContentFilterCategory::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

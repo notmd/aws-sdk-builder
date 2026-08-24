@@ -15,7 +15,11 @@ pub fn de_get_resource_config_history_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -35,46 +39,36 @@ pub fn de_get_resource_config_history_http_error(
             }
             tmp
         }),
-        "InvalidNextTokenException" => {
-            super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::InvalidNextTokenException({
+        "InvalidNextTokenException" => super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::InvalidNextTokenException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "InvalidTimeRangeException" => {
-            super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::InvalidTimeRangeException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidTimeRangeException" => super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::InvalidTimeRangeException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidTimeRangeExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_time_range_exception::de_invalid_time_range_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::InvalidTimeRangeExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_time_range_exception::de_invalid_time_range_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "NoAvailableConfigurationRecorderException" => {
             super::super::operation::get_resource_config_history::GetResourceConfigHistoryError::NoAvailableConfigurationRecorderException({
                 #[allow(unused_mut)]
@@ -176,9 +170,11 @@ pub(crate) fn de_get_resource_config_history(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "configurationItems" => {
-                    builder = builder.set_configuration_items(
-                        super::super::protocol_serde::shape_configuration_item_list::de_configuration_item_list(tokens, _value, depth + 1)?,
-                    );
+                    builder = builder.set_configuration_items(super::super::protocol_serde::shape_configuration_item_list::de_configuration_item_list(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "nextToken" => {
                     builder = builder.set_next_token(

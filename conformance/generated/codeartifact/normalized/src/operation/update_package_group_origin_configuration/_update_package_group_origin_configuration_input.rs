@@ -11,10 +11,7 @@ pub struct UpdatePackageGroupOriginConfigurationInput {
     pub package_group: ::std::option::Option<::std::string::String>,
     /// <p>The origin configuration settings that determine how package versions can enter repositories.</p>
     pub restrictions: ::std::option::Option<
-        ::std::collections::HashMap<
-            super::super::super::types::PackageGroupOriginRestrictionType,
-            super::super::super::types::PackageGroupOriginRestrictionMode,
-        >,
+        ::std::collections::HashMap<super::super::super::types::PackageGroupOriginRestrictionType, super::super::super::types::PackageGroupOriginRestrictionMode>,
     >,
     /// <p>The repository name and restrictions to add to the allowed repository list of the specified package group.</p>
     pub add_allowed_repositories: ::std::option::Option<::std::vec::Vec<super::super::super::types::PackageGroupAllowedRepository>>,
@@ -38,10 +35,7 @@ impl UpdatePackageGroupOriginConfigurationInput {
     pub fn restrictions(
         &self,
     ) -> ::std::option::Option<
-        &::std::collections::HashMap<
-            super::super::super::types::PackageGroupOriginRestrictionType,
-            super::super::super::types::PackageGroupOriginRestrictionMode,
-        >,
+        &::std::collections::HashMap<super::super::super::types::PackageGroupOriginRestrictionType, super::super::super::types::PackageGroupOriginRestrictionMode>,
     > {
         self.restrictions.as_ref()
     }
@@ -60,8 +54,7 @@ impl UpdatePackageGroupOriginConfigurationInput {
 }
 impl UpdatePackageGroupOriginConfigurationInput {
     /// Creates a new builder-style object to manufacture [`UpdatePackageGroupOriginConfigurationInput`](crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationInput).
-    pub fn builder(
-    ) -> super::super::super::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationInputBuilder {
+    pub fn builder() -> super::super::super::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationInputBuilder {
         super::super::super::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationInputBuilder::default()
     }
 }
@@ -74,10 +67,7 @@ pub struct UpdatePackageGroupOriginConfigurationInputBuilder {
     pub(crate) domain_owner: ::std::option::Option<::std::string::String>,
     pub(crate) package_group: ::std::option::Option<::std::string::String>,
     pub(crate) restrictions: ::std::option::Option<
-        ::std::collections::HashMap<
-            super::super::super::types::PackageGroupOriginRestrictionType,
-            super::super::super::types::PackageGroupOriginRestrictionMode,
-        >,
+        ::std::collections::HashMap<super::super::super::types::PackageGroupOriginRestrictionType, super::super::super::types::PackageGroupOriginRestrictionMode>,
     >,
     pub(crate) add_allowed_repositories: ::std::option::Option<::std::vec::Vec<super::super::super::types::PackageGroupAllowedRepository>>,
     pub(crate) remove_allowed_repositories: ::std::option::Option<::std::vec::Vec<super::super::super::types::PackageGroupAllowedRepository>>,
@@ -132,11 +122,7 @@ impl UpdatePackageGroupOriginConfigurationInputBuilder {
     /// To override the contents of this collection use [`set_restrictions`](Self::set_restrictions).
     ///
     /// <p>The origin configuration settings that determine how package versions can enter repositories.</p>
-    pub fn restrictions(
-        mut self,
-        k: super::super::super::types::PackageGroupOriginRestrictionType,
-        v: super::super::super::types::PackageGroupOriginRestrictionMode,
-    ) -> Self {
+    pub fn restrictions(mut self, k: super::super::super::types::PackageGroupOriginRestrictionType, v: super::super::super::types::PackageGroupOriginRestrictionMode) -> Self {
         let mut hash_map = self.restrictions.unwrap_or_default();
         hash_map.insert(k, v);
         self.restrictions = ::std::option::Option::Some(hash_map);
@@ -146,10 +132,7 @@ impl UpdatePackageGroupOriginConfigurationInputBuilder {
     pub fn set_restrictions(
         mut self,
         input: ::std::option::Option<
-            ::std::collections::HashMap<
-                super::super::super::types::PackageGroupOriginRestrictionType,
-                super::super::super::types::PackageGroupOriginRestrictionMode,
-            >,
+            ::std::collections::HashMap<super::super::super::types::PackageGroupOriginRestrictionType, super::super::super::types::PackageGroupOriginRestrictionMode>,
         >,
     ) -> Self {
         self.restrictions = input;
@@ -159,10 +142,7 @@ impl UpdatePackageGroupOriginConfigurationInputBuilder {
     pub fn get_restrictions(
         &self,
     ) -> &::std::option::Option<
-        ::std::collections::HashMap<
-            super::super::super::types::PackageGroupOriginRestrictionType,
-            super::super::super::types::PackageGroupOriginRestrictionMode,
-        >,
+        ::std::collections::HashMap<super::super::super::types::PackageGroupOriginRestrictionType, super::super::super::types::PackageGroupOriginRestrictionMode>,
     > {
         &self.restrictions
     }
@@ -209,9 +189,7 @@ impl UpdatePackageGroupOriginConfigurationInputBuilder {
         self
     }
     /// <p>The repository name and restrictions to remove from the allowed repository list of the specified package group.</p>
-    pub fn get_remove_allowed_repositories(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PackageGroupAllowedRepository>> {
+    pub fn get_remove_allowed_repositories(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PackageGroupAllowedRepository>> {
         &self.remove_allowed_repositories
     }
     /// Consumes the builder and constructs a [`UpdatePackageGroupOriginConfigurationInput`](crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationInput).

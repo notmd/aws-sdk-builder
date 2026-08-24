@@ -15,55 +15,67 @@ pub fn de_describe_remediation_execution_status_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError::unhandled(generic))
-        }
+        None => return Err(super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidNextTokenException" => super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError::InvalidNextTokenException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "InvalidNextTokenException" => {
+            super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError::InvalidNextTokenException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output).map_err(super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidParameterValueException" => super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError::InvalidParameterValueException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidParameterValueException" => {
+            super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError::InvalidParameterValueException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(_response_body, output).map_err(super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "NoSuchRemediationConfigurationException" => super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError::NoSuchRemediationConfigurationException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::NoSuchRemediationConfigurationExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_no_such_remediation_configuration_exception::de_no_such_remediation_configuration_exception_json_err(_response_body, output).map_err(super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "NoSuchRemediationConfigurationException" => {
+            super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError::NoSuchRemediationConfigurationException(
+                {
+                    #[allow(unused_mut)]
+                    let mut tmp = {
+                        #[allow(unused_mut)]
+                        let mut output = super::super::types::error::builders::NoSuchRemediationConfigurationExceptionBuilder::default();
+                        output = super::super::protocol_serde::shape_no_such_remediation_configuration_exception::de_no_such_remediation_configuration_exception_json_err(_response_body, output).map_err(super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError::unhandled)?;
+                        let output = output.meta(generic);
+                        output.build()
+                    };
+                    if tmp.message.is_none() {
+                        tmp.message = _error_message;
+                    }
+                    tmp
+                },
+            )
+        }
         _ => super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError::generic(generic),
     })
 }
@@ -81,11 +93,8 @@ pub fn de_describe_remediation_execution_status_http_response(
         #[allow(unused_mut)]
         let mut output =
             super::super::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusOutputBuilder::default();
-        output = super::super::protocol_serde::shape_describe_remediation_execution_status::de_describe_remediation_execution_status(
-            _response_body,
-            output,
-        )
-        .map_err(super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError::unhandled)?;
+        output = super::super::protocol_serde::shape_describe_remediation_execution_status::de_describe_remediation_execution_status(_response_body, output)
+            .map_err(super::super::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -122,11 +131,7 @@ pub(crate) fn de_describe_remediation_execution_status(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "RemediationExecutionStatuses" => {
                     builder = builder.set_remediation_execution_statuses(
-                        super::super::protocol_serde::shape_remediation_execution_statuses::de_remediation_execution_statuses(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_remediation_execution_statuses::de_remediation_execution_statuses(tokens, _value, depth + 1)?,
                     );
                 }
                 "NextToken" => {

@@ -80,11 +80,9 @@ impl RemoveRoleFromInstanceProfileInputBuilder {
         super::super::super::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileInput {
-                instance_profile_name: self.instance_profile_name,
-                role_name: self.role_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileInput {
+            instance_profile_name: self.instance_profile_name,
+            role_name: self.role_name,
+        })
     }
 }

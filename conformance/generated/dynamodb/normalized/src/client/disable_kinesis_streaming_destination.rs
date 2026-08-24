@@ -15,8 +15,6 @@ impl super::Client {
     pub fn disable_kinesis_streaming_destination(
         &self,
     ) -> super::super::operation::disable_kinesis_streaming_destination::builders::DisableKinesisStreamingDestinationFluentBuilder {
-        super::super::operation::disable_kinesis_streaming_destination::builders::DisableKinesisStreamingDestinationFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::disable_kinesis_streaming_destination::builders::DisableKinesisStreamingDestinationFluentBuilder::new(self.handle.clone())
     }
 }

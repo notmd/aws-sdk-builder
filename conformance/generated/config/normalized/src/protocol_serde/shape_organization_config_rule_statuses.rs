@@ -3,10 +3,7 @@ pub(crate) fn de_organization_config_rule_statuses<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<::std::vec::Vec<super::super::types::OrganizationConfigRuleStatus>>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::OrganizationConfigRuleStatus>>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {

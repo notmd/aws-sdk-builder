@@ -16,9 +16,7 @@ pub fn de_list_custom_verification_email_templates_http_error(
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(
-                super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError::unhandled(generic),
-            )
+            return Err(super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError::unhandled(generic))
         }
     };
 
@@ -31,9 +29,7 @@ pub fn de_list_custom_verification_email_templates_http_error(
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
                     output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-                        .map_err(
-                            super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError::unhandled,
-                        )?;
+                        .map_err(super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -49,13 +45,11 @@ pub fn de_list_custom_verification_email_templates_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(
-                        super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError::unhandled,
-                    )?;
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(
+                                super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError::unhandled,
+                            )?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -120,21 +114,25 @@ pub(crate) fn de_list_custom_verification_email_templates(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "CustomVerificationEmailTemplates" => {
-                        builder = builder.set_custom_verification_email_templates(super::super::protocol_serde::shape_custom_verification_email_templates_list::de_custom_verification_email_templates_list(tokens, _value, depth + 1)?);
-                    }
-                    "NextToken" => {
-                        builder = builder.set_next_token(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "CustomVerificationEmailTemplates" => {
+                    builder = builder.set_custom_verification_email_templates(
+                        super::super::protocol_serde::shape_custom_verification_email_templates_list::de_custom_verification_email_templates_list(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?,
+                    );
                 }
-            }
+                "NextToken" => {
+                    builder = builder.set_next_token(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

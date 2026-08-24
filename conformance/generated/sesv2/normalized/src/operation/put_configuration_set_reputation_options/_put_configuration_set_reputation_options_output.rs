@@ -13,10 +13,8 @@ impl ::aws_types::request_id::RequestId for PutConfigurationSetReputationOptions
 }
 impl PutConfigurationSetReputationOptionsOutput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetReputationOptionsOutput`](crate::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptionsOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsOutputBuilder {
-        super::super::super::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsOutputBuilder::default(
-        )
+    pub fn builder() -> super::super::super::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsOutputBuilder {
+        super::super::super::operation::put_configuration_set_reputation_options::builders::PutConfigurationSetReputationOptionsOutputBuilder::default()
     }
 }
 

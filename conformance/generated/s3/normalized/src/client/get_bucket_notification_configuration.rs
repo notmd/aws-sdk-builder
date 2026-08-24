@@ -14,8 +14,6 @@ impl super::Client {
     pub fn get_bucket_notification_configuration(
         &self,
     ) -> super::super::operation::get_bucket_notification_configuration::builders::GetBucketNotificationConfigurationFluentBuilder {
-        super::super::operation::get_bucket_notification_configuration::builders::GetBucketNotificationConfigurationFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::get_bucket_notification_configuration::builders::GetBucketNotificationConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

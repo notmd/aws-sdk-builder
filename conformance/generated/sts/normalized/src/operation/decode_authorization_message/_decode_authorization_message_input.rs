@@ -48,10 +48,8 @@ impl DecodeAuthorizationMessageInputBuilder {
         super::super::super::operation::decode_authorization_message::DecodeAuthorizationMessageInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::decode_authorization_message::DecodeAuthorizationMessageInput {
-                encoded_message: self.encoded_message,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::decode_authorization_message::DecodeAuthorizationMessageInput {
+            encoded_message: self.encoded_message,
+        })
     }
 }

@@ -117,10 +117,7 @@ impl ListBucketMetricsConfigurationsOutputBuilder {
         self
     }
     /// <p>The list of metrics configurations for a bucket.</p>
-    pub fn set_metrics_configuration_list(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MetricsConfiguration>>,
-    ) -> Self {
+    pub fn set_metrics_configuration_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MetricsConfiguration>>) -> Self {
         self.metrics_configuration_list = input;
         self
     }

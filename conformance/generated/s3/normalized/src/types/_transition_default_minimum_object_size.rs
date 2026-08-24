@@ -55,9 +55,7 @@ impl ::std::convert::From<&str> for TransitionDefaultMinimumObjectSize {
         match s {
             "all_storage_classes_128K" => TransitionDefaultMinimumObjectSize::AllStorageClasses128K,
             "varies_by_storage_class" => TransitionDefaultMinimumObjectSize::VariesByStorageClass,
-            other => {
-                TransitionDefaultMinimumObjectSize::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => TransitionDefaultMinimumObjectSize::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

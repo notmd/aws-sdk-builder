@@ -330,19 +330,17 @@ impl CreateComputeEnvironmentInputBuilder {
         super::super::super::operation::create_compute_environment::CreateComputeEnvironmentInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::create_compute_environment::CreateComputeEnvironmentInput {
-                compute_environment_name: self.compute_environment_name,
-                r#type: self.r#type,
-                state: self.state,
-                unmanagedv_cpus: self.unmanagedv_cpus,
-                compute_resources: self.compute_resources,
-                service_role: self.service_role,
-                tags: self.tags,
-                eks_configuration: self.eks_configuration,
-                context: self.context,
-                ecs_settings: self.ecs_settings,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::create_compute_environment::CreateComputeEnvironmentInput {
+            compute_environment_name: self.compute_environment_name,
+            r#type: self.r#type,
+            state: self.state,
+            unmanagedv_cpus: self.unmanagedv_cpus,
+            compute_resources: self.compute_resources,
+            service_role: self.service_role,
+            tags: self.tags,
+            eks_configuration: self.eks_configuration,
+            context: self.context,
+            ecs_settings: self.ecs_settings,
+        })
     }
 }

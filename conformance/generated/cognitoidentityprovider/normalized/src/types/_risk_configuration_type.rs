@@ -27,9 +27,7 @@ impl RiskConfigurationType {
         self.client_id.as_deref()
     }
     /// <p>Settings for compromised-credentials actions and authentication types with threat protection in full-function <code>ENFORCED</code> mode.</p>
-    pub fn compromised_credentials_risk_configuration(
-        &self,
-    ) -> ::std::option::Option<&super::super::types::CompromisedCredentialsRiskConfigurationType> {
+    pub fn compromised_credentials_risk_configuration(&self) -> ::std::option::Option<&super::super::types::CompromisedCredentialsRiskConfigurationType> {
         self.compromised_credentials_risk_configuration.as_ref()
     }
     /// <p>The settings for automated responses and notification templates for adaptive authentication with threat protection.</p>

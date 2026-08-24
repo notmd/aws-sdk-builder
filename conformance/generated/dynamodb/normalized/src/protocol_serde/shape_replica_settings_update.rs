@@ -24,7 +24,10 @@ pub fn ser_replica_settings_update(
             {
                 #[allow(unused_mut)]
                 let mut object_7 = array_5.value().start_object();
-                super::super::protocol_serde::shape_replica_global_secondary_index_settings_update::ser_replica_global_secondary_index_settings_update(&mut object_7, item_6)?;
+                super::super::protocol_serde::shape_replica_global_secondary_index_settings_update::ser_replica_global_secondary_index_settings_update(
+                    &mut object_7,
+                    item_6,
+                )?;
                 object_7.finish();
             }
         }

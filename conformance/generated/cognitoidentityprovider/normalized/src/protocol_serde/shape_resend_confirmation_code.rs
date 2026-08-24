@@ -24,26 +24,22 @@ pub fn de_resend_confirmation_code_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "CodeDeliveryFailureException" => {
-            super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::CodeDeliveryFailureException({
+        "CodeDeliveryFailureException" => super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::CodeDeliveryFailureException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::CodeDeliveryFailureExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_code_delivery_failure_exception::de_code_delivery_failure_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::CodeDeliveryFailureExceptionBuilder::default();
+                output =
+                    super::super::protocol_serde::shape_code_delivery_failure_exception::de_code_delivery_failure_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ForbiddenException" => super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::ForbiddenException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -115,9 +111,8 @@ pub fn de_resend_confirmation_code_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -132,7 +127,12 @@ pub fn de_resend_confirmation_code_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(_response_body, output).map_err(super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -188,36 +188,29 @@ pub fn de_resend_confirmation_code_http_error(
             }
             tmp
         }),
-        "OperationNotEnabledException" => {
-            super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::OperationNotEnabledException({
+        "OperationNotEnabledException" => super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::OperationNotEnabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ResourceNotFoundException" => super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::ResourceNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -231,9 +224,8 @@ pub fn de_resend_confirmation_code_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -247,9 +239,8 @@ pub fn de_resend_confirmation_code_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::unhandled)?;
+                output = super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -258,26 +249,24 @@ pub fn de_resend_confirmation_code_http_error(
             }
             tmp
         }),
-        "UserLambdaValidationException" => {
-            super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::UserLambdaValidationException({
+        "UserLambdaValidationException" => super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::UserLambdaValidationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::UserLambdaValidationExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::UserLambdaValidationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "UserNotFoundException" => super::super::operation::resend_confirmation_code::ResendConfirmationCodeError::UserNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {

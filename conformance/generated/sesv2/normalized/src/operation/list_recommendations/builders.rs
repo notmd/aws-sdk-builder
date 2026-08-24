@@ -121,11 +121,7 @@ impl ListRecommendationsFluentBuilder {
     /// To override the contents of this collection use [`set_filter`](Self::set_filter).
     ///
     /// <p>Filters applied when retrieving recommendations. Can eiter be an individual filter, or combinations of <code>STATUS</code> and <code>IMPACT</code> or <code>STATUS</code> and <code>TYPE</code></p>
-    pub fn filter(
-        mut self,
-        k: super::super::super::types::ListRecommendationsFilterKey,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn filter(mut self, k: super::super::super::types::ListRecommendationsFilterKey, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.filter(k, v.into());
         self
     }

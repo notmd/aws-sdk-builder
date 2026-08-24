@@ -105,8 +105,7 @@ impl OrganizationCustomPolicyRuleMetadata {
 #[non_exhaustive]
 pub struct OrganizationCustomPolicyRuleMetadataBuilder {
     pub(crate) description: ::std::option::Option<::std::string::String>,
-    pub(crate) organization_config_rule_trigger_types:
-        ::std::option::Option<::std::vec::Vec<super::super::types::OrganizationConfigRuleTriggerTypeNoSn>>,
+    pub(crate) organization_config_rule_trigger_types: ::std::option::Option<::std::vec::Vec<super::super::types::OrganizationConfigRuleTriggerTypeNoSn>>,
     pub(crate) input_parameters: ::std::option::Option<::std::string::String>,
     pub(crate) maximum_execution_frequency: ::std::option::Option<super::super::types::MaximumExecutionFrequency>,
     pub(crate) resource_types_scope: ::std::option::Option<::std::vec::Vec<::std::string::String>>,

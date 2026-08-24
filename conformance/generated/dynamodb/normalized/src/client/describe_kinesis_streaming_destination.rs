@@ -11,8 +11,6 @@ impl super::Client {
     pub fn describe_kinesis_streaming_destination(
         &self,
     ) -> super::super::operation::describe_kinesis_streaming_destination::builders::DescribeKinesisStreamingDestinationFluentBuilder {
-        super::super::operation::describe_kinesis_streaming_destination::builders::DescribeKinesisStreamingDestinationFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::describe_kinesis_streaming_destination::builders::DescribeKinesisStreamingDestinationFluentBuilder::new(self.handle.clone())
     }
 }

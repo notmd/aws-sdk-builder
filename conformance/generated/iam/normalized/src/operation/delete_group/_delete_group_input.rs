@@ -47,9 +47,7 @@ impl DeleteGroupInputBuilder {
         &self.group_name
     }
     /// Consumes the builder and constructs a [`DeleteGroupInput`](crate::operation::delete_group::DeleteGroupInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::delete_group::DeleteGroupInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::delete_group::DeleteGroupInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_group::DeleteGroupInput { group_name: self.group_name })
     }
 }

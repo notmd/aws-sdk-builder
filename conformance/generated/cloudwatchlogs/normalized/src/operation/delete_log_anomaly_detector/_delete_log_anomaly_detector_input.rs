@@ -48,10 +48,8 @@ impl DeleteLogAnomalyDetectorInputBuilder {
         super::super::super::operation::delete_log_anomaly_detector::DeleteLogAnomalyDetectorInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_log_anomaly_detector::DeleteLogAnomalyDetectorInput {
-                anomaly_detector_arn: self.anomaly_detector_arn,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_log_anomaly_detector::DeleteLogAnomalyDetectorInput {
+            anomaly_detector_arn: self.anomaly_detector_arn,
+        })
     }
 }

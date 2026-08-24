@@ -22,11 +22,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "Item" => {
-                            builder = builder.set_item(super::super::protocol_serde::shape_attribute_map::de_attribute_map(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_item(super::super::protocol_serde::shape_attribute_map::de_attribute_map(tokens, _value, depth + 1)?);
                         }
                         "Code" => {
                             builder = builder.set_code(

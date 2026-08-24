@@ -138,10 +138,7 @@ impl DeleteItemFluentBuilder {
     }
     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to delete.</p>
     /// <p>For the primary key, you must provide all of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
-    pub fn set_key(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
-    ) -> Self {
+    pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>) -> Self {
         self.inner = self.inner.set_key(input);
         self
     }
@@ -169,9 +166,7 @@ impl DeleteItemFluentBuilder {
         self
     }
     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.Expected.html">Expected</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_expected(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::ExpectedAttributeValue>> {
+    pub fn get_expected(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::ExpectedAttributeValue>> {
         self.inner.get_expected()
     }
     /// <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -276,10 +271,7 @@ impl DeleteItemFluentBuilder {
         self
     }
     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-    pub fn set_return_item_collection_metrics(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
-    ) -> Self {
+    pub fn set_return_item_collection_metrics(mut self, input: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>) -> Self {
         self.inner = self.inner.set_return_item_collection_metrics(input);
         self
     }
@@ -453,11 +445,7 @@ impl DeleteItemFluentBuilder {
     /// <p>You could then use these values in an expression, such as this:</p>
     /// <p><code>ProductStatus IN (:avail, :back, :disc)</code></p>
     /// <p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn expression_attribute_values(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: super::super::super::types::AttributeValue,
-    ) -> Self {
+    pub fn expression_attribute_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::AttributeValue) -> Self {
         self.inner = self.inner.expression_attribute_values(k.into(), v);
         self
     }
@@ -506,9 +494,7 @@ impl DeleteItemFluentBuilder {
     }
     /// <p>An optional parameter that returns the item attributes for a <code>DeleteItem</code> operation that failed a condition check.</p>
     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
-    pub fn get_return_values_on_condition_check_failure(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::ReturnValuesOnConditionCheckFailure> {
+    pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<super::super::super::types::ReturnValuesOnConditionCheckFailure> {
         self.inner.get_return_values_on_condition_check_failure()
     }
 }

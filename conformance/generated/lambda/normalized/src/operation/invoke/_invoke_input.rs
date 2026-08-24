@@ -303,9 +303,7 @@ impl InvokeInputBuilder {
         &self.tenant_id
     }
     /// Consumes the builder and constructs a [`InvokeInput`](crate::operation::invoke::InvokeInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::invoke::InvokeInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::invoke::InvokeInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::invoke::InvokeInput {
             function_name: self.function_name,
             invocation_type: self.invocation_type,

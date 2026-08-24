@@ -14,8 +14,7 @@ impl DescribeKinesisStreamingDestinationInput {
 }
 impl DescribeKinesisStreamingDestinationInput {
     /// Creates a new builder-style object to manufacture [`DescribeKinesisStreamingDestinationInput`](crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput).
-    pub fn builder(
-    ) -> super::super::super::operation::describe_kinesis_streaming_destination::builders::DescribeKinesisStreamingDestinationInputBuilder {
+    pub fn builder() -> super::super::super::operation::describe_kinesis_streaming_destination::builders::DescribeKinesisStreamingDestinationInputBuilder {
         super::super::super::operation::describe_kinesis_streaming_destination::builders::DescribeKinesisStreamingDestinationInputBuilder::default()
     }
 }
@@ -50,9 +49,7 @@ impl DescribeKinesisStreamingDestinationInputBuilder {
         ::aws_smithy_types::error::operation::BuildError,
     > {
         ::std::result::Result::Ok(
-            super::super::super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput {
-                table_name: self.table_name,
-            },
+            super::super::super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationInput { table_name: self.table_name },
         )
     }
 }

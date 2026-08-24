@@ -57,9 +57,7 @@ impl DisableKinesisStreamingDestinationFluentBuilder {
         }
     }
     /// Access the DisableKinesisStreamingDestination as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::disable_kinesis_streaming_destination::builders::DisableKinesisStreamingDestinationInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::disable_kinesis_streaming_destination::builders::DisableKinesisStreamingDestinationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,17 +81,12 @@ impl DisableKinesisStreamingDestinationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestination::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        super::super::super::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestination::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = super::super::super::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestination::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        super::super::super::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestination::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -157,9 +150,7 @@ impl DisableKinesisStreamingDestinationFluentBuilder {
         self
     }
     /// <p>The source for the Kinesis streaming information that is being enabled.</p>
-    pub fn get_enable_kinesis_streaming_configuration(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::EnableKinesisStreamingConfiguration> {
+    pub fn get_enable_kinesis_streaming_configuration(&self) -> &::std::option::Option<super::super::super::types::EnableKinesisStreamingConfiguration> {
         self.inner.get_enable_kinesis_streaming_configuration()
     }
 }

@@ -54,10 +54,7 @@ impl ListSchedulingPoliciesOutputBuilder {
         self
     }
     /// <p>A list of scheduling policies that match the request.</p>
-    pub fn set_scheduling_policies(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SchedulingPolicyListingDetail>>,
-    ) -> Self {
+    pub fn set_scheduling_policies(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SchedulingPolicyListingDetail>>) -> Self {
         self.scheduling_policies = input;
         self
     }

@@ -145,10 +145,7 @@ impl SetUserPoolMfaConfigFluentBuilder {
         self
     }
     /// <p>Configures a user pool for time-based one-time password (TOTP) MFA. Enables or disables TOTP.</p>
-    pub fn set_software_token_mfa_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::SoftwareTokenMfaConfigType>,
-    ) -> Self {
+    pub fn set_software_token_mfa_configuration(mut self, input: ::std::option::Option<super::super::super::types::SoftwareTokenMfaConfigType>) -> Self {
         self.inner = self.inner.set_software_token_mfa_configuration(input);
         self
     }

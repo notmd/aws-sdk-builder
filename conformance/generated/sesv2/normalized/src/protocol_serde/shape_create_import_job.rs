@@ -4,10 +4,7 @@ pub fn de_create_import_job_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::create_import_job::CreateImportJobOutput,
-    super::super::operation::create_import_job::CreateImportJobError,
-> {
+) -> std::result::Result<super::super::operation::create_import_job::CreateImportJobOutput, super::super::operation::create_import_job::CreateImportJobError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::create_import_job::CreateImportJobError::unhandled)?;
@@ -55,9 +52,8 @@ pub fn de_create_import_job_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::create_import_job::CreateImportJobError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::create_import_job::CreateImportJobError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -75,10 +71,7 @@ pub fn de_create_import_job_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::create_import_job::CreateImportJobOutput,
-    super::super::operation::create_import_job::CreateImportJobError,
-> {
+) -> std::result::Result<super::super::operation::create_import_job::CreateImportJobOutput, super::super::operation::create_import_job::CreateImportJobError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::create_import_job::builders::CreateImportJobOutputBuilder::default();

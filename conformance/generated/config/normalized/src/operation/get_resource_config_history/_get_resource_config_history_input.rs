@@ -176,16 +176,14 @@ impl GetResourceConfigHistoryInputBuilder {
         super::super::super::operation::get_resource_config_history::GetResourceConfigHistoryInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_resource_config_history::GetResourceConfigHistoryInput {
-                resource_type: self.resource_type,
-                resource_id: self.resource_id,
-                later_time: self.later_time,
-                earlier_time: self.earlier_time,
-                chronological_order: self.chronological_order,
-                limit: self.limit.unwrap_or_default(),
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_resource_config_history::GetResourceConfigHistoryInput {
+            resource_type: self.resource_type,
+            resource_id: self.resource_id,
+            later_time: self.later_time,
+            earlier_time: self.earlier_time,
+            chronological_order: self.chronological_order,
+            limit: self.limit.unwrap_or_default(),
+            next_token: self.next_token,
+        })
     }
 }

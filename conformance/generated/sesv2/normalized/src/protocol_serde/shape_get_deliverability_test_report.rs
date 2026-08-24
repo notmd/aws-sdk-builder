@@ -50,26 +50,21 @@ pub fn de_get_deliverability_test_report_http_error(
             }
             tmp
         }),
-        "TooManyRequestsException" => {
-            super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportError::TooManyRequestsException({
+        "TooManyRequestsException" => super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportError::TooManyRequestsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportError::generic(generic),
     })
 }
@@ -134,11 +129,7 @@ pub(crate) fn de_get_deliverability_test_report(
                     )?);
                 }
                 "IspPlacements" => {
-                    builder = builder.set_isp_placements(super::super::protocol_serde::shape_isp_placements::de_isp_placements(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_isp_placements(super::super::protocol_serde::shape_isp_placements::de_isp_placements(tokens, _value, depth + 1)?);
                 }
                 "Message" => {
                     builder = builder.set_message(

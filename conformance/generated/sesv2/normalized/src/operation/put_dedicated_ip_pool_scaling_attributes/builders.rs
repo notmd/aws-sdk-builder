@@ -59,9 +59,7 @@ impl PutDedicatedIpPoolScalingAttributesFluentBuilder {
         }
     }
     /// Access the PutDedicatedIpPoolScalingAttributes as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::put_dedicated_ip_pool_scaling_attributes::builders::PutDedicatedIpPoolScalingAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -91,11 +89,7 @@ impl PutDedicatedIpPoolScalingAttributesFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributes::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        super::super::super::operation::put_dedicated_ip_pool_scaling_attributes::PutDedicatedIpPoolScalingAttributes::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

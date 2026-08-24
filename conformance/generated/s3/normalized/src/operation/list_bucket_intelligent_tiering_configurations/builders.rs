@@ -3,9 +3,7 @@ pub use super::super::super::operation::list_bucket_intelligent_tiering_configur
 
 pub use super::super::super::operation::list_bucket_intelligent_tiering_configurations::_list_bucket_intelligent_tiering_configurations_output::ListBucketIntelligentTieringConfigurationsOutputBuilder;
 
-impl
-    super::super::super::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsInputBuilder
-{
+impl super::super::super::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -76,7 +74,9 @@ impl ListBucketIntelligentTieringConfigurationsFluentBuilder {
         }
     }
     /// Access the ListBucketIntelligentTieringConfigurations as a reference.
-    pub fn as_input(&self) -> &super::super::super::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &super::super::super::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -100,11 +100,12 @@ impl ListBucketIntelligentTieringConfigurationsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurations::operation_runtime_plugins(
-                            self.handle.runtime_plugins.clone(),
-                            &self.handle.conf,
-                            self.config_override,
-                        );
+        let runtime_plugins =
+            super::super::super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurations::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         super::super::super::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurations::orchestrate(
             &runtime_plugins,
             input,

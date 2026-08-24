@@ -62,10 +62,7 @@ impl DeleteRemediationExceptionsInputBuilder {
         self
     }
     /// <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys.</p>
-    pub fn set_resource_keys(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationExceptionResourceKey>>,
-    ) -> Self {
+    pub fn set_resource_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationExceptionResourceKey>>) -> Self {
         self.resource_keys = input;
         self
     }
@@ -80,11 +77,9 @@ impl DeleteRemediationExceptionsInputBuilder {
         super::super::super::operation::delete_remediation_exceptions::DeleteRemediationExceptionsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_remediation_exceptions::DeleteRemediationExceptionsInput {
-                config_rule_name: self.config_rule_name,
-                resource_keys: self.resource_keys,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_remediation_exceptions::DeleteRemediationExceptionsInput {
+            config_rule_name: self.config_rule_name,
+            resource_keys: self.resource_keys,
+        })
     }
 }

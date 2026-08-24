@@ -20,8 +20,7 @@ impl ::aws_types::request_id::RequestId for DescribeManagedLoginBrandingByClient
 }
 impl DescribeManagedLoginBrandingByClientOutput {
     /// Creates a new builder-style object to manufacture [`DescribeManagedLoginBrandingByClientOutput`](crate::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::describe_managed_login_branding_by_client::builders::DescribeManagedLoginBrandingByClientOutputBuilder {
+    pub fn builder() -> super::super::super::operation::describe_managed_login_branding_by_client::builders::DescribeManagedLoginBrandingByClientOutputBuilder {
         super::super::super::operation::describe_managed_login_branding_by_client::builders::DescribeManagedLoginBrandingByClientOutputBuilder::default()
     }
 }

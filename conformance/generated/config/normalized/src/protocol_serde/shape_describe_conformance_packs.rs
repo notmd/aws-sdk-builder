@@ -15,7 +15,11 @@ pub fn de_describe_conformance_packs_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::describe_conformance_packs::DescribeConformancePacksError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::describe_conformance_packs::DescribeConformancePacksError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -35,26 +39,21 @@ pub fn de_describe_conformance_packs_http_error(
             }
             tmp
         }),
-        "InvalidNextTokenException" => {
-            super::super::operation::describe_conformance_packs::DescribeConformancePacksError::InvalidNextTokenException({
+        "InvalidNextTokenException" => super::super::operation::describe_conformance_packs::DescribeConformancePacksError::InvalidNextTokenException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::describe_conformance_packs::DescribeConformancePacksError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidParameterValueException" => {
             super::super::operation::describe_conformance_packs::DescribeConformancePacksError::InvalidParameterValueException({
                 #[allow(unused_mut)]

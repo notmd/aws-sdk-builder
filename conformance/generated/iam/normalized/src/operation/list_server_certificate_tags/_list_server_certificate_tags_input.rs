@@ -100,12 +100,10 @@ impl ListServerCertificateTagsInputBuilder {
         super::super::super::operation::list_server_certificate_tags::ListServerCertificateTagsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_server_certificate_tags::ListServerCertificateTagsInput {
-                server_certificate_name: self.server_certificate_name,
-                marker: self.marker,
-                max_items: self.max_items,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_server_certificate_tags::ListServerCertificateTagsInput {
+            server_certificate_name: self.server_certificate_name,
+            marker: self.marker,
+            max_items: self.max_items,
+        })
     }
 }

@@ -13,8 +13,7 @@ impl ::aws_types::request_id::RequestId for PutConfigurationSetDeliveryOptionsOu
 }
 impl PutConfigurationSetDeliveryOptionsOutput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetDeliveryOptionsOutput`](crate::operation::put_configuration_set_delivery_options::PutConfigurationSetDeliveryOptionsOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsOutputBuilder {
+    pub fn builder() -> super::super::super::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsOutputBuilder {
         super::super::super::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsOutputBuilder::default()
     }
 }

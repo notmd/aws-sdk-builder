@@ -73,8 +73,7 @@ impl PutTransformerInputBuilder {
     /// Consumes the builder and constructs a [`PutTransformerInput`](crate::operation::put_transformer::PutTransformerInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::put_transformer::PutTransformerInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::put_transformer::PutTransformerInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_transformer::PutTransformerInput {
             log_group_identifier: self.log_group_identifier,
             transformer_config: self.transformer_config,

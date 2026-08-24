@@ -45,9 +45,7 @@ impl GuardrailChecksContentFilterUsageBuilder {
     /// Consumes the builder and constructs a [`GuardrailChecksContentFilterUsage`](crate::types::GuardrailChecksContentFilterUsage).
     /// This method will fail if any of the following fields are not set:
     /// - [`text_units`](crate::types::builders::GuardrailChecksContentFilterUsageBuilder::text_units)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::GuardrailChecksContentFilterUsage, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailChecksContentFilterUsage, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::GuardrailChecksContentFilterUsage {
             text_units: self.text_units.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

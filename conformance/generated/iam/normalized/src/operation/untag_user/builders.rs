@@ -29,20 +29,14 @@ pub struct UntagUserFluentBuilder {
     inner: super::super::super::operation::untag_user::builders::UntagUserInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::untag_user::UntagUserOutput,
-        super::super::super::operation::untag_user::UntagUserError,
-    > for UntagUserFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::untag_user::UntagUserOutput, super::super::super::operation::untag_user::UntagUserError>
+    for UntagUserFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::untag_user::UntagUserOutput,
-            super::super::super::operation::untag_user::UntagUserError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::untag_user::UntagUserOutput, super::super::super::operation::untag_user::UntagUserError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }

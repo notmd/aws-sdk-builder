@@ -43,18 +43,10 @@ where
                             );
                         }
                         "command" => {
-                            builder = builder.set_command(super::super::protocol_serde::shape_string_list::de_string_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_command(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
                         }
                         "args" => {
-                            builder = builder.set_args(super::super::protocol_serde::shape_string_list::de_string_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_args(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
                         }
                         "env" => {
                             builder = builder.set_env(
@@ -90,11 +82,7 @@ where
                         }
                         "volumeMounts" => {
                             builder = builder.set_volume_mounts(
-                                super::super::protocol_serde::shape_eks_container_volume_mounts::de_eks_container_volume_mounts(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_eks_container_volume_mounts::de_eks_container_volume_mounts(tokens, _value, depth + 1)?,
                             );
                         }
                         "securityContext" => {

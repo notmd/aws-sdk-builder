@@ -39,8 +39,7 @@ impl ListDomainDeliverabilityCampaignsInput {
 }
 impl ListDomainDeliverabilityCampaignsInput {
     /// Creates a new builder-style object to manufacture [`ListDomainDeliverabilityCampaignsInput`](crate::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaignsInput).
-    pub fn builder() -> super::super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsInputBuilder {
         super::super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsInputBuilder::default()
     }
 }

@@ -78,10 +78,7 @@ pub fn ser_update_table_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_27 = array_25.value().start_object();
-                super::super::protocol_serde::shape_global_table_witness_group_update::ser_global_table_witness_group_update(
-                    &mut object_27,
-                    item_26,
-                )?;
+                super::super::protocol_serde::shape_global_table_witness_group_update::ser_global_table_witness_group_update(&mut object_27, item_26)?;
                 object_27.finish();
             }
         }

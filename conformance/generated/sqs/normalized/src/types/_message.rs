@@ -71,9 +71,7 @@ impl Message {
     /// <p><code>SequenceNumber</code></p></li>
     /// </ul>
     /// <p><code>ApproximateFirstReceiveTimestamp</code> and <code>SentTimestamp</code> are each returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
-    pub fn attributes(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<super::super::types::MessageSystemAttributeName, ::std::string::String>> {
+    pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<super::super::types::MessageSystemAttributeName, ::std::string::String>> {
         self.attributes.as_ref()
     }
     /// <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
@@ -104,8 +102,7 @@ pub struct MessageBuilder {
     pub(crate) body: ::std::option::Option<::std::string::String>,
     pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<super::super::types::MessageSystemAttributeName, ::std::string::String>>,
     pub(crate) md5_of_message_attributes: ::std::option::Option<::std::string::String>,
-    pub(crate) message_attributes:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::MessageAttributeValue>>,
+    pub(crate) message_attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::MessageAttributeValue>>,
 }
 impl MessageBuilder {
     /// <p>A unique identifier for the message. A <code>MessageId</code>is considered unique across all Amazon Web Services accounts for an extended period of time.</p>

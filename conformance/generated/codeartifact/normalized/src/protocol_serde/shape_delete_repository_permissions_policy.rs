@@ -15,9 +15,7 @@ pub fn de_delete_repository_permissions_policy_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled(generic))
-        }
+        None => return Err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -39,34 +37,29 @@ pub fn de_delete_repository_permissions_policy_http_error(
                 tmp
             })
         }
-        "ConflictException" => {
-            super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::ConflictException({
+        "ConflictException" => super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::ConflictException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InternalServerException" => {
             super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::InternalServerException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                            .map_err(
-                                super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled,
-                            )?;
+                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -82,11 +75,9 @@ pub fn de_delete_repository_permissions_policy_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -145,11 +136,9 @@ pub fn de_delete_repository_permissions_policy_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_delete_repository_permissions_policy::de_delete_repository_permissions_policy(_response_body, output)
-                .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
+        let mut output = super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyOutputBuilder::default();
+        output = super::super::protocol_serde::shape_delete_repository_permissions_policy::de_delete_repository_permissions_policy(_response_body, output)
+            .map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

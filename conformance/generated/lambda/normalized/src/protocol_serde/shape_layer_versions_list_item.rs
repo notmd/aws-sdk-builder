@@ -55,9 +55,11 @@ where
                             );
                         }
                         "CompatibleRuntimes" => {
-                            builder = builder.set_compatible_runtimes(
-                                super::super::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_compatible_runtimes(super::super::protocol_serde::shape_compatible_runtimes::de_compatible_runtimes(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "LicenseInfo" => {
                             builder = builder.set_license_info(

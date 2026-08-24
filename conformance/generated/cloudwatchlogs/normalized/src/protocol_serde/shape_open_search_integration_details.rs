@@ -22,14 +22,18 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "dataSource" => {
-                            builder = builder.set_data_source(
-                                super::super::protocol_serde::shape_open_search_data_source::de_open_search_data_source(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_data_source(super::super::protocol_serde::shape_open_search_data_source::de_open_search_data_source(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "application" => {
-                            builder = builder.set_application(
-                                super::super::protocol_serde::shape_open_search_application::de_open_search_application(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_application(super::super::protocol_serde::shape_open_search_application::de_open_search_application(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "collection" => {
                             builder = builder.set_collection(super::super::protocol_serde::shape_open_search_collection::de_open_search_collection(
@@ -56,11 +60,7 @@ where
                         }
                         "networkPolicy" => {
                             builder = builder.set_network_policy(
-                                super::super::protocol_serde::shape_open_search_network_policy::de_open_search_network_policy(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_open_search_network_policy::de_open_search_network_policy(tokens, _value, depth + 1)?,
                             );
                         }
                         "accessPolicy" => {

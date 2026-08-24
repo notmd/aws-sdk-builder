@@ -58,9 +58,7 @@ impl PutConfigurationSetVdmOptionsFluentBuilder {
         }
     }
     /// Access the PutConfigurationSetVdmOptions as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::put_configuration_set_vdm_options::builders::PutConfigurationSetVdmOptionsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,12 +82,11 @@ impl PutConfigurationSetVdmOptionsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptions::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = super::super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptions::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         super::super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptions::orchestrate(&runtime_plugins, input).await
     }
 

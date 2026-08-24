@@ -30,11 +30,8 @@ pub fn de_get_bucket_notification_configuration_http_response(
         #[allow(unused_mut)]
         let mut output =
             super::super::operation::get_bucket_notification_configuration::builders::GetBucketNotificationConfigurationOutputBuilder::default();
-        output = super::super::protocol_serde::shape_get_bucket_notification_configuration::de_get_bucket_notification_configuration(
-            _response_body,
-            output,
-        )
-        .map_err(super::super::operation::get_bucket_notification_configuration::GetBucketNotificationConfigurationError::unhandled)?;
+        output = super::super::protocol_serde::shape_get_bucket_notification_configuration::de_get_bucket_notification_configuration(_response_body, output)
+            .map_err(super::super::operation::get_bucket_notification_configuration::GetBucketNotificationConfigurationError::unhandled)?;
         output._set_extended_request_id(super::super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()

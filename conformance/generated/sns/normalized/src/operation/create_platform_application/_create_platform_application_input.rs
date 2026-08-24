@@ -98,12 +98,10 @@ impl CreatePlatformApplicationInputBuilder {
         super::super::super::operation::create_platform_application::CreatePlatformApplicationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::create_platform_application::CreatePlatformApplicationInput {
-                name: self.name,
-                platform: self.platform,
-                attributes: self.attributes,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::create_platform_application::CreatePlatformApplicationInput {
+            name: self.name,
+            platform: self.platform,
+            attributes: self.attributes,
+        })
     }
 }

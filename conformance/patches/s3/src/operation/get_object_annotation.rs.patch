@@ -71,7 +71,7 @@
                  .operation_name("GetObjectAnnotation")
                  .build()
                  .expect("required fields set"),
-@@ -126,16 +126,16 @@
+@@ -126,20 +126,20 @@
                              .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetObjectAnnotationTelemetryInputCaptureInterceptor))
  .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
  .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetObjectAnnotationEndpointParamsInterceptor))
@@ -81,8 +81,9 @@
                                  |input: &::aws_smithy_runtime_api::client::interceptors::context::Input| {
 
 -                                    let input: &crate::operation::get_object_annotation::GetObjectAnnotationInput = input.downcast_ref().expect("correct type");
+-                                    matches!(input.checksum_mode(), ::std::option::Option::Some(crate::types::ChecksumMode::Enabled))
 +                                    let input: &super::super::operation::get_object_annotation::GetObjectAnnotationInput = input.downcast_ref().expect("correct type");
-                                     matches!(input.checksum_mode(), ::std::option::Option::Some(crate::types::ChecksumMode::Enabled))
++                                    matches!(input.checksum_mode(), ::std::option::Option::Some(super::super::types::ChecksumMode::Enabled))
                                  },
                                  |input: &mut ::aws_smithy_runtime_api::client::interceptors::context::Input, cfg: &::aws_smithy_types::config_bag::ConfigBag|  {
                                      let input = input
@@ -91,6 +92,11 @@
                                          .ok_or("failed to downcast to crate::operation::get_object_annotation::GetObjectAnnotationInput")?;
 
                                      let request_validation_enabled =
+-                                        matches!(input.checksum_mode(), Some(crate::types::ChecksumMode::Enabled));
++                                        matches!(input.checksum_mode(), Some(super::super::types::ChecksumMode::Enabled));
+
+                                     if !request_validation_enabled {
+                                         // This value is set by the user on the SdkConfig to indicate their preference
 @@ -147,7 +147,7 @@
                                              .load::<::aws_smithy_types::checksum_config::ResponseChecksumValidation>()
                                              .unwrap_or(&::aws_smithy_types::checksum_config::ResponseChecksumValidation::WhenSupported);
@@ -122,6 +128,15 @@
                                              let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
                                              transient_errors.push("InternalError");
                                              ::std::borrow::Cow::Owned(transient_errors)
+@@ -253,7 +253,7 @@
+     ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
+         #[allow(unused_mut)]
+         let mut force_error = false;
+-        ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
++        ::tracing::debug!(extended_request_id = ?super::super::s3_request_id::RequestIdExt::extended_request_id(response));
+         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
+
+         // If this is an error, defer to the non-streaming parser
 @@ -260,8 +260,8 @@
          if (!response.status().is_success() && response.status().as_u16() != 200) || force_error {
              return ::std::option::Option::None;

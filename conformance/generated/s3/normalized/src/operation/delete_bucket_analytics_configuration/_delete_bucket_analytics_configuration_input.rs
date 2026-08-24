@@ -26,8 +26,7 @@ impl DeleteBucketAnalyticsConfigurationInput {
 }
 impl DeleteBucketAnalyticsConfigurationInput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketAnalyticsConfigurationInput`](crate::operation::delete_bucket_analytics_configuration::DeleteBucketAnalyticsConfigurationInput).
-    pub fn builder() -> super::super::super::operation::delete_bucket_analytics_configuration::builders::DeleteBucketAnalyticsConfigurationInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::delete_bucket_analytics_configuration::builders::DeleteBucketAnalyticsConfigurationInputBuilder {
         super::super::super::operation::delete_bucket_analytics_configuration::builders::DeleteBucketAnalyticsConfigurationInputBuilder::default()
     }
 }

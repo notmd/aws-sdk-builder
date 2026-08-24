@@ -35,11 +35,7 @@ where
                             );
                         }
                         "Details" => {
-                            builder = builder.set_details(super::super::protocol_serde::shape_event_details::de_event_details(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_details(super::super::protocol_serde::shape_event_details::de_event_details(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

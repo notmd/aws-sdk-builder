@@ -184,8 +184,7 @@ impl ApplyGuardrailOutputBuilder {
     /// - [`assessments`](crate::operation::apply_guardrail::builders::ApplyGuardrailOutputBuilder::assessments)
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::apply_guardrail::ApplyGuardrailOutput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::apply_guardrail::ApplyGuardrailOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::apply_guardrail::ApplyGuardrailOutput {
             usage: self.usage,
             action: self.action.ok_or_else(|| {

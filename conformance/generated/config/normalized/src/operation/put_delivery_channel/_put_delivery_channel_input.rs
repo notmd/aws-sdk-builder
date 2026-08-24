@@ -45,10 +45,8 @@ impl PutDeliveryChannelInputBuilder {
     /// Consumes the builder and constructs a [`PutDeliveryChannelInput`](crate::operation::put_delivery_channel::PutDeliveryChannelInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::put_delivery_channel::PutDeliveryChannelInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::put_delivery_channel::PutDeliveryChannelInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::put_delivery_channel::PutDeliveryChannelInput {
             delivery_channel: self.delivery_channel,
         })

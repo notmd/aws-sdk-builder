@@ -26,8 +26,7 @@ impl ::aws_types::request_id::RequestId for GetServiceLinkedRoleDeletionStatusOu
 }
 impl GetServiceLinkedRoleDeletionStatusOutput {
     /// Creates a new builder-style object to manufacture [`GetServiceLinkedRoleDeletionStatusOutput`](crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusOutputBuilder {
+    pub fn builder() -> super::super::super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusOutputBuilder {
         super::super::super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusOutputBuilder::default()
     }
 }

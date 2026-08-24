@@ -66,20 +66,14 @@ pub struct ReEncryptFluentBuilder {
     inner: super::super::super::operation::re_encrypt::builders::ReEncryptInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::re_encrypt::ReEncryptOutput,
-        super::super::super::operation::re_encrypt::ReEncryptError,
-    > for ReEncryptFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::re_encrypt::ReEncryptOutput, super::super::super::operation::re_encrypt::ReEncryptError>
+    for ReEncryptFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::re_encrypt::ReEncryptOutput,
-            super::super::super::operation::re_encrypt::ReEncryptError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::re_encrypt::ReEncryptOutput, super::super::super::operation::re_encrypt::ReEncryptError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }

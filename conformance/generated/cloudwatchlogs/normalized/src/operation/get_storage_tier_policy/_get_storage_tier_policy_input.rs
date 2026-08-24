@@ -18,10 +18,8 @@ impl GetStorageTierPolicyInputBuilder {
     /// Consumes the builder and constructs a [`GetStorageTierPolicyInput`](crate::operation::get_storage_tier_policy::GetStorageTierPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_storage_tier_policy::GetStorageTierPolicyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_storage_tier_policy::GetStorageTierPolicyInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_storage_tier_policy::GetStorageTierPolicyInput {})
     }
 }

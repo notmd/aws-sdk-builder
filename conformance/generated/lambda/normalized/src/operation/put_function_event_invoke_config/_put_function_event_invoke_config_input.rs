@@ -257,14 +257,12 @@ impl PutFunctionEventInvokeConfigInputBuilder {
         super::super::super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigInput {
-                function_name: self.function_name,
-                qualifier: self.qualifier,
-                maximum_retry_attempts: self.maximum_retry_attempts,
-                maximum_event_age_in_seconds: self.maximum_event_age_in_seconds,
-                destination_config: self.destination_config,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigInput {
+            function_name: self.function_name,
+            qualifier: self.qualifier,
+            maximum_retry_attempts: self.maximum_retry_attempts,
+            maximum_event_age_in_seconds: self.maximum_event_age_in_seconds,
+            destination_config: self.destination_config,
+        })
     }
 }

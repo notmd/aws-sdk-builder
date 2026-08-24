@@ -85,10 +85,7 @@ impl ListRepositoriesInputBuilder {
     /// Consumes the builder and constructs a [`ListRepositoriesInput`](crate::operation::list_repositories::ListRepositoriesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_repositories::ListRepositoriesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_repositories::ListRepositoriesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_repositories::ListRepositoriesInput {
             repository_prefix: self.repository_prefix,
             max_results: self.max_results,

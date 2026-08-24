@@ -4,8 +4,7 @@ pub fn de_get_bucket_cors_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::get_bucket_cors::GetBucketCorsOutput, super::super::operation::get_bucket_cors::GetBucketCorsError>
-{
+) -> std::result::Result<super::super::operation::get_bucket_cors::GetBucketCorsOutput, super::super::operation::get_bucket_cors::GetBucketCorsError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::get_bucket_cors::GetBucketCorsError::unhandled)?;
@@ -20,8 +19,7 @@ pub fn de_get_bucket_cors_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::get_bucket_cors::GetBucketCorsOutput, super::super::operation::get_bucket_cors::GetBucketCorsError>
-{
+) -> std::result::Result<super::super::operation::get_bucket_cors::GetBucketCorsOutput, super::super::operation::get_bucket_cors::GetBucketCorsError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::get_bucket_cors::builders::GetBucketCorsOutputBuilder::default();

@@ -97,12 +97,10 @@ impl DescribeConformancePacksInputBuilder {
         super::super::super::operation::describe_conformance_packs::DescribeConformancePacksInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::describe_conformance_packs::DescribeConformancePacksInput {
-                conformance_pack_names: self.conformance_pack_names,
-                limit: self.limit.unwrap_or_default(),
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::describe_conformance_packs::DescribeConformancePacksInput {
+            conformance_pack_names: self.conformance_pack_names,
+            limit: self.limit.unwrap_or_default(),
+            next_token: self.next_token,
+        })
     }
 }

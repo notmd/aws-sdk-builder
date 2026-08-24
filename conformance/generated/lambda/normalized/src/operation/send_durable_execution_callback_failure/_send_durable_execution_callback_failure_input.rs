@@ -20,8 +20,7 @@ impl SendDurableExecutionCallbackFailureInput {
 }
 impl SendDurableExecutionCallbackFailureInput {
     /// Creates a new builder-style object to manufacture [`SendDurableExecutionCallbackFailureInput`](crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureInput).
-    pub fn builder(
-    ) -> super::super::super::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureInputBuilder {
+    pub fn builder() -> super::super::super::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureInputBuilder {
         super::super::super::operation::send_durable_execution_callback_failure::builders::SendDurableExecutionCallbackFailureInputBuilder::default()
     }
 }

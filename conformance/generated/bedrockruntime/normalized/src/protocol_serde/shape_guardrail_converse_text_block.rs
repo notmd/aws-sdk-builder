@@ -37,15 +37,17 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "text" => {
-                            builder = builder.set_text(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "text" => {
+                                builder = builder.set_text(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            }
+                            "qualifiers" => {
+                                builder = builder.set_qualifiers(super::super::protocol_serde::shape_guardrail_converse_content_qualifier_list::de_guardrail_converse_content_qualifier_list(tokens, _value, depth + 1)?);
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        "qualifiers" => {
-                            builder = builder.set_qualifiers(super::super::protocol_serde::shape_guardrail_converse_content_qualifier_list::de_guardrail_converse_content_qualifier_list(tokens, _value, depth + 1)?);
-                        }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

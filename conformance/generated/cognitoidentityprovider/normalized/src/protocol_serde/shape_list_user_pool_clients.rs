@@ -15,11 +15,7 @@ pub fn de_list_user_pool_clients_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::list_user_pool_clients::ListUserPoolClientsError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::list_user_pool_clients::ListUserPoolClientsError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -44,9 +40,8 @@ pub fn de_list_user_pool_clients_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::list_user_pool_clients::ListUserPoolClientsError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_user_pool_clients::ListUserPoolClientsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -75,11 +70,9 @@ pub fn de_list_user_pool_clients_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::list_user_pool_clients::ListUserPoolClientsError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::list_user_pool_clients::ListUserPoolClientsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -93,11 +86,8 @@ pub fn de_list_user_pool_clients_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::list_user_pool_clients::ListUserPoolClientsError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_user_pool_clients::ListUserPoolClientsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -111,9 +101,8 @@ pub fn de_list_user_pool_clients_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::list_user_pool_clients::ListUserPoolClientsError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_user_pool_clients::ListUserPoolClientsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -170,21 +159,23 @@ pub(crate) fn de_list_user_pool_clients(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "UserPoolClients" => {
-                    builder = builder.set_user_pool_clients(
-                        super::super::protocol_serde::shape_user_pool_client_list_type::de_user_pool_client_list_type(tokens, _value, depth + 1)?,
-                    );
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "UserPoolClients" => {
+                        builder = builder.set_user_pool_clients(
+                            super::super::protocol_serde::shape_user_pool_client_list_type::de_user_pool_client_list_type(tokens, _value, depth + 1)?,
+                        );
+                    }
+                    "NextToken" => {
+                        builder = builder.set_next_token(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?,
+                        );
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                "NextToken" => {
-                    builder = builder.set_next_token(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

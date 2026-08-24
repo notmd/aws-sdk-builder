@@ -12,10 +12,7 @@ pub fn ser_delete_message_batch_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_5 = array_3.value().start_object();
-                super::super::protocol_serde::shape_delete_message_batch_request_entry::ser_delete_message_batch_request_entry(
-                    &mut object_5,
-                    item_4,
-                )?;
+                super::super::protocol_serde::shape_delete_message_batch_request_entry::ser_delete_message_batch_request_entry(&mut object_5, item_4)?;
                 object_5.finish();
             }
         }

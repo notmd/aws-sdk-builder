@@ -36,11 +36,7 @@ where
                             );
                         }
                         "Item" => {
-                            builder = builder.set_item(super::super::protocol_serde::shape_attribute_map::de_attribute_map(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_item(super::super::protocol_serde::shape_attribute_map::de_attribute_map(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

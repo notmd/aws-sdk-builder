@@ -18,9 +18,7 @@ impl ::aws_types::request_id::RequestId for CreateBucketMetadataTableConfigurati
 }
 impl CreateBucketMetadataTableConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`CreateBucketMetadataTableConfigurationOutput`](crate::operation::create_bucket_metadata_table_configuration::CreateBucketMetadataTableConfigurationOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::create_bucket_metadata_table_configuration::builders::CreateBucketMetadataTableConfigurationOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::create_bucket_metadata_table_configuration::builders::CreateBucketMetadataTableConfigurationOutputBuilder {
         super::super::super::operation::create_bucket_metadata_table_configuration::builders::CreateBucketMetadataTableConfigurationOutputBuilder::default()
     }
 }

@@ -17,85 +17,111 @@ pub fn de_disassociate_source_from_s3_table_integration_http_error(
         Some(code) => code,
         None => {
             return Err(
-                super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::unhandled(
-                    generic,
-                ),
+                super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::unhandled(generic),
             )
         }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AccessDeniedException" => super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::AccessDeniedException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "AccessDeniedException" => {
+            super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::AccessDeniedException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InternalServerException" => super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::InternalServerException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                        .map_err(
+                            super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InternalServerException" => {
+            super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::InternalServerException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ResourceNotFoundException" => super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::ResourceNotFoundException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                        .map_err(
+                            super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ResourceNotFoundException" => {
+            super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::ResourceNotFoundException(
+                {
+                    #[allow(unused_mut)]
+                    let mut tmp = {
+                        #[allow(unused_mut)]
+                        let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                        output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(
+                            super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::unhandled,
+                        )?;
+                        let output = output.meta(generic);
+                        output.build()
+                    };
+                    if tmp.message.is_none() {
+                        tmp.message = _error_message;
+                    }
+                    tmp
+                },
+            )
+        }
+        "ThrottlingException" => {
+            super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::ThrottlingException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ThrottlingException" => super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::ThrottlingException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(
+                        super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::unhandled,
+                    )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ValidationException" => {
+            super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::ValidationException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output).map_err(super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ValidationException" => super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::ValidationException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(
+                        super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::unhandled,
+                    )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationError::generic(generic),
     })
 }
@@ -111,7 +137,9 @@ pub fn de_disassociate_source_from_s3_table_integration_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = super::super::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationOutputBuilder::default();
+        let mut output =
+            super::super::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationOutputBuilder::default(
+            );
         output = super::super::protocol_serde::shape_disassociate_source_from_s3_table_integration::de_disassociate_source_from_s3_table_integration(
             _response_body,
             output,
@@ -127,7 +155,10 @@ pub fn ser_disassociate_source_from_s3_table_integration_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_disassociate_source_from_s3_table_integration_input::ser_disassociate_source_from_s3_table_integration_input_input(&mut object, input)?;
+    super::super::protocol_serde::shape_disassociate_source_from_s3_table_integration_input::ser_disassociate_source_from_s3_table_integration_input_input(
+        &mut object,
+        input,
+    )?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

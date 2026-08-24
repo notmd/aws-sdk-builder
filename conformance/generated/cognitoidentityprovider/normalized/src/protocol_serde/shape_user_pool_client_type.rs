@@ -84,29 +84,17 @@ where
                         }
                         "TokenValidityUnits" => {
                             builder = builder.set_token_validity_units(
-                                super::super::protocol_serde::shape_token_validity_units_type::de_token_validity_units_type(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_token_validity_units_type::de_token_validity_units_type(tokens, _value, depth + 1)?,
                             );
                         }
                         "ReadAttributes" => {
                             builder = builder.set_read_attributes(
-                                super::super::protocol_serde::shape_client_permission_list_type::de_client_permission_list_type(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_client_permission_list_type::de_client_permission_list_type(tokens, _value, depth + 1)?,
                             );
                         }
                         "WriteAttributes" => {
                             builder = builder.set_write_attributes(
-                                super::super::protocol_serde::shape_client_permission_list_type::de_client_permission_list_type(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_client_permission_list_type::de_client_permission_list_type(tokens, _value, depth + 1)?,
                             );
                         }
                         "ExplicitAuthFlows" => {
@@ -119,12 +107,20 @@ where
                             );
                         }
                         "SupportedIdentityProviders" => {
-                            builder = builder.set_supported_identity_providers(super::super::protocol_serde::shape_supported_identity_providers_list_type::de_supported_identity_providers_list_type(tokens, _value, depth + 1)?);
+                            builder = builder.set_supported_identity_providers(
+                                super::super::protocol_serde::shape_supported_identity_providers_list_type::de_supported_identity_providers_list_type(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
                         }
                         "CallbackURLs" => {
-                            builder = builder.set_callback_ur_ls(
-                                super::super::protocol_serde::shape_callback_urls_list_type::de_callback_urls_list_type(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_callback_ur_ls(super::super::protocol_serde::shape_callback_urls_list_type::de_callback_urls_list_type(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "LogoutURLs" => {
                             builder = builder.set_logout_ur_ls(super::super::protocol_serde::shape_logout_urls_list_type::de_logout_urls_list_type(
@@ -171,10 +167,7 @@ where
                         "PreventUserExistenceErrors" => {
                             builder = builder.set_prevent_user_existence_errors(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| super::super::types::PreventUserExistenceErrorTypes::from(u.as_ref()))
-                                    })
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::PreventUserExistenceErrorTypes::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }
@@ -195,11 +188,7 @@ where
                         }
                         "RefreshTokenRotation" => {
                             builder = builder.set_refresh_token_rotation(
-                                super::super::protocol_serde::shape_refresh_token_rotation_type::de_refresh_token_rotation_type(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_refresh_token_rotation_type::de_refresh_token_rotation_type(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

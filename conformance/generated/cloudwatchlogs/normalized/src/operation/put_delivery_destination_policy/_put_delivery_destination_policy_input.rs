@@ -70,11 +70,9 @@ impl PutDeliveryDestinationPolicyInputBuilder {
         super::super::super::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyInput {
-                delivery_destination_name: self.delivery_destination_name,
-                delivery_destination_policy: self.delivery_destination_policy,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_delivery_destination_policy::PutDeliveryDestinationPolicyInput {
+            delivery_destination_name: self.delivery_destination_name,
+            delivery_destination_policy: self.delivery_destination_policy,
+        })
     }
 }

@@ -114,10 +114,7 @@ impl ResourceDetailsBuilder {
     /// <p>You can find the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">Resource type schema</a>, or <code>CFN_RESOURCE_SCHEMA</code>, in "<i>Amazon Web Services public extensions</i>" within the CloudFormation registry or with the following CLI commmand: <code>aws cloudformation describe-type --type-name "AWS::S3::Bucket" --type RESOURCE</code>.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-view">Managing extensions through the CloudFormation registry</a> and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services resource and property types reference</a> in the CloudFormation User Guide.</p>
     /// </note>
-    pub fn set_resource_configuration_schema_type(
-        mut self,
-        input: ::std::option::Option<super::super::types::ResourceConfigurationSchemaType>,
-    ) -> Self {
+    pub fn set_resource_configuration_schema_type(mut self, input: ::std::option::Option<super::super::types::ResourceConfigurationSchemaType>) -> Self {
         self.resource_configuration_schema_type = input;
         self
     }

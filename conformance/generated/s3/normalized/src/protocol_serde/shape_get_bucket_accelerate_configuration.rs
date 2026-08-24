@@ -28,19 +28,15 @@ pub fn de_get_bucket_accelerate_configuration_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_get_bucket_accelerate_configuration::de_get_bucket_accelerate_configuration(_response_body, output)
-                .map_err(super::super::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationError::unhandled)?;
+        let mut output = super::super::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationOutputBuilder::default();
+        output = super::super::protocol_serde::shape_get_bucket_accelerate_configuration::de_get_bucket_accelerate_configuration(_response_body, output)
+            .map_err(super::super::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationError::unhandled)?;
         output = output.set_request_charged(
-            super::super::protocol_serde::shape_get_bucket_accelerate_configuration_output::de_request_charged_header(_response_headers).map_err(
-                |_| {
-                    super::super::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationError::unhandled(
-                        "Failed to parse RequestCharged from header `x-amz-request-charged",
-                    )
-                },
-            )?,
+            super::super::protocol_serde::shape_get_bucket_accelerate_configuration_output::de_request_charged_header(_response_headers).map_err(|_| {
+                super::super::operation::get_bucket_accelerate_configuration::GetBucketAccelerateConfigurationError::unhandled(
+                    "Failed to parse RequestCharged from header `x-amz-request-charged",
+                )
+            })?,
         );
         output._set_extended_request_id(super::super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));

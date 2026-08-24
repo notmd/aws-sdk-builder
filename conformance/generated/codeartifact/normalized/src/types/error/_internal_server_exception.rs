@@ -81,9 +81,7 @@ impl InternalServerExceptionBuilder {
     /// Consumes the builder and constructs a [`InternalServerException`](crate::types::error::InternalServerException).
     /// This method will fail if any of the following fields are not set:
     /// - [`message`](crate::types::error::builders::InternalServerExceptionBuilder::message)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::types::error::InternalServerException, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::types::error::InternalServerException, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::types::error::InternalServerException {
             message: self.message.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

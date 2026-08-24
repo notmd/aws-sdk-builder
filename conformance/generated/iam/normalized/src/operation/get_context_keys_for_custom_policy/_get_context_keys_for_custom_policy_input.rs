@@ -100,10 +100,8 @@ impl GetContextKeysForCustomPolicyInputBuilder {
         super::super::super::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyInput {
-                policy_input_list: self.policy_input_list,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyInput {
+            policy_input_list: self.policy_input_list,
+        })
     }
 }

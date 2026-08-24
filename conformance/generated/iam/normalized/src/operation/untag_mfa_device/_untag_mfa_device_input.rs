@@ -78,8 +78,7 @@ impl UntagMfaDeviceInputBuilder {
     /// Consumes the builder and constructs a [`UntagMfaDeviceInput`](crate::operation::untag_mfa_device::UntagMfaDeviceInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::untag_mfa_device::UntagMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::untag_mfa_device::UntagMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::untag_mfa_device::UntagMfaDeviceInput {
             serial_number: self.serial_number,
             tag_keys: self.tag_keys,

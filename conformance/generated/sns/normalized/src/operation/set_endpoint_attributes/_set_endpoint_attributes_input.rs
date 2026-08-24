@@ -112,10 +112,8 @@ impl SetEndpointAttributesInputBuilder {
     /// Consumes the builder and constructs a [`SetEndpointAttributesInput`](crate::operation::set_endpoint_attributes::SetEndpointAttributesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::set_endpoint_attributes::SetEndpointAttributesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::set_endpoint_attributes::SetEndpointAttributesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::set_endpoint_attributes::SetEndpointAttributesInput {
             endpoint_arn: self.endpoint_arn,
             attributes: self.attributes,

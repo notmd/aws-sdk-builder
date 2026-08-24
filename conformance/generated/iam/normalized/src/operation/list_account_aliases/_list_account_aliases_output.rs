@@ -111,10 +111,8 @@ impl ListAccountAliasesOutputBuilder {
     /// - [`account_aliases`](crate::operation::list_account_aliases::builders::ListAccountAliasesOutputBuilder::account_aliases)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_account_aliases::ListAccountAliasesOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_account_aliases::ListAccountAliasesOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_account_aliases::ListAccountAliasesOutput {
             account_aliases: self.account_aliases.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

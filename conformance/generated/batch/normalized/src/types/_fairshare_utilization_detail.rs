@@ -62,10 +62,7 @@ impl FairshareUtilizationDetailBuilder {
         self
     }
     /// <p>A list of the top 20 shares with the highest capacity utilization, ordered by usage amount.</p>
-    pub fn set_top_capacity_utilization(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::FairshareCapacityUtilization>>,
-    ) -> Self {
+    pub fn set_top_capacity_utilization(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::FairshareCapacityUtilization>>) -> Self {
         self.top_capacity_utilization = input;
         self
     }

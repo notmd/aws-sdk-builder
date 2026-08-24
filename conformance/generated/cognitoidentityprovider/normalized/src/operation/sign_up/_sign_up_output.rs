@@ -137,9 +137,7 @@ impl SignUpOutputBuilder {
     /// Consumes the builder and constructs a [`SignUpOutput`](crate::operation::sign_up::SignUpOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`user_sub`](crate::operation::sign_up::builders::SignUpOutputBuilder::user_sub)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::sign_up::SignUpOutput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::sign_up::SignUpOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::sign_up::SignUpOutput {
             user_confirmed: self.user_confirmed.unwrap_or_default(),
             code_delivery_details: self.code_delivery_details,

@@ -67,11 +67,7 @@ where
                         }
                         "infrastructureOptimization" => {
                             builder = builder.set_infrastructure_optimization(
-                                super::super::protocol_serde::shape_infrastructure_optimization::de_infrastructure_optimization(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_infrastructure_optimization::de_infrastructure_optimization(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

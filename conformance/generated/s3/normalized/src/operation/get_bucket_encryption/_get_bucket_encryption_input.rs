@@ -80,10 +80,8 @@ impl GetBucketEncryptionInputBuilder {
     /// Consumes the builder and constructs a [`GetBucketEncryptionInput`](crate::operation::get_bucket_encryption::GetBucketEncryptionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_bucket_encryption::GetBucketEncryptionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_bucket_encryption::GetBucketEncryptionInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_bucket_encryption::GetBucketEncryptionInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,

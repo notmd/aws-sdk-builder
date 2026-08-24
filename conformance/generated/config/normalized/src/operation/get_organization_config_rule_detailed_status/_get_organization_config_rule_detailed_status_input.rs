@@ -32,8 +32,7 @@ impl GetOrganizationConfigRuleDetailedStatusInput {
 }
 impl GetOrganizationConfigRuleDetailedStatusInput {
     /// Creates a new builder-style object to manufacture [`GetOrganizationConfigRuleDetailedStatusInput`](crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatusInput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusInputBuilder
+    pub fn builder() -> super::super::super::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusInputBuilder
     {
         super::super::super::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusInputBuilder::default()
     }

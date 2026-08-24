@@ -23,8 +23,7 @@ impl ::aws_types::request_id::RequestId for GetComplianceSummaryByResourceTypeOu
 }
 impl GetComplianceSummaryByResourceTypeOutput {
     /// Creates a new builder-style object to manufacture [`GetComplianceSummaryByResourceTypeOutput`](crate::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeOutputBuilder {
+    pub fn builder() -> super::super::super::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeOutputBuilder {
         super::super::super::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeOutputBuilder::default()
     }
 }
@@ -33,8 +32,7 @@ impl GetComplianceSummaryByResourceTypeOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetComplianceSummaryByResourceTypeOutputBuilder {
-    pub(crate) compliance_summaries_by_resource_type:
-        ::std::option::Option<::std::vec::Vec<super::super::super::types::ComplianceSummaryByResourceType>>,
+    pub(crate) compliance_summaries_by_resource_type: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComplianceSummaryByResourceType>>,
     _request_id: Option<String>,
 }
 impl GetComplianceSummaryByResourceTypeOutputBuilder {

@@ -84,30 +84,22 @@ where
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "FromEmailAddress" => {
                             builder = builder.set_from_email_address(
-                                super::super::protocol_serde::shape_email_address_filter_list::de_email_address_filter_list(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_email_address_filter_list::de_email_address_filter_list(tokens, _value, depth + 1)?,
                             );
                         }
                         "Destination" => {
-                            builder = builder.set_destination(
-                                super::super::protocol_serde::shape_email_address_filter_list::de_email_address_filter_list(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
-                            );
+                            builder = builder.set_destination(super::super::protocol_serde::shape_email_address_filter_list::de_email_address_filter_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "Subject" => {
-                            builder = builder.set_subject(
-                                super::super::protocol_serde::shape_email_subject_filter_list::de_email_subject_filter_list(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
-                            );
+                            builder = builder.set_subject(super::super::protocol_serde::shape_email_subject_filter_list::de_email_subject_filter_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "Isp" => {
                             builder = builder.set_isp(super::super::protocol_serde::shape_isp_filter_list::de_isp_filter_list(
@@ -123,11 +115,7 @@ where
                         }
                         "LastEngagementEvent" => {
                             builder = builder.set_last_engagement_event(
-                                super::super::protocol_serde::shape_last_engagement_event_list::de_last_engagement_event_list(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_last_engagement_event_list::de_last_engagement_event_list(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

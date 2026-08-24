@@ -34,8 +34,7 @@ impl ::aws_types::request_id::RequestId for GetAggregateConfigRuleComplianceSumm
 }
 impl GetAggregateConfigRuleComplianceSummaryOutput {
     /// Creates a new builder-style object to manufacture [`GetAggregateConfigRuleComplianceSummaryOutput`](crate::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummaryOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_aggregate_config_rule_compliance_summary::builders::GetAggregateConfigRuleComplianceSummaryOutputBuilder
+    pub fn builder() -> super::super::super::operation::get_aggregate_config_rule_compliance_summary::builders::GetAggregateConfigRuleComplianceSummaryOutputBuilder
     {
         super::super::super::operation::get_aggregate_config_rule_compliance_summary::builders::GetAggregateConfigRuleComplianceSummaryOutputBuilder::default()
     }
@@ -77,10 +76,7 @@ impl GetAggregateConfigRuleComplianceSummaryOutputBuilder {
         self
     }
     /// <p>Returns a list of AggregateComplianceCounts object.</p>
-    pub fn set_aggregate_compliance_counts(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregateComplianceCount>>,
-    ) -> Self {
+    pub fn set_aggregate_compliance_counts(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregateComplianceCount>>) -> Self {
         self.aggregate_compliance_counts = input;
         self
     }
@@ -112,9 +108,7 @@ impl GetAggregateConfigRuleComplianceSummaryOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetAggregateConfigRuleComplianceSummaryOutput`](crate::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummaryOutput).
-    pub fn build(
-        self,
-    ) -> super::super::super::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummaryOutput {
+    pub fn build(self) -> super::super::super::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummaryOutput {
         super::super::super::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummaryOutput {
             group_by_key: self.group_by_key,
             aggregate_compliance_counts: self.aggregate_compliance_counts,

@@ -112,13 +112,11 @@ impl UpdateContributorInsightsInputBuilder {
         super::super::super::operation::update_contributor_insights::UpdateContributorInsightsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::update_contributor_insights::UpdateContributorInsightsInput {
-                table_name: self.table_name,
-                index_name: self.index_name,
-                contributor_insights_action: self.contributor_insights_action,
-                contributor_insights_mode: self.contributor_insights_mode,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::update_contributor_insights::UpdateContributorInsightsInput {
+            table_name: self.table_name,
+            index_name: self.index_name,
+            contributor_insights_action: self.contributor_insights_action,
+            contributor_insights_mode: self.contributor_insights_mode,
+        })
     }
 }

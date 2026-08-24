@@ -11,8 +11,6 @@ impl super::Client {
     pub fn delete_bucket_inventory_configuration(
         &self,
     ) -> super::super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationFluentBuilder {
-        super::super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

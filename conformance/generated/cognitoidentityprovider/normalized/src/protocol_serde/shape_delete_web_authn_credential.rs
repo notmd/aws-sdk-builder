@@ -15,7 +15,11 @@ pub fn de_delete_web_authn_credential_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -50,26 +54,21 @@ pub fn de_delete_web_authn_credential_http_error(
             }
             tmp
         }),
-        "InvalidParameterException" => {
-            super::super::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError::InvalidParameterException({
+        "InvalidParameterException" => super::super::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "LimitExceededException" => super::super::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError::LimitExceededException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -140,46 +139,36 @@ pub fn de_delete_web_authn_credential_http_error(
                 tmp
             })
         }
-        "ResourceNotFoundException" => {
-            super::super::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError::ResourceNotFoundException({
+        "ResourceNotFoundException" => super::super::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError::ResourceNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "TooManyRequestsException" => {
-            super::super::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError::TooManyRequestsException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "TooManyRequestsException" => super::super::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError::TooManyRequestsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::delete_web_authn_credential::DeleteWebAuthnCredentialError::generic(generic),
     })
 }

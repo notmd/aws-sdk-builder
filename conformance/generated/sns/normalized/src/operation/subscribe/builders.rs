@@ -31,20 +31,14 @@ pub struct SubscribeFluentBuilder {
     inner: super::super::super::operation::subscribe::builders::SubscribeInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::subscribe::SubscribeOutput,
-        super::super::super::operation::subscribe::SubscribeError,
-    > for SubscribeFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::subscribe::SubscribeOutput, super::super::super::operation::subscribe::SubscribeError>
+    for SubscribeFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::subscribe::SubscribeOutput,
-            super::super::super::operation::subscribe::SubscribeError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::subscribe::SubscribeOutput, super::super::super::operation::subscribe::SubscribeError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }

@@ -80,10 +80,8 @@ impl DeactivateMfaDeviceInputBuilder {
     /// Consumes the builder and constructs a [`DeactivateMfaDeviceInput`](crate::operation::deactivate_mfa_device::DeactivateMfaDeviceInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceInput {
             user_name: self.user_name,
             serial_number: self.serial_number,

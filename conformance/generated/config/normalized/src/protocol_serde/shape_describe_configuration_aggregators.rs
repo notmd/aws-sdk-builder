@@ -43,11 +43,9 @@ pub fn de_describe_configuration_aggregators_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -78,22 +76,20 @@ pub fn de_describe_configuration_aggregators_http_error(
             })
         }
         "NoSuchConfigurationAggregatorException" => {
-            super::super::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsError::NoSuchConfigurationAggregatorException(
-                {
+            super::super::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsError::NoSuchConfigurationAggregatorException({
+                #[allow(unused_mut)]
+                let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut tmp = {
-                        #[allow(unused_mut)]
-                        let mut output = super::super::types::error::builders::NoSuchConfigurationAggregatorExceptionBuilder::default();
-                        output = super::super::protocol_serde::shape_no_such_configuration_aggregator_exception::de_no_such_configuration_aggregator_exception_json_err(_response_body, output).map_err(super::super::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsError::unhandled)?;
-                        let output = output.meta(generic);
-                        output.build()
-                    };
-                    if tmp.message.is_none() {
-                        tmp.message = _error_message;
-                    }
-                    tmp
-                },
-            )
+                    let mut output = super::super::types::error::builders::NoSuchConfigurationAggregatorExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_no_such_configuration_aggregator_exception::de_no_such_configuration_aggregator_exception_json_err(_response_body, output).map_err(super::super::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
         }
         _ => super::super::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsError::generic(generic),
     })
@@ -110,11 +106,9 @@ pub fn de_describe_configuration_aggregators_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_describe_configuration_aggregators::de_describe_configuration_aggregators(_response_body, output)
-                .map_err(super::super::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsError::unhandled)?;
+        let mut output = super::super::operation::describe_configuration_aggregators::builders::DescribeConfigurationAggregatorsOutputBuilder::default();
+        output = super::super::protocol_serde::shape_describe_configuration_aggregators::de_describe_configuration_aggregators(_response_body, output)
+            .map_err(super::super::operation::describe_configuration_aggregators::DescribeConfigurationAggregatorsError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -125,10 +119,7 @@ pub fn ser_describe_configuration_aggregators_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_describe_configuration_aggregators_input::ser_describe_configuration_aggregators_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_describe_configuration_aggregators_input::ser_describe_configuration_aggregators_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -151,11 +142,7 @@ pub(crate) fn de_describe_configuration_aggregators(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "ConfigurationAggregators" => {
                     builder = builder.set_configuration_aggregators(
-                        super::super::protocol_serde::shape_configuration_aggregator_list::de_configuration_aggregator_list(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_configuration_aggregator_list::de_configuration_aggregator_list(tokens, _value, depth + 1)?,
                     );
                 }
                 "NextToken" => {

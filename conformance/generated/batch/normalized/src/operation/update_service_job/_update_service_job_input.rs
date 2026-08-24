@@ -71,10 +71,7 @@ impl UpdateServiceJobInputBuilder {
     /// Consumes the builder and constructs a [`UpdateServiceJobInput`](crate::operation::update_service_job::UpdateServiceJobInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::update_service_job::UpdateServiceJobInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::update_service_job::UpdateServiceJobInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::update_service_job::UpdateServiceJobInput {
             job_id: self.job_id,
             scheduling_priority: self.scheduling_priority,

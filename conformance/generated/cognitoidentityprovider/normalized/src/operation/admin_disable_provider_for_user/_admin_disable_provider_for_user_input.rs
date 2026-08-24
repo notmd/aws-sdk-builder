@@ -70,11 +70,9 @@ impl AdminDisableProviderForUserInputBuilder {
         super::super::super::operation::admin_disable_provider_for_user::AdminDisableProviderForUserInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::admin_disable_provider_for_user::AdminDisableProviderForUserInput {
-                user_pool_id: self.user_pool_id,
-                user: self.user,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::admin_disable_provider_for_user::AdminDisableProviderForUserInput {
+            user_pool_id: self.user_pool_id,
+            user: self.user,
+        })
     }
 }

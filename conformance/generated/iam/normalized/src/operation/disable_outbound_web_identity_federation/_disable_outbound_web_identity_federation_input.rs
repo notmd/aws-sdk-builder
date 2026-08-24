@@ -5,10 +5,8 @@
 pub struct DisableOutboundWebIdentityFederationInput {}
 impl DisableOutboundWebIdentityFederationInput {
     /// Creates a new builder-style object to manufacture [`DisableOutboundWebIdentityFederationInput`](crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationInput).
-    pub fn builder(
-    ) -> super::super::super::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationInputBuilder {
-        super::super::super::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationInputBuilder::default(
-        )
+    pub fn builder() -> super::super::super::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationInputBuilder {
+        super::super::super::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationInputBuilder::default()
     }
 }
 
@@ -24,8 +22,6 @@ impl DisableOutboundWebIdentityFederationInputBuilder {
         super::super::super::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationInput {},
-        )
+        ::std::result::Result::Ok(super::super::super::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationInput {})
     }
 }

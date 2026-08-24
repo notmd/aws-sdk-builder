@@ -39,9 +39,7 @@ impl super::Client {
     ///   - [`event_source_mapping_arn(Option<String>)`](crate::operation::delete_event_source_mapping::DeleteEventSourceMappingOutput::event_source_mapping_arn): <p>The Amazon Resource Name (ARN) of the event source mapping.</p>
     ///   - [`provisioned_poller_config(Option<ProvisionedPollerConfig>)`](crate::operation::delete_event_source_mapping::DeleteEventSourceMappingOutput::provisioned_poller_config): <p>(Amazon SQS, Amazon MSK, and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode">provisioned mode</a>.</p>
     /// - On failure, responds with [`SdkError<DeleteEventSourceMappingError>`](crate::operation::delete_event_source_mapping::DeleteEventSourceMappingError)
-    pub fn delete_event_source_mapping(
-        &self,
-    ) -> super::super::operation::delete_event_source_mapping::builders::DeleteEventSourceMappingFluentBuilder {
+    pub fn delete_event_source_mapping(&self) -> super::super::operation::delete_event_source_mapping::builders::DeleteEventSourceMappingFluentBuilder {
         super::super::operation::delete_event_source_mapping::builders::DeleteEventSourceMappingFluentBuilder::new(self.handle.clone())
     }
 }

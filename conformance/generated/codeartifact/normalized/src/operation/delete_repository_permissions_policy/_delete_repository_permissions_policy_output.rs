@@ -20,8 +20,7 @@ impl ::aws_types::request_id::RequestId for DeleteRepositoryPermissionsPolicyOut
 }
 impl DeleteRepositoryPermissionsPolicyOutput {
     /// Creates a new builder-style object to manufacture [`DeleteRepositoryPermissionsPolicyOutput`](crate::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyOutput).
-    pub fn builder() -> super::super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyOutputBuilder {
         super::super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyOutputBuilder::default()
     }
 }

@@ -110,10 +110,7 @@ impl GetLogGroupFieldsInputBuilder {
     /// Consumes the builder and constructs a [`GetLogGroupFieldsInput`](crate::operation::get_log_group_fields::GetLogGroupFieldsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_log_group_fields::GetLogGroupFieldsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_log_group_fields::GetLogGroupFieldsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_log_group_fields::GetLogGroupFieldsInput {
             log_group_name: self.log_group_name,
             time: self.time,

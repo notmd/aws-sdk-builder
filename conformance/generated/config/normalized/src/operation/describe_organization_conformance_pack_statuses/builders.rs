@@ -3,9 +3,7 @@ pub use super::super::super::operation::describe_organization_conformance_pack_s
 
 pub use super::super::super::operation::describe_organization_conformance_pack_statuses::_describe_organization_conformance_pack_statuses_output::DescribeOrganizationConformancePackStatusesOutputBuilder;
 
-impl
-    super::super::super::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesInputBuilder
-{
+impl super::super::super::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -62,7 +60,9 @@ impl DescribeOrganizationConformancePackStatusesFluentBuilder {
         }
     }
     /// Access the DescribeOrganizationConformancePackStatuses as a reference.
-    pub fn as_input(&self) -> &super::super::super::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &super::super::super::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,11 +86,12 @@ impl DescribeOrganizationConformancePackStatusesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatuses::operation_runtime_plugins(
-                            self.handle.runtime_plugins.clone(),
-                            &self.handle.conf,
-                            self.config_override,
-                        );
+        let runtime_plugins =
+            super::super::super::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatuses::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         super::super::super::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatuses::orchestrate(
             &runtime_plugins,
             input,
@@ -120,8 +121,13 @@ impl DescribeOrganizationConformancePackStatusesFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_organization_conformance_pack_statuses::paginator::DescribeOrganizationConformancePackStatusesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> super::super::super::operation::describe_organization_conformance_pack_statuses::paginator::DescribeOrganizationConformancePackStatusesPaginator{
-        super::super::super::operation::describe_organization_conformance_pack_statuses::paginator::DescribeOrganizationConformancePackStatusesPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> super::super::super::operation::describe_organization_conformance_pack_statuses::paginator::DescribeOrganizationConformancePackStatusesPaginator {
+        super::super::super::operation::describe_organization_conformance_pack_statuses::paginator::DescribeOrganizationConformancePackStatusesPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     ///
     /// Appends an item to `OrganizationConformancePackNames`.

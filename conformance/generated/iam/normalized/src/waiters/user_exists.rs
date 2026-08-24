@@ -32,8 +32,7 @@ impl UserExistsFluentBuilder {
     pub async fn wait(
         self,
         max_wait: ::std::time::Duration,
-    ) -> ::std::result::Result<super::super::waiters::user_exists::UserExistsFinalPoll, super::super::waiters::user_exists::WaitUntilUserExistsError>
-    {
+    ) -> ::std::result::Result<super::super::waiters::user_exists::UserExistsFinalPoll, super::super::waiters::user_exists::WaitUntilUserExistsError> {
         let input = self
             .inner
             .build()
@@ -52,10 +51,7 @@ impl UserExistsFluentBuilder {
         let sleep_impl = time_components.sleep_impl().expect("a sleep impl is required by waiters");
         let time_source = time_components.time_source().expect("a time source is required by waiters");
 
-        let acceptor = move |result: ::std::result::Result<
-            &super::super::operation::get_user::GetUserOutput,
-            &super::super::operation::get_user::GetUserError,
-        >| {
+        let acceptor = move |result: ::std::result::Result<&super::super::operation::get_user::GetUserOutput, &super::super::operation::get_user::GetUserError>| {
             // Matches: {"success":true}
             if super::super::waiters::matchers::match_get_user_c955e57777ec0d736(result) {
                 return ::aws_smithy_runtime::client::waiters::AcceptorState::Success;

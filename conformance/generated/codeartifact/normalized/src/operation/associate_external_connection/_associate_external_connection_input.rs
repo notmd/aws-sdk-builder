@@ -223,13 +223,11 @@ impl AssociateExternalConnectionInputBuilder {
         super::super::super::operation::associate_external_connection::AssociateExternalConnectionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::associate_external_connection::AssociateExternalConnectionInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-                repository: self.repository,
-                external_connection: self.external_connection,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::associate_external_connection::AssociateExternalConnectionInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+            repository: self.repository,
+            external_connection: self.external_connection,
+        })
     }
 }

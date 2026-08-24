@@ -224,8 +224,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetBucket
         let body = response.body().bytes().expect("body loaded");
         #[allow(unused_mut)]
         let mut force_error = false;
-        ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
-        if matches!(crate::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {
+        ::tracing::debug!(extended_request_id = ?super::super::s3_request_id::RequestIdExt::extended_request_id(response));
+        if matches!(super::super::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {
             force_error = true;
         }
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
@@ -439,16 +439,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetBucke
         })
     }
 }
-impl super::super::s3_request_id::RequestIdExt
-    for super::super::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationError
-{
+impl super::super::s3_request_id::RequestIdExt for super::super::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId
-    for super::super::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationError
-{
+impl ::aws_types::request_id::RequestId for super::super::operation::get_bucket_metadata_table_configuration::GetBucketMetadataTableConfigurationError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

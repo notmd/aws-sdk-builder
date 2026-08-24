@@ -40,11 +40,7 @@ impl PackageGroupOriginConfigurationBuilder {
     /// To override the contents of this collection use [`set_restrictions`](Self::set_restrictions).
     ///
     /// <p>The origin configuration settings that determine how package versions can enter repositories.</p>
-    pub fn restrictions(
-        mut self,
-        k: super::super::types::PackageGroupOriginRestrictionType,
-        v: super::super::types::PackageGroupOriginRestriction,
-    ) -> Self {
+    pub fn restrictions(mut self, k: super::super::types::PackageGroupOriginRestrictionType, v: super::super::types::PackageGroupOriginRestriction) -> Self {
         let mut hash_map = self.restrictions.unwrap_or_default();
         hash_map.insert(k, v);
         self.restrictions = ::std::option::Option::Some(hash_map);

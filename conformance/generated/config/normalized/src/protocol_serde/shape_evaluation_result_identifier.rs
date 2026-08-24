@@ -23,11 +23,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "EvaluationResultQualifier" => {
                             builder = builder.set_evaluation_result_qualifier(
-                                super::super::protocol_serde::shape_evaluation_result_qualifier::de_evaluation_result_qualifier(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_evaluation_result_qualifier::de_evaluation_result_qualifier(tokens, _value, depth + 1)?,
                             );
                         }
                         "OrderingTimestamp" => {

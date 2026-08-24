@@ -13,8 +13,6 @@ impl super::Client {
     pub fn delete_repository_permissions_policy(
         &self,
     ) -> super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyFluentBuilder {
-        super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::delete_repository_permissions_policy::builders::DeleteRepositoryPermissionsPolicyFluentBuilder::new(self.handle.clone())
     }
 }

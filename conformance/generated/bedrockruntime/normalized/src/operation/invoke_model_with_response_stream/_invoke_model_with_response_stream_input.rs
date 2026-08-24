@@ -363,20 +363,18 @@ impl InvokeModelWithResponseStreamInputBuilder {
         super::super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput {
-                body: self.body,
-                content_type: self.content_type,
-                accept: self.accept,
-                model_id: self.model_id,
-                trace: self.trace,
-                guardrail_identifier: self.guardrail_identifier,
-                guardrail_version: self.guardrail_version,
-                performance_config_latency: self.performance_config_latency.unwrap_or_default(),
-                service_tier: self.service_tier,
-                request_metadata: self.request_metadata,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::invoke_model_with_response_stream::InvokeModelWithResponseStreamInput {
+            body: self.body,
+            content_type: self.content_type,
+            accept: self.accept,
+            model_id: self.model_id,
+            trace: self.trace,
+            guardrail_identifier: self.guardrail_identifier,
+            guardrail_version: self.guardrail_version,
+            performance_config_latency: self.performance_config_latency.unwrap_or_default(),
+            service_tier: self.service_tier,
+            request_metadata: self.request_metadata,
+        })
     }
 }
 impl ::std::fmt::Debug for InvokeModelWithResponseStreamInputBuilder {

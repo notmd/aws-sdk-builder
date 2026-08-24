@@ -87,10 +87,8 @@ impl ListResourceTenantsInputBuilder {
     /// Consumes the builder and constructs a [`ListResourceTenantsInput`](crate::operation::list_resource_tenants::ListResourceTenantsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_resource_tenants::ListResourceTenantsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_resource_tenants::ListResourceTenantsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_resource_tenants::ListResourceTenantsInput {
             resource_arn: self.resource_arn,
             page_size: self.page_size,

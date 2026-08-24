@@ -26,9 +26,8 @@ pub fn de_list_parts_http_response(
         output = super::super::protocol_serde::shape_list_parts::de_list_parts(_response_body, output)
             .map_err(super::super::operation::list_parts::ListPartsError::unhandled)?;
         output = output.set_abort_date(
-            super::super::protocol_serde::shape_list_parts_output::de_abort_date_header(_response_headers).map_err(|_| {
-                super::super::operation::list_parts::ListPartsError::unhandled("Failed to parse AbortDate from header `x-amz-abort-date")
-            })?,
+            super::super::protocol_serde::shape_list_parts_output::de_abort_date_header(_response_headers)
+                .map_err(|_| super::super::operation::list_parts::ListPartsError::unhandled("Failed to parse AbortDate from header `x-amz-abort-date"))?,
         );
         output = output.set_abort_rule_id(
             super::super::protocol_serde::shape_list_parts_output::de_abort_rule_id_header(_response_headers).map_err(|_| {

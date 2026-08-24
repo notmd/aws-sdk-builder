@@ -96,9 +96,7 @@ impl GuardrailAutomatedReasoningFinding {
     }
     /// Tries to convert the enum instance into [`TranslationAmbiguous`](crate::types::GuardrailAutomatedReasoningFinding::TranslationAmbiguous), extracting the inner [`GuardrailAutomatedReasoningTranslationAmbiguousFinding`](crate::types::GuardrailAutomatedReasoningTranslationAmbiguousFinding).
     /// Returns `Err(&Self)` if it can't be converted.
-    pub fn as_translation_ambiguous(
-        &self,
-    ) -> ::std::result::Result<&super::super::types::GuardrailAutomatedReasoningTranslationAmbiguousFinding, &Self> {
+    pub fn as_translation_ambiguous(&self) -> ::std::result::Result<&super::super::types::GuardrailAutomatedReasoningTranslationAmbiguousFinding, &Self> {
         if let GuardrailAutomatedReasoningFinding::TranslationAmbiguous(val) = &self {
             ::std::result::Result::Ok(val)
         } else {

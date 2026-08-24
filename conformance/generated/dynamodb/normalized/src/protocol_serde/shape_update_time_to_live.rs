@@ -4,10 +4,8 @@ pub fn de_update_time_to_live_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::update_time_to_live::UpdateTimeToLiveOutput,
-    super::super::operation::update_time_to_live::UpdateTimeToLiveError,
-> {
+) -> std::result::Result<super::super::operation::update_time_to_live::UpdateTimeToLiveOutput, super::super::operation::update_time_to_live::UpdateTimeToLiveError>
+{
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::update_time_to_live::UpdateTimeToLiveError::unhandled)?;
@@ -40,9 +38,8 @@ pub fn de_update_time_to_live_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::update_time_to_live::UpdateTimeToLiveError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::update_time_to_live::UpdateTimeToLiveError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -86,11 +83,8 @@ pub fn de_update_time_to_live_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::update_time_to_live::UpdateTimeToLiveError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::update_time_to_live::UpdateTimeToLiveError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -108,10 +102,8 @@ pub fn de_update_time_to_live_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::update_time_to_live::UpdateTimeToLiveOutput,
-    super::super::operation::update_time_to_live::UpdateTimeToLiveError,
-> {
+) -> std::result::Result<super::super::operation::update_time_to_live::UpdateTimeToLiveOutput, super::super::operation::update_time_to_live::UpdateTimeToLiveError>
+{
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::update_time_to_live::builders::UpdateTimeToLiveOutputBuilder::default();

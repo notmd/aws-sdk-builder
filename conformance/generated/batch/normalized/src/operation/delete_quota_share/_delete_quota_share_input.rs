@@ -44,10 +44,7 @@ impl DeleteQuotaShareInputBuilder {
     /// Consumes the builder and constructs a [`DeleteQuotaShareInput`](crate::operation::delete_quota_share::DeleteQuotaShareInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_quota_share::DeleteQuotaShareInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_quota_share::DeleteQuotaShareInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_quota_share::DeleteQuotaShareInput {
             quota_share_arn: self.quota_share_arn,
         })

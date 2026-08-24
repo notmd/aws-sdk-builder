@@ -6,9 +6,7 @@ pub fn ser_restore_request_http_payload(
         Some(t) => t,
         None => return Ok(super::super::protocol_serde::rest_xml_unset_struct_payload()),
     };
-    Ok(super::super::protocol_serde::shape_restore_object_input::ser_restore_request_payload(
-        payload,
-    )?)
+    Ok(super::super::protocol_serde::shape_restore_object_input::ser_restore_request_payload(payload)?)
 }
 
 pub fn ser_restore_request_payload(

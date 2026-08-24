@@ -1788,10 +1788,8 @@ impl CreateMultipartUploadInputBuilder {
     /// Consumes the builder and constructs a [`CreateMultipartUploadInput`](crate::operation::create_multipart_upload::CreateMultipartUploadInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::create_multipart_upload::CreateMultipartUploadInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::create_multipart_upload::CreateMultipartUploadInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::create_multipart_upload::CreateMultipartUploadInput {
             acl: self.acl,
             bucket: self.bucket,

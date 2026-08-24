@@ -59,15 +59,18 @@ where
                         "ScalingMode" => {
                             builder = builder.set_scaling_mode(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| super::super::types::CapacityProviderScalingMode::from(u.as_ref()))
-                                    })
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::CapacityProviderScalingMode::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }
                         "ScalingPolicies" => {
-                            builder = builder.set_scaling_policies(super::super::protocol_serde::shape_capacity_provider_scaling_policies_list::de_capacity_provider_scaling_policies_list(tokens, _value, depth + 1)?);
+                            builder = builder.set_scaling_policies(
+                                super::super::protocol_serde::shape_capacity_provider_scaling_policies_list::de_capacity_provider_scaling_policies_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

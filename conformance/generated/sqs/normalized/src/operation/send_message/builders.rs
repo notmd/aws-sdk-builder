@@ -181,11 +181,7 @@ impl SendMessageFluentBuilder {
     /// To override the contents of this collection use [`set_message_attributes`](Self::set_message_attributes).
     ///
     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub fn message_attributes(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: super::super::super::types::MessageAttributeValue,
-    ) -> Self {
+    pub fn message_attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::MessageAttributeValue) -> Self {
         self.inner = self.inner.message_attributes(k.into(), v);
         self
     }
@@ -235,10 +231,7 @@ impl SendMessageFluentBuilder {
     pub fn set_message_system_attributes(
         mut self,
         input: ::std::option::Option<
-            ::std::collections::HashMap<
-                super::super::super::types::MessageSystemAttributeNameForSends,
-                super::super::super::types::MessageSystemAttributeValue,
-            >,
+            ::std::collections::HashMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>,
         >,
     ) -> Self {
         self.inner = self.inner.set_message_system_attributes(input);
@@ -255,10 +248,7 @@ impl SendMessageFluentBuilder {
     pub fn get_message_system_attributes(
         &self,
     ) -> &::std::option::Option<
-        ::std::collections::HashMap<
-            super::super::super::types::MessageSystemAttributeNameForSends,
-            super::super::super::types::MessageSystemAttributeValue,
-        >,
+        ::std::collections::HashMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>,
     > {
         self.inner.get_message_system_attributes()
     }

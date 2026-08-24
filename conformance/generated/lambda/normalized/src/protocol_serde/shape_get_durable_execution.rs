@@ -15,43 +15,36 @@ pub fn de_get_durable_execution_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::get_durable_execution::GetDurableExecutionError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::get_durable_execution::GetDurableExecutionError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidParameterValueException" => {
-            super::super::operation::get_durable_execution::GetDurableExecutionError::InvalidParameterValueException({
+        "InvalidParameterValueException" => super::super::operation::get_durable_execution::GetDurableExecutionError::InvalidParameterValueException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::get_durable_execution::GetDurableExecutionError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::get_durable_execution::GetDurableExecutionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "KMSAccessDeniedException" => super::super::operation::get_durable_execution::GetDurableExecutionError::KmsAccessDeniedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsAccessDeniedExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_access_denied_exception::de_kms_access_denied_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_durable_execution::GetDurableExecutionError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_access_denied_exception::de_kms_access_denied_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_durable_execution::GetDurableExecutionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -80,9 +73,8 @@ pub fn de_get_durable_execution_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_durable_execution::GetDurableExecutionError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_durable_execution::GetDurableExecutionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -111,11 +103,8 @@ pub fn de_get_durable_execution_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::get_durable_execution::GetDurableExecutionError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_durable_execution::GetDurableExecutionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -144,9 +133,8 @@ pub fn de_get_durable_execution_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_durable_execution::GetDurableExecutionError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_durable_execution::GetDurableExecutionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -242,11 +230,7 @@ pub(crate) fn de_get_durable_execution(
                     );
                 }
                 "Error" => {
-                    builder = builder.set_error(super::super::protocol_serde::shape_error_object::de_error_object(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_error(super::super::protocol_serde::shape_error_object::de_error_object(tokens, _value, depth + 1)?);
                 }
                 "StartTimestamp" => {
                     builder = builder.set_start_timestamp(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
@@ -275,21 +259,13 @@ pub(crate) fn de_get_durable_execution(
                     );
                 }
                 "TraceHeader" => {
-                    builder = builder.set_trace_header(super::super::protocol_serde::shape_trace_header::de_trace_header(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_trace_header(super::super::protocol_serde::shape_trace_header::de_trace_header(tokens, _value, depth + 1)?);
                 }
                 "ExecutionDataIncluded" => {
                     builder = builder.set_execution_data_included(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 }
                 "DurableConfig" => {
-                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_durable_config(super::super::protocol_serde::shape_durable_config::de_durable_config(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

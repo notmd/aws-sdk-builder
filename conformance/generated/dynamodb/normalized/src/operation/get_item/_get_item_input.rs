@@ -176,10 +176,7 @@ impl GetItemInputBuilder {
     }
     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to retrieve.</p>
     /// <p>For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
-    pub fn set_key(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
-    ) -> Self {
+    pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>) -> Self {
         self.key = input;
         self
     }
@@ -391,9 +388,7 @@ impl GetItemInputBuilder {
         &self.expression_attribute_names
     }
     /// Consumes the builder and constructs a [`GetItemInput`](crate::operation::get_item::GetItemInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::get_item::GetItemInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_item::GetItemInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_item::GetItemInput {
             table_name: self.table_name,
             key: self.key,

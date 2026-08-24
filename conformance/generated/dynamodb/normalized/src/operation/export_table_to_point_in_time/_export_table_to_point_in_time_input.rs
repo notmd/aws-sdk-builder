@@ -294,10 +294,7 @@ impl ExportTableToPointInTimeInputBuilder {
         self
     }
     /// <p>Optional object containing the parameters specific to an incremental export.</p>
-    pub fn set_incremental_export_specification(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::IncrementalExportSpecification>,
-    ) -> Self {
+    pub fn set_incremental_export_specification(mut self, input: ::std::option::Option<super::super::super::types::IncrementalExportSpecification>) -> Self {
         self.incremental_export_specification = input;
         self
     }
@@ -312,20 +309,18 @@ impl ExportTableToPointInTimeInputBuilder {
         super::super::super::operation::export_table_to_point_in_time::ExportTableToPointInTimeInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::export_table_to_point_in_time::ExportTableToPointInTimeInput {
-                table_arn: self.table_arn,
-                export_time: self.export_time,
-                client_token: self.client_token,
-                s3_bucket: self.s3_bucket,
-                s3_bucket_owner: self.s3_bucket_owner,
-                s3_prefix: self.s3_prefix,
-                s3_sse_algorithm: self.s3_sse_algorithm,
-                s3_sse_kms_key_id: self.s3_sse_kms_key_id,
-                export_format: self.export_format,
-                export_type: self.export_type,
-                incremental_export_specification: self.incremental_export_specification,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::export_table_to_point_in_time::ExportTableToPointInTimeInput {
+            table_arn: self.table_arn,
+            export_time: self.export_time,
+            client_token: self.client_token,
+            s3_bucket: self.s3_bucket,
+            s3_bucket_owner: self.s3_bucket_owner,
+            s3_prefix: self.s3_prefix,
+            s3_sse_algorithm: self.s3_sse_algorithm,
+            s3_sse_kms_key_id: self.s3_sse_kms_key_id,
+            export_format: self.export_format,
+            export_type: self.export_type,
+            incremental_export_specification: self.incremental_export_specification,
+        })
     }
 }

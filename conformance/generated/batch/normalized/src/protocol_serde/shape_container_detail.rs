@@ -43,11 +43,7 @@ where
                             );
                         }
                         "command" => {
-                            builder = builder.set_command(super::super::protocol_serde::shape_string_list::de_string_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_command(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
                         }
                         "jobRoleArn" => {
                             builder = builder.set_job_role_arn(
@@ -74,11 +70,8 @@ where
                             )?);
                         }
                         "mountPoints" => {
-                            builder = builder.set_mount_points(super::super::protocol_serde::shape_mount_points::de_mount_points(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_mount_points(super::super::protocol_serde::shape_mount_points::de_mount_points(tokens, _value, depth + 1)?);
                         }
                         "readonlyRootFilesystem" => {
                             builder =
@@ -140,9 +133,11 @@ where
                             );
                         }
                         "networkInterfaces" => {
-                            builder = builder.set_network_interfaces(
-                                super::super::protocol_serde::shape_network_interface_list::de_network_interface_list(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_network_interfaces(super::super::protocol_serde::shape_network_interface_list::de_network_interface_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "resourceRequirements" => {
                             builder = builder.set_resource_requirements(
@@ -164,11 +159,7 @@ where
                             )?);
                         }
                         "secrets" => {
-                            builder = builder.set_secrets(super::super::protocol_serde::shape_secret_list::de_secret_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_secrets(super::super::protocol_serde::shape_secret_list::de_secret_list(tokens, _value, depth + 1)?);
                         }
                         "networkConfiguration" => {
                             builder = builder.set_network_configuration(

@@ -111,10 +111,8 @@ impl ListInstanceProfilesOutputBuilder {
     /// - [`instance_profiles`](crate::operation::list_instance_profiles::builders::ListInstanceProfilesOutputBuilder::instance_profiles)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_instance_profiles::ListInstanceProfilesOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_instance_profiles::ListInstanceProfilesOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_instance_profiles::ListInstanceProfilesOutput {
             instance_profiles: self.instance_profiles.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

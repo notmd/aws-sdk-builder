@@ -189,9 +189,7 @@ impl InventoryTableConfigurationResultBuilder {
     /// Consumes the builder and constructs a [`InventoryTableConfigurationResult`](crate::types::InventoryTableConfigurationResult).
     /// This method will fail if any of the following fields are not set:
     /// - [`configuration_state`](crate::types::builders::InventoryTableConfigurationResultBuilder::configuration_state)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::InventoryTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::InventoryTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::InventoryTableConfigurationResult {
             configuration_state: self.configuration_state.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

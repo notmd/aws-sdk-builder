@@ -440,9 +440,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListCust
         })
     }
 }
-impl ::aws_types::request_id::RequestId
-    for super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError
-{
+impl ::aws_types::request_id::RequestId for super::super::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

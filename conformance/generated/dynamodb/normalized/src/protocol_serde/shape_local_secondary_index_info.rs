@@ -29,12 +29,10 @@ where
                             );
                         }
                         "KeySchema" => {
-                            builder =
-                                builder.set_key_schema(super::super::protocol_serde::shape_key_schema::de_key_schema(tokens, _value, depth + 1)?);
+                            builder = builder.set_key_schema(super::super::protocol_serde::shape_key_schema::de_key_schema(tokens, _value, depth + 1)?);
                         }
                         "Projection" => {
-                            builder =
-                                builder.set_projection(super::super::protocol_serde::shape_projection::de_projection(tokens, _value, depth + 1)?);
+                            builder = builder.set_projection(super::super::protocol_serde::shape_projection::de_projection(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

@@ -15,37 +15,30 @@ pub fn de_get_compliance_summary_by_resource_type_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeError::unhandled(generic))
-        }
+        None => return Err(super::super::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
         "InvalidParameterValueException" => {
-            super::super::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeError::InvalidParameterValueException(
-                {
+            super::super::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeError::InvalidParameterValueException({
+                #[allow(unused_mut)]
+                let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut tmp = {
-                        #[allow(unused_mut)]
-                        let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                        output =
-                            super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
-                                _response_body,
-                                output,
-                            )
-                            .map_err(
-                                super::super::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeError::unhandled,
-                            )?;
-                        let output = output.meta(generic);
-                        output.build()
-                    };
-                    if tmp.message.is_none() {
-                        tmp.message = _error_message;
-                    }
-                    tmp
-                },
-            )
+                    let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
         }
         _ => super::super::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeError::generic(generic),
     })
@@ -64,11 +57,9 @@ pub fn de_get_compliance_summary_by_resource_type_http_response(
         #[allow(unused_mut)]
         let mut output =
             super::super::operation::get_compliance_summary_by_resource_type::builders::GetComplianceSummaryByResourceTypeOutputBuilder::default();
-        output = super::super::protocol_serde::shape_get_compliance_summary_by_resource_type::de_get_compliance_summary_by_resource_type(
-            _response_body,
-            output,
-        )
-        .map_err(super::super::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeError::unhandled)?;
+        output =
+            super::super::protocol_serde::shape_get_compliance_summary_by_resource_type::de_get_compliance_summary_by_resource_type(_response_body, output)
+                .map_err(super::super::operation::get_compliance_summary_by_resource_type::GetComplianceSummaryByResourceTypeError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

@@ -39,8 +39,7 @@ impl PutEmailIdentityDkimSigningAttributesInput {
 }
 impl PutEmailIdentityDkimSigningAttributesInput {
     /// Creates a new builder-style object to manufacture [`PutEmailIdentityDkimSigningAttributesInput`](crate::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesInput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesInputBuilder {
+    pub fn builder() -> super::super::super::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesInputBuilder {
         super::super::super::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesInputBuilder::default()
     }
 }

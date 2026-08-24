@@ -44,10 +44,7 @@ impl GetScheduledQueryInputBuilder {
     /// Consumes the builder and constructs a [`GetScheduledQueryInput`](crate::operation::get_scheduled_query::GetScheduledQueryInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_scheduled_query::GetScheduledQueryInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_scheduled_query::GetScheduledQueryInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_scheduled_query::GetScheduledQueryInput { identifier: self.identifier })
     }
 }

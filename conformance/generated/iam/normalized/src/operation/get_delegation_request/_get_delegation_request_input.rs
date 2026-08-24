@@ -75,10 +75,8 @@ impl GetDelegationRequestInputBuilder {
     /// Consumes the builder and constructs a [`GetDelegationRequestInput`](crate::operation::get_delegation_request::GetDelegationRequestInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_delegation_request::GetDelegationRequestInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_delegation_request::GetDelegationRequestInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_delegation_request::GetDelegationRequestInput {
             delegation_request_id: self.delegation_request_id,
             delegation_permission_check: self.delegation_permission_check.unwrap_or_default(),

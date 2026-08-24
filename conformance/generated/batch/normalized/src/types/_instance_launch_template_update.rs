@@ -180,10 +180,7 @@ impl InstanceLaunchTemplateUpdateBuilder {
         self
     }
     /// <p>The updated local storage configuration.</p>
-    pub fn set_local_storage_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::types::ManagedInstancesLocalStorageConfiguration>,
-    ) -> Self {
+    pub fn set_local_storage_configuration(mut self, input: ::std::option::Option<super::super::types::ManagedInstancesLocalStorageConfiguration>) -> Self {
         self.local_storage_configuration = input;
         self
     }

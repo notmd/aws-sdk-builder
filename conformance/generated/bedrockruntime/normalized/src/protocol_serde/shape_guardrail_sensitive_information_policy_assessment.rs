@@ -3,10 +3,7 @@ pub(crate) fn de_guardrail_sensitive_information_policy_assessment<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<super::super::types::GuardrailSensitiveInformationPolicyAssessment>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<super::super::types::GuardrailSensitiveInformationPolicyAssessment>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -34,13 +31,11 @@ where
                             );
                         }
                         "regexes" => {
-                            builder = builder.set_regexes(
-                                super::super::protocol_serde::shape_guardrail_regex_filter_list::de_guardrail_regex_filter_list(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
-                            );
+                            builder = builder.set_regexes(super::super::protocol_serde::shape_guardrail_regex_filter_list::de_guardrail_regex_filter_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

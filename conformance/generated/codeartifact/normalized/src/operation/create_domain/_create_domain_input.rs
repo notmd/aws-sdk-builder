@@ -104,8 +104,7 @@ impl CreateDomainInputBuilder {
     /// Consumes the builder and constructs a [`CreateDomainInput`](crate::operation::create_domain::CreateDomainInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::create_domain::CreateDomainInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::create_domain::CreateDomainInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::create_domain::CreateDomainInput {
             domain: self.domain,
             encryption_key: self.encryption_key,

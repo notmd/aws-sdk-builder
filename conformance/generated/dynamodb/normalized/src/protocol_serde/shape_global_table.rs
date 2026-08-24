@@ -29,11 +29,8 @@ where
                             );
                         }
                         "ReplicationGroup" => {
-                            builder = builder.set_replication_group(super::super::protocol_serde::shape_replica_list::de_replica_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_replication_group(super::super::protocol_serde::shape_replica_list::de_replica_list(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

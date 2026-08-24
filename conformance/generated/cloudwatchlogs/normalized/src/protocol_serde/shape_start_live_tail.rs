@@ -4,8 +4,7 @@ pub fn de_start_live_tail_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::start_live_tail::StartLiveTailOutput, super::super::operation::start_live_tail::StartLiveTailError>
-{
+) -> std::result::Result<super::super::operation::start_live_tail::StartLiveTailOutput, super::super::operation::start_live_tail::StartLiveTailError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::start_live_tail::StartLiveTailError::unhandled)?;
@@ -38,9 +37,8 @@ pub fn de_start_live_tail_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidOperationExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_operation_exception::de_invalid_operation_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::start_live_tail::StartLiveTailError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_operation_exception::de_invalid_operation_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::start_live_tail::StartLiveTailError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -54,9 +52,8 @@ pub fn de_start_live_tail_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::start_live_tail::StartLiveTailError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::start_live_tail::StartLiveTailError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -85,11 +82,8 @@ pub fn de_start_live_tail_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::start_live_tail::StartLiveTailError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::start_live_tail::StartLiveTailError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -107,8 +101,7 @@ pub fn de_start_live_tail_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::start_live_tail::StartLiveTailOutput, super::super::operation::start_live_tail::StartLiveTailError>
-{
+) -> std::result::Result<super::super::operation::start_live_tail::StartLiveTailOutput, super::super::operation::start_live_tail::StartLiveTailError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::start_live_tail::builders::StartLiveTailOutputBuilder::default();
@@ -147,11 +140,7 @@ pub(crate) fn de_start_live_tail(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "responseStream" => {
                     builder = builder.set_response_stream(
-                        super::super::protocol_serde::shape_start_live_tail_response_stream::de_start_live_tail_response_stream(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_start_live_tail_response_stream::de_start_live_tail_response_stream(tokens, _value, depth + 1)?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

@@ -57,9 +57,7 @@ impl ListProvisionedConcurrencyConfigsFluentBuilder {
         }
     }
     /// Access the ListProvisionedConcurrencyConfigs as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,14 +81,12 @@ impl ListProvisionedConcurrencyConfigsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigs::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        super::super::super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigs::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = super::super::super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigs::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        super::super::super::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigs::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -115,13 +111,8 @@ impl ListProvisionedConcurrencyConfigsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_provisioned_concurrency_configs::paginator::ListProvisionedConcurrencyConfigsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> super::super::super::operation::list_provisioned_concurrency_configs::paginator::ListProvisionedConcurrencyConfigsPaginator {
-        super::super::super::operation::list_provisioned_concurrency_configs::paginator::ListProvisionedConcurrencyConfigsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> super::super::super::operation::list_provisioned_concurrency_configs::paginator::ListProvisionedConcurrencyConfigsPaginator {
+        super::super::super::operation::list_provisioned_concurrency_configs::paginator::ListProvisionedConcurrencyConfigsPaginator::new(self.handle, self.inner)
     }
     /// <p>The name or ARN of the Lambda function.</p>
     /// <p class="title"><b>Name formats</b></p>

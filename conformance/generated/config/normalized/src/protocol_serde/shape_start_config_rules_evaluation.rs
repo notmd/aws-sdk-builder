@@ -40,62 +40,52 @@ pub fn de_start_config_rules_evaluation_http_error(
                 tmp
             })
         }
-        "LimitExceededException" => {
-            super::super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError::LimitExceededException({
+        "LimitExceededException" => super::super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError::LimitExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "NoSuchConfigRuleException" => {
-            super::super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError::NoSuchConfigRuleException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::NoSuchConfigRuleExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_no_such_config_rule_exception::de_no_such_config_rule_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ResourceInUseException" => {
-            super::super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError::ResourceInUseException({
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NoSuchConfigRuleException" => super::super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError::NoSuchConfigRuleException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ResourceInUseExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::NoSuchConfigRuleExceptionBuilder::default();
+                output =
+                    super::super::protocol_serde::shape_no_such_config_rule_exception::de_no_such_config_rule_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ResourceInUseException" => super::super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError::ResourceInUseException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ResourceInUseExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::start_config_rules_evaluation::StartConfigRulesEvaluationError::generic(generic),
     })
 }

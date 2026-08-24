@@ -73,10 +73,8 @@ impl InvokeGuardrailChecksInputBuilder {
     /// Consumes the builder and constructs a [`InvokeGuardrailChecksInput`](crate::operation::invoke_guardrail_checks::InvokeGuardrailChecksInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::invoke_guardrail_checks::InvokeGuardrailChecksInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::invoke_guardrail_checks::InvokeGuardrailChecksInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::invoke_guardrail_checks::InvokeGuardrailChecksInput {
             messages: self.messages,
             checks: self.checks,

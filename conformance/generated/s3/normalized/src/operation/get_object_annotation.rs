@@ -122,91 +122,60 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetObje
         _: &::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder,
     ) -> ::std::borrow::Cow<'_, ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder> {
         #[allow(unused_mut)]
-        let mut rcb =
-            ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetObjectAnnotation")
-                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                    GetObjectAnnotationTelemetryInputCaptureInterceptor,
-                ))
-                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                    ::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default(),
-                ))
-                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                    GetObjectAnnotationEndpointParamsInterceptor,
-                ))
-                .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
-                    super::super::http_response_checksum::ResponseChecksumInterceptor::new(
-                        [
-                            "crc64nvme",
-                            "crc32",
-                            "crc32c",
-                            "sha256",
-                            "sha1",
-                            "sha512",
-                            "md5",
-                            "xxhash64",
-                            "xxhash3",
-                            "xxhash128",
-                        ]
-                        .as_slice(),
-                        |input: &::aws_smithy_runtime_api::client::interceptors::context::Input| {
-                            let input: &super::super::operation::get_object_annotation::GetObjectAnnotationInput =
-                                input.downcast_ref().expect("correct type");
-                            matches!(input.checksum_mode(), ::std::option::Option::Some(crate::types::ChecksumMode::Enabled))
-                        },
-                        |input: &mut ::aws_smithy_runtime_api::client::interceptors::context::Input,
-                         cfg: &::aws_smithy_types::config_bag::ConfigBag| {
-                            let input = input
-                                .downcast_mut::<super::super::operation::get_object_annotation::GetObjectAnnotationInput>()
-                                .ok_or("failed to downcast to crate::operation::get_object_annotation::GetObjectAnnotationInput")?;
+                    let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("GetObjectAnnotation")
+                            .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetObjectAnnotationTelemetryInputCaptureInterceptor))
+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(GetObjectAnnotationEndpointParamsInterceptor))
+.with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(super::super::http_response_checksum::ResponseChecksumInterceptor::new(
+                                ["crc64nvme", "crc32", "crc32c", "sha256", "sha1", "sha512", "md5", "xxhash64", "xxhash3", "xxhash128"].as_slice(),
+                                |input: &::aws_smithy_runtime_api::client::interceptors::context::Input| {
 
-                            let request_validation_enabled = matches!(input.checksum_mode(), Some(crate::types::ChecksumMode::Enabled));
+                                    let input: &super::super::operation::get_object_annotation::GetObjectAnnotationInput = input.downcast_ref().expect("correct type");
+                                    matches!(input.checksum_mode(), ::std::option::Option::Some(super::super::types::ChecksumMode::Enabled))
+                                },
+                                |input: &mut ::aws_smithy_runtime_api::client::interceptors::context::Input, cfg: &::aws_smithy_types::config_bag::ConfigBag|  {
+                                    let input = input
+                                        .downcast_mut::<super::super::operation::get_object_annotation::GetObjectAnnotationInput>()
+                                        .ok_or("failed to downcast to crate::operation::get_object_annotation::GetObjectAnnotationInput")?;
 
-                            if !request_validation_enabled {
-                                // This value is set by the user on the SdkConfig to indicate their preference
-                                let response_checksum_validation = cfg
-                                    .load::<::aws_smithy_types::checksum_config::ResponseChecksumValidation>()
-                                    .unwrap_or(&::aws_smithy_types::checksum_config::ResponseChecksumValidation::WhenSupported);
+                                    let request_validation_enabled =
+                                        matches!(input.checksum_mode(), Some(super::super::types::ChecksumMode::Enabled));
 
-                                let is_presigned_req = cfg.load::<super::super::presigning::PresigningMarker>().is_some();
+                                    if !request_validation_enabled {
+                                        // This value is set by the user on the SdkConfig to indicate their preference
+                                        let response_checksum_validation = cfg
+                                            .load::<::aws_smithy_types::checksum_config::ResponseChecksumValidation>()
+                                            .unwrap_or(&::aws_smithy_types::checksum_config::ResponseChecksumValidation::WhenSupported);
 
-                                // For presigned requests we do not enable the checksum-mode header.
-                                if is_presigned_req {
-                                    return ::std::result::Result::Ok(());
-                                }
+                                        let is_presigned_req = cfg.load::<super::super::presigning::PresigningMarker>().is_some();
 
-                                // If validation setting is WhenSupported (or unknown) we enable response checksum
-                                // validation. If it is WhenRequired we do not enable (since there is no way to
-                                // indicate that a response checksum is required).
-                                #[allow(clippy::wildcard_in_or_patterns)]
-                                match response_checksum_validation {
-                                    ::aws_smithy_types::checksum_config::ResponseChecksumValidation::WhenRequired => {}
-                                    ::aws_smithy_types::checksum_config::ResponseChecksumValidation::WhenSupported | _ => {
-                                        input.checksum_mode = Some(super::super::types::ChecksumMode::Enabled);
+                                        // For presigned requests we do not enable the checksum-mode header.
+                                        if is_presigned_req {
+                                            return ::std::result::Result::Ok(())
+                                        }
+
+                                        // If validation setting is WhenSupported (or unknown) we enable response checksum
+                                        // validation. If it is WhenRequired we do not enable (since there is no way to
+                                        // indicate that a response checksum is required).
+                                        #[allow(clippy::wildcard_in_or_patterns)]
+                                        match response_checksum_validation {
+                                            ::aws_smithy_types::checksum_config::ResponseChecksumValidation::WhenRequired => {}
+                                            ::aws_smithy_types::checksum_config::ResponseChecksumValidation::WhenSupported | _ => {
+                                                input.checksum_mode = Some(super::super::types::ChecksumMode::Enabled);
+                                            }
+                                        }
                                     }
-                                }
-                            }
 
-                            ::std::result::Result::Ok(())
-                        },
-                    ),
-                ))
-                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                    super::super::operation::get_object_annotation::GetObjectAnnotationError,
-                >::new())
-                .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                    super::super::operation::get_object_annotation::GetObjectAnnotationError,
-                >::new())
-                .with_retry_classifier(
-                    ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                        super::super::operation::get_object_annotation::GetObjectAnnotationError,
-                    >::builder()
-                    .transient_errors({
-                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-                        transient_errors.push("InternalError");
-                        ::std::borrow::Cow::Owned(transient_errors)
-                    })
-                    .build(),
-                );
+                                    ::std::result::Result::Ok(())
+                                }
+                            )))
+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<super::super::operation::get_object_annotation::GetObjectAnnotationError>::new())
+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<super::super::operation::get_object_annotation::GetObjectAnnotationError>::new())
+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::super::operation::get_object_annotation::GetObjectAnnotationError>::builder().transient_errors({
+                                            let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
+                                            transient_errors.push("InternalError");
+                                            ::std::borrow::Cow::Owned(transient_errors)
+                                            }).build());
 
         ::std::borrow::Cow::Owned(rcb)
     }
@@ -284,7 +253,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetObject
     ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
         #[allow(unused_mut)]
         let mut force_error = false;
-        ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
+        ::tracing::debug!(extended_request_id = ?super::super::s3_request_id::RequestIdExt::extended_request_id(response));
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
 
         // If this is an error, defer to the non-streaming parser
@@ -303,13 +272,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetObject
     ) -> ::aws_smithy_runtime_api::client::interceptors::context::OutputOrError {
         // For streaming operations, we only hit this case if its an error
         let body = response.body().bytes().expect("body loaded");
-        super::super::protocol_serde::type_erase_result(
-            super::super::protocol_serde::shape_get_object_annotation::de_get_object_annotation_http_error(
-                response.status().as_u16(),
-                response.headers(),
-                body,
-            ),
-        )
+        super::super::protocol_serde::type_erase_result(super::super::protocol_serde::shape_get_object_annotation::de_get_object_annotation_http_error(
+            response.status().as_u16(),
+            response.headers(),
+            body,
+        ))
     }
 }
 #[derive(Debug)]

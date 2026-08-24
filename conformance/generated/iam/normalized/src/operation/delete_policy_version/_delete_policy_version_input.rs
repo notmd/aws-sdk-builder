@@ -81,10 +81,8 @@ impl DeletePolicyVersionInputBuilder {
     /// Consumes the builder and constructs a [`DeletePolicyVersionInput`](crate::operation::delete_policy_version::DeletePolicyVersionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_policy_version::DeletePolicyVersionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_policy_version::DeletePolicyVersionInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::delete_policy_version::DeletePolicyVersionInput {
             policy_arn: self.policy_arn,
             version_id: self.version_id,

@@ -14,9 +14,7 @@ pub struct ListRecommendationsInput {
 }
 impl ListRecommendationsInput {
     /// <p>Filters applied when retrieving recommendations. Can eiter be an individual filter, or combinations of <code>STATUS</code> and <code>IMPACT</code> or <code>STATUS</code> and <code>TYPE</code></p>
-    pub fn filter(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::ListRecommendationsFilterKey, ::std::string::String>> {
+    pub fn filter(&self) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::ListRecommendationsFilterKey, ::std::string::String>> {
         self.filter.as_ref()
     }
     /// <p>A token returned from a previous call to <code>ListRecommendations</code> to indicate the position in the list of recommendations.</p>
@@ -40,8 +38,7 @@ impl ListRecommendationsInput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListRecommendationsInputBuilder {
-    pub(crate) filter:
-        ::std::option::Option<::std::collections::HashMap<super::super::super::types::ListRecommendationsFilterKey, ::std::string::String>>,
+    pub(crate) filter: ::std::option::Option<::std::collections::HashMap<super::super::super::types::ListRecommendationsFilterKey, ::std::string::String>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     pub(crate) page_size: ::std::option::Option<i32>,
 }
@@ -51,11 +48,7 @@ impl ListRecommendationsInputBuilder {
     /// To override the contents of this collection use [`set_filter`](Self::set_filter).
     ///
     /// <p>Filters applied when retrieving recommendations. Can eiter be an individual filter, or combinations of <code>STATUS</code> and <code>IMPACT</code> or <code>STATUS</code> and <code>TYPE</code></p>
-    pub fn filter(
-        mut self,
-        k: super::super::super::types::ListRecommendationsFilterKey,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn filter(mut self, k: super::super::super::types::ListRecommendationsFilterKey, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         let mut hash_map = self.filter.unwrap_or_default();
         hash_map.insert(k, v.into());
         self.filter = ::std::option::Option::Some(hash_map);
@@ -109,10 +102,8 @@ impl ListRecommendationsInputBuilder {
     /// Consumes the builder and constructs a [`ListRecommendationsInput`](crate::operation::list_recommendations::ListRecommendationsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_recommendations::ListRecommendationsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_recommendations::ListRecommendationsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_recommendations::ListRecommendationsInput {
             filter: self.filter,
             next_token: self.next_token,

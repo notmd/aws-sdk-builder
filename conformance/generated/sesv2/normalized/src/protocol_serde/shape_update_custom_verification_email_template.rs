@@ -16,9 +16,7 @@ pub fn de_update_custom_verification_email_template_http_error(
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(
-                super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::unhandled(generic),
-            )
+            return Err(super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::unhandled(generic))
         }
     };
 
@@ -30,10 +28,9 @@ pub fn de_update_custom_verification_email_template_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-                        .map_err(
-                            super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::unhandled,
-                        )?;
+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(
+                        super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::unhandled,
+                    )?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -49,10 +46,9 @@ pub fn de_update_custom_verification_email_template_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                        .map_err(
-                            super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::unhandled,
-                        )?;
+                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output).map_err(
+                        super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::unhandled,
+                    )?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -63,28 +59,24 @@ pub fn de_update_custom_verification_email_template_http_error(
             })
         }
         "TooManyRequestsException" => {
-            super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::TooManyRequestsException(
-                {
+            super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::TooManyRequestsException({
+                #[allow(unused_mut)]
+                let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut tmp = {
-                        #[allow(unused_mut)]
-                        let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                        output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                            _response_body,
-                            output,
-                        )
-                        .map_err(
-                            super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::unhandled,
-                        )?;
-                        let output = output.meta(generic);
-                        output.build()
-                    };
-                    if tmp.message.is_none() {
-                        tmp.message = _error_message;
-                    }
-                    tmp
-                },
-            )
+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(
+                                super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::unhandled,
+                            )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
         }
         _ => super::super::operation::update_custom_verification_email_template::UpdateCustomVerificationEmailTemplateError::generic(generic),
     })
@@ -102,8 +94,7 @@ pub fn de_update_custom_verification_email_template_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output =
-            super::super::operation::update_custom_verification_email_template::builders::UpdateCustomVerificationEmailTemplateOutputBuilder::default(
-            );
+            super::super::operation::update_custom_verification_email_template::builders::UpdateCustomVerificationEmailTemplateOutputBuilder::default();
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

@@ -14,8 +14,7 @@ impl DisassociateSourceFromS3TableIntegrationInput {
 }
 impl DisassociateSourceFromS3TableIntegrationInput {
     /// Creates a new builder-style object to manufacture [`DisassociateSourceFromS3TableIntegrationInput`](crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationInput).
-    pub fn builder(
-    ) -> super::super::super::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationInputBuilder
+    pub fn builder() -> super::super::super::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationInputBuilder
     {
         super::super::super::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationInputBuilder::default()
     }

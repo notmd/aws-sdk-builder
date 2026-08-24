@@ -80,14 +80,9 @@ pub(crate) fn match_get_function_configuration_ff08d54fec9077aeb(
 
 /// Matcher union: {"output":{"path":"Configuration.State","expected":"Active","comparator":"stringEquals"}}
 pub(crate) fn match_get_function_d9eb800ea4f674f85(
-    _result: ::std::result::Result<
-        &super::super::operation::get_function::GetFunctionOutput,
-        &super::super::operation::get_function::GetFunctionError,
-    >,
+    _result: ::std::result::Result<&super::super::operation::get_function::GetFunctionOutput, &super::super::operation::get_function::GetFunctionError>,
 ) -> bool {
-    fn path_traversal<'a>(
-        _output: &'a super::super::operation::get_function::GetFunctionOutput,
-    ) -> ::std::option::Option<&'a super::super::types::State> {
+    fn path_traversal<'a>(_output: &'a super::super::operation::get_function::GetFunctionOutput) -> ::std::option::Option<&'a super::super::types::State> {
         let _fld_1 = _output.configuration.as_ref()?;
         let _fld_2 = _fld_1.state.as_ref()?;
         ::std::option::Option::Some(_fld_2)
@@ -107,14 +102,9 @@ pub(crate) fn match_get_function_d9eb800ea4f674f85(
 
 /// Matcher union: {"output":{"path":"Configuration.State","expected":"Failed","comparator":"stringEquals"}}
 pub(crate) fn match_get_function_ee0f14a7f1ed34282(
-    _result: ::std::result::Result<
-        &super::super::operation::get_function::GetFunctionOutput,
-        &super::super::operation::get_function::GetFunctionError,
-    >,
+    _result: ::std::result::Result<&super::super::operation::get_function::GetFunctionOutput, &super::super::operation::get_function::GetFunctionError>,
 ) -> bool {
-    fn path_traversal<'a>(
-        _output: &'a super::super::operation::get_function::GetFunctionOutput,
-    ) -> ::std::option::Option<&'a super::super::types::State> {
+    fn path_traversal<'a>(_output: &'a super::super::operation::get_function::GetFunctionOutput) -> ::std::option::Option<&'a super::super::types::State> {
         let _fld_1 = _output.configuration.as_ref()?;
         let _fld_2 = _fld_1.state.as_ref()?;
         ::std::option::Option::Some(_fld_2)
@@ -134,14 +124,9 @@ pub(crate) fn match_get_function_ee0f14a7f1ed34282(
 
 /// Matcher union: {"output":{"path":"Configuration.State","expected":"Pending","comparator":"stringEquals"}}
 pub(crate) fn match_get_function_1248046627b71c232(
-    _result: ::std::result::Result<
-        &super::super::operation::get_function::GetFunctionOutput,
-        &super::super::operation::get_function::GetFunctionError,
-    >,
+    _result: ::std::result::Result<&super::super::operation::get_function::GetFunctionOutput, &super::super::operation::get_function::GetFunctionError>,
 ) -> bool {
-    fn path_traversal<'a>(
-        _output: &'a super::super::operation::get_function::GetFunctionOutput,
-    ) -> ::std::option::Option<&'a super::super::types::State> {
+    fn path_traversal<'a>(_output: &'a super::super::operation::get_function::GetFunctionOutput) -> ::std::option::Option<&'a super::super::types::State> {
         let _fld_1 = _output.configuration.as_ref()?;
         let _fld_2 = _fld_1.state.as_ref()?;
         ::std::option::Option::Some(_fld_2)
@@ -161,20 +146,14 @@ pub(crate) fn match_get_function_1248046627b71c232(
 
 /// Matcher union: {"success":true}
 pub(crate) fn match_get_function_c955e57777ec0d736(
-    _result: ::std::result::Result<
-        &super::super::operation::get_function::GetFunctionOutput,
-        &super::super::operation::get_function::GetFunctionError,
-    >,
+    _result: ::std::result::Result<&super::super::operation::get_function::GetFunctionOutput, &super::super::operation::get_function::GetFunctionError>,
 ) -> bool {
     _result.is_ok()
 }
 
 /// Matcher union: {"errorType":"ResourceNotFoundException"}
 pub(crate) fn match_get_function_1cce2c05524fb92d4(
-    _result: ::std::result::Result<
-        &super::super::operation::get_function::GetFunctionOutput,
-        &super::super::operation::get_function::GetFunctionError,
-    >,
+    _result: ::std::result::Result<&super::super::operation::get_function::GetFunctionOutput, &super::super::operation::get_function::GetFunctionError>,
 ) -> bool {
     if let ::std::result::Result::Err(err) = _result {
         if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err) {
@@ -264,10 +243,7 @@ pub(crate) fn match_get_function_configuration_ee72e8a7f6fced7db(
 
 /// Matcher union: {"output":{"path":"Configuration.LastUpdateStatus","expected":"Successful","comparator":"stringEquals"}}
 pub(crate) fn match_get_function_bb186291d75dc0a7c(
-    _result: ::std::result::Result<
-        &super::super::operation::get_function::GetFunctionOutput,
-        &super::super::operation::get_function::GetFunctionError,
-    >,
+    _result: ::std::result::Result<&super::super::operation::get_function::GetFunctionOutput, &super::super::operation::get_function::GetFunctionError>,
 ) -> bool {
     fn path_traversal<'a>(
         _output: &'a super::super::operation::get_function::GetFunctionOutput,
@@ -291,10 +267,7 @@ pub(crate) fn match_get_function_bb186291d75dc0a7c(
 
 /// Matcher union: {"output":{"path":"Configuration.LastUpdateStatus","expected":"Failed","comparator":"stringEquals"}}
 pub(crate) fn match_get_function_32170188e7ebc617b(
-    _result: ::std::result::Result<
-        &super::super::operation::get_function::GetFunctionOutput,
-        &super::super::operation::get_function::GetFunctionError,
-    >,
+    _result: ::std::result::Result<&super::super::operation::get_function::GetFunctionOutput, &super::super::operation::get_function::GetFunctionError>,
 ) -> bool {
     fn path_traversal<'a>(
         _output: &'a super::super::operation::get_function::GetFunctionOutput,
@@ -318,10 +291,7 @@ pub(crate) fn match_get_function_32170188e7ebc617b(
 
 /// Matcher union: {"output":{"path":"Configuration.LastUpdateStatus","expected":"InProgress","comparator":"stringEquals"}}
 pub(crate) fn match_get_function_189e2de3db97bdc77(
-    _result: ::std::result::Result<
-        &super::super::operation::get_function::GetFunctionOutput,
-        &super::super::operation::get_function::GetFunctionError,
-    >,
+    _result: ::std::result::Result<&super::super::operation::get_function::GetFunctionOutput, &super::super::operation::get_function::GetFunctionError>,
 ) -> bool {
     fn path_traversal<'a>(
         _output: &'a super::super::operation::get_function::GetFunctionOutput,

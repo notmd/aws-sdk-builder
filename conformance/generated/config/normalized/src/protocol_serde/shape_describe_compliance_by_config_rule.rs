@@ -26,11 +26,9 @@ pub fn de_describe_compliance_by_config_rule_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -66,11 +64,9 @@ pub fn de_describe_compliance_by_config_rule_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::NoSuchConfigRuleExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_no_such_config_rule_exception::de_no_such_config_rule_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_no_such_config_rule_exception::de_no_such_config_rule_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -95,11 +91,9 @@ pub fn de_describe_compliance_by_config_rule_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::describe_compliance_by_config_rule::builders::DescribeComplianceByConfigRuleOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_describe_compliance_by_config_rule::de_describe_compliance_by_config_rule(_response_body, output)
-                .map_err(super::super::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleError::unhandled)?;
+        let mut output = super::super::operation::describe_compliance_by_config_rule::builders::DescribeComplianceByConfigRuleOutputBuilder::default();
+        output = super::super::protocol_serde::shape_describe_compliance_by_config_rule::de_describe_compliance_by_config_rule(_response_body, output)
+            .map_err(super::super::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRuleError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -110,10 +104,7 @@ pub fn ser_describe_compliance_by_config_rule_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_describe_compliance_by_config_rule_input::ser_describe_compliance_by_config_rule_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_describe_compliance_by_config_rule_input::ser_describe_compliance_by_config_rule_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

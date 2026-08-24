@@ -20,8 +20,7 @@ impl AddClientIdToOpenIdConnectProviderInput {
 }
 impl AddClientIdToOpenIdConnectProviderInput {
     /// Creates a new builder-style object to manufacture [`AddClientIdToOpenIdConnectProviderInput`](crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderInput).
-    pub fn builder(
-    ) -> super::super::super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderInputBuilder {
+    pub fn builder() -> super::super::super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderInputBuilder {
         super::super::super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderInputBuilder::default()
     }
 }

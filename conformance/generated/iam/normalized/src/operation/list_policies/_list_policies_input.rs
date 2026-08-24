@@ -178,8 +178,7 @@ impl ListPoliciesInputBuilder {
     /// Consumes the builder and constructs a [`ListPoliciesInput`](crate::operation::list_policies::ListPoliciesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::list_policies::ListPoliciesInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::list_policies::ListPoliciesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_policies::ListPoliciesInput {
             scope: self.scope,
             only_attached: self.only_attached.unwrap_or_default(),

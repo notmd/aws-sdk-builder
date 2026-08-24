@@ -108,19 +108,13 @@ pub fn ser_update_event_source_mapping_input_input(
     if let Some(var_29) = &input.amazon_managed_kafka_event_source_config {
         #[allow(unused_mut)]
         let mut object_30 = object.key("AmazonManagedKafkaEventSourceConfig").start_object();
-        super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(
-            &mut object_30,
-            var_29,
-        )?;
+        super::super::protocol_serde::shape_amazon_managed_kafka_event_source_config::ser_amazon_managed_kafka_event_source_config(&mut object_30, var_29)?;
         object_30.finish();
     }
     if let Some(var_31) = &input.self_managed_kafka_event_source_config {
         #[allow(unused_mut)]
         let mut object_32 = object.key("SelfManagedKafkaEventSourceConfig").start_object();
-        super::super::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(
-            &mut object_32,
-            var_31,
-        )?;
+        super::super::protocol_serde::shape_self_managed_kafka_event_source_config::ser_self_managed_kafka_event_source_config(&mut object_32, var_31)?;
         object_32.finish();
     }
     if let Some(var_33) = &input.document_db_event_source_config {

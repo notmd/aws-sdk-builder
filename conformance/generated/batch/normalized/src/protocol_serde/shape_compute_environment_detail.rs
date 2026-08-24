@@ -99,11 +99,8 @@ where
                             );
                         }
                         "updatePolicy" => {
-                            builder = builder.set_update_policy(super::super::protocol_serde::shape_update_policy::de_update_policy(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_update_policy(super::super::protocol_serde::shape_update_policy::de_update_policy(tokens, _value, depth + 1)?);
                         }
                         "eksConfiguration" => {
                             builder = builder.set_eks_configuration(super::super::protocol_serde::shape_eks_configuration::de_eks_configuration(
@@ -134,11 +131,8 @@ where
                             );
                         }
                         "ecsSettings" => {
-                            builder = builder.set_ecs_settings(super::super::protocol_serde::shape_ecs_settings::de_ecs_settings(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_ecs_settings(super::super::protocol_serde::shape_ecs_settings::de_ecs_settings(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

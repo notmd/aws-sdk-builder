@@ -169,10 +169,7 @@ impl ListAsyncInvokesInputBuilder {
     /// Consumes the builder and constructs a [`ListAsyncInvokesInput`](crate::operation::list_async_invokes::ListAsyncInvokesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_async_invokes::ListAsyncInvokesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_async_invokes::ListAsyncInvokesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_async_invokes::ListAsyncInvokesInput {
             submit_time_after: self.submit_time_after,
             submit_time_before: self.submit_time_before,

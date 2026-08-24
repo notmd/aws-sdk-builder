@@ -26,8 +26,7 @@ impl GetBucketIntelligentTieringConfigurationInput {
 }
 impl GetBucketIntelligentTieringConfigurationInput {
     /// Creates a new builder-style object to manufacture [`GetBucketIntelligentTieringConfigurationInput`](crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationInput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationInputBuilder
+    pub fn builder() -> super::super::super::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationInputBuilder
     {
         super::super::super::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationInputBuilder::default()
     }

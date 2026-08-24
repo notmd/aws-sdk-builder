@@ -32,10 +32,7 @@ impl TableExistsFluentBuilder {
     pub async fn wait(
         self,
         max_wait: ::std::time::Duration,
-    ) -> ::std::result::Result<
-        super::super::waiters::table_exists::TableExistsFinalPoll,
-        super::super::waiters::table_exists::WaitUntilTableExistsError,
-    > {
+    ) -> ::std::result::Result<super::super::waiters::table_exists::TableExistsFinalPoll, super::super::waiters::table_exists::WaitUntilTableExistsError> {
         let input = self
             .inner
             .build()

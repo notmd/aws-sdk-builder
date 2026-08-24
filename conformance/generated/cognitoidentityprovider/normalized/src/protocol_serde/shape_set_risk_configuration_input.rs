@@ -21,10 +21,7 @@ pub fn ser_set_risk_configuration_input_input(
     if let Some(var_5) = &input.account_takeover_risk_configuration {
         #[allow(unused_mut)]
         let mut object_6 = object.key("AccountTakeoverRiskConfiguration").start_object();
-        super::super::protocol_serde::shape_account_takeover_risk_configuration_type::ser_account_takeover_risk_configuration_type(
-            &mut object_6,
-            var_5,
-        )?;
+        super::super::protocol_serde::shape_account_takeover_risk_configuration_type::ser_account_takeover_risk_configuration_type(&mut object_6, var_5)?;
         object_6.finish();
     }
     if let Some(var_7) = &input.risk_exception_configuration {

@@ -12,10 +12,8 @@ impl ::aws_types::request_id::RequestId for AddClientIdToOpenIdConnectProviderOu
 }
 impl AddClientIdToOpenIdConnectProviderOutput {
     /// Creates a new builder-style object to manufacture [`AddClientIdToOpenIdConnectProviderOutput`](crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderOutputBuilder {
-        super::super::super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderOutputBuilder::default(
-        )
+    pub fn builder() -> super::super::super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderOutputBuilder {
+        super::super::super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderOutputBuilder::default()
     }
 }
 

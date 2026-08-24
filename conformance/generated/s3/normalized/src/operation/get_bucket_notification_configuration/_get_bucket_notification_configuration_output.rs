@@ -51,8 +51,7 @@ impl ::aws_types::request_id::RequestId for GetBucketNotificationConfigurationOu
 }
 impl GetBucketNotificationConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`GetBucketNotificationConfigurationOutput`](crate::operation::get_bucket_notification_configuration::GetBucketNotificationConfigurationOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_bucket_notification_configuration::builders::GetBucketNotificationConfigurationOutputBuilder {
+    pub fn builder() -> super::super::super::operation::get_bucket_notification_configuration::builders::GetBucketNotificationConfigurationOutputBuilder {
         super::super::super::operation::get_bucket_notification_configuration::builders::GetBucketNotificationConfigurationOutputBuilder::default()
     }
 }
@@ -129,9 +128,7 @@ impl GetBucketNotificationConfigurationOutputBuilder {
         self
     }
     /// <p>Describes the Lambda functions to invoke and the events for which to invoke them.</p>
-    pub fn get_lambda_function_configurations(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::LambdaFunctionConfiguration>> {
+    pub fn get_lambda_function_configurations(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::LambdaFunctionConfiguration>> {
         &self.lambda_function_configurations
     }
     /// <p>Enables delivery of events to Amazon EventBridge.</p>

@@ -69,11 +69,9 @@ impl DeleteSyslogConfigurationInputBuilder {
         super::super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationInput {
-                log_group_identifier: self.log_group_identifier,
-                vpc_endpoint_id: self.vpc_endpoint_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_syslog_configuration::DeleteSyslogConfigurationInput {
+            log_group_identifier: self.log_group_identifier,
+            vpc_endpoint_id: self.vpc_endpoint_id,
+        })
     }
 }

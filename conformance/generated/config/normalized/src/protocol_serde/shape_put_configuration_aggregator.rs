@@ -76,12 +76,11 @@ pub fn de_put_configuration_aggregator_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::NoAvailableOrganizationExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_no_available_organization_exception::de_no_available_organization_exception_json_err(
-                            _response_body,
-                            output,
-                        )
-                        .map_err(super::super::operation::put_configuration_aggregator::PutConfigurationAggregatorError::unhandled)?;
+                    output = super::super::protocol_serde::shape_no_available_organization_exception::de_no_available_organization_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::put_configuration_aggregator::PutConfigurationAggregatorError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -97,12 +96,11 @@ pub fn de_put_configuration_aggregator_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::OrganizationAccessDeniedExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_organization_access_denied_exception::de_organization_access_denied_exception_json_err(
-                            _response_body,
-                            output,
-                        )
-                        .map_err(super::super::operation::put_configuration_aggregator::PutConfigurationAggregatorError::unhandled)?;
+                    output = super::super::protocol_serde::shape_organization_access_denied_exception::de_organization_access_denied_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::put_configuration_aggregator::PutConfigurationAggregatorError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };

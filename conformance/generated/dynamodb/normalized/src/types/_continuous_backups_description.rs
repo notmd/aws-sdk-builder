@@ -55,10 +55,7 @@ impl ContinuousBackupsDescriptionBuilder {
         self
     }
     /// <p>The description of the point in time recovery settings applied to the table.</p>
-    pub fn set_point_in_time_recovery_description(
-        mut self,
-        input: ::std::option::Option<super::super::types::PointInTimeRecoveryDescription>,
-    ) -> Self {
+    pub fn set_point_in_time_recovery_description(mut self, input: ::std::option::Option<super::super::types::PointInTimeRecoveryDescription>) -> Self {
         self.point_in_time_recovery_description = input;
         self
     }

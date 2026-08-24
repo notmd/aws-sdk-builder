@@ -20,43 +20,43 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "LastModified" => {
-                                builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
-                                    tokens.next(),
-                                    ::aws_smithy_types::date_time::Format::EpochSeconds,
-                                )?);
-                            }
-                            "FunctionArn" => {
-                                builder = builder.set_function_arn(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                        .transpose()?,
-                                );
-                            }
-                            "MaximumRetryAttempts" => {
-                                builder = builder.set_maximum_retry_attempts(
-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                                        .map(i32::try_from)
-                                        .transpose()?,
-                                );
-                            }
-                            "MaximumEventAgeInSeconds" => {
-                                builder = builder.set_maximum_event_age_in_seconds(
-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                                        .map(i32::try_from)
-                                        .transpose()?,
-                                );
-                            }
-                            "DestinationConfig" => {
-                                builder = builder.set_destination_config(
-                                    super::super::protocol_serde::shape_destination_config::de_destination_config(tokens, _value, depth + 1)?,
-                                );
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "LastModified" => {
+                            builder = builder.set_last_modified(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
+                                tokens.next(),
+                                ::aws_smithy_types::date_time::Format::EpochSeconds,
+                            )?);
                         }
-                    }
+                        "FunctionArn" => {
+                            builder = builder.set_function_arn(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "MaximumRetryAttempts" => {
+                            builder = builder.set_maximum_retry_attempts(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i32::try_from)
+                                    .transpose()?,
+                            );
+                        }
+                        "MaximumEventAgeInSeconds" => {
+                            builder = builder.set_maximum_event_age_in_seconds(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i32::try_from)
+                                    .transpose()?,
+                            );
+                        }
+                        "DestinationConfig" => {
+                            builder = builder.set_destination_config(super::super::protocol_serde::shape_destination_config::de_destination_config(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

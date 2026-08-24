@@ -10,8 +10,6 @@ impl super::Client {
     pub fn delete_provisioned_concurrency_config(
         &self,
     ) -> super::super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigFluentBuilder {
-        super::super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigFluentBuilder::new(self.handle.clone())
     }
 }

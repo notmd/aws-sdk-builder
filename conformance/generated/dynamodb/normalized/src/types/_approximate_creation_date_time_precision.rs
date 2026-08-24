@@ -55,9 +55,7 @@ impl ::std::convert::From<&str> for ApproximateCreationDateTimePrecision {
         match s {
             "MICROSECOND" => ApproximateCreationDateTimePrecision::Microsecond,
             "MILLISECOND" => ApproximateCreationDateTimePrecision::Millisecond,
-            other => {
-                ApproximateCreationDateTimePrecision::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => ApproximateCreationDateTimePrecision::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

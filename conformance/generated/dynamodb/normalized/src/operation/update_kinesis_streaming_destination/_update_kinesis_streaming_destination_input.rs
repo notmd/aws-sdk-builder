@@ -26,8 +26,7 @@ impl UpdateKinesisStreamingDestinationInput {
 }
 impl UpdateKinesisStreamingDestinationInput {
     /// Creates a new builder-style object to manufacture [`UpdateKinesisStreamingDestinationInput`](crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationInput).
-    pub fn builder() -> super::super::super::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationInputBuilder {
         super::super::super::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationInputBuilder::default()
     }
 }
@@ -85,9 +84,7 @@ impl UpdateKinesisStreamingDestinationInputBuilder {
         self
     }
     /// <p>The command to update the Kinesis stream configuration.</p>
-    pub fn get_update_kinesis_streaming_configuration(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::UpdateKinesisStreamingConfiguration> {
+    pub fn get_update_kinesis_streaming_configuration(&self) -> &::std::option::Option<super::super::super::types::UpdateKinesisStreamingConfiguration> {
         &self.update_kinesis_streaming_configuration
     }
     /// Consumes the builder and constructs a [`UpdateKinesisStreamingDestinationInput`](crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationInput).

@@ -214,7 +214,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for InvokeWit
     ) -> ::std::option::Option<::aws_smithy_runtime_api::client::interceptors::context::OutputOrError> {
         #[allow(unused_mut)]
         let mut force_error = false;
-        ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
+        ::tracing::debug!(extended_request_id = ?super::super::s3_request_id::RequestIdExt::extended_request_id(response));
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
 
         // If this is an error, defer to the non-streaming parser
@@ -304,8 +304,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for InvokeWithRe
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
-                let builder =
-                    super::super::protocol_serde::shape_invoke_with_response_stream::ser_invoke_with_response_stream_headers(input, builder)?;
+                let builder = super::super::protocol_serde::shape_invoke_with_response_stream::ser_invoke_with_response_stream_headers(input, builder)?;
                 ::std::result::Result::Ok(builder.method("POST").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;

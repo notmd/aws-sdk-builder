@@ -28,8 +28,7 @@ impl ::aws_types::request_id::RequestId for ListSourcesForS3TableIntegrationOutp
 }
 impl ListSourcesForS3TableIntegrationOutput {
     /// Creates a new builder-style object to manufacture [`ListSourcesForS3TableIntegrationOutput`](crate::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationOutput).
-    pub fn builder() -> super::super::super::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationOutputBuilder {
         super::super::super::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationOutputBuilder::default()
     }
 }

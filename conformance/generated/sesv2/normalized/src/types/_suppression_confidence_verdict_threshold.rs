@@ -73,9 +73,7 @@ impl ::std::convert::From<&str> for SuppressionConfidenceVerdictThreshold {
             "HIGH" => SuppressionConfidenceVerdictThreshold::High,
             "MANAGED" => SuppressionConfidenceVerdictThreshold::Managed,
             "MEDIUM" => SuppressionConfidenceVerdictThreshold::Medium,
-            other => {
-                SuppressionConfidenceVerdictThreshold::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => SuppressionConfidenceVerdictThreshold::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

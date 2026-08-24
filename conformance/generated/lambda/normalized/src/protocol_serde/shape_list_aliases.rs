@@ -40,11 +40,8 @@ pub fn de_list_aliases_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::list_aliases::ListAliasesError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_aliases::ListAliasesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -73,9 +70,8 @@ pub fn de_list_aliases_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::list_aliases::ListAliasesError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_aliases::ListAliasesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -117,10 +113,8 @@ pub fn ser_list_aliases_input(
 pub(crate) fn de_list_aliases(
     _value: &[u8],
     mut builder: super::super::operation::list_aliases::builders::ListAliasesOutputBuilder,
-) -> ::std::result::Result<
-    super::super::operation::list_aliases::builders::ListAliasesOutputBuilder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
+) -> ::std::result::Result<super::super::operation::list_aliases::builders::ListAliasesOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+{
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]

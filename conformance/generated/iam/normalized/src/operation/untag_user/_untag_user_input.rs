@@ -76,9 +76,7 @@ impl UntagUserInputBuilder {
         &self.tag_keys
     }
     /// Consumes the builder and constructs a [`UntagUserInput`](crate::operation::untag_user::UntagUserInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::untag_user::UntagUserInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::untag_user::UntagUserInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::untag_user::UntagUserInput {
             user_name: self.user_name,
             tag_keys: self.tag_keys,

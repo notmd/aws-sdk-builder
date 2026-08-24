@@ -93,12 +93,10 @@ impl GetDomainStatisticsReportInputBuilder {
         super::super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportInput {
-                domain: self.domain,
-                start_date: self.start_date,
-                end_date: self.end_date,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_domain_statistics_report::GetDomainStatisticsReportInput {
+            domain: self.domain,
+            start_date: self.start_date,
+            end_date: self.end_date,
+        })
     }
 }

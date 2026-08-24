@@ -59,9 +59,7 @@ impl ::std::convert::From<&str> for PreTokenGenerationLambdaVersionType {
             "V1_0" => PreTokenGenerationLambdaVersionType::V10,
             "V2_0" => PreTokenGenerationLambdaVersionType::V20,
             "V3_0" => PreTokenGenerationLambdaVersionType::V30,
-            other => {
-                PreTokenGenerationLambdaVersionType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => PreTokenGenerationLambdaVersionType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

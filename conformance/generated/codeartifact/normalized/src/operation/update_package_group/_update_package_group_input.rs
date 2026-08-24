@@ -129,10 +129,8 @@ impl UpdatePackageGroupInputBuilder {
     /// Consumes the builder and constructs a [`UpdatePackageGroupInput`](crate::operation::update_package_group::UpdatePackageGroupInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::update_package_group::UpdatePackageGroupInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::update_package_group::UpdatePackageGroupInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::update_package_group::UpdatePackageGroupInput {
             domain: self.domain,
             domain_owner: self.domain_owner,

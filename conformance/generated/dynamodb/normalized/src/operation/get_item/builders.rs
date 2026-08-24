@@ -30,20 +30,14 @@ pub struct GetItemFluentBuilder {
     inner: super::super::super::operation::get_item::builders::GetItemInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::get_item::GetItemOutput,
-        super::super::super::operation::get_item::GetItemError,
-    > for GetItemFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::get_item::GetItemOutput, super::super::super::operation::get_item::GetItemError>
+    for GetItemFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::get_item::GetItemOutput,
-            super::super::super::operation::get_item::GetItemError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::get_item::GetItemOutput, super::super::super::operation::get_item::GetItemError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -93,11 +87,8 @@ impl GetItemFluentBuilder {
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
     pub fn customize(
         self,
-    ) -> super::super::super::client::customize::CustomizableOperation<
-        super::super::super::operation::get_item::GetItemOutput,
-        super::super::super::operation::get_item::GetItemError,
-        Self,
-    > {
+    ) -> super::super::super::client::customize::CustomizableOperation<super::super::super::operation::get_item::GetItemOutput, super::super::super::operation::get_item::GetItemError, Self>
+    {
         super::super::super::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<super::super::super::config::Builder>) -> Self {
@@ -136,10 +127,7 @@ impl GetItemFluentBuilder {
     }
     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the primary key of the item to retrieve.</p>
     /// <p>For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.</p>
-    pub fn set_key(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
-    ) -> Self {
+    pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>) -> Self {
         self.inner = self.inner.set_key(input);
         self
     }

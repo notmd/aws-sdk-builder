@@ -94,17 +94,15 @@ impl GetDurableExecutionStateOutputBuilder {
         super::super::super::operation::get_durable_execution_state::GetDurableExecutionStateOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_durable_execution_state::GetDurableExecutionStateOutput {
-                operations: self.operations.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "operations",
-                        "operations was not specified but it is required when building GetDurableExecutionStateOutput",
-                    )
-                })?,
-                next_marker: self.next_marker,
-                _request_id: self._request_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_durable_execution_state::GetDurableExecutionStateOutput {
+            operations: self.operations.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "operations",
+                    "operations was not specified but it is required when building GetDurableExecutionStateOutput",
+                )
+            })?,
+            next_marker: self.next_marker,
+            _request_id: self._request_id,
+        })
     }
 }

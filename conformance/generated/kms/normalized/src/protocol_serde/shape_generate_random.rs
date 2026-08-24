@@ -4,8 +4,7 @@ pub fn de_generate_random_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::generate_random::GenerateRandomOutput, super::super::operation::generate_random::GenerateRandomError>
-{
+) -> std::result::Result<super::super::operation::generate_random::GenerateRandomOutput, super::super::operation::generate_random::GenerateRandomError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::generate_random::GenerateRandomError::unhandled)?;
@@ -18,22 +17,24 @@ pub fn de_generate_random_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "CustomKeyStoreInvalidStateException" => {
-            super::super::operation::generate_random::GenerateRandomError::CustomKeyStoreInvalidStateException({
+        "CustomKeyStoreInvalidStateException" => super::super::operation::generate_random::GenerateRandomError::CustomKeyStoreInvalidStateException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::CustomKeyStoreInvalidStateExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_custom_key_store_invalid_state_exception::de_custom_key_store_invalid_state_exception_json_err(_response_body, output).map_err(super::super::operation::generate_random::GenerateRandomError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::CustomKeyStoreInvalidStateExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_custom_key_store_invalid_state_exception::de_custom_key_store_invalid_state_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::generate_random::GenerateRandomError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "CustomKeyStoreNotFoundException" => super::super::operation::generate_random::GenerateRandomError::CustomKeyStoreNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -57,11 +58,8 @@ pub fn de_generate_random_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::generate_random::GenerateRandomError::unhandled)?;
+                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::generate_random::GenerateRandomError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -90,11 +88,9 @@ pub fn de_generate_random_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UnsupportedOperationExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::generate_random::GenerateRandomError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::generate_random::GenerateRandomError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -112,8 +108,7 @@ pub fn de_generate_random_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::generate_random::GenerateRandomOutput, super::super::operation::generate_random::GenerateRandomError>
-{
+) -> std::result::Result<super::super::operation::generate_random::GenerateRandomOutput, super::super::operation::generate_random::GenerateRandomError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::generate_random::builders::GenerateRandomOutputBuilder::default();

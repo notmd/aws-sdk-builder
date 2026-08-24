@@ -77,12 +77,10 @@ impl DescribeRiskConfigurationInputBuilder {
         super::super::super::operation::describe_risk_configuration::DescribeRiskConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::describe_risk_configuration::DescribeRiskConfigurationInput {
-                user_pool_id: self.user_pool_id,
-                client_id: self.client_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::describe_risk_configuration::DescribeRiskConfigurationInput {
+            user_pool_id: self.user_pool_id,
+            client_id: self.client_id,
+        })
     }
 }
 impl ::std::fmt::Debug for DescribeRiskConfigurationInputBuilder {

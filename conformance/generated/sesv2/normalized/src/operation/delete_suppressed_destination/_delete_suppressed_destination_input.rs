@@ -70,11 +70,9 @@ impl DeleteSuppressedDestinationInputBuilder {
         super::super::super::operation::delete_suppressed_destination::DeleteSuppressedDestinationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_suppressed_destination::DeleteSuppressedDestinationInput {
-                email_address: self.email_address,
-                tenant_name: self.tenant_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_suppressed_destination::DeleteSuppressedDestinationInput {
+            email_address: self.email_address,
+            tenant_name: self.tenant_name,
+        })
     }
 }

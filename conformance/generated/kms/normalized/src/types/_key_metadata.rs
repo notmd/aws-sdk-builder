@@ -559,10 +559,7 @@ impl KeyMetadataBuilder {
         self
     }
     /// <p>The key agreement algorithm used to derive a shared secret.</p>
-    pub fn set_key_agreement_algorithms(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::KeyAgreementAlgorithmSpec>>,
-    ) -> Self {
+    pub fn set_key_agreement_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::KeyAgreementAlgorithmSpec>>) -> Self {
         self.key_agreement_algorithms = input;
         self
     }

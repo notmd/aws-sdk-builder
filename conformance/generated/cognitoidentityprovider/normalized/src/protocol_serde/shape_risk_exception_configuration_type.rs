@@ -48,20 +48,12 @@ where
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "BlockedIPRangeList" => {
                             builder = builder.set_blocked_ip_range_list(
-                                super::super::protocol_serde::shape_blocked_ip_range_list_type::de_blocked_ip_range_list_type(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_blocked_ip_range_list_type::de_blocked_ip_range_list_type(tokens, _value, depth + 1)?,
                             );
                         }
                         "SkippedIPRangeList" => {
                             builder = builder.set_skipped_ip_range_list(
-                                super::super::protocol_serde::shape_skipped_ip_range_list_type::de_skipped_ip_range_list_type(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_skipped_ip_range_list_type::de_skipped_ip_range_list_type(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

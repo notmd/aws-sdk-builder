@@ -42,9 +42,7 @@ impl DeleteAliasInputBuilder {
         &self.alias_name
     }
     /// Consumes the builder and constructs a [`DeleteAliasInput`](crate::operation::delete_alias::DeleteAliasInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::delete_alias::DeleteAliasInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::delete_alias::DeleteAliasInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_alias::DeleteAliasInput { alias_name: self.alias_name })
     }
 }

@@ -44,8 +44,7 @@ impl GetStoredQueryInputBuilder {
     /// Consumes the builder and constructs a [`GetStoredQueryInput`](crate::operation::get_stored_query::GetStoredQueryInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::get_stored_query::GetStoredQueryInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::get_stored_query::GetStoredQueryInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_stored_query::GetStoredQueryInput { query_name: self.query_name })
     }
 }

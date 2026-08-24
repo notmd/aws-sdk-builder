@@ -26,7 +26,12 @@ pub fn de_delete_remediation_exceptions_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::NoSuchRemediationExceptionExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_no_such_remediation_exception_exception::de_no_such_remediation_exception_exception_json_err(_response_body, output).map_err(super::super::operation::delete_remediation_exceptions::DeleteRemediationExceptionsError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_no_such_remediation_exception_exception::de_no_such_remediation_exception_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::delete_remediation_exceptions::DeleteRemediationExceptionsError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -84,12 +89,14 @@ pub(crate) fn de_delete_remediation_exceptions(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "FailedBatches" => {
-                    builder = builder.set_failed_batches(super::super::protocol_serde::shape_failed_delete_remediation_exceptions_batches::de_failed_delete_remediation_exceptions_batches(tokens, _value, depth + 1)?);
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "FailedBatches" => {
+                        builder = builder.set_failed_batches(super::super::protocol_serde::shape_failed_delete_remediation_exceptions_batches::de_failed_delete_remediation_exceptions_batches(tokens, _value, depth + 1)?);
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

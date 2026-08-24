@@ -70,10 +70,8 @@ impl ListEmailTemplatesInputBuilder {
     /// Consumes the builder and constructs a [`ListEmailTemplatesInput`](crate::operation::list_email_templates::ListEmailTemplatesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_email_templates::ListEmailTemplatesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_email_templates::ListEmailTemplatesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_email_templates::ListEmailTemplatesInput {
             next_token: self.next_token,
             page_size: self.page_size,

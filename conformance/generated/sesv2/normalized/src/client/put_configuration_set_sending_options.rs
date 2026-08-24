@@ -10,8 +10,6 @@ impl super::Client {
     pub fn put_configuration_set_sending_options(
         &self,
     ) -> super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsFluentBuilder {
-        super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsFluentBuilder::new(self.handle.clone())
     }
 }

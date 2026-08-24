@@ -57,9 +57,7 @@ impl BatchGetItemOutput {
     /// <p><code>ConsistentRead</code> - The consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used.</p></li>
     /// </ul>
     /// <p>If there are no unprocessed keys remaining, the response contains an empty <code>UnprocessedKeys</code> map.</p>
-    pub fn unprocessed_keys(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::KeysAndAttributes>> {
+    pub fn unprocessed_keys(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::KeysAndAttributes>> {
         self.unprocessed_keys.as_ref()
     }
     /// <p>The read capacity units consumed by the entire <code>BatchGetItem</code> operation.</p>
@@ -98,8 +96,7 @@ pub struct BatchGetItemOutputBuilder {
             ::std::vec::Vec<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
         >,
     >,
-    pub(crate) unprocessed_keys:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::KeysAndAttributes>>,
+    pub(crate) unprocessed_keys: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::KeysAndAttributes>>,
     pub(crate) consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
     _request_id: Option<String>,
 }

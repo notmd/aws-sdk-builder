@@ -48,10 +48,8 @@ impl DeleteConfigurationAggregatorInputBuilder {
         super::super::super::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorInput {
-                configuration_aggregator_name: self.configuration_aggregator_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_configuration_aggregator::DeleteConfigurationAggregatorInput {
+            configuration_aggregator_name: self.configuration_aggregator_name,
+        })
     }
 }

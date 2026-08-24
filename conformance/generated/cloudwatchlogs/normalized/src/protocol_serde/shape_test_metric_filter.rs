@@ -4,10 +4,7 @@ pub fn de_test_metric_filter_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::test_metric_filter::TestMetricFilterOutput,
-    super::super::operation::test_metric_filter::TestMetricFilterError,
-> {
+) -> std::result::Result<super::super::operation::test_metric_filter::TestMetricFilterOutput, super::super::operation::test_metric_filter::TestMetricFilterError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::test_metric_filter::TestMetricFilterError::unhandled)?;
@@ -25,9 +22,8 @@ pub fn de_test_metric_filter_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::test_metric_filter::TestMetricFilterError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::test_metric_filter::TestMetricFilterError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -41,11 +37,9 @@ pub fn de_test_metric_filter_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::test_metric_filter::TestMetricFilterError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::test_metric_filter::TestMetricFilterError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -63,10 +57,7 @@ pub fn de_test_metric_filter_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::test_metric_filter::TestMetricFilterOutput,
-    super::super::operation::test_metric_filter::TestMetricFilterError,
-> {
+) -> std::result::Result<super::super::operation::test_metric_filter::TestMetricFilterOutput, super::super::operation::test_metric_filter::TestMetricFilterError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::test_metric_filter::builders::TestMetricFilterOutputBuilder::default();

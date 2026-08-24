@@ -3,10 +3,7 @@ pub(crate) fn de_service_job_recent_preempted_attempt_list<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<::std::vec::Vec<super::super::types::ServiceJobPreemptedAttempt>>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<::std::vec::Vec<super::super::types::ServiceJobPreemptedAttempt>>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -26,11 +23,8 @@ where
                         break;
                     }
                     _ => {
-                        let value = super::super::protocol_serde::shape_service_job_preempted_attempt::de_service_job_preempted_attempt(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?;
+                        let value =
+                            super::super::protocol_serde::shape_service_job_preempted_attempt::de_service_job_preempted_attempt(tokens, _value, depth + 1)?;
                         if let Some(value) = value {
                             items.push(value);
                         } else {

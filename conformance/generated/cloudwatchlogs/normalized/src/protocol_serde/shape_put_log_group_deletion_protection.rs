@@ -20,34 +20,30 @@ pub fn de_put_log_group_deletion_protection_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AccessDeniedException" => {
-            super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionError::AccessDeniedException({
+        "AccessDeniedException" => super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionError::AccessDeniedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidOperationException" => {
             super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionError::InvalidOperationException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidOperationExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_operation_exception::de_invalid_operation_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_operation_exception::de_invalid_operation_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -63,11 +59,9 @@ pub fn de_put_log_group_deletion_protection_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -83,11 +77,9 @@ pub fn de_put_log_group_deletion_protection_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::OperationAbortedExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -103,11 +95,9 @@ pub fn de_put_log_group_deletion_protection_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -123,11 +113,9 @@ pub fn de_put_log_group_deletion_protection_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::put_log_group_deletion_protection::PutLogGroupDeletionProtectionError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -163,10 +151,7 @@ pub fn ser_put_log_group_deletion_protection_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_put_log_group_deletion_protection_input::ser_put_log_group_deletion_protection_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_put_log_group_deletion_protection_input::ser_put_log_group_deletion_protection_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

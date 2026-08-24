@@ -15,7 +15,11 @@ pub fn de_start_web_authn_registration_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::start_web_authn_registration::StartWebAuthnRegistrationError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::start_web_authn_registration::StartWebAuthnRegistrationError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -50,26 +54,21 @@ pub fn de_start_web_authn_registration_http_error(
             }
             tmp
         }),
-        "InvalidParameterException" => {
-            super::super::operation::start_web_authn_registration::StartWebAuthnRegistrationError::InvalidParameterException({
+        "InvalidParameterException" => super::super::operation::start_web_authn_registration::StartWebAuthnRegistrationError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::start_web_authn_registration::StartWebAuthnRegistrationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "LimitExceededException" => super::super::operation::start_web_authn_registration::StartWebAuthnRegistrationError::LimitExceededException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -140,26 +139,21 @@ pub fn de_start_web_authn_registration_http_error(
                 tmp
             })
         }
-        "TooManyRequestsException" => {
-            super::super::operation::start_web_authn_registration::StartWebAuthnRegistrationError::TooManyRequestsException({
+        "TooManyRequestsException" => super::super::operation::start_web_authn_registration::StartWebAuthnRegistrationError::TooManyRequestsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::start_web_authn_registration::StartWebAuthnRegistrationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "WebAuthnConfigurationMissingException" => {
             super::super::operation::start_web_authn_registration::StartWebAuthnRegistrationError::WebAuthnConfigurationMissingException({
                 #[allow(unused_mut)]

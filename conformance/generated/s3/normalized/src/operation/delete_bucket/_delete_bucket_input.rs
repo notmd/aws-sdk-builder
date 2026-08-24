@@ -80,8 +80,7 @@ impl DeleteBucketInputBuilder {
     /// Consumes the builder and constructs a [`DeleteBucketInput`](crate::operation::delete_bucket::DeleteBucketInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::delete_bucket::DeleteBucketInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::delete_bucket::DeleteBucketInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_bucket::DeleteBucketInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,

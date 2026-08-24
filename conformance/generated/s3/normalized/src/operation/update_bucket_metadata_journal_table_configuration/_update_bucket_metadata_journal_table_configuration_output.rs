@@ -18,7 +18,9 @@ impl ::aws_types::request_id::RequestId for UpdateBucketMetadataJournalTableConf
 }
 impl UpdateBucketMetadataJournalTableConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`UpdateBucketMetadataJournalTableConfigurationOutput`](crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationOutput).
-    pub fn builder() -> super::super::super::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationOutputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationOutputBuilder
+    {
         super::super::super::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationOutputBuilder::default()
     }
 }
@@ -50,9 +52,7 @@ impl UpdateBucketMetadataJournalTableConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateBucketMetadataJournalTableConfigurationOutput`](crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationOutput).
-    pub fn build(
-        self,
-    ) -> super::super::super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationOutput {
+    pub fn build(self) -> super::super::super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationOutput {
         super::super::super::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

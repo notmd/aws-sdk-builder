@@ -89,11 +89,7 @@ impl PutConfigurationSetReputationOptionsFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptions::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        super::super::super::operation::put_configuration_set_reputation_options::PutConfigurationSetReputationOptions::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

@@ -237,10 +237,7 @@ impl PutBucketEncryptionFluentBuilder {
         self
     }
     /// <p>Specifies the default server-side-encryption configuration.</p>
-    pub fn set_server_side_encryption_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::ServerSideEncryptionConfiguration>,
-    ) -> Self {
+    pub fn set_server_side_encryption_configuration(mut self, input: ::std::option::Option<super::super::super::types::ServerSideEncryptionConfiguration>) -> Self {
         self.inner = self.inner.set_server_side_encryption_configuration(input);
         self
     }

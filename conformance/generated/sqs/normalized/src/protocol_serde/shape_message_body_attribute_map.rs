@@ -24,8 +24,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
                         let key = key.to_unescaped().map(|u| u.into_owned())?;
-                        let value =
-                            super::super::protocol_serde::shape_message_attribute_value::de_message_attribute_value(tokens, _value, depth + 1)?;
+                        let value = super::super::protocol_serde::shape_message_attribute_value::de_message_attribute_value(tokens, _value, depth + 1)?;
                         match value {
                             Some(value) => {
                                 map.insert(key, value);

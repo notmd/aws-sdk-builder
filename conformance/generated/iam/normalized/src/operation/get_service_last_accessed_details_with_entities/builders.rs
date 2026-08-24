@@ -3,9 +3,7 @@ pub use super::super::super::operation::get_service_last_accessed_details_with_e
 
 pub use super::super::super::operation::get_service_last_accessed_details_with_entities::_get_service_last_accessed_details_with_entities_output::GetServiceLastAccessedDetailsWithEntitiesOutputBuilder;
 
-impl
-    super::super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesInputBuilder
-{
+impl super::super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesInputBuilder {
     /// Sends a request with this input using the given client.
     pub async fn send_with(
         self,
@@ -68,7 +66,9 @@ impl GetServiceLastAccessedDetailsWithEntitiesFluentBuilder {
         }
     }
     /// Access the GetServiceLastAccessedDetailsWithEntities as a reference.
-    pub fn as_input(&self) -> &super::super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &super::super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,11 +92,12 @@ impl GetServiceLastAccessedDetailsWithEntitiesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntities::operation_runtime_plugins(
-                            self.handle.runtime_plugins.clone(),
-                            &self.handle.conf,
-                            self.config_override,
-                        );
+        let runtime_plugins =
+            super::super::super::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntities::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         super::super::super::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntities::orchestrate(
             &runtime_plugins,
             input,

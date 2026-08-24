@@ -43,13 +43,11 @@ where
                             );
                         }
                         "status" => {
-                            builder = builder.set_status(
-                                super::super::protocol_serde::shape_open_search_resource_status::de_open_search_resource_status(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
-                            );
+                            builder = builder.set_status(super::super::protocol_serde::shape_open_search_resource_status::de_open_search_resource_status(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

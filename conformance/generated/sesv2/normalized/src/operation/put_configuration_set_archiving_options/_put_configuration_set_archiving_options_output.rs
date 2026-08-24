@@ -13,8 +13,7 @@ impl ::aws_types::request_id::RequestId for PutConfigurationSetArchivingOptionsO
 }
 impl PutConfigurationSetArchivingOptionsOutput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetArchivingOptionsOutput`](crate::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsOutputBuilder {
+    pub fn builder() -> super::super::super::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsOutputBuilder {
         super::super::super::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsOutputBuilder::default()
     }
 }

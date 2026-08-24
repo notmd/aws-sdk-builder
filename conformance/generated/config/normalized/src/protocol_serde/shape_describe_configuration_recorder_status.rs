@@ -15,41 +15,46 @@ pub fn de_describe_configuration_recorder_status_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError::unhandled(generic))
-        }
+        None => return Err(super::super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "NoSuchConfigurationRecorderException" => super::super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError::NoSuchConfigurationRecorderException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "NoSuchConfigurationRecorderException" => {
+            super::super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError::NoSuchConfigurationRecorderException(
+                {
+                    #[allow(unused_mut)]
+                    let mut tmp = {
+                        #[allow(unused_mut)]
+                        let mut output = super::super::types::error::builders::NoSuchConfigurationRecorderExceptionBuilder::default();
+                        output = super::super::protocol_serde::shape_no_such_configuration_recorder_exception::de_no_such_configuration_recorder_exception_json_err(_response_body, output).map_err(super::super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError::unhandled)?;
+                        let output = output.meta(generic);
+                        output.build()
+                    };
+                    if tmp.message.is_none() {
+                        tmp.message = _error_message;
+                    }
+                    tmp
+                },
+            )
+        }
+        "ValidationException" => {
+            super::super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError::ValidationException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::NoSuchConfigurationRecorderExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_no_such_configuration_recorder_exception::de_no_such_configuration_recorder_exception_json_err(_response_body, output).map_err(super::super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ValidationException" => super::super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError::ValidationException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => super::super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError::generic(generic),
     })
 }
@@ -67,11 +72,9 @@ pub fn de_describe_configuration_recorder_status_http_response(
         #[allow(unused_mut)]
         let mut output =
             super::super::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusOutputBuilder::default();
-        output = super::super::protocol_serde::shape_describe_configuration_recorder_status::de_describe_configuration_recorder_status(
-            _response_body,
-            output,
-        )
-        .map_err(super::super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError::unhandled)?;
+        output =
+            super::super::protocol_serde::shape_describe_configuration_recorder_status::de_describe_configuration_recorder_status(_response_body, output)
+                .map_err(super::super::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

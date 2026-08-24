@@ -69,11 +69,9 @@ impl DeleteRemediationConfigurationInputBuilder {
         super::super::super::operation::delete_remediation_configuration::DeleteRemediationConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_remediation_configuration::DeleteRemediationConfigurationInput {
-                config_rule_name: self.config_rule_name,
-                resource_type: self.resource_type,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_remediation_configuration::DeleteRemediationConfigurationInput {
+            config_rule_name: self.config_rule_name,
+            resource_type: self.resource_type,
+        })
     }
 }

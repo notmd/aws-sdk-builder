@@ -28,11 +28,9 @@ pub fn de_get_bucket_lifecycle_configuration_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::get_bucket_lifecycle_configuration::builders::GetBucketLifecycleConfigurationOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_get_bucket_lifecycle_configuration::de_get_bucket_lifecycle_configuration(_response_body, output)
-                .map_err(super::super::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationError::unhandled)?;
+        let mut output = super::super::operation::get_bucket_lifecycle_configuration::builders::GetBucketLifecycleConfigurationOutputBuilder::default();
+        output = super::super::protocol_serde::shape_get_bucket_lifecycle_configuration::de_get_bucket_lifecycle_configuration(_response_body, output)
+            .map_err(super::super::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationError::unhandled)?;
         output = output.set_transition_default_minimum_object_size(
             super::super::protocol_serde::shape_get_bucket_lifecycle_configuration_output::de_transition_default_minimum_object_size_header(
                 _response_headers,

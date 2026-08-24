@@ -43,9 +43,7 @@ impl DeleteTableInputBuilder {
         &self.table_name
     }
     /// Consumes the builder and constructs a [`DeleteTableInput`](crate::operation::delete_table::DeleteTableInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::delete_table::DeleteTableInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::delete_table::DeleteTableInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_table::DeleteTableInput { table_name: self.table_name })
     }
 }

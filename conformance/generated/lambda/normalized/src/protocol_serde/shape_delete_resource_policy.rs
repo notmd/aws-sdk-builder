@@ -15,45 +15,37 @@ pub fn de_delete_resource_policy_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidParameterValueException" => {
-            super::super::operation::delete_resource_policy::DeleteResourcePolicyError::InvalidParameterValueException({
+        "InvalidParameterValueException" => super::super::operation::delete_resource_policy::DeleteResourcePolicyError::InvalidParameterValueException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "PreconditionFailedException" => super::super::operation::delete_resource_policy::DeleteResourcePolicyError::PreconditionFailedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::PreconditionFailedExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_precondition_failed_exception::de_precondition_failed_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_precondition_failed_exception::de_precondition_failed_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -67,9 +59,8 @@ pub fn de_delete_resource_policy_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceConflictExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -83,11 +74,8 @@ pub fn de_delete_resource_policy_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -116,9 +104,8 @@ pub fn de_delete_resource_policy_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

@@ -55,9 +55,7 @@ impl ::std::convert::From<&str> for ConfigRuleComplianceSummaryGroupKey {
         match s {
             "ACCOUNT_ID" => ConfigRuleComplianceSummaryGroupKey::AccountId,
             "AWS_REGION" => ConfigRuleComplianceSummaryGroupKey::AwsRegion,
-            other => {
-                ConfigRuleComplianceSummaryGroupKey::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => ConfigRuleComplianceSummaryGroupKey::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

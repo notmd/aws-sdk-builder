@@ -83,28 +83,24 @@ where
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'web' cannot be null"))?,
                         )),
                         "documentChar" => Some(super::super::types::CitationLocation::DocumentChar(
-                            super::super::protocol_serde::shape_document_char_location::de_document_char_location(tokens, _value, depth + 1)?
-                                .ok_or_else(|| {
-                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentChar' cannot be null")
-                                })?,
+                            super::super::protocol_serde::shape_document_char_location::de_document_char_location(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentChar' cannot be null"),
+                            )?,
                         )),
                         "documentPage" => Some(super::super::types::CitationLocation::DocumentPage(
-                            super::super::protocol_serde::shape_document_page_location::de_document_page_location(tokens, _value, depth + 1)?
-                                .ok_or_else(|| {
-                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentPage' cannot be null")
-                                })?,
+                            super::super::protocol_serde::shape_document_page_location::de_document_page_location(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentPage' cannot be null"),
+                            )?,
                         )),
                         "documentChunk" => Some(super::super::types::CitationLocation::DocumentChunk(
-                            super::super::protocol_serde::shape_document_chunk_location::de_document_chunk_location(tokens, _value, depth + 1)?
-                                .ok_or_else(|| {
-                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentChunk' cannot be null")
-                                })?,
+                            super::super::protocol_serde::shape_document_chunk_location::de_document_chunk_location(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'documentChunk' cannot be null"),
+                            )?,
                         )),
                         "searchResultLocation" => Some(super::super::types::CitationLocation::SearchResultLocation(
-                            super::super::protocol_serde::shape_search_result_location::de_search_result_location(tokens, _value, depth + 1)?
-                                .ok_or_else(|| {
-                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'searchResultLocation' cannot be null")
-                                })?,
+                            super::super::protocol_serde::shape_search_result_location::de_search_result_location(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'searchResultLocation' cannot be null"),
+                            )?,
                         )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;

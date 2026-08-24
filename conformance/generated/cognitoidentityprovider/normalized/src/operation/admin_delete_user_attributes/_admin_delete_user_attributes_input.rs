@@ -114,13 +114,11 @@ impl AdminDeleteUserAttributesInputBuilder {
         super::super::super::operation::admin_delete_user_attributes::AdminDeleteUserAttributesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::admin_delete_user_attributes::AdminDeleteUserAttributesInput {
-                user_pool_id: self.user_pool_id,
-                username: self.username,
-                user_attribute_names: self.user_attribute_names,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::admin_delete_user_attributes::AdminDeleteUserAttributesInput {
+            user_pool_id: self.user_pool_id,
+            username: self.username,
+            user_attribute_names: self.user_attribute_names,
+        })
     }
 }
 impl ::std::fmt::Debug for AdminDeleteUserAttributesInputBuilder {

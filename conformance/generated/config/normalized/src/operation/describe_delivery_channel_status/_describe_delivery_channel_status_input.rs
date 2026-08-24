@@ -56,10 +56,8 @@ impl DescribeDeliveryChannelStatusInputBuilder {
         super::super::super::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusInput {
-                delivery_channel_names: self.delivery_channel_names,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::describe_delivery_channel_status::DescribeDeliveryChannelStatusInput {
+            delivery_channel_names: self.delivery_channel_names,
+        })
     }
 }

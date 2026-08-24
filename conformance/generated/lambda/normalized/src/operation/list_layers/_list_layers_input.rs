@@ -114,9 +114,7 @@ impl ListLayersInputBuilder {
         &self.max_items
     }
     /// Consumes the builder and constructs a [`ListLayersInput`](crate::operation::list_layers::ListLayersInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::list_layers::ListLayersInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_layers::ListLayersInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_layers::ListLayersInput {
             compatible_architecture: self.compatible_architecture,
             compatible_runtime: self.compatible_runtime,

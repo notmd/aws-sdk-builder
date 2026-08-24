@@ -28,11 +28,9 @@ pub fn de_list_bucket_metrics_configurations_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_list_bucket_metrics_configurations::de_list_bucket_metrics_configurations(_response_body, output)
-                .map_err(super::super::operation::list_bucket_metrics_configurations::ListBucketMetricsConfigurationsError::unhandled)?;
+        let mut output = super::super::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsOutputBuilder::default();
+        output = super::super::protocol_serde::shape_list_bucket_metrics_configurations::de_list_bucket_metrics_configurations(_response_body, output)
+            .map_err(super::super::operation::list_bucket_metrics_configurations::ListBucketMetricsConfigurationsError::unhandled)?;
         output._set_extended_request_id(super::super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()

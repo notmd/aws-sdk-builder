@@ -121,10 +121,8 @@ impl UpdateKeyDescriptionInputBuilder {
     /// Consumes the builder and constructs a [`UpdateKeyDescriptionInput`](crate::operation::update_key_description::UpdateKeyDescriptionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::update_key_description::UpdateKeyDescriptionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::update_key_description::UpdateKeyDescriptionInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::update_key_description::UpdateKeyDescriptionInput {
             key_id: self.key_id,
             description: self.description,

@@ -44,10 +44,7 @@ impl DeleteIndexPolicyInputBuilder {
     /// Consumes the builder and constructs a [`DeleteIndexPolicyInput`](crate::operation::delete_index_policy::DeleteIndexPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_index_policy::DeleteIndexPolicyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_index_policy::DeleteIndexPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_index_policy::DeleteIndexPolicyInput {
             log_group_identifier: self.log_group_identifier,
         })

@@ -26,11 +26,9 @@ pub fn de_describe_remediation_exceptions_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::describe_remediation_exceptions::DescribeRemediationExceptionsError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::describe_remediation_exceptions::DescribeRemediationExceptionsError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -110,9 +108,11 @@ pub(crate) fn de_describe_remediation_exceptions(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "RemediationExceptions" => {
-                    builder = builder.set_remediation_exceptions(
-                        super::super::protocol_serde::shape_remediation_exceptions::de_remediation_exceptions(tokens, _value, depth + 1)?,
-                    );
+                    builder = builder.set_remediation_exceptions(super::super::protocol_serde::shape_remediation_exceptions::de_remediation_exceptions(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "NextToken" => {
                     builder = builder.set_next_token(

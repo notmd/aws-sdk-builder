@@ -20,81 +20,85 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "CapacityProviderArn" => {
-                                builder = builder.set_capacity_provider_arn(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                        .transpose()?,
-                                );
-                            }
-                            "State" => {
-                                builder = builder.set_state(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| super::super::types::CapacityProviderState::from(u.as_ref())))
-                                        .transpose()?,
-                                );
-                            }
-                            "VpcConfig" => {
-                                builder = builder.set_vpc_config(
-                                    super::super::protocol_serde::shape_capacity_provider_vpc_config::de_capacity_provider_vpc_config(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
-                                );
-                            }
-                            "PermissionsConfig" => {
-                                builder = builder.set_permissions_config(super::super::protocol_serde::shape_capacity_provider_permissions_config::de_capacity_provider_permissions_config(tokens, _value, depth + 1)?);
-                            }
-                            "InstanceRequirements" => {
-                                builder = builder.set_instance_requirements(
-                                    super::super::protocol_serde::shape_instance_requirements::de_instance_requirements(tokens, _value, depth + 1)?,
-                                );
-                            }
-                            "CapacityProviderScalingConfig" => {
-                                builder = builder.set_capacity_provider_scaling_config(
-                                    super::super::protocol_serde::shape_capacity_provider_scaling_config::de_capacity_provider_scaling_config(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
-                                );
-                            }
-                            "KmsKeyArn" => {
-                                builder = builder.set_kms_key_arn(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                        .transpose()?,
-                                );
-                            }
-                            "LastModified" => {
-                                builder = builder.set_last_modified(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                        .transpose()?,
-                                );
-                            }
-                            "PropagateTags" => {
-                                builder = builder.set_propagate_tags(super::super::protocol_serde::shape_propagate_tags::de_propagate_tags(
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "CapacityProviderArn" => {
+                            builder = builder.set_capacity_provider_arn(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "State" => {
+                            builder = builder.set_state(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::CapacityProviderState::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        "VpcConfig" => {
+                            builder = builder.set_vpc_config(
+                                super::super::protocol_serde::shape_capacity_provider_vpc_config::de_capacity_provider_vpc_config(
                                     tokens,
                                     _value,
                                     depth + 1,
-                                )?);
-                            }
-                            "TelemetryConfig" => {
-                                builder = builder.set_telemetry_config(
-                                    super::super::protocol_serde::shape_capacity_provider_telemetry_config::de_capacity_provider_telemetry_config(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
-                                );
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                                )?,
+                            );
                         }
-                    }
+                        "PermissionsConfig" => {
+                            builder = builder.set_permissions_config(
+                                super::super::protocol_serde::shape_capacity_provider_permissions_config::de_capacity_provider_permissions_config(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        "InstanceRequirements" => {
+                            builder = builder.set_instance_requirements(
+                                super::super::protocol_serde::shape_instance_requirements::de_instance_requirements(tokens, _value, depth + 1)?,
+                            );
+                        }
+                        "CapacityProviderScalingConfig" => {
+                            builder = builder.set_capacity_provider_scaling_config(
+                                super::super::protocol_serde::shape_capacity_provider_scaling_config::de_capacity_provider_scaling_config(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        "KmsKeyArn" => {
+                            builder = builder.set_kms_key_arn(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "LastModified" => {
+                            builder = builder.set_last_modified(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "PropagateTags" => {
+                            builder = builder.set_propagate_tags(super::super::protocol_serde::shape_propagate_tags::de_propagate_tags(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        "TelemetryConfig" => {
+                            builder = builder.set_telemetry_config(
+                                super::super::protocol_serde::shape_capacity_provider_telemetry_config::de_capacity_provider_telemetry_config(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"
@@ -102,11 +106,9 @@ where
                     }
                 }
             }
-            Ok(Some(
-                super::super::serde_util::capacity_provider_correct_errors(builder)
-                    .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-            ))
+            Ok(Some(super::super::serde_util::capacity_provider_correct_errors(builder).build().map_err(
+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+            )?))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

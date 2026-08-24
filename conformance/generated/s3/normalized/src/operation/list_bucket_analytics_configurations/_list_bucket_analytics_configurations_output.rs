@@ -46,8 +46,7 @@ impl ::aws_types::request_id::RequestId for ListBucketAnalyticsConfigurationsOut
 }
 impl ListBucketAnalyticsConfigurationsOutput {
     /// Creates a new builder-style object to manufacture [`ListBucketAnalyticsConfigurationsOutput`](crate::operation::list_bucket_analytics_configurations::ListBucketAnalyticsConfigurationsOutput).
-    pub fn builder() -> super::super::super::operation::list_bucket_analytics_configurations::builders::ListBucketAnalyticsConfigurationsOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::list_bucket_analytics_configurations::builders::ListBucketAnalyticsConfigurationsOutputBuilder {
         super::super::super::operation::list_bucket_analytics_configurations::builders::ListBucketAnalyticsConfigurationsOutputBuilder::default()
     }
 }
@@ -118,10 +117,7 @@ impl ListBucketAnalyticsConfigurationsOutputBuilder {
         self
     }
     /// <p>The list of analytics configurations for a bucket.</p>
-    pub fn set_analytics_configuration_list(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AnalyticsConfiguration>>,
-    ) -> Self {
+    pub fn set_analytics_configuration_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AnalyticsConfiguration>>) -> Self {
         self.analytics_configuration_list = input;
         self
     }

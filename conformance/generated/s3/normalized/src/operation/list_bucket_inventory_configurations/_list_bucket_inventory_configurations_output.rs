@@ -46,8 +46,7 @@ impl ::aws_types::request_id::RequestId for ListBucketInventoryConfigurationsOut
 }
 impl ListBucketInventoryConfigurationsOutput {
     /// Creates a new builder-style object to manufacture [`ListBucketInventoryConfigurationsOutput`](crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsOutput).
-    pub fn builder() -> super::super::super::operation::list_bucket_inventory_configurations::builders::ListBucketInventoryConfigurationsOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::list_bucket_inventory_configurations::builders::ListBucketInventoryConfigurationsOutputBuilder {
         super::super::super::operation::list_bucket_inventory_configurations::builders::ListBucketInventoryConfigurationsOutputBuilder::default()
     }
 }
@@ -90,10 +89,7 @@ impl ListBucketInventoryConfigurationsOutputBuilder {
         self
     }
     /// <p>The list of inventory configurations for a bucket.</p>
-    pub fn set_inventory_configuration_list(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::InventoryConfiguration>>,
-    ) -> Self {
+    pub fn set_inventory_configuration_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::InventoryConfiguration>>) -> Self {
         self.inventory_configuration_list = input;
         self
     }

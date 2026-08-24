@@ -69,11 +69,9 @@ impl GetBucketMetadataConfigurationInputBuilder {
         super::super::super::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationInput {
-                bucket: self.bucket,
-                expected_bucket_owner: self.expected_bucket_owner,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationInput {
+            bucket: self.bucket,
+            expected_bucket_owner: self.expected_bucket_owner,
+        })
     }
 }

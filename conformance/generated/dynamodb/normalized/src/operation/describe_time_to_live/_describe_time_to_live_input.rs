@@ -44,10 +44,8 @@ impl DescribeTimeToLiveInputBuilder {
     /// Consumes the builder and constructs a [`DescribeTimeToLiveInput`](crate::operation::describe_time_to_live::DescribeTimeToLiveInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::describe_time_to_live::DescribeTimeToLiveInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::describe_time_to_live::DescribeTimeToLiveInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::describe_time_to_live::DescribeTimeToLiveInput { table_name: self.table_name })
     }
 }

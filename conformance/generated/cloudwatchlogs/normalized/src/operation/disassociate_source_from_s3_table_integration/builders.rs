@@ -26,8 +26,7 @@ impl super::super::super::operation::disassociate_source_from_s3_table_integrati
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DisassociateSourceFromS3TableIntegrationFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
-    inner:
-        super::super::super::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationInputBuilder,
+    inner: super::super::super::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
 impl
@@ -60,8 +59,7 @@ impl DisassociateSourceFromS3TableIntegrationFluentBuilder {
     /// Access the DisassociateSourceFromS3TableIntegration as a reference.
     pub fn as_input(
         &self,
-    ) -> &super::super::super::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationInputBuilder
-    {
+    ) -> &super::super::super::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,11 +83,12 @@ impl DisassociateSourceFromS3TableIntegrationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegration::operation_runtime_plugins(
-                            self.handle.runtime_plugins.clone(),
-                            &self.handle.conf,
-                            self.config_override,
-                        );
+        let runtime_plugins =
+            super::super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegration::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         super::super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegration::orchestrate(
             &runtime_plugins,
             input,

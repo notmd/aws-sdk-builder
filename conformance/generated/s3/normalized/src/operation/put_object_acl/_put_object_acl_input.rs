@@ -383,8 +383,7 @@ impl PutObjectAclInputBuilder {
     /// Consumes the builder and constructs a [`PutObjectAclInput`](crate::operation::put_object_acl::PutObjectAclInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::put_object_acl::PutObjectAclInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::put_object_acl::PutObjectAclInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_object_acl::PutObjectAclInput {
             acl: self.acl,
             access_control_policy: self.access_control_policy,

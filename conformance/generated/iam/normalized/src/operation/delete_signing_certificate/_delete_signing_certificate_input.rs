@@ -79,11 +79,9 @@ impl DeleteSigningCertificateInputBuilder {
         super::super::super::operation::delete_signing_certificate::DeleteSigningCertificateInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_signing_certificate::DeleteSigningCertificateInput {
-                user_name: self.user_name,
-                certificate_id: self.certificate_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_signing_certificate::DeleteSigningCertificateInput {
+            user_name: self.user_name,
+            certificate_id: self.certificate_id,
+        })
     }
 }

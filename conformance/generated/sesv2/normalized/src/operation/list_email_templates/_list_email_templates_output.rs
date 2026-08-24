@@ -55,10 +55,7 @@ impl ListEmailTemplatesOutputBuilder {
         self
     }
     /// <p>An array the contains the name and creation time stamp for each template in your Amazon SES account.</p>
-    pub fn set_templates_metadata(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::EmailTemplateMetadata>>,
-    ) -> Self {
+    pub fn set_templates_metadata(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::EmailTemplateMetadata>>) -> Self {
         self.templates_metadata = input;
         self
     }

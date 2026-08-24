@@ -11,8 +11,6 @@ impl super::Client {
     pub fn generate_organizations_access_report(
         &self,
     ) -> super::super::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportFluentBuilder {
-        super::super::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportFluentBuilder::new(self.handle.clone())
     }
 }

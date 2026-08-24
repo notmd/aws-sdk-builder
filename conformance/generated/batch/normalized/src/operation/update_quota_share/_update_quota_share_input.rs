@@ -97,10 +97,7 @@ impl UpdateQuotaShareInputBuilder {
         self
     }
     /// <p>Specifies whether a quota share reserves, lends, or both lends and borrows idle compute capacity.</p>
-    pub fn set_resource_sharing_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::QuotaShareResourceSharingConfiguration>,
-    ) -> Self {
+    pub fn set_resource_sharing_configuration(mut self, input: ::std::option::Option<super::super::super::types::QuotaShareResourceSharingConfiguration>) -> Self {
         self.resource_sharing_configuration = input;
         self
     }
@@ -114,10 +111,7 @@ impl UpdateQuotaShareInputBuilder {
         self
     }
     /// <p>Specifies the preemption behavior for jobs in a quota share.</p>
-    pub fn set_preemption_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::QuotaSharePreemptionConfiguration>,
-    ) -> Self {
+    pub fn set_preemption_configuration(mut self, input: ::std::option::Option<super::super::super::types::QuotaSharePreemptionConfiguration>) -> Self {
         self.preemption_configuration = input;
         self
     }
@@ -142,10 +136,7 @@ impl UpdateQuotaShareInputBuilder {
     /// Consumes the builder and constructs a [`UpdateQuotaShareInput`](crate::operation::update_quota_share::UpdateQuotaShareInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::update_quota_share::UpdateQuotaShareInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::update_quota_share::UpdateQuotaShareInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::update_quota_share::UpdateQuotaShareInput {
             quota_share_arn: self.quota_share_arn,
             capacity_limits: self.capacity_limits,

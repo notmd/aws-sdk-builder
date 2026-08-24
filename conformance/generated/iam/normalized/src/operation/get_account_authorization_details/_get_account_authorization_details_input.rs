@@ -107,12 +107,10 @@ impl GetAccountAuthorizationDetailsInputBuilder {
         super::super::super::operation::get_account_authorization_details::GetAccountAuthorizationDetailsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_account_authorization_details::GetAccountAuthorizationDetailsInput {
-                filter: self.filter,
-                max_items: self.max_items,
-                marker: self.marker,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_account_authorization_details::GetAccountAuthorizationDetailsInput {
+            filter: self.filter,
+            max_items: self.max_items,
+            marker: self.marker,
+        })
     }
 }

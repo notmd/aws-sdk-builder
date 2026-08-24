@@ -62,9 +62,7 @@ impl DescribeConformancePackStatusOutputBuilder {
         self
     }
     /// <p>A list of <code>ConformancePackStatusDetail</code> objects.</p>
-    pub fn get_conformance_pack_status_details(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackStatusDetail>> {
+    pub fn get_conformance_pack_status_details(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackStatusDetail>> {
         &self.conformance_pack_status_details
     }
     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>

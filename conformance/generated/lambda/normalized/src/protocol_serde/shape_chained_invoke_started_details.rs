@@ -36,11 +36,7 @@ where
                             );
                         }
                         "Input" => {
-                            builder = builder.set_input(super::super::protocol_serde::shape_event_input::de_event_input(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_input(super::super::protocol_serde::shape_event_input::de_event_input(tokens, _value, depth + 1)?);
                         }
                         "ExecutedVersion" => {
                             builder = builder.set_executed_version(

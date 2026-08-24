@@ -78,12 +78,10 @@ impl AdminGetUserAuthFactorsInputBuilder {
         super::super::super::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsInput {
-                user_pool_id: self.user_pool_id,
-                username: self.username,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::admin_get_user_auth_factors::AdminGetUserAuthFactorsInput {
+            user_pool_id: self.user_pool_id,
+            username: self.username,
+        })
     }
 }
 impl ::std::fmt::Debug for AdminGetUserAuthFactorsInputBuilder {

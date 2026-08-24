@@ -21,8 +21,7 @@ impl PutConfigurationSetArchivingOptionsInput {
 }
 impl PutConfigurationSetArchivingOptionsInput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetArchivingOptionsInput`](crate::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsInput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsInputBuilder {
+    pub fn builder() -> super::super::super::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsInputBuilder {
         super::super::super::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsInputBuilder::default()
     }
 }

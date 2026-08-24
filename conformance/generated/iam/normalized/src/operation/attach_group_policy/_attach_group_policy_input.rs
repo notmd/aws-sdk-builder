@@ -76,10 +76,7 @@ impl AttachGroupPolicyInputBuilder {
     /// Consumes the builder and constructs a [`AttachGroupPolicyInput`](crate::operation::attach_group_policy::AttachGroupPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::attach_group_policy::AttachGroupPolicyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::attach_group_policy::AttachGroupPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::attach_group_policy::AttachGroupPolicyInput {
             group_name: self.group_name,
             policy_arn: self.policy_arn,

@@ -46,11 +46,9 @@ pub fn de_put_provisioned_concurrency_config_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceConflictExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_conflict_exception::de_resource_conflict_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -66,11 +64,9 @@ pub fn de_put_provisioned_concurrency_config_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -101,11 +97,9 @@ pub fn de_put_provisioned_concurrency_config_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -130,11 +124,9 @@ pub fn de_put_provisioned_concurrency_config_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::put_provisioned_concurrency_config::builders::PutProvisionedConcurrencyConfigOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_put_provisioned_concurrency_config::de_put_provisioned_concurrency_config(_response_body, output)
-                .map_err(super::super::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled)?;
+        let mut output = super::super::operation::put_provisioned_concurrency_config::builders::PutProvisionedConcurrencyConfigOutputBuilder::default();
+        output = super::super::protocol_serde::shape_put_provisioned_concurrency_config::de_put_provisioned_concurrency_config(_response_body, output)
+            .map_err(super::super::operation::put_provisioned_concurrency_config::PutProvisionedConcurrencyConfigError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -145,10 +137,7 @@ pub fn ser_put_provisioned_concurrency_config_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_put_provisioned_concurrency_config_input::ser_put_provisioned_concurrency_config_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_put_provisioned_concurrency_config_input::ser_put_provisioned_concurrency_config_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -193,10 +182,7 @@ pub(crate) fn de_put_provisioned_concurrency_config(
                 "Status" => {
                     builder = builder.set_status(
                         ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| {
-                                s.to_unescaped()
-                                    .map(|u| super::super::types::ProvisionedConcurrencyStatusEnum::from(u.as_ref()))
-                            })
+                            .map(|s| s.to_unescaped().map(|u| super::super::types::ProvisionedConcurrencyStatusEnum::from(u.as_ref())))
                             .transpose()?,
                     );
                 }

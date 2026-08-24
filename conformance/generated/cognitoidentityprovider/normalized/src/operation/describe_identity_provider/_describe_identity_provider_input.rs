@@ -70,11 +70,9 @@ impl DescribeIdentityProviderInputBuilder {
         super::super::super::operation::describe_identity_provider::DescribeIdentityProviderInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::describe_identity_provider::DescribeIdentityProviderInput {
-                user_pool_id: self.user_pool_id,
-                provider_name: self.provider_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::describe_identity_provider::DescribeIdentityProviderInput {
+            user_pool_id: self.user_pool_id,
+            provider_name: self.provider_name,
+        })
     }
 }

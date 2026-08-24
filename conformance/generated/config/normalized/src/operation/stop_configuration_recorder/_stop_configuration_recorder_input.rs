@@ -49,10 +49,8 @@ impl StopConfigurationRecorderInputBuilder {
         super::super::super::operation::stop_configuration_recorder::StopConfigurationRecorderInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::stop_configuration_recorder::StopConfigurationRecorderInput {
-                configuration_recorder_name: self.configuration_recorder_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::stop_configuration_recorder::StopConfigurationRecorderInput {
+            configuration_recorder_name: self.configuration_recorder_name,
+        })
     }
 }

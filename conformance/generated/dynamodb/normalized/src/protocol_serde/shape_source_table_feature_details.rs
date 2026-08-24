@@ -32,9 +32,11 @@ where
                             );
                         }
                         "StreamDescription" => {
-                            builder = builder.set_stream_description(
-                                super::super::protocol_serde::shape_stream_specification::de_stream_specification(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_stream_description(super::super::protocol_serde::shape_stream_specification::de_stream_specification(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "TimeToLiveDescription" => {
                             builder = builder.set_time_to_live_description(

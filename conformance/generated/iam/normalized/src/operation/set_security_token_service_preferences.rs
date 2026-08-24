@@ -218,9 +218,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for SetSecurityT
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            super::super::protocol_serde::shape_set_security_token_service_preferences_input::ser_set_security_token_service_preferences_op_input(
-                &input,
-            )?,
+            super::super::protocol_serde::shape_set_security_token_service_preferences_input::ser_set_security_token_service_preferences_op_input(&input)?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();

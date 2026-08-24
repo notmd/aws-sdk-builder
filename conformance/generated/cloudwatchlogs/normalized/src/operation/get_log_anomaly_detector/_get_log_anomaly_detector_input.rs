@@ -44,10 +44,8 @@ impl GetLogAnomalyDetectorInputBuilder {
     /// Consumes the builder and constructs a [`GetLogAnomalyDetectorInput`](crate::operation::get_log_anomaly_detector::GetLogAnomalyDetectorInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_log_anomaly_detector::GetLogAnomalyDetectorInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_log_anomaly_detector::GetLogAnomalyDetectorInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_log_anomaly_detector::GetLogAnomalyDetectorInput {
             anomaly_detector_arn: self.anomaly_detector_arn,
         })

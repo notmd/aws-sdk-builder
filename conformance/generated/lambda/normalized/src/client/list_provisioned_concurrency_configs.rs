@@ -14,8 +14,6 @@ impl super::Client {
     pub fn list_provisioned_concurrency_configs(
         &self,
     ) -> super::super::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsFluentBuilder {
-        super::super::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsFluentBuilder::new(self.handle.clone())
     }
 }

@@ -36,11 +36,7 @@ where
                             );
                         }
                         "Error" => {
-                            builder = builder.set_error(super::super::protocol_serde::shape_error_object::de_error_object(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_error(super::super::protocol_serde::shape_error_object::de_error_object(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

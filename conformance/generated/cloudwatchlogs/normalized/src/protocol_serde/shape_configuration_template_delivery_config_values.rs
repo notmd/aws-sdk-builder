@@ -3,10 +3,7 @@ pub(crate) fn de_configuration_template_delivery_config_values<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<super::super::types::ConfigurationTemplateDeliveryConfigValues>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<super::super::types::ConfigurationTemplateDeliveryConfigValues>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -25,11 +22,8 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "recordFields" => {
-                            builder = builder.set_record_fields(super::super::protocol_serde::shape_record_fields::de_record_fields(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_record_fields(super::super::protocol_serde::shape_record_fields::de_record_fields(tokens, _value, depth + 1)?);
                         }
                         "fieldDelimiter" => {
                             builder = builder.set_field_delimiter(
@@ -40,11 +34,7 @@ where
                         }
                         "s3DeliveryConfiguration" => {
                             builder = builder.set_s3_delivery_configuration(
-                                super::super::protocol_serde::shape_s3_delivery_configuration::de_s3_delivery_configuration(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_s3_delivery_configuration::de_s3_delivery_configuration(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

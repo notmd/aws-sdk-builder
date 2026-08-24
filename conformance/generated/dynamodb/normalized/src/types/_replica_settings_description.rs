@@ -29,8 +29,7 @@ pub struct ReplicaSettingsDescription {
     /// <p>Auto scaling settings for a global table replica's write capacity units.</p>
     pub replica_provisioned_write_capacity_auto_scaling_settings: ::std::option::Option<super::super::types::AutoScalingSettingsDescription>,
     /// <p>Replica global secondary index settings for the global table.</p>
-    pub replica_global_secondary_index_settings:
-        ::std::option::Option<::std::vec::Vec<super::super::types::ReplicaGlobalSecondaryIndexSettingsDescription>>,
+    pub replica_global_secondary_index_settings: ::std::option::Option<::std::vec::Vec<super::super::types::ReplicaGlobalSecondaryIndexSettingsDescription>>,
     /// <p>Contains details of the table class.</p>
     pub replica_table_class_summary: ::std::option::Option<super::super::types::TableClassSummary>,
 }
@@ -63,9 +62,7 @@ impl ReplicaSettingsDescription {
         self.replica_provisioned_read_capacity_units
     }
     /// <p>Auto scaling settings for a global table replica's read capacity units.</p>
-    pub fn replica_provisioned_read_capacity_auto_scaling_settings(
-        &self,
-    ) -> ::std::option::Option<&super::super::types::AutoScalingSettingsDescription> {
+    pub fn replica_provisioned_read_capacity_auto_scaling_settings(&self) -> ::std::option::Option<&super::super::types::AutoScalingSettingsDescription> {
         self.replica_provisioned_read_capacity_auto_scaling_settings.as_ref()
     }
     /// <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -73,9 +70,7 @@ impl ReplicaSettingsDescription {
         self.replica_provisioned_write_capacity_units
     }
     /// <p>Auto scaling settings for a global table replica's write capacity units.</p>
-    pub fn replica_provisioned_write_capacity_auto_scaling_settings(
-        &self,
-    ) -> ::std::option::Option<&super::super::types::AutoScalingSettingsDescription> {
+    pub fn replica_provisioned_write_capacity_auto_scaling_settings(&self) -> ::std::option::Option<&super::super::types::AutoScalingSettingsDescription> {
         self.replica_provisioned_write_capacity_auto_scaling_settings.as_ref()
     }
     /// <p>Replica global secondary index settings for the global table.</p>

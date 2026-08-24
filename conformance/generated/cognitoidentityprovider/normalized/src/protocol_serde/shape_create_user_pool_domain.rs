@@ -15,47 +15,40 @@ pub fn de_create_user_pool_domain_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::create_user_pool_domain::CreateUserPoolDomainError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::create_user_pool_domain::CreateUserPoolDomainError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "ConcurrentModificationException" => {
-            super::super::operation::create_user_pool_domain::CreateUserPoolDomainError::ConcurrentModificationException({
+        "ConcurrentModificationException" => super::super::operation::create_user_pool_domain::CreateUserPoolDomainError::ConcurrentModificationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::create_user_pool_domain::CreateUserPoolDomainError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::ConcurrentModificationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_concurrent_modification_exception::de_concurrent_modification_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::create_user_pool_domain::CreateUserPoolDomainError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "FeatureUnavailableInTierException" => {
             super::super::operation::create_user_pool_domain::CreateUserPoolDomainError::FeatureUnavailableInTierException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::FeatureUnavailableInTierExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_feature_unavailable_in_tier_exception::de_feature_unavailable_in_tier_exception_json_err(
-                            _response_body,
-                            output,
-                        )
-                        .map_err(super::super::operation::create_user_pool_domain::CreateUserPoolDomainError::unhandled)?;
+                    output = super::super::protocol_serde::shape_feature_unavailable_in_tier_exception::de_feature_unavailable_in_tier_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::create_user_pool_domain::CreateUserPoolDomainError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -85,9 +78,8 @@ pub fn de_create_user_pool_domain_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::create_user_pool_domain::CreateUserPoolDomainError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::create_user_pool_domain::CreateUserPoolDomainError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -126,36 +118,29 @@ pub fn de_create_user_pool_domain_http_error(
             }
             tmp
         }),
-        "OperationNotEnabledException" => {
-            super::super::operation::create_user_pool_domain::CreateUserPoolDomainError::OperationNotEnabledException({
+        "OperationNotEnabledException" => super::super::operation::create_user_pool_domain::CreateUserPoolDomainError::OperationNotEnabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::create_user_pool_domain::CreateUserPoolDomainError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::create_user_pool_domain::CreateUserPoolDomainError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ResourceNotFoundException" => super::super::operation::create_user_pool_domain::CreateUserPoolDomainError::ResourceNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::create_user_pool_domain::CreateUserPoolDomainError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::create_user_pool_domain::CreateUserPoolDomainError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -228,11 +213,7 @@ pub(crate) fn de_create_user_pool_domain(
                     );
                 }
                 "Routing" => {
-                    builder = builder.set_routing(super::super::protocol_serde::shape_routing_type::de_routing_type(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_routing(super::super::protocol_serde::shape_routing_type::de_routing_type(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

@@ -70,11 +70,9 @@ impl DeleteSubscriptionFilterInputBuilder {
         super::super::super::operation::delete_subscription_filter::DeleteSubscriptionFilterInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_subscription_filter::DeleteSubscriptionFilterInput {
-                log_group_name: self.log_group_name,
-                filter_name: self.filter_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_subscription_filter::DeleteSubscriptionFilterInput {
+            log_group_name: self.log_group_name,
+            filter_name: self.filter_name,
+        })
     }
 }

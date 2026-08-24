@@ -64,9 +64,7 @@ impl DeleteTermsInputBuilder {
         &self.user_pool_id
     }
     /// Consumes the builder and constructs a [`DeleteTermsInput`](crate::operation::delete_terms::DeleteTermsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::delete_terms::DeleteTermsInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::delete_terms::DeleteTermsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_terms::DeleteTermsInput {
             terms_id: self.terms_id,
             user_pool_id: self.user_pool_id,

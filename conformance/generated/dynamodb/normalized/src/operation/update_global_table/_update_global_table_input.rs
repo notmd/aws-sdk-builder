@@ -73,10 +73,7 @@ impl UpdateGlobalTableInputBuilder {
     /// Consumes the builder and constructs a [`UpdateGlobalTableInput`](crate::operation::update_global_table::UpdateGlobalTableInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::update_global_table::UpdateGlobalTableInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::update_global_table::UpdateGlobalTableInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::update_global_table::UpdateGlobalTableInput {
             global_table_name: self.global_table_name,
             replica_updates: self.replica_updates,

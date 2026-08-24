@@ -119,11 +119,8 @@ where
                             )?);
                         }
                         "containers" => {
-                            builder = builder.set_containers(super::super::protocol_serde::shape_eks_containers::de_eks_containers(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_containers(super::super::protocol_serde::shape_eks_containers::de_eks_containers(tokens, _value, depth + 1)?);
                         }
                         "initContainers" => {
                             builder = builder.set_init_containers(super::super::protocol_serde::shape_eks_containers::de_eks_containers(
@@ -133,18 +130,10 @@ where
                             )?);
                         }
                         "volumes" => {
-                            builder = builder.set_volumes(super::super::protocol_serde::shape_eks_volumes::de_eks_volumes(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_volumes(super::super::protocol_serde::shape_eks_volumes::de_eks_volumes(tokens, _value, depth + 1)?);
                         }
                         "metadata" => {
-                            builder = builder.set_metadata(super::super::protocol_serde::shape_eks_metadata::de_eks_metadata(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_metadata(super::super::protocol_serde::shape_eks_metadata::de_eks_metadata(tokens, _value, depth + 1)?);
                         }
                         "shareProcessNamespace" => {
                             builder = builder.set_share_process_namespace(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);

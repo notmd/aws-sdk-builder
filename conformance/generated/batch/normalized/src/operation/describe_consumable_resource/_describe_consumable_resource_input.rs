@@ -48,10 +48,8 @@ impl DescribeConsumableResourceInputBuilder {
         super::super::super::operation::describe_consumable_resource::DescribeConsumableResourceInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::describe_consumable_resource::DescribeConsumableResourceInput {
-                consumable_resource: self.consumable_resource,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::describe_consumable_resource::DescribeConsumableResourceInput {
+            consumable_resource: self.consumable_resource,
+        })
     }
 }

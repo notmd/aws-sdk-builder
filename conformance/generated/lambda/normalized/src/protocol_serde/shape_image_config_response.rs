@@ -22,11 +22,8 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "ImageConfig" => {
-                            builder = builder.set_image_config(super::super::protocol_serde::shape_image_config::de_image_config(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_image_config(super::super::protocol_serde::shape_image_config::de_image_config(tokens, _value, depth + 1)?);
                         }
                         "Error" => {
                             builder = builder.set_error(super::super::protocol_serde::shape_image_config_error::de_image_config_error(

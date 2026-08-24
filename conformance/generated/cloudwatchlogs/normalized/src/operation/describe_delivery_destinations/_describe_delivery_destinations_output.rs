@@ -54,10 +54,7 @@ impl DescribeDeliveryDestinationsOutputBuilder {
         self
     }
     /// <p>An array of structures. Each structure contains information about one delivery destination in the account.</p>
-    pub fn set_delivery_destinations(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeliveryDestination>>,
-    ) -> Self {
+    pub fn set_delivery_destinations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeliveryDestination>>) -> Self {
         self.delivery_destinations = input;
         self
     }

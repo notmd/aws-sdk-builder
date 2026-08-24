@@ -40,8 +40,7 @@ impl DeleteProvisionedConcurrencyConfigInput {
 }
 impl DeleteProvisionedConcurrencyConfigInput {
     /// Creates a new builder-style object to manufacture [`DeleteProvisionedConcurrencyConfigInput`](crate::operation::delete_provisioned_concurrency_config::DeleteProvisionedConcurrencyConfigInput).
-    pub fn builder() -> super::super::super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigInputBuilder {
         super::super::super::operation::delete_provisioned_concurrency_config::builders::DeleteProvisionedConcurrencyConfigInputBuilder::default()
     }
 }

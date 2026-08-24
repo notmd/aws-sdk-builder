@@ -46,10 +46,7 @@ impl GetAccountSummaryOutputBuilder {
         self
     }
     /// <p>A set of key–value pairs containing information about IAM entity usage and IAM quotas.</p>
-    pub fn set_summary_map(
-        mut self,
-        input: ::std::option::Option<::std::collections::HashMap<super::super::super::types::SummaryKeyType, i32>>,
-    ) -> Self {
+    pub fn set_summary_map(mut self, input: ::std::option::Option<::std::collections::HashMap<super::super::super::types::SummaryKeyType, i32>>) -> Self {
         self.summary_map = input;
         self
     }

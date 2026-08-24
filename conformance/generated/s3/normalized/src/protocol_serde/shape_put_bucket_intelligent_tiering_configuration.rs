@@ -28,7 +28,9 @@ pub fn de_put_bucket_intelligent_tiering_configuration_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = super::super::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationOutputBuilder::default();
+        let mut output =
+            super::super::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationOutputBuilder::default(
+            );
         output._set_extended_request_id(super::super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()

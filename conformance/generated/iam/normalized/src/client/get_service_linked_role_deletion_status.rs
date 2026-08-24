@@ -11,8 +11,6 @@ impl super::Client {
     pub fn get_service_linked_role_deletion_status(
         &self,
     ) -> super::super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusFluentBuilder {
-        super::super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusFluentBuilder::new(self.handle.clone())
     }
 }

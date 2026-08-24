@@ -429,9 +429,7 @@ impl SetQueueAttributesFluentBuilder {
     /// </ul>
     /// <p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
     /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub fn get_attributes(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
         self.inner.get_attributes()
     }
 }

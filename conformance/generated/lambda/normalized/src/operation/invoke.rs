@@ -18,24 +18,16 @@ impl Invoke {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
-        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<
-            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >| {
-            err.map_service_error(|err| {
-                err.downcast::<super::super::operation::invoke::InvokeError>()
-                    .expect("correct error type")
-            })
-        };
+        let map_err =
+            |err: ::aws_smithy_runtime_api::client::result::SdkError<
+                ::aws_smithy_runtime_api::client::interceptors::context::Error,
+                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+            >| { err.map_service_error(|err| err.downcast::<super::super::operation::invoke::InvokeError>().expect("correct error type")) };
         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
             .await
             .map_err(map_err)?;
         let output = context.finalize().map_err(map_err)?;
-        ::std::result::Result::Ok(
-            output
-                .downcast::<super::super::operation::invoke::InvokeOutput>()
-                .expect("correct output type"),
-        )
+        ::std::result::Result::Ok(output.downcast::<super::super::operation::invoke::InvokeOutput>().expect("correct output type"))
     }
 
     pub(crate) async fn orchestrate_with_stop_point(

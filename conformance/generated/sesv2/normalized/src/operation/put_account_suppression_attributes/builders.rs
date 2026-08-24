@@ -57,9 +57,7 @@ impl PutAccountSuppressionAttributesFluentBuilder {
         }
     }
     /// Access the PutAccountSuppressionAttributes as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::put_account_suppression_attributes::builders::PutAccountSuppressionAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,14 +81,12 @@ impl PutAccountSuppressionAttributesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::put_account_suppression_attributes::PutAccountSuppressionAttributes::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        super::super::super::operation::put_account_suppression_attributes::PutAccountSuppressionAttributes::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = super::super::super::operation::put_account_suppression_attributes::PutAccountSuppressionAttributes::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        super::super::super::operation::put_account_suppression_attributes::PutAccountSuppressionAttributes::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -135,10 +131,7 @@ impl PutAccountSuppressionAttributesFluentBuilder {
     /// <li>
     /// <p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a hard bounce.</p></li>
     /// </ul>
-    pub fn set_suppressed_reasons(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>,
-    ) -> Self {
+    pub fn set_suppressed_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SuppressionListReason>>) -> Self {
         self.inner = self.inner.set_suppressed_reasons(input);
         self
     }

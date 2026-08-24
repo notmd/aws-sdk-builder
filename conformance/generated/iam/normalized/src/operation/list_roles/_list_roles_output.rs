@@ -109,9 +109,7 @@ impl ListRolesOutputBuilder {
     /// Consumes the builder and constructs a [`ListRolesOutput`](crate::operation::list_roles::ListRolesOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`roles`](crate::operation::list_roles::builders::ListRolesOutputBuilder::roles)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::list_roles::ListRolesOutput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_roles::ListRolesOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_roles::ListRolesOutput {
             roles: self.roles.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

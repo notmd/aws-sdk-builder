@@ -59,10 +59,8 @@ impl PutAccountPropertiesInputBuilder {
     /// Consumes the builder and constructs a [`PutAccountPropertiesInput`](crate::operation::put_account_properties::PutAccountPropertiesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::put_account_properties::PutAccountPropertiesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::put_account_properties::PutAccountPropertiesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::put_account_properties::PutAccountPropertiesInput { properties: self.properties })
     }
 }

@@ -55,9 +55,7 @@ impl ::std::convert::From<&str> for ListAggregateLogGroupSummariesGroupBy {
         match s {
             "DATA_SOURCE_NAME_AND_TYPE" => ListAggregateLogGroupSummariesGroupBy::DataSourceNameAndType,
             "DATA_SOURCE_NAME_TYPE_AND_FORMAT" => ListAggregateLogGroupSummariesGroupBy::DataSourceNameTypeAndFormat,
-            other => {
-                ListAggregateLogGroupSummariesGroupBy::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => ListAggregateLogGroupSummariesGroupBy::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

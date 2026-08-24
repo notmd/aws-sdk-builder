@@ -100,10 +100,7 @@ impl GetBucketPolicyInputBuilder {
     /// Consumes the builder and constructs a [`GetBucketPolicyInput`](crate::operation::get_bucket_policy::GetBucketPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_bucket_policy::GetBucketPolicyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_bucket_policy::GetBucketPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_bucket_policy::GetBucketPolicyInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,

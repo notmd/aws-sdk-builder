@@ -80,11 +80,9 @@ impl PutUserPermissionsBoundaryInputBuilder {
         super::super::super::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryInput {
-                user_name: self.user_name,
-                permissions_boundary: self.permissions_boundary,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryInput {
+            user_name: self.user_name,
+            permissions_boundary: self.permissions_boundary,
+        })
     }
 }

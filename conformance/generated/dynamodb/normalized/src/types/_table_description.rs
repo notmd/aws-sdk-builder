@@ -1210,10 +1210,7 @@ impl TableDescriptionBuilder {
         self
     }
     /// <p>The witness Region and its current status in the MRSC global table. Only one witness Region can be configured per MRSC global table.</p>
-    pub fn set_global_table_witnesses(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::GlobalTableWitnessDescription>>,
-    ) -> Self {
+    pub fn set_global_table_witnesses(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GlobalTableWitnessDescription>>) -> Self {
         self.global_table_witnesses = input;
         self
     }

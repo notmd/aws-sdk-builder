@@ -15,7 +15,11 @@ pub fn de_respond_to_auth_challenge_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -136,9 +140,8 @@ pub fn de_respond_to_auth_challenge_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -152,9 +155,8 @@ pub fn de_respond_to_auth_challenge_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidPasswordExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_password_exception::de_invalid_password_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_password_exception::de_invalid_password_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -169,7 +171,12 @@ pub fn de_respond_to_auth_challenge_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(_response_body, output).map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -211,26 +218,22 @@ pub fn de_respond_to_auth_challenge_http_error(
                 tmp
             })
         }
-        "MFAMethodNotFoundException" => {
-            super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::MfaMethodNotFoundException({
+        "MFAMethodNotFoundException" => super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::MfaMethodNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::MfaMethodNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_mfa_method_not_found_exception::de_mfa_method_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::MfaMethodNotFoundExceptionBuilder::default();
+                output =
+                    super::super::protocol_serde::shape_mfa_method_not_found_exception::de_mfa_method_not_found_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "NotAuthorizedException" => super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::NotAuthorizedException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -246,26 +249,22 @@ pub fn de_respond_to_auth_challenge_http_error(
             }
             tmp
         }),
-        "OperationNotEnabledException" => {
-            super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::OperationNotEnabledException({
+        "OperationNotEnabledException" => super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::OperationNotEnabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "PasswordHistoryPolicyViolationException" => {
             super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::PasswordHistoryPolicyViolationException({
                 #[allow(unused_mut)]
@@ -307,11 +306,8 @@ pub fn de_respond_to_auth_challenge_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -326,7 +322,11 @@ pub fn de_respond_to_auth_challenge_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::SoftwareTokenMfaNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_software_token_mfa_not_found_exception::de_software_token_mfa_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
+                    output = super::super::protocol_serde::shape_software_token_mfa_not_found_exception::de_software_token_mfa_not_found_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -341,9 +341,8 @@ pub fn de_respond_to_auth_challenge_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -357,9 +356,8 @@ pub fn de_respond_to_auth_challenge_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
+                output = super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -368,36 +366,31 @@ pub fn de_respond_to_auth_challenge_http_error(
             }
             tmp
         }),
-        "UserLambdaValidationException" => {
-            super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::UserLambdaValidationException({
+        "UserLambdaValidationException" => super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::UserLambdaValidationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::UserLambdaValidationExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::UserLambdaValidationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_user_lambda_validation_exception::de_user_lambda_validation_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "UserNotConfirmedException" => super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::UserNotConfirmedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UserNotConfirmedExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
+                output = super::super::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::respond_to_auth_challenge::RespondToAuthChallengeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -469,33 +462,35 @@ pub(crate) fn de_respond_to_auth_challenge(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "ChallengeName" => {
-                    builder = builder.set_challenge_name(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::ChallengeNameType::from(u.as_ref())))
-                            .transpose()?,
-                    );
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "ChallengeName" => {
+                        builder = builder.set_challenge_name(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| super::super::types::ChallengeNameType::from(u.as_ref())))
+                                .transpose()?,
+                        );
+                    }
+                    "Session" => {
+                        builder = builder.set_session(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?,
+                        );
+                    }
+                    "ChallengeParameters" => {
+                        builder = builder.set_challenge_parameters(
+                            super::super::protocol_serde::shape_challenge_parameters_type::de_challenge_parameters_type(tokens, _value, depth + 1)?,
+                        );
+                    }
+                    "AuthenticationResult" => {
+                        builder = builder.set_authentication_result(
+                            super::super::protocol_serde::shape_authentication_result_type::de_authentication_result_type(tokens, _value, depth + 1)?,
+                        );
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                "Session" => {
-                    builder = builder.set_session(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "ChallengeParameters" => {
-                    builder = builder.set_challenge_parameters(
-                        super::super::protocol_serde::shape_challenge_parameters_type::de_challenge_parameters_type(tokens, _value, depth + 1)?,
-                    );
-                }
-                "AuthenticationResult" => {
-                    builder = builder.set_authentication_result(
-                        super::super::protocol_serde::shape_authentication_result_type::de_authentication_result_type(tokens, _value, depth + 1)?,
-                    );
-                }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

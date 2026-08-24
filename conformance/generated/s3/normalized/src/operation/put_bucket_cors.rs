@@ -200,14 +200,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for PutBuck
                 super::super::operation::put_bucket_cors::PutBucketCorsError,
             >::new())
             .with_retry_classifier(
-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::super::operation::put_bucket_cors::PutBucketCorsError>::builder(
-                )
-                .transient_errors({
-                    let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
-                    transient_errors.push("InternalError");
-                    ::std::borrow::Cow::Owned(transient_errors)
-                })
-                .build(),
+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<super::super::operation::put_bucket_cors::PutBucketCorsError>::builder()
+                    .transient_errors({
+                        let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
+                        transient_errors.push("InternalError");
+                        ::std::borrow::Cow::Owned(transient_errors)
+                    })
+                    .build(),
             );
 
         ::std::borrow::Cow::Owned(rcb)
@@ -280,8 +279,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for PutBucket
         let body = response.body().bytes().expect("body loaded");
         #[allow(unused_mut)]
         let mut force_error = false;
-        ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
-        if matches!(crate::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {
+        ::tracing::debug!(extended_request_id = ?super::super::s3_request_id::RequestIdExt::extended_request_id(response));
+        if matches!(super::super::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {
             force_error = true;
         }
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
@@ -342,9 +341,9 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PutBucketCor
             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(
-            super::super::protocol_serde::shape_put_bucket_cors_input::ser_cors_configuration_http_payload(&input.cors_configuration)?,
-        );
+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_put_bucket_cors_input::ser_cors_configuration_http_payload(
+            &input.cors_configuration,
+        )?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);

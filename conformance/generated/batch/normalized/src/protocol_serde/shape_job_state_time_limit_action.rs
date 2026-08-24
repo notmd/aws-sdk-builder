@@ -53,10 +53,7 @@ where
                         "state" => {
                             builder = builder.set_state(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| super::super::types::JobStateTimeLimitActionsState::from(u.as_ref()))
-                                    })
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::JobStateTimeLimitActionsState::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }
@@ -70,10 +67,7 @@ where
                         "action" => {
                             builder = builder.set_action(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| super::super::types::JobStateTimeLimitActionsAction::from(u.as_ref()))
-                                    })
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::JobStateTimeLimitActionsAction::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }

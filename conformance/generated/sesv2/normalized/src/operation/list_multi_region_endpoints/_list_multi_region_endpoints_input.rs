@@ -69,11 +69,9 @@ impl ListMultiRegionEndpointsInputBuilder {
         super::super::super::operation::list_multi_region_endpoints::ListMultiRegionEndpointsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_multi_region_endpoints::ListMultiRegionEndpointsInput {
-                next_token: self.next_token,
-                page_size: self.page_size,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_multi_region_endpoints::ListMultiRegionEndpointsInput {
+            next_token: self.next_token,
+            page_size: self.page_size,
+        })
     }
 }

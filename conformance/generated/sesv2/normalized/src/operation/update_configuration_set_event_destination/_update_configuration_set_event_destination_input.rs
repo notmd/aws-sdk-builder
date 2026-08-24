@@ -27,9 +27,7 @@ impl UpdateConfigurationSetEventDestinationInput {
 }
 impl UpdateConfigurationSetEventDestinationInput {
     /// Creates a new builder-style object to manufacture [`UpdateConfigurationSetEventDestinationInput`](crate::operation::update_configuration_set_event_destination::UpdateConfigurationSetEventDestinationInput).
-    pub fn builder(
-    ) -> super::super::super::operation::update_configuration_set_event_destination::builders::UpdateConfigurationSetEventDestinationInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::update_configuration_set_event_destination::builders::UpdateConfigurationSetEventDestinationInputBuilder {
         super::super::super::operation::update_configuration_set_event_destination::builders::UpdateConfigurationSetEventDestinationInputBuilder::default()
     }
 }

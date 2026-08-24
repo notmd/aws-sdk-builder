@@ -51,11 +51,7 @@ where
                             );
                         }
                         "content" => {
-                            builder = builder.set_content(super::super::protocol_serde::shape_content_blocks::de_content_blocks(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_content(super::super::protocol_serde::shape_content_blocks::de_content_blocks(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
@@ -66,9 +62,9 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::message_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::message_correct_errors(builder).build().map_err(|err| {
+                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
+            })?))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

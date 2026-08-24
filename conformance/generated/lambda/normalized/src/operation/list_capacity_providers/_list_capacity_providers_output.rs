@@ -89,10 +89,8 @@ impl ListCapacityProvidersOutputBuilder {
     /// - [`capacity_providers`](crate::operation::list_capacity_providers::builders::ListCapacityProvidersOutputBuilder::capacity_providers)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_capacity_providers::ListCapacityProvidersOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_capacity_providers::ListCapacityProvidersOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_capacity_providers::ListCapacityProvidersOutput {
             capacity_providers: self.capacity_providers.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

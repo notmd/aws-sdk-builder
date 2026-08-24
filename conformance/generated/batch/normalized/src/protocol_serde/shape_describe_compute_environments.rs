@@ -101,11 +101,7 @@ pub(crate) fn de_describe_compute_environments(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "computeEnvironments" => {
                     builder = builder.set_compute_environments(
-                        super::super::protocol_serde::shape_compute_environment_detail_list::de_compute_environment_detail_list(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_compute_environment_detail_list::de_compute_environment_detail_list(tokens, _value, depth + 1)?,
                     );
                 }
                 "nextToken" => {

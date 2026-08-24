@@ -23,8 +23,7 @@ where
                         break;
                     }
                     _ => {
-                        let value =
-                            super::super::protocol_serde::shape_citation_source_content::de_citation_source_content(tokens, _value, depth + 1)?;
+                        let value = super::super::protocol_serde::shape_citation_source_content::de_citation_source_content(tokens, _value, depth + 1)?;
                         if let Some(value) = value {
                             items.push(value);
                         } else {

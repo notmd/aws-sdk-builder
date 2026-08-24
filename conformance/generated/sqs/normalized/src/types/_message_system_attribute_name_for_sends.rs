@@ -51,9 +51,7 @@ impl ::std::convert::From<&str> for MessageSystemAttributeNameForSends {
     fn from(s: &str) -> Self {
         match s {
             "AWSTraceHeader" => MessageSystemAttributeNameForSends::AwsTraceHeader,
-            other => {
-                MessageSystemAttributeNameForSends::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => MessageSystemAttributeNameForSends::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

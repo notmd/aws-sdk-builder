@@ -755,9 +755,7 @@ impl HeadObjectInputBuilder {
         &self.checksum_mode
     }
     /// Consumes the builder and constructs a [`HeadObjectInput`](crate::operation::head_object::HeadObjectInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::head_object::HeadObjectInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::head_object::HeadObjectInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::head_object::HeadObjectInput {
             bucket: self.bucket,
             if_match: self.if_match,

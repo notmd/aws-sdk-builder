@@ -26,8 +26,7 @@ impl ListSourcesForS3TableIntegrationInput {
 }
 impl ListSourcesForS3TableIntegrationInput {
     /// Creates a new builder-style object to manufacture [`ListSourcesForS3TableIntegrationInput`](crate::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationInput).
-    pub fn builder() -> super::super::super::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationInputBuilder {
         super::super::super::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationInputBuilder::default()
     }
 }

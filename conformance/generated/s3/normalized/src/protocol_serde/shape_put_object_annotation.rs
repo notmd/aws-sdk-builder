@@ -16,11 +16,7 @@ pub fn de_put_object_annotation_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::put_object_annotation::PutObjectAnnotationError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::put_object_annotation::PutObjectAnnotationError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -433,10 +429,8 @@ pub fn ser_put_object_annotation_headers(
 pub fn de_put_object_annotation(
     inp: &[u8],
     mut builder: super::super::operation::put_object_annotation::builders::PutObjectAnnotationOutputBuilder,
-) -> std::result::Result<
-    super::super::operation::put_object_annotation::builders::PutObjectAnnotationOutputBuilder,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> std::result::Result<super::super::operation::put_object_annotation::builders::PutObjectAnnotationOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
+{
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

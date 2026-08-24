@@ -100,12 +100,10 @@ impl ListInstanceProfilesForRoleInputBuilder {
         super::super::super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleInput {
-                role_name: self.role_name,
-                marker: self.marker,
-                max_items: self.max_items,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleInput {
+            role_name: self.role_name,
+            marker: self.marker,
+            max_items: self.max_items,
+        })
     }
 }

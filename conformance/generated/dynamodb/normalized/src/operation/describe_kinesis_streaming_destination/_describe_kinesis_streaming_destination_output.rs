@@ -28,8 +28,7 @@ impl ::aws_types::request_id::RequestId for DescribeKinesisStreamingDestinationO
 }
 impl DescribeKinesisStreamingDestinationOutput {
     /// Creates a new builder-style object to manufacture [`DescribeKinesisStreamingDestinationOutput`](crate::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::describe_kinesis_streaming_destination::builders::DescribeKinesisStreamingDestinationOutputBuilder {
+    pub fn builder() -> super::super::super::operation::describe_kinesis_streaming_destination::builders::DescribeKinesisStreamingDestinationOutputBuilder {
         super::super::super::operation::describe_kinesis_streaming_destination::builders::DescribeKinesisStreamingDestinationOutputBuilder::default()
     }
 }
@@ -77,9 +76,7 @@ impl DescribeKinesisStreamingDestinationOutputBuilder {
         self
     }
     /// <p>The list of replica structures for the table being described.</p>
-    pub fn get_kinesis_data_stream_destinations(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::KinesisDataStreamDestination>> {
+    pub fn get_kinesis_data_stream_destinations(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::KinesisDataStreamDestination>> {
         &self.kinesis_data_stream_destinations
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

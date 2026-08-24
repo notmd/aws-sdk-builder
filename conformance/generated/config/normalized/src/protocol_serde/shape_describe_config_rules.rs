@@ -15,11 +15,7 @@ pub fn de_describe_config_rules_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::describe_config_rules::DescribeConfigRulesError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::describe_config_rules::DescribeConfigRulesError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -29,7 +25,22 @@ pub fn de_describe_config_rules_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(
+                output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::describe_config_rules::DescribeConfigRulesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "InvalidParameterValueException" => super::super::operation::describe_config_rules::DescribeConfigRulesError::InvalidParameterValueException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
                     _response_body,
                     output,
                 )
@@ -42,36 +53,14 @@ pub fn de_describe_config_rules_http_error(
             }
             tmp
         }),
-        "InvalidParameterValueException" => {
-            super::super::operation::describe_config_rules::DescribeConfigRulesError::InvalidParameterValueException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::describe_config_rules::DescribeConfigRulesError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
         "NoSuchConfigRuleException" => super::super::operation::describe_config_rules::DescribeConfigRulesError::NoSuchConfigRuleException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::NoSuchConfigRuleExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_no_such_config_rule_exception::de_no_such_config_rule_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::describe_config_rules::DescribeConfigRulesError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_no_such_config_rule_exception::de_no_such_config_rule_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::describe_config_rules::DescribeConfigRulesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -130,11 +119,7 @@ pub(crate) fn de_describe_config_rules(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "ConfigRules" => {
-                    builder = builder.set_config_rules(super::super::protocol_serde::shape_config_rules::de_config_rules(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_config_rules(super::super::protocol_serde::shape_config_rules::de_config_rules(tokens, _value, depth + 1)?);
                 }
                 "NextToken" => {
                     builder = builder.set_next_token(

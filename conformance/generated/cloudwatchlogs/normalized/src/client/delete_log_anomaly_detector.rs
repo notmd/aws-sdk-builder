@@ -6,9 +6,7 @@ impl super::Client {
     ///   - [`anomaly_detector_arn(impl Into<String>)`](crate::operation::delete_log_anomaly_detector::builders::DeleteLogAnomalyDetectorFluentBuilder::anomaly_detector_arn) / [`set_anomaly_detector_arn(Option<String>)`](crate::operation::delete_log_anomaly_detector::builders::DeleteLogAnomalyDetectorFluentBuilder::set_anomaly_detector_arn):<br>required: **true**<br><p>The ARN of the anomaly detector to delete. You can find the ARNs of log anomaly detectors in your account by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListLogAnomalyDetectors.html">ListLogAnomalyDetectors</a> operation.</p><br>
     /// - On success, responds with [`DeleteLogAnomalyDetectorOutput`](crate::operation::delete_log_anomaly_detector::DeleteLogAnomalyDetectorOutput)
     /// - On failure, responds with [`SdkError<DeleteLogAnomalyDetectorError>`](crate::operation::delete_log_anomaly_detector::DeleteLogAnomalyDetectorError)
-    pub fn delete_log_anomaly_detector(
-        &self,
-    ) -> super::super::operation::delete_log_anomaly_detector::builders::DeleteLogAnomalyDetectorFluentBuilder {
+    pub fn delete_log_anomaly_detector(&self) -> super::super::operation::delete_log_anomaly_detector::builders::DeleteLogAnomalyDetectorFluentBuilder {
         super::super::operation::delete_log_anomaly_detector::builders::DeleteLogAnomalyDetectorFluentBuilder::new(self.handle.clone())
     }
 }

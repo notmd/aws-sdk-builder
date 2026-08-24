@@ -89,10 +89,7 @@ impl ListServiceJobsOutputBuilder {
     /// - [`job_summary_list`](crate::operation::list_service_jobs::builders::ListServiceJobsOutputBuilder::job_summary_list)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_service_jobs::ListServiceJobsOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_service_jobs::ListServiceJobsOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_service_jobs::ListServiceJobsOutput {
             job_summary_list: self.job_summary_list.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

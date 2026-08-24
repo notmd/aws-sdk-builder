@@ -62,10 +62,7 @@ impl ServiceJobPreemptionSummaryBuilder {
         self
     }
     /// <p>A list of the most recent preemption attempts for the service job.</p>
-    pub fn set_recent_preempted_attempts(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::ServiceJobPreemptedAttempt>>,
-    ) -> Self {
+    pub fn set_recent_preempted_attempts(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::ServiceJobPreemptedAttempt>>) -> Self {
         self.recent_preempted_attempts = input;
         self
     }

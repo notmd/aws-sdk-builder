@@ -2,10 +2,7 @@
 pub fn de_payload_payload(
     body: &mut ::aws_smithy_types::body::SdkBody,
 ) -> std::result::Result<
-    super::super::event_receiver::EventReceiver<
-        super::super::types::SelectObjectContentEventStream,
-        super::super::types::error::SelectObjectContentEventStreamError,
-    >,
+    super::super::event_receiver::EventReceiver<super::super::types::SelectObjectContentEventStream, super::super::types::error::SelectObjectContentEventStreamError>,
     super::super::operation::select_object_content::SelectObjectContentError,
 > {
     let unmarshaller = super::super::event_stream_serde::SelectObjectContentEventStreamUnmarshaller::new();

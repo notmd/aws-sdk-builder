@@ -25,8 +25,7 @@ impl PutEmailIdentityFeedbackAttributesInput {
 }
 impl PutEmailIdentityFeedbackAttributesInput {
     /// Creates a new builder-style object to manufacture [`PutEmailIdentityFeedbackAttributesInput`](crate::operation::put_email_identity_feedback_attributes::PutEmailIdentityFeedbackAttributesInput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesInputBuilder {
+    pub fn builder() -> super::super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesInputBuilder {
         super::super::super::operation::put_email_identity_feedback_attributes::builders::PutEmailIdentityFeedbackAttributesInputBuilder::default()
     }
 }

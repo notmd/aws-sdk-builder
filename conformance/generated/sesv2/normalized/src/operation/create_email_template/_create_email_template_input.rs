@@ -96,10 +96,8 @@ impl CreateEmailTemplateInputBuilder {
     /// Consumes the builder and constructs a [`CreateEmailTemplateInput`](crate::operation::create_email_template::CreateEmailTemplateInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::create_email_template::CreateEmailTemplateInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::create_email_template::CreateEmailTemplateInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::create_email_template::CreateEmailTemplateInput {
             template_name: self.template_name,
             template_content: self.template_content,

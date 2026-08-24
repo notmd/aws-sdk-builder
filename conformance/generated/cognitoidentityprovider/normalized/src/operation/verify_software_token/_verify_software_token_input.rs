@@ -117,10 +117,8 @@ impl VerifySoftwareTokenInputBuilder {
     /// Consumes the builder and constructs a [`VerifySoftwareTokenInput`](crate::operation::verify_software_token::VerifySoftwareTokenInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::verify_software_token::VerifySoftwareTokenInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::verify_software_token::VerifySoftwareTokenInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::verify_software_token::VerifySoftwareTokenInput {
             access_token: self.access_token,
             session: self.session,

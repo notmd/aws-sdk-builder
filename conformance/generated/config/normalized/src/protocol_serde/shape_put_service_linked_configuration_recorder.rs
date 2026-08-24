@@ -16,70 +16,91 @@ pub fn de_put_service_linked_configuration_recorder_http_error(
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(
-                super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::unhandled(generic),
-            )
+            return Err(super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::unhandled(generic))
         }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "ConflictException" => super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::ConflictException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "ConflictException" => {
+            super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::ConflictException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InsufficientPermissionsException" => super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::InsufficientPermissionsException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(
+                        super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::unhandled,
+                    )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InsufficientPermissionsException" => {
+            super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::InsufficientPermissionsException(
+                {
+                    #[allow(unused_mut)]
+                    let mut tmp = {
+                        #[allow(unused_mut)]
+                        let mut output = super::super::types::error::builders::InsufficientPermissionsExceptionBuilder::default();
+                        output = super::super::protocol_serde::shape_insufficient_permissions_exception::de_insufficient_permissions_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(
+                            super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::unhandled,
+                        )?;
+                        let output = output.meta(generic);
+                        output.build()
+                    };
+                    if tmp.message.is_none() {
+                        tmp.message = _error_message;
+                    }
+                    tmp
+                },
+            )
+        }
+        "LimitExceededException" => {
+            super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::LimitExceededException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InsufficientPermissionsExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_insufficient_permissions_exception::de_insufficient_permissions_exception_json_err(_response_body, output).map_err(super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "LimitExceededException" => super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::LimitExceededException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
+                        .map_err(
+                            super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ValidationException" => {
+            super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::ValidationException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ValidationException" => super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::ValidationException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(
+                        super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::unhandled,
+                    )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => super::super::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderError::generic(generic),
     })
 }
@@ -96,8 +117,7 @@ pub fn de_put_service_linked_configuration_recorder_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output =
-            super::super::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderOutputBuilder::default(
-            );
+            super::super::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderOutputBuilder::default();
         output = super::super::protocol_serde::shape_put_service_linked_configuration_recorder::de_put_service_linked_configuration_recorder(
             _response_body,
             output,

@@ -108,10 +108,7 @@ impl SubmitServiceJobOutputBuilder {
     /// - [`job_id`](crate::operation::submit_service_job::builders::SubmitServiceJobOutputBuilder::job_id)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::submit_service_job::SubmitServiceJobOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::submit_service_job::SubmitServiceJobOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::submit_service_job::SubmitServiceJobOutput {
             job_arn: self.job_arn,
             job_name: self.job_name.ok_or_else(|| {

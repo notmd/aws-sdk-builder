@@ -124,14 +124,12 @@ impl AdminUpdateAuthEventFeedbackInputBuilder {
         super::super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackInput {
-                user_pool_id: self.user_pool_id,
-                username: self.username,
-                event_id: self.event_id,
-                feedback_value: self.feedback_value,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackInput {
+            user_pool_id: self.user_pool_id,
+            username: self.username,
+            event_id: self.event_id,
+            feedback_value: self.feedback_value,
+        })
     }
 }
 impl ::std::fmt::Debug for AdminUpdateAuthEventFeedbackInputBuilder {

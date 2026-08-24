@@ -34,8 +34,7 @@ impl ::aws_types::request_id::RequestId for DescribeConformancePackComplianceOut
 }
 impl DescribeConformancePackComplianceOutput {
     /// Creates a new builder-style object to manufacture [`DescribeConformancePackComplianceOutput`](crate::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceOutput).
-    pub fn builder() -> super::super::super::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceOutputBuilder {
         super::super::super::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceOutputBuilder::default()
     }
 }
@@ -45,8 +44,7 @@ impl DescribeConformancePackComplianceOutput {
 #[non_exhaustive]
 pub struct DescribeConformancePackComplianceOutputBuilder {
     pub(crate) conformance_pack_name: ::std::option::Option<::std::string::String>,
-    pub(crate) conformance_pack_rule_compliance_list:
-        ::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackRuleCompliance>>,
+    pub(crate) conformance_pack_rule_compliance_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackRuleCompliance>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -86,9 +84,7 @@ impl DescribeConformancePackComplianceOutputBuilder {
         self
     }
     /// <p>Returns a list of <code>ConformancePackRuleCompliance</code> objects.</p>
-    pub fn get_conformance_pack_rule_compliance_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackRuleCompliance>> {
+    pub fn get_conformance_pack_rule_compliance_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackRuleCompliance>> {
         &self.conformance_pack_rule_compliance_list
     }
     /// <p>The <code>nextToken</code> string returned in a previous request that you use to request the next page of results in a paginated response.</p>

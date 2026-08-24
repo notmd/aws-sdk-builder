@@ -26,11 +26,9 @@ pub fn de_change_message_visibility_batch_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::BatchEntryIdsNotDistinctBuilder::default();
-                    output = super::super::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_batch_entry_ids_not_distinct::de_batch_entry_ids_not_distinct_json_err(_response_body, output)
+                            .map_err(super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -150,23 +148,21 @@ pub fn de_change_message_visibility_batch_http_error(
                 tmp
             })
         }
-        "UnsupportedOperation" => {
-            super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::UnsupportedOperation({
+        "UnsupportedOperation" => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::UnsupportedOperation({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::UnsupportedOperationBuilder::default();
-                    output = super::super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
-                        .map_err(super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::UnsupportedOperationBuilder::default();
+                output = super::super::protocol_serde::shape_unsupported_operation::de_unsupported_operation_json_err(_response_body, output)
+                    .map_err(super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchError::generic(generic),
     })
 }
@@ -223,11 +219,7 @@ pub(crate) fn de_change_message_visibility_batch(
                 }
                 "Failed" => {
                     builder = builder.set_failed(
-                        super::super::protocol_serde::shape_batch_result_error_entry_list::de_batch_result_error_entry_list(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_batch_result_error_entry_list::de_batch_result_error_entry_list(tokens, _value, depth + 1)?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

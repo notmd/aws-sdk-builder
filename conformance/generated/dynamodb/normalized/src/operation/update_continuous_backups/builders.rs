@@ -130,10 +130,7 @@ impl UpdateContinuousBackupsFluentBuilder {
         self
     }
     /// <p>Represents the settings used to enable point in time recovery.</p>
-    pub fn set_point_in_time_recovery_specification(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::PointInTimeRecoverySpecification>,
-    ) -> Self {
+    pub fn set_point_in_time_recovery_specification(mut self, input: ::std::option::Option<super::super::super::types::PointInTimeRecoverySpecification>) -> Self {
         self.inner = self.inner.set_point_in_time_recovery_specification(input);
         self
     }

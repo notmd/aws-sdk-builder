@@ -14,8 +14,7 @@ impl DeleteOrganizationConformancePackInput {
 }
 impl DeleteOrganizationConformancePackInput {
     /// Creates a new builder-style object to manufacture [`DeleteOrganizationConformancePackInput`](crate::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackInput).
-    pub fn builder() -> super::super::super::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackInputBuilder {
         super::super::super::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackInputBuilder::default()
     }
 }

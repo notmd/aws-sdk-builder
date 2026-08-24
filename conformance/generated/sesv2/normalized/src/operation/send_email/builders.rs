@@ -37,20 +37,14 @@ pub struct SendEmailFluentBuilder {
     inner: super::super::super::operation::send_email::builders::SendEmailInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::send_email::SendEmailOutput,
-        super::super::super::operation::send_email::SendEmailError,
-    > for SendEmailFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::send_email::SendEmailOutput, super::super::super::operation::send_email::SendEmailError>
+    for SendEmailFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::send_email::SendEmailOutput,
-            super::super::super::operation::send_email::SendEmailError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::send_email::SendEmailOutput, super::super::super::operation::send_email::SendEmailError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }

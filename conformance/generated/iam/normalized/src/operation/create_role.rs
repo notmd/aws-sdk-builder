@@ -240,9 +240,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for CreateRoleRe
         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
-        let input = input
-            .downcast::<super::super::operation::create_role::CreateRoleInput>()
-            .expect("correct type");
+        let input = input.downcast::<super::super::operation::create_role::CreateRoleInput>().expect("correct type");
         let _header_serialization_settings = _cfg
             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
             .cloned()

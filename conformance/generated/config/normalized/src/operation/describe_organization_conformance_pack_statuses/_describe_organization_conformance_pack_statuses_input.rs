@@ -28,8 +28,10 @@ impl DescribeOrganizationConformancePackStatusesInput {
 }
 impl DescribeOrganizationConformancePackStatusesInput {
     /// Creates a new builder-style object to manufacture [`DescribeOrganizationConformancePackStatusesInput`](crate::operation::describe_organization_conformance_pack_statuses::DescribeOrganizationConformancePackStatusesInput).
-    pub fn builder() -> super::super::super::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesInputBuilder{
-        super::super::super::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesInputBuilder::default()
+    pub fn builder(
+    ) -> super::super::super::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesInputBuilder {
+        super::super::super::operation::describe_organization_conformance_pack_statuses::builders::DescribeOrganizationConformancePackStatusesInputBuilder::default(
+        )
     }
 }
 

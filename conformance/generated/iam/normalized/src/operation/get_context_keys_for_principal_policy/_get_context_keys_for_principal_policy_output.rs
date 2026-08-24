@@ -23,8 +23,7 @@ impl ::aws_types::request_id::RequestId for GetContextKeysForPrincipalPolicyOutp
 }
 impl GetContextKeysForPrincipalPolicyOutput {
     /// Creates a new builder-style object to manufacture [`GetContextKeysForPrincipalPolicyOutput`](crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyOutput).
-    pub fn builder() -> super::super::super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyOutputBuilder {
         super::super::super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyOutputBuilder::default()
     }
 }

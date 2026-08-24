@@ -15,7 +15,11 @@ pub fn de_list_versions_by_function_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::list_versions_by_function::ListVersionsByFunctionError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::list_versions_by_function::ListVersionsByFunctionError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -45,11 +49,8 @@ pub fn de_list_versions_by_function_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::list_versions_by_function::ListVersionsByFunctionError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_versions_by_function::ListVersionsByFunctionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -78,9 +79,8 @@ pub fn de_list_versions_by_function_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::list_versions_by_function::ListVersionsByFunctionError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_versions_by_function::ListVersionsByFunctionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -146,11 +146,7 @@ pub(crate) fn de_list_versions_by_function(
                     );
                 }
                 "Versions" => {
-                    builder = builder.set_versions(super::super::protocol_serde::shape_function_list::de_function_list(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_versions(super::super::protocol_serde::shape_function_list::de_function_list(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

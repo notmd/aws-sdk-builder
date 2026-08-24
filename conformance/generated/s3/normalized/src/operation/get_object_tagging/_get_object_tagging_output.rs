@@ -105,10 +105,7 @@ impl GetObjectTaggingOutputBuilder {
     /// - [`tag_set`](crate::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder::tag_set)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_object_tagging::GetObjectTaggingOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_object_tagging::GetObjectTaggingOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_object_tagging::GetObjectTaggingOutput {
             version_id: self.version_id,
             tag_set: self.tag_set.ok_or_else(|| {

@@ -73,10 +73,7 @@ impl TestMetricFilterInputBuilder {
     /// Consumes the builder and constructs a [`TestMetricFilterInput`](crate::operation::test_metric_filter::TestMetricFilterInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::test_metric_filter::TestMetricFilterInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::test_metric_filter::TestMetricFilterInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::test_metric_filter::TestMetricFilterInput {
             filter_pattern: self.filter_pattern,
             log_event_messages: self.log_event_messages,

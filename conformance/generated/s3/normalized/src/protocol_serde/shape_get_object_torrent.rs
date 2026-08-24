@@ -2,10 +2,7 @@
 #[allow(clippy::unnecessary_wraps)]
 pub fn de_get_object_torrent_http_response(
     response: &mut ::aws_smithy_runtime_api::http::Response,
-) -> std::result::Result<
-    super::super::operation::get_object_torrent::GetObjectTorrentOutput,
-    super::super::operation::get_object_torrent::GetObjectTorrentError,
-> {
+) -> std::result::Result<super::super::operation::get_object_torrent::GetObjectTorrentOutput, super::super::operation::get_object_torrent::GetObjectTorrentError> {
     let mut _response_body = ::aws_smithy_types::body::SdkBody::taken();
     std::mem::swap(&mut _response_body, response.body_mut());
     let _response_body = &mut _response_body;
@@ -36,10 +33,7 @@ pub fn de_get_object_torrent_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::get_object_torrent::GetObjectTorrentOutput,
-    super::super::operation::get_object_torrent::GetObjectTorrentError,
-> {
+) -> std::result::Result<super::super::operation::get_object_torrent::GetObjectTorrentOutput, super::super::operation::get_object_torrent::GetObjectTorrentError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::get_object_torrent::GetObjectTorrentError::unhandled)?;

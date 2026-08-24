@@ -11,8 +11,6 @@ impl super::Client {
     pub fn delete_bucket_analytics_configuration(
         &self,
     ) -> super::super::operation::delete_bucket_analytics_configuration::builders::DeleteBucketAnalyticsConfigurationFluentBuilder {
-        super::super::operation::delete_bucket_analytics_configuration::builders::DeleteBucketAnalyticsConfigurationFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::delete_bucket_analytics_configuration::builders::DeleteBucketAnalyticsConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

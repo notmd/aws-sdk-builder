@@ -76,9 +76,7 @@ impl TagRoleInputBuilder {
         &self.tags
     }
     /// Consumes the builder and constructs a [`TagRoleInput`](crate::operation::tag_role::TagRoleInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::tag_role::TagRoleInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::tag_role::TagRoleInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::tag_role::TagRoleInput {
             role_name: self.role_name,
             tags: self.tags,

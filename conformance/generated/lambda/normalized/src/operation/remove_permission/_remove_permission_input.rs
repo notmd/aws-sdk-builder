@@ -158,10 +158,7 @@ impl RemovePermissionInputBuilder {
     /// Consumes the builder and constructs a [`RemovePermissionInput`](crate::operation::remove_permission::RemovePermissionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::remove_permission::RemovePermissionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::remove_permission::RemovePermissionInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::remove_permission::RemovePermissionInput {
             function_name: self.function_name,
             statement_id: self.statement_id,

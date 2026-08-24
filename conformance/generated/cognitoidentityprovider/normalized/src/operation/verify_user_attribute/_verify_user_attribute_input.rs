@@ -98,10 +98,8 @@ impl VerifyUserAttributeInputBuilder {
     /// Consumes the builder and constructs a [`VerifyUserAttributeInput`](crate::operation::verify_user_attribute::VerifyUserAttributeInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::verify_user_attribute::VerifyUserAttributeInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::verify_user_attribute::VerifyUserAttributeInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::verify_user_attribute::VerifyUserAttributeInput {
             access_token: self.access_token,
             attribute_name: self.attribute_name,

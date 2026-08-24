@@ -168,10 +168,7 @@ impl PutMetricFilterFluentBuilder {
         self
     }
     /// <p>A collection of information that defines how metric data gets emitted.</p>
-    pub fn set_metric_transformations(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MetricTransformation>>,
-    ) -> Self {
+    pub fn set_metric_transformations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MetricTransformation>>) -> Self {
         self.inner = self.inner.set_metric_transformations(input);
         self
     }

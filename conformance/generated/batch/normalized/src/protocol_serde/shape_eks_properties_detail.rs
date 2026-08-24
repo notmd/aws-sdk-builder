@@ -23,11 +23,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "podProperties" => {
                             builder = builder.set_pod_properties(
-                                super::super::protocol_serde::shape_eks_pod_properties_detail::de_eks_pod_properties_detail(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_eks_pod_properties_detail::de_eks_pod_properties_detail(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

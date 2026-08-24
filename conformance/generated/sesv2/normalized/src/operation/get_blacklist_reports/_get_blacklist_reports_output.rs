@@ -10,9 +10,7 @@ pub struct GetBlacklistReportsOutput {
 }
 impl GetBlacklistReportsOutput {
     /// <p>An object that contains information about a blacklist that one of your dedicated IP addresses appears on.</p>
-    pub fn blacklist_report(
-        &self,
-    ) -> &::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::super::types::BlacklistEntry>> {
+    pub fn blacklist_report(&self) -> &::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::super::types::BlacklistEntry>> {
         &self.blacklist_report
     }
 }
@@ -42,11 +40,7 @@ impl GetBlacklistReportsOutputBuilder {
     /// To override the contents of this collection use [`set_blacklist_report`](Self::set_blacklist_report).
     ///
     /// <p>An object that contains information about a blacklist that one of your dedicated IP addresses appears on.</p>
-    pub fn blacklist_report(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: ::std::vec::Vec<super::super::super::types::BlacklistEntry>,
-    ) -> Self {
+    pub fn blacklist_report(mut self, k: impl ::std::convert::Into<::std::string::String>, v: ::std::vec::Vec<super::super::super::types::BlacklistEntry>) -> Self {
         let mut hash_map = self.blacklist_report.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.blacklist_report = ::std::option::Option::Some(hash_map);
@@ -80,10 +74,8 @@ impl GetBlacklistReportsOutputBuilder {
     /// - [`blacklist_report`](crate::operation::get_blacklist_reports::builders::GetBlacklistReportsOutputBuilder::blacklist_report)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_blacklist_reports::GetBlacklistReportsOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_blacklist_reports::GetBlacklistReportsOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_blacklist_reports::GetBlacklistReportsOutput {
             blacklist_report: self.blacklist_report.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

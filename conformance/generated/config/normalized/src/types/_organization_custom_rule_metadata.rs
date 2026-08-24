@@ -285,9 +285,7 @@ impl OrganizationCustomRuleMetadataBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`lambda_function_arn`](crate::types::builders::OrganizationCustomRuleMetadataBuilder::lambda_function_arn)
     /// - [`organization_config_rule_trigger_types`](crate::types::builders::OrganizationCustomRuleMetadataBuilder::organization_config_rule_trigger_types)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::OrganizationCustomRuleMetadata, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::OrganizationCustomRuleMetadata, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::OrganizationCustomRuleMetadata {
             description: self.description,
             lambda_function_arn: self.lambda_function_arn.ok_or_else(|| {

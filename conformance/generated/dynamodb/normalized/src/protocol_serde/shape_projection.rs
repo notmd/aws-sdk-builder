@@ -49,11 +49,7 @@ where
                         }
                         "NonKeyAttributes" => {
                             builder = builder.set_non_key_attributes(
-                                super::super::protocol_serde::shape_non_key_attribute_name_list::de_non_key_attribute_name_list(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_non_key_attribute_name_list::de_non_key_attribute_name_list(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

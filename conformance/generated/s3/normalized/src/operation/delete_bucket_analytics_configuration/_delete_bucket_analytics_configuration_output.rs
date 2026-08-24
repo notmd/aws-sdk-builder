@@ -18,8 +18,7 @@ impl ::aws_types::request_id::RequestId for DeleteBucketAnalyticsConfigurationOu
 }
 impl DeleteBucketAnalyticsConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketAnalyticsConfigurationOutput`](crate::operation::delete_bucket_analytics_configuration::DeleteBucketAnalyticsConfigurationOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::delete_bucket_analytics_configuration::builders::DeleteBucketAnalyticsConfigurationOutputBuilder {
+    pub fn builder() -> super::super::super::operation::delete_bucket_analytics_configuration::builders::DeleteBucketAnalyticsConfigurationOutputBuilder {
         super::super::super::operation::delete_bucket_analytics_configuration::builders::DeleteBucketAnalyticsConfigurationOutputBuilder::default()
     }
 }

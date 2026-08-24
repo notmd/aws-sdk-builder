@@ -158,10 +158,8 @@ impl CreatePackageGroupInputBuilder {
     /// Consumes the builder and constructs a [`CreatePackageGroupInput`](crate::operation::create_package_group::CreatePackageGroupInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::create_package_group::CreatePackageGroupInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::create_package_group::CreatePackageGroupInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::create_package_group::CreatePackageGroupInput {
             domain: self.domain,
             domain_owner: self.domain_owner,

@@ -49,10 +49,8 @@ impl DeletePlatformApplicationInputBuilder {
         super::super::super::operation::delete_platform_application::DeletePlatformApplicationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_platform_application::DeletePlatformApplicationInput {
-                platform_application_arn: self.platform_application_arn,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_platform_application::DeletePlatformApplicationInput {
+            platform_application_arn: self.platform_application_arn,
+        })
     }
 }

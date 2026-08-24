@@ -20,21 +20,25 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "quotaShares" => {
-                                builder = builder.set_quota_shares(super::super::protocol_serde::shape_front_of_quota_shares_job_summary_map::de_front_of_quota_shares_job_summary_map(tokens, _value, depth + 1)?);
-                            }
-                            "lastUpdatedAt" => {
-                                builder = builder.set_last_updated_at(
-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                                        .map(i64::try_from)
-                                        .transpose()?,
-                                );
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "quotaShares" => {
+                            builder = builder.set_quota_shares(
+                                super::super::protocol_serde::shape_front_of_quota_shares_job_summary_map::de_front_of_quota_shares_job_summary_map(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
                         }
-                    }
+                        "lastUpdatedAt" => {
+                            builder = builder.set_last_updated_at(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i64::try_from)
+                                    .transpose()?,
+                            );
+                        }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

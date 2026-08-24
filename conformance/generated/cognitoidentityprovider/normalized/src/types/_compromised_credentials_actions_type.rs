@@ -45,9 +45,7 @@ impl CompromisedCredentialsActionsTypeBuilder {
     /// Consumes the builder and constructs a [`CompromisedCredentialsActionsType`](crate::types::CompromisedCredentialsActionsType).
     /// This method will fail if any of the following fields are not set:
     /// - [`event_action`](crate::types::builders::CompromisedCredentialsActionsTypeBuilder::event_action)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::CompromisedCredentialsActionsType, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::CompromisedCredentialsActionsType, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::CompromisedCredentialsActionsType {
             event_action: self.event_action.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -110,9 +110,7 @@ pub fn de_put_object_http_response(
         );
         output = output.set_checksum_crc64_nvme(
             super::super::protocol_serde::shape_put_object_output::de_checksum_crc64_nvme_header(_response_headers).map_err(|_| {
-                super::super::operation::put_object::PutObjectError::unhandled(
-                    "Failed to parse ChecksumCRC64NVME from header `x-amz-checksum-crc64nvme",
-                )
+                super::super::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumCRC64NVME from header `x-amz-checksum-crc64nvme")
             })?,
         );
         output = output.set_checksum_md5(
@@ -142,9 +140,7 @@ pub fn de_put_object_http_response(
         );
         output = output.set_checksum_xxhash128(
             super::super::protocol_serde::shape_put_object_output::de_checksum_xxhash128_header(_response_headers).map_err(|_| {
-                super::super::operation::put_object::PutObjectError::unhandled(
-                    "Failed to parse ChecksumXXHASH128 from header `x-amz-checksum-xxhash128",
-                )
+                super::super::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumXXHASH128 from header `x-amz-checksum-xxhash128")
             })?,
         );
         output = output.set_checksum_xxhash3(
@@ -154,9 +150,7 @@ pub fn de_put_object_http_response(
         );
         output = output.set_checksum_xxhash64(
             super::super::protocol_serde::shape_put_object_output::de_checksum_xxhash64_header(_response_headers).map_err(|_| {
-                super::super::operation::put_object::PutObjectError::unhandled(
-                    "Failed to parse ChecksumXXHASH64 from header `x-amz-checksum-xxhash64",
-                )
+                super::super::operation::put_object::PutObjectError::unhandled("Failed to parse ChecksumXXHASH64 from header `x-amz-checksum-xxhash64")
             })?,
         );
         output = output.set_e_tag(
@@ -164,9 +158,8 @@ pub fn de_put_object_http_response(
                 .map_err(|_| super::super::operation::put_object::PutObjectError::unhandled("Failed to parse ETag from header `ETag"))?,
         );
         output = output.set_expiration(
-            super::super::protocol_serde::shape_put_object_output::de_expiration_header(_response_headers).map_err(|_| {
-                super::super::operation::put_object::PutObjectError::unhandled("Failed to parse Expiration from header `x-amz-expiration")
-            })?,
+            super::super::protocol_serde::shape_put_object_output::de_expiration_header(_response_headers)
+                .map_err(|_| super::super::operation::put_object::PutObjectError::unhandled("Failed to parse Expiration from header `x-amz-expiration"))?,
         );
         output = output.set_request_charged(
             super::super::protocol_serde::shape_put_object_output::de_request_charged_header(_response_headers).map_err(|_| {
@@ -213,9 +206,8 @@ pub fn de_put_object_http_response(
                 .map_err(|_| super::super::operation::put_object::PutObjectError::unhandled("Failed to parse Size from header `x-amz-object-size"))?,
         );
         output = output.set_version_id(
-            super::super::protocol_serde::shape_put_object_output::de_version_id_header(_response_headers).map_err(|_| {
-                super::super::operation::put_object::PutObjectError::unhandled("Failed to parse VersionId from header `x-amz-version-id")
-            })?,
+            super::super::protocol_serde::shape_put_object_output::de_version_id_header(_response_headers)
+                .map_err(|_| super::super::operation::put_object::PutObjectError::unhandled("Failed to parse VersionId from header `x-amz-version-id"))?,
         );
         output._set_extended_request_id(super::super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));

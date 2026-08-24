@@ -9,21 +9,27 @@ full audit trail.
 - Changed: each generated service now has one canonical `original.rs` artifact under
   `generated/<service>/` and each conformance snapshot has the corresponding
   `conformance/generated/<service>/original.rs`. Provider `include_sdk!()` macros
-  consume the canonical artifact, while conformance derives its normalized physical
-  module tree from that same source. Consumer/conformance renderer flags and the
-  obsolete consumer renderer paths were removed.
+  load that artifact through a generated module loader, while conformance derives its
+  normalized physical module tree from the same source. Consumer/conformance renderer
+  flags and the obsolete consumer renderer paths were removed. The example consumers
+  use Rust edition 2024; generated reference projections retain the pinned 2021
+  rustfmt layout for conformance.
 - Evidence: canonical composition/splitting is syntax-aware, preserves module
   attributes and documentation, rewrites `crate::` paths for projections, handles
-  Unicode source spans, and materializes nested modules in descending source-offset
-  order. Canonical and normalization tests pass; the pinned Smithy-RS reference is
-  `/tmp/smithy-rs` at `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+  Unicode source spans, rewrites `crate::` paths in ordinary and macro tokens, and
+  materializes nested modules in descending source-offset order. Canonical and
+  normalization tests pass; the pinned Smithy-RS reference is `/tmp/smithy-rs` at
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
 - Conformance: `just conformance` generated 15 services and 1,133 operations,
-  compared 13,301 files, and matched 7,787 (57.45% average): 4,655 mismatches,
-  725 missing, and 134 extra. It exits 1 because broader generator parity remains
-  incomplete.
-- Verification: `cargo check -p aws-sdk-builder`, focused canonical and normalization
-  tests, formatting, and `git diff --check` pass. Full workspace tests and clippy are
-  the remaining final verification steps for this checkpoint.
+  compared 13,301 files, and matched 10,628 (77.18% average): 1,815 mismatches,
+  724 missing, and 134 extra. S3 is exact at 1,281/1,281. Coverage recovered from
+  the intermediate 8,991-match run after refreshing the reference normalization
+  patches, and remains at the recorded 10,628-match checkpoint. It exits 1 because
+  broader generator parity remains incomplete.
+- Verification: both example consumers compile under edition 2024; focused canonical
+  and normalization tests pass; the mandatory conformance regeneration completed.
+  Full workspace tests, clippy, and final diff checks are the remaining verification
+  steps for this checkpoint.
 - Blocker: remaining conformance differences are generator parity gaps, not canonical
   artifact ownership or normalization projection.
 - Next action: run the complete workspace verification suite and inspect the final

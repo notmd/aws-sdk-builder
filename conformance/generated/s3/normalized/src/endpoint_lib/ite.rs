@@ -90,7 +90,7 @@ impl<T> Ite for &(&T, &T) {
 
 macro_rules! ite {
     ($b:expr, $true_val:expr, $false_val:expr) => {{
-        use crate::endpoint_lib::ite::Ite;
+        use super::super::endpoint_lib::ite::Ite;
         let b = $b;
         let true_val = $true_val;
         let false_val = $false_val;

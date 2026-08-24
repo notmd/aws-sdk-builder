@@ -59,7 +59,8 @@ impl ::aws_types::request_id::RequestId for GetServiceLastAccessedDetailsWithEnt
 }
 impl GetServiceLastAccessedDetailsWithEntitiesOutput {
     /// Creates a new builder-style object to manufacture [`GetServiceLastAccessedDetailsWithEntitiesOutput`](crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesOutput).
-    pub fn builder() -> super::super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesOutputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesOutputBuilder {
         super::super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesOutputBuilder::default()
     }
 }

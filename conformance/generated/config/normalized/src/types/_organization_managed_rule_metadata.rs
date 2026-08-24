@@ -211,9 +211,7 @@ impl OrganizationManagedRuleMetadataBuilder {
     /// Consumes the builder and constructs a [`OrganizationManagedRuleMetadata`](crate::types::OrganizationManagedRuleMetadata).
     /// This method will fail if any of the following fields are not set:
     /// - [`rule_identifier`](crate::types::builders::OrganizationManagedRuleMetadataBuilder::rule_identifier)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::OrganizationManagedRuleMetadata, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::OrganizationManagedRuleMetadata, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::OrganizationManagedRuleMetadata {
             description: self.description,
             rule_identifier: self.rule_identifier.ok_or_else(|| {

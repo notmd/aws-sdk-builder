@@ -143,10 +143,7 @@ impl PutBucketEncryptionInputBuilder {
         self
     }
     /// <p>Specifies the default server-side-encryption configuration.</p>
-    pub fn set_server_side_encryption_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::ServerSideEncryptionConfiguration>,
-    ) -> Self {
+    pub fn set_server_side_encryption_configuration(mut self, input: ::std::option::Option<super::super::super::types::ServerSideEncryptionConfiguration>) -> Self {
         self.server_side_encryption_configuration = input;
         self
     }
@@ -177,10 +174,8 @@ impl PutBucketEncryptionInputBuilder {
     /// Consumes the builder and constructs a [`PutBucketEncryptionInput`](crate::operation::put_bucket_encryption::PutBucketEncryptionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::put_bucket_encryption::PutBucketEncryptionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::put_bucket_encryption::PutBucketEncryptionInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::put_bucket_encryption::PutBucketEncryptionInput {
             bucket: self.bucket,
             content_md5: self.content_md5,

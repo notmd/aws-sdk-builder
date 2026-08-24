@@ -20,52 +20,29 @@ pub fn de_admin_update_auth_event_feedback_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InternalErrorException" => {
-            super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::InternalErrorException({
+        "InternalErrorException" => super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::InternalErrorException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidParameterException" => {
             super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::InvalidParameterException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "NotAuthorizedException" => {
-            super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::NotAuthorizedException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::NotAuthorizedExceptionBuilder::default();
                     output =
-                        super::super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
+                        super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                             .map_err(super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
@@ -76,6 +53,21 @@ pub fn de_admin_update_auth_event_feedback_http_error(
                 tmp
             })
         }
+        "NotAuthorizedException" => super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::NotAuthorizedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::NotAuthorizedExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "OperationNotEnabledException" => {
             super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::OperationNotEnabledException({
                 #[allow(unused_mut)]
@@ -102,11 +94,9 @@ pub fn de_admin_update_auth_event_feedback_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -122,28 +112,8 @@ pub fn de_admin_update_auth_event_feedback_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "UserNotFoundException" => {
-            super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::UserNotFoundException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::UserNotFoundExceptionBuilder::default();
                     output =
-                        super::super::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                             .map_err(super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
@@ -154,13 +124,32 @@ pub fn de_admin_update_auth_event_feedback_http_error(
                 tmp
             })
         }
+        "UserNotFoundException" => super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::UserNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::UserNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_user_not_found_exception::de_user_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "UserPoolAddOnNotEnabledException" => {
             super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::UserPoolAddOnNotEnabledException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::UserPoolAddOnNotEnabledExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_user_pool_add_on_not_enabled_exception::de_user_pool_add_on_not_enabled_exception_json_err(_response_body, output).map_err(super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::unhandled)?;
+                    output = super::super::protocol_serde::shape_user_pool_add_on_not_enabled_exception::de_user_pool_add_on_not_enabled_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::admin_update_auth_event_feedback::AdminUpdateAuthEventFeedbackError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };

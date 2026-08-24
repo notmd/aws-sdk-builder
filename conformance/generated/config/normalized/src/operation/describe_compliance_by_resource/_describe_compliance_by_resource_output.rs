@@ -55,10 +55,7 @@ impl DescribeComplianceByResourceOutputBuilder {
         self
     }
     /// <p>Indicates whether the specified Amazon Web Services resource complies with all of the Config rules that evaluate it.</p>
-    pub fn set_compliance_by_resources(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComplianceByResource>>,
-    ) -> Self {
+    pub fn set_compliance_by_resources(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComplianceByResource>>) -> Self {
         self.compliance_by_resources = input;
         self
     }

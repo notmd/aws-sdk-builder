@@ -32,10 +32,7 @@ impl BucketExistsFluentBuilder {
     pub async fn wait(
         self,
         max_wait: ::std::time::Duration,
-    ) -> ::std::result::Result<
-        super::super::waiters::bucket_exists::BucketExistsFinalPoll,
-        super::super::waiters::bucket_exists::WaitUntilBucketExistsError,
-    > {
+    ) -> ::std::result::Result<super::super::waiters::bucket_exists::BucketExistsFinalPoll, super::super::waiters::bucket_exists::WaitUntilBucketExistsError> {
         let input = self
             .inner
             .build()

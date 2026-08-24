@@ -164,9 +164,7 @@ impl DeliverySourceConfigurationSchemaBuilder {
     /// - [`key_name`](crate::types::builders::DeliverySourceConfigurationSchemaBuilder::key_name)
     /// - [`value_type`](crate::types::builders::DeliverySourceConfigurationSchemaBuilder::value_type)
     /// - [`default_value`](crate::types::builders::DeliverySourceConfigurationSchemaBuilder::default_value)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::DeliverySourceConfigurationSchema, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::DeliverySourceConfigurationSchema, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::DeliverySourceConfigurationSchema {
             key_name: self.key_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

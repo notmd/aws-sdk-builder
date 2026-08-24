@@ -57,9 +57,7 @@ impl ListAllowedRepositoriesForGroupFluentBuilder {
         }
     }
     /// Access the ListAllowedRepositoriesForGroup as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::list_allowed_repositories_for_group::builders::ListAllowedRepositoriesForGroupInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,14 +81,12 @@ impl ListAllowedRepositoriesForGroupFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroup::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        super::super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroup::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = super::super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroup::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        super::super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroup::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -115,13 +111,8 @@ impl ListAllowedRepositoriesForGroupFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_allowed_repositories_for_group::paginator::ListAllowedRepositoriesForGroupPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> super::super::super::operation::list_allowed_repositories_for_group::paginator::ListAllowedRepositoriesForGroupPaginator {
-        super::super::super::operation::list_allowed_repositories_for_group::paginator::ListAllowedRepositoriesForGroupPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> super::super::super::operation::list_allowed_repositories_for_group::paginator::ListAllowedRepositoriesForGroupPaginator {
+        super::super::super::operation::list_allowed_repositories_for_group::paginator::ListAllowedRepositoriesForGroupPaginator::new(self.handle, self.inner)
     }
     /// <p>The name of the domain that contains the package group from which to list allowed repositories.</p>
     pub fn domain(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -171,10 +162,7 @@ impl ListAllowedRepositoriesForGroupFluentBuilder {
         self
     }
     /// <p>The origin configuration restriction type of which to list allowed repositories.</p>
-    pub fn set_origin_restriction_type(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::PackageGroupOriginRestrictionType>,
-    ) -> Self {
+    pub fn set_origin_restriction_type(mut self, input: ::std::option::Option<super::super::super::types::PackageGroupOriginRestrictionType>) -> Self {
         self.inner = self.inner.set_origin_restriction_type(input);
         self
     }

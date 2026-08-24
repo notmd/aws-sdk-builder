@@ -114,10 +114,8 @@ impl DisassociateKmsKeyInputBuilder {
     /// Consumes the builder and constructs a [`DisassociateKmsKeyInput`](crate::operation::disassociate_kms_key::DisassociateKmsKeyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::disassociate_kms_key::DisassociateKmsKeyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::disassociate_kms_key::DisassociateKmsKeyInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::disassociate_kms_key::DisassociateKmsKeyInput {
             log_group_name: self.log_group_name,
             resource_identifier: self.resource_identifier,

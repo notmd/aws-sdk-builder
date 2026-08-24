@@ -89,10 +89,8 @@ impl ListResourceServersOutputBuilder {
     /// - [`resource_servers`](crate::operation::list_resource_servers::builders::ListResourceServersOutputBuilder::resource_servers)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_resource_servers::ListResourceServersOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_resource_servers::ListResourceServersOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_resource_servers::ListResourceServersOutput {
             resource_servers: self.resource_servers.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

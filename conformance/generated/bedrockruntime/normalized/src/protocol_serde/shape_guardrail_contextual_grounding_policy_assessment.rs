@@ -3,10 +3,7 @@ pub(crate) fn de_guardrail_contextual_grounding_policy_assessment<'a, I>(
     tokens: &mut ::std::iter::Peekable<I>,
     _value: &'a [u8],
     depth: u32,
-) -> ::std::result::Result<
-    Option<super::super::types::GuardrailContextualGroundingPolicyAssessment>,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
->
+) -> ::std::result::Result<Option<super::super::types::GuardrailContextualGroundingPolicyAssessment>, ::aws_smithy_json::deserialize::error::DeserializeError>
 where
     I: Iterator<Item = Result<::aws_smithy_json::deserialize::Token<'a>, ::aws_smithy_json::deserialize::error::DeserializeError>>,
 {
@@ -25,7 +22,13 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "filters" => {
-                            builder = builder.set_filters(super::super::protocol_serde::shape_guardrail_contextual_grounding_filters::de_guardrail_contextual_grounding_filters(tokens, _value, depth + 1)?);
+                            builder = builder.set_filters(
+                                super::super::protocol_serde::shape_guardrail_contextual_grounding_filters::de_guardrail_contextual_grounding_filters(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

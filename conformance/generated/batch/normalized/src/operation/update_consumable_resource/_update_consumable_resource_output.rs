@@ -112,23 +112,21 @@ impl UpdateConsumableResourceOutputBuilder {
         super::super::super::operation::update_consumable_resource::UpdateConsumableResourceOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::update_consumable_resource::UpdateConsumableResourceOutput {
-                consumable_resource_name: self.consumable_resource_name.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "consumable_resource_name",
-                        "consumable_resource_name was not specified but it is required when building UpdateConsumableResourceOutput",
-                    )
-                })?,
-                consumable_resource_arn: self.consumable_resource_arn.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "consumable_resource_arn",
-                        "consumable_resource_arn was not specified but it is required when building UpdateConsumableResourceOutput",
-                    )
-                })?,
-                total_quantity: self.total_quantity,
-                _request_id: self._request_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::update_consumable_resource::UpdateConsumableResourceOutput {
+            consumable_resource_name: self.consumable_resource_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "consumable_resource_name",
+                    "consumable_resource_name was not specified but it is required when building UpdateConsumableResourceOutput",
+                )
+            })?,
+            consumable_resource_arn: self.consumable_resource_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "consumable_resource_arn",
+                    "consumable_resource_arn was not specified but it is required when building UpdateConsumableResourceOutput",
+                )
+            })?,
+            total_quantity: self.total_quantity,
+            _request_id: self._request_id,
+        })
     }
 }

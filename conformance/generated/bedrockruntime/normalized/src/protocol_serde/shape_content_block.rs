@@ -83,9 +83,7 @@ pub fn ser_content_block(
             super::super::protocol_serde::shape_tool_removal_block::ser_tool_removal_block(&mut object_1, inner)?;
             object_1.finish();
         }
-        super::super::types::ContentBlock::Unknown => {
-            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ContentBlock"))
-        }
+        super::super::types::ContentBlock::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ContentBlock")),
     }
     Ok(())
 }
@@ -152,9 +150,9 @@ where
                             })?,
                         )),
                         "toolResult" => Some(super::super::types::ContentBlock::ToolResult(
-                            super::super::protocol_serde::shape_tool_result_block::de_tool_result_block(tokens, _value, depth + 1)?.ok_or_else(
-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolResult' cannot be null"),
-                            )?,
+                            super::super::protocol_serde::shape_tool_result_block::de_tool_result_block(tokens, _value, depth + 1)?.ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolResult' cannot be null")
+                            })?,
                         )),
                         "guardContent" => Some(super::super::types::ContentBlock::GuardContent(
                             super::super::protocol_serde::shape_guardrail_converse_content_block::de_guardrail_converse_content_block(
@@ -167,21 +165,19 @@ where
                             })?,
                         )),
                         "cachePoint" => Some(super::super::types::ContentBlock::CachePoint(
-                            super::super::protocol_serde::shape_cache_point_block::de_cache_point_block(tokens, _value, depth + 1)?.ok_or_else(
-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'cachePoint' cannot be null"),
-                            )?,
+                            super::super::protocol_serde::shape_cache_point_block::de_cache_point_block(tokens, _value, depth + 1)?.ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'cachePoint' cannot be null")
+                            })?,
                         )),
                         "reasoningContent" => Some(super::super::types::ContentBlock::ReasoningContent(
-                            super::super::protocol_serde::shape_reasoning_content_block::de_reasoning_content_block(tokens, _value, depth + 1)?
-                                .ok_or_else(|| {
-                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningContent' cannot be null")
-                                })?,
+                            super::super::protocol_serde::shape_reasoning_content_block::de_reasoning_content_block(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningContent' cannot be null"),
+                            )?,
                         )),
                         "citationsContent" => Some(super::super::types::ContentBlock::CitationsContent(
-                            super::super::protocol_serde::shape_citations_content_block::de_citations_content_block(tokens, _value, depth + 1)?
-                                .ok_or_else(|| {
-                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'citationsContent' cannot be null")
-                                })?,
+                            super::super::protocol_serde::shape_citations_content_block::de_citations_content_block(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'citationsContent' cannot be null"),
+                            )?,
                         )),
                         "searchResult" => Some(super::super::types::ContentBlock::SearchResult(
                             super::super::protocol_serde::shape_search_result_block::de_search_result_block(tokens, _value, depth + 1)?.ok_or_else(
@@ -194,9 +190,9 @@ where
                             )?,
                         )),
                         "toolRemoval" => Some(super::super::types::ContentBlock::ToolRemoval(
-                            super::super::protocol_serde::shape_tool_removal_block::de_tool_removal_block(tokens, _value, depth + 1)?.ok_or_else(
-                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolRemoval' cannot be null"),
-                            )?,
+                            super::super::protocol_serde::shape_tool_removal_block::de_tool_removal_block(tokens, _value, depth + 1)?.ok_or_else(|| {
+                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolRemoval' cannot be null")
+                            })?,
                         )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;

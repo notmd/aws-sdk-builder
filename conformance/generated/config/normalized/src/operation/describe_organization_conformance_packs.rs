@@ -459,9 +459,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for Describe
         })
     }
 }
-impl ::aws_types::request_id::RequestId
-    for super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksError
-{
+impl ::aws_types::request_id::RequestId for super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

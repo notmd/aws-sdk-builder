@@ -20,19 +20,21 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "preemptedAttemptCount" => {
-                            builder = builder.set_preempted_attempt_count(
-                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                                    .map(i32::try_from)
-                                    .transpose()?,
-                            );
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "preemptedAttemptCount" => {
+                                builder = builder.set_preempted_attempt_count(
+                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                        .map(i32::try_from)
+                                        .transpose()?,
+                                );
+                            }
+                            "recentPreemptedAttempts" => {
+                                builder = builder.set_recent_preempted_attempts(super::super::protocol_serde::shape_service_job_recent_preempted_attempt_list::de_service_job_recent_preempted_attempt_list(tokens, _value, depth + 1)?);
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        "recentPreemptedAttempts" => {
-                            builder = builder.set_recent_preempted_attempts(super::super::protocol_serde::shape_service_job_recent_preempted_attempt_list::de_service_job_recent_preempted_attempt_list(tokens, _value, depth + 1)?);
-                        }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

@@ -41,12 +41,10 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "OnSuccess" => {
-                            builder =
-                                builder.set_on_success(super::super::protocol_serde::shape_on_success::de_on_success(tokens, _value, depth + 1)?);
+                            builder = builder.set_on_success(super::super::protocol_serde::shape_on_success::de_on_success(tokens, _value, depth + 1)?);
                         }
                         "OnFailure" => {
-                            builder =
-                                builder.set_on_failure(super::super::protocol_serde::shape_on_failure::de_on_failure(tokens, _value, depth + 1)?);
+                            builder = builder.set_on_failure(super::super::protocol_serde::shape_on_failure::de_on_failure(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

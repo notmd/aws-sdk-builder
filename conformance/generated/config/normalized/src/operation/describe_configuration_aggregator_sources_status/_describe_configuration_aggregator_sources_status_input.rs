@@ -50,7 +50,8 @@ impl DescribeConfigurationAggregatorSourcesStatusInput {
 }
 impl DescribeConfigurationAggregatorSourcesStatusInput {
     /// Creates a new builder-style object to manufacture [`DescribeConfigurationAggregatorSourcesStatusInput`](crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusInput).
-    pub fn builder() -> super::super::super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusInputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusInputBuilder {
         super::super::super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusInputBuilder::default()
     }
 }
@@ -108,10 +109,7 @@ impl DescribeConfigurationAggregatorSourcesStatusInputBuilder {
     /// <li>
     /// <p>Valid value OUTDATED indicates the data is not the most recent.</p></li>
     /// </ul>
-    pub fn set_update_status(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregatedSourceStatusType>>,
-    ) -> Self {
+    pub fn set_update_status(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregatedSourceStatusType>>) -> Self {
         self.update_status = input;
         self
     }

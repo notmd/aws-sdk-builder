@@ -15,9 +15,7 @@ pub fn de_describe_config_rule_evaluation_status_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusError::unhandled(generic))
-        }
+        None => return Err(super::super::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -28,7 +26,25 @@ pub fn de_describe_config_rule_evaluation_status_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(
+                    output =
+                        super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidParameterValueException" => {
+            super::super::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusError::InvalidParameterValueException({
+                #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
                         _response_body,
                         output,
                     )
@@ -42,42 +58,15 @@ pub fn de_describe_config_rule_evaluation_status_http_error(
                 tmp
             })
         }
-        "InvalidParameterValueException" => {
-            super::super::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusError::InvalidParameterValueException(
-                {
-                    #[allow(unused_mut)]
-                    let mut tmp = {
-                        #[allow(unused_mut)]
-                        let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                        output =
-                            super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
-                                _response_body,
-                                output,
-                            )
-                            .map_err(
-                                super::super::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusError::unhandled,
-                            )?;
-                        let output = output.meta(generic);
-                        output.build()
-                    };
-                    if tmp.message.is_none() {
-                        tmp.message = _error_message;
-                    }
-                    tmp
-                },
-            )
-        }
         "NoSuchConfigRuleException" => {
             super::super::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusError::NoSuchConfigRuleException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::NoSuchConfigRuleExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_no_such_config_rule_exception::de_no_such_config_rule_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_no_such_config_rule_exception::de_no_such_config_rule_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -104,11 +93,9 @@ pub fn de_describe_config_rule_evaluation_status_http_response(
         #[allow(unused_mut)]
         let mut output =
             super::super::operation::describe_config_rule_evaluation_status::builders::DescribeConfigRuleEvaluationStatusOutputBuilder::default();
-        output = super::super::protocol_serde::shape_describe_config_rule_evaluation_status::de_describe_config_rule_evaluation_status(
-            _response_body,
-            output,
-        )
-        .map_err(super::super::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusError::unhandled)?;
+        output =
+            super::super::protocol_serde::shape_describe_config_rule_evaluation_status::de_describe_config_rule_evaluation_status(_response_body, output)
+                .map_err(super::super::operation::describe_config_rule_evaluation_status::DescribeConfigRuleEvaluationStatusError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

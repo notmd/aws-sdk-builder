@@ -194,16 +194,14 @@ impl PutObjectLockConfigurationInputBuilder {
         super::super::super::operation::put_object_lock_configuration::PutObjectLockConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_object_lock_configuration::PutObjectLockConfigurationInput {
-                bucket: self.bucket,
-                object_lock_configuration: self.object_lock_configuration,
-                request_payer: self.request_payer,
-                token: self.token,
-                content_md5: self.content_md5,
-                checksum_algorithm: self.checksum_algorithm,
-                expected_bucket_owner: self.expected_bucket_owner,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_object_lock_configuration::PutObjectLockConfigurationInput {
+            bucket: self.bucket,
+            object_lock_configuration: self.object_lock_configuration,
+            request_payer: self.request_payer,
+            token: self.token,
+            content_md5: self.content_md5,
+            checksum_algorithm: self.checksum_algorithm,
+            expected_bucket_owner: self.expected_bucket_owner,
+        })
     }
 }

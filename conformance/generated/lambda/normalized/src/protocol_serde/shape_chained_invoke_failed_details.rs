@@ -22,11 +22,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "Error" => {
-                            builder = builder.set_error(super::super::protocol_serde::shape_event_error::de_event_error(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_error(super::super::protocol_serde::shape_event_error::de_event_error(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },
@@ -37,9 +33,7 @@ where
                     }
                 }
             }
-            Ok(Some(
-                super::super::serde_util::chained_invoke_failed_details_correct_errors(builder).build(),
-            ))
+            Ok(Some(super::super::serde_util::chained_invoke_failed_details_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

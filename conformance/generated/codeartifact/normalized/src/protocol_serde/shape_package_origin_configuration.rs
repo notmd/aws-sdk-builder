@@ -23,11 +23,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "restrictions" => {
                             builder = builder.set_restrictions(
-                                super::super::protocol_serde::shape_package_origin_restrictions::de_package_origin_restrictions(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_package_origin_restrictions::de_package_origin_restrictions(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

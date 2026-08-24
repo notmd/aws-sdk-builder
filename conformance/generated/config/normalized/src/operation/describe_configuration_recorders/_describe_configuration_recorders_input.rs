@@ -108,12 +108,10 @@ impl DescribeConfigurationRecordersInputBuilder {
         super::super::super::operation::describe_configuration_recorders::DescribeConfigurationRecordersInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::describe_configuration_recorders::DescribeConfigurationRecordersInput {
-                configuration_recorder_names: self.configuration_recorder_names,
-                service_principal: self.service_principal,
-                arn: self.arn,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::describe_configuration_recorders::DescribeConfigurationRecordersInput {
+            configuration_recorder_names: self.configuration_recorder_names,
+            service_principal: self.service_principal,
+            arn: self.arn,
+        })
     }
 }

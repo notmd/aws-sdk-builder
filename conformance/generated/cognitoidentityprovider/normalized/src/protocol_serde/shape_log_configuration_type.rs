@@ -76,17 +76,15 @@ where
                             );
                         }
                         "S3Configuration" => {
-                            builder = builder.set_s3_configuration(
-                                super::super::protocol_serde::shape_s3_configuration_type::de_s3_configuration_type(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_s3_configuration(super::super::protocol_serde::shape_s3_configuration_type::de_s3_configuration_type(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "FirehoseConfiguration" => {
                             builder = builder.set_firehose_configuration(
-                                super::super::protocol_serde::shape_firehose_configuration_type::de_firehose_configuration_type(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_firehose_configuration_type::de_firehose_configuration_type(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -98,11 +96,9 @@ where
                     }
                 }
             }
-            Ok(Some(
-                super::super::serde_util::log_configuration_type_correct_errors(builder)
-                    .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-            ))
+            Ok(Some(super::super::serde_util::log_configuration_type_correct_errors(builder).build().map_err(
+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+            )?))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

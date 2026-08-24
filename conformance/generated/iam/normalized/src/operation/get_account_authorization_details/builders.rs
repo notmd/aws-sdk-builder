@@ -60,9 +60,7 @@ impl GetAccountAuthorizationDetailsFluentBuilder {
         }
     }
     /// Access the GetAccountAuthorizationDetails as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,12 +84,11 @@ impl GetAccountAuthorizationDetailsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::get_account_authorization_details::GetAccountAuthorizationDetails::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = super::super::super::operation::get_account_authorization_details::GetAccountAuthorizationDetails::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         super::super::super::operation::get_account_authorization_details::GetAccountAuthorizationDetails::orchestrate(&runtime_plugins, input).await
     }
 
@@ -117,13 +114,8 @@ impl GetAccountAuthorizationDetailsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::get_account_authorization_details::paginator::GetAccountAuthorizationDetailsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> super::super::super::operation::get_account_authorization_details::paginator::GetAccountAuthorizationDetailsPaginator {
-        super::super::super::operation::get_account_authorization_details::paginator::GetAccountAuthorizationDetailsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> super::super::super::operation::get_account_authorization_details::paginator::GetAccountAuthorizationDetailsPaginator {
+        super::super::super::operation::get_account_authorization_details::paginator::GetAccountAuthorizationDetailsPaginator::new(self.handle, self.inner)
     }
     ///
     /// Appends an item to `Filter`.

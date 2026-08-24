@@ -247,8 +247,7 @@ impl CreatePolicyInputBuilder {
     /// Consumes the builder and constructs a [`CreatePolicyInput`](crate::operation::create_policy::CreatePolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::create_policy::CreatePolicyInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::create_policy::CreatePolicyInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::create_policy::CreatePolicyInput {
             policy_name: self.policy_name,
             path: self.path,

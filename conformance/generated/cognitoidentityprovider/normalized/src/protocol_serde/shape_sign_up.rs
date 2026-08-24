@@ -22,11 +22,9 @@ pub fn de_sign_up_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::CodeDeliveryFailureExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_code_delivery_failure_exception::de_code_delivery_failure_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::sign_up::SignUpError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_code_delivery_failure_exception::de_code_delivery_failure_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::sign_up::SignUpError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -65,20 +63,22 @@ pub fn de_sign_up_http_error(
             }
             tmp
         }),
-        "InvalidEmailRoleAccessPolicyException" => super::super::operation::sign_up::SignUpError::InvalidEmailRoleAccessPolicyException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "InvalidEmailRoleAccessPolicyException" => {
+            super::super::operation::sign_up::SignUpError::InvalidEmailRoleAccessPolicyException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InvalidEmailRoleAccessPolicyExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_email_role_access_policy_exception::de_invalid_email_role_access_policy_exception_json_err(_response_body, output).map_err(super::super::operation::sign_up::SignUpError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InvalidEmailRoleAccessPolicyExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_invalid_email_role_access_policy_exception::de_invalid_email_role_access_policy_exception_json_err(_response_body, output).map_err(super::super::operation::sign_up::SignUpError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "InvalidLambdaResponseException" => super::super::operation::sign_up::SignUpError::InvalidLambdaResponseException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -102,9 +102,8 @@ pub fn de_sign_up_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::sign_up::SignUpError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::sign_up::SignUpError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -118,9 +117,8 @@ pub fn de_sign_up_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidPasswordExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_password_exception::de_invalid_password_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::sign_up::SignUpError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_password_exception::de_invalid_password_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::sign_up::SignUpError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -134,7 +132,11 @@ pub fn de_sign_up_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(_response_body, output).map_err(super::super::operation::sign_up::SignUpError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::sign_up::SignUpError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -192,11 +194,9 @@ pub fn de_sign_up_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::sign_up::SignUpError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::sign_up::SignUpError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -210,11 +210,8 @@ pub fn de_sign_up_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::sign_up::SignUpError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::sign_up::SignUpError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -228,9 +225,8 @@ pub fn de_sign_up_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::sign_up::SignUpError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::sign_up::SignUpError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -244,9 +240,8 @@ pub fn de_sign_up_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::sign_up::SignUpError::unhandled)?;
+                output = super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::sign_up::SignUpError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -301,8 +296,8 @@ pub fn de_sign_up_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::sign_up::builders::SignUpOutputBuilder::default();
-        output = super::super::protocol_serde::shape_sign_up::de_sign_up(_response_body, output)
-            .map_err(super::super::operation::sign_up::SignUpError::unhandled)?;
+        output =
+            super::super::protocol_serde::shape_sign_up::de_sign_up(_response_body, output).map_err(super::super::operation::sign_up::SignUpError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         super::super::serde_util::sign_up_output_output_correct_errors(output)
             .build()

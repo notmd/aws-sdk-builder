@@ -16,31 +16,30 @@ pub fn de_create_configuration_set_event_destination_http_error(
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(
-                super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::unhandled(generic),
-            )
+            return Err(super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::unhandled(generic))
         }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
         "AlreadyExistsException" => {
-            super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::AlreadyExistsException(
-                {
+            super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::AlreadyExistsException({
+                #[allow(unused_mut)]
+                let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut tmp = {
-                        #[allow(unused_mut)]
-                        let mut output = super::super::types::error::builders::AlreadyExistsExceptionBuilder::default();
-                        output = super::super::protocol_serde::shape_already_exists_exception::de_already_exists_exception_json_err(_response_body, output).map_err(super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::unhandled)?;
-                        let output = output.meta(generic);
-                        output.build()
-                    };
-                    if tmp.message.is_none() {
-                        tmp.message = _error_message;
-                    }
-                    tmp
-                },
-            )
+                    let mut output = super::super::types::error::builders::AlreadyExistsExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_already_exists_exception::de_already_exists_exception_json_err(_response_body, output)
+                        .map_err(
+                            super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
         }
         "BadRequestException" => {
             super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::BadRequestException({
@@ -48,8 +47,7 @@ pub fn de_create_configuration_set_event_destination_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-                        .map_err(
+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(
                         super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::unhandled,
                     )?;
                     let output = output.meta(generic);
@@ -62,22 +60,23 @@ pub fn de_create_configuration_set_event_destination_http_error(
             })
         }
         "LimitExceededException" => {
-            super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::LimitExceededException(
-                {
+            super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::LimitExceededException({
+                #[allow(unused_mut)]
+                let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut tmp = {
-                        #[allow(unused_mut)]
-                        let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
-                        output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::unhandled)?;
-                        let output = output.meta(generic);
-                        output.build()
-                    };
-                    if tmp.message.is_none() {
-                        tmp.message = _error_message;
-                    }
-                    tmp
-                },
-            )
+                    let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
+                        .map_err(
+                            super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
         }
         "NotFoundException" => {
             super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::NotFoundException({
@@ -85,8 +84,7 @@ pub fn de_create_configuration_set_event_destination_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                        .map_err(
+                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output).map_err(
                         super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::unhandled,
                     )?;
                     let output = output.meta(generic);
@@ -99,22 +97,24 @@ pub fn de_create_configuration_set_event_destination_http_error(
             })
         }
         "TooManyRequestsException" => {
-            super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::TooManyRequestsException(
-                {
+            super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::TooManyRequestsException({
+                #[allow(unused_mut)]
+                let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut tmp = {
-                        #[allow(unused_mut)]
-                        let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                        output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::unhandled)?;
-                        let output = output.meta(generic);
-                        output.build()
-                    };
-                    if tmp.message.is_none() {
-                        tmp.message = _error_message;
-                    }
-                    tmp
-                },
-            )
+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(
+                                super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::unhandled,
+                            )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
         }
         _ => super::super::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationError::generic(generic),
     })
@@ -131,7 +131,8 @@ pub fn de_create_configuration_set_event_destination_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = super::super::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationOutputBuilder::default();
+        let mut output =
+            super::super::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationOutputBuilder::default();
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

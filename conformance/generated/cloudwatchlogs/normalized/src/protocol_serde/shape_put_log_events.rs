@@ -22,11 +22,9 @@ pub fn de_put_log_events_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::DataAlreadyAcceptedExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_data_already_accepted_exception::de_data_already_accepted_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::put_log_events::PutLogEventsError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_data_already_accepted_exception::de_data_already_accepted_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::put_log_events::PutLogEventsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -40,9 +38,8 @@ pub fn de_put_log_events_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::put_log_events::PutLogEventsError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::put_log_events::PutLogEventsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -74,11 +71,8 @@ pub fn de_put_log_events_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::put_log_events::PutLogEventsError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::put_log_events::PutLogEventsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -92,11 +86,9 @@ pub fn de_put_log_events_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::put_log_events::PutLogEventsError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::put_log_events::PutLogEventsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -110,11 +102,9 @@ pub fn de_put_log_events_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UnrecognizedClientExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_unrecognized_client_exception::de_unrecognized_client_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::put_log_events::PutLogEventsError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_unrecognized_client_exception::de_unrecognized_client_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::put_log_events::PutLogEventsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -168,28 +158,28 @@ pub(crate) fn de_put_log_events(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "nextSequenceToken" => {
-                        builder = builder.set_next_sequence_token(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                        );
-                    }
-                    "rejectedLogEventsInfo" => {
-                        builder = builder.set_rejected_log_events_info(
-                            super::super::protocol_serde::shape_rejected_log_events_info::de_rejected_log_events_info(tokens, _value, depth + 1)?,
-                        );
-                    }
-                    "rejectedEntityInfo" => {
-                        builder = builder.set_rejected_entity_info(
-                            super::super::protocol_serde::shape_rejected_entity_info::de_rejected_entity_info(tokens, _value, depth + 1)?,
-                        );
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "nextSequenceToken" => {
+                    builder = builder.set_next_sequence_token(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
                 }
-            }
+                "rejectedLogEventsInfo" => {
+                    builder = builder.set_rejected_log_events_info(
+                        super::super::protocol_serde::shape_rejected_log_events_info::de_rejected_log_events_info(tokens, _value, depth + 1)?,
+                    );
+                }
+                "rejectedEntityInfo" => {
+                    builder = builder.set_rejected_entity_info(super::super::protocol_serde::shape_rejected_entity_info::de_rejected_entity_info(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
+                }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

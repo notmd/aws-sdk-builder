@@ -55,11 +55,9 @@ impl StartWebAuthnRegistrationInputBuilder {
         super::super::super::operation::start_web_authn_registration::StartWebAuthnRegistrationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::start_web_authn_registration::StartWebAuthnRegistrationInput {
-                access_token: self.access_token,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::start_web_authn_registration::StartWebAuthnRegistrationInput {
+            access_token: self.access_token,
+        })
     }
 }
 impl ::std::fmt::Debug for StartWebAuthnRegistrationInputBuilder {

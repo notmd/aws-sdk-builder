@@ -83,12 +83,11 @@ impl ChangeMessageVisibilityBatchFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatch::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = super::super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatch::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         super::super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatch::orchestrate(&runtime_plugins, input).await
     }
 
@@ -139,10 +138,7 @@ impl ChangeMessageVisibilityBatchFluentBuilder {
         self
     }
     /// <p>Lists the receipt handles of the messages for which the visibility timeout must be changed.</p>
-    pub fn set_entries(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchRequestEntry>>,
-    ) -> Self {
+    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchRequestEntry>>) -> Self {
         self.inner = self.inner.set_entries(input);
         self
     }

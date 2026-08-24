@@ -59,10 +59,8 @@ pub fn ser_get_bucket_versioning_headers(
 pub fn de_get_bucket_versioning(
     inp: &[u8],
     mut builder: super::super::operation::get_bucket_versioning::builders::GetBucketVersioningOutputBuilder,
-) -> std::result::Result<
-    super::super::operation::get_bucket_versioning::builders::GetBucketVersioningOutputBuilder,
-    ::aws_smithy_xml::decode::XmlDecodeError,
-> {
+) -> std::result::Result<super::super::operation::get_bucket_versioning::builders::GetBucketVersioningOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
+{
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

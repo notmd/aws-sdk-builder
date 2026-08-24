@@ -57,10 +57,7 @@ impl ConformancePackComplianceSummaryBuilder {
         self
     }
     /// <p>The status of the conformance pack.</p>
-    pub fn set_conformance_pack_compliance_status(
-        mut self,
-        input: ::std::option::Option<super::super::types::ConformancePackComplianceType>,
-    ) -> Self {
+    pub fn set_conformance_pack_compliance_status(mut self, input: ::std::option::Option<super::super::types::ConformancePackComplianceType>) -> Self {
         self.conformance_pack_compliance_status = input;
         self
     }
@@ -72,9 +69,7 @@ impl ConformancePackComplianceSummaryBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`conformance_pack_name`](crate::types::builders::ConformancePackComplianceSummaryBuilder::conformance_pack_name)
     /// - [`conformance_pack_compliance_status`](crate::types::builders::ConformancePackComplianceSummaryBuilder::conformance_pack_compliance_status)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::ConformancePackComplianceSummary, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::ConformancePackComplianceSummary, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::ConformancePackComplianceSummary {
             conformance_pack_name: self.conformance_pack_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

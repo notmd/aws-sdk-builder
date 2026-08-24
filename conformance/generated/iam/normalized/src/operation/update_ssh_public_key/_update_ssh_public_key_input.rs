@@ -98,10 +98,8 @@ impl UpdateSshPublicKeyInputBuilder {
     /// Consumes the builder and constructs a [`UpdateSshPublicKeyInput`](crate::operation::update_ssh_public_key::UpdateSshPublicKeyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::update_ssh_public_key::UpdateSshPublicKeyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::update_ssh_public_key::UpdateSshPublicKeyInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::update_ssh_public_key::UpdateSshPublicKeyInput {
             user_name: self.user_name,
             ssh_public_key_id: self.ssh_public_key_id,

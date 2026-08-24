@@ -61,12 +61,8 @@ where
                     }
                     variant = match key.as_ref() {
                         "text" => Some(super::super::types::GuardrailConverseContentBlock::Text(
-                            super::super::protocol_serde::shape_guardrail_converse_text_block::de_guardrail_converse_text_block(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?
-                            .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
+                            super::super::protocol_serde::shape_guardrail_converse_text_block::de_guardrail_converse_text_block(tokens, _value, depth + 1)?
+                                .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
                         )),
                         "image" => Some(super::super::types::GuardrailConverseContentBlock::Image(
                             super::super::protocol_serde::shape_guardrail_converse_image_block::de_guardrail_converse_image_block(

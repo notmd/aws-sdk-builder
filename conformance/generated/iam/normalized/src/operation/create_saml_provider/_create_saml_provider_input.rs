@@ -168,10 +168,8 @@ impl CreateSamlProviderInputBuilder {
     /// Consumes the builder and constructs a [`CreateSamlProviderInput`](crate::operation::create_saml_provider::CreateSamlProviderInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::create_saml_provider::CreateSamlProviderInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::create_saml_provider::CreateSamlProviderInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::create_saml_provider::CreateSamlProviderInput {
             saml_metadata_document: self.saml_metadata_document,
             name: self.name,

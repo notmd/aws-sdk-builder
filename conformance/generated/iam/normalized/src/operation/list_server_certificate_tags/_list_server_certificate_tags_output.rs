@@ -114,18 +114,16 @@ impl ListServerCertificateTagsOutputBuilder {
         super::super::super::operation::list_server_certificate_tags::ListServerCertificateTagsOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_server_certificate_tags::ListServerCertificateTagsOutput {
-                tags: self.tags.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "tags",
-                        "tags was not specified but it is required when building ListServerCertificateTagsOutput",
-                    )
-                })?,
-                is_truncated: self.is_truncated.unwrap_or_default(),
-                marker: self.marker,
-                _request_id: self._request_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_server_certificate_tags::ListServerCertificateTagsOutput {
+            tags: self.tags.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "tags",
+                    "tags was not specified but it is required when building ListServerCertificateTagsOutput",
+                )
+            })?,
+            is_truncated: self.is_truncated.unwrap_or_default(),
+            marker: self.marker,
+            _request_id: self._request_id,
+        })
     }
 }

@@ -80,9 +80,7 @@ impl GuardrailWordPolicyAssessmentBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`custom_words`](crate::types::builders::GuardrailWordPolicyAssessmentBuilder::custom_words)
     /// - [`managed_word_lists`](crate::types::builders::GuardrailWordPolicyAssessmentBuilder::managed_word_lists)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::GuardrailWordPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailWordPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::GuardrailWordPolicyAssessment {
             custom_words: self.custom_words.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

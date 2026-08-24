@@ -10,9 +10,7 @@ pub struct GetBucketMetadataConfigurationOutput {
 }
 impl GetBucketMetadataConfigurationOutput {
     /// <p>The metadata configuration for the general purpose bucket.</p>
-    pub fn get_bucket_metadata_configuration_result(
-        &self,
-    ) -> ::std::option::Option<&super::super::super::types::GetBucketMetadataConfigurationResult> {
+    pub fn get_bucket_metadata_configuration_result(&self) -> ::std::option::Option<&super::super::super::types::GetBucketMetadataConfigurationResult> {
         self.get_bucket_metadata_configuration_result.as_ref()
     }
 }
@@ -56,9 +54,7 @@ impl GetBucketMetadataConfigurationOutputBuilder {
         self
     }
     /// <p>The metadata configuration for the general purpose bucket.</p>
-    pub fn get_get_bucket_metadata_configuration_result(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::GetBucketMetadataConfigurationResult> {
+    pub fn get_get_bucket_metadata_configuration_result(&self) -> &::std::option::Option<super::super::super::types::GetBucketMetadataConfigurationResult> {
         &self.get_bucket_metadata_configuration_result
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {

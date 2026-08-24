@@ -57,9 +57,7 @@ impl ListDomainDeliverabilityCampaignsFluentBuilder {
         }
     }
     /// Access the ListDomainDeliverabilityCampaigns as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::list_domain_deliverability_campaigns::builders::ListDomainDeliverabilityCampaignsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,14 +81,12 @@ impl ListDomainDeliverabilityCampaignsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaigns::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        super::super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaigns::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = super::super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaigns::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        super::super::super::operation::list_domain_deliverability_campaigns::ListDomainDeliverabilityCampaigns::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -115,13 +111,8 @@ impl ListDomainDeliverabilityCampaignsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_domain_deliverability_campaigns::paginator::ListDomainDeliverabilityCampaignsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> super::super::super::operation::list_domain_deliverability_campaigns::paginator::ListDomainDeliverabilityCampaignsPaginator {
-        super::super::super::operation::list_domain_deliverability_campaigns::paginator::ListDomainDeliverabilityCampaignsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> super::super::super::operation::list_domain_deliverability_campaigns::paginator::ListDomainDeliverabilityCampaignsPaginator {
+        super::super::super::operation::list_domain_deliverability_campaigns::paginator::ListDomainDeliverabilityCampaignsPaginator::new(self.handle, self.inner)
     }
     /// <p>The first day that you want to obtain deliverability data for.</p>
     pub fn start_date(mut self, input: ::aws_smithy_types::DateTime) -> Self {

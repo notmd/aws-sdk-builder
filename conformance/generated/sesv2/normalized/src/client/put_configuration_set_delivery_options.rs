@@ -12,8 +12,6 @@ impl super::Client {
     pub fn put_configuration_set_delivery_options(
         &self,
     ) -> super::super::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsFluentBuilder {
-        super::super::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::put_configuration_set_delivery_options::builders::PutConfigurationSetDeliveryOptionsFluentBuilder::new(self.handle.clone())
     }
 }

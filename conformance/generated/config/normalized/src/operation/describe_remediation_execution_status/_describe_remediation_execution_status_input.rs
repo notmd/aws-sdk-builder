@@ -34,8 +34,7 @@ impl DescribeRemediationExecutionStatusInput {
 }
 impl DescribeRemediationExecutionStatusInput {
     /// Creates a new builder-style object to manufacture [`DescribeRemediationExecutionStatusInput`](crate::operation::describe_remediation_execution_status::DescribeRemediationExecutionStatusInput).
-    pub fn builder() -> super::super::super::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusInputBuilder {
         super::super::super::operation::describe_remediation_execution_status::builders::DescribeRemediationExecutionStatusInputBuilder::default()
     }
 }

@@ -112,10 +112,7 @@ impl ListAllowedRepositoriesForGroupInputBuilder {
         self
     }
     /// <p>The origin configuration restriction type of which to list allowed repositories.</p>
-    pub fn set_origin_restriction_type(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::PackageGroupOriginRestrictionType>,
-    ) -> Self {
+    pub fn set_origin_restriction_type(mut self, input: ::std::option::Option<super::super::super::types::PackageGroupOriginRestrictionType>) -> Self {
         self.origin_restriction_type = input;
         self
     }

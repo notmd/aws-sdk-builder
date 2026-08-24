@@ -12,8 +12,6 @@ impl super::Client {
     pub fn put_bucket_accelerate_configuration(
         &self,
     ) -> super::super::operation::put_bucket_accelerate_configuration::builders::PutBucketAccelerateConfigurationFluentBuilder {
-        super::super::operation::put_bucket_accelerate_configuration::builders::PutBucketAccelerateConfigurationFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::put_bucket_accelerate_configuration::builders::PutBucketAccelerateConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

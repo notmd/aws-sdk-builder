@@ -140,11 +140,9 @@ impl PutFunctionRecursionConfigInputBuilder {
         super::super::super::operation::put_function_recursion_config::PutFunctionRecursionConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_function_recursion_config::PutFunctionRecursionConfigInput {
-                function_name: self.function_name,
-                recursive_loop: self.recursive_loop,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_function_recursion_config::PutFunctionRecursionConfigInput {
+            function_name: self.function_name,
+            recursive_loop: self.recursive_loop,
+        })
     }
 }

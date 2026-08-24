@@ -32,7 +32,9 @@ impl DescribeAggregateComplianceByConformancePacksInput {
 }
 impl DescribeAggregateComplianceByConformancePacksInput {
     /// Creates a new builder-style object to manufacture [`DescribeAggregateComplianceByConformancePacksInput`](crate::operation::describe_aggregate_compliance_by_conformance_packs::DescribeAggregateComplianceByConformancePacksInput).
-    pub fn builder() -> super::super::super::operation::describe_aggregate_compliance_by_conformance_packs::builders::DescribeAggregateComplianceByConformancePacksInputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::describe_aggregate_compliance_by_conformance_packs::builders::DescribeAggregateComplianceByConformancePacksInputBuilder
+    {
         super::super::super::operation::describe_aggregate_compliance_by_conformance_packs::builders::DescribeAggregateComplianceByConformancePacksInputBuilder::default()
     }
 }

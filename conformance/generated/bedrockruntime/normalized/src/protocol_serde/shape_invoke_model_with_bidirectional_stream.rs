@@ -15,9 +15,7 @@ pub fn de_invoke_model_with_bidirectional_stream_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled(generic))
-        }
+        None => return Err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -29,9 +27,7 @@ pub fn de_invoke_model_with_bidirectional_stream_http_error(
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                     output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                        .map_err(
-                            super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled,
-                        )?;
+                        .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -47,11 +43,8 @@ pub fn de_invoke_model_with_bidirectional_stream_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                            .map_err(
-                                super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled,
-                            )?;
+                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -68,9 +61,7 @@ pub fn de_invoke_model_with_bidirectional_stream_http_error(
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ModelErrorExceptionBuilder::default();
                     output = super::super::protocol_serde::shape_model_error_exception::de_model_error_exception_json_err(_response_body, output)
-                        .map_err(
-                            super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled,
-                        )?;
+                        .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -86,11 +77,8 @@ pub fn de_invoke_model_with_bidirectional_stream_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ModelNotReadyExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_model_not_ready_exception::de_model_not_ready_exception_json_err(_response_body, output)
-                            .map_err(
-                                super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled,
-                            )?;
+                    output = super::super::protocol_serde::shape_model_not_ready_exception::de_model_not_ready_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -106,11 +94,9 @@ pub fn de_invoke_model_with_bidirectional_stream_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ModelStreamErrorExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_model_stream_error_exception::de_model_stream_error_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -127,9 +113,7 @@ pub fn de_invoke_model_with_bidirectional_stream_http_error(
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ModelTimeoutExceptionBuilder::default();
                     output = super::super::protocol_serde::shape_model_timeout_exception::de_model_timeout_exception_json_err(_response_body, output)
-                        .map_err(
-                            super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled,
-                        )?;
+                        .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -145,11 +129,9 @@ pub fn de_invoke_model_with_bidirectional_stream_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -185,11 +167,9 @@ pub fn de_invoke_model_with_bidirectional_stream_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -206,9 +186,7 @@ pub fn de_invoke_model_with_bidirectional_stream_http_error(
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
                     output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                        .map_err(
-                            super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled,
-                        )?;
+                        .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -225,9 +203,7 @@ pub fn de_invoke_model_with_bidirectional_stream_http_error(
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                     output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                        .map_err(
-                            super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled,
-                        )?;
+                        .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -254,11 +230,9 @@ pub fn de_invoke_model_with_bidirectional_stream_http_response(
         #[allow(unused_mut)]
         let mut output =
             super::super::operation::invoke_model_with_bidirectional_stream::builders::InvokeModelWithBidirectionalStreamOutputBuilder::default();
-        output = super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream::de_invoke_model_with_bidirectional_stream(
-            _response_body,
-            output,
-        )
-        .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
+        output =
+            super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream::de_invoke_model_with_bidirectional_stream(_response_body, output)
+                .map_err(super::super::operation::invoke_model_with_bidirectional_stream::InvokeModelWithBidirectionalStreamError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         super::super::serde_util::invoke_model_with_bidirectional_stream_output_output_correct_errors(output)
             .build()
@@ -294,12 +268,14 @@ pub(crate) fn de_invoke_model_with_bidirectional_stream(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "body" => {
-                    builder = builder.set_body(super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream_output::de_invoke_model_with_bidirectional_stream_output(tokens, _value, depth + 1)?);
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "body" => {
+                        builder = builder.set_body(super::super::protocol_serde::shape_invoke_model_with_bidirectional_stream_output::de_invoke_model_with_bidirectional_stream_output(tokens, _value, depth + 1)?);
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

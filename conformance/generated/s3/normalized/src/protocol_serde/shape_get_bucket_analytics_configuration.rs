@@ -28,8 +28,7 @@ pub fn de_get_bucket_analytics_configuration_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::get_bucket_analytics_configuration::builders::GetBucketAnalyticsConfigurationOutputBuilder::default();
+        let mut output = super::super::operation::get_bucket_analytics_configuration::builders::GetBucketAnalyticsConfigurationOutputBuilder::default();
         output = output.set_analytics_configuration(
             super::super::protocol_serde::shape_get_bucket_analytics_configuration_output::de_analytics_configuration_payload(_response_body)?,
         );

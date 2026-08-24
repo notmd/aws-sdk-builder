@@ -15,11 +15,7 @@ pub fn de_get_blacklist_reports_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::get_blacklist_reports::GetBlacklistReportsError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::get_blacklist_reports::GetBlacklistReportsError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -59,9 +55,8 @@ pub fn de_get_blacklist_reports_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_blacklist_reports::GetBlacklistReportsError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_blacklist_reports::GetBlacklistReportsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

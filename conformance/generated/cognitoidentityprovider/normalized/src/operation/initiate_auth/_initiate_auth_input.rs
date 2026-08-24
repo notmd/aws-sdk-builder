@@ -866,8 +866,7 @@ impl InitiateAuthInputBuilder {
     /// Consumes the builder and constructs a [`InitiateAuthInput`](crate::operation::initiate_auth::InitiateAuthInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::initiate_auth::InitiateAuthInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::initiate_auth::InitiateAuthInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::initiate_auth::InitiateAuthInput {
             auth_flow: self.auth_flow,
             auth_parameters: self.auth_parameters,

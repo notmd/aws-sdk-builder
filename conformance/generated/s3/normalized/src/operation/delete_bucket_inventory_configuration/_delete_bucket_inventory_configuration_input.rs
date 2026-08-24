@@ -32,8 +32,7 @@ impl DeleteBucketInventoryConfigurationInput {
 }
 impl DeleteBucketInventoryConfigurationInput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketInventoryConfigurationInput`](crate::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfigurationInput).
-    pub fn builder() -> super::super::super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationInputBuilder {
         super::super::super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationInputBuilder::default()
     }
 }

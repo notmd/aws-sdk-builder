@@ -40,20 +40,14 @@ pub struct VerifyFluentBuilder {
     inner: super::super::super::operation::verify::builders::VerifyInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::verify::VerifyOutput,
-        super::super::super::operation::verify::VerifyError,
-    > for VerifyFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::verify::VerifyOutput, super::super::super::operation::verify::VerifyError>
+    for VerifyFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::verify::VerifyOutput,
-            super::super::super::operation::verify::VerifyError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::verify::VerifyOutput, super::super::super::operation::verify::VerifyError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -92,22 +86,15 @@ impl VerifyFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::verify::Verify::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            super::super::super::operation::verify::Verify::operation_runtime_plugins(self.handle.runtime_plugins.clone(), &self.handle.conf, self.config_override);
         super::super::super::operation::verify::Verify::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
     pub fn customize(
         self,
-    ) -> super::super::super::client::customize::CustomizableOperation<
-        super::super::super::operation::verify::VerifyOutput,
-        super::super::super::operation::verify::VerifyError,
-        Self,
-    > {
+    ) -> super::super::super::client::customize::CustomizableOperation<super::super::super::operation::verify::VerifyOutput, super::super::super::operation::verify::VerifyError, Self> {
         super::super::super::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<super::super::super::config::Builder>) -> Self {

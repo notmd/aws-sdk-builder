@@ -32,10 +32,7 @@ impl PolicyExistsFluentBuilder {
     pub async fn wait(
         self,
         max_wait: ::std::time::Duration,
-    ) -> ::std::result::Result<
-        super::super::waiters::policy_exists::PolicyExistsFinalPoll,
-        super::super::waiters::policy_exists::WaitUntilPolicyExistsError,
-    > {
+    ) -> ::std::result::Result<super::super::waiters::policy_exists::PolicyExistsFinalPoll, super::super::waiters::policy_exists::WaitUntilPolicyExistsError> {
         let input = self
             .inner
             .build()
@@ -54,20 +51,18 @@ impl PolicyExistsFluentBuilder {
         let sleep_impl = time_components.sleep_impl().expect("a sleep impl is required by waiters");
         let time_source = time_components.time_source().expect("a time source is required by waiters");
 
-        let acceptor = move |result: ::std::result::Result<
-            &super::super::operation::get_policy::GetPolicyOutput,
-            &super::super::operation::get_policy::GetPolicyError,
-        >| {
-            // Matches: {"success":true}
-            if super::super::waiters::matchers::match_get_policy_c955e57777ec0d736(result) {
-                return ::aws_smithy_runtime::client::waiters::AcceptorState::Success;
-            }
-            // Matches: {"errorType":"NoSuchEntity"}
-            if super::super::waiters::matchers::match_get_policy_606386b4be9df73c9(result) {
-                return ::aws_smithy_runtime::client::waiters::AcceptorState::Retry;
-            }
-            ::aws_smithy_runtime::client::waiters::AcceptorState::NoAcceptorsMatched
-        };
+        let acceptor =
+            move |result: ::std::result::Result<&super::super::operation::get_policy::GetPolicyOutput, &super::super::operation::get_policy::GetPolicyError>| {
+                // Matches: {"success":true}
+                if super::super::waiters::matchers::match_get_policy_c955e57777ec0d736(result) {
+                    return ::aws_smithy_runtime::client::waiters::AcceptorState::Success;
+                }
+                // Matches: {"errorType":"NoSuchEntity"}
+                if super::super::waiters::matchers::match_get_policy_606386b4be9df73c9(result) {
+                    return ::aws_smithy_runtime::client::waiters::AcceptorState::Retry;
+                }
+                ::aws_smithy_runtime::client::waiters::AcceptorState::NoAcceptorsMatched
+            };
         let operation = move || {
             let input = input.clone();
             let runtime_plugins = runtime_plugins.clone();

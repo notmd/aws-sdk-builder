@@ -95,8 +95,7 @@ impl ListMfaDevicesInputBuilder {
     /// Consumes the builder and constructs a [`ListMfaDevicesInput`](crate::operation::list_mfa_devices::ListMfaDevicesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::list_mfa_devices::ListMfaDevicesInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::list_mfa_devices::ListMfaDevicesInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_mfa_devices::ListMfaDevicesInput {
             user_name: self.user_name,
             marker: self.marker,

@@ -65,10 +65,8 @@ impl GetBucketVersioningInputBuilder {
     /// Consumes the builder and constructs a [`GetBucketVersioningInput`](crate::operation::get_bucket_versioning::GetBucketVersioningInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_bucket_versioning::GetBucketVersioningInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_bucket_versioning::GetBucketVersioningInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_bucket_versioning::GetBucketVersioningInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,

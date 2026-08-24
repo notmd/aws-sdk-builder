@@ -54,10 +54,7 @@ impl ExecuteTransactionInputBuilder {
         self
     }
     /// <p>The list of PartiQL statements representing the transaction to run.</p>
-    pub fn set_transact_statements(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ParameterizedStatement>>,
-    ) -> Self {
+    pub fn set_transact_statements(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ParameterizedStatement>>) -> Self {
         self.transact_statements = input;
         self
     }
@@ -96,10 +93,7 @@ impl ExecuteTransactionInputBuilder {
     /// Consumes the builder and constructs a [`ExecuteTransactionInput`](crate::operation::execute_transaction::ExecuteTransactionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::execute_transaction::ExecuteTransactionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::execute_transaction::ExecuteTransactionInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::execute_transaction::ExecuteTransactionInput {
             transact_statements: self.transact_statements,
             client_request_token: self.client_request_token,

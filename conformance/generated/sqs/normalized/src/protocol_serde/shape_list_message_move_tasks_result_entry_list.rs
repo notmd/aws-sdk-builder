@@ -26,12 +26,11 @@ where
                         break;
                     }
                     _ => {
-                        let value =
-                            super::super::protocol_serde::shape_list_message_move_tasks_result_entry::de_list_message_move_tasks_result_entry(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?;
+                        let value = super::super::protocol_serde::shape_list_message_move_tasks_result_entry::de_list_message_move_tasks_result_entry(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?;
                         if let Some(value) = value {
                             items.push(value);
                         } else {

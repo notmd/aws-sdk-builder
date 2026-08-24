@@ -37,9 +37,8 @@ pub fn de_generate_mac_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::DryRunOperationExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::generate_mac::GenerateMacError::unhandled)?;
+                output = super::super::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::generate_mac::GenerateMacError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -53,11 +52,9 @@ pub fn de_generate_mac_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::generate_mac::GenerateMacError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::generate_mac::GenerateMacError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -71,9 +68,8 @@ pub fn de_generate_mac_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidKeyUsageExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::generate_mac::GenerateMacError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::generate_mac::GenerateMacError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -117,9 +113,8 @@ pub fn de_generate_mac_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::generate_mac::GenerateMacError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::generate_mac::GenerateMacError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -176,10 +171,8 @@ pub fn ser_generate_mac_input(
 pub(crate) fn de_generate_mac(
     _value: &[u8],
     mut builder: super::super::operation::generate_mac::builders::GenerateMacOutputBuilder,
-) -> ::std::result::Result<
-    super::super::operation::generate_mac::builders::GenerateMacOutputBuilder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
+) -> ::std::result::Result<super::super::operation::generate_mac::builders::GenerateMacOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+{
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]

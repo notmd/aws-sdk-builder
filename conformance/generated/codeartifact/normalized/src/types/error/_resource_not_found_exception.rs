@@ -125,9 +125,7 @@ impl ResourceNotFoundExceptionBuilder {
     /// Consumes the builder and constructs a [`ResourceNotFoundException`](crate::types::error::ResourceNotFoundException).
     /// This method will fail if any of the following fields are not set:
     /// - [`message`](crate::types::error::builders::ResourceNotFoundExceptionBuilder::message)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::types::error::ResourceNotFoundException, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::types::error::ResourceNotFoundException, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::types::error::ResourceNotFoundException {
             message: self.message.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

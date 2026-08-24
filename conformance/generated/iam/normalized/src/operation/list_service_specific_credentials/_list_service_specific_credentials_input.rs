@@ -136,14 +136,12 @@ impl ListServiceSpecificCredentialsInputBuilder {
         super::super::super::operation::list_service_specific_credentials::ListServiceSpecificCredentialsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_service_specific_credentials::ListServiceSpecificCredentialsInput {
-                user_name: self.user_name,
-                service_name: self.service_name,
-                all_users: self.all_users,
-                marker: self.marker,
-                max_items: self.max_items,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_service_specific_credentials::ListServiceSpecificCredentialsInput {
+            user_name: self.user_name,
+            service_name: self.service_name,
+            all_users: self.all_users,
+            marker: self.marker,
+            max_items: self.max_items,
+        })
     }
 }

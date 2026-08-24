@@ -276,11 +276,7 @@ impl ConverseStreamFluentBuilder {
     /// To override the contents of this collection use [`set_prompt_variables`](Self::set_prompt_variables).
     ///
     /// <p>Contains a map of variables in a prompt from Prompt management to objects containing the values to fill in for them when running model invocation. This field is ignored if you don't specify a prompt resource in the <code>modelId</code> field.</p>
-    pub fn prompt_variables(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: super::super::super::types::PromptVariableValues,
-    ) -> Self {
+    pub fn prompt_variables(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::PromptVariableValues) -> Self {
         self.inner = self.inner.prompt_variables(k.into(), v);
         self
     }

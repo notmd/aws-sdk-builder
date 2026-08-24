@@ -15,11 +15,7 @@ pub fn de_put_configuration_set_archiving_options_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(
-                super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError::unhandled(generic),
-            )
-        }
+        None => return Err(super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -31,9 +27,7 @@ pub fn de_put_configuration_set_archiving_options_http_error(
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
                     output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-                        .map_err(
-                            super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError::unhandled,
-                        )?;
+                        .map_err(super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -50,9 +44,7 @@ pub fn de_put_configuration_set_archiving_options_http_error(
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
                     output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                        .map_err(
-                            super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError::unhandled,
-                        )?;
+                        .map_err(super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -68,11 +60,11 @@ pub fn de_put_configuration_set_archiving_options_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(
+                                super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptionsError::unhandled,
+                            )?;
                     let output = output.meta(generic);
                     output.build()
                 };

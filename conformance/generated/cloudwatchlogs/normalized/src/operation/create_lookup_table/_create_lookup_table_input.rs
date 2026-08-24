@@ -165,10 +165,7 @@ impl CreateLookupTableInputBuilder {
     /// Consumes the builder and constructs a [`CreateLookupTableInput`](crate::operation::create_lookup_table::CreateLookupTableInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::create_lookup_table::CreateLookupTableInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::create_lookup_table::CreateLookupTableInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::create_lookup_table::CreateLookupTableInput {
             lookup_table_name: self.lookup_table_name,
             description: self.description,

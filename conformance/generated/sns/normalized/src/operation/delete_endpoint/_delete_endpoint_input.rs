@@ -45,8 +45,7 @@ impl DeleteEndpointInputBuilder {
     /// Consumes the builder and constructs a [`DeleteEndpointInput`](crate::operation::delete_endpoint::DeleteEndpointInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::delete_endpoint::DeleteEndpointInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::delete_endpoint::DeleteEndpointInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_endpoint::DeleteEndpointInput {
             endpoint_arn: self.endpoint_arn,
         })

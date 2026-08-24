@@ -301,9 +301,7 @@ impl ConfigurationTemplateBuilder {
         self
     }
     /// <p>The schema of the delivery source configuration that is available for this log type. Each element describes a configuration that can be set when calling <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>, including the configuration name, type, and default value.</p>
-    pub fn get_delivery_source_configuration(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::types::DeliverySourceConfigurationSchema>> {
+    pub fn get_delivery_source_configuration(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::DeliverySourceConfigurationSchema>> {
         &self.delivery_source_configuration
     }
     /// <p>The S3 Tables integration configuration for this configuration template, including the datasource name and type.</p>

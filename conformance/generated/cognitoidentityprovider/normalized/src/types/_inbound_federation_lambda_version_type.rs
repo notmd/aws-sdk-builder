@@ -51,9 +51,7 @@ impl ::std::convert::From<&str> for InboundFederationLambdaVersionType {
     fn from(s: &str) -> Self {
         match s {
             "V1_0" => InboundFederationLambdaVersionType::V10,
-            other => {
-                InboundFederationLambdaVersionType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => InboundFederationLambdaVersionType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

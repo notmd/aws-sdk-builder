@@ -27,8 +27,7 @@ impl super::super::super::operation::remove_client_id_from_open_id_connect_provi
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct RemoveClientIdFromOpenIdConnectProviderFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
-    inner:
-        super::super::super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderInputBuilder,
+    inner: super::super::super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
 impl
@@ -61,8 +60,7 @@ impl RemoveClientIdFromOpenIdConnectProviderFluentBuilder {
     /// Access the RemoveClientIdFromOpenIdConnectProvider as a reference.
     pub fn as_input(
         &self,
-    ) -> &super::super::super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderInputBuilder
-    {
+    ) -> &super::super::super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -86,11 +84,12 @@ impl RemoveClientIdFromOpenIdConnectProviderFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProvider::operation_runtime_plugins(
-                            self.handle.runtime_plugins.clone(),
-                            &self.handle.conf,
-                            self.config_override,
-                        );
+        let runtime_plugins =
+            super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProvider::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProvider::orchestrate(
             &runtime_plugins,
             input,

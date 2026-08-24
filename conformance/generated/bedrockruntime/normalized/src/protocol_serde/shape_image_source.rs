@@ -11,9 +11,7 @@ pub fn ser_image_source(
             super::super::protocol_serde::shape_s3_location::ser_s3_location(&mut object_1, inner)?;
             object_1.finish();
         }
-        super::super::types::ImageSource::Unknown => {
-            return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ImageSource"))
-        }
+        super::super::types::ImageSource::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ImageSource")),
     }
     Ok(())
 }

@@ -115,9 +115,7 @@ impl InvokeAsyncInputBuilder {
         &self.invoke_args
     }
     /// Consumes the builder and constructs a [`InvokeAsyncInput`](crate::operation::invoke_async::InvokeAsyncInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::invoke_async::InvokeAsyncInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::invoke_async::InvokeAsyncInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::invoke_async::InvokeAsyncInput {
             function_name: self.function_name,
             invoke_args: self.invoke_args.unwrap_or_default(),

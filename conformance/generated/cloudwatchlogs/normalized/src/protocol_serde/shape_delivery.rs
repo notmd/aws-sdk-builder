@@ -57,11 +57,8 @@ where
                             );
                         }
                         "recordFields" => {
-                            builder = builder.set_record_fields(super::super::protocol_serde::shape_record_fields::de_record_fields(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_record_fields(super::super::protocol_serde::shape_record_fields::de_record_fields(tokens, _value, depth + 1)?);
                         }
                         "fieldDelimiter" => {
                             builder = builder.set_field_delimiter(
@@ -72,11 +69,7 @@ where
                         }
                         "s3DeliveryConfiguration" => {
                             builder = builder.set_s3_delivery_configuration(
-                                super::super::protocol_serde::shape_s3_delivery_configuration::de_s3_delivery_configuration(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_s3_delivery_configuration::de_s3_delivery_configuration(tokens, _value, depth + 1)?,
                             );
                         }
                         "tags" => {

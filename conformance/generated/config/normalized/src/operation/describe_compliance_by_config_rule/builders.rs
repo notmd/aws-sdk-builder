@@ -67,9 +67,7 @@ impl DescribeComplianceByConfigRuleFluentBuilder {
         }
     }
     /// Access the DescribeComplianceByConfigRule as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::describe_compliance_by_config_rule::builders::DescribeComplianceByConfigRuleInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::describe_compliance_by_config_rule::builders::DescribeComplianceByConfigRuleInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -93,12 +91,11 @@ impl DescribeComplianceByConfigRuleFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRule::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = super::super::super::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRule::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         super::super::super::operation::describe_compliance_by_config_rule::DescribeComplianceByConfigRule::orchestrate(&runtime_plugins, input).await
     }
 
@@ -124,13 +121,8 @@ impl DescribeComplianceByConfigRuleFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_compliance_by_config_rule::paginator::DescribeComplianceByConfigRulePaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> super::super::super::operation::describe_compliance_by_config_rule::paginator::DescribeComplianceByConfigRulePaginator {
-        super::super::super::operation::describe_compliance_by_config_rule::paginator::DescribeComplianceByConfigRulePaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> super::super::super::operation::describe_compliance_by_config_rule::paginator::DescribeComplianceByConfigRulePaginator {
+        super::super::super::operation::describe_compliance_by_config_rule::paginator::DescribeComplianceByConfigRulePaginator::new(self.handle, self.inner)
     }
     ///
     /// Appends an item to `ConfigRuleNames`.

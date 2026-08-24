@@ -15,7 +15,11 @@ pub fn de_start_remediation_execution_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::start_remediation_execution::StartRemediationExecutionError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::start_remediation_execution::StartRemediationExecutionError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -133,11 +137,7 @@ pub(crate) fn de_start_remediation_execution(
                     );
                 }
                 "FailedItems" => {
-                    builder = builder.set_failed_items(super::super::protocol_serde::shape_resource_keys::de_resource_keys(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_failed_items(super::super::protocol_serde::shape_resource_keys::de_resource_keys(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

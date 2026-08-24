@@ -28,7 +28,9 @@ impl ::aws_types::request_id::RequestId for PutThirdPartyServiceLinkedConfigurat
 }
 impl PutThirdPartyServiceLinkedConfigurationRecorderOutput {
     /// Creates a new builder-style object to manufacture [`PutThirdPartyServiceLinkedConfigurationRecorderOutput`](crate::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderOutput).
-    pub fn builder() -> super::super::super::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderOutputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderOutputBuilder
+    {
         super::super::super::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderOutputBuilder::default()
     }
 }
@@ -91,10 +93,22 @@ impl PutThirdPartyServiceLinkedConfigurationRecorderOutputBuilder {
         super::super::super::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(super::super::super::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderOutput {
-            arn: self.arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("arn", "arn was not specified but it is required when building PutThirdPartyServiceLinkedConfigurationRecorderOutput"))?,
-            name: self.name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building PutThirdPartyServiceLinkedConfigurationRecorderOutput"))?,
-            _request_id: self._request_id,
-        })
+        ::std::result::Result::Ok(
+            super::super::super::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderOutput {
+                arn: self.arn.ok_or_else(|| {
+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
+                        "arn",
+                        "arn was not specified but it is required when building PutThirdPartyServiceLinkedConfigurationRecorderOutput",
+                    )
+                })?,
+                name: self.name.ok_or_else(|| {
+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
+                        "name",
+                        "name was not specified but it is required when building PutThirdPartyServiceLinkedConfigurationRecorderOutput",
+                    )
+                })?,
+                _request_id: self._request_id,
+            },
+        )
     }
 }

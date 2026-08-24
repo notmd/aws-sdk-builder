@@ -15,7 +15,11 @@ pub fn de_add_user_pool_client_secret_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -50,26 +54,21 @@ pub fn de_add_user_pool_client_secret_http_error(
             }
             tmp
         }),
-        "InvalidParameterException" => {
-            super::super::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::InvalidParameterException({
+        "InvalidParameterException" => super::super::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::InvalidParameterException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "LimitExceededException" => super::super::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::LimitExceededException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -85,34 +84,28 @@ pub fn de_add_user_pool_client_secret_http_error(
             }
             tmp
         }),
-        "ResourceNotFoundException" => {
-            super::super::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::ResourceNotFoundException({
+        "ResourceNotFoundException" => super::super::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::ResourceNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "TooManyRequestsException" => super::super::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::TooManyRequestsException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::add_user_pool_client_secret::AddUserPoolClientSecretError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -172,11 +165,7 @@ pub(crate) fn de_add_user_pool_client_secret(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "ClientSecretDescriptor" => {
                     builder = builder.set_client_secret_descriptor(
-                        super::super::protocol_serde::shape_client_secret_descriptor_type::de_client_secret_descriptor_type(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_client_secret_descriptor_type::de_client_secret_descriptor_type(tokens, _value, depth + 1)?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

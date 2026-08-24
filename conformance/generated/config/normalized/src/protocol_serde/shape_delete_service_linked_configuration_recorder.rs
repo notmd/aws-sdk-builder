@@ -17,9 +17,7 @@ pub fn de_delete_service_linked_configuration_recorder_http_error(
         Some(code) => code,
         None => {
             return Err(
-                super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled(
-                    generic,
-                ),
+                super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled(generic),
             )
         }
     };
@@ -83,7 +81,9 @@ pub fn de_delete_service_linked_configuration_recorder_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = super::super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderOutputBuilder::default();
+        let mut output =
+            super::super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderOutputBuilder::default(
+            );
         output = super::super::protocol_serde::shape_delete_service_linked_configuration_recorder::de_delete_service_linked_configuration_recorder(
             _response_body,
             output,
@@ -92,9 +92,7 @@ pub fn de_delete_service_linked_configuration_recorder_http_response(
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         super::super::serde_util::delete_service_linked_configuration_recorder_output_output_correct_errors(output)
             .build()
-            .map_err(
-                super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled,
-            )?
+            .map_err(super::super::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderError::unhandled)?
     })
 }
 
@@ -103,7 +101,10 @@ pub fn ser_delete_service_linked_configuration_recorder_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_delete_service_linked_configuration_recorder_input::ser_delete_service_linked_configuration_recorder_input_input(&mut object, input)?;
+    super::super::protocol_serde::shape_delete_service_linked_configuration_recorder_input::ser_delete_service_linked_configuration_recorder_input_input(
+        &mut object,
+        input,
+    )?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

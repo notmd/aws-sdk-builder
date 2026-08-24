@@ -15,31 +15,31 @@ pub fn de_start_resource_evaluation_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::start_resource_evaluation::StartResourceEvaluationError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::start_resource_evaluation::StartResourceEvaluationError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "IdempotentParameterMismatch" => {
-            super::super::operation::start_resource_evaluation::StartResourceEvaluationError::IdempotentParameterMismatch({
+        "IdempotentParameterMismatch" => super::super::operation::start_resource_evaluation::StartResourceEvaluationError::IdempotentParameterMismatch({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::IdempotentParameterMismatchBuilder::default();
-                    output = super::super::protocol_serde::shape_idempotent_parameter_mismatch::de_idempotent_parameter_mismatch_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::start_resource_evaluation::StartResourceEvaluationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::IdempotentParameterMismatchBuilder::default();
+                output =
+                    super::super::protocol_serde::shape_idempotent_parameter_mismatch::de_idempotent_parameter_mismatch_json_err(_response_body, output)
+                        .map_err(super::super::operation::start_resource_evaluation::StartResourceEvaluationError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidParameterValueException" => {
             super::super::operation::start_resource_evaluation::StartResourceEvaluationError::InvalidParameterValueException({
                 #[allow(unused_mut)]

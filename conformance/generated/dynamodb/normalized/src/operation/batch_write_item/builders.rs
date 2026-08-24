@@ -158,11 +158,7 @@ impl BatchWriteItemFluentBuilder {
     /// <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p></li>
     /// </ul></li>
     /// </ul>
-    pub fn request_items(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: ::std::vec::Vec<super::super::super::types::WriteRequest>,
-    ) -> Self {
+    pub fn request_items(mut self, k: impl ::std::convert::Into<::std::string::String>, v: ::std::vec::Vec<super::super::super::types::WriteRequest>) -> Self {
         self.inner = self.inner.request_items(k.into(), v);
         self
     }
@@ -257,10 +253,7 @@ impl BatchWriteItemFluentBuilder {
         self
     }
     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-    pub fn set_return_item_collection_metrics(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
-    ) -> Self {
+    pub fn set_return_item_collection_metrics(mut self, input: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>) -> Self {
         self.inner = self.inner.set_return_item_collection_metrics(input);
         self
     }

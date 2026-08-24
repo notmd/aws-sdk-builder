@@ -166,10 +166,7 @@ impl CreateRepositoryInputBuilder {
     /// Consumes the builder and constructs a [`CreateRepositoryInput`](crate::operation::create_repository::CreateRepositoryInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::create_repository::CreateRepositoryInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::create_repository::CreateRepositoryInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::create_repository::CreateRepositoryInput {
             domain: self.domain,
             domain_owner: self.domain_owner,

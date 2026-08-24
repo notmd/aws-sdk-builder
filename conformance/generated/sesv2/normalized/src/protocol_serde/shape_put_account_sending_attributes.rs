@@ -35,26 +35,21 @@ pub fn de_put_account_sending_attributes_http_error(
             }
             tmp
         }),
-        "TooManyRequestsException" => {
-            super::super::operation::put_account_sending_attributes::PutAccountSendingAttributesError::TooManyRequestsException({
+        "TooManyRequestsException" => super::super::operation::put_account_sending_attributes::PutAccountSendingAttributesError::TooManyRequestsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::put_account_sending_attributes::PutAccountSendingAttributesError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::put_account_sending_attributes::PutAccountSendingAttributesError::generic(generic),
     })
 }

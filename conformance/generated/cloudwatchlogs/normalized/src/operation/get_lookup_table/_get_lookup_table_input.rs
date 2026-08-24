@@ -44,8 +44,7 @@ impl GetLookupTableInputBuilder {
     /// Consumes the builder and constructs a [`GetLookupTableInput`](crate::operation::get_lookup_table::GetLookupTableInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::get_lookup_table::GetLookupTableInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::get_lookup_table::GetLookupTableInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_lookup_table::GetLookupTableInput {
             lookup_table_arn: self.lookup_table_arn,
         })

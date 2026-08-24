@@ -43,11 +43,9 @@ pub fn de_describe_organization_config_rules_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -58,22 +56,20 @@ pub fn de_describe_organization_config_rules_http_error(
             })
         }
         "NoSuchOrganizationConfigRuleException" => {
-            super::super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError::NoSuchOrganizationConfigRuleException(
-                {
+            super::super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError::NoSuchOrganizationConfigRuleException({
+                #[allow(unused_mut)]
+                let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut tmp = {
-                        #[allow(unused_mut)]
-                        let mut output = super::super::types::error::builders::NoSuchOrganizationConfigRuleExceptionBuilder::default();
-                        output = super::super::protocol_serde::shape_no_such_organization_config_rule_exception::de_no_such_organization_config_rule_exception_json_err(_response_body, output).map_err(super::super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError::unhandled)?;
-                        let output = output.meta(generic);
-                        output.build()
-                    };
-                    if tmp.message.is_none() {
-                        tmp.message = _error_message;
-                    }
-                    tmp
-                },
-            )
+                    let mut output = super::super::types::error::builders::NoSuchOrganizationConfigRuleExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_no_such_organization_config_rule_exception::de_no_such_organization_config_rule_exception_json_err(_response_body, output).map_err(super::super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
         }
         "OrganizationAccessDeniedException" => {
             super::super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError::OrganizationAccessDeniedException({
@@ -81,12 +77,11 @@ pub fn de_describe_organization_config_rules_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::OrganizationAccessDeniedExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_organization_access_denied_exception::de_organization_access_denied_exception_json_err(
-                            _response_body,
-                            output,
-                        )
-                        .map_err(super::super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError::unhandled)?;
+                    output = super::super::protocol_serde::shape_organization_access_denied_exception::de_organization_access_denied_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -111,11 +106,9 @@ pub fn de_describe_organization_config_rules_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_describe_organization_config_rules::de_describe_organization_config_rules(_response_body, output)
-                .map_err(super::super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError::unhandled)?;
+        let mut output = super::super::operation::describe_organization_config_rules::builders::DescribeOrganizationConfigRulesOutputBuilder::default();
+        output = super::super::protocol_serde::shape_describe_organization_config_rules::de_describe_organization_config_rules(_response_body, output)
+            .map_err(super::super::operation::describe_organization_config_rules::DescribeOrganizationConfigRulesError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -126,10 +119,7 @@ pub fn ser_describe_organization_config_rules_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_describe_organization_config_rules_input::ser_describe_organization_config_rules_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_describe_organization_config_rules_input::ser_describe_organization_config_rules_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

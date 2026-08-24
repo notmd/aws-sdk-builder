@@ -28,8 +28,7 @@ impl ::aws_types::request_id::RequestId for ListProvisionedConcurrencyConfigsOut
 }
 impl ListProvisionedConcurrencyConfigsOutput {
     /// Creates a new builder-style object to manufacture [`ListProvisionedConcurrencyConfigsOutput`](crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsOutput).
-    pub fn builder() -> super::super::super::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsOutputBuilder {
         super::super::super::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsOutputBuilder::default()
     }
 }
@@ -38,8 +37,7 @@ impl ListProvisionedConcurrencyConfigsOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListProvisionedConcurrencyConfigsOutputBuilder {
-    pub(crate) provisioned_concurrency_configs:
-        ::std::option::Option<::std::vec::Vec<super::super::super::types::ProvisionedConcurrencyConfigListItem>>,
+    pub(crate) provisioned_concurrency_configs: ::std::option::Option<::std::vec::Vec<super::super::super::types::ProvisionedConcurrencyConfigListItem>>,
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
@@ -64,9 +62,7 @@ impl ListProvisionedConcurrencyConfigsOutputBuilder {
         self
     }
     /// <p>A list of provisioned concurrency configurations.</p>
-    pub fn get_provisioned_concurrency_configs(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ProvisionedConcurrencyConfigListItem>> {
+    pub fn get_provisioned_concurrency_configs(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ProvisionedConcurrencyConfigListItem>> {
         &self.provisioned_concurrency_configs
     }
     /// <p>The pagination token that's included if more results are available.</p>

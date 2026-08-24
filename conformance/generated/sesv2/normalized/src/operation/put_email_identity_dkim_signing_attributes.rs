@@ -217,7 +217,9 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for PutEmailI
                 status, headers, body,
             )
         } else {
-            super::super::protocol_serde::shape_put_email_identity_dkim_signing_attributes::de_put_email_identity_dkim_signing_attributes_http_response(status, headers, body)
+            super::super::protocol_serde::shape_put_email_identity_dkim_signing_attributes::de_put_email_identity_dkim_signing_attributes_http_response(
+                status, headers, body,
+            )
         };
         super::super::protocol_serde::type_erase_result(parse_result)
     }
@@ -278,9 +280,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PutEmailIden
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            super::super::protocol_serde::shape_put_email_identity_dkim_signing_attributes::ser_put_email_identity_dkim_signing_attributes_input(
-                &input,
-            )?,
+            super::super::protocol_serde::shape_put_email_identity_dkim_signing_attributes::ser_put_email_identity_dkim_signing_attributes_input(&input)?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
@@ -448,9 +448,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for PutEmail
         })
     }
 }
-impl ::aws_types::request_id::RequestId
-    for super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError
-{
+impl ::aws_types::request_id::RequestId for super::super::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

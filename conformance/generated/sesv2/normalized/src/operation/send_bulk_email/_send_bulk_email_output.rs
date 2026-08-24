@@ -47,10 +47,7 @@ impl SendBulkEmailOutputBuilder {
         self
     }
     /// <p>One object per intended recipient. Check each response object and retry any messages with a failure status.</p>
-    pub fn set_bulk_email_entry_results(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::BulkEmailEntryResult>>,
-    ) -> Self {
+    pub fn set_bulk_email_entry_results(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::BulkEmailEntryResult>>) -> Self {
         self.bulk_email_entry_results = input;
         self
     }
@@ -72,8 +69,7 @@ impl SendBulkEmailOutputBuilder {
     /// - [`bulk_email_entry_results`](crate::operation::send_bulk_email::builders::SendBulkEmailOutputBuilder::bulk_email_entry_results)
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::send_bulk_email::SendBulkEmailOutput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::send_bulk_email::SendBulkEmailOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::send_bulk_email::SendBulkEmailOutput {
             bulk_email_entry_results: self.bulk_email_entry_results.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -78,10 +78,8 @@ impl TagServerCertificateInputBuilder {
     /// Consumes the builder and constructs a [`TagServerCertificateInput`](crate::operation::tag_server_certificate::TagServerCertificateInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::tag_server_certificate::TagServerCertificateInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::tag_server_certificate::TagServerCertificateInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::tag_server_certificate::TagServerCertificateInput {
             server_certificate_name: self.server_certificate_name,
             tags: self.tags,

@@ -42,8 +42,7 @@ impl GetContextKeysForPrincipalPolicyInput {
 }
 impl GetContextKeysForPrincipalPolicyInput {
     /// Creates a new builder-style object to manufacture [`GetContextKeysForPrincipalPolicyInput`](crate::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicyInput).
-    pub fn builder() -> super::super::super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyInputBuilder {
         super::super::super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyInputBuilder::default()
     }
 }

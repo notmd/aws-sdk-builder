@@ -4,10 +4,8 @@ pub fn de_admin_initiate_auth_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::admin_initiate_auth::AdminInitiateAuthOutput,
-    super::super::operation::admin_initiate_auth::AdminInitiateAuthError,
-> {
+) -> std::result::Result<super::super::operation::admin_initiate_auth::AdminInitiateAuthOutput, super::super::operation::admin_initiate_auth::AdminInitiateAuthError>
+{
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
@@ -74,9 +72,8 @@ pub fn de_admin_initiate_auth_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -91,7 +88,12 @@ pub fn de_admin_initiate_auth_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidSmsRoleAccessPolicyExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(_response_body, output).map_err(super::super::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_sms_role_access_policy_exception::de_invalid_sms_role_access_policy_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -138,11 +140,9 @@ pub fn de_admin_initiate_auth_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::MfaMethodNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_mfa_method_not_found_exception::de_mfa_method_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_mfa_method_not_found_exception::de_mfa_method_not_found_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -171,11 +171,9 @@ pub fn de_admin_initiate_auth_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -207,11 +205,8 @@ pub fn de_admin_initiate_auth_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -225,9 +220,8 @@ pub fn de_admin_initiate_auth_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -241,9 +235,8 @@ pub fn de_admin_initiate_auth_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UnexpectedLambdaExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
+                output = super::super::protocol_serde::shape_unexpected_lambda_exception::de_unexpected_lambda_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -257,11 +250,9 @@ pub fn de_admin_initiate_auth_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UnsupportedOperationExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -293,11 +284,8 @@ pub fn de_admin_initiate_auth_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UserNotConfirmedExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
+                output = super::super::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::admin_initiate_auth::AdminInitiateAuthError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -330,10 +318,8 @@ pub fn de_admin_initiate_auth_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::admin_initiate_auth::AdminInitiateAuthOutput,
-    super::super::operation::admin_initiate_auth::AdminInitiateAuthError,
-> {
+) -> std::result::Result<super::super::operation::admin_initiate_auth::AdminInitiateAuthOutput, super::super::operation::admin_initiate_auth::AdminInitiateAuthError>
+{
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::admin_initiate_auth::builders::AdminInitiateAuthOutputBuilder::default();
@@ -369,42 +355,40 @@ pub(crate) fn de_admin_initiate_auth(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "ChallengeName" => {
-                    builder = builder.set_challenge_name(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| super::super::types::ChallengeNameType::from(u.as_ref())))
-                            .transpose()?,
-                    );
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "ChallengeName" => {
+                        builder = builder.set_challenge_name(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| super::super::types::ChallengeNameType::from(u.as_ref())))
+                                .transpose()?,
+                        );
+                    }
+                    "Session" => {
+                        builder = builder.set_session(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?,
+                        );
+                    }
+                    "ChallengeParameters" => {
+                        builder = builder.set_challenge_parameters(
+                            super::super::protocol_serde::shape_challenge_parameters_type::de_challenge_parameters_type(tokens, _value, depth + 1)?,
+                        );
+                    }
+                    "AuthenticationResult" => {
+                        builder = builder.set_authentication_result(
+                            super::super::protocol_serde::shape_authentication_result_type::de_authentication_result_type(tokens, _value, depth + 1)?,
+                        );
+                    }
+                    "AvailableChallenges" => {
+                        builder = builder.set_available_challenges(
+                            super::super::protocol_serde::shape_available_challenge_list_type::de_available_challenge_list_type(tokens, _value, depth + 1)?,
+                        );
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                "Session" => {
-                    builder = builder.set_session(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                "ChallengeParameters" => {
-                    builder = builder.set_challenge_parameters(
-                        super::super::protocol_serde::shape_challenge_parameters_type::de_challenge_parameters_type(tokens, _value, depth + 1)?,
-                    );
-                }
-                "AuthenticationResult" => {
-                    builder = builder.set_authentication_result(
-                        super::super::protocol_serde::shape_authentication_result_type::de_authentication_result_type(tokens, _value, depth + 1)?,
-                    );
-                }
-                "AvailableChallenges" => {
-                    builder = builder.set_available_challenges(
-                        super::super::protocol_serde::shape_available_challenge_list_type::de_available_challenge_list_type(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
-                    );
-                }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

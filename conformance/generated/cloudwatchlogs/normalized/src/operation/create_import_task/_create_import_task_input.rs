@@ -87,10 +87,7 @@ impl CreateImportTaskInputBuilder {
     /// Consumes the builder and constructs a [`CreateImportTaskInput`](crate::operation::create_import_task::CreateImportTaskInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::create_import_task::CreateImportTaskInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::create_import_task::CreateImportTaskInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::create_import_task::CreateImportTaskInput {
             import_source_arn: self.import_source_arn,
             import_role_arn: self.import_role_arn,

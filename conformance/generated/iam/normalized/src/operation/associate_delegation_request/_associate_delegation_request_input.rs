@@ -48,10 +48,8 @@ impl AssociateDelegationRequestInputBuilder {
         super::super::super::operation::associate_delegation_request::AssociateDelegationRequestInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::associate_delegation_request::AssociateDelegationRequestInput {
-                delegation_request_id: self.delegation_request_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::associate_delegation_request::AssociateDelegationRequestInput {
+            delegation_request_id: self.delegation_request_id,
+        })
     }
 }

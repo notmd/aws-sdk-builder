@@ -4,8 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetConformancePackComplianceSummaryOutput {
     /// <p>A list of <code>ConformancePackComplianceSummary</code> objects.</p>
-    pub conformance_pack_compliance_summary_list:
-        ::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackComplianceSummary>>,
+    pub conformance_pack_compliance_summary_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackComplianceSummary>>,
     /// <p>The nextToken string returned on a previous page that you use to get the next page of results in a paginated response.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -29,8 +28,7 @@ impl ::aws_types::request_id::RequestId for GetConformancePackComplianceSummaryO
 }
 impl GetConformancePackComplianceSummaryOutput {
     /// Creates a new builder-style object to manufacture [`GetConformancePackComplianceSummaryOutput`](crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_conformance_pack_compliance_summary::builders::GetConformancePackComplianceSummaryOutputBuilder {
+    pub fn builder() -> super::super::super::operation::get_conformance_pack_compliance_summary::builders::GetConformancePackComplianceSummaryOutputBuilder {
         super::super::super::operation::get_conformance_pack_compliance_summary::builders::GetConformancePackComplianceSummaryOutputBuilder::default()
     }
 }
@@ -39,8 +37,7 @@ impl GetConformancePackComplianceSummaryOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct GetConformancePackComplianceSummaryOutputBuilder {
-    pub(crate) conformance_pack_compliance_summary_list:
-        ::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackComplianceSummary>>,
+    pub(crate) conformance_pack_compliance_summary_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackComplianceSummary>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }

@@ -15,7 +15,11 @@ pub fn de_put_configuration_recorder_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -87,26 +91,22 @@ pub fn de_put_configuration_recorder_http_error(
                 tmp
             })
         }
-        "UnmodifiableEntityException" => {
-            super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::UnmodifiableEntityException({
+        "UnmodifiableEntityException" => super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::UnmodifiableEntityException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::UnmodifiableEntityExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_unmodifiable_entity_exception::de_unmodifiable_entity_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::UnmodifiableEntityExceptionBuilder::default();
+                output =
+                    super::super::protocol_serde::shape_unmodifiable_entity_exception::de_unmodifiable_entity_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ValidationException" => super::super::operation::put_configuration_recorder::PutConfigurationRecorderError::ValidationException({
             #[allow(unused_mut)]
             let mut tmp = {

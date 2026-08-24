@@ -204,7 +204,7 @@ pub(crate) fn generate(
         {
             service_files.push((
                 "src/primitives/event_stream.rs".to_owned(),
-                render_event_stream_primitives(model_has_streaming(&selected)),
+                render_event_stream_primitives(model_has_event_stream(&selected)),
             ));
             if model_has_enum(&selected) {
                 service_files.push((
@@ -228,6 +228,12 @@ pub(crate) fn generate(
                 "src/serialization_settings.rs".to_owned(),
                 render_serialization_settings_file(),
             ));
+            if service_has_protocol(&selected, crate::model::ProtocolKind::AwsQueryCompatible) {
+                service_files.push((
+                    "src/aws_query_compatible_errors.rs".to_owned(),
+                    include_str!("../assets/aws_query_compatible_errors.rs").to_owned(),
+                ));
+            }
             if matches!(
                 protocol,
                 crate::model::ProtocolKind::RestJson1
@@ -4090,12 +4096,16 @@ fn operation_uses_stalled_stream_protection(selected: &SelectedModel, operation:
 
 fn service_supports_s3_express(selected: &SelectedModel) -> bool {
     selected
-        .model
-        .shapes
-        .get(selected.model.service_shape_id.as_str())
-        .and_then(|shape| shape.get("traits"))
-        .and_then(|traits| traits.get("smithy.rules#endpointRuleSet"))
-        .is_some_and(|rules| value_contains_string(rules, "sigv4-s3express"))
+        .operations
+        .iter()
+        .any(|operation| operation == "CreateSession")
+        && selected
+            .model
+            .shapes
+            .get(selected.model.service_shape_id.as_str())
+            .and_then(|shape| shape.get("traits"))
+            .and_then(|traits| traits.get("smithy.rules#endpointRuleSet"))
+            .is_some_and(|rules| value_contains_string(rules, "sigv4-s3express"))
 }
 
 fn service_uses_s3_sigv4_overrides(selected: &SelectedModel) -> bool {
@@ -13215,7 +13225,7 @@ fn render_client_operation_file(selected: &SelectedModel, operation: &str) -> St
         )
         .unwrap();
         output.push_str("    }\n}\n");
-        return output;
+        output
     }
 }
 

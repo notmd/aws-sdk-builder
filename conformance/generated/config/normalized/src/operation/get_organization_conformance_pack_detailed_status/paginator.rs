@@ -31,8 +31,13 @@ impl GetOrganizationConformancePackDetailedStatusPaginator {
     ///
     /// This paginator automatically flattens results using `organization_conformance_pack_detailed_statuses`. Queries to the underlying service
     /// are dispatched lazily.
-    pub fn items(self) -> super::super::super::operation::get_organization_conformance_pack_detailed_status::paginator::GetOrganizationConformancePackDetailedStatusPaginatorItems{
-        super::super::super::operation::get_organization_conformance_pack_detailed_status::paginator::GetOrganizationConformancePackDetailedStatusPaginatorItems(self)
+    pub fn items(
+        self,
+    ) -> super::super::super::operation::get_organization_conformance_pack_detailed_status::paginator::GetOrganizationConformancePackDetailedStatusPaginatorItems
+    {
+        super::super::super::operation::get_organization_conformance_pack_detailed_status::paginator::GetOrganizationConformancePackDetailedStatusPaginatorItems(
+            self,
+        )
     }
 
     /// Stop paginating when the service returns the same pagination token twice in a row.
@@ -90,10 +95,7 @@ impl GetOrganizationConformancePackDetailedStatusPaginator {
                         // If the input member is None or it was an error
                         let done = match resp {
                             ::std::result::Result::Ok(ref resp) => {
-                                let new_token =
-                                    super::super::super::lens::reflens_get_organization_conformance_pack_detailed_status_output_output_next_token(
-                                        resp,
-                                    );
+                                let new_token = super::super::super::lens::reflens_get_organization_conformance_pack_detailed_status_output_output_next_token(resp);
                                 // Pagination is exhausted when the next token is an empty string
                                 let is_empty = new_token.map(|token| token.is_empty()).unwrap_or(true);
                                 if !is_empty && new_token == input.next_token.as_ref() && self.stop_on_duplicate_token {
@@ -142,7 +144,10 @@ impl GetOrganizationConformancePackDetailedStatusPaginatorItems {
             >,
         >,
     > {
-        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send())
-            .flat_map(|page| super::super::super::lens::lens_get_organization_conformance_pack_detailed_status_output_output_organization_conformance_pack_detailed_statuses(page).unwrap_or_default().into_iter())
+        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
+            super::super::super::lens::lens_get_organization_conformance_pack_detailed_status_output_output_organization_conformance_pack_detailed_statuses(page)
+                .unwrap_or_default()
+                .into_iter()
+        })
     }
 }

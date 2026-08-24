@@ -126,10 +126,8 @@ impl ListRetirableGrantsInputBuilder {
     /// Consumes the builder and constructs a [`ListRetirableGrantsInput`](crate::operation::list_retirable_grants::ListRetirableGrantsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_retirable_grants::ListRetirableGrantsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_retirable_grants::ListRetirableGrantsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_retirable_grants::ListRetirableGrantsInput {
             limit: self.limit,
             marker: self.marker,

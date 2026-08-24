@@ -65,10 +65,11 @@ impl super::super::super::operation::update_bucket_metadata_inventory_table_conf
 /// </important>
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct UpdateBucketMetadataInventoryTableConfigurationFluentBuilder {
-                handle: ::std::sync::Arc<super::super::super::client::Handle>,
-                inner: super::super::super::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationInputBuilder,
-config_override: ::std::option::Option<super::super::super::config::Builder>,
-            }
+    handle: ::std::sync::Arc<super::super::super::client::Handle>,
+    inner:
+        super::super::super::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationInputBuilder,
+    config_override: ::std::option::Option<super::super::super::config::Builder>,
+}
 impl
     super::super::super::client::customize::internal::CustomizableSend<
         super::super::super::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput,
@@ -83,7 +84,7 @@ impl
             super::super::super::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput,
             super::super::super::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -97,7 +98,10 @@ impl UpdateBucketMetadataInventoryTableConfigurationFluentBuilder {
         }
     }
     /// Access the UpdateBucketMetadataInventoryTableConfiguration as a reference.
-    pub fn as_input(&self) -> &super::super::super::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &super::super::super::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -116,7 +120,7 @@ impl UpdateBucketMetadataInventoryTableConfigurationFluentBuilder {
             super::super::super::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -126,7 +130,11 @@ impl UpdateBucketMetadataInventoryTableConfigurationFluentBuilder {
                             &self.handle.conf,
                             self.config_override,
                         );
-        super::super::super::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfiguration::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfiguration::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -196,10 +204,7 @@ impl UpdateBucketMetadataInventoryTableConfigurationFluentBuilder {
         self
     }
     /// <p>The contents of your inventory table configuration.</p>
-    pub fn set_inventory_table_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::InventoryTableConfigurationUpdates>,
-    ) -> Self {
+    pub fn set_inventory_table_configuration(mut self, input: ::std::option::Option<super::super::super::types::InventoryTableConfigurationUpdates>) -> Self {
         self.inner = self.inner.set_inventory_table_configuration(input);
         self
     }

@@ -131,10 +131,7 @@ impl PutMetricFilterInputBuilder {
         self
     }
     /// <p>A collection of information that defines how metric data gets emitted.</p>
-    pub fn set_metric_transformations(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MetricTransformation>>,
-    ) -> Self {
+    pub fn set_metric_transformations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MetricTransformation>>) -> Self {
         self.metric_transformations = input;
         self
     }
@@ -196,10 +193,7 @@ impl PutMetricFilterInputBuilder {
     /// Consumes the builder and constructs a [`PutMetricFilterInput`](crate::operation::put_metric_filter::PutMetricFilterInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::put_metric_filter::PutMetricFilterInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::put_metric_filter::PutMetricFilterInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_metric_filter::PutMetricFilterInput {
             log_group_name: self.log_group_name,
             filter_name: self.filter_name,

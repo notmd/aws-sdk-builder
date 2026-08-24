@@ -70,9 +70,7 @@ impl CancelJobInputBuilder {
         &self.reason
     }
     /// Consumes the builder and constructs a [`CancelJobInput`](crate::operation::cancel_job::CancelJobInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::cancel_job::CancelJobInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::cancel_job::CancelJobInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::cancel_job::CancelJobInput {
             job_id: self.job_id,
             reason: self.reason,

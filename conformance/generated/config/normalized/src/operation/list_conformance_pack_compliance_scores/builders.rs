@@ -59,9 +59,7 @@ impl ListConformancePackComplianceScoresFluentBuilder {
         }
     }
     /// Access the ListConformancePackComplianceScores as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -91,11 +89,7 @@ impl ListConformancePackComplianceScoresFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScores::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        super::super::super::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScores::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

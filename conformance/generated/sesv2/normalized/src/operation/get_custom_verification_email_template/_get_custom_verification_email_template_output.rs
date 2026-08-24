@@ -59,8 +59,7 @@ impl ::aws_types::request_id::RequestId for GetCustomVerificationEmailTemplateOu
 }
 impl GetCustomVerificationEmailTemplateOutput {
     /// Creates a new builder-style object to manufacture [`GetCustomVerificationEmailTemplateOutput`](crate::operation::get_custom_verification_email_template::GetCustomVerificationEmailTemplateOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateOutputBuilder {
+    pub fn builder() -> super::super::super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateOutputBuilder {
         super::super::super::operation::get_custom_verification_email_template::builders::GetCustomVerificationEmailTemplateOutputBuilder::default()
     }
 }

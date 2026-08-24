@@ -15,11 +15,7 @@ pub fn de_delete_delivery_channel_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::delete_delivery_channel::DeleteDeliveryChannelError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::delete_delivery_channel::DeleteDeliveryChannelError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -40,26 +36,24 @@ pub fn de_delete_delivery_channel_http_error(
                 tmp
             })
         }
-        "NoSuchDeliveryChannelException" => {
-            super::super::operation::delete_delivery_channel::DeleteDeliveryChannelError::NoSuchDeliveryChannelException({
+        "NoSuchDeliveryChannelException" => super::super::operation::delete_delivery_channel::DeleteDeliveryChannelError::NoSuchDeliveryChannelException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::NoSuchDeliveryChannelExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_no_such_delivery_channel_exception::de_no_such_delivery_channel_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::delete_delivery_channel::DeleteDeliveryChannelError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::NoSuchDeliveryChannelExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_no_such_delivery_channel_exception::de_no_such_delivery_channel_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::delete_delivery_channel::DeleteDeliveryChannelError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::delete_delivery_channel::DeleteDeliveryChannelError::generic(generic),
     })
 }

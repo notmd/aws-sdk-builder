@@ -26,7 +26,12 @@ where
                         break;
                     }
                     _ => {
-                        let value = super::super::protocol_serde::shape_list_jobs_by_consumable_resource_summary::de_list_jobs_by_consumable_resource_summary(tokens, _value, depth + 1)?;
+                        let value =
+                            super::super::protocol_serde::shape_list_jobs_by_consumable_resource_summary::de_list_jobs_by_consumable_resource_summary(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?;
                         if let Some(value) = value {
                             items.push(value);
                         } else {

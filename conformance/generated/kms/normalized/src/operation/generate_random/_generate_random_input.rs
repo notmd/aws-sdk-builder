@@ -105,8 +105,7 @@ impl GenerateRandomInputBuilder {
     /// Consumes the builder and constructs a [`GenerateRandomInput`](crate::operation::generate_random::GenerateRandomInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::generate_random::GenerateRandomInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::generate_random::GenerateRandomInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::generate_random::GenerateRandomInput {
             number_of_bytes: self.number_of_bytes,
             custom_key_store_id: self.custom_key_store_id,

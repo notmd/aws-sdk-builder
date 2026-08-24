@@ -14,9 +14,7 @@ pub fn de_list_directory_buckets_http_error(
     generic_builder = super::super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(super::super::operation::list_directory_buckets::ListDirectoryBucketsError::generic(
-        generic,
-    ))
+    Err(super::super::operation::list_directory_buckets::ListDirectoryBucketsError::generic(generic))
 }
 
 #[allow(clippy::unnecessary_wraps)]

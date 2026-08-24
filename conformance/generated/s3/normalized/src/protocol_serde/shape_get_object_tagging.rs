@@ -4,10 +4,7 @@ pub fn de_get_object_tagging_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::get_object_tagging::GetObjectTaggingOutput,
-    super::super::operation::get_object_tagging::GetObjectTaggingError,
-> {
+) -> std::result::Result<super::super::operation::get_object_tagging::GetObjectTaggingOutput, super::super::operation::get_object_tagging::GetObjectTaggingError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::get_object_tagging::GetObjectTaggingError::unhandled)?;
@@ -22,10 +19,7 @@ pub fn de_get_object_tagging_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::get_object_tagging::GetObjectTaggingOutput,
-    super::super::operation::get_object_tagging::GetObjectTaggingError,
-> {
+) -> std::result::Result<super::super::operation::get_object_tagging::GetObjectTaggingOutput, super::super::operation::get_object_tagging::GetObjectTaggingError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder::default();
@@ -33,9 +27,7 @@ pub fn de_get_object_tagging_http_response(
             .map_err(super::super::operation::get_object_tagging::GetObjectTaggingError::unhandled)?;
         output = output.set_version_id(
             super::super::protocol_serde::shape_get_object_tagging_output::de_version_id_header(_response_headers).map_err(|_| {
-                super::super::operation::get_object_tagging::GetObjectTaggingError::unhandled(
-                    "Failed to parse VersionId from header `x-amz-version-id",
-                )
+                super::super::operation::get_object_tagging::GetObjectTaggingError::unhandled("Failed to parse VersionId from header `x-amz-version-id")
             })?,
         );
         output._set_extended_request_id(super::super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
@@ -79,8 +71,7 @@ pub fn ser_get_object_tagging_headers(
 pub fn de_get_object_tagging(
     inp: &[u8],
     mut builder: super::super::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder,
-) -> std::result::Result<super::super::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError>
-{
+) -> std::result::Result<super::super::operation::get_object_tagging::builders::GetObjectTaggingOutputBuilder, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
 
     #[allow(unused_mut)]

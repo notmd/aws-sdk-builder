@@ -136,10 +136,7 @@ impl DeliveryDestinationBuilder {
         self
     }
     /// <p>A structure that contains the ARN of the Amazon Web Services resource that will receive the logs.</p>
-    pub fn set_delivery_destination_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::types::DeliveryDestinationConfiguration>,
-    ) -> Self {
+    pub fn set_delivery_destination_configuration(mut self, input: ::std::option::Option<super::super::types::DeliveryDestinationConfiguration>) -> Self {
         self.delivery_destination_configuration = input;
         self
     }

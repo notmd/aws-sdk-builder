@@ -4,8 +4,7 @@ pub fn de_apply_guardrail_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::apply_guardrail::ApplyGuardrailOutput, super::super::operation::apply_guardrail::ApplyGuardrailError>
-{
+) -> std::result::Result<super::super::operation::apply_guardrail::ApplyGuardrailOutput, super::super::operation::apply_guardrail::ApplyGuardrailError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
@@ -53,11 +52,8 @@ pub fn de_apply_guardrail_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -89,11 +85,9 @@ pub fn de_apply_guardrail_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::apply_guardrail::ApplyGuardrailError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -141,8 +135,7 @@ pub fn de_apply_guardrail_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::apply_guardrail::ApplyGuardrailOutput, super::super::operation::apply_guardrail::ApplyGuardrailError>
-{
+) -> std::result::Result<super::super::operation::apply_guardrail::ApplyGuardrailOutput, super::super::operation::apply_guardrail::ApplyGuardrailError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::apply_guardrail::builders::ApplyGuardrailOutputBuilder::default();
@@ -200,17 +193,15 @@ pub(crate) fn de_apply_guardrail(
                 }
                 "outputs" => {
                     builder = builder.set_outputs(
-                        super::super::protocol_serde::shape_guardrail_output_content_list::de_guardrail_output_content_list(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_guardrail_output_content_list::de_guardrail_output_content_list(tokens, _value, depth + 1)?,
                     );
                 }
                 "assessments" => {
-                    builder = builder.set_assessments(
-                        super::super::protocol_serde::shape_guardrail_assessment_list::de_guardrail_assessment_list(tokens, _value, depth + 1)?,
-                    );
+                    builder = builder.set_assessments(super::super::protocol_serde::shape_guardrail_assessment_list::de_guardrail_assessment_list(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "guardrailCoverage" => {
                     builder = builder.set_guardrail_coverage(super::super::protocol_serde::shape_guardrail_coverage::de_guardrail_coverage(

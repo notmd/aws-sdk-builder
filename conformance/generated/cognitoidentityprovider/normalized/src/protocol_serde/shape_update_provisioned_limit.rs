@@ -44,9 +44,8 @@ pub fn de_update_provisioned_limit_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::update_provisioned_limit::UpdateProvisionedLimitError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::update_provisioned_limit::UpdateProvisionedLimitError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -75,7 +74,22 @@ pub fn de_update_provisioned_limit_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::update_provisioned_limit::UpdateProvisionedLimitError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ServiceQuotaExceededException" => super::super::operation::update_provisioned_limit::UpdateProvisionedLimitError::ServiceQuotaExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(
                     _response_body,
                     output,
                 )
@@ -88,34 +102,13 @@ pub fn de_update_provisioned_limit_http_error(
             }
             tmp
         }),
-        "ServiceQuotaExceededException" => {
-            super::super::operation::update_provisioned_limit::UpdateProvisionedLimitError::ServiceQuotaExceededException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::update_provisioned_limit::UpdateProvisionedLimitError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
         "TooManyRequestsException" => super::super::operation::update_provisioned_limit::UpdateProvisionedLimitError::TooManyRequestsException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::update_provisioned_limit::UpdateProvisionedLimitError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::update_provisioned_limit::UpdateProvisionedLimitError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

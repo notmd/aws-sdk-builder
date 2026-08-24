@@ -135,11 +135,7 @@ impl ListTenantResourcesFluentBuilder {
     /// To override the contents of this collection use [`set_filter`](Self::set_filter).
     ///
     /// <p>A map of filter keys and values for filtering the list of tenant resources. Currently, the only supported filter key is <code>RESOURCE_TYPE</code>.</p>
-    pub fn filter(
-        mut self,
-        k: super::super::super::types::ListTenantResourcesFilterKey,
-        v: impl ::std::convert::Into<::std::string::String>,
-    ) -> Self {
+    pub fn filter(mut self, k: super::super::super::types::ListTenantResourcesFilterKey, v: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.inner = self.inner.filter(k, v.into());
         self
     }

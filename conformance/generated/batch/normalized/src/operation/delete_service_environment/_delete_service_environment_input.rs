@@ -48,10 +48,8 @@ impl DeleteServiceEnvironmentInputBuilder {
         super::super::super::operation::delete_service_environment::DeleteServiceEnvironmentInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_service_environment::DeleteServiceEnvironmentInput {
-                service_environment: self.service_environment,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_service_environment::DeleteServiceEnvironmentInput {
+            service_environment: self.service_environment,
+        })
     }
 }

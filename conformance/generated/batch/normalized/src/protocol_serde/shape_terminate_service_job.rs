@@ -15,11 +15,7 @@ pub fn de_terminate_service_job_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::terminate_service_job::TerminateServiceJobError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::terminate_service_job::TerminateServiceJobError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());

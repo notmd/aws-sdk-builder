@@ -422,10 +422,8 @@ impl SelectObjectContentInputBuilder {
     /// Consumes the builder and constructs a [`SelectObjectContentInput`](crate::operation::select_object_content::SelectObjectContentInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::select_object_content::SelectObjectContentInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::select_object_content::SelectObjectContentInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::select_object_content::SelectObjectContentInput {
             bucket: self.bucket,
             key: self.key,

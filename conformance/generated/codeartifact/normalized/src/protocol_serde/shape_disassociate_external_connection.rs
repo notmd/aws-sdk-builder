@@ -20,23 +20,21 @@ pub fn de_disassociate_external_connection_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AccessDeniedException" => {
-            super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::AccessDeniedException({
+        "AccessDeniedException" => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::AccessDeniedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ConflictException" => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::ConflictException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -58,9 +56,8 @@ pub fn de_disassociate_external_connection_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
+                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -76,11 +73,9 @@ pub fn de_disassociate_external_connection_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -110,40 +105,36 @@ pub fn de_disassociate_external_connection_http_error(
                 tmp
             })
         }
-        "ThrottlingException" => {
-            super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::ThrottlingException({
+        "ThrottlingException" => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::ThrottlingException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "ValidationException" => {
-            super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::ValidationException({
+                let mut output = super::super::types::error::builders::ThrottlingExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_throttling_exception::de_throttling_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ValidationException" => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::ValidationException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::generic(generic),
     })
 }

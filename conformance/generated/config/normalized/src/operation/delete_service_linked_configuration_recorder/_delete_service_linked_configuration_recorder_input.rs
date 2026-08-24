@@ -20,8 +20,7 @@ impl DeleteServiceLinkedConfigurationRecorderInput {
 }
 impl DeleteServiceLinkedConfigurationRecorderInput {
     /// Creates a new builder-style object to manufacture [`DeleteServiceLinkedConfigurationRecorderInput`](crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderInput).
-    pub fn builder(
-    ) -> super::super::super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderInputBuilder
+    pub fn builder() -> super::super::super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderInputBuilder
     {
         super::super::super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderInputBuilder::default()
     }

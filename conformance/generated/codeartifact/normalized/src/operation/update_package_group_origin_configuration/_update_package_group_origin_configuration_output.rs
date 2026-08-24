@@ -38,8 +38,7 @@ impl ::aws_types::request_id::RequestId for UpdatePackageGroupOriginConfiguratio
 }
 impl UpdatePackageGroupOriginConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`UpdatePackageGroupOriginConfigurationOutput`](crate::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationOutputBuilder {
+    pub fn builder() -> super::super::super::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationOutputBuilder {
         super::super::super::operation::update_package_group_origin_configuration::builders::UpdatePackageGroupOriginConfigurationOutputBuilder::default()
     }
 }
@@ -93,10 +92,7 @@ impl UpdatePackageGroupOriginConfigurationOutputBuilder {
         input: ::std::option::Option<
             ::std::collections::HashMap<
                 super::super::super::types::PackageGroupOriginRestrictionType,
-                ::std::collections::HashMap<
-                    super::super::super::types::PackageGroupAllowedRepositoryUpdateType,
-                    ::std::vec::Vec<::std::string::String>,
-                >,
+                ::std::collections::HashMap<super::super::super::types::PackageGroupAllowedRepositoryUpdateType, ::std::vec::Vec<::std::string::String>>,
             >,
         >,
     ) -> Self {

@@ -74,11 +74,8 @@ pub fn de_dispose_package_versions_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -176,9 +173,11 @@ pub(crate) fn de_dispose_package_versions(
                     );
                 }
                 "failedVersions" => {
-                    builder = builder.set_failed_versions(
-                        super::super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(tokens, _value, depth + 1)?,
-                    );
+                    builder = builder.set_failed_versions(super::super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

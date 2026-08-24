@@ -68,11 +68,9 @@ impl DescribeDeliveryDestinationsInputBuilder {
         super::super::super::operation::describe_delivery_destinations::DescribeDeliveryDestinationsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::describe_delivery_destinations::DescribeDeliveryDestinationsInput {
-                next_token: self.next_token,
-                limit: self.limit,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::describe_delivery_destinations::DescribeDeliveryDestinationsInput {
+            next_token: self.next_token,
+            limit: self.limit,
+        })
     }
 }

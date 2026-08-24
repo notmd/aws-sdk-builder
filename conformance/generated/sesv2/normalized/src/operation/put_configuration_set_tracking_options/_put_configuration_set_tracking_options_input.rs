@@ -27,8 +27,7 @@ impl PutConfigurationSetTrackingOptionsInput {
 }
 impl PutConfigurationSetTrackingOptionsInput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetTrackingOptionsInput`](crate::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsInput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsInputBuilder {
+    pub fn builder() -> super::super::super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsInputBuilder {
         super::super::super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsInputBuilder::default()
     }
 }

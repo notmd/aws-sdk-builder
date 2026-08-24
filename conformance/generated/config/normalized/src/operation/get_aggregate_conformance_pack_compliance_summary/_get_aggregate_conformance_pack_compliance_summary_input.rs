@@ -38,7 +38,8 @@ impl GetAggregateConformancePackComplianceSummaryInput {
 }
 impl GetAggregateConformancePackComplianceSummaryInput {
     /// Creates a new builder-style object to manufacture [`GetAggregateConformancePackComplianceSummaryInput`](crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryInput).
-    pub fn builder() -> super::super::super::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryInputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryInputBuilder {
         super::super::super::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryInputBuilder::default()
     }
 }
@@ -89,10 +90,7 @@ impl GetAggregateConformancePackComplianceSummaryInputBuilder {
         self
     }
     /// <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>
-    pub fn set_group_by_key(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::AggregateConformancePackComplianceSummaryGroupKey>,
-    ) -> Self {
+    pub fn set_group_by_key(mut self, input: ::std::option::Option<super::super::super::types::AggregateConformancePackComplianceSummaryGroupKey>) -> Self {
         self.group_by_key = input;
         self
     }

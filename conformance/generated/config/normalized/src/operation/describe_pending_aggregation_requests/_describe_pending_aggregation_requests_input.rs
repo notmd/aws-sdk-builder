@@ -20,8 +20,7 @@ impl DescribePendingAggregationRequestsInput {
 }
 impl DescribePendingAggregationRequestsInput {
     /// Creates a new builder-style object to manufacture [`DescribePendingAggregationRequestsInput`](crate::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsInput).
-    pub fn builder() -> super::super::super::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsInputBuilder {
         super::super::super::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsInputBuilder::default()
     }
 }

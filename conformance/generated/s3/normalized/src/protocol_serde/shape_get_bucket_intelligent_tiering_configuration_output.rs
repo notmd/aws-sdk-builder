@@ -8,9 +8,7 @@ pub(crate) fn de_intelligent_tiering_configuration_payload(
     (!body.is_empty())
         .then(|| {
             super::super::protocol_serde::shape_get_bucket_intelligent_tiering_configuration_output::de_intelligent_tiering_configuration(body)
-                .map_err(
-                    super::super::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationError::unhandled,
-                )
+                .map_err(super::super::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationError::unhandled)
         })
         .transpose()
 }

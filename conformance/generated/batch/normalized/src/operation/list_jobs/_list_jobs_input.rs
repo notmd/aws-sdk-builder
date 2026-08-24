@@ -421,9 +421,7 @@ impl ListJobsInputBuilder {
         &self.filters
     }
     /// Consumes the builder and constructs a [`ListJobsInput`](crate::operation::list_jobs::ListJobsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::list_jobs::ListJobsInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_jobs::ListJobsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_jobs::ListJobsInput {
             job_queue: self.job_queue,
             array_job_id: self.array_job_id,

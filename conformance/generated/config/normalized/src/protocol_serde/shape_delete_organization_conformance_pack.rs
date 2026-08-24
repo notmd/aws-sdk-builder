@@ -15,55 +15,66 @@ pub fn de_delete_organization_conformance_pack_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError::unhandled(generic))
-        }
+        None => return Err(super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "NoSuchOrganizationConformancePackException" => super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError::NoSuchOrganizationConformancePackException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "NoSuchOrganizationConformancePackException" => {
+            super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError::NoSuchOrganizationConformancePackException(
+                {
+                    #[allow(unused_mut)]
+                    let mut tmp = {
+                        #[allow(unused_mut)]
+                        let mut output = super::super::types::error::builders::NoSuchOrganizationConformancePackExceptionBuilder::default();
+                        output = super::super::protocol_serde::shape_no_such_organization_conformance_pack_exception::de_no_such_organization_conformance_pack_exception_json_err(_response_body, output).map_err(super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError::unhandled)?;
+                        let output = output.meta(generic);
+                        output.build()
+                    };
+                    if tmp.message.is_none() {
+                        tmp.message = _error_message;
+                    }
+                    tmp
+                },
+            )
+        }
+        "OrganizationAccessDeniedException" => {
+            super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError::OrganizationAccessDeniedException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::NoSuchOrganizationConformancePackExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_no_such_organization_conformance_pack_exception::de_no_such_organization_conformance_pack_exception_json_err(_response_body, output).map_err(super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "OrganizationAccessDeniedException" => super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError::OrganizationAccessDeniedException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::OrganizationAccessDeniedExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_organization_access_denied_exception::de_organization_access_denied_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ResourceInUseException" => {
+            super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError::ResourceInUseException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::OrganizationAccessDeniedExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_organization_access_denied_exception::de_organization_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ResourceInUseException" => super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError::ResourceInUseException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ResourceInUseExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output).map_err(super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::ResourceInUseExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_resource_in_use_exception::de_resource_in_use_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => super::super::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackError::generic(generic),
     })
 }
@@ -79,8 +90,7 @@ pub fn de_delete_organization_conformance_pack_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackOutputBuilder::default();
+        let mut output = super::super::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackOutputBuilder::default();
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

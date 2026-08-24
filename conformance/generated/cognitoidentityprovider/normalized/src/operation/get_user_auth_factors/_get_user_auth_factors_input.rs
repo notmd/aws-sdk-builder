@@ -51,10 +51,8 @@ impl GetUserAuthFactorsInputBuilder {
     /// Consumes the builder and constructs a [`GetUserAuthFactorsInput`](crate::operation::get_user_auth_factors::GetUserAuthFactorsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_user_auth_factors::GetUserAuthFactorsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_user_auth_factors::GetUserAuthFactorsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_user_auth_factors::GetUserAuthFactorsInput {
             access_token: self.access_token,
         })

@@ -14,10 +14,15 @@ pub fn de_describe_aggregate_compliance_by_conformance_packs_http_error(
     )?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    let error_code = match generic.code() {
-        Some(code) => code,
-        None => return Err(super::super::operation::describe_aggregate_compliance_by_conformance_packs::DescribeAggregateComplianceByConformancePacksError::unhandled(generic)),
-    };
+    let error_code =
+        match generic.code() {
+            Some(code) => code,
+            None => return Err(
+                super::super::operation::describe_aggregate_compliance_by_conformance_packs::DescribeAggregateComplianceByConformancePacksError::unhandled(
+                    generic,
+                ),
+            ),
+        };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
@@ -93,8 +98,14 @@ pub fn de_describe_aggregate_compliance_by_conformance_packs_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::describe_aggregate_compliance_by_conformance_packs::builders::DescribeAggregateComplianceByConformancePacksOutputBuilder::default();
-        output = super::super::protocol_serde::shape_describe_aggregate_compliance_by_conformance_packs::de_describe_aggregate_compliance_by_conformance_packs(_response_body, output)
-            .map_err(super::super::operation::describe_aggregate_compliance_by_conformance_packs::DescribeAggregateComplianceByConformancePacksError::unhandled)?;
+        output =
+            super::super::protocol_serde::shape_describe_aggregate_compliance_by_conformance_packs::de_describe_aggregate_compliance_by_conformance_packs(
+                _response_body,
+                output,
+            )
+            .map_err(
+                super::super::operation::describe_aggregate_compliance_by_conformance_packs::DescribeAggregateComplianceByConformancePacksError::unhandled,
+            )?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -125,19 +136,21 @@ pub(crate) fn de_describe_aggregate_compliance_by_conformance_packs(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "AggregateComplianceByConformancePacks" => {
-                    builder = builder.set_aggregate_compliance_by_conformance_packs(super::super::protocol_serde::shape_aggregate_compliance_by_conformance_pack_list::de_aggregate_compliance_by_conformance_pack_list(tokens, _value, depth + 1)?);
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "AggregateComplianceByConformancePacks" => {
+                        builder = builder.set_aggregate_compliance_by_conformance_packs(super::super::protocol_serde::shape_aggregate_compliance_by_conformance_pack_list::de_aggregate_compliance_by_conformance_pack_list(tokens, _value, depth + 1)?);
+                    }
+                    "NextToken" => {
+                        builder = builder.set_next_token(
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?,
+                        );
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                "NextToken" => {
-                    builder = builder.set_next_token(
-                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                            .transpose()?,
-                    );
-                }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

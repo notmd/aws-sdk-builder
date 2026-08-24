@@ -280,9 +280,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for DeleteCustom
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            super::super::protocol_serde::shape_delete_custom_verification_email_template::ser_delete_custom_verification_email_template_input(
-                &input,
-            )?,
+            super::super::protocol_serde::shape_delete_custom_verification_email_template::ser_delete_custom_verification_email_template_input(&input)?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
@@ -450,9 +448,7 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DeleteCu
         })
     }
 }
-impl ::aws_types::request_id::RequestId
-    for super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError
-{
+impl ::aws_types::request_id::RequestId for super::super::operation::delete_custom_verification_email_template::DeleteCustomVerificationEmailTemplateError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

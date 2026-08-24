@@ -62,10 +62,7 @@ impl QueueSnapshotUtilizationDetailBuilder {
         self
     }
     /// <p>The total capacity usage for the entire job queue.</p>
-    pub fn set_total_capacity_usage(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::QueueSnapshotCapacityUsage>>,
-    ) -> Self {
+    pub fn set_total_capacity_usage(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::QueueSnapshotCapacityUsage>>) -> Self {
         self.total_capacity_usage = input;
         self
     }

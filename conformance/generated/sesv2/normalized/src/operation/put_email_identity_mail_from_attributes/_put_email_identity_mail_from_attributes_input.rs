@@ -45,8 +45,7 @@ impl PutEmailIdentityMailFromAttributesInput {
 }
 impl PutEmailIdentityMailFromAttributesInput {
     /// Creates a new builder-style object to manufacture [`PutEmailIdentityMailFromAttributesInput`](crate::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributesInput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesInputBuilder {
+    pub fn builder() -> super::super::super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesInputBuilder {
         super::super::super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesInputBuilder::default()
     }
 }

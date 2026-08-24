@@ -126,13 +126,11 @@ impl ListAttachedUserPoliciesInputBuilder {
         super::super::super::operation::list_attached_user_policies::ListAttachedUserPoliciesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_attached_user_policies::ListAttachedUserPoliciesInput {
-                user_name: self.user_name,
-                path_prefix: self.path_prefix,
-                marker: self.marker,
-                max_items: self.max_items,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_attached_user_policies::ListAttachedUserPoliciesInput {
+            user_name: self.user_name,
+            path_prefix: self.path_prefix,
+            marker: self.marker,
+            max_items: self.max_items,
+        })
     }
 }

@@ -36,10 +36,7 @@ pub fn ser_eks_container(
             {
                 #[allow(unused_mut)]
                 let mut object_12 = array_10.value().start_object();
-                super::super::protocol_serde::shape_eks_container_environment_variable::ser_eks_container_environment_variable(
-                    &mut object_12,
-                    item_11,
-                )?;
+                super::super::protocol_serde::shape_eks_container_environment_variable::ser_eks_container_environment_variable(&mut object_12, item_11)?;
                 object_12.finish();
             }
         }
@@ -116,18 +113,10 @@ where
                             );
                         }
                         "command" => {
-                            builder = builder.set_command(super::super::protocol_serde::shape_string_list::de_string_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_command(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
                         }
                         "args" => {
-                            builder = builder.set_args(super::super::protocol_serde::shape_string_list::de_string_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_args(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
                         }
                         "env" => {
                             builder = builder.set_env(
@@ -149,11 +138,7 @@ where
                         }
                         "volumeMounts" => {
                             builder = builder.set_volume_mounts(
-                                super::super::protocol_serde::shape_eks_container_volume_mounts::de_eks_container_volume_mounts(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_eks_container_volume_mounts::de_eks_container_volume_mounts(tokens, _value, depth + 1)?,
                             );
                         }
                         "securityContext" => {
@@ -174,9 +159,9 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::eks_container_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::eks_container_correct_errors(builder).build().map_err(|err| {
+                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
+            })?))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

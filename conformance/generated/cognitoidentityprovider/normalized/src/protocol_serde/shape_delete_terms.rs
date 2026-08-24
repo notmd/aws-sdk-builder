@@ -55,9 +55,8 @@ pub fn de_delete_terms_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::delete_terms::DeleteTermsError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_terms::DeleteTermsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -86,11 +85,9 @@ pub fn de_delete_terms_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::delete_terms::DeleteTermsError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::delete_terms::DeleteTermsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -104,11 +101,8 @@ pub fn de_delete_terms_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::delete_terms::DeleteTermsError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_terms::DeleteTermsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -122,9 +116,8 @@ pub fn de_delete_terms_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::delete_terms::DeleteTermsError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_terms::DeleteTermsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -164,10 +157,8 @@ pub fn ser_delete_terms_input(
 pub(crate) fn de_delete_terms(
     _value: &[u8],
     mut builder: super::super::operation::delete_terms::builders::DeleteTermsOutputBuilder,
-) -> ::std::result::Result<
-    super::super::operation::delete_terms::builders::DeleteTermsOutputBuilder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
+) -> ::std::result::Result<super::super::operation::delete_terms::builders::DeleteTermsOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+{
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]

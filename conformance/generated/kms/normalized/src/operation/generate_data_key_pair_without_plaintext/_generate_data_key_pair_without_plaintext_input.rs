@@ -80,8 +80,7 @@ impl GenerateDataKeyPairWithoutPlaintextInput {
 }
 impl GenerateDataKeyPairWithoutPlaintextInput {
     /// Creates a new builder-style object to manufacture [`GenerateDataKeyPairWithoutPlaintextInput`](crate::operation::generate_data_key_pair_without_plaintext::GenerateDataKeyPairWithoutPlaintextInput).
-    pub fn builder(
-    ) -> super::super::super::operation::generate_data_key_pair_without_plaintext::builders::GenerateDataKeyPairWithoutPlaintextInputBuilder {
+    pub fn builder() -> super::super::super::operation::generate_data_key_pair_without_plaintext::builders::GenerateDataKeyPairWithoutPlaintextInputBuilder {
         super::super::super::operation::generate_data_key_pair_without_plaintext::builders::GenerateDataKeyPairWithoutPlaintextInputBuilder::default()
     }
 }

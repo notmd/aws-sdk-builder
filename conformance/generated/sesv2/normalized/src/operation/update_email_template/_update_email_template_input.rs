@@ -67,10 +67,8 @@ impl UpdateEmailTemplateInputBuilder {
     /// Consumes the builder and constructs a [`UpdateEmailTemplateInput`](crate::operation::update_email_template::UpdateEmailTemplateInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::update_email_template::UpdateEmailTemplateInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::update_email_template::UpdateEmailTemplateInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::update_email_template::UpdateEmailTemplateInput {
             template_name: self.template_name,
             template_content: self.template_content,

@@ -35,16 +35,14 @@ where
                     }
                     variant = match key.as_ref() {
                         "toolUse" => Some(super::super::types::ContentBlockStart::ToolUse(
-                            super::super::protocol_serde::shape_tool_use_block_start::de_tool_use_block_start(tokens, _value, depth + 1)?
-                                .ok_or_else(|| {
-                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolUse' cannot be null")
-                                })?,
+                            super::super::protocol_serde::shape_tool_use_block_start::de_tool_use_block_start(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolUse' cannot be null"),
+                            )?,
                         )),
                         "toolResult" => Some(super::super::types::ContentBlockStart::ToolResult(
-                            super::super::protocol_serde::shape_tool_result_block_start::de_tool_result_block_start(tokens, _value, depth + 1)?
-                                .ok_or_else(|| {
-                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolResult' cannot be null")
-                                })?,
+                            super::super::protocol_serde::shape_tool_result_block_start::de_tool_result_block_start(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolResult' cannot be null"),
+                            )?,
                         )),
                         "image" => Some(super::super::types::ContentBlockStart::Image(
                             super::super::protocol_serde::shape_image_block_start::de_image_block_start(tokens, _value, depth + 1)?

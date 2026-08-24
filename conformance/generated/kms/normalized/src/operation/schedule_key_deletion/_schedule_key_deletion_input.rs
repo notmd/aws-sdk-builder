@@ -120,10 +120,8 @@ impl ScheduleKeyDeletionInputBuilder {
     /// Consumes the builder and constructs a [`ScheduleKeyDeletionInput`](crate::operation::schedule_key_deletion::ScheduleKeyDeletionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::schedule_key_deletion::ScheduleKeyDeletionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::schedule_key_deletion::ScheduleKeyDeletionInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::schedule_key_deletion::ScheduleKeyDeletionInput {
             key_id: self.key_id,
             pending_window_in_days: self.pending_window_in_days,

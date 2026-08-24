@@ -222,15 +222,13 @@ impl GetTokensFromRefreshTokenInputBuilder {
         super::super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenInput {
-                refresh_token: self.refresh_token,
-                client_id: self.client_id,
-                client_secret: self.client_secret,
-                device_key: self.device_key,
-                client_metadata: self.client_metadata,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_tokens_from_refresh_token::GetTokensFromRefreshTokenInput {
+            refresh_token: self.refresh_token,
+            client_id: self.client_id,
+            client_secret: self.client_secret,
+            device_key: self.device_key,
+            client_metadata: self.client_metadata,
+        })
     }
 }
 impl ::std::fmt::Debug for GetTokensFromRefreshTokenInputBuilder {

@@ -57,9 +57,7 @@ impl PutConfigurationSetArchivingOptionsFluentBuilder {
         }
     }
     /// Access the PutConfigurationSetArchivingOptions as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::put_configuration_set_archiving_options::builders::PutConfigurationSetArchivingOptionsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,11 +87,7 @@ impl PutConfigurationSetArchivingOptionsFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptions::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        super::super::super::operation::put_configuration_set_archiving_options::PutConfigurationSetArchivingOptions::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

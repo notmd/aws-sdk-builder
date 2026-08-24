@@ -23,14 +23,19 @@ impl PutEmailIdentityConfigurationSetAttributes {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                                err.downcast::<super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError>().expect("correct error type")
-                            })
+                err.downcast::<super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesError>()
+                    .expect("correct error type")
+            })
         };
         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
             .await
             .map_err(map_err)?;
         let output = context.finalize().map_err(map_err)?;
-        ::std::result::Result::Ok(output.downcast::<super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesOutput>().expect("correct output type"))
+        ::std::result::Result::Ok(
+            output
+                .downcast::<super::super::operation::put_email_identity_configuration_set_attributes::PutEmailIdentityConfigurationSetAttributesOutput>()
+                .expect("correct output type"),
+        )
     }
 
     pub(crate) async fn orchestrate_with_stop_point(
@@ -276,7 +281,11 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for PutEmailIden
             builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/json");
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_put_email_identity_configuration_set_attributes::ser_put_email_identity_configuration_set_attributes_input(&input)?);
+        let body = ::aws_smithy_types::body::SdkBody::from(
+            super::super::protocol_serde::shape_put_email_identity_configuration_set_attributes::ser_put_email_identity_configuration_set_attributes_input(
+                &input,
+            )?,
+        );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);

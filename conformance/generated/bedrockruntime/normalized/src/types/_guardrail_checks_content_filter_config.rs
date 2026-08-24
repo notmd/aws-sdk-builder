@@ -40,10 +40,7 @@ impl GuardrailChecksContentFilterConfigBuilder {
         self
     }
     /// <p>The content filter categories to evaluate.</p>
-    pub fn set_categories(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksContentFilterCategoryConfig>>,
-    ) -> Self {
+    pub fn set_categories(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksContentFilterCategoryConfig>>) -> Self {
         self.categories = input;
         self
     }
@@ -54,9 +51,7 @@ impl GuardrailChecksContentFilterConfigBuilder {
     /// Consumes the builder and constructs a [`GuardrailChecksContentFilterConfig`](crate::types::GuardrailChecksContentFilterConfig).
     /// This method will fail if any of the following fields are not set:
     /// - [`categories`](crate::types::builders::GuardrailChecksContentFilterConfigBuilder::categories)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::GuardrailChecksContentFilterConfig, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailChecksContentFilterConfig, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::GuardrailChecksContentFilterConfig {
             categories: self.categories.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

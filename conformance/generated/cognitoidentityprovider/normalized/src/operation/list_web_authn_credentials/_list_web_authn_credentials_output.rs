@@ -53,10 +53,7 @@ impl ListWebAuthnCredentialsOutputBuilder {
         self
     }
     /// <p>A list of registered passkeys for a user.</p>
-    pub fn set_credentials(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::WebAuthnCredentialDescription>>,
-    ) -> Self {
+    pub fn set_credentials(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::WebAuthnCredentialDescription>>) -> Self {
         self.credentials = input;
         self
     }
@@ -96,17 +93,15 @@ impl ListWebAuthnCredentialsOutputBuilder {
         super::super::super::operation::list_web_authn_credentials::ListWebAuthnCredentialsOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_web_authn_credentials::ListWebAuthnCredentialsOutput {
-                credentials: self.credentials.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "credentials",
-                        "credentials was not specified but it is required when building ListWebAuthnCredentialsOutput",
-                    )
-                })?,
-                next_token: self.next_token,
-                _request_id: self._request_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_web_authn_credentials::ListWebAuthnCredentialsOutput {
+            credentials: self.credentials.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "credentials",
+                    "credentials was not specified but it is required when building ListWebAuthnCredentialsOutput",
+                )
+            })?,
+            next_token: self.next_token,
+            _request_id: self._request_id,
+        })
     }
 }

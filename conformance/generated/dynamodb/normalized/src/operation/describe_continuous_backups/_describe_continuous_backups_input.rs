@@ -53,8 +53,6 @@ impl DescribeContinuousBackupsInputBuilder {
         super::super::super::operation::describe_continuous_backups::DescribeContinuousBackupsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::describe_continuous_backups::DescribeContinuousBackupsInput { table_name: self.table_name },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::describe_continuous_backups::DescribeContinuousBackupsInput { table_name: self.table_name })
     }
 }

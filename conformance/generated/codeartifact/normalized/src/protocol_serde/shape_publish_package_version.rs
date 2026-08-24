@@ -15,11 +15,7 @@ pub fn de_publish_package_version_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -74,7 +70,22 @@ pub fn de_publish_package_version_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "ServiceQuotaExceededException" => super::super::operation::publish_package_version::PublishPackageVersionError::ServiceQuotaExceededException({
+            #[allow(unused_mut)]
+            let mut tmp = {
+                #[allow(unused_mut)]
+                let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(
                     _response_body,
                     output,
                 )
@@ -87,26 +98,6 @@ pub fn de_publish_package_version_http_error(
             }
             tmp
         }),
-        "ServiceQuotaExceededException" => {
-            super::super::operation::publish_package_version::PublishPackageVersionError::ServiceQuotaExceededException({
-                #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
         "ThrottlingException" => super::super::operation::publish_package_version::PublishPackageVersionError::ThrottlingException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -229,11 +220,7 @@ pub(crate) fn de_publish_package_version(
                     );
                 }
                 "asset" => {
-                    builder = builder.set_asset(super::super::protocol_serde::shape_asset_summary::de_asset_summary(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_asset(super::super::protocol_serde::shape_asset_summary::de_asset_summary(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

@@ -48,9 +48,7 @@ pub fn de_put_object_acl_http_response(
         let mut output = super::super::operation::put_object_acl::builders::PutObjectAclOutputBuilder::default();
         output = output.set_request_charged(
             super::super::protocol_serde::shape_put_object_acl_output::de_request_charged_header(_response_headers).map_err(|_| {
-                super::super::operation::put_object_acl::PutObjectAclError::unhandled(
-                    "Failed to parse RequestCharged from header `x-amz-request-charged",
-                )
+                super::super::operation::put_object_acl::PutObjectAclError::unhandled("Failed to parse RequestCharged from header `x-amz-request-charged")
             })?,
         );
         output._set_extended_request_id(super::super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));

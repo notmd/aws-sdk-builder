@@ -101,11 +101,7 @@ pub(crate) fn de_describe_service_environments(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "serviceEnvironments" => {
                     builder = builder.set_service_environments(
-                        super::super::protocol_serde::shape_service_environment_detail_list::de_service_environment_detail_list(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_service_environment_detail_list::de_service_environment_detail_list(tokens, _value, depth + 1)?,
                     );
                 }
                 "nextToken" => {

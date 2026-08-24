@@ -15,7 +15,11 @@ pub fn de_batch_get_resource_config_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::batch_get_resource_config::BatchGetResourceConfigError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::batch_get_resource_config::BatchGetResourceConfigError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());

@@ -66,9 +66,7 @@ impl SuppressionConditionThresholdBuilder {
     /// Consumes the builder and constructs a [`SuppressionConditionThreshold`](crate::types::SuppressionConditionThreshold).
     /// This method will fail if any of the following fields are not set:
     /// - [`condition_threshold_enabled`](crate::types::builders::SuppressionConditionThresholdBuilder::condition_threshold_enabled)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::SuppressionConditionThreshold, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::SuppressionConditionThreshold, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::SuppressionConditionThreshold {
             condition_threshold_enabled: self.condition_threshold_enabled.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

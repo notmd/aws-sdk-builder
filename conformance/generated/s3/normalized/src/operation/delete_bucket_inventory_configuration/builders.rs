@@ -93,9 +93,7 @@ impl DeleteBucketInventoryConfigurationFluentBuilder {
         }
     }
     /// Access the DeleteBucketInventoryConfiguration as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::delete_bucket_inventory_configuration::builders::DeleteBucketInventoryConfigurationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -119,17 +117,12 @@ impl DeleteBucketInventoryConfigurationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfiguration::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        super::super::super::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfiguration::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins = super::super::super::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfiguration::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        super::super::super::operation::delete_bucket_inventory_configuration::DeleteBucketInventoryConfiguration::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

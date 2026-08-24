@@ -197,16 +197,14 @@ impl CreateLogAnomalyDetectorInputBuilder {
         super::super::super::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorInput {
-                log_group_arn_list: self.log_group_arn_list,
-                detector_name: self.detector_name,
-                evaluation_frequency: self.evaluation_frequency,
-                filter_pattern: self.filter_pattern,
-                kms_key_id: self.kms_key_id,
-                anomaly_visibility_time: self.anomaly_visibility_time,
-                tags: self.tags,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorInput {
+            log_group_arn_list: self.log_group_arn_list,
+            detector_name: self.detector_name,
+            evaluation_frequency: self.evaluation_frequency,
+            filter_pattern: self.filter_pattern,
+            kms_key_id: self.kms_key_id,
+            anomaly_visibility_time: self.anomaly_visibility_time,
+            tags: self.tags,
+        })
     }
 }

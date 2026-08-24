@@ -66,10 +66,8 @@ impl DeleteUserPoolDomainInputBuilder {
     /// Consumes the builder and constructs a [`DeleteUserPoolDomainInput`](crate::operation::delete_user_pool_domain::DeleteUserPoolDomainInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_user_pool_domain::DeleteUserPoolDomainInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_user_pool_domain::DeleteUserPoolDomainInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::delete_user_pool_domain::DeleteUserPoolDomainInput {
             domain: self.domain,
             user_pool_id: self.user_pool_id,

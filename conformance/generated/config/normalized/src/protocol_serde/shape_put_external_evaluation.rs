@@ -15,45 +15,37 @@ pub fn de_put_external_evaluation_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::put_external_evaluation::PutExternalEvaluationError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::put_external_evaluation::PutExternalEvaluationError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidParameterValueException" => {
-            super::super::operation::put_external_evaluation::PutExternalEvaluationError::InvalidParameterValueException({
+        "InvalidParameterValueException" => super::super::operation::put_external_evaluation::PutExternalEvaluationError::InvalidParameterValueException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_external_evaluation::PutExternalEvaluationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::put_external_evaluation::PutExternalEvaluationError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "NoSuchConfigRuleException" => super::super::operation::put_external_evaluation::PutExternalEvaluationError::NoSuchConfigRuleException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::NoSuchConfigRuleExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_no_such_config_rule_exception::de_no_such_config_rule_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::put_external_evaluation::PutExternalEvaluationError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_no_such_config_rule_exception::de_no_such_config_rule_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::put_external_evaluation::PutExternalEvaluationError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

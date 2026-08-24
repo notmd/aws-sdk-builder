@@ -85,9 +85,7 @@ impl GlobalTableGlobalSecondaryIndexSettingsUpdateBuilder {
         self
     }
     /// <p>Auto scaling settings for managing a global secondary index's write capacity units.</p>
-    pub fn get_provisioned_write_capacity_auto_scaling_settings_update(
-        &self,
-    ) -> &::std::option::Option<super::super::types::AutoScalingSettingsUpdate> {
+    pub fn get_provisioned_write_capacity_auto_scaling_settings_update(&self) -> &::std::option::Option<super::super::types::AutoScalingSettingsUpdate> {
         &self.provisioned_write_capacity_auto_scaling_settings_update
     }
     /// Consumes the builder and constructs a [`GlobalTableGlobalSecondaryIndexSettingsUpdate`](crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate).
@@ -95,8 +93,7 @@ impl GlobalTableGlobalSecondaryIndexSettingsUpdateBuilder {
     /// - [`index_name`](crate::types::builders::GlobalTableGlobalSecondaryIndexSettingsUpdateBuilder::index_name)
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate {
             index_name: self.index_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -121,13 +121,11 @@ impl CreateDeliverabilityTestReportInputBuilder {
         super::super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportInput {
-                report_name: self.report_name,
-                from_email_address: self.from_email_address,
-                content: self.content,
-                tags: self.tags,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportInput {
+            report_name: self.report_name,
+            from_email_address: self.from_email_address,
+            content: self.content,
+            tags: self.tags,
+        })
     }
 }

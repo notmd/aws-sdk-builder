@@ -146,11 +146,7 @@ impl AcquireRoleFluentBuilder {
     /// To override the contents of this collection use [`set_replacement_values`](Self::set_replacement_values).
     ///
     /// <p>A map of values to substitute for the parameters that are defined in the role template version. Each key is a parameter name from the template, and each value is a structure that contains the replacement values for that parameter.</p>
-    pub fn replacement_values(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: super::super::super::types::ReplacementValueEntry,
-    ) -> Self {
+    pub fn replacement_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::ReplacementValueEntry) -> Self {
         self.inner = self.inner.replacement_values(k.into(), v);
         self
     }

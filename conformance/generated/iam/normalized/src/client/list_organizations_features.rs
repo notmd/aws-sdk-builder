@@ -7,9 +7,7 @@ impl super::Client {
     ///   - [`organization_id(Option<String>)`](crate::operation::list_organizations_features::ListOrganizationsFeaturesOutput::organization_id): <p>The unique identifier (ID) of an organization.</p>
     ///   - [`enabled_features(Option<Vec::<FeatureType>>)`](crate::operation::list_organizations_features::ListOrganizationsFeaturesOutput::enabled_features): <p>Specifies the features that are currently available in your organization.</p>
     /// - On failure, responds with [`SdkError<ListOrganizationsFeaturesError>`](crate::operation::list_organizations_features::ListOrganizationsFeaturesError)
-    pub fn list_organizations_features(
-        &self,
-    ) -> super::super::operation::list_organizations_features::builders::ListOrganizationsFeaturesFluentBuilder {
+    pub fn list_organizations_features(&self) -> super::super::operation::list_organizations_features::builders::ListOrganizationsFeaturesFluentBuilder {
         super::super::operation::list_organizations_features::builders::ListOrganizationsFeaturesFluentBuilder::new(self.handle.clone())
     }
 }

@@ -25,9 +25,8 @@ pub fn de_describe_log_streams_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::describe_log_streams::DescribeLogStreamsError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::describe_log_streams::DescribeLogStreamsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -41,11 +40,8 @@ pub fn de_describe_log_streams_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::describe_log_streams::DescribeLogStreamsError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::describe_log_streams::DescribeLogStreamsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -59,11 +55,9 @@ pub fn de_describe_log_streams_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::describe_log_streams::DescribeLogStreamsError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::describe_log_streams::DescribeLogStreamsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -122,11 +116,7 @@ pub(crate) fn de_describe_log_streams(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "logStreams" => {
-                    builder = builder.set_log_streams(super::super::protocol_serde::shape_log_streams::de_log_streams(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_log_streams(super::super::protocol_serde::shape_log_streams::de_log_streams(tokens, _value, depth + 1)?);
                 }
                 "nextToken" => {
                     builder = builder.set_next_token(

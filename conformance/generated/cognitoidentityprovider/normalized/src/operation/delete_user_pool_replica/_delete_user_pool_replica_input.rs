@@ -66,10 +66,8 @@ impl DeleteUserPoolReplicaInputBuilder {
     /// Consumes the builder and constructs a [`DeleteUserPoolReplicaInput`](crate::operation::delete_user_pool_replica::DeleteUserPoolReplicaInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_user_pool_replica::DeleteUserPoolReplicaInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_user_pool_replica::DeleteUserPoolReplicaInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::delete_user_pool_replica::DeleteUserPoolReplicaInput {
             user_pool_id: self.user_pool_id,
             region_name: self.region_name,

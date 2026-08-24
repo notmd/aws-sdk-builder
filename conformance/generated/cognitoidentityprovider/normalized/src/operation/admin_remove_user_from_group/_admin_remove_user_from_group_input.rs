@@ -101,13 +101,11 @@ impl AdminRemoveUserFromGroupInputBuilder {
         super::super::super::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupInput {
-                user_pool_id: self.user_pool_id,
-                username: self.username,
-                group_name: self.group_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::admin_remove_user_from_group::AdminRemoveUserFromGroupInput {
+            user_pool_id: self.user_pool_id,
+            username: self.username,
+            group_name: self.group_name,
+        })
     }
 }
 impl ::std::fmt::Debug for AdminRemoveUserFromGroupInputBuilder {

@@ -29,9 +29,7 @@ impl ExecuteStatementOutput {
         self.consumed_capacity.as_ref()
     }
     /// <p>The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request. If <code>LastEvaluatedKey</code> is empty, then the "last page" of results has been processed and there is no more data to be retrieved. If <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when <code>LastEvaluatedKey</code> is empty.</p>
-    pub fn last_evaluated_key(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>> {
+    pub fn last_evaluated_key(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>> {
         self.last_evaluated_key.as_ref()
     }
 }
@@ -51,12 +49,10 @@ impl ExecuteStatementOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ExecuteStatementOutputBuilder {
-    pub(crate) items:
-        ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>>,
+    pub(crate) items: ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     pub(crate) consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
-    pub(crate) last_evaluated_key:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
+    pub(crate) last_evaluated_key: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>>,
     _request_id: Option<String>,
 }
 impl ExecuteStatementOutputBuilder {
@@ -133,9 +129,7 @@ impl ExecuteStatementOutputBuilder {
         self
     }
     /// <p>The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request. If <code>LastEvaluatedKey</code> is empty, then the "last page" of results has been processed and there is no more data to be retrieved. If <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when <code>LastEvaluatedKey</code> is empty.</p>
-    pub fn get_last_evaluated_key(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>> {
+    pub fn get_last_evaluated_key(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::AttributeValue>> {
         &self.last_evaluated_key
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

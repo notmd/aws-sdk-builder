@@ -107,9 +107,7 @@ impl VerificationExceptionBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`message`](crate::types::error::builders::VerificationExceptionBuilder::message)
     /// - [`status`](crate::types::error::builders::VerificationExceptionBuilder::status)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::types::error::VerificationException, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::types::error::VerificationException, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::types::error::VerificationException {
             message: self.message.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -16,98 +16,126 @@ pub fn de_describe_managed_login_branding_by_client_http_error(
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(
-                super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::unhandled(generic),
-            )
+            return Err(super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::unhandled(generic))
         }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InternalErrorException" => super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::InternalErrorException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "InternalErrorException" => {
+            super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::InternalErrorException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output).map_err(super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidParameterException" => super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::InvalidParameterException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InternalErrorExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_internal_error_exception::de_internal_error_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidParameterException" => {
+            super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::InvalidParameterException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output).map_err(super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "NotAuthorizedException" => super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::NotAuthorizedException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                            .map_err(
+                                super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::unhandled,
+                            )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "NotAuthorizedException" => {
+            super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::NotAuthorizedException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::NotAuthorizedExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output).map_err(super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "OperationNotEnabledException" => super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::OperationNotEnabledException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::NotAuthorizedExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_not_authorized_exception::de_not_authorized_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "OperationNotEnabledException" => {
+            super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::OperationNotEnabledException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output).map_err(super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ResourceNotFoundException" => super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::ResourceNotFoundException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ResourceNotFoundException" => {
+            super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::ResourceNotFoundException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "TooManyRequestsException" => super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::TooManyRequestsException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "TooManyRequestsException" => {
+            super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::TooManyRequestsException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(
+                                super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::unhandled,
+                            )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => super::super::operation::describe_managed_login_branding_by_client::DescribeManagedLoginBrandingByClientError::generic(generic),
     })
 }
@@ -124,8 +152,7 @@ pub fn de_describe_managed_login_branding_by_client_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output =
-            super::super::operation::describe_managed_login_branding_by_client::builders::DescribeManagedLoginBrandingByClientOutputBuilder::default(
-            );
+            super::super::operation::describe_managed_login_branding_by_client::builders::DescribeManagedLoginBrandingByClientOutputBuilder::default();
         output = super::super::protocol_serde::shape_describe_managed_login_branding_by_client::de_describe_managed_login_branding_by_client(
             _response_body,
             output,

@@ -23,11 +23,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
                         match key.to_unescaped()?.as_ref() {
                             "command" => {
-                                builder = builder.set_command(super::super::protocol_serde::shape_string_list::de_string_list(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?);
+                                builder = builder.set_command(super::super::protocol_serde::shape_string_list::de_string_list(tokens, _value, depth + 1)?);
                             }
                             "dependsOn" => {
                                 builder = builder.set_depends_on(
@@ -39,9 +35,11 @@ where
                                 );
                             }
                             "environment" => {
-                                builder = builder.set_environment(
-                                    super::super::protocol_serde::shape_environment_variables::de_environment_variables(tokens, _value, depth + 1)?,
-                                );
+                                builder = builder.set_environment(super::super::protocol_serde::shape_environment_variables::de_environment_variables(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
                             }
                             "essential" => {
                                 builder = builder.set_essential(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
@@ -73,11 +71,8 @@ where
                                 )?);
                             }
                             "mountPoints" => {
-                                builder = builder.set_mount_points(super::super::protocol_serde::shape_mount_points::de_mount_points(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?);
+                                builder =
+                                    builder.set_mount_points(super::super::protocol_serde::shape_mount_points::de_mount_points(tokens, _value, depth + 1)?);
                             }
                             "name" => {
                                 builder = builder.set_name(
@@ -104,11 +99,7 @@ where
                                 );
                             }
                             "secrets" => {
-                                builder = builder.set_secrets(super::super::protocol_serde::shape_secret_list::de_secret_list(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?);
+                                builder = builder.set_secrets(super::super::protocol_serde::shape_secret_list::de_secret_list(tokens, _value, depth + 1)?);
                             }
                             "ulimits" => {
                                 builder = builder.set_ulimits(super::super::protocol_serde::shape_ulimits::de_ulimits(tokens, _value, depth + 1)?);

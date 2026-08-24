@@ -71,20 +71,14 @@ pub struct ListPartsFluentBuilder {
     inner: super::super::super::operation::list_parts::builders::ListPartsInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::list_parts::ListPartsOutput,
-        super::super::super::operation::list_parts::ListPartsError,
-    > for ListPartsFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::list_parts::ListPartsOutput, super::super::super::operation::list_parts::ListPartsError>
+    for ListPartsFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::list_parts::ListPartsOutput,
-            super::super::super::operation::list_parts::ListPartsError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::list_parts::ListPartsOutput, super::super::super::operation::list_parts::ListPartsError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }

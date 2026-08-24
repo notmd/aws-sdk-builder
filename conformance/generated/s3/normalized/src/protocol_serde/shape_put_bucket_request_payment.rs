@@ -14,7 +14,9 @@ pub fn de_put_bucket_request_payment_http_error(
     generic_builder = super::super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(super::super::operation::put_bucket_request_payment::PutBucketRequestPaymentError::generic(generic))
+    Err(super::super::operation::put_bucket_request_payment::PutBucketRequestPaymentError::generic(
+        generic,
+    ))
 }
 
 #[allow(clippy::unnecessary_wraps)]

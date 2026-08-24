@@ -51,9 +51,7 @@ pub fn de_restore_object_http_response(
         let mut output = super::super::operation::restore_object::builders::RestoreObjectOutputBuilder::default();
         output = output.set_request_charged(
             super::super::protocol_serde::shape_restore_object_output::de_request_charged_header(_response_headers).map_err(|_| {
-                super::super::operation::restore_object::RestoreObjectError::unhandled(
-                    "Failed to parse RequestCharged from header `x-amz-request-charged",
-                )
+                super::super::operation::restore_object::RestoreObjectError::unhandled("Failed to parse RequestCharged from header `x-amz-request-charged")
             })?,
         );
         output = output.set_restore_output_path(

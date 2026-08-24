@@ -46,20 +46,14 @@ pub struct TagUserFluentBuilder {
     inner: super::super::super::operation::tag_user::builders::TagUserInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::tag_user::TagUserOutput,
-        super::super::super::operation::tag_user::TagUserError,
-    > for TagUserFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::tag_user::TagUserOutput, super::super::super::operation::tag_user::TagUserError>
+    for TagUserFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::tag_user::TagUserOutput,
-            super::super::super::operation::tag_user::TagUserError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::tag_user::TagUserOutput, super::super::super::operation::tag_user::TagUserError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -109,11 +103,8 @@ impl TagUserFluentBuilder {
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
     pub fn customize(
         self,
-    ) -> super::super::super::client::customize::CustomizableOperation<
-        super::super::super::operation::tag_user::TagUserOutput,
-        super::super::super::operation::tag_user::TagUserError,
-        Self,
-    > {
+    ) -> super::super::super::client::customize::CustomizableOperation<super::super::super::operation::tag_user::TagUserOutput, super::super::super::operation::tag_user::TagUserError, Self>
+    {
         super::super::super::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<super::super::super::config::Builder>) -> Self {

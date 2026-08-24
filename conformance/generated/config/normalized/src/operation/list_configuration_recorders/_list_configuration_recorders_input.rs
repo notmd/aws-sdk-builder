@@ -97,12 +97,10 @@ impl ListConfigurationRecordersInputBuilder {
         super::super::super::operation::list_configuration_recorders::ListConfigurationRecordersInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_configuration_recorders::ListConfigurationRecordersInput {
-                filters: self.filters,
-                max_results: self.max_results.unwrap_or_default(),
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_configuration_recorders::ListConfigurationRecordersInput {
+            filters: self.filters,
+            max_results: self.max_results.unwrap_or_default(),
+            next_token: self.next_token,
+        })
     }
 }

@@ -89,10 +89,8 @@ impl DisableKeyRotationInputBuilder {
     /// Consumes the builder and constructs a [`DisableKeyRotationInput`](crate::operation::disable_key_rotation::DisableKeyRotationInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::disable_key_rotation::DisableKeyRotationInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::disable_key_rotation::DisableKeyRotationInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::disable_key_rotation::DisableKeyRotationInput { key_id: self.key_id })
     }
 }

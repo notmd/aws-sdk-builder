@@ -15,7 +15,11 @@ pub fn de_put_retention_configuration_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::put_retention_configuration::PutRetentionConfigurationError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::put_retention_configuration::PutRetentionConfigurationError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -41,22 +45,20 @@ pub fn de_put_retention_configuration_http_error(
             })
         }
         "MaxNumberOfRetentionConfigurationsExceededException" => {
-            super::super::operation::put_retention_configuration::PutRetentionConfigurationError::MaxNumberOfRetentionConfigurationsExceededException(
-                {
+            super::super::operation::put_retention_configuration::PutRetentionConfigurationError::MaxNumberOfRetentionConfigurationsExceededException({
+                #[allow(unused_mut)]
+                let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut tmp = {
-                        #[allow(unused_mut)]
-                        let mut output = super::super::types::error::builders::MaxNumberOfRetentionConfigurationsExceededExceptionBuilder::default();
-                        output = super::super::protocol_serde::shape_max_number_of_retention_configurations_exceeded_exception::de_max_number_of_retention_configurations_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::put_retention_configuration::PutRetentionConfigurationError::unhandled)?;
-                        let output = output.meta(generic);
-                        output.build()
-                    };
-                    if tmp.message.is_none() {
-                        tmp.message = _error_message;
-                    }
-                    tmp
-                },
-            )
+                    let mut output = super::super::types::error::builders::MaxNumberOfRetentionConfigurationsExceededExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_max_number_of_retention_configurations_exceeded_exception::de_max_number_of_retention_configurations_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::put_retention_configuration::PutRetentionConfigurationError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
         }
         _ => super::super::operation::put_retention_configuration::PutRetentionConfigurationError::generic(generic),
     })
@@ -106,14 +108,16 @@ pub(crate) fn de_put_retention_configuration(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "RetentionConfiguration" => {
-                    builder = builder.set_retention_configuration(
-                        super::super::protocol_serde::shape_retention_configuration::de_retention_configuration(tokens, _value, depth + 1)?,
-                    );
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "RetentionConfiguration" => {
+                        builder = builder.set_retention_configuration(
+                            super::super::protocol_serde::shape_retention_configuration::de_retention_configuration(tokens, _value, depth + 1)?,
+                        );
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

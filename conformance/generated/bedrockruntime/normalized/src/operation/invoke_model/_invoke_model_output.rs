@@ -137,10 +137,7 @@ impl InvokeModelOutputBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`body`](crate::operation::invoke_model::builders::InvokeModelOutputBuilder::body)
     /// - [`content_type`](crate::operation::invoke_model::builders::InvokeModelOutputBuilder::content_type)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::invoke_model::InvokeModelOutput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::invoke_model::InvokeModelOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::invoke_model::InvokeModelOutput {
             body: self.body.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

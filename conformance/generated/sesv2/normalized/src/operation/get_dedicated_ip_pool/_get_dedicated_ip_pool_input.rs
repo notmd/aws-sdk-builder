@@ -45,10 +45,8 @@ impl GetDedicatedIpPoolInputBuilder {
     /// Consumes the builder and constructs a [`GetDedicatedIpPoolInput`](crate::operation::get_dedicated_ip_pool::GetDedicatedIpPoolInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_dedicated_ip_pool::GetDedicatedIpPoolInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_dedicated_ip_pool::GetDedicatedIpPoolInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_dedicated_ip_pool::GetDedicatedIpPoolInput { pool_name: self.pool_name })
     }
 }

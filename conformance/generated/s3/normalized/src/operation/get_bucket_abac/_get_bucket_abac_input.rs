@@ -65,8 +65,7 @@ impl GetBucketAbacInputBuilder {
     /// Consumes the builder and constructs a [`GetBucketAbacInput`](crate::operation::get_bucket_abac::GetBucketAbacInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::get_bucket_abac::GetBucketAbacInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::get_bucket_abac::GetBucketAbacInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_bucket_abac::GetBucketAbacInput {
             bucket: self.bucket,
             expected_bucket_owner: self.expected_bucket_owner,

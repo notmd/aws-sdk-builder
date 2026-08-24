@@ -10,8 +10,6 @@ impl super::Client {
     pub fn delete_bucket_metadata_configuration(
         &self,
     ) -> super::super::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationFluentBuilder {
-        super::super::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

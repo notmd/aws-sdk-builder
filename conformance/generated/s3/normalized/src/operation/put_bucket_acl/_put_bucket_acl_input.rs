@@ -269,8 +269,7 @@ impl PutBucketAclInputBuilder {
     /// Consumes the builder and constructs a [`PutBucketAclInput`](crate::operation::put_bucket_acl::PutBucketAclInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::put_bucket_acl::PutBucketAclInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::put_bucket_acl::PutBucketAclInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_bucket_acl::PutBucketAclInput {
             acl: self.acl,
             access_control_policy: self.access_control_policy,

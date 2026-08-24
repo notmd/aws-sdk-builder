@@ -54,10 +54,7 @@ impl DescribeConfigurationAggregatorsOutputBuilder {
         self
     }
     /// <p>Returns a ConfigurationAggregators object.</p>
-    pub fn set_configuration_aggregators(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConfigurationAggregator>>,
-    ) -> Self {
+    pub fn set_configuration_aggregators(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConfigurationAggregator>>) -> Self {
         self.configuration_aggregators = input;
         self
     }

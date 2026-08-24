@@ -26,8 +26,7 @@ impl super::super::super::operation::get_organization_config_rule_detailed_statu
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetOrganizationConfigRuleDetailedStatusFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
-    inner:
-        super::super::super::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusInputBuilder,
+    inner: super::super::super::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
 impl
@@ -60,8 +59,7 @@ impl GetOrganizationConfigRuleDetailedStatusFluentBuilder {
     /// Access the GetOrganizationConfigRuleDetailedStatus as a reference.
     pub fn as_input(
         &self,
-    ) -> &super::super::super::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusInputBuilder
-    {
+    ) -> &super::super::super::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,16 +83,14 @@ impl GetOrganizationConfigRuleDetailedStatusFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatus::operation_runtime_plugins(
-                            self.handle.runtime_plugins.clone(),
-                            &self.handle.conf,
-                            self.config_override,
-                        );
-        super::super::super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatus::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            super::super::super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatus::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        super::super::super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatus::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -121,8 +117,7 @@ impl GetOrganizationConfigRuleDetailedStatusFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::get_organization_config_rule_detailed_status::paginator::GetOrganizationConfigRuleDetailedStatusPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> super::super::super::operation::get_organization_config_rule_detailed_status::paginator::GetOrganizationConfigRuleDetailedStatusPaginator
-    {
+    ) -> super::super::super::operation::get_organization_config_rule_detailed_status::paginator::GetOrganizationConfigRuleDetailedStatusPaginator {
         super::super::super::operation::get_organization_config_rule_detailed_status::paginator::GetOrganizationConfigRuleDetailedStatusPaginator::new(
             self.handle,
             self.inner,

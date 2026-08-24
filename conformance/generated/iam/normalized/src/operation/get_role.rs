@@ -18,15 +18,11 @@ impl GetRole {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
-        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<
-            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-        >| {
-            err.map_service_error(|err| {
-                err.downcast::<super::super::operation::get_role::GetRoleError>()
-                    .expect("correct error type")
-            })
-        };
+        let map_err =
+            |err: ::aws_smithy_runtime_api::client::result::SdkError<
+                ::aws_smithy_runtime_api::client::interceptors::context::Error,
+                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
+            >| { err.map_service_error(|err| err.downcast::<super::super::operation::get_role::GetRoleError>().expect("correct error type")) };
         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
             .await
             .map_err(map_err)?;

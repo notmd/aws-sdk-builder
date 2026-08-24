@@ -44,10 +44,8 @@ impl PutStorageTierPolicyInputBuilder {
     /// Consumes the builder and constructs a [`PutStorageTierPolicyInput`](crate::operation::put_storage_tier_policy::PutStorageTierPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::put_storage_tier_policy::PutStorageTierPolicyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::put_storage_tier_policy::PutStorageTierPolicyInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::put_storage_tier_policy::PutStorageTierPolicyInput {
             storage_tier: self.storage_tier,
         })

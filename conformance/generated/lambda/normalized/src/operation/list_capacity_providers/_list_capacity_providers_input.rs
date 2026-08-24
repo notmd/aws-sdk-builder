@@ -85,10 +85,8 @@ impl ListCapacityProvidersInputBuilder {
     /// Consumes the builder and constructs a [`ListCapacityProvidersInput`](crate::operation::list_capacity_providers::ListCapacityProvidersInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_capacity_providers::ListCapacityProvidersInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_capacity_providers::ListCapacityProvidersInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_capacity_providers::ListCapacityProvidersInput {
             state: self.state,
             marker: self.marker,

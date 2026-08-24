@@ -9,7 +9,10 @@ pub fn ser_guardrail_checks_content_filter_config(
             {
                 #[allow(unused_mut)]
                 let mut object_3 = array_1.value().start_object();
-                super::super::protocol_serde::shape_guardrail_checks_content_filter_category_config::ser_guardrail_checks_content_filter_category_config(&mut object_3, item_2)?;
+                super::super::protocol_serde::shape_guardrail_checks_content_filter_category_config::ser_guardrail_checks_content_filter_category_config(
+                    &mut object_3,
+                    item_2,
+                )?;
                 object_3.finish();
             }
         }

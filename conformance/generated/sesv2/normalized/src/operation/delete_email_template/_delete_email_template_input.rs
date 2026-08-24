@@ -45,10 +45,8 @@ impl DeleteEmailTemplateInputBuilder {
     /// Consumes the builder and constructs a [`DeleteEmailTemplateInput`](crate::operation::delete_email_template::DeleteEmailTemplateInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_email_template::DeleteEmailTemplateInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_email_template::DeleteEmailTemplateInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::delete_email_template::DeleteEmailTemplateInput {
             template_name: self.template_name,
         })

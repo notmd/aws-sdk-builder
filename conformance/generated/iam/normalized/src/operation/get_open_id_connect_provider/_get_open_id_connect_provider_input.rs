@@ -53,10 +53,8 @@ impl GetOpenIdConnectProviderInputBuilder {
         super::super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderInput {
-                open_id_connect_provider_arn: self.open_id_connect_provider_arn,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderInput {
+            open_id_connect_provider_arn: self.open_id_connect_provider_arn,
+        })
     }
 }

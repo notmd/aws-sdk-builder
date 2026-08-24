@@ -15,11 +15,7 @@ pub fn de_delete_resource_policy_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -44,9 +40,8 @@ pub fn de_delete_resource_policy_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -75,9 +70,8 @@ pub fn de_delete_resource_policy_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::PolicyNotFoundExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_policy_not_found_exception::de_policy_not_found_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled)?;
+                output = super::super::protocol_serde::shape_policy_not_found_exception::de_policy_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -106,11 +100,8 @@ pub fn de_delete_resource_policy_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::delete_resource_policy::DeleteResourcePolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

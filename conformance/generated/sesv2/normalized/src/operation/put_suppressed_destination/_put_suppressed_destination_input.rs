@@ -92,12 +92,10 @@ impl PutSuppressedDestinationInputBuilder {
         super::super::super::operation::put_suppressed_destination::PutSuppressedDestinationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_suppressed_destination::PutSuppressedDestinationInput {
-                email_address: self.email_address,
-                reason: self.reason,
-                tenant_name: self.tenant_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_suppressed_destination::PutSuppressedDestinationInput {
+            email_address: self.email_address,
+            reason: self.reason,
+            tenant_name: self.tenant_name,
+        })
     }
 }

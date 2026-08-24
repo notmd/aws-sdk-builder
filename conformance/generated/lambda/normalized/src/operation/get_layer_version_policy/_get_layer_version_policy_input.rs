@@ -66,10 +66,8 @@ impl GetLayerVersionPolicyInputBuilder {
     /// Consumes the builder and constructs a [`GetLayerVersionPolicyInput`](crate::operation::get_layer_version_policy::GetLayerVersionPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_layer_version_policy::GetLayerVersionPolicyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_layer_version_policy::GetLayerVersionPolicyInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_layer_version_policy::GetLayerVersionPolicyInput {
             layer_name: self.layer_name,
             version_number: self.version_number.unwrap_or_default(),

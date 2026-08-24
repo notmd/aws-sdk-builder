@@ -13,8 +13,6 @@ impl super::Client {
     pub fn get_bucket_accelerate_configuration(
         &self,
     ) -> super::super::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationFluentBuilder {
-        super::super::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::get_bucket_accelerate_configuration::builders::GetBucketAccelerateConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

@@ -47,9 +47,8 @@ pub fn de_head_object_http_response(
         #[allow(unused_mut)]
         let mut output = super::super::operation::head_object::builders::HeadObjectOutputBuilder::default();
         output = output.set_accept_ranges(
-            super::super::protocol_serde::shape_head_object_output::de_accept_ranges_header(_response_headers).map_err(|_| {
-                super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse AcceptRanges from header `accept-ranges")
-            })?,
+            super::super::protocol_serde::shape_head_object_output::de_accept_ranges_header(_response_headers)
+                .map_err(|_| super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse AcceptRanges from header `accept-ranges"))?,
         );
         output = output.set_archive_status(
             super::super::protocol_serde::shape_head_object_output::de_archive_status_header(_response_headers).map_err(|_| {
@@ -64,9 +63,8 @@ pub fn de_head_object_http_response(
             })?,
         );
         output = output.set_cache_control(
-            super::super::protocol_serde::shape_head_object_output::de_cache_control_header(_response_headers).map_err(|_| {
-                super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse CacheControl from header `Cache-Control")
-            })?,
+            super::super::protocol_serde::shape_head_object_output::de_cache_control_header(_response_headers)
+                .map_err(|_| super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse CacheControl from header `Cache-Control"))?,
         );
         output = output.set_checksum_crc32(
             super::super::protocol_serde::shape_head_object_output::de_checksum_crc32_header(_response_headers).map_err(|_| {
@@ -80,9 +78,7 @@ pub fn de_head_object_http_response(
         );
         output = output.set_checksum_crc64_nvme(
             super::super::protocol_serde::shape_head_object_output::de_checksum_crc64_nvme_header(_response_headers).map_err(|_| {
-                super::super::operation::head_object::HeadObjectError::unhandled(
-                    "Failed to parse ChecksumCRC64NVME from header `x-amz-checksum-crc64nvme",
-                )
+                super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse ChecksumCRC64NVME from header `x-amz-checksum-crc64nvme")
             })?,
         );
         output = output.set_checksum_md5(
@@ -112,30 +108,22 @@ pub fn de_head_object_http_response(
         );
         output = output.set_checksum_xxhash128(
             super::super::protocol_serde::shape_head_object_output::de_checksum_xxhash128_header(_response_headers).map_err(|_| {
-                super::super::operation::head_object::HeadObjectError::unhandled(
-                    "Failed to parse ChecksumXXHASH128 from header `x-amz-checksum-xxhash128",
-                )
+                super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse ChecksumXXHASH128 from header `x-amz-checksum-xxhash128")
             })?,
         );
         output = output.set_checksum_xxhash3(
             super::super::protocol_serde::shape_head_object_output::de_checksum_xxhash3_header(_response_headers).map_err(|_| {
-                super::super::operation::head_object::HeadObjectError::unhandled(
-                    "Failed to parse ChecksumXXHASH3 from header `x-amz-checksum-xxhash3",
-                )
+                super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse ChecksumXXHASH3 from header `x-amz-checksum-xxhash3")
             })?,
         );
         output = output.set_checksum_xxhash64(
             super::super::protocol_serde::shape_head_object_output::de_checksum_xxhash64_header(_response_headers).map_err(|_| {
-                super::super::operation::head_object::HeadObjectError::unhandled(
-                    "Failed to parse ChecksumXXHASH64 from header `x-amz-checksum-xxhash64",
-                )
+                super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse ChecksumXXHASH64 from header `x-amz-checksum-xxhash64")
             })?,
         );
         output = output.set_content_disposition(
             super::super::protocol_serde::shape_head_object_output::de_content_disposition_header(_response_headers).map_err(|_| {
-                super::super::operation::head_object::HeadObjectError::unhandled(
-                    "Failed to parse ContentDisposition from header `Content-Disposition",
-                )
+                super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse ContentDisposition from header `Content-Disposition")
             })?,
         );
         output = output.set_content_encoding(
@@ -154,14 +142,12 @@ pub fn de_head_object_http_response(
             })?,
         );
         output = output.set_content_range(
-            super::super::protocol_serde::shape_head_object_output::de_content_range_header(_response_headers).map_err(|_| {
-                super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse ContentRange from header `Content-Range")
-            })?,
+            super::super::protocol_serde::shape_head_object_output::de_content_range_header(_response_headers)
+                .map_err(|_| super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse ContentRange from header `Content-Range"))?,
         );
         output = output.set_content_type(
-            super::super::protocol_serde::shape_head_object_output::de_content_type_header(_response_headers).map_err(|_| {
-                super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse ContentType from header `Content-Type")
-            })?,
+            super::super::protocol_serde::shape_head_object_output::de_content_type_header(_response_headers)
+                .map_err(|_| super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse ContentType from header `Content-Type"))?,
         );
         output = output.set_delete_marker(
             super::super::protocol_serde::shape_head_object_output::de_delete_marker_header(_response_headers).map_err(|_| {
@@ -173,28 +159,24 @@ pub fn de_head_object_http_response(
                 .map_err(|_| super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse ETag from header `ETag"))?,
         );
         output = output.set_expiration(
-            super::super::protocol_serde::shape_head_object_output::de_expiration_header(_response_headers).map_err(|_| {
-                super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse Expiration from header `x-amz-expiration")
-            })?,
+            super::super::protocol_serde::shape_head_object_output::de_expiration_header(_response_headers)
+                .map_err(|_| super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse Expiration from header `x-amz-expiration"))?,
         );
         output = output.set_expires(
             super::super::protocol_serde::shape_head_object_output::de_expires_header(_response_headers)
                 .map_err(|_| super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse Expires from header `Expires"))?,
         );
         output = output.set_expires_string(
-            super::super::protocol_serde::shape_head_object_output::de_expires_string_header(_response_headers).map_err(|_| {
-                super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse ExpiresString from header `ExpiresString")
-            })?,
+            super::super::protocol_serde::shape_head_object_output::de_expires_string_header(_response_headers)
+                .map_err(|_| super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse ExpiresString from header `ExpiresString"))?,
         );
         output = output.set_last_modified(
-            super::super::protocol_serde::shape_head_object_output::de_last_modified_header(_response_headers).map_err(|_| {
-                super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse LastModified from header `Last-Modified")
-            })?,
+            super::super::protocol_serde::shape_head_object_output::de_last_modified_header(_response_headers)
+                .map_err(|_| super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse LastModified from header `Last-Modified"))?,
         );
         output = output.set_metadata(
-            super::super::protocol_serde::shape_head_object_output::de_metadata_prefix_header(_response_headers).map_err(|_| {
-                super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse Metadata from prefix header `x-amz-meta-")
-            })?,
+            super::super::protocol_serde::shape_head_object_output::de_metadata_prefix_header(_response_headers)
+                .map_err(|_| super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse Metadata from prefix header `x-amz-meta-"))?,
         );
         output = output.set_missing_meta(
             super::super::protocol_serde::shape_head_object_output::de_missing_meta_header(_response_headers).map_err(|_| {
@@ -227,9 +209,7 @@ pub fn de_head_object_http_response(
         );
         output = output.set_replication_status(
             super::super::protocol_serde::shape_head_object_output::de_replication_status_header(_response_headers).map_err(|_| {
-                super::super::operation::head_object::HeadObjectError::unhandled(
-                    "Failed to parse ReplicationStatus from header `x-amz-replication-status",
-                )
+                super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse ReplicationStatus from header `x-amz-replication-status")
             })?,
         );
         output = output.set_request_charged(
@@ -238,9 +218,8 @@ pub fn de_head_object_http_response(
             })?,
         );
         output = output.set_restore(
-            super::super::protocol_serde::shape_head_object_output::de_restore_header(_response_headers).map_err(|_| {
-                super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse Restore from header `x-amz-restore")
-            })?,
+            super::super::protocol_serde::shape_head_object_output::de_restore_header(_response_headers)
+                .map_err(|_| super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse Restore from header `x-amz-restore"))?,
         );
         output = output.set_sse_customer_algorithm(
             super::super::protocol_serde::shape_head_object_output::de_sse_customer_algorithm_header(_response_headers).map_err(|_| {
@@ -281,9 +260,8 @@ pub fn de_head_object_http_response(
             })?,
         );
         output = output.set_version_id(
-            super::super::protocol_serde::shape_head_object_output::de_version_id_header(_response_headers).map_err(|_| {
-                super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse VersionId from header `x-amz-version-id")
-            })?,
+            super::super::protocol_serde::shape_head_object_output::de_version_id_header(_response_headers)
+                .map_err(|_| super::super::operation::head_object::HeadObjectError::unhandled("Failed to parse VersionId from header `x-amz-version-id"))?,
         );
         output = output.set_website_redirect_location(
             super::super::protocol_serde::shape_head_object_output::de_website_redirect_location_header(_response_headers).map_err(|_| {

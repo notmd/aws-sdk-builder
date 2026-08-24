@@ -4,10 +4,7 @@ pub fn de_list_resource_tags_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::list_resource_tags::ListResourceTagsOutput,
-    super::super::operation::list_resource_tags::ListResourceTagsError,
-> {
+) -> std::result::Result<super::super::operation::list_resource_tags::ListResourceTagsOutput, super::super::operation::list_resource_tags::ListResourceTagsError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::list_resource_tags::ListResourceTagsError::unhandled)?;
@@ -89,10 +86,7 @@ pub fn de_list_resource_tags_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::list_resource_tags::ListResourceTagsOutput,
-    super::super::operation::list_resource_tags::ListResourceTagsError,
-> {
+) -> std::result::Result<super::super::operation::list_resource_tags::ListResourceTagsOutput, super::super::operation::list_resource_tags::ListResourceTagsError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::list_resource_tags::builders::ListResourceTagsOutputBuilder::default();

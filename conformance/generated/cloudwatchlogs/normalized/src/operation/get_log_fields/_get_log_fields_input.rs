@@ -66,8 +66,7 @@ impl GetLogFieldsInputBuilder {
     /// Consumes the builder and constructs a [`GetLogFieldsInput`](crate::operation::get_log_fields::GetLogFieldsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::get_log_fields::GetLogFieldsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::get_log_fields::GetLogFieldsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_log_fields::GetLogFieldsInput {
             data_source_name: self.data_source_name,
             data_source_type: self.data_source_type,

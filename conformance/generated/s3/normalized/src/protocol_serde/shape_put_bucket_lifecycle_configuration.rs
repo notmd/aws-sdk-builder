@@ -28,8 +28,7 @@ pub fn de_put_bucket_lifecycle_configuration_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::put_bucket_lifecycle_configuration::builders::PutBucketLifecycleConfigurationOutputBuilder::default();
+        let mut output = super::super::operation::put_bucket_lifecycle_configuration::builders::PutBucketLifecycleConfigurationOutputBuilder::default();
         output = output.set_transition_default_minimum_object_size(
             super::super::protocol_serde::shape_put_bucket_lifecycle_configuration_output::de_transition_default_minimum_object_size_header(
                 _response_headers,

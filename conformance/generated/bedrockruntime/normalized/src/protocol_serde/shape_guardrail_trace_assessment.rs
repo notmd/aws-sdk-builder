@@ -22,11 +22,8 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "modelOutput" => {
-                            builder = builder.set_model_output(super::super::protocol_serde::shape_model_outputs::de_model_outputs(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_model_output(super::super::protocol_serde::shape_model_outputs::de_model_outputs(tokens, _value, depth + 1)?);
                         }
                         "inputAssessment" => {
                             builder = builder.set_input_assessment(

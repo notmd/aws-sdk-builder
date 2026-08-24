@@ -112,11 +112,7 @@ where
                         }
                         "supplementaryConfiguration" => {
                             builder = builder.set_supplementary_configuration(
-                                super::super::protocol_serde::shape_supplementary_configuration::de_supplementary_configuration(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_supplementary_configuration::de_supplementary_configuration(tokens, _value, depth + 1)?,
                             );
                         }
                         "recordingFrequency" => {

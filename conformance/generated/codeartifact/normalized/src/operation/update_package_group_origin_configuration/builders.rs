@@ -84,16 +84,13 @@ impl UpdatePackageGroupOriginConfigurationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfiguration::operation_runtime_plugins(
-                            self.handle.runtime_plugins.clone(),
-                            &self.handle.conf,
-                            self.config_override,
-                        );
-        super::super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfiguration::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            super::super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfiguration::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        super::super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfiguration::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -163,11 +160,7 @@ impl UpdatePackageGroupOriginConfigurationFluentBuilder {
     /// To override the contents of this collection use [`set_restrictions`](Self::set_restrictions).
     ///
     /// <p>The origin configuration settings that determine how package versions can enter repositories.</p>
-    pub fn restrictions(
-        mut self,
-        k: super::super::super::types::PackageGroupOriginRestrictionType,
-        v: super::super::super::types::PackageGroupOriginRestrictionMode,
-    ) -> Self {
+    pub fn restrictions(mut self, k: super::super::super::types::PackageGroupOriginRestrictionType, v: super::super::super::types::PackageGroupOriginRestrictionMode) -> Self {
         self.inner = self.inner.restrictions(k, v);
         self
     }
@@ -175,10 +168,7 @@ impl UpdatePackageGroupOriginConfigurationFluentBuilder {
     pub fn set_restrictions(
         mut self,
         input: ::std::option::Option<
-            ::std::collections::HashMap<
-                super::super::super::types::PackageGroupOriginRestrictionType,
-                super::super::super::types::PackageGroupOriginRestrictionMode,
-            >,
+            ::std::collections::HashMap<super::super::super::types::PackageGroupOriginRestrictionType, super::super::super::types::PackageGroupOriginRestrictionMode>,
         >,
     ) -> Self {
         self.inner = self.inner.set_restrictions(input);
@@ -188,10 +178,7 @@ impl UpdatePackageGroupOriginConfigurationFluentBuilder {
     pub fn get_restrictions(
         &self,
     ) -> &::std::option::Option<
-        ::std::collections::HashMap<
-            super::super::super::types::PackageGroupOriginRestrictionType,
-            super::super::super::types::PackageGroupOriginRestrictionMode,
-        >,
+        ::std::collections::HashMap<super::super::super::types::PackageGroupOriginRestrictionType, super::super::super::types::PackageGroupOriginRestrictionMode>,
     > {
         self.inner.get_restrictions()
     }
@@ -236,9 +223,7 @@ impl UpdatePackageGroupOriginConfigurationFluentBuilder {
         self
     }
     /// <p>The repository name and restrictions to remove from the allowed repository list of the specified package group.</p>
-    pub fn get_remove_allowed_repositories(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PackageGroupAllowedRepository>> {
+    pub fn get_remove_allowed_repositories(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PackageGroupAllowedRepository>> {
         self.inner.get_remove_allowed_repositories()
     }
 }

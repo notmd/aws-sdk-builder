@@ -20,8 +20,7 @@ impl AssociateSourceToS3TableIntegrationInput {
 }
 impl AssociateSourceToS3TableIntegrationInput {
     /// Creates a new builder-style object to manufacture [`AssociateSourceToS3TableIntegrationInput`](crate::operation::associate_source_to_s3_table_integration::AssociateSourceToS3TableIntegrationInput).
-    pub fn builder(
-    ) -> super::super::super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationInputBuilder {
+    pub fn builder() -> super::super::super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationInputBuilder {
         super::super::super::operation::associate_source_to_s3_table_integration::builders::AssociateSourceToS3TableIntegrationInputBuilder::default()
     }
 }

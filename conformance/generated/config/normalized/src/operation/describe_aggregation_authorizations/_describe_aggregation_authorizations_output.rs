@@ -28,8 +28,7 @@ impl ::aws_types::request_id::RequestId for DescribeAggregationAuthorizationsOut
 }
 impl DescribeAggregationAuthorizationsOutput {
     /// Creates a new builder-style object to manufacture [`DescribeAggregationAuthorizationsOutput`](crate::operation::describe_aggregation_authorizations::DescribeAggregationAuthorizationsOutput).
-    pub fn builder() -> super::super::super::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsOutputBuilder {
         super::super::super::operation::describe_aggregation_authorizations::builders::DescribeAggregationAuthorizationsOutputBuilder::default()
     }
 }
@@ -55,10 +54,7 @@ impl DescribeAggregationAuthorizationsOutputBuilder {
         self
     }
     /// <p>Returns a list of authorizations granted to various aggregator accounts and regions.</p>
-    pub fn set_aggregation_authorizations(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregationAuthorization>>,
-    ) -> Self {
+    pub fn set_aggregation_authorizations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregationAuthorization>>) -> Self {
         self.aggregation_authorizations = input;
         self
     }

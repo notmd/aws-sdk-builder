@@ -302,8 +302,7 @@ impl RenameObjectInputBuilder {
     /// Consumes the builder and constructs a [`RenameObjectInput`](crate::operation::rename_object::RenameObjectInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::rename_object::RenameObjectInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::rename_object::RenameObjectInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::rename_object::RenameObjectInput {
             bucket: self.bucket,
             key: self.key,

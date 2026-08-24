@@ -44,11 +44,8 @@ where
                             builder = builder.set_global(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                         }
                         "TrackedIsps" => {
-                            builder = builder.set_tracked_isps(super::super::protocol_serde::shape_isp_name_list::de_isp_name_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_tracked_isps(super::super::protocol_serde::shape_isp_name_list::de_isp_name_list(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

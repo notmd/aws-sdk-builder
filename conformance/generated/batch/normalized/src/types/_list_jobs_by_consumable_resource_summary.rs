@@ -350,9 +350,7 @@ impl ListJobsByConsumableResourceSummaryBuilder {
     /// - [`job_status`](crate::types::builders::ListJobsByConsumableResourceSummaryBuilder::job_status)
     /// - [`quantity`](crate::types::builders::ListJobsByConsumableResourceSummaryBuilder::quantity)
     /// - [`created_at`](crate::types::builders::ListJobsByConsumableResourceSummaryBuilder::created_at)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::ListJobsByConsumableResourceSummary, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::ListJobsByConsumableResourceSummary, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::ListJobsByConsumableResourceSummary {
             job_arn: self.job_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

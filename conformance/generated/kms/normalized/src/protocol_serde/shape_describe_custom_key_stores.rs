@@ -15,7 +15,11 @@ pub fn de_describe_custom_key_stores_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::describe_custom_key_stores::DescribeCustomKeyStoresError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::describe_custom_key_stores::DescribeCustomKeyStoresError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -26,12 +30,11 @@ pub fn de_describe_custom_key_stores_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::CustomKeyStoreNotFoundExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_custom_key_store_not_found_exception::de_custom_key_store_not_found_exception_json_err(
-                            _response_body,
-                            output,
-                        )
-                        .map_err(super::super::operation::describe_custom_key_stores::DescribeCustomKeyStoresError::unhandled)?;
+                    output = super::super::protocol_serde::shape_custom_key_store_not_found_exception::de_custom_key_store_not_found_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::describe_custom_key_stores::DescribeCustomKeyStoresError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -119,26 +122,26 @@ pub(crate) fn de_describe_custom_key_stores(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                match key.to_unescaped()?.as_ref() {
-                    "CustomKeyStores" => {
-                        builder = builder.set_custom_key_stores(
-                            super::super::protocol_serde::shape_custom_key_stores_list::de_custom_key_stores_list(tokens, _value, depth + 1)?,
-                        );
-                    }
-                    "NextMarker" => {
-                        builder = builder.set_next_marker(
-                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                .transpose()?,
-                        );
-                    }
-                    "Truncated" => {
-                        builder = builder.set_truncated(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                    }
-                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                "CustomKeyStores" => {
+                    builder = builder.set_custom_key_stores(super::super::protocol_serde::shape_custom_key_stores_list::de_custom_key_stores_list(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
-            }
+                "NextMarker" => {
+                    builder = builder.set_next_marker(
+                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?,
+                    );
+                }
+                "Truncated" => {
+                    builder = builder.set_truncated(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                }
+                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+            },
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

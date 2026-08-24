@@ -171,9 +171,9 @@ impl ::std::convert::From<&str> for GuardrailChecksSensitiveInformationEntityTyp
             "US_PASSPORT_NUMBER" => GuardrailChecksSensitiveInformationEntityType::UsPassportNumber,
             "US_SOCIAL_SECURITY_NUMBER" => GuardrailChecksSensitiveInformationEntityType::UsSocialSecurityNumber,
             "VEHICLE_IDENTIFICATION_NUMBER" => GuardrailChecksSensitiveInformationEntityType::VehicleIdentificationNumber,
-            other => GuardrailChecksSensitiveInformationEntityType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(
-                other.to_owned(),
-            )),
+            other => {
+                GuardrailChecksSensitiveInformationEntityType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
+            }
         }
     }
 }

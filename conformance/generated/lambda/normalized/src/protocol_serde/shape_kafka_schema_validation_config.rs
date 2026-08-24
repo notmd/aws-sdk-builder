@@ -34,10 +34,7 @@ where
                         "Attribute" => {
                             builder = builder.set_attribute(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| super::super::types::KafkaSchemaValidationAttribute::from(u.as_ref()))
-                                    })
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::KafkaSchemaValidationAttribute::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }

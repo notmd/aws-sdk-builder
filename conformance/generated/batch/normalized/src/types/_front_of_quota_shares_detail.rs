@@ -14,8 +14,7 @@ impl FrontOfQuotaSharesDetail {
     /// <p>Contains a list of the first <code>RUNNABLE</code> job in each named quota share.</p>
     pub fn quota_shares(
         &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::types::FrontOfQuotaShareJobSummary>>>
-    {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::types::FrontOfQuotaShareJobSummary>>> {
         self.quota_shares.as_ref()
     }
     /// <p>The Unix timestamp (in milliseconds) for when the first <code>RUNNABLE</code> job per quota share were all last updated.</p>
@@ -57,9 +56,7 @@ impl FrontOfQuotaSharesDetailBuilder {
     /// <p>Contains a list of the first <code>RUNNABLE</code> job in each named quota share.</p>
     pub fn set_quota_shares(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::types::FrontOfQuotaShareJobSummary>>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::types::FrontOfQuotaShareJobSummary>>>,
     ) -> Self {
         self.quota_shares = input;
         self
@@ -67,8 +64,7 @@ impl FrontOfQuotaSharesDetailBuilder {
     /// <p>Contains a list of the first <code>RUNNABLE</code> job in each named quota share.</p>
     pub fn get_quota_shares(
         &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::types::FrontOfQuotaShareJobSummary>>>
-    {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::types::FrontOfQuotaShareJobSummary>>> {
         &self.quota_shares
     }
     /// <p>The Unix timestamp (in milliseconds) for when the first <code>RUNNABLE</code> job per quota share were all last updated.</p>

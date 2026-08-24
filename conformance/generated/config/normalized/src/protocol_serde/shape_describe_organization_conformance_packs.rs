@@ -15,11 +15,7 @@ pub fn de_describe_organization_conformance_packs_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(
-                super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksError::unhandled(generic),
-            )
-        }
+        None => return Err(super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -97,11 +93,9 @@ pub fn de_describe_organization_conformance_packs_http_response(
         #[allow(unused_mut)]
         let mut output =
             super::super::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksOutputBuilder::default();
-        output = super::super::protocol_serde::shape_describe_organization_conformance_packs::de_describe_organization_conformance_packs(
-            _response_body,
-            output,
-        )
-        .map_err(super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksError::unhandled)?;
+        output =
+            super::super::protocol_serde::shape_describe_organization_conformance_packs::de_describe_organization_conformance_packs(_response_body, output)
+                .map_err(super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacksError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -138,11 +132,7 @@ pub(crate) fn de_describe_organization_conformance_packs(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "OrganizationConformancePacks" => {
                     builder = builder.set_organization_conformance_packs(
-                        super::super::protocol_serde::shape_organization_conformance_packs::de_organization_conformance_packs(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_organization_conformance_packs::de_organization_conformance_packs(tokens, _value, depth + 1)?,
                     );
                 }
                 "NextToken" => {

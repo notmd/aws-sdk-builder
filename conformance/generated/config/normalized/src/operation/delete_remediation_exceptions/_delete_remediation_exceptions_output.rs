@@ -47,10 +47,7 @@ impl DeleteRemediationExceptionsOutputBuilder {
         self
     }
     /// <p>Returns a list of failed delete remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.</p>
-    pub fn set_failed_batches(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::FailedDeleteRemediationExceptionsBatch>>,
-    ) -> Self {
+    pub fn set_failed_batches(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::FailedDeleteRemediationExceptionsBatch>>) -> Self {
         self.failed_batches = input;
         self
     }

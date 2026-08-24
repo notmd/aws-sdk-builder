@@ -15,7 +15,11 @@ pub fn de_describe_delivery_channels_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::describe_delivery_channels::DescribeDeliveryChannelsError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::describe_delivery_channels::DescribeDeliveryChannelsError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());

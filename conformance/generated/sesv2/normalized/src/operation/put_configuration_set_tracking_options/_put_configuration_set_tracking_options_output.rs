@@ -13,8 +13,7 @@ impl ::aws_types::request_id::RequestId for PutConfigurationSetTrackingOptionsOu
 }
 impl PutConfigurationSetTrackingOptionsOutput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetTrackingOptionsOutput`](crate::operation::put_configuration_set_tracking_options::PutConfigurationSetTrackingOptionsOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsOutputBuilder {
+    pub fn builder() -> super::super::super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsOutputBuilder {
         super::super::super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsOutputBuilder::default()
     }
 }

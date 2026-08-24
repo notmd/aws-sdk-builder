@@ -128,13 +128,11 @@ impl PutBucketMetricsConfigurationInputBuilder {
         super::super::super::operation::put_bucket_metrics_configuration::PutBucketMetricsConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_bucket_metrics_configuration::PutBucketMetricsConfigurationInput {
-                bucket: self.bucket,
-                id: self.id,
-                metrics_configuration: self.metrics_configuration,
-                expected_bucket_owner: self.expected_bucket_owner,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_bucket_metrics_configuration::PutBucketMetricsConfigurationInput {
+            bucket: self.bucket,
+            id: self.id,
+            metrics_configuration: self.metrics_configuration,
+            expected_bucket_owner: self.expected_bucket_owner,
+        })
     }
 }

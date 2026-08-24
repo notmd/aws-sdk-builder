@@ -49,10 +49,8 @@ impl DeleteMultiRegionEndpointInputBuilder {
         super::super::super::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointInput {
-                endpoint_name: self.endpoint_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_multi_region_endpoint::DeleteMultiRegionEndpointInput {
+            endpoint_name: self.endpoint_name,
+        })
     }
 }

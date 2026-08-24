@@ -188,9 +188,7 @@ impl UpdateEventSourceMappingInput {
         self.function_response_types.as_deref().unwrap_or_default()
     }
     /// <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
-    pub fn amazon_managed_kafka_event_source_config(
-        &self,
-    ) -> ::std::option::Option<&super::super::super::types::AmazonManagedKafkaEventSourceConfig> {
+    pub fn amazon_managed_kafka_event_source_config(&self) -> ::std::option::Option<&super::super::super::types::AmazonManagedKafkaEventSourceConfig> {
         self.amazon_managed_kafka_event_source_config.as_ref()
     }
     /// <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
@@ -594,10 +592,7 @@ impl UpdateEventSourceMappingInputBuilder {
         self
     }
     /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
-    pub fn set_function_response_types(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::FunctionResponseType>>,
-    ) -> Self {
+    pub fn set_function_response_types(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::FunctionResponseType>>) -> Self {
         self.function_response_types = input;
         self
     }
@@ -619,9 +614,7 @@ impl UpdateEventSourceMappingInputBuilder {
         self
     }
     /// <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
-    pub fn get_amazon_managed_kafka_event_source_config(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::AmazonManagedKafkaEventSourceConfig> {
+    pub fn get_amazon_managed_kafka_event_source_config(&self) -> &::std::option::Option<super::super::super::types::AmazonManagedKafkaEventSourceConfig> {
         &self.amazon_managed_kafka_event_source_config
     }
     /// <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
@@ -638,9 +631,7 @@ impl UpdateEventSourceMappingInputBuilder {
         self
     }
     /// <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
-    pub fn get_self_managed_kafka_event_source_config(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::SelfManagedKafkaEventSourceConfig> {
+    pub fn get_self_managed_kafka_event_source_config(&self) -> &::std::option::Option<super::super::super::types::SelfManagedKafkaEventSourceConfig> {
         &self.self_managed_kafka_event_source_config
     }
     /// <p>Specific configuration settings for a DocumentDB event source.</p>
@@ -649,10 +640,7 @@ impl UpdateEventSourceMappingInputBuilder {
         self
     }
     /// <p>Specific configuration settings for a DocumentDB event source.</p>
-    pub fn set_document_db_event_source_config(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::DocumentDbEventSourceConfig>,
-    ) -> Self {
+    pub fn set_document_db_event_source_config(mut self, input: ::std::option::Option<super::super::super::types::DocumentDbEventSourceConfig>) -> Self {
         self.document_db_event_source_config = input;
         self
     }
@@ -681,31 +669,29 @@ impl UpdateEventSourceMappingInputBuilder {
         super::super::super::operation::update_event_source_mapping::UpdateEventSourceMappingInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::update_event_source_mapping::UpdateEventSourceMappingInput {
-                uuid: self.uuid,
-                function_name: self.function_name,
-                enabled: self.enabled,
-                batch_size: self.batch_size,
-                filter_criteria: self.filter_criteria,
-                kms_key_arn: self.kms_key_arn,
-                metrics_config: self.metrics_config,
-                logging_config: self.logging_config,
-                scaling_config: self.scaling_config,
-                maximum_batching_window_in_seconds: self.maximum_batching_window_in_seconds,
-                parallelization_factor: self.parallelization_factor,
-                destination_config: self.destination_config,
-                maximum_record_age_in_seconds: self.maximum_record_age_in_seconds,
-                bisect_batch_on_function_error: self.bisect_batch_on_function_error,
-                maximum_retry_attempts: self.maximum_retry_attempts,
-                tumbling_window_in_seconds: self.tumbling_window_in_seconds,
-                source_access_configurations: self.source_access_configurations,
-                function_response_types: self.function_response_types,
-                amazon_managed_kafka_event_source_config: self.amazon_managed_kafka_event_source_config,
-                self_managed_kafka_event_source_config: self.self_managed_kafka_event_source_config,
-                document_db_event_source_config: self.document_db_event_source_config,
-                provisioned_poller_config: self.provisioned_poller_config,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::update_event_source_mapping::UpdateEventSourceMappingInput {
+            uuid: self.uuid,
+            function_name: self.function_name,
+            enabled: self.enabled,
+            batch_size: self.batch_size,
+            filter_criteria: self.filter_criteria,
+            kms_key_arn: self.kms_key_arn,
+            metrics_config: self.metrics_config,
+            logging_config: self.logging_config,
+            scaling_config: self.scaling_config,
+            maximum_batching_window_in_seconds: self.maximum_batching_window_in_seconds,
+            parallelization_factor: self.parallelization_factor,
+            destination_config: self.destination_config,
+            maximum_record_age_in_seconds: self.maximum_record_age_in_seconds,
+            bisect_batch_on_function_error: self.bisect_batch_on_function_error,
+            maximum_retry_attempts: self.maximum_retry_attempts,
+            tumbling_window_in_seconds: self.tumbling_window_in_seconds,
+            source_access_configurations: self.source_access_configurations,
+            function_response_types: self.function_response_types,
+            amazon_managed_kafka_event_source_config: self.amazon_managed_kafka_event_source_config,
+            self_managed_kafka_event_source_config: self.self_managed_kafka_event_source_config,
+            document_db_event_source_config: self.document_db_event_source_config,
+            provisioned_poller_config: self.provisioned_poller_config,
+        })
     }
 }

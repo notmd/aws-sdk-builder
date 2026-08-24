@@ -82,9 +82,8 @@ pub fn de_replicate_key_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::replicate_key::ReplicateKeyError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::replicate_key::ReplicateKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -161,11 +160,9 @@ pub fn de_replicate_key_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UnsupportedOperationExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::replicate_key::ReplicateKeyError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::replicate_key::ReplicateKeyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -221,11 +218,8 @@ pub(crate) fn de_replicate_key(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "ReplicaKeyMetadata" => {
-                    builder = builder.set_replica_key_metadata(super::super::protocol_serde::shape_key_metadata::de_key_metadata(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder =
+                        builder.set_replica_key_metadata(super::super::protocol_serde::shape_key_metadata::de_key_metadata(tokens, _value, depth + 1)?);
                 }
                 "ReplicaPolicy" => {
                     builder = builder.set_replica_policy(

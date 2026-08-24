@@ -44,10 +44,7 @@ impl ListSubscriptionsInputBuilder {
     /// Consumes the builder and constructs a [`ListSubscriptionsInput`](crate::operation::list_subscriptions::ListSubscriptionsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_subscriptions::ListSubscriptionsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_subscriptions::ListSubscriptionsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_subscriptions::ListSubscriptionsInput { next_token: self.next_token })
     }
 }

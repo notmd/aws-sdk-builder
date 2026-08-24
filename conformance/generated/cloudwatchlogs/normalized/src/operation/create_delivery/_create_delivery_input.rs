@@ -169,8 +169,7 @@ impl CreateDeliveryInputBuilder {
     /// Consumes the builder and constructs a [`CreateDeliveryInput`](crate::operation::create_delivery::CreateDeliveryInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::create_delivery::CreateDeliveryInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::create_delivery::CreateDeliveryInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::create_delivery::CreateDeliveryInput {
             delivery_source_name: self.delivery_source_name,
             delivery_destination_arn: self.delivery_destination_arn,

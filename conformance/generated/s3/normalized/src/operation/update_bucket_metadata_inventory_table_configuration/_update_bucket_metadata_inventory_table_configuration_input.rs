@@ -38,7 +38,9 @@ impl UpdateBucketMetadataInventoryTableConfigurationInput {
 }
 impl UpdateBucketMetadataInventoryTableConfigurationInput {
     /// Creates a new builder-style object to manufacture [`UpdateBucketMetadataInventoryTableConfigurationInput`](crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationInput).
-    pub fn builder() -> super::super::super::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationInputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationInputBuilder
+    {
         super::super::super::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationInputBuilder::default()
     }
 }
@@ -104,10 +106,7 @@ impl UpdateBucketMetadataInventoryTableConfigurationInputBuilder {
         self
     }
     /// <p>The contents of your inventory table configuration.</p>
-    pub fn set_inventory_table_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::InventoryTableConfigurationUpdates>,
-    ) -> Self {
+    pub fn set_inventory_table_configuration(mut self, input: ::std::option::Option<super::super::super::types::InventoryTableConfigurationUpdates>) -> Self {
         self.inventory_table_configuration = input;
         self
     }
@@ -136,12 +135,14 @@ impl UpdateBucketMetadataInventoryTableConfigurationInputBuilder {
         super::super::super::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(super::super::super::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationInput {
-            bucket: self.bucket,
-            content_md5: self.content_md5,
-            checksum_algorithm: self.checksum_algorithm,
-            inventory_table_configuration: self.inventory_table_configuration,
-            expected_bucket_owner: self.expected_bucket_owner,
-        })
+        ::std::result::Result::Ok(
+            super::super::super::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationInput {
+                bucket: self.bucket,
+                content_md5: self.content_md5,
+                checksum_algorithm: self.checksum_algorithm,
+                inventory_table_configuration: self.inventory_table_configuration,
+                expected_bucket_owner: self.expected_bucket_owner,
+            },
+        )
     }
 }

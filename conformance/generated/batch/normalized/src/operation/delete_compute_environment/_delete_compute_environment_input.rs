@@ -49,10 +49,8 @@ impl DeleteComputeEnvironmentInputBuilder {
         super::super::super::operation::delete_compute_environment::DeleteComputeEnvironmentInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_compute_environment::DeleteComputeEnvironmentInput {
-                compute_environment: self.compute_environment,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_compute_environment::DeleteComputeEnvironmentInput {
+            compute_environment: self.compute_environment,
+        })
     }
 }

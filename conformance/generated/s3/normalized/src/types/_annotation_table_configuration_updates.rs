@@ -87,9 +87,7 @@ impl AnnotationTableConfigurationUpdatesBuilder {
     /// Consumes the builder and constructs a [`AnnotationTableConfigurationUpdates`](crate::types::AnnotationTableConfigurationUpdates).
     /// This method will fail if any of the following fields are not set:
     /// - [`configuration_state`](crate::types::builders::AnnotationTableConfigurationUpdatesBuilder::configuration_state)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::AnnotationTableConfigurationUpdates, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::AnnotationTableConfigurationUpdates, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::AnnotationTableConfigurationUpdates {
             configuration_state: self.configuration_state.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

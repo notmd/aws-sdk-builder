@@ -63,14 +63,18 @@ where
                             )?);
                         }
                         "AllowedInstanceTypes" => {
-                            builder = builder.set_allowed_instance_types(
-                                super::super::protocol_serde::shape_instance_type_set::de_instance_type_set(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_allowed_instance_types(super::super::protocol_serde::shape_instance_type_set::de_instance_type_set(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "ExcludedInstanceTypes" => {
-                            builder = builder.set_excluded_instance_types(
-                                super::super::protocol_serde::shape_instance_type_set::de_instance_type_set(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_excluded_instance_types(super::super::protocol_serde::shape_instance_type_set::de_instance_type_set(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

@@ -44,10 +44,8 @@ impl GetUserPoolMfaConfigInputBuilder {
     /// Consumes the builder and constructs a [`GetUserPoolMfaConfigInput`](crate::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_user_pool_mfa_config::GetUserPoolMfaConfigInput {
             user_pool_id: self.user_pool_id,
         })

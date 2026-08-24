@@ -11,8 +11,6 @@ impl super::Client {
     pub fn put_configuration_set_tracking_options(
         &self,
     ) -> super::super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsFluentBuilder {
-        super::super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::put_configuration_set_tracking_options::builders::PutConfigurationSetTrackingOptionsFluentBuilder::new(self.handle.clone())
     }
 }

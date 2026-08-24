@@ -127,11 +127,8 @@ where
                             );
                         }
                         "parameters" => {
-                            builder = builder.set_parameters(super::super::protocol_serde::shape_parameters_map::de_parameters_map(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_parameters(super::super::protocol_serde::shape_parameters_map::de_parameters_map(tokens, _value, depth + 1)?);
                         }
                         "container" => {
                             builder = builder.set_container(super::super::protocol_serde::shape_container_detail::de_container_detail(
@@ -141,11 +138,8 @@ where
                             )?);
                         }
                         "nodeDetails" => {
-                            builder = builder.set_node_details(super::super::protocol_serde::shape_node_details::de_node_details(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_node_details(super::super::protocol_serde::shape_node_details::de_node_details(tokens, _value, depth + 1)?);
                         }
                         "nodeProperties" => {
                             builder = builder.set_node_properties(super::super::protocol_serde::shape_node_properties::de_node_properties(
@@ -155,16 +149,14 @@ where
                             )?);
                         }
                         "arrayProperties" => {
-                            builder = builder.set_array_properties(
-                                super::super::protocol_serde::shape_array_properties_detail::de_array_properties_detail(tokens, _value, depth + 1)?,
-                            );
-                        }
-                        "timeout" => {
-                            builder = builder.set_timeout(super::super::protocol_serde::shape_job_timeout::de_job_timeout(
+                            builder = builder.set_array_properties(super::super::protocol_serde::shape_array_properties_detail::de_array_properties_detail(
                                 tokens,
                                 _value,
                                 depth + 1,
                             )?);
+                        }
+                        "timeout" => {
+                            builder = builder.set_timeout(super::super::protocol_serde::shape_job_timeout::de_job_timeout(tokens, _value, depth + 1)?);
                         }
                         "tags" => {
                             builder = builder.set_tags(super::super::protocol_serde::shape_tagris_tags_map::de_tagris_tags_map(
@@ -182,9 +174,11 @@ where
                             );
                         }
                         "eksProperties" => {
-                            builder = builder.set_eks_properties(
-                                super::super::protocol_serde::shape_eks_properties_detail::de_eks_properties_detail(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_eks_properties(super::super::protocol_serde::shape_eks_properties_detail::de_eks_properties_detail(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "eksAttempts" => {
                             builder = builder.set_eks_attempts(super::super::protocol_serde::shape_eks_attempt_details::de_eks_attempt_details(
@@ -194,9 +188,11 @@ where
                             )?);
                         }
                         "ecsProperties" => {
-                            builder = builder.set_ecs_properties(
-                                super::super::protocol_serde::shape_ecs_properties_detail::de_ecs_properties_detail(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_ecs_properties(super::super::protocol_serde::shape_ecs_properties_detail::de_ecs_properties_detail(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "isCancelled" => {
                             builder = builder.set_is_cancelled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
@@ -222,9 +218,9 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::job_detail_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::job_detail_correct_errors(builder).build().map_err(|err| {
+                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
+            })?))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

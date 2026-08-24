@@ -15,7 +15,11 @@ pub fn de_describe_delivery_sources_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::describe_delivery_sources::DescribeDeliverySourcesError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::describe_delivery_sources::DescribeDeliverySourcesError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -40,26 +44,22 @@ pub fn de_describe_delivery_sources_http_error(
                 tmp
             })
         }
-        "ServiceUnavailableException" => {
-            super::super::operation::describe_delivery_sources::DescribeDeliverySourcesError::ServiceUnavailableException({
+        "ServiceUnavailableException" => super::super::operation::describe_delivery_sources::DescribeDeliverySourcesError::ServiceUnavailableException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::describe_delivery_sources::DescribeDeliverySourcesError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::describe_delivery_sources::DescribeDeliverySourcesError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ThrottlingException" => super::super::operation::describe_delivery_sources::DescribeDeliverySourcesError::ThrottlingException({
             #[allow(unused_mut)]
             let mut tmp = {

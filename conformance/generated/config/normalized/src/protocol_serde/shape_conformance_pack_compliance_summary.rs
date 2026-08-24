@@ -31,10 +31,7 @@ where
                         "ConformancePackComplianceStatus" => {
                             builder = builder.set_conformance_pack_compliance_status(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| super::super::types::ConformancePackComplianceType::from(u.as_ref()))
-                                    })
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::ConformancePackComplianceType::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }

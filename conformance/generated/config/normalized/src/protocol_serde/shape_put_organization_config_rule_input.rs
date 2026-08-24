@@ -30,10 +30,7 @@ pub fn ser_put_organization_config_rule_input_input(
     if let Some(var_9) = &input.organization_custom_policy_rule_metadata {
         #[allow(unused_mut)]
         let mut object_10 = object.key("OrganizationCustomPolicyRuleMetadata").start_object();
-        super::super::protocol_serde::shape_organization_custom_policy_rule_metadata::ser_organization_custom_policy_rule_metadata(
-            &mut object_10,
-            var_9,
-        )?;
+        super::super::protocol_serde::shape_organization_custom_policy_rule_metadata::ser_organization_custom_policy_rule_metadata(&mut object_10, var_9)?;
         object_10.finish();
     }
     if let Some(var_11) = &input.tags {

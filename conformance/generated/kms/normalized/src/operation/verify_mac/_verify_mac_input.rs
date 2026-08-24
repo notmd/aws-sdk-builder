@@ -190,9 +190,7 @@ impl VerifyMacInputBuilder {
         &self.dry_run
     }
     /// Consumes the builder and constructs a [`VerifyMacInput`](crate::operation::verify_mac::VerifyMacInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::verify_mac::VerifyMacInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::verify_mac::VerifyMacInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::verify_mac::VerifyMacInput {
             message: self.message,
             key_id: self.key_id,

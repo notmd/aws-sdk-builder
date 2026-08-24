@@ -56,10 +56,7 @@ impl UserPoolAddOnsTypeBuilder {
         self
     }
     /// <p>Threat protection configuration options for additional authentication types in your user pool, including custom authentication.</p>
-    pub fn set_advanced_security_additional_flows(
-        mut self,
-        input: ::std::option::Option<super::super::types::AdvancedSecurityAdditionalFlowsType>,
-    ) -> Self {
+    pub fn set_advanced_security_additional_flows(mut self, input: ::std::option::Option<super::super::types::AdvancedSecurityAdditionalFlowsType>) -> Self {
         self.advanced_security_additional_flows = input;
         self
     }

@@ -96,10 +96,7 @@ impl ListGroupsForUserInputBuilder {
     /// Consumes the builder and constructs a [`ListGroupsForUserInput`](crate::operation::list_groups_for_user::ListGroupsForUserInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_groups_for_user::ListGroupsForUserInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_groups_for_user::ListGroupsForUserInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_groups_for_user::ListGroupsForUserInput {
             user_name: self.user_name,
             marker: self.marker,

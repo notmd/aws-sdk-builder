@@ -98,12 +98,10 @@ impl UpdateServiceEnvironmentInputBuilder {
         super::super::super::operation::update_service_environment::UpdateServiceEnvironmentInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::update_service_environment::UpdateServiceEnvironmentInput {
-                service_environment: self.service_environment,
-                state: self.state,
-                capacity_limits: self.capacity_limits,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::update_service_environment::UpdateServiceEnvironmentInput {
+            service_environment: self.service_environment,
+            state: self.state,
+            capacity_limits: self.capacity_limits,
+        })
     }
 }

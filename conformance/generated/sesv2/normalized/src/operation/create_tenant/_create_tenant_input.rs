@@ -96,8 +96,7 @@ impl CreateTenantInputBuilder {
     /// Consumes the builder and constructs a [`CreateTenantInput`](crate::operation::create_tenant::CreateTenantInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::create_tenant::CreateTenantInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::create_tenant::CreateTenantInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::create_tenant::CreateTenantInput {
             tenant_name: self.tenant_name,
             tags: self.tags,

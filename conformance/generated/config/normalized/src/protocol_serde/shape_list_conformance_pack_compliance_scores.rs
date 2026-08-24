@@ -15,11 +15,7 @@ pub fn de_list_conformance_pack_compliance_scores_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(
-                super::super::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresError::unhandled(generic),
-            )
-        }
+        None => return Err(super::super::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -31,9 +27,7 @@ pub fn de_list_conformance_pack_compliance_scores_http_error(
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidLimitExceptionBuilder::default();
                     output = super::super::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output)
-                        .map_err(
-                            super::super::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresError::unhandled,
-                        )?;
+                        .map_err(super::super::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -49,7 +43,25 @@ pub fn de_list_conformance_pack_compliance_scores_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(
+                    output =
+                        super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidParameterValueException" => {
+            super::super::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresError::InvalidParameterValueException({
+                #[allow(unused_mut)]
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
                         _response_body,
                         output,
                     )
@@ -62,31 +74,6 @@ pub fn de_list_conformance_pack_compliance_scores_http_error(
                 }
                 tmp
             })
-        }
-        "InvalidParameterValueException" => {
-            super::super::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresError::InvalidParameterValueException(
-                {
-                    #[allow(unused_mut)]
-                    let mut tmp = {
-                        #[allow(unused_mut)]
-                        let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                        output =
-                            super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
-                                _response_body,
-                                output,
-                            )
-                            .map_err(
-                                super::super::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresError::unhandled,
-                            )?;
-                        let output = output.meta(generic);
-                        output.build()
-                    };
-                    if tmp.message.is_none() {
-                        tmp.message = _error_message;
-                    }
-                    tmp
-                },
-            )
         }
         _ => super::super::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresError::generic(generic),
     })
@@ -105,11 +92,9 @@ pub fn de_list_conformance_pack_compliance_scores_http_response(
         #[allow(unused_mut)]
         let mut output =
             super::super::operation::list_conformance_pack_compliance_scores::builders::ListConformancePackComplianceScoresOutputBuilder::default();
-        output = super::super::protocol_serde::shape_list_conformance_pack_compliance_scores::de_list_conformance_pack_compliance_scores(
-            _response_body,
-            output,
-        )
-        .map_err(super::super::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresError::unhandled)?;
+        output =
+            super::super::protocol_serde::shape_list_conformance_pack_compliance_scores::de_list_conformance_pack_compliance_scores(_response_body, output)
+                .map_err(super::super::operation::list_conformance_pack_compliance_scores::ListConformancePackComplianceScoresError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         super::super::serde_util::list_conformance_pack_compliance_scores_output_output_correct_errors(output)
             .build()

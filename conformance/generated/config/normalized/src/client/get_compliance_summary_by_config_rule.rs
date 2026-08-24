@@ -9,8 +9,6 @@ impl super::Client {
     pub fn get_compliance_summary_by_config_rule(
         &self,
     ) -> super::super::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleFluentBuilder {
-        super::super::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleFluentBuilder::new(self.handle.clone())
     }
 }

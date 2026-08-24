@@ -32,22 +32,24 @@ pub fn de_create_backup_http_error(
             }
             tmp
         }),
-        "ContinuousBackupsUnavailableException" => {
-            super::super::operation::create_backup::CreateBackupError::ContinuousBackupsUnavailableException({
+        "ContinuousBackupsUnavailableException" => super::super::operation::create_backup::CreateBackupError::ContinuousBackupsUnavailableException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ContinuousBackupsUnavailableExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_continuous_backups_unavailable_exception::de_continuous_backups_unavailable_exception_json_err(_response_body, output).map_err(super::super::operation::create_backup::CreateBackupError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::ContinuousBackupsUnavailableExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_continuous_backups_unavailable_exception::de_continuous_backups_unavailable_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::create_backup::CreateBackupError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InternalServerError" => super::super::operation::create_backup::CreateBackupError::InternalServerError({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -68,9 +70,8 @@ pub fn de_create_backup_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::create_backup::CreateBackupError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::create_backup::CreateBackupError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -171,11 +172,7 @@ pub(crate) fn de_create_backup(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "BackupDetails" => {
-                    builder = builder.set_backup_details(super::super::protocol_serde::shape_backup_details::de_backup_details(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_backup_details(super::super::protocol_serde::shape_backup_details::de_backup_details(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

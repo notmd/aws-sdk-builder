@@ -22,8 +22,7 @@ impl PutServiceLinkedConfigurationRecorderInput {
 }
 impl PutServiceLinkedConfigurationRecorderInput {
     /// Creates a new builder-style object to manufacture [`PutServiceLinkedConfigurationRecorderInput`](crate::operation::put_service_linked_configuration_recorder::PutServiceLinkedConfigurationRecorderInput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderInputBuilder {
+    pub fn builder() -> super::super::super::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderInputBuilder {
         super::super::super::operation::put_service_linked_configuration_recorder::builders::PutServiceLinkedConfigurationRecorderInputBuilder::default()
     }
 }

@@ -49,10 +49,8 @@ impl DeleteConfigurationRecorderInputBuilder {
         super::super::super::operation::delete_configuration_recorder::DeleteConfigurationRecorderInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_configuration_recorder::DeleteConfigurationRecorderInput {
-                configuration_recorder_name: self.configuration_recorder_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_configuration_recorder::DeleteConfigurationRecorderInput {
+            configuration_recorder_name: self.configuration_recorder_name,
+        })
     }
 }

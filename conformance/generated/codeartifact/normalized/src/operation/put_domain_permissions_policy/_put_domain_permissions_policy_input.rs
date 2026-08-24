@@ -112,13 +112,11 @@ impl PutDomainPermissionsPolicyInputBuilder {
         super::super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-                policy_revision: self.policy_revision,
-                policy_document: self.policy_document,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+            policy_revision: self.policy_revision,
+            policy_document: self.policy_document,
+        })
     }
 }

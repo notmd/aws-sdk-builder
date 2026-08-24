@@ -29,8 +29,7 @@ where
                             );
                         }
                         "Compliance" => {
-                            builder =
-                                builder.set_compliance(super::super::protocol_serde::shape_compliance::de_compliance(tokens, _value, depth + 1)?);
+                            builder = builder.set_compliance(super::super::protocol_serde::shape_compliance::de_compliance(tokens, _value, depth + 1)?);
                         }
                         "AccountId" => {
                             builder = builder.set_account_id(

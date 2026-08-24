@@ -68,16 +68,14 @@ impl TestRenderEmailTemplateOutputBuilder {
         super::super::super::operation::test_render_email_template::TestRenderEmailTemplateOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::test_render_email_template::TestRenderEmailTemplateOutput {
-                rendered_template: self.rendered_template.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "rendered_template",
-                        "rendered_template was not specified but it is required when building TestRenderEmailTemplateOutput",
-                    )
-                })?,
-                _request_id: self._request_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::test_render_email_template::TestRenderEmailTemplateOutput {
+            rendered_template: self.rendered_template.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "rendered_template",
+                    "rendered_template was not specified but it is required when building TestRenderEmailTemplateOutput",
+                )
+            })?,
+            _request_id: self._request_id,
+        })
     }
 }

@@ -38,7 +38,9 @@ impl UpdateBucketMetadataAnnotationTableConfigurationInput {
 }
 impl UpdateBucketMetadataAnnotationTableConfigurationInput {
     /// Creates a new builder-style object to manufacture [`UpdateBucketMetadataAnnotationTableConfigurationInput`](crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationInput).
-    pub fn builder() -> super::super::super::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationInputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationInputBuilder
+    {
         super::super::super::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationInputBuilder::default()
     }
 }
@@ -104,10 +106,7 @@ impl UpdateBucketMetadataAnnotationTableConfigurationInputBuilder {
         self
     }
     /// <p>The annotation table configuration updates to apply.</p>
-    pub fn set_annotation_table_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::AnnotationTableConfigurationUpdates>,
-    ) -> Self {
+    pub fn set_annotation_table_configuration(mut self, input: ::std::option::Option<super::super::super::types::AnnotationTableConfigurationUpdates>) -> Self {
         self.annotation_table_configuration = input;
         self
     }
@@ -136,12 +135,14 @@ impl UpdateBucketMetadataAnnotationTableConfigurationInputBuilder {
         super::super::super::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(super::super::super::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationInput {
-            bucket: self.bucket,
-            content_md5: self.content_md5,
-            checksum_algorithm: self.checksum_algorithm,
-            annotation_table_configuration: self.annotation_table_configuration,
-            expected_bucket_owner: self.expected_bucket_owner,
-        })
+        ::std::result::Result::Ok(
+            super::super::super::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationInput {
+                bucket: self.bucket,
+                content_md5: self.content_md5,
+                checksum_algorithm: self.checksum_algorithm,
+                annotation_table_configuration: self.annotation_table_configuration,
+                expected_bucket_owner: self.expected_bucket_owner,
+            },
+        )
     }
 }

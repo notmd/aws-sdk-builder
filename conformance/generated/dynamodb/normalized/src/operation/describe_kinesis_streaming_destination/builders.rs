@@ -57,9 +57,7 @@ impl DescribeKinesisStreamingDestinationFluentBuilder {
         }
     }
     /// Access the DescribeKinesisStreamingDestination as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::describe_kinesis_streaming_destination::builders::DescribeKinesisStreamingDestinationInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::describe_kinesis_streaming_destination::builders::DescribeKinesisStreamingDestinationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,11 +87,7 @@ impl DescribeKinesisStreamingDestinationFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestination::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        super::super::super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestination::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

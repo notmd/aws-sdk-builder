@@ -32,10 +32,8 @@ impl FunctionActiveFluentBuilder {
     pub async fn wait(
         self,
         max_wait: ::std::time::Duration,
-    ) -> ::std::result::Result<
-        super::super::waiters::function_active::FunctionActiveFinalPoll,
-        super::super::waiters::function_active::WaitUntilFunctionActiveError,
-    > {
+    ) -> ::std::result::Result<super::super::waiters::function_active::FunctionActiveFinalPoll, super::super::waiters::function_active::WaitUntilFunctionActiveError>
+    {
         let input = self
             .inner
             .build()

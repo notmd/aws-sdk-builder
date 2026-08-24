@@ -20,39 +20,42 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "MinimumUnits" => {
-                                builder = builder.set_minimum_units(
-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                                        .map(i64::try_from)
-                                        .transpose()?,
-                                );
-                            }
-                            "MaximumUnits" => {
-                                builder = builder.set_maximum_units(
-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                                        .map(i64::try_from)
-                                        .transpose()?,
-                                );
-                            }
-                            "AutoScalingDisabled" => {
-                                builder =
-                                    builder.set_auto_scaling_disabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                            }
-                            "AutoScalingRoleArn" => {
-                                builder = builder.set_auto_scaling_role_arn(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                        .transpose()?,
-                                );
-                            }
-                            "ScalingPolicies" => {
-                                builder = builder.set_scaling_policies(super::super::protocol_serde::shape_auto_scaling_policy_description_list::de_auto_scaling_policy_description_list(tokens, _value, depth + 1)?);
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "MinimumUnits" => {
+                            builder = builder.set_minimum_units(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i64::try_from)
+                                    .transpose()?,
+                            );
                         }
-                    }
+                        "MaximumUnits" => {
+                            builder = builder.set_maximum_units(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i64::try_from)
+                                    .transpose()?,
+                            );
+                        }
+                        "AutoScalingDisabled" => {
+                            builder = builder.set_auto_scaling_disabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                        }
+                        "AutoScalingRoleArn" => {
+                            builder = builder.set_auto_scaling_role_arn(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "ScalingPolicies" => {
+                            builder = builder.set_scaling_policies(
+                                super::super::protocol_serde::shape_auto_scaling_policy_description_list::de_auto_scaling_policy_description_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

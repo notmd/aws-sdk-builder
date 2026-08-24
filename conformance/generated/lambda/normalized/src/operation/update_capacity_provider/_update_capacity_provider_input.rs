@@ -68,10 +68,7 @@ impl UpdateCapacityProviderInputBuilder {
         self
     }
     /// <p>The updated scaling configuration for the capacity provider.</p>
-    pub fn set_capacity_provider_scaling_config(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::CapacityProviderScalingConfig>,
-    ) -> Self {
+    pub fn set_capacity_provider_scaling_config(mut self, input: ::std::option::Option<super::super::super::types::CapacityProviderScalingConfig>) -> Self {
         self.capacity_provider_scaling_config = input;
         self
     }

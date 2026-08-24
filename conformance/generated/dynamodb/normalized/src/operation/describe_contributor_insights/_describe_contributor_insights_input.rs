@@ -69,11 +69,9 @@ impl DescribeContributorInsightsInputBuilder {
         super::super::super::operation::describe_contributor_insights::DescribeContributorInsightsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::describe_contributor_insights::DescribeContributorInsightsInput {
-                table_name: self.table_name,
-                index_name: self.index_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::describe_contributor_insights::DescribeContributorInsightsInput {
+            table_name: self.table_name,
+            index_name: self.index_name,
+        })
     }
 }

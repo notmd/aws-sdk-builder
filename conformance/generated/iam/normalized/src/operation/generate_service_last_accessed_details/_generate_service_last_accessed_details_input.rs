@@ -20,8 +20,7 @@ impl GenerateServiceLastAccessedDetailsInput {
 }
 impl GenerateServiceLastAccessedDetailsInput {
     /// Creates a new builder-style object to manufacture [`GenerateServiceLastAccessedDetailsInput`](crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsInput).
-    pub fn builder(
-    ) -> super::super::super::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsInputBuilder {
+    pub fn builder() -> super::super::super::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsInputBuilder {
         super::super::super::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsInputBuilder::default()
     }
 }

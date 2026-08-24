@@ -150,9 +150,7 @@ impl AssumeRootInputBuilder {
         &self.duration_seconds
     }
     /// Consumes the builder and constructs a [`AssumeRootInput`](crate::operation::assume_root::AssumeRootInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::assume_root::AssumeRootInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::assume_root::AssumeRootInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::assume_root::AssumeRootInput {
             target_principal: self.target_principal,
             task_policy_arn: self.task_policy_arn,

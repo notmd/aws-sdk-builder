@@ -34,10 +34,7 @@ where
                         "SystemLogLevel" => {
                             builder = builder.set_system_log_level(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| super::super::types::EventSourceMappingSystemLogLevel::from(u.as_ref()))
-                                    })
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::EventSourceMappingSystemLogLevel::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }

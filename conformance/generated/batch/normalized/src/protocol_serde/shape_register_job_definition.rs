@@ -15,11 +15,7 @@ pub fn de_register_job_definition_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::register_job_definition::RegisterJobDefinitionError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::register_job_definition::RegisterJobDefinitionError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());

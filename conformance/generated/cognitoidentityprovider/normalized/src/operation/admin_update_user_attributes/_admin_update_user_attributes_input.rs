@@ -219,14 +219,12 @@ impl AdminUpdateUserAttributesInputBuilder {
         super::super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput {
-                user_pool_id: self.user_pool_id,
-                username: self.username,
-                user_attributes: self.user_attributes,
-                client_metadata: self.client_metadata,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::admin_update_user_attributes::AdminUpdateUserAttributesInput {
+            user_pool_id: self.user_pool_id,
+            username: self.username,
+            user_attributes: self.user_attributes,
+            client_metadata: self.client_metadata,
+        })
     }
 }
 impl ::std::fmt::Debug for AdminUpdateUserAttributesInputBuilder {

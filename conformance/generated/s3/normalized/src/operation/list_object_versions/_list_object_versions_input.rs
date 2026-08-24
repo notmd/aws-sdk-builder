@@ -265,10 +265,7 @@ impl ListObjectVersionsInputBuilder {
         self
     }
     /// <p>Specifies the optional fields that you want returned in the response. Fields that you do not specify are not returned.</p>
-    pub fn set_optional_object_attributes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::OptionalObjectAttributes>>,
-    ) -> Self {
+    pub fn set_optional_object_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::OptionalObjectAttributes>>) -> Self {
         self.optional_object_attributes = input;
         self
     }
@@ -279,10 +276,8 @@ impl ListObjectVersionsInputBuilder {
     /// Consumes the builder and constructs a [`ListObjectVersionsInput`](crate::operation::list_object_versions::ListObjectVersionsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_object_versions::ListObjectVersionsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_object_versions::ListObjectVersionsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_object_versions::ListObjectVersionsInput {
             bucket: self.bucket,
             delimiter: self.delimiter,

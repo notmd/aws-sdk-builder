@@ -52,11 +52,8 @@ pub fn de_count_tokens_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::count_tokens::CountTokensError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::count_tokens::CountTokensError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -70,11 +67,9 @@ pub fn de_count_tokens_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::count_tokens::CountTokensError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::count_tokens::CountTokensError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -148,10 +143,8 @@ pub fn ser_count_tokens_input(
 pub(crate) fn de_count_tokens(
     _value: &[u8],
     mut builder: super::super::operation::count_tokens::builders::CountTokensOutputBuilder,
-) -> ::std::result::Result<
-    super::super::operation::count_tokens::builders::CountTokensOutputBuilder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
+) -> ::std::result::Result<super::super::operation::count_tokens::builders::CountTokensOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+{
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]

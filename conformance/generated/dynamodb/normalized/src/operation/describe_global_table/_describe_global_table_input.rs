@@ -44,10 +44,8 @@ impl DescribeGlobalTableInputBuilder {
     /// Consumes the builder and constructs a [`DescribeGlobalTableInput`](crate::operation::describe_global_table::DescribeGlobalTableInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::describe_global_table::DescribeGlobalTableInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::describe_global_table::DescribeGlobalTableInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::describe_global_table::DescribeGlobalTableInput {
             global_table_name: self.global_table_name,
         })

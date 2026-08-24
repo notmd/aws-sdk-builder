@@ -90,10 +90,7 @@ impl GuardrailAutomatedReasoningValidFindingBuilder {
         self
     }
     /// <p>The automated reasoning policy rules that support why this result is considered valid.</p>
-    pub fn set_supporting_rules(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningRule>>,
-    ) -> Self {
+    pub fn set_supporting_rules(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningRule>>) -> Self {
         self.supporting_rules = input;
         self
     }

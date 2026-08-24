@@ -91,12 +91,10 @@ impl PutFunctionScalingConfigInputBuilder {
         super::super::super::operation::put_function_scaling_config::PutFunctionScalingConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_function_scaling_config::PutFunctionScalingConfigInput {
-                function_name: self.function_name,
-                qualifier: self.qualifier,
-                function_scaling_config: self.function_scaling_config,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_function_scaling_config::PutFunctionScalingConfigInput {
+            function_name: self.function_name,
+            qualifier: self.qualifier,
+            function_scaling_config: self.function_scaling_config,
+        })
     }
 }

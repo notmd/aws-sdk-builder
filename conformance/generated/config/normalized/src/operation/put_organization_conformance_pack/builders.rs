@@ -66,9 +66,7 @@ impl PutOrganizationConformancePackFluentBuilder {
         }
     }
     /// Access the PutOrganizationConformancePack as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::put_organization_conformance_pack::builders::PutOrganizationConformancePackInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::put_organization_conformance_pack::builders::PutOrganizationConformancePackInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -92,12 +90,11 @@ impl PutOrganizationConformancePackFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePack::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = super::super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePack::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         super::super::super::operation::put_organization_conformance_pack::PutOrganizationConformancePack::orchestrate(&runtime_plugins, input).await
     }
 
@@ -227,9 +224,7 @@ impl PutOrganizationConformancePackFluentBuilder {
         self
     }
     /// <p>A list of <code>ConformancePackInputParameter</code> objects.</p>
-    pub fn get_conformance_pack_input_parameters(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackInputParameter>> {
+    pub fn get_conformance_pack_input_parameters(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConformancePackInputParameter>> {
         self.inner.get_conformance_pack_input_parameters()
     }
     ///

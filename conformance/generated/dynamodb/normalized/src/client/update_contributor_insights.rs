@@ -13,9 +13,7 @@ impl super::Client {
     ///   - [`contributor_insights_status(Option<ContributorInsightsStatus>)`](crate::operation::update_contributor_insights::UpdateContributorInsightsOutput::contributor_insights_status): <p>The status of contributor insights</p>
     ///   - [`contributor_insights_mode(Option<ContributorInsightsMode>)`](crate::operation::update_contributor_insights::UpdateContributorInsightsOutput::contributor_insights_mode): <p>The updated mode of CloudWatch Contributor Insights that determines whether to monitor all access and throttled events or to track throttled events exclusively.</p>
     /// - On failure, responds with [`SdkError<UpdateContributorInsightsError>`](crate::operation::update_contributor_insights::UpdateContributorInsightsError)
-    pub fn update_contributor_insights(
-        &self,
-    ) -> super::super::operation::update_contributor_insights::builders::UpdateContributorInsightsFluentBuilder {
+    pub fn update_contributor_insights(&self) -> super::super::operation::update_contributor_insights::builders::UpdateContributorInsightsFluentBuilder {
         super::super::operation::update_contributor_insights::builders::UpdateContributorInsightsFluentBuilder::new(self.handle.clone())
     }
 }

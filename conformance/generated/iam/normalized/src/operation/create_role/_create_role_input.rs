@@ -277,9 +277,7 @@ impl CreateRoleInputBuilder {
         &self.tags
     }
     /// Consumes the builder and constructs a [`CreateRoleInput`](crate::operation::create_role::CreateRoleInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::create_role::CreateRoleInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::create_role::CreateRoleInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::create_role::CreateRoleInput {
             path: self.path,
             role_name: self.role_name,

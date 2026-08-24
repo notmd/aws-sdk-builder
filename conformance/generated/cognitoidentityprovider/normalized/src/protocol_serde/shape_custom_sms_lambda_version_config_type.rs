@@ -37,10 +37,7 @@ where
                         "LambdaVersion" => {
                             builder = builder.set_lambda_version(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| super::super::types::CustomSmsSenderLambdaVersionType::from(u.as_ref()))
-                                    })
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::CustomSmsSenderLambdaVersionType::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }

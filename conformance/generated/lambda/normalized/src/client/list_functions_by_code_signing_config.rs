@@ -14,8 +14,6 @@ impl super::Client {
     pub fn list_functions_by_code_signing_config(
         &self,
     ) -> super::super::operation::list_functions_by_code_signing_config::builders::ListFunctionsByCodeSigningConfigFluentBuilder {
-        super::super::operation::list_functions_by_code_signing_config::builders::ListFunctionsByCodeSigningConfigFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::list_functions_by_code_signing_config::builders::ListFunctionsByCodeSigningConfigFluentBuilder::new(self.handle.clone())
     }
 }

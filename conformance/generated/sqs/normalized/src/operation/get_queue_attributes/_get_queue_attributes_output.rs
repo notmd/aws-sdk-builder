@@ -10,9 +10,7 @@ pub struct GetQueueAttributesOutput {
 }
 impl GetQueueAttributesOutput {
     /// <p>A map of attributes to their respective values.</p>
-    pub fn attributes(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
+    pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
         self.attributes.as_ref()
     }
 }
@@ -56,9 +54,7 @@ impl GetQueueAttributesOutputBuilder {
         self
     }
     /// <p>A map of attributes to their respective values.</p>
-    pub fn get_attributes(
-        &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<super::super::super::types::QueueAttributeName, ::std::string::String>> {
         &self.attributes
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

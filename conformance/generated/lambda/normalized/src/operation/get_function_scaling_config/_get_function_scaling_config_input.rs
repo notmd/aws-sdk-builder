@@ -70,11 +70,9 @@ impl GetFunctionScalingConfigInputBuilder {
         super::super::super::operation::get_function_scaling_config::GetFunctionScalingConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_function_scaling_config::GetFunctionScalingConfigInput {
-                function_name: self.function_name,
-                qualifier: self.qualifier,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_function_scaling_config::GetFunctionScalingConfigInput {
+            function_name: self.function_name,
+            qualifier: self.qualifier,
+        })
     }
 }

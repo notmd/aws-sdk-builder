@@ -1083,18 +1083,16 @@ impl AdminRespondToAuthChallengeInputBuilder {
         super::super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeInput {
-                user_pool_id: self.user_pool_id,
-                client_id: self.client_id,
-                challenge_name: self.challenge_name,
-                challenge_responses: self.challenge_responses,
-                session: self.session,
-                analytics_metadata: self.analytics_metadata,
-                context_data: self.context_data,
-                client_metadata: self.client_metadata,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::admin_respond_to_auth_challenge::AdminRespondToAuthChallengeInput {
+            user_pool_id: self.user_pool_id,
+            client_id: self.client_id,
+            challenge_name: self.challenge_name,
+            challenge_responses: self.challenge_responses,
+            session: self.session,
+            analytics_metadata: self.analytics_metadata,
+            context_data: self.context_data,
+            client_metadata: self.client_metadata,
+        })
     }
 }
 impl ::std::fmt::Debug for AdminRespondToAuthChallengeInputBuilder {

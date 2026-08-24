@@ -384,8 +384,7 @@ impl CreateBucketInputBuilder {
     /// Consumes the builder and constructs a [`CreateBucketInput`](crate::operation::create_bucket::CreateBucketInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::create_bucket::CreateBucketInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::create_bucket::CreateBucketInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::create_bucket::CreateBucketInput {
             acl: self.acl,
             bucket: self.bucket,

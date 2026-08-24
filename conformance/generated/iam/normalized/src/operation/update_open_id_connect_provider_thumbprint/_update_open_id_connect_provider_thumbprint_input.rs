@@ -24,8 +24,7 @@ impl UpdateOpenIdConnectProviderThumbprintInput {
 }
 impl UpdateOpenIdConnectProviderThumbprintInput {
     /// Creates a new builder-style object to manufacture [`UpdateOpenIdConnectProviderThumbprintInput`](crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintInput).
-    pub fn builder(
-    ) -> super::super::super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintInputBuilder {
+    pub fn builder() -> super::super::super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintInputBuilder {
         super::super::super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintInputBuilder::default()
     }
 }

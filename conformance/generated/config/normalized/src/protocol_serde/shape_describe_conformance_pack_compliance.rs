@@ -15,83 +15,104 @@ pub fn de_describe_conformance_pack_compliance_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::unhandled(generic))
-        }
+        None => return Err(super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidLimitException" => super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::InvalidLimitException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "InvalidLimitException" => {
+            super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::InvalidLimitException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InvalidLimitExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output).map_err(super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidNextTokenException" => super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::InvalidNextTokenException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InvalidLimitExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidNextTokenException" => {
+            super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::InvalidNextTokenException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output).map_err(super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidParameterValueException" => super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::InvalidParameterValueException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidParameterValueException" => {
+            super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::InvalidParameterValueException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(_response_body, output).map_err(super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "NoSuchConfigRuleInConformancePackException" => super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::NoSuchConfigRuleInConformancePackException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "NoSuchConfigRuleInConformancePackException" => {
+            super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::NoSuchConfigRuleInConformancePackException(
+                {
+                    #[allow(unused_mut)]
+                    let mut tmp = {
+                        #[allow(unused_mut)]
+                        let mut output = super::super::types::error::builders::NoSuchConfigRuleInConformancePackExceptionBuilder::default();
+                        output = super::super::protocol_serde::shape_no_such_config_rule_in_conformance_pack_exception::de_no_such_config_rule_in_conformance_pack_exception_json_err(_response_body, output).map_err(super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::unhandled)?;
+                        let output = output.meta(generic);
+                        output.build()
+                    };
+                    if tmp.message.is_none() {
+                        tmp.message = _error_message;
+                    }
+                    tmp
+                },
+            )
+        }
+        "NoSuchConformancePackException" => {
+            super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::NoSuchConformancePackException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::NoSuchConfigRuleInConformancePackExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_no_such_config_rule_in_conformance_pack_exception::de_no_such_config_rule_in_conformance_pack_exception_json_err(_response_body, output).map_err(super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "NoSuchConformancePackException" => super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::NoSuchConformancePackException({
-            #[allow(unused_mut)]
-            let mut tmp = {
-                #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::NoSuchConformancePackExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_no_such_conformance_pack_exception::de_no_such_conformance_pack_exception_json_err(_response_body, output).map_err(super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::NoSuchConformancePackExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_no_such_conformance_pack_exception::de_no_such_conformance_pack_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::generic(generic),
     })
 }
@@ -107,11 +128,9 @@ pub fn de_describe_conformance_pack_compliance_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_describe_conformance_pack_compliance::de_describe_conformance_pack_compliance(_response_body, output)
-                .map_err(super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::unhandled)?;
+        let mut output = super::super::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceOutputBuilder::default();
+        output = super::super::protocol_serde::shape_describe_conformance_pack_compliance::de_describe_conformance_pack_compliance(_response_body, output)
+            .map_err(super::super::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         super::super::serde_util::describe_conformance_pack_compliance_output_output_correct_errors(output)
             .build()

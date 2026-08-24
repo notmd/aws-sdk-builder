@@ -54,10 +54,7 @@ impl DescribeComputeEnvironmentsOutputBuilder {
         self
     }
     /// <p>The list of compute environments.</p>
-    pub fn set_compute_environments(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComputeEnvironmentDetail>>,
-    ) -> Self {
+    pub fn set_compute_environments(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ComputeEnvironmentDetail>>) -> Self {
         self.compute_environments = input;
         self
     }

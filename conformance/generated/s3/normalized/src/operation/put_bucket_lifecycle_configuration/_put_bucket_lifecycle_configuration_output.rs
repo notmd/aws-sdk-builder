@@ -99,9 +99,7 @@ impl PutBucketLifecycleConfigurationOutputBuilder {
     /// <p><code>varies_by_storage_class</code> - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.</p></li>
     /// </ul>
     /// <p>To customize the minimum object size for any transition you can add a filter that specifies a custom <code>ObjectSizeGreaterThan</code> or <code>ObjectSizeLessThan</code> in the body of your transition rule. Custom filters always take precedence over the default transition behavior.</p>
-    pub fn get_transition_default_minimum_object_size(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::TransitionDefaultMinimumObjectSize> {
+    pub fn get_transition_default_minimum_object_size(&self) -> &::std::option::Option<super::super::super::types::TransitionDefaultMinimumObjectSize> {
         &self.transition_default_minimum_object_size
     }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {

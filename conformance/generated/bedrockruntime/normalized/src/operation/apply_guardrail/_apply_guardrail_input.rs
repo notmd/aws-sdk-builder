@@ -143,8 +143,7 @@ impl ApplyGuardrailInputBuilder {
     /// Consumes the builder and constructs a [`ApplyGuardrailInput`](crate::operation::apply_guardrail::ApplyGuardrailInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::apply_guardrail::ApplyGuardrailInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::apply_guardrail::ApplyGuardrailInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::apply_guardrail::ApplyGuardrailInput {
             guardrail_identifier: self.guardrail_identifier,
             guardrail_version: self.guardrail_version,

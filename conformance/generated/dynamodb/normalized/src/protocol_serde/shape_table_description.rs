@@ -35,8 +35,7 @@ where
                                 );
                             }
                             "KeySchema" => {
-                                builder =
-                                    builder.set_key_schema(super::super::protocol_serde::shape_key_schema::de_key_schema(tokens, _value, depth + 1)?);
+                                builder = builder.set_key_schema(super::super::protocol_serde::shape_key_schema::de_key_schema(tokens, _value, depth + 1)?);
                             }
                             "TableStatus" => {
                                 builder = builder.set_table_status(
@@ -94,10 +93,22 @@ where
                                 );
                             }
                             "LocalSecondaryIndexes" => {
-                                builder = builder.set_local_secondary_indexes(super::super::protocol_serde::shape_local_secondary_index_description_list::de_local_secondary_index_description_list(tokens, _value, depth + 1)?);
+                                builder = builder.set_local_secondary_indexes(
+                                    super::super::protocol_serde::shape_local_secondary_index_description_list::de_local_secondary_index_description_list(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "GlobalSecondaryIndexes" => {
-                                builder = builder.set_global_secondary_indexes(super::super::protocol_serde::shape_global_secondary_index_description_list::de_global_secondary_index_description_list(tokens, _value, depth + 1)?);
+                                builder = builder.set_global_secondary_indexes(
+                                    super::super::protocol_serde::shape_global_secondary_index_description_list::de_global_secondary_index_description_list(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "StreamSpecification" => {
                                 builder = builder.set_stream_specification(
@@ -126,15 +137,20 @@ where
                                 );
                             }
                             "Replicas" => {
-                                builder =
-                                    builder.set_replicas(super::super::protocol_serde::shape_replica_description_list::de_replica_description_list(
+                                builder = builder.set_replicas(super::super::protocol_serde::shape_replica_description_list::de_replica_description_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
+                            }
+                            "GlobalTableWitnesses" => {
+                                builder = builder.set_global_table_witnesses(
+                                    super::super::protocol_serde::shape_global_table_witness_description_list::de_global_table_witness_description_list(
                                         tokens,
                                         _value,
                                         depth + 1,
-                                    )?);
-                            }
-                            "GlobalTableWitnesses" => {
-                                builder = builder.set_global_table_witnesses(super::super::protocol_serde::shape_global_table_witness_description_list::de_global_table_witness_description_list(tokens, _value, depth + 1)?);
+                                    )?,
+                                );
                             }
                             "GlobalTableSettingsReplicationMode" => {
                                 builder = builder.set_global_table_settings_replication_mode(
@@ -168,9 +184,11 @@ where
                                 )?);
                             }
                             "TableClassSummary" => {
-                                builder = builder.set_table_class_summary(
-                                    super::super::protocol_serde::shape_table_class_summary::de_table_class_summary(tokens, _value, depth + 1)?,
-                                );
+                                builder = builder.set_table_class_summary(super::super::protocol_serde::shape_table_class_summary::de_table_class_summary(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?);
                             }
                             "DeletionProtectionEnabled" => {
                                 builder = builder

@@ -1031,10 +1031,7 @@ impl ComputeResourceUpdateBuilder {
         self
     }
     /// <p>The updated configuration for the Amazon ECS Managed Instances capacity provider. This parameter is only valid when the compute environment type is <code>ECS_MANAGED_INSTANCES</code>. You cannot change <code>capacityOptionType</code> or <code>fipsEnabled</code> on update.</p>
-    pub fn set_managed_instances_provider(
-        mut self,
-        input: ::std::option::Option<super::super::types::UpdateManagedInstancesProviderConfiguration>,
-    ) -> Self {
+    pub fn set_managed_instances_provider(mut self, input: ::std::option::Option<super::super::types::UpdateManagedInstancesProviderConfiguration>) -> Self {
         self.managed_instances_provider = input;
         self
     }

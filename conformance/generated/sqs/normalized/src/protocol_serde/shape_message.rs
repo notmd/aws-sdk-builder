@@ -67,11 +67,7 @@ where
                         }
                         "MessageAttributes" => {
                             builder = builder.set_message_attributes(
-                                super::super::protocol_serde::shape_message_body_attribute_map::de_message_body_attribute_map(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_message_body_attribute_map::de_message_body_attribute_map(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

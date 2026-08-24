@@ -55,9 +55,7 @@ impl ::std::convert::From<&str> for OrganizationConfigRuleTriggerTypeNoSn {
         match s {
             "ConfigurationItemChangeNotification" => OrganizationConfigRuleTriggerTypeNoSn::ConfigurationItemChangeNotification,
             "OversizedConfigurationItemChangeNotification" => OrganizationConfigRuleTriggerTypeNoSn::OversizedConfigurationItemChangeNotifcation,
-            other => {
-                OrganizationConfigRuleTriggerTypeNoSn::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => OrganizationConfigRuleTriggerTypeNoSn::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

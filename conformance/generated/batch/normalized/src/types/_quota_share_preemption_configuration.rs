@@ -45,9 +45,7 @@ impl QuotaSharePreemptionConfigurationBuilder {
     /// Consumes the builder and constructs a [`QuotaSharePreemptionConfiguration`](crate::types::QuotaSharePreemptionConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`in_share_preemption`](crate::types::builders::QuotaSharePreemptionConfigurationBuilder::in_share_preemption)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::QuotaSharePreemptionConfiguration, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::QuotaSharePreemptionConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::QuotaSharePreemptionConfiguration {
             in_share_preemption: self.in_share_preemption.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

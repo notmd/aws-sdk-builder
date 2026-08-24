@@ -29,11 +29,8 @@ where
                             );
                         }
                         "Timestamps" => {
-                            builder = builder.set_timestamps(super::super::protocol_serde::shape_timestamp_list::de_timestamp_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_timestamps(super::super::protocol_serde::shape_timestamp_list::de_timestamp_list(tokens, _value, depth + 1)?);
                         }
                         "Values" => {
                             builder = builder.set_values(super::super::protocol_serde::shape_metric_value_list::de_metric_value_list(

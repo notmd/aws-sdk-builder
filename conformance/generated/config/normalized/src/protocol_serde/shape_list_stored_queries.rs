@@ -4,10 +4,8 @@ pub fn de_list_stored_queries_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::list_stored_queries::ListStoredQueriesOutput,
-    super::super::operation::list_stored_queries::ListStoredQueriesError,
-> {
+) -> std::result::Result<super::super::operation::list_stored_queries::ListStoredQueriesOutput, super::super::operation::list_stored_queries::ListStoredQueriesError>
+{
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::list_stored_queries::ListStoredQueriesError::unhandled)?;
@@ -25,11 +23,8 @@ pub fn de_list_stored_queries_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::list_stored_queries::ListStoredQueriesError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_stored_queries::ListStoredQueriesError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -62,10 +57,8 @@ pub fn de_list_stored_queries_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::list_stored_queries::ListStoredQueriesOutput,
-    super::super::operation::list_stored_queries::ListStoredQueriesError,
-> {
+) -> std::result::Result<super::super::operation::list_stored_queries::ListStoredQueriesOutput, super::super::operation::list_stored_queries::ListStoredQueriesError>
+{
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::list_stored_queries::builders::ListStoredQueriesOutputBuilder::default();

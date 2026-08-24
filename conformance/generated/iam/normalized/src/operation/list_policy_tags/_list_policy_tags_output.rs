@@ -110,8 +110,7 @@ impl ListPolicyTagsOutputBuilder {
     /// - [`tags`](crate::operation::list_policy_tags::builders::ListPolicyTagsOutputBuilder::tags)
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::list_policy_tags::ListPolicyTagsOutput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::list_policy_tags::ListPolicyTagsOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_policy_tags::ListPolicyTagsOutput {
             tags: self.tags.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

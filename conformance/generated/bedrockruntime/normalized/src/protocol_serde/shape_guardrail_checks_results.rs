@@ -20,20 +20,30 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "contentFilter" => {
-                                builder = builder.set_content_filter(super::super::protocol_serde::shape_guardrail_checks_content_filter_result::de_guardrail_checks_content_filter_result(tokens, _value, depth + 1)?);
-                            }
-                            "promptAttack" => {
-                                builder = builder.set_prompt_attack(super::super::protocol_serde::shape_guardrail_checks_prompt_attack_result::de_guardrail_checks_prompt_attack_result(tokens, _value, depth + 1)?);
-                            }
-                            "sensitiveInformation" => {
-                                builder = builder.set_sensitive_information(super::super::protocol_serde::shape_guardrail_checks_sensitive_information_result::de_guardrail_checks_sensitive_information_result(tokens, _value, depth + 1)?);
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "contentFilter" => {
+                            builder = builder.set_content_filter(
+                                super::super::protocol_serde::shape_guardrail_checks_content_filter_result::de_guardrail_checks_content_filter_result(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
                         }
-                    }
+                        "promptAttack" => {
+                            builder = builder.set_prompt_attack(
+                                super::super::protocol_serde::shape_guardrail_checks_prompt_attack_result::de_guardrail_checks_prompt_attack_result(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        "sensitiveInformation" => {
+                            builder = builder.set_sensitive_information(super::super::protocol_serde::shape_guardrail_checks_sensitive_information_result::de_guardrail_checks_sensitive_information_result(tokens, _value, depth + 1)?);
+                        }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

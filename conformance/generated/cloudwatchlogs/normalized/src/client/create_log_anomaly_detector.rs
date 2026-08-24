@@ -13,9 +13,7 @@ impl super::Client {
     /// - On success, responds with [`CreateLogAnomalyDetectorOutput`](crate::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorOutput) with field(s):
     ///   - [`anomaly_detector_arn(Option<String>)`](crate::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorOutput::anomaly_detector_arn): <p>The ARN of the log anomaly detector that you just created.</p>
     /// - On failure, responds with [`SdkError<CreateLogAnomalyDetectorError>`](crate::operation::create_log_anomaly_detector::CreateLogAnomalyDetectorError)
-    pub fn create_log_anomaly_detector(
-        &self,
-    ) -> super::super::operation::create_log_anomaly_detector::builders::CreateLogAnomalyDetectorFluentBuilder {
+    pub fn create_log_anomaly_detector(&self) -> super::super::operation::create_log_anomaly_detector::builders::CreateLogAnomalyDetectorFluentBuilder {
         super::super::operation::create_log_anomaly_detector::builders::CreateLogAnomalyDetectorFluentBuilder::new(self.handle.clone())
     }
 }

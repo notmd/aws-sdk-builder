@@ -20,23 +20,21 @@ pub fn de_update_package_versions_status_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "AccessDeniedException" => {
-            super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::AccessDeniedException({
+        "AccessDeniedException" => super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::AccessDeniedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ConflictException" => super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::ConflictException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -52,35 +50,30 @@ pub fn de_update_package_versions_status_http_error(
             }
             tmp
         }),
-        "InternalServerException" => {
-            super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::InternalServerException({
+        "InternalServerException" => super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::InternalServerException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ResourceNotFoundException" => {
             super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::ResourceNotFoundException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -179,9 +172,11 @@ pub(crate) fn de_update_package_versions_status(
                     );
                 }
                 "failedVersions" => {
-                    builder = builder.set_failed_versions(
-                        super::super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(tokens, _value, depth + 1)?,
-                    );
+                    builder = builder.set_failed_versions(super::super::protocol_serde::shape_package_version_error_map::de_package_version_error_map(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

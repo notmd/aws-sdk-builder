@@ -82,7 +82,7 @@ fn project_module(
     for child in children {
         let module = module_name(&child).map_err(|error| error.to_string())?;
         let bounds = inline_module_bounds(&body, &file, &module, relative)?;
-        let child_source = normalize_source(&strip_leading_newline(
+        let child_source = normalize_source(strip_leading_newline(
             &body[bounds.open_end..bounds.close_start],
         ));
         child_projections.push((child, bounds, child_source));
@@ -117,14 +117,8 @@ fn compose_module(
         .ok_or_else(|| generated_error(relative, "module plan is missing a source file"))?;
 
     let depth = module_depth(relative);
-    let replacement = if relative == "src/lib.rs" {
-        "self".to_owned()
-    } else {
-        std::iter::repeat_n("super", depth)
-            .collect::<Vec<_>>()
-            .join("::")
-    };
-    source = rewrite_crate_paths(&source, &replacement, Path::new(relative))?;
+    let base_depth = if relative == "src/lib.rs" { 0 } else { depth };
+    source = rewrite_crate_paths(&source, base_depth, Path::new(relative))?;
 
     for child in child_files(relative, &files.keys().cloned().collect())
         .into_iter()
@@ -266,17 +260,20 @@ fn top_level_module<'ast>(file: &'ast syn::File, module: &str) -> Option<&'ast s
 
 fn rewrite_crate_paths(
     source: &str,
-    replacement: &str,
+    base_depth: usize,
     relative: &Path,
 ) -> Result<String, BuildError> {
     let file =
         syn::parse_file(source).map_err(|error| generated_error(relative, error.to_string()))?;
-    let mut visitor = CratePathVisitor::default();
+    let mut visitor = CratePathVisitor {
+        base_depth,
+        ..Default::default()
+    };
     syn::visit::visit_file(&mut visitor, &file);
     let starts = visitor
         .spans
         .into_iter()
-        .map(|span| {
+        .map(|(span, replacement)| {
             let start = source_offset_build(source, span.start(), relative)?;
             if source.get(start..start + "crate".len()) != Some("crate") {
                 return Err(generated_error(
@@ -284,15 +281,15 @@ fn rewrite_crate_paths(
                     format!("parsed crate path does not start at byte {start}"),
                 ));
             }
-            Ok(start)
+            Ok((start, replacement))
         })
-        .collect::<Result<BTreeSet<_>, BuildError>>()?;
+        .collect::<Result<BTreeMap<_, _>, BuildError>>()?;
     if starts.is_empty() {
         return Ok(source.to_owned());
     }
     let mut rewritten = source.to_owned();
-    for start in starts.into_iter().rev() {
-        rewritten.replace_range(start..start + "crate".len(), replacement);
+    for (start, replacement) in starts.into_iter().rev() {
+        rewritten.replace_range(start..start + "crate".len(), &replacement);
     }
     syn::parse_file(&rewritten).map_err(|error| {
         generated_error(
@@ -305,14 +302,17 @@ fn rewrite_crate_paths(
 
 #[derive(Default)]
 struct CratePathVisitor {
-    spans: Vec<Span>,
+    base_depth: usize,
+    module_depth: usize,
+    spans: Vec<(Span, String)>,
 }
 
 impl<'ast> syn::visit::Visit<'ast> for CratePathVisitor {
     fn visit_item_use(&mut self, item: &'ast syn::ItemUse) {
         if use_tree_starts_at_crate(&item.tree) {
             use syn::spanned::Spanned;
-            self.spans.push(item.tree.span());
+            self.spans
+                .push((item.tree.span(), self.replacement().to_owned()));
         }
     }
 
@@ -324,9 +324,87 @@ impl<'ast> syn::visit::Visit<'ast> for CratePathVisitor {
                 .is_some_and(|segment| segment.ident == "crate")
         {
             use syn::spanned::Spanned;
-            self.spans.push(path.span());
+            self.spans
+                .push((path.span(), self.replacement().to_owned()));
         }
         syn::visit::visit_path(self, path);
+    }
+
+    fn visit_item_mod(&mut self, item: &'ast syn::ItemMod) {
+        for attribute in &item.attrs {
+            self.visit_attribute(attribute);
+        }
+        self.visit_visibility(&item.vis);
+        if let Some((_, items)) = &item.content {
+            self.module_depth += 1;
+            for nested in items {
+                self.visit_item(nested);
+            }
+            self.module_depth -= 1;
+        }
+    }
+
+    fn visit_macro(&mut self, mac: &'ast syn::Macro) {
+        if mac.path.segments.len() > 1
+            && mac
+                .path
+                .segments
+                .first()
+                .is_some_and(|segment| segment.ident == "crate")
+        {
+            use syn::spanned::Spanned;
+            self.spans
+                .push((mac.path.span(), self.replacement().to_owned()));
+        }
+        collect_macro_crate_paths(mac.tokens.clone(), self.replacement(), &mut self.spans);
+    }
+}
+
+impl CratePathVisitor {
+    fn replacement(&self) -> String {
+        let depth = self.base_depth + self.module_depth;
+        if depth == 0 {
+            "self".to_owned()
+        } else {
+            std::iter::repeat_n("super", depth)
+                .collect::<Vec<_>>()
+                .join("::")
+        }
+    }
+}
+
+fn collect_macro_crate_paths(
+    tokens: proc_macro2::TokenStream,
+    replacement: String,
+    spans: &mut Vec<(Span, String)>,
+) {
+    let tokens = tokens.into_iter().collect::<Vec<_>>();
+    for index in 0..tokens.len().saturating_sub(2) {
+        let proc_macro2::TokenTree::Ident(ident) = &tokens[index] else {
+            continue;
+        };
+        if ident != "crate"
+            || (index > 0
+                && matches!(
+                    &tokens[index - 1],
+                    proc_macro2::TokenTree::Punct(punct) if punct.as_char() == '$'
+                ))
+            || !matches!(
+                (&tokens[index + 1], &tokens[index + 2]),
+                (
+                    proc_macro2::TokenTree::Punct(first),
+                    proc_macro2::TokenTree::Punct(second)
+                ) if first.as_char() == ':' && second.as_char() == ':'
+            )
+        {
+            continue;
+        }
+        spans.push((ident.span(), replacement.clone()));
+    }
+    for token in tokens {
+        if let proc_macro2::TokenTree::Group(group) = token {
+            collect_macro_crate_paths(group.stream(), replacement.clone(), spans);
+        }
     }
 }
 

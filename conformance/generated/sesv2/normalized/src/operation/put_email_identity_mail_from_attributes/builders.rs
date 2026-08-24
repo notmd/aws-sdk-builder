@@ -57,9 +57,7 @@ impl PutEmailIdentityMailFromAttributesFluentBuilder {
         }
     }
     /// Access the PutEmailIdentityMailFromAttributes as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -89,11 +87,7 @@ impl PutEmailIdentityMailFromAttributesFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributes::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        super::super::super::operation::put_email_identity_mail_from_attributes::PutEmailIdentityMailFromAttributes::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

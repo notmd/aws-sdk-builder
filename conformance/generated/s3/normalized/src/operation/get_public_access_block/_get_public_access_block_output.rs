@@ -46,10 +46,7 @@ impl GetPublicAccessBlockOutputBuilder {
         self
     }
     /// <p>The <code>PublicAccessBlock</code> configuration currently in effect for this Amazon S3 bucket.</p>
-    pub fn set_public_access_block_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::PublicAccessBlockConfiguration>,
-    ) -> Self {
+    pub fn set_public_access_block_configuration(mut self, input: ::std::option::Option<super::super::super::types::PublicAccessBlockConfiguration>) -> Self {
         self.public_access_block_configuration = input;
         self
     }

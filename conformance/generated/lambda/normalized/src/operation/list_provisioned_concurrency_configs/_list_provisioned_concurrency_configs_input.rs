@@ -46,8 +46,7 @@ impl ListProvisionedConcurrencyConfigsInput {
 }
 impl ListProvisionedConcurrencyConfigsInput {
     /// Creates a new builder-style object to manufacture [`ListProvisionedConcurrencyConfigsInput`](crate::operation::list_provisioned_concurrency_configs::ListProvisionedConcurrencyConfigsInput).
-    pub fn builder() -> super::super::super::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsInputBuilder {
         super::super::super::operation::list_provisioned_concurrency_configs::builders::ListProvisionedConcurrencyConfigsInputBuilder::default()
     }
 }

@@ -37,7 +37,13 @@ where
                                 );
                             }
                             "logGroupIdentifiers" => {
-                                builder = builder.set_log_group_identifiers(super::super::protocol_serde::shape_start_live_tail_log_group_identifiers::de_start_live_tail_log_group_identifiers(tokens, _value, depth + 1)?);
+                                builder = builder.set_log_group_identifiers(
+                                    super::super::protocol_serde::shape_start_live_tail_log_group_identifiers::de_start_live_tail_log_group_identifiers(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
                             }
                             "logStreamNames" => {
                                 builder = builder.set_log_stream_names(

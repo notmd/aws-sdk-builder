@@ -20,8 +20,7 @@ impl DeleteBucketMetadataConfigurationInput {
 }
 impl DeleteBucketMetadataConfigurationInput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketMetadataConfigurationInput`](crate::operation::delete_bucket_metadata_configuration::DeleteBucketMetadataConfigurationInput).
-    pub fn builder() -> super::super::super::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationInputBuilder {
         super::super::super::operation::delete_bucket_metadata_configuration::builders::DeleteBucketMetadataConfigurationInputBuilder::default()
     }
 }

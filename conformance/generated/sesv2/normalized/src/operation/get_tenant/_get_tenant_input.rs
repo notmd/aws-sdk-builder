@@ -43,9 +43,7 @@ impl GetTenantInputBuilder {
         &self.tenant_name
     }
     /// Consumes the builder and constructs a [`GetTenantInput`](crate::operation::get_tenant::GetTenantInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::get_tenant::GetTenantInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_tenant::GetTenantInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_tenant::GetTenantInput {
             tenant_name: self.tenant_name,
         })

@@ -23,11 +23,9 @@ pub fn de_rename_object_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::IdempotencyParameterMismatchBuilder::default();
-                output = super::super::protocol_serde::shape_idempotency_parameter_mismatch::de_idempotency_parameter_mismatch_xml_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::rename_object::RenameObjectError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_idempotency_parameter_mismatch::de_idempotency_parameter_mismatch_xml_err(_response_body, output)
+                        .map_err(super::super::operation::rename_object::RenameObjectError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

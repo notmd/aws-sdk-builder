@@ -54,10 +54,7 @@ impl ListStoredQueriesOutputBuilder {
         self
     }
     /// <p>A list of <code>StoredQueryMetadata</code> objects.</p>
-    pub fn set_stored_query_metadata(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::StoredQueryMetadata>>,
-    ) -> Self {
+    pub fn set_stored_query_metadata(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::StoredQueryMetadata>>) -> Self {
         self.stored_query_metadata = input;
         self
     }

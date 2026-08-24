@@ -44,10 +44,8 @@ impl DescribeServiceJobInputBuilder {
     /// Consumes the builder and constructs a [`DescribeServiceJobInput`](crate::operation::describe_service_job::DescribeServiceJobInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::describe_service_job::DescribeServiceJobInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::describe_service_job::DescribeServiceJobInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::describe_service_job::DescribeServiceJobInput { job_id: self.job_id })
     }
 }

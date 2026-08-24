@@ -16,8 +16,7 @@ pub struct UpdateGlobalTableSettingsInput {
     /// <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException.</code></p>
     pub global_table_provisioned_write_capacity_units: ::std::option::Option<i64>,
     /// <p>Auto scaling settings for managing provisioned write capacity for the global table.</p>
-    pub global_table_provisioned_write_capacity_auto_scaling_settings_update:
-        ::std::option::Option<super::super::super::types::AutoScalingSettingsUpdate>,
+    pub global_table_provisioned_write_capacity_auto_scaling_settings_update: ::std::option::Option<super::super::super::types::AutoScalingSettingsUpdate>,
     /// <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
     pub global_table_global_secondary_index_settings_update:
         ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>,
@@ -52,9 +51,7 @@ impl UpdateGlobalTableSettingsInput {
     /// <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
     ///
     /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.global_table_global_secondary_index_settings_update.is_none()`.
-    pub fn global_table_global_secondary_index_settings_update(
-        &self,
-    ) -> &[super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate] {
+    pub fn global_table_global_secondary_index_settings_update(&self) -> &[super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate] {
         self.global_table_global_secondary_index_settings_update.as_deref().unwrap_or_default()
     }
     /// <p>Represents the settings for a global table in a Region that will be modified.</p>
@@ -78,8 +75,7 @@ pub struct UpdateGlobalTableSettingsInputBuilder {
     pub(crate) global_table_name: ::std::option::Option<::std::string::String>,
     pub(crate) global_table_billing_mode: ::std::option::Option<super::super::super::types::BillingMode>,
     pub(crate) global_table_provisioned_write_capacity_units: ::std::option::Option<i64>,
-    pub(crate) global_table_provisioned_write_capacity_auto_scaling_settings_update:
-        ::std::option::Option<super::super::super::types::AutoScalingSettingsUpdate>,
+    pub(crate) global_table_provisioned_write_capacity_auto_scaling_settings_update: ::std::option::Option<super::super::super::types::AutoScalingSettingsUpdate>,
     pub(crate) global_table_global_secondary_index_settings_update:
         ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>,
     pub(crate) replica_settings_update: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsUpdate>>,
@@ -147,10 +143,7 @@ impl UpdateGlobalTableSettingsInputBuilder {
         &self.global_table_provisioned_write_capacity_units
     }
     /// <p>Auto scaling settings for managing provisioned write capacity for the global table.</p>
-    pub fn global_table_provisioned_write_capacity_auto_scaling_settings_update(
-        mut self,
-        input: super::super::super::types::AutoScalingSettingsUpdate,
-    ) -> Self {
+    pub fn global_table_provisioned_write_capacity_auto_scaling_settings_update(mut self, input: super::super::super::types::AutoScalingSettingsUpdate) -> Self {
         self.global_table_provisioned_write_capacity_auto_scaling_settings_update = ::std::option::Option::Some(input);
         self
     }
@@ -173,10 +166,7 @@ impl UpdateGlobalTableSettingsInputBuilder {
     /// To override the contents of this collection use [`set_global_table_global_secondary_index_settings_update`](Self::set_global_table_global_secondary_index_settings_update).
     ///
     /// <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
-    pub fn global_table_global_secondary_index_settings_update(
-        mut self,
-        input: super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate,
-    ) -> Self {
+    pub fn global_table_global_secondary_index_settings_update(mut self, input: super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate) -> Self {
         let mut v = self.global_table_global_secondary_index_settings_update.unwrap_or_default();
         v.push(input);
         self.global_table_global_secondary_index_settings_update = ::std::option::Option::Some(v);
@@ -208,10 +198,7 @@ impl UpdateGlobalTableSettingsInputBuilder {
         self
     }
     /// <p>Represents the settings for a global table in a Region that will be modified.</p>
-    pub fn set_replica_settings_update(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsUpdate>>,
-    ) -> Self {
+    pub fn set_replica_settings_update(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsUpdate>>) -> Self {
         self.replica_settings_update = input;
         self
     }
@@ -226,16 +213,14 @@ impl UpdateGlobalTableSettingsInputBuilder {
         super::super::super::operation::update_global_table_settings::UpdateGlobalTableSettingsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::update_global_table_settings::UpdateGlobalTableSettingsInput {
-                global_table_name: self.global_table_name,
-                global_table_billing_mode: self.global_table_billing_mode,
-                global_table_provisioned_write_capacity_units: self.global_table_provisioned_write_capacity_units,
-                global_table_provisioned_write_capacity_auto_scaling_settings_update: self
-                    .global_table_provisioned_write_capacity_auto_scaling_settings_update,
-                global_table_global_secondary_index_settings_update: self.global_table_global_secondary_index_settings_update,
-                replica_settings_update: self.replica_settings_update,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::update_global_table_settings::UpdateGlobalTableSettingsInput {
+            global_table_name: self.global_table_name,
+            global_table_billing_mode: self.global_table_billing_mode,
+            global_table_provisioned_write_capacity_units: self.global_table_provisioned_write_capacity_units,
+            global_table_provisioned_write_capacity_auto_scaling_settings_update: self
+                .global_table_provisioned_write_capacity_auto_scaling_settings_update,
+            global_table_global_secondary_index_settings_update: self.global_table_global_secondary_index_settings_update,
+            replica_settings_update: self.replica_settings_update,
+        })
     }
 }

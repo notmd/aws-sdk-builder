@@ -107,12 +107,10 @@ impl DescribeServiceEnvironmentsInputBuilder {
         super::super::super::operation::describe_service_environments::DescribeServiceEnvironmentsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::describe_service_environments::DescribeServiceEnvironmentsInput {
-                service_environments: self.service_environments,
-                max_results: self.max_results,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::describe_service_environments::DescribeServiceEnvironmentsInput {
+            service_environments: self.service_environments,
+            max_results: self.max_results,
+            next_token: self.next_token,
+        })
     }
 }

@@ -26,7 +26,12 @@ pub fn de_execute_transaction_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::IdempotentParameterMismatchExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_idempotent_parameter_mismatch_exception::de_idempotent_parameter_mismatch_exception_json_err(_response_body, output).map_err(super::super::operation::execute_transaction::ExecuteTransactionError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_idempotent_parameter_mismatch_exception::de_idempotent_parameter_mismatch_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::execute_transaction::ExecuteTransactionError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -87,11 +92,8 @@ pub fn de_execute_transaction_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::execute_transaction::ExecuteTransactionError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::execute_transaction::ExecuteTransactionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -120,11 +122,9 @@ pub fn de_execute_transaction_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TransactionCanceledExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_transaction_canceled_exception::de_transaction_canceled_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::execute_transaction::ExecuteTransactionError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_transaction_canceled_exception::de_transaction_canceled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::execute_transaction::ExecuteTransactionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -199,21 +199,23 @@ pub(crate) fn de_execute_transaction(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "Responses" => {
-                    builder = builder.set_responses(super::super::protocol_serde::shape_item_response_list::de_item_response_list(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "Responses" => {
+                        builder = builder.set_responses(super::super::protocol_serde::shape_item_response_list::de_item_response_list(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?);
+                    }
+                    "ConsumedCapacity" => {
+                        builder = builder.set_consumed_capacity(
+                            super::super::protocol_serde::shape_consumed_capacity_multiple::de_consumed_capacity_multiple(tokens, _value, depth + 1)?,
+                        );
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                "ConsumedCapacity" => {
-                    builder = builder.set_consumed_capacity(
-                        super::super::protocol_serde::shape_consumed_capacity_multiple::de_consumed_capacity_multiple(tokens, _value, depth + 1)?,
-                    );
-                }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

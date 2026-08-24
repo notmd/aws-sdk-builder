@@ -45,10 +45,8 @@ impl DeleteEmailIdentityInputBuilder {
     /// Consumes the builder and constructs a [`DeleteEmailIdentityInput`](crate::operation::delete_email_identity::DeleteEmailIdentityInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_email_identity::DeleteEmailIdentityInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_email_identity::DeleteEmailIdentityInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::delete_email_identity::DeleteEmailIdentityInput {
             email_identity: self.email_identity,
         })

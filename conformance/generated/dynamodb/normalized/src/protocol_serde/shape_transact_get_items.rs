@@ -4,10 +4,7 @@ pub fn de_transact_get_items_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::transact_get_items::TransactGetItemsOutput,
-    super::super::operation::transact_get_items::TransactGetItemsError,
-> {
+) -> std::result::Result<super::super::operation::transact_get_items::TransactGetItemsOutput, super::super::operation::transact_get_items::TransactGetItemsError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::transact_get_items::TransactGetItemsError::unhandled)?;
@@ -40,9 +37,8 @@ pub fn de_transact_get_items_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::transact_get_items::TransactGetItemsError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::transact_get_items::TransactGetItemsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -87,11 +83,8 @@ pub fn de_transact_get_items_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::transact_get_items::TransactGetItemsError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::transact_get_items::TransactGetItemsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -120,11 +113,9 @@ pub fn de_transact_get_items_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TransactionCanceledExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_transaction_canceled_exception::de_transaction_canceled_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::transact_get_items::TransactGetItemsError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_transaction_canceled_exception::de_transaction_canceled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::transact_get_items::TransactGetItemsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -142,10 +133,7 @@ pub fn de_transact_get_items_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::transact_get_items::TransactGetItemsOutput,
-    super::super::operation::transact_get_items::TransactGetItemsError,
-> {
+) -> std::result::Result<super::super::operation::transact_get_items::TransactGetItemsOutput, super::super::operation::transact_get_items::TransactGetItemsError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::transact_get_items::builders::TransactGetItemsOutputBuilder::default();
@@ -181,21 +169,23 @@ pub(crate) fn de_transact_get_items(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "ConsumedCapacity" => {
-                    builder = builder.set_consumed_capacity(
-                        super::super::protocol_serde::shape_consumed_capacity_multiple::de_consumed_capacity_multiple(tokens, _value, depth + 1)?,
-                    );
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "ConsumedCapacity" => {
+                        builder = builder.set_consumed_capacity(
+                            super::super::protocol_serde::shape_consumed_capacity_multiple::de_consumed_capacity_multiple(tokens, _value, depth + 1)?,
+                        );
+                    }
+                    "Responses" => {
+                        builder = builder.set_responses(super::super::protocol_serde::shape_item_response_list::de_item_response_list(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?);
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                "Responses" => {
-                    builder = builder.set_responses(super::super::protocol_serde::shape_item_response_list::de_item_response_list(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

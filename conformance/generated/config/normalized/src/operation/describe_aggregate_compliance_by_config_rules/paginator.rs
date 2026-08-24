@@ -2,8 +2,7 @@
 /// Paginator for [`DescribeAggregateComplianceByConfigRules`](crate::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRules)
 pub struct DescribeAggregateComplianceByConfigRulesPaginator {
     handle: std::sync::Arc<super::super::super::client::Handle>,
-    builder:
-        super::super::super::operation::describe_aggregate_compliance_by_config_rules::builders::DescribeAggregateComplianceByConfigRulesInputBuilder,
+    builder: super::super::super::operation::describe_aggregate_compliance_by_config_rules::builders::DescribeAggregateComplianceByConfigRulesInputBuilder,
     stop_on_duplicate_token: bool,
 }
 
@@ -58,12 +57,13 @@ impl DescribeAggregateComplianceByConfigRulesPaginator {
         // Move individual fields out of self for the borrow checker
         let builder = self.builder;
         let handle = self.handle;
-        let runtime_plugins = super::super::super::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRules::operation_runtime_plugins(
-            handle.runtime_plugins.clone(),
-            &handle.conf,
-            ::std::option::Option::None,
-        )
-        .with_operation_plugin(super::super::super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
+        let runtime_plugins =
+            super::super::super::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRules::operation_runtime_plugins(
+                handle.runtime_plugins.clone(),
+                &handle.conf,
+                ::std::option::Option::None,
+            )
+            .with_operation_plugin(super::super::super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
         ::aws_smithy_async::future::pagination_stream::PaginationStream::new(::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(
             move |tx| {
                 ::std::boxed::Box::pin(async move {
@@ -79,12 +79,16 @@ impl DescribeAggregateComplianceByConfigRulesPaginator {
                         }
                     };
                     loop {
-                        let resp = super::super::super::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRules::orchestrate(&runtime_plugins, input.clone()).await;
+                        let resp =
+                            super::super::super::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRules::orchestrate(
+                                &runtime_plugins,
+                                input.clone(),
+                            )
+                            .await;
                         // If the input member is None or it was an error
                         let done = match resp {
                             ::std::result::Result::Ok(ref resp) => {
-                                let new_token =
-                                    super::super::super::lens::reflens_describe_aggregate_compliance_by_config_rules_output_output_next_token(resp);
+                                let new_token = super::super::super::lens::reflens_describe_aggregate_compliance_by_config_rules_output_output_next_token(resp);
                                 // Pagination is exhausted when the next token is an empty string
                                 let is_empty = new_token.map(|token| token.is_empty()).unwrap_or(true);
                                 if !is_empty && new_token == input.next_token.as_ref() && self.stop_on_duplicate_token {

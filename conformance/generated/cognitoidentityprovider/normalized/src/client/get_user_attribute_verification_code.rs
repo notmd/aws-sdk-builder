@@ -12,8 +12,6 @@ impl super::Client {
     pub fn get_user_attribute_verification_code(
         &self,
     ) -> super::super::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeFluentBuilder {
-        super::super::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::get_user_attribute_verification_code::builders::GetUserAttributeVerificationCodeFluentBuilder::new(self.handle.clone())
     }
 }

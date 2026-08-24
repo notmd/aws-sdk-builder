@@ -161,10 +161,8 @@ impl DescribeFieldIndexesInputBuilder {
     /// Consumes the builder and constructs a [`DescribeFieldIndexesInput`](crate::operation::describe_field_indexes::DescribeFieldIndexesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::describe_field_indexes::DescribeFieldIndexesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::describe_field_indexes::DescribeFieldIndexesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::describe_field_indexes::DescribeFieldIndexesInput {
             log_group_identifiers: self.log_group_identifiers,
             index_categories: self.index_categories,

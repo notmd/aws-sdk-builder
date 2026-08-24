@@ -23,15 +23,17 @@ where
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "latestAttempt" => {
                             builder = builder.set_latest_attempt(
-                                super::super::protocol_serde::shape_latest_service_job_attempt::de_latest_service_job_attempt(
+                                super::super::protocol_serde::shape_latest_service_job_attempt::de_latest_service_job_attempt(tokens, _value, depth + 1)?,
+                            );
+                        }
+                        "capacityUsage" => {
+                            builder = builder.set_capacity_usage(
+                                super::super::protocol_serde::shape_service_job_capacity_usage_summary_list::de_service_job_capacity_usage_summary_list(
                                     tokens,
                                     _value,
                                     depth + 1,
                                 )?,
                             );
-                        }
-                        "capacityUsage" => {
-                            builder = builder.set_capacity_usage(super::super::protocol_serde::shape_service_job_capacity_usage_summary_list::de_service_job_capacity_usage_summary_list(tokens, _value, depth + 1)?);
                         }
                         "createdAt" => {
                             builder = builder.set_created_at(
@@ -126,11 +128,9 @@ where
                     }
                 }
             }
-            Ok(Some(
-                super::super::serde_util::service_job_summary_correct_errors(builder)
-                    .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-            ))
+            Ok(Some(super::super::serde_util::service_job_summary_correct_errors(builder).build().map_err(
+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+            )?))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

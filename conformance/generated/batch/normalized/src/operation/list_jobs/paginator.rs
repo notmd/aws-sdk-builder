@@ -8,10 +8,7 @@ pub struct ListJobsPaginator {
 
 impl ListJobsPaginator {
     /// Create a new paginator-wrapper
-    pub(crate) fn new(
-        handle: std::sync::Arc<super::super::super::client::Handle>,
-        builder: super::super::super::operation::list_jobs::builders::ListJobsInputBuilder,
-    ) -> Self {
+    pub(crate) fn new(handle: std::sync::Arc<super::super::super::client::Handle>, builder: super::super::super::operation::list_jobs::builders::ListJobsInputBuilder) -> Self {
         Self {
             handle,
             builder,

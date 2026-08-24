@@ -52,8 +52,7 @@ impl GlobalSignOutInputBuilder {
     /// Consumes the builder and constructs a [`GlobalSignOutInput`](crate::operation::global_sign_out::GlobalSignOutInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::global_sign_out::GlobalSignOutInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::global_sign_out::GlobalSignOutInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::global_sign_out::GlobalSignOutInput {
             access_token: self.access_token,
         })

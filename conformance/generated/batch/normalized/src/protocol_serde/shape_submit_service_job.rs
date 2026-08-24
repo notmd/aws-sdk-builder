@@ -4,10 +4,7 @@ pub fn de_submit_service_job_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::submit_service_job::SubmitServiceJobOutput,
-    super::super::operation::submit_service_job::SubmitServiceJobError,
-> {
+) -> std::result::Result<super::super::operation::submit_service_job::SubmitServiceJobOutput, super::super::operation::submit_service_job::SubmitServiceJobError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::submit_service_job::SubmitServiceJobError::unhandled)?;
@@ -59,10 +56,7 @@ pub fn de_submit_service_job_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::submit_service_job::SubmitServiceJobOutput,
-    super::super::operation::submit_service_job::SubmitServiceJobError,
-> {
+) -> std::result::Result<super::super::operation::submit_service_job::SubmitServiceJobOutput, super::super::operation::submit_service_job::SubmitServiceJobError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::submit_service_job::builders::SubmitServiceJobOutputBuilder::default();

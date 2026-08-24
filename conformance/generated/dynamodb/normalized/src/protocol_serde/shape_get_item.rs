@@ -37,9 +37,8 @@ pub fn de_get_item_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_item::GetItemError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_item::GetItemError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -48,20 +47,22 @@ pub fn de_get_item_http_error(
             }
             tmp
         }),
-        "ProvisionedThroughputExceededException" => super::super::operation::get_item::GetItemError::ProvisionedThroughputExceededException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "ProvisionedThroughputExceededException" => {
+            super::super::operation::get_item::GetItemError::ProvisionedThroughputExceededException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ProvisionedThroughputExceededExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_provisioned_throughput_exceeded_exception::de_provisioned_throughput_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::get_item::GetItemError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::ProvisionedThroughputExceededExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_provisioned_throughput_exceeded_exception::de_provisioned_throughput_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::get_item::GetItemError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "RequestLimitExceeded" => super::super::operation::get_item::GetItemError::RequestLimitExceeded({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -82,11 +83,8 @@ pub fn de_get_item_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::get_item::GetItemError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_item::GetItemError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -143,8 +141,7 @@ pub fn ser_get_item_input(
 pub(crate) fn de_get_item(
     _value: &[u8],
     mut builder: super::super::operation::get_item::builders::GetItemOutputBuilder,
-) -> ::std::result::Result<super::super::operation::get_item::builders::GetItemOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
-{
+) -> ::std::result::Result<super::super::operation::get_item::builders::GetItemOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
@@ -155,11 +152,7 @@ pub(crate) fn de_get_item(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "Item" => {
-                    builder = builder.set_item(super::super::protocol_serde::shape_attribute_map::de_attribute_map(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_item(super::super::protocol_serde::shape_attribute_map::de_attribute_map(tokens, _value, depth + 1)?);
                 }
                 "ConsumedCapacity" => {
                     builder = builder.set_consumed_capacity(super::super::protocol_serde::shape_consumed_capacity::de_consumed_capacity(

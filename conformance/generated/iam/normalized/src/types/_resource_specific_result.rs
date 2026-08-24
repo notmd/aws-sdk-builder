@@ -14,8 +14,7 @@ pub struct ResourceSpecificResult {
     /// <p>A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the <code>ResourceArns</code> parameter instead of "*". If you do not specify individual resources, by setting <code>ResourceArns</code> to "*" or by not including the <code>ResourceArns</code> parameter, then any missing context values are instead included under the <code>EvaluationResults</code> section. To discover the context keys used by a set of policies, you can call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
     pub missing_context_values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>Additional details about the results of the evaluation decision on a single resource. This parameter is returned only for cross-account simulations. This parameter explains how each policy type contributes to the resource-specific evaluation decision.</p>
-    pub eval_decision_details:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::PolicyEvaluationDecisionType>>,
+    pub eval_decision_details: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::PolicyEvaluationDecisionType>>,
     /// <p>Contains information about the effect that a permissions boundary has on a policy simulation when that boundary is applied to an IAM entity.</p>
     pub permissions_boundary_decision_detail: ::std::option::Option<super::super::types::PermissionsBoundaryDecisionDetail>,
 }
@@ -177,10 +176,7 @@ impl ResourceSpecificResultBuilder {
         self
     }
     /// <p>Contains information about the effect that a permissions boundary has on a policy simulation when that boundary is applied to an IAM entity.</p>
-    pub fn set_permissions_boundary_decision_detail(
-        mut self,
-        input: ::std::option::Option<super::super::types::PermissionsBoundaryDecisionDetail>,
-    ) -> Self {
+    pub fn set_permissions_boundary_decision_detail(mut self, input: ::std::option::Option<super::super::types::PermissionsBoundaryDecisionDetail>) -> Self {
         self.permissions_boundary_decision_detail = input;
         self
     }

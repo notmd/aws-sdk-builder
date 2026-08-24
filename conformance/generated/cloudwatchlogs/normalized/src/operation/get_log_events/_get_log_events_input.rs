@@ -252,8 +252,7 @@ impl GetLogEventsInputBuilder {
     /// Consumes the builder and constructs a [`GetLogEventsInput`](crate::operation::get_log_events::GetLogEventsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::get_log_events::GetLogEventsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::get_log_events::GetLogEventsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_log_events::GetLogEventsInput {
             log_group_name: self.log_group_name,
             log_group_identifier: self.log_group_identifier,

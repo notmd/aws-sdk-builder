@@ -36,26 +36,24 @@ pub fn de_put_conformance_pack_http_error(
                 tmp
             })
         }
-        "InsufficientPermissionsException" => {
-            super::super::operation::put_conformance_pack::PutConformancePackError::InsufficientPermissionsException({
+        "InsufficientPermissionsException" => super::super::operation::put_conformance_pack::PutConformancePackError::InsufficientPermissionsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InsufficientPermissionsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_insufficient_permissions_exception::de_insufficient_permissions_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_conformance_pack::PutConformancePackError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::InsufficientPermissionsExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_insufficient_permissions_exception::de_insufficient_permissions_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::put_conformance_pack::PutConformancePackError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "InvalidParameterValueException" => super::super::operation::put_conformance_pack::PutConformancePackError::InvalidParameterValueException({
             #[allow(unused_mut)]
             let mut tmp = {

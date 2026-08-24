@@ -64,10 +64,7 @@ impl GetQueueUrlInputBuilder {
         &self.queue_owner_aws_account_id
     }
     /// Consumes the builder and constructs a [`GetQueueUrlInput`](crate::operation::get_queue_url::GetQueueUrlInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::get_queue_url::GetQueueUrlInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_queue_url::GetQueueUrlInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_queue_url::GetQueueUrlInput {
             queue_name: self.queue_name,
             queue_owner_aws_account_id: self.queue_owner_aws_account_id,

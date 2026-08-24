@@ -218,13 +218,9 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for AdminUpda
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            super::super::protocol_serde::shape_admin_update_auth_event_feedback::de_admin_update_auth_event_feedback_http_error(
-                status, headers, body,
-            )
+            super::super::protocol_serde::shape_admin_update_auth_event_feedback::de_admin_update_auth_event_feedback_http_error(status, headers, body)
         } else {
-            super::super::protocol_serde::shape_admin_update_auth_event_feedback::de_admin_update_auth_event_feedback_http_response(
-                status, headers, body,
-            )
+            super::super::protocol_serde::shape_admin_update_auth_event_feedback::de_admin_update_auth_event_feedback_http_response(status, headers, body)
         };
         super::super::protocol_serde::type_erase_result(parse_result)
     }

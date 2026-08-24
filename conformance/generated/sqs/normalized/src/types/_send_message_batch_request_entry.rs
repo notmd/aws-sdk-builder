@@ -167,8 +167,7 @@ pub struct SendMessageBatchRequestEntryBuilder {
     pub(crate) id: ::std::option::Option<::std::string::String>,
     pub(crate) message_body: ::std::option::Option<::std::string::String>,
     pub(crate) delay_seconds: ::std::option::Option<i32>,
-    pub(crate) message_attributes:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::MessageAttributeValue>>,
+    pub(crate) message_attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::MessageAttributeValue>>,
     pub(crate) message_system_attributes: ::std::option::Option<
         ::std::collections::HashMap<super::super::types::MessageSystemAttributeNameForSends, super::super::types::MessageSystemAttributeValue>,
     >,

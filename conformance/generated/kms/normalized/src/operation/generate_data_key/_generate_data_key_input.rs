@@ -311,10 +311,7 @@ impl GenerateDataKeyInputBuilder {
     /// Consumes the builder and constructs a [`GenerateDataKeyInput`](crate::operation::generate_data_key::GenerateDataKeyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::generate_data_key::GenerateDataKeyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::generate_data_key::GenerateDataKeyInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::generate_data_key::GenerateDataKeyInput {
             key_id: self.key_id,
             encryption_context: self.encryption_context,

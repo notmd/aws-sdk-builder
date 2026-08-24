@@ -93,12 +93,10 @@ impl UpdateReputationEntityPolicyInputBuilder {
         super::super::super::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyInput {
-                reputation_entity_type: self.reputation_entity_type,
-                reputation_entity_reference: self.reputation_entity_reference,
-                reputation_entity_policy: self.reputation_entity_policy,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::update_reputation_entity_policy::UpdateReputationEntityPolicyInput {
+            reputation_entity_type: self.reputation_entity_type,
+            reputation_entity_reference: self.reputation_entity_reference,
+            reputation_entity_policy: self.reputation_entity_policy,
+        })
     }
 }

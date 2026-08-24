@@ -55,9 +55,8 @@ pub fn de_put_item_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::put_item::PutItemError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::put_item::PutItemError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -80,20 +79,22 @@ pub fn de_put_item_http_error(
             }
             tmp
         }),
-        "ProvisionedThroughputExceededException" => super::super::operation::put_item::PutItemError::ProvisionedThroughputExceededException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "ProvisionedThroughputExceededException" => {
+            super::super::operation::put_item::PutItemError::ProvisionedThroughputExceededException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ProvisionedThroughputExceededExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_provisioned_throughput_exceeded_exception::de_provisioned_throughput_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::put_item::PutItemError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::ProvisionedThroughputExceededExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_provisioned_throughput_exceeded_exception::de_provisioned_throughput_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::put_item::PutItemError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         "ReplicatedWriteConflictException" => super::super::operation::put_item::PutItemError::ReplicatedWriteConflictException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -132,11 +133,8 @@ pub fn de_put_item_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::put_item::PutItemError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::put_item::PutItemError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -165,11 +163,9 @@ pub fn de_put_item_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TransactionConflictExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_transaction_conflict_exception::de_transaction_conflict_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::put_item::PutItemError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_transaction_conflict_exception::de_transaction_conflict_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::put_item::PutItemError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -211,8 +207,7 @@ pub fn ser_put_item_input(
 pub(crate) fn de_put_item(
     _value: &[u8],
     mut builder: super::super::operation::put_item::builders::PutItemOutputBuilder,
-) -> ::std::result::Result<super::super::operation::put_item::builders::PutItemOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
-{
+) -> ::std::result::Result<super::super::operation::put_item::builders::PutItemOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
@@ -221,28 +216,26 @@ pub(crate) fn de_put_item(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "Attributes" => {
-                    builder = builder.set_attributes(super::super::protocol_serde::shape_attribute_map::de_attribute_map(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "Attributes" => {
+                        builder = builder.set_attributes(super::super::protocol_serde::shape_attribute_map::de_attribute_map(tokens, _value, depth + 1)?);
+                    }
+                    "ConsumedCapacity" => {
+                        builder = builder.set_consumed_capacity(super::super::protocol_serde::shape_consumed_capacity::de_consumed_capacity(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?);
+                    }
+                    "ItemCollectionMetrics" => {
+                        builder = builder.set_item_collection_metrics(
+                            super::super::protocol_serde::shape_item_collection_metrics::de_item_collection_metrics(tokens, _value, depth + 1)?,
+                        );
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                "ConsumedCapacity" => {
-                    builder = builder.set_consumed_capacity(super::super::protocol_serde::shape_consumed_capacity::de_consumed_capacity(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
-                }
-                "ItemCollectionMetrics" => {
-                    builder = builder.set_item_collection_metrics(
-                        super::super::protocol_serde::shape_item_collection_metrics::de_item_collection_metrics(tokens, _value, depth + 1)?,
-                    );
-                }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

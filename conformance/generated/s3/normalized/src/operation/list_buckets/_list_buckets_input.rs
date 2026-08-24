@@ -134,9 +134,7 @@ impl ListBucketsInputBuilder {
         &self.bucket_region
     }
     /// Consumes the builder and constructs a [`ListBucketsInput`](crate::operation::list_buckets::ListBucketsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::list_buckets::ListBucketsInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_buckets::ListBucketsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_buckets::ListBucketsInput {
             max_buckets: self.max_buckets,
             continuation_token: self.continuation_token,

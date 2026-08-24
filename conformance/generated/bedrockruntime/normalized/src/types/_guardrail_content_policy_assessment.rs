@@ -51,9 +51,7 @@ impl GuardrailContentPolicyAssessmentBuilder {
     /// Consumes the builder and constructs a [`GuardrailContentPolicyAssessment`](crate::types::GuardrailContentPolicyAssessment).
     /// This method will fail if any of the following fields are not set:
     /// - [`filters`](crate::types::builders::GuardrailContentPolicyAssessmentBuilder::filters)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::GuardrailContentPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailContentPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::GuardrailContentPolicyAssessment {
             filters: self.filters.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

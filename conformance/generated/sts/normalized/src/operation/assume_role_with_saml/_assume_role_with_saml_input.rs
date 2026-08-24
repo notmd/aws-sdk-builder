@@ -236,10 +236,8 @@ impl AssumeRoleWithSamlInputBuilder {
     /// Consumes the builder and constructs a [`AssumeRoleWithSamlInput`](crate::operation::assume_role_with_saml::AssumeRoleWithSamlInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::assume_role_with_saml::AssumeRoleWithSamlInput {
             role_arn: self.role_arn,
             principal_arn: self.principal_arn,

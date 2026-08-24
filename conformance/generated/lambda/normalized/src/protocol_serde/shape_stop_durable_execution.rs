@@ -15,43 +15,36 @@ pub fn de_stop_durable_execution_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::stop_durable_execution::StopDurableExecutionError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::stop_durable_execution::StopDurableExecutionError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidParameterValueException" => {
-            super::super::operation::stop_durable_execution::StopDurableExecutionError::InvalidParameterValueException({
+        "InvalidParameterValueException" => super::super::operation::stop_durable_execution::StopDurableExecutionError::InvalidParameterValueException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::stop_durable_execution::StopDurableExecutionError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::stop_durable_execution::StopDurableExecutionError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "KMSAccessDeniedException" => super::super::operation::stop_durable_execution::StopDurableExecutionError::KmsAccessDeniedException({
             #[allow(unused_mut)]
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsAccessDeniedExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_access_denied_exception::de_kms_access_denied_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::stop_durable_execution::StopDurableExecutionError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_access_denied_exception::de_kms_access_denied_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::stop_durable_execution::StopDurableExecutionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -80,9 +73,8 @@ pub fn de_stop_durable_execution_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::stop_durable_execution::StopDurableExecutionError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::stop_durable_execution::StopDurableExecutionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -111,11 +103,8 @@ pub fn de_stop_durable_execution_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::stop_durable_execution::StopDurableExecutionError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::stop_durable_execution::StopDurableExecutionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -144,9 +133,8 @@ pub fn de_stop_durable_execution_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::stop_durable_execution::StopDurableExecutionError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::stop_durable_execution::StopDurableExecutionError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };

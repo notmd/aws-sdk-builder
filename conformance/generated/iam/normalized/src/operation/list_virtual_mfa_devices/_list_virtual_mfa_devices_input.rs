@@ -90,10 +90,8 @@ impl ListVirtualMfaDevicesInputBuilder {
     /// Consumes the builder and constructs a [`ListVirtualMfaDevicesInput`](crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesInput {
             assignment_status: self.assignment_status,
             marker: self.marker,

@@ -78,10 +78,8 @@ impl TagInstanceProfileInputBuilder {
     /// Consumes the builder and constructs a [`TagInstanceProfileInput`](crate::operation::tag_instance_profile::TagInstanceProfileInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::tag_instance_profile::TagInstanceProfileInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::tag_instance_profile::TagInstanceProfileInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::tag_instance_profile::TagInstanceProfileInput {
             instance_profile_name: self.instance_profile_name,
             tags: self.tags,

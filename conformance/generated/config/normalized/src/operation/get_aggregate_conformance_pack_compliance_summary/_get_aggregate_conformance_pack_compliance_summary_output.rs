@@ -35,7 +35,9 @@ impl ::aws_types::request_id::RequestId for GetAggregateConformancePackComplianc
 }
 impl GetAggregateConformancePackComplianceSummaryOutput {
     /// Creates a new builder-style object to manufacture [`GetAggregateConformancePackComplianceSummaryOutput`](crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryOutput).
-    pub fn builder() -> super::super::super::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryOutputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryOutputBuilder
+    {
         super::super::super::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryOutputBuilder::default()
     }
 }
@@ -56,10 +58,7 @@ impl GetAggregateConformancePackComplianceSummaryOutputBuilder {
     /// To override the contents of this collection use [`set_aggregate_conformance_pack_compliance_summaries`](Self::set_aggregate_conformance_pack_compliance_summaries).
     ///
     /// <p>Returns a list of <code>AggregateConformancePackComplianceSummary</code> object.</p>
-    pub fn aggregate_conformance_pack_compliance_summaries(
-        mut self,
-        input: super::super::super::types::AggregateConformancePackComplianceSummary,
-    ) -> Self {
+    pub fn aggregate_conformance_pack_compliance_summaries(mut self, input: super::super::super::types::AggregateConformancePackComplianceSummary) -> Self {
         let mut v = self.aggregate_conformance_pack_compliance_summaries.unwrap_or_default();
         v.push(input);
         self.aggregate_conformance_pack_compliance_summaries = ::std::option::Option::Some(v);
@@ -117,9 +116,7 @@ impl GetAggregateConformancePackComplianceSummaryOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetAggregateConformancePackComplianceSummaryOutput`](crate::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryOutput).
-    pub fn build(
-        self,
-    ) -> super::super::super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryOutput {
+    pub fn build(self) -> super::super::super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryOutput {
         super::super::super::operation::get_aggregate_conformance_pack_compliance_summary::GetAggregateConformancePackComplianceSummaryOutput {
             aggregate_conformance_pack_compliance_summaries: self.aggregate_conformance_pack_compliance_summaries,
             group_by_key: self.group_by_key,

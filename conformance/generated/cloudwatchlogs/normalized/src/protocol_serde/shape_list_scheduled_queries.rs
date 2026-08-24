@@ -15,11 +15,7 @@ pub fn de_list_scheduled_queries_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::list_scheduled_queries::ListScheduledQueriesError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::list_scheduled_queries::ListScheduledQueriesError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());

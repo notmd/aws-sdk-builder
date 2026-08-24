@@ -44,8 +44,7 @@ impl DeleteDeliveryInputBuilder {
     /// Consumes the builder and constructs a [`DeleteDeliveryInput`](crate::operation::delete_delivery::DeleteDeliveryInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::delete_delivery::DeleteDeliveryInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::delete_delivery::DeleteDeliveryInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_delivery::DeleteDeliveryInput { id: self.id })
     }
 }

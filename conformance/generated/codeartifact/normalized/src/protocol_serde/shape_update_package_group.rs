@@ -55,11 +55,8 @@ pub fn de_update_package_group_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -166,9 +163,11 @@ pub(crate) fn de_update_package_group(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "packageGroup" => {
-                    builder = builder.set_package_group(
-                        super::super::protocol_serde::shape_package_group_description::de_package_group_description(tokens, _value, depth + 1)?,
-                    );
+                    builder = builder.set_package_group(super::super::protocol_serde::shape_package_group_description::de_package_group_description(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

@@ -85,12 +85,11 @@ impl SelectAggregateResourceConfigFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::select_aggregate_resource_config::SelectAggregateResourceConfig::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = super::super::super::operation::select_aggregate_resource_config::SelectAggregateResourceConfig::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         super::super::super::operation::select_aggregate_resource_config::SelectAggregateResourceConfig::orchestrate(&runtime_plugins, input).await
     }
 
@@ -116,13 +115,8 @@ impl SelectAggregateResourceConfigFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::select_aggregate_resource_config::paginator::SelectAggregateResourceConfigPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> super::super::super::operation::select_aggregate_resource_config::paginator::SelectAggregateResourceConfigPaginator {
-        super::super::super::operation::select_aggregate_resource_config::paginator::SelectAggregateResourceConfigPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> super::super::super::operation::select_aggregate_resource_config::paginator::SelectAggregateResourceConfigPaginator {
+        super::super::super::operation::select_aggregate_resource_config::paginator::SelectAggregateResourceConfigPaginator::new(self.handle, self.inner)
     }
     /// <p>The SQL query SELECT command.</p>
     pub fn expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

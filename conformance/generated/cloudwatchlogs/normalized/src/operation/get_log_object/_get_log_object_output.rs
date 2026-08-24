@@ -5,20 +5,15 @@
 #[derive(::std::fmt::Debug)]
 pub struct GetLogObjectOutput {
     /// <p>A stream of structured log data returned by the GetLogObject operation. This stream contains log events with their associated metadata and extracted fields.</p>
-    pub field_stream: super::super::super::event_receiver::EventReceiver<
-        super::super::super::types::GetLogObjectResponseStream,
-        super::super::super::types::error::GetLogObjectResponseStreamError,
-    >,
+    pub field_stream:
+        super::super::super::event_receiver::EventReceiver<super::super::super::types::GetLogObjectResponseStream, super::super::super::types::error::GetLogObjectResponseStreamError>,
     _request_id: Option<String>,
 }
 impl GetLogObjectOutput {
     /// <p>A stream of structured log data returned by the GetLogObject operation. This stream contains log events with their associated metadata and extracted fields.</p>
     pub fn field_stream(
         &self,
-    ) -> &super::super::super::event_receiver::EventReceiver<
-        super::super::super::types::GetLogObjectResponseStream,
-        super::super::super::types::error::GetLogObjectResponseStreamError,
-    > {
+    ) -> &super::super::super::event_receiver::EventReceiver<super::super::super::types::GetLogObjectResponseStream, super::super::super::types::error::GetLogObjectResponseStreamError> {
         &self.field_stream
     }
 }
@@ -39,10 +34,7 @@ impl GetLogObjectOutput {
 #[non_exhaustive]
 pub struct GetLogObjectOutputBuilder {
     pub(crate) field_stream: ::std::option::Option<
-        super::super::super::event_receiver::EventReceiver<
-            super::super::super::types::GetLogObjectResponseStream,
-            super::super::super::types::error::GetLogObjectResponseStreamError,
-        >,
+        super::super::super::event_receiver::EventReceiver<super::super::super::types::GetLogObjectResponseStream, super::super::super::types::error::GetLogObjectResponseStreamError>,
     >,
     _request_id: Option<String>,
 }
@@ -50,10 +42,7 @@ impl GetLogObjectOutputBuilder {
     /// <p>A stream of structured log data returned by the GetLogObject operation. This stream contains log events with their associated metadata and extracted fields.</p>
     pub fn field_stream(
         mut self,
-        input: super::super::super::event_receiver::EventReceiver<
-            super::super::super::types::GetLogObjectResponseStream,
-            super::super::super::types::error::GetLogObjectResponseStreamError,
-        >,
+        input: super::super::super::event_receiver::EventReceiver<super::super::super::types::GetLogObjectResponseStream, super::super::super::types::error::GetLogObjectResponseStreamError>,
     ) -> Self {
         self.field_stream = ::std::option::Option::Some(input);
         self
@@ -62,10 +51,7 @@ impl GetLogObjectOutputBuilder {
     pub fn set_field_stream(
         mut self,
         input: ::std::option::Option<
-            super::super::super::event_receiver::EventReceiver<
-                super::super::super::types::GetLogObjectResponseStream,
-                super::super::super::types::error::GetLogObjectResponseStreamError,
-            >,
+            super::super::super::event_receiver::EventReceiver<super::super::super::types::GetLogObjectResponseStream, super::super::super::types::error::GetLogObjectResponseStreamError>,
         >,
     ) -> Self {
         self.field_stream = input;
@@ -75,10 +61,7 @@ impl GetLogObjectOutputBuilder {
     pub fn get_field_stream(
         &self,
     ) -> &::std::option::Option<
-        super::super::super::event_receiver::EventReceiver<
-            super::super::super::types::GetLogObjectResponseStream,
-            super::super::super::types::error::GetLogObjectResponseStreamError,
-        >,
+        super::super::super::event_receiver::EventReceiver<super::super::super::types::GetLogObjectResponseStream, super::super::super::types::error::GetLogObjectResponseStreamError>,
     > {
         &self.field_stream
     }
@@ -96,8 +79,7 @@ impl GetLogObjectOutputBuilder {
     /// - [`field_stream`](crate::operation::get_log_object::builders::GetLogObjectOutputBuilder::field_stream)
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::get_log_object::GetLogObjectOutput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::get_log_object::GetLogObjectOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_log_object::GetLogObjectOutput {
             field_stream: self.field_stream.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

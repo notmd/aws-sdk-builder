@@ -54,10 +54,7 @@ impl DescribeOrganizationConfigRulesOutputBuilder {
         self
     }
     /// <p>Returns a list of <code>OrganizationConfigRule</code> objects.</p>
-    pub fn set_organization_config_rules(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::OrganizationConfigRule>>,
-    ) -> Self {
+    pub fn set_organization_config_rules(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::OrganizationConfigRule>>) -> Self {
         self.organization_config_rules = input;
         self
     }

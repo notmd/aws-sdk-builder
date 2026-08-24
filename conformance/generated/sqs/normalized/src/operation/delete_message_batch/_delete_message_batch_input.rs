@@ -79,10 +79,8 @@ impl DeleteMessageBatchInputBuilder {
     /// Consumes the builder and constructs a [`DeleteMessageBatchInput`](crate::operation::delete_message_batch::DeleteMessageBatchInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_message_batch::DeleteMessageBatchInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_message_batch::DeleteMessageBatchInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::delete_message_batch::DeleteMessageBatchInput {
             queue_url: self.queue_url,
             entries: self.entries,

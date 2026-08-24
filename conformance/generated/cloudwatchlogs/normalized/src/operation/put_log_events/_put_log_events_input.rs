@@ -147,8 +147,7 @@ impl PutLogEventsInputBuilder {
     /// Consumes the builder and constructs a [`PutLogEventsInput`](crate::operation::put_log_events::PutLogEventsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::put_log_events::PutLogEventsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::put_log_events::PutLogEventsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_log_events::PutLogEventsInput {
             log_group_name: self.log_group_name,
             log_stream_name: self.log_stream_name,

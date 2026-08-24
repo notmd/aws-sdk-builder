@@ -76,10 +76,7 @@ impl GetPolicyVersionInputBuilder {
     /// Consumes the builder and constructs a [`GetPolicyVersionInput`](crate::operation::get_policy_version::GetPolicyVersionInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_policy_version::GetPolicyVersionInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_policy_version::GetPolicyVersionInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_policy_version::GetPolicyVersionInput {
             policy_arn: self.policy_arn,
             version_id: self.version_id,

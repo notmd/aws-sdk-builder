@@ -63,29 +63,17 @@ where
                             );
                         }
                         "hostPath" => {
-                            builder = builder.set_host_path(super::super::protocol_serde::shape_eks_host_path::de_eks_host_path(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_host_path(super::super::protocol_serde::shape_eks_host_path::de_eks_host_path(tokens, _value, depth + 1)?);
                         }
                         "emptyDir" => {
-                            builder = builder.set_empty_dir(super::super::protocol_serde::shape_eks_empty_dir::de_eks_empty_dir(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_empty_dir(super::super::protocol_serde::shape_eks_empty_dir::de_eks_empty_dir(tokens, _value, depth + 1)?);
                         }
                         "secret" => {
                             builder = builder.set_secret(super::super::protocol_serde::shape_eks_secret::de_eks_secret(tokens, _value, depth + 1)?);
                         }
                         "persistentVolumeClaim" => {
                             builder = builder.set_persistent_volume_claim(
-                                super::super::protocol_serde::shape_eks_persistent_volume_claim::de_eks_persistent_volume_claim(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_eks_persistent_volume_claim::de_eks_persistent_volume_claim(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
@@ -97,9 +85,9 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::eks_volume_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::eks_volume_correct_errors(builder).build().map_err(|err| {
+                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
+            })?))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

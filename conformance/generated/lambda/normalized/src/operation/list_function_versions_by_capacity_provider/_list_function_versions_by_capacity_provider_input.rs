@@ -26,9 +26,7 @@ impl ListFunctionVersionsByCapacityProviderInput {
 }
 impl ListFunctionVersionsByCapacityProviderInput {
     /// Creates a new builder-style object to manufacture [`ListFunctionVersionsByCapacityProviderInput`](crate::operation::list_function_versions_by_capacity_provider::ListFunctionVersionsByCapacityProviderInput).
-    pub fn builder(
-    ) -> super::super::super::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderInputBuilder {
         super::super::super::operation::list_function_versions_by_capacity_provider::builders::ListFunctionVersionsByCapacityProviderInputBuilder::default()
     }
 }

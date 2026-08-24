@@ -99,12 +99,10 @@ impl PutAggregationAuthorizationInputBuilder {
         super::super::super::operation::put_aggregation_authorization::PutAggregationAuthorizationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_aggregation_authorization::PutAggregationAuthorizationInput {
-                authorized_account_id: self.authorized_account_id,
-                authorized_aws_region: self.authorized_aws_region,
-                tags: self.tags,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_aggregation_authorization::PutAggregationAuthorizationInput {
+            authorized_account_id: self.authorized_account_id,
+            authorized_aws_region: self.authorized_aws_region,
+            tags: self.tags,
+        })
     }
 }

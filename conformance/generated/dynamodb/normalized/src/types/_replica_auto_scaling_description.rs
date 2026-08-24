@@ -37,15 +37,11 @@ impl ReplicaAutoScalingDescription {
         self.global_secondary_indexes.as_deref().unwrap_or_default()
     }
     /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
-    pub fn replica_provisioned_read_capacity_auto_scaling_settings(
-        &self,
-    ) -> ::std::option::Option<&super::super::types::AutoScalingSettingsDescription> {
+    pub fn replica_provisioned_read_capacity_auto_scaling_settings(&self) -> ::std::option::Option<&super::super::types::AutoScalingSettingsDescription> {
         self.replica_provisioned_read_capacity_auto_scaling_settings.as_ref()
     }
     /// <p>Represents the auto scaling settings for a global table or global secondary index.</p>
-    pub fn replica_provisioned_write_capacity_auto_scaling_settings(
-        &self,
-    ) -> ::std::option::Option<&super::super::types::AutoScalingSettingsDescription> {
+    pub fn replica_provisioned_write_capacity_auto_scaling_settings(&self) -> ::std::option::Option<&super::super::types::AutoScalingSettingsDescription> {
         self.replica_provisioned_write_capacity_auto_scaling_settings.as_ref()
     }
     /// <p>The current state of the replica:</p>
@@ -75,8 +71,7 @@ impl ReplicaAutoScalingDescription {
 #[non_exhaustive]
 pub struct ReplicaAutoScalingDescriptionBuilder {
     pub(crate) region_name: ::std::option::Option<::std::string::String>,
-    pub(crate) global_secondary_indexes:
-        ::std::option::Option<::std::vec::Vec<super::super::types::ReplicaGlobalSecondaryIndexAutoScalingDescription>>,
+    pub(crate) global_secondary_indexes: ::std::option::Option<::std::vec::Vec<super::super::types::ReplicaGlobalSecondaryIndexAutoScalingDescription>>,
     pub(crate) replica_provisioned_read_capacity_auto_scaling_settings: ::std::option::Option<super::super::types::AutoScalingSettingsDescription>,
     pub(crate) replica_provisioned_write_capacity_auto_scaling_settings: ::std::option::Option<super::super::types::AutoScalingSettingsDescription>,
     pub(crate) replica_status: ::std::option::Option<super::super::types::ReplicaStatus>,

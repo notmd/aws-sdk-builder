@@ -12,8 +12,6 @@ impl super::Client {
     pub fn describe_configuration_recorder_status(
         &self,
     ) -> super::super::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusFluentBuilder {
-        super::super::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusFluentBuilder::new(self.handle.clone())
     }
 }

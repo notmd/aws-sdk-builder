@@ -102,9 +102,11 @@ pub(crate) fn de_describe_service_job(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "attempts" => {
-                    builder = builder.set_attempts(
-                        super::super::protocol_serde::shape_service_job_attempt_details::de_service_job_attempt_details(tokens, _value, depth + 1)?,
-                    );
+                    builder = builder.set_attempts(super::super::protocol_serde::shape_service_job_attempt_details::de_service_job_attempt_details(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "capacityUsage" => {
                     builder = builder.set_capacity_usage(
@@ -154,14 +156,18 @@ pub(crate) fn de_describe_service_job(
                     );
                 }
                 "latestAttempt" => {
-                    builder = builder.set_latest_attempt(
-                        super::super::protocol_serde::shape_latest_service_job_attempt::de_latest_service_job_attempt(tokens, _value, depth + 1)?,
-                    );
+                    builder = builder.set_latest_attempt(super::super::protocol_serde::shape_latest_service_job_attempt::de_latest_service_job_attempt(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "retryStrategy" => {
-                    builder = builder.set_retry_strategy(
-                        super::super::protocol_serde::shape_service_job_retry_strategy::de_service_job_retry_strategy(tokens, _value, depth + 1)?,
-                    );
+                    builder = builder.set_retry_strategy(super::super::protocol_serde::shape_service_job_retry_strategy::de_service_job_retry_strategy(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "scheduledAt" => {
                     builder = builder.set_scheduled_at(
@@ -216,11 +222,7 @@ pub(crate) fn de_describe_service_job(
                 }
                 "preemptionSummary" => {
                     builder = builder.set_preemption_summary(
-                        super::super::protocol_serde::shape_service_job_preemption_summary::de_service_job_preemption_summary(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_service_job_preemption_summary::de_service_job_preemption_summary(tokens, _value, depth + 1)?,
                     );
                 }
                 "startedAt" => {

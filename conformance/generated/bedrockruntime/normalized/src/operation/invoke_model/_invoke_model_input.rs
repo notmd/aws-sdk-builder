@@ -357,9 +357,7 @@ impl InvokeModelInputBuilder {
         &self.request_metadata
     }
     /// Consumes the builder and constructs a [`InvokeModelInput`](crate::operation::invoke_model::InvokeModelInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::invoke_model::InvokeModelInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::invoke_model::InvokeModelInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::invoke_model::InvokeModelInput {
             body: self.body,
             content_type: self.content_type,

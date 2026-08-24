@@ -38,10 +38,8 @@ impl GetAggregateDiscoveredResourceCountsInput {
 }
 impl GetAggregateDiscoveredResourceCountsInput {
     /// Creates a new builder-style object to manufacture [`GetAggregateDiscoveredResourceCountsInput`](crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsInput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsInputBuilder {
-        super::super::super::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsInputBuilder::default(
-        )
+    pub fn builder() -> super::super::super::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsInputBuilder {
+        super::super::super::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsInputBuilder::default()
     }
 }
 

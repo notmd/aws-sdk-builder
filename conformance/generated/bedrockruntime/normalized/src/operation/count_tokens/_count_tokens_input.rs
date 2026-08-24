@@ -99,9 +99,7 @@ impl CountTokensInputBuilder {
         &self.input
     }
     /// Consumes the builder and constructs a [`CountTokensInput`](crate::operation::count_tokens::CountTokensInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::count_tokens::CountTokensInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::count_tokens::CountTokensInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::count_tokens::CountTokensInput {
             model_id: self.model_id,
             input: self.input,

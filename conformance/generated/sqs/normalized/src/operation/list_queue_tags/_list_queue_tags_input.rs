@@ -44,8 +44,7 @@ impl ListQueueTagsInputBuilder {
     /// Consumes the builder and constructs a [`ListQueueTagsInput`](crate::operation::list_queue_tags::ListQueueTagsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::list_queue_tags::ListQueueTagsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::list_queue_tags::ListQueueTagsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_queue_tags::ListQueueTagsInput { queue_url: self.queue_url })
     }
 }

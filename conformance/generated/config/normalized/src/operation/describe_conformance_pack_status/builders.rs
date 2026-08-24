@@ -83,12 +83,11 @@ impl DescribeConformancePackStatusFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::describe_conformance_pack_status::DescribeConformancePackStatus::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = super::super::super::operation::describe_conformance_pack_status::DescribeConformancePackStatus::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         super::super::super::operation::describe_conformance_pack_status::DescribeConformancePackStatus::orchestrate(&runtime_plugins, input).await
     }
 
@@ -114,13 +113,8 @@ impl DescribeConformancePackStatusFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_conformance_pack_status::paginator::DescribeConformancePackStatusPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> super::super::super::operation::describe_conformance_pack_status::paginator::DescribeConformancePackStatusPaginator {
-        super::super::super::operation::describe_conformance_pack_status::paginator::DescribeConformancePackStatusPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> super::super::super::operation::describe_conformance_pack_status::paginator::DescribeConformancePackStatusPaginator {
+        super::super::super::operation::describe_conformance_pack_status::paginator::DescribeConformancePackStatusPaginator::new(self.handle, self.inner)
     }
     ///
     /// Appends an item to `ConformancePackNames`.

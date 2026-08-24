@@ -15,9 +15,7 @@ pub fn de_list_sources_for_s3_table_integration_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationError::unhandled(generic))
-        }
+        None => return Err(super::super::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -45,11 +43,8 @@ pub fn de_list_sources_for_s3_table_integration_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
-                            .map_err(
-                                super::super::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationError::unhandled,
-                            )?;
+                    output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -65,11 +60,9 @@ pub fn de_list_sources_for_s3_table_integration_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -128,13 +121,9 @@ pub fn de_list_sources_for_s3_table_integration_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationOutputBuilder::default();
-        output = super::super::protocol_serde::shape_list_sources_for_s3_table_integration::de_list_sources_for_s3_table_integration(
-            _response_body,
-            output,
-        )
-        .map_err(super::super::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationError::unhandled)?;
+        let mut output = super::super::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationOutputBuilder::default();
+        output = super::super::protocol_serde::shape_list_sources_for_s3_table_integration::de_list_sources_for_s3_table_integration(_response_body, output)
+            .map_err(super::super::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegrationError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

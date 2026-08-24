@@ -83,10 +83,7 @@ impl GetUserPoolMfaConfigOutputBuilder {
         self
     }
     /// <p>Shows user pool configuration for time-based one-time password (TOTP) MFA. Includes TOTP enabled or disabled state.</p>
-    pub fn set_software_token_mfa_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::SoftwareTokenMfaConfigType>,
-    ) -> Self {
+    pub fn set_software_token_mfa_configuration(mut self, input: ::std::option::Option<super::super::super::types::SoftwareTokenMfaConfigType>) -> Self {
         self.software_token_mfa_configuration = input;
         self
     }

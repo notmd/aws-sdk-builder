@@ -59,7 +59,10 @@ impl GetAggregateConformancePackComplianceSummaryFluentBuilder {
         }
     }
     /// Access the GetAggregateConformancePackComplianceSummary as a reference.
-    pub fn as_input(&self) -> &super::super::super::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &super::super::super::operation::get_aggregate_conformance_pack_compliance_summary::builders::GetAggregateConformancePackComplianceSummaryInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -117,8 +120,13 @@ impl GetAggregateConformancePackComplianceSummaryFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::get_aggregate_conformance_pack_compliance_summary::paginator::GetAggregateConformancePackComplianceSummaryPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> super::super::super::operation::get_aggregate_conformance_pack_compliance_summary::paginator::GetAggregateConformancePackComplianceSummaryPaginator{
-        super::super::super::operation::get_aggregate_conformance_pack_compliance_summary::paginator::GetAggregateConformancePackComplianceSummaryPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> super::super::super::operation::get_aggregate_conformance_pack_compliance_summary::paginator::GetAggregateConformancePackComplianceSummaryPaginator {
+        super::super::super::operation::get_aggregate_conformance_pack_compliance_summary::paginator::GetAggregateConformancePackComplianceSummaryPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The name of the configuration aggregator.</p>
     pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -154,10 +162,7 @@ impl GetAggregateConformancePackComplianceSummaryFluentBuilder {
         self
     }
     /// <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>
-    pub fn set_group_by_key(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::AggregateConformancePackComplianceSummaryGroupKey>,
-    ) -> Self {
+    pub fn set_group_by_key(mut self, input: ::std::option::Option<super::super::super::types::AggregateConformancePackComplianceSummaryGroupKey>) -> Self {
         self.inner = self.inner.set_group_by_key(input);
         self
     }

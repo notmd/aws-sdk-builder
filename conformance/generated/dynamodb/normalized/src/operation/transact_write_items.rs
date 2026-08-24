@@ -265,9 +265,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for TransactWrit
             );
             builder
         };
-        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_transact_write_items::ser_transact_write_items_input(
-            &input,
-        )?);
+        let body =
+            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_transact_write_items::ser_transact_write_items_input(&input)?);
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();
             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -324,17 +323,13 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for TransactWrite
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
 // Generated from JMESPath Expression: TransactItems[*].[ConditionCheck.TableName, Put.TableName, Delete.TableName, Update.TableName][]
-fn get_resource_arn_list(
-    input: &super::super::operation::transact_write_items::TransactWriteItemsInput,
-) -> Option<::std::vec::Vec<&::std::string::String>> {
+fn get_resource_arn_list(input: &super::super::operation::transact_write_items::TransactWriteItemsInput) -> Option<::std::vec::Vec<&::std::string::String>> {
     let _fld_1 = input.transact_items.as_ref()?;
     let _prj_11 = _fld_1
         .iter()
         .flat_map(|v| {
             #[allow(clippy::let_and_return)]
-            fn map(
-                _v: &super::super::types::TransactWriteItem,
-            ) -> ::std::option::Option<::std::vec::Vec<::std::option::Option<&::std::string::String>>> {
+            fn map(_v: &super::super::types::TransactWriteItem) -> ::std::option::Option<::std::vec::Vec<::std::option::Option<&::std::string::String>>> {
                 let _fld_2 = _v.condition_check.as_ref();
                 let _fld_3 = _fld_2.map(|v| &v.table_name);
                 let _fld_4 = _v.put.as_ref();

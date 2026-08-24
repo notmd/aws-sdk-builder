@@ -69,11 +69,9 @@ impl GetBucketOwnershipControlsInputBuilder {
         super::super::super::operation::get_bucket_ownership_controls::GetBucketOwnershipControlsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_bucket_ownership_controls::GetBucketOwnershipControlsInput {
-                bucket: self.bucket,
-                expected_bucket_owner: self.expected_bucket_owner,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_bucket_ownership_controls::GetBucketOwnershipControlsInput {
+            bucket: self.bucket,
+            expected_bucket_owner: self.expected_bucket_owner,
+        })
     }
 }

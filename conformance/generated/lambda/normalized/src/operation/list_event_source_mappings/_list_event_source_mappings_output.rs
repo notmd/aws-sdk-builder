@@ -68,10 +68,7 @@ impl ListEventSourceMappingsOutputBuilder {
         self
     }
     /// <p>A list of event source mappings.</p>
-    pub fn set_event_source_mappings(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::EventSourceMappingConfiguration>>,
-    ) -> Self {
+    pub fn set_event_source_mappings(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::EventSourceMappingConfiguration>>) -> Self {
         self.event_source_mappings = input;
         self
     }

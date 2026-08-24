@@ -59,9 +59,7 @@ impl DescribeRetentionConfigurationsFluentBuilder {
         }
     }
     /// Access the DescribeRetentionConfigurations as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::describe_retention_configurations::builders::DescribeRetentionConfigurationsInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -85,12 +83,11 @@ impl DescribeRetentionConfigurationsFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::describe_retention_configurations::DescribeRetentionConfigurations::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
+        let runtime_plugins = super::super::super::operation::describe_retention_configurations::DescribeRetentionConfigurations::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
         super::super::super::operation::describe_retention_configurations::DescribeRetentionConfigurations::orchestrate(&runtime_plugins, input).await
     }
 
@@ -116,13 +113,8 @@ impl DescribeRetentionConfigurationsFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_retention_configurations::paginator::DescribeRetentionConfigurationsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> super::super::super::operation::describe_retention_configurations::paginator::DescribeRetentionConfigurationsPaginator {
-        super::super::super::operation::describe_retention_configurations::paginator::DescribeRetentionConfigurationsPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> super::super::super::operation::describe_retention_configurations::paginator::DescribeRetentionConfigurationsPaginator {
+        super::super::super::operation::describe_retention_configurations::paginator::DescribeRetentionConfigurationsPaginator::new(self.handle, self.inner)
     }
     ///
     /// Appends an item to `RetentionConfigurationNames`.

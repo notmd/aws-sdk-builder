@@ -78,12 +78,10 @@ impl VerifySmsSandboxPhoneNumberInputBuilder {
         super::super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberInput {
-                phone_number: self.phone_number,
-                one_time_password: self.one_time_password,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberInput {
+            phone_number: self.phone_number,
+            one_time_password: self.one_time_password,
+        })
     }
 }
 impl ::std::fmt::Debug for VerifySmsSandboxPhoneNumberInputBuilder {

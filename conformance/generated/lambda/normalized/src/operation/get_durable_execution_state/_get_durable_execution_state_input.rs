@@ -112,13 +112,11 @@ impl GetDurableExecutionStateInputBuilder {
         super::super::super::operation::get_durable_execution_state::GetDurableExecutionStateInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_durable_execution_state::GetDurableExecutionStateInput {
-                durable_execution_arn: self.durable_execution_arn,
-                checkpoint_token: self.checkpoint_token,
-                marker: self.marker,
-                max_items: self.max_items.unwrap_or_default(),
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_durable_execution_state::GetDurableExecutionStateInput {
+            durable_execution_arn: self.durable_execution_arn,
+            checkpoint_token: self.checkpoint_token,
+            marker: self.marker,
+            max_items: self.max_items.unwrap_or_default(),
+        })
     }
 }

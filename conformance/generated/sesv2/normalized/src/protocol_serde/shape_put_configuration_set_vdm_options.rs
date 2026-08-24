@@ -20,23 +20,21 @@ pub fn de_put_configuration_set_vdm_options_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "BadRequestException" => {
-            super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError::BadRequestException({
+        "BadRequestException" => super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError::BadRequestException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "NotFoundException" => super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError::NotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -58,11 +56,9 @@ pub fn de_put_configuration_set_vdm_options_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::put_configuration_set_vdm_options::PutConfigurationSetVdmOptionsError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -98,10 +94,7 @@ pub fn ser_put_configuration_set_vdm_options_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_put_configuration_set_vdm_options_input::ser_put_configuration_set_vdm_options_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_put_configuration_set_vdm_options_input::ser_put_configuration_set_vdm_options_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

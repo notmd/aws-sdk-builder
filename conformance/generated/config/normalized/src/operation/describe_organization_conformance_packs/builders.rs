@@ -62,9 +62,7 @@ impl DescribeOrganizationConformancePacksFluentBuilder {
         }
     }
     /// Access the DescribeOrganizationConformancePacks as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::describe_organization_conformance_packs::builders::DescribeOrganizationConformancePacksInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -94,11 +92,7 @@ impl DescribeOrganizationConformancePacksFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacks::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        super::super::super::operation::describe_organization_conformance_packs::DescribeOrganizationConformancePacks::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

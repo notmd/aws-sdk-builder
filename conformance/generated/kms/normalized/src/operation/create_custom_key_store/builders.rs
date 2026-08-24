@@ -386,9 +386,7 @@ impl CreateCustomKeyStoreFluentBuilder {
     /// <p>The <code>XksProxyAuthenticationCredential</code> has two required elements: <code>RawSecretAccessKey</code>, a secret key, and <code>AccessKeyId</code>, a unique identifier for the <code>RawSecretAccessKey</code>. For character requirements, see <a href="API_XksProxyAuthenticationCredentialType.html">XksProxyAuthenticationCredentialType</a>.</p>
     /// <p>KMS uses this authentication credential to sign requests to the external key store proxy on your behalf. This credential is unrelated to Identity and Access Management (IAM) and Amazon Web Services credentials.</p>
     /// <p>This parameter doesn't set or change the authentication credentials on the XKS proxy. It just tells KMS the credential that you established on your external key store proxy. If you rotate your proxy authentication credential, use the <code>UpdateCustomKeyStore</code> operation to provide the new credential to KMS.</p>
-    pub fn get_xks_proxy_authentication_credential(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::XksProxyAuthenticationCredentialType> {
+    pub fn get_xks_proxy_authentication_credential(&self) -> &::std::option::Option<super::super::super::types::XksProxyAuthenticationCredentialType> {
         self.inner.get_xks_proxy_authentication_credential()
     }
     /// <p>Indicates how KMS communicates with the external key store proxy. This parameter is required for custom key stores with a <code>CustomKeyStoreType</code> of <code>EXTERNAL_KEY_STORE</code>.</p>

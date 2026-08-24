@@ -77,11 +77,8 @@ where
                             builder = builder.set_allow_credentials(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                         }
                         "AllowHeaders" => {
-                            builder = builder.set_allow_headers(super::super::protocol_serde::shape_headers_list::de_headers_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_allow_headers(super::super::protocol_serde::shape_headers_list::de_headers_list(tokens, _value, depth + 1)?);
                         }
                         "AllowMethods" => {
                             builder = builder.set_allow_methods(super::super::protocol_serde::shape_allow_methods_list::de_allow_methods_list(
@@ -98,11 +95,8 @@ where
                             )?);
                         }
                         "ExposeHeaders" => {
-                            builder = builder.set_expose_headers(super::super::protocol_serde::shape_headers_list::de_headers_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_expose_headers(super::super::protocol_serde::shape_headers_list::de_headers_list(tokens, _value, depth + 1)?);
                         }
                         "MaxAge" => {
                             builder = builder.set_max_age(

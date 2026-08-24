@@ -37,9 +37,8 @@ pub fn de_get_account_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_account::GetAccountError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_account::GetAccountError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -77,10 +76,8 @@ pub fn ser_get_account_input(
 pub(crate) fn de_get_account(
     _value: &[u8],
     mut builder: super::super::operation::get_account::builders::GetAccountOutputBuilder,
-) -> ::std::result::Result<
-    super::super::operation::get_account::builders::GetAccountOutputBuilder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
+) -> ::std::result::Result<super::super::operation::get_account::builders::GetAccountOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+{
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]
@@ -111,9 +108,11 @@ pub(crate) fn de_get_account(
                     builder = builder.set_sending_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 }
                 "SuppressionAttributes" => {
-                    builder = builder.set_suppression_attributes(
-                        super::super::protocol_serde::shape_suppression_attributes::de_suppression_attributes(tokens, _value, depth + 1)?,
-                    );
+                    builder = builder.set_suppression_attributes(super::super::protocol_serde::shape_suppression_attributes::de_suppression_attributes(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "Details" => {
                     builder = builder.set_details(super::super::protocol_serde::shape_account_details::de_account_details(
@@ -123,11 +122,7 @@ pub(crate) fn de_get_account(
                     )?);
                 }
                 "VdmAttributes" => {
-                    builder = builder.set_vdm_attributes(super::super::protocol_serde::shape_vdm_attributes::de_vdm_attributes(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_vdm_attributes(super::super::protocol_serde::shape_vdm_attributes::de_vdm_attributes(tokens, _value, depth + 1)?);
                 }
                 "PricingAttributes" => {
                     builder = builder.set_pricing_attributes(super::super::protocol_serde::shape_pricing_attributes::de_pricing_attributes(

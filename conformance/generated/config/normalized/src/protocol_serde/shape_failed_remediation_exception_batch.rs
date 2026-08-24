@@ -29,9 +29,11 @@ where
                             );
                         }
                         "FailedItems" => {
-                            builder = builder.set_failed_items(
-                                super::super::protocol_serde::shape_remediation_exceptions::de_remediation_exceptions(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_failed_items(super::super::protocol_serde::shape_remediation_exceptions::de_remediation_exceptions(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

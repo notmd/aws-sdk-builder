@@ -32,8 +32,7 @@ impl DescribeConformancePackComplianceInput {
 }
 impl DescribeConformancePackComplianceInput {
     /// Creates a new builder-style object to manufacture [`DescribeConformancePackComplianceInput`](crate::operation::describe_conformance_pack_compliance::DescribeConformancePackComplianceInput).
-    pub fn builder() -> super::super::super::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceInputBuilder {
         super::super::super::operation::describe_conformance_pack_compliance::builders::DescribeConformancePackComplianceInputBuilder::default()
     }
 }

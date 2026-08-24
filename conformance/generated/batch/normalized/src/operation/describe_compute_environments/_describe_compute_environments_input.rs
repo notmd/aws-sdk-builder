@@ -108,12 +108,10 @@ impl DescribeComputeEnvironmentsInputBuilder {
         super::super::super::operation::describe_compute_environments::DescribeComputeEnvironmentsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::describe_compute_environments::DescribeComputeEnvironmentsInput {
-                compute_environments: self.compute_environments,
-                max_results: self.max_results,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::describe_compute_environments::DescribeComputeEnvironmentsInput {
+            compute_environments: self.compute_environments,
+            max_results: self.max_results,
+            next_token: self.next_token,
+        })
     }
 }

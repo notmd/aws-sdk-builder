@@ -213,9 +213,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for DescribeO
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            super::super::protocol_serde::shape_describe_organization_config_rules::de_describe_organization_config_rules_http_error(
-                status, headers, body,
-            )
+            super::super::protocol_serde::shape_describe_organization_config_rules::de_describe_organization_config_rules_http_error(status, headers, body)
         } else {
             super::super::protocol_serde::shape_describe_organization_config_rules::de_describe_organization_config_rules_http_response(
                 status, headers, body,

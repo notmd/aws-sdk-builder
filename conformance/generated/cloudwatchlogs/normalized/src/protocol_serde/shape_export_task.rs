@@ -79,11 +79,7 @@ where
                         }
                         "executionInfo" => {
                             builder = builder.set_execution_info(
-                                super::super::protocol_serde::shape_export_task_execution_info::de_export_task_execution_info(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_export_task_execution_info::de_export_task_execution_info(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

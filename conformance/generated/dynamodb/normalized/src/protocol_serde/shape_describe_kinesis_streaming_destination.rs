@@ -15,9 +15,7 @@ pub fn de_describe_kinesis_streaming_destination_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError::unhandled(generic))
-        }
+        None => return Err(super::super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -29,9 +27,7 @@ pub fn de_describe_kinesis_streaming_destination_http_error(
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InternalServerErrorBuilder::default();
                     output = super::super::protocol_serde::shape_internal_server_error::de_internal_server_error_json_err(_response_body, output)
-                        .map_err(
-                            super::super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError::unhandled,
-                        )?;
+                        .map_err(super::super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -47,11 +43,8 @@ pub fn de_describe_kinesis_streaming_destination_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError::unhandled)?;
+                    output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -67,11 +60,9 @@ pub fn de_describe_kinesis_streaming_destination_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -98,11 +89,9 @@ pub fn de_describe_kinesis_streaming_destination_http_response(
         #[allow(unused_mut)]
         let mut output =
             super::super::operation::describe_kinesis_streaming_destination::builders::DescribeKinesisStreamingDestinationOutputBuilder::default();
-        output = super::super::protocol_serde::shape_describe_kinesis_streaming_destination::de_describe_kinesis_streaming_destination(
-            _response_body,
-            output,
-        )
-        .map_err(super::super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError::unhandled)?;
+        output =
+            super::super::protocol_serde::shape_describe_kinesis_streaming_destination::de_describe_kinesis_streaming_destination(_response_body, output)
+                .map_err(super::super::operation::describe_kinesis_streaming_destination::DescribeKinesisStreamingDestinationError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

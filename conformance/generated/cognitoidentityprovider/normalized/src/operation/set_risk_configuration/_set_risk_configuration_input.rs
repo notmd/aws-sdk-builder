@@ -26,9 +26,7 @@ impl SetRiskConfigurationInput {
         self.client_id.as_deref()
     }
     /// <p>The configuration of automated reactions to detected compromised credentials. Includes settings for blocking future sign-in requests and for the types of password-submission events you want to monitor.</p>
-    pub fn compromised_credentials_risk_configuration(
-        &self,
-    ) -> ::std::option::Option<&super::super::super::types::CompromisedCredentialsRiskConfigurationType> {
+    pub fn compromised_credentials_risk_configuration(&self) -> ::std::option::Option<&super::super::super::types::CompromisedCredentialsRiskConfigurationType> {
         self.compromised_credentials_risk_configuration.as_ref()
     }
     /// <p>The settings for automated responses and notification templates for adaptive authentication with threat protection.</p>
@@ -67,8 +65,7 @@ impl SetRiskConfigurationInput {
 pub struct SetRiskConfigurationInputBuilder {
     pub(crate) user_pool_id: ::std::option::Option<::std::string::String>,
     pub(crate) client_id: ::std::option::Option<::std::string::String>,
-    pub(crate) compromised_credentials_risk_configuration:
-        ::std::option::Option<super::super::super::types::CompromisedCredentialsRiskConfigurationType>,
+    pub(crate) compromised_credentials_risk_configuration: ::std::option::Option<super::super::super::types::CompromisedCredentialsRiskConfigurationType>,
     pub(crate) account_takeover_risk_configuration: ::std::option::Option<super::super::super::types::AccountTakeoverRiskConfigurationType>,
     pub(crate) risk_exception_configuration: ::std::option::Option<super::super::super::types::RiskExceptionConfigurationType>,
 }
@@ -106,10 +103,7 @@ impl SetRiskConfigurationInputBuilder {
         &self.client_id
     }
     /// <p>The configuration of automated reactions to detected compromised credentials. Includes settings for blocking future sign-in requests and for the types of password-submission events you want to monitor.</p>
-    pub fn compromised_credentials_risk_configuration(
-        mut self,
-        input: super::super::super::types::CompromisedCredentialsRiskConfigurationType,
-    ) -> Self {
+    pub fn compromised_credentials_risk_configuration(mut self, input: super::super::super::types::CompromisedCredentialsRiskConfigurationType) -> Self {
         self.compromised_credentials_risk_configuration = ::std::option::Option::Some(input);
         self
     }
@@ -141,9 +135,7 @@ impl SetRiskConfigurationInputBuilder {
         self
     }
     /// <p>The settings for automated responses and notification templates for adaptive authentication with threat protection.</p>
-    pub fn get_account_takeover_risk_configuration(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::AccountTakeoverRiskConfigurationType> {
+    pub fn get_account_takeover_risk_configuration(&self) -> &::std::option::Option<super::super::super::types::AccountTakeoverRiskConfigurationType> {
         &self.account_takeover_risk_configuration
     }
     /// <p>A set of IP-address overrides to threat protection. You can set up IP-address always-block and always-allow lists.</p>
@@ -152,10 +144,7 @@ impl SetRiskConfigurationInputBuilder {
         self
     }
     /// <p>A set of IP-address overrides to threat protection. You can set up IP-address always-block and always-allow lists.</p>
-    pub fn set_risk_exception_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::RiskExceptionConfigurationType>,
-    ) -> Self {
+    pub fn set_risk_exception_configuration(mut self, input: ::std::option::Option<super::super::super::types::RiskExceptionConfigurationType>) -> Self {
         self.risk_exception_configuration = input;
         self
     }
@@ -166,10 +155,8 @@ impl SetRiskConfigurationInputBuilder {
     /// Consumes the builder and constructs a [`SetRiskConfigurationInput`](crate::operation::set_risk_configuration::SetRiskConfigurationInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::set_risk_configuration::SetRiskConfigurationInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::set_risk_configuration::SetRiskConfigurationInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::set_risk_configuration::SetRiskConfigurationInput {
             user_pool_id: self.user_pool_id,
             client_id: self.client_id,

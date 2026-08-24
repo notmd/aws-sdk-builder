@@ -141,10 +141,7 @@ impl GetServiceLastAccessedDetailsOutputBuilder {
         self
     }
     /// <p>A <code>ServiceLastAccessed</code> object that contains details about the most recent attempt to access the service.</p>
-    pub fn set_services_last_accessed(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceLastAccessed>>,
-    ) -> Self {
+    pub fn set_services_last_accessed(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceLastAccessed>>) -> Self {
         self.services_last_accessed = input;
         self
     }
@@ -233,38 +230,36 @@ impl GetServiceLastAccessedDetailsOutputBuilder {
         super::super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput {
-                job_status: self.job_status.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "job_status",
-                        "job_status was not specified but it is required when building GetServiceLastAccessedDetailsOutput",
-                    )
-                })?,
-                job_type: self.job_type,
-                job_creation_date: self.job_creation_date.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "job_creation_date",
-                        "job_creation_date was not specified but it is required when building GetServiceLastAccessedDetailsOutput",
-                    )
-                })?,
-                services_last_accessed: self.services_last_accessed.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "services_last_accessed",
-                        "services_last_accessed was not specified but it is required when building GetServiceLastAccessedDetailsOutput",
-                    )
-                })?,
-                job_completion_date: self.job_completion_date.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "job_completion_date",
-                        "job_completion_date was not specified but it is required when building GetServiceLastAccessedDetailsOutput",
-                    )
-                })?,
-                is_truncated: self.is_truncated.unwrap_or_default(),
-                marker: self.marker,
-                error: self.error,
-                _request_id: self._request_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput {
+            job_status: self.job_status.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "job_status",
+                    "job_status was not specified but it is required when building GetServiceLastAccessedDetailsOutput",
+                )
+            })?,
+            job_type: self.job_type,
+            job_creation_date: self.job_creation_date.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "job_creation_date",
+                    "job_creation_date was not specified but it is required when building GetServiceLastAccessedDetailsOutput",
+                )
+            })?,
+            services_last_accessed: self.services_last_accessed.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "services_last_accessed",
+                    "services_last_accessed was not specified but it is required when building GetServiceLastAccessedDetailsOutput",
+                )
+            })?,
+            job_completion_date: self.job_completion_date.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "job_completion_date",
+                    "job_completion_date was not specified but it is required when building GetServiceLastAccessedDetailsOutput",
+                )
+            })?,
+            is_truncated: self.is_truncated.unwrap_or_default(),
+            marker: self.marker,
+            error: self.error,
+            _request_id: self._request_id,
+        })
     }
 }

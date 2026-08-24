@@ -46,9 +46,7 @@ impl DeleteGlobalSecondaryIndexActionBuilder {
     /// Consumes the builder and constructs a [`DeleteGlobalSecondaryIndexAction`](crate::types::DeleteGlobalSecondaryIndexAction).
     /// This method will fail if any of the following fields are not set:
     /// - [`index_name`](crate::types::builders::DeleteGlobalSecondaryIndexActionBuilder::index_name)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::DeleteGlobalSecondaryIndexAction, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::DeleteGlobalSecondaryIndexAction, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::DeleteGlobalSecondaryIndexAction {
             index_name: self.index_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

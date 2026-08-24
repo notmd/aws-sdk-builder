@@ -10,8 +10,6 @@ impl super::Client {
     pub fn describe_remediation_configurations(
         &self,
     ) -> super::super::operation::describe_remediation_configurations::builders::DescribeRemediationConfigurationsFluentBuilder {
-        super::super::operation::describe_remediation_configurations::builders::DescribeRemediationConfigurationsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::describe_remediation_configurations::builders::DescribeRemediationConfigurationsFluentBuilder::new(self.handle.clone())
     }
 }

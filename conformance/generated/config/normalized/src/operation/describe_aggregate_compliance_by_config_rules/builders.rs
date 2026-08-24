@@ -28,8 +28,7 @@ impl super::super::super::operation::describe_aggregate_compliance_by_config_rul
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct DescribeAggregateComplianceByConfigRulesFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
-    inner:
-        super::super::super::operation::describe_aggregate_compliance_by_config_rules::builders::DescribeAggregateComplianceByConfigRulesInputBuilder,
+    inner: super::super::super::operation::describe_aggregate_compliance_by_config_rules::builders::DescribeAggregateComplianceByConfigRulesInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
 impl
@@ -62,8 +61,7 @@ impl DescribeAggregateComplianceByConfigRulesFluentBuilder {
     /// Access the DescribeAggregateComplianceByConfigRules as a reference.
     pub fn as_input(
         &self,
-    ) -> &super::super::super::operation::describe_aggregate_compliance_by_config_rules::builders::DescribeAggregateComplianceByConfigRulesInputBuilder
-    {
+    ) -> &super::super::super::operation::describe_aggregate_compliance_by_config_rules::builders::DescribeAggregateComplianceByConfigRulesInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,11 +85,12 @@ impl DescribeAggregateComplianceByConfigRulesFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRules::operation_runtime_plugins(
-                            self.handle.runtime_plugins.clone(),
-                            &self.handle.conf,
-                            self.config_override,
-                        );
+        let runtime_plugins =
+            super::super::super::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRules::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
         super::super::super::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRules::orchestrate(
             &runtime_plugins,
             input,
@@ -123,9 +122,11 @@ impl DescribeAggregateComplianceByConfigRulesFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::describe_aggregate_compliance_by_config_rules::paginator::DescribeAggregateComplianceByConfigRulesPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> super::super::super::operation::describe_aggregate_compliance_by_config_rules::paginator::DescribeAggregateComplianceByConfigRulesPaginator
-    {
-        super::super::super::operation::describe_aggregate_compliance_by_config_rules::paginator::DescribeAggregateComplianceByConfigRulesPaginator::new(self.handle, self.inner)
+    ) -> super::super::super::operation::describe_aggregate_compliance_by_config_rules::paginator::DescribeAggregateComplianceByConfigRulesPaginator {
+        super::super::super::operation::describe_aggregate_compliance_by_config_rules::paginator::DescribeAggregateComplianceByConfigRulesPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The name of the configuration aggregator.</p>
     pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

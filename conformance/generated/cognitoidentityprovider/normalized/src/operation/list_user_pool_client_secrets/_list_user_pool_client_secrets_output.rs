@@ -55,10 +55,7 @@ impl ListUserPoolClientSecretsOutputBuilder {
         self
     }
     /// <p>A list of client secret descriptors containing the identifier and creation date for each secret. For security reasons, the response never reveals the actual secret value in ClientSecretValue.</p>
-    pub fn set_client_secrets(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ClientSecretDescriptorType>>,
-    ) -> Self {
+    pub fn set_client_secrets(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ClientSecretDescriptorType>>) -> Self {
         self.client_secrets = input;
         self
     }

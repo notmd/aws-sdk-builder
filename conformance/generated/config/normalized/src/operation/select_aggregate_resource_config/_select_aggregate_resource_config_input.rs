@@ -133,14 +133,12 @@ impl SelectAggregateResourceConfigInputBuilder {
         super::super::super::operation::select_aggregate_resource_config::SelectAggregateResourceConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::select_aggregate_resource_config::SelectAggregateResourceConfigInput {
-                expression: self.expression,
-                configuration_aggregator_name: self.configuration_aggregator_name,
-                limit: self.limit.unwrap_or_default(),
-                max_results: self.max_results.unwrap_or_default(),
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::select_aggregate_resource_config::SelectAggregateResourceConfigInput {
+            expression: self.expression,
+            configuration_aggregator_name: self.configuration_aggregator_name,
+            limit: self.limit.unwrap_or_default(),
+            max_results: self.max_results.unwrap_or_default(),
+            next_token: self.next_token,
+        })
     }
 }

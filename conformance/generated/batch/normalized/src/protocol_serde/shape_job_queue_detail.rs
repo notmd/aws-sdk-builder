@@ -72,20 +72,12 @@ where
                         }
                         "computeEnvironmentOrder" => {
                             builder = builder.set_compute_environment_order(
-                                super::super::protocol_serde::shape_compute_environment_orders::de_compute_environment_orders(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_compute_environment_orders::de_compute_environment_orders(tokens, _value, depth + 1)?,
                             );
                         }
                         "serviceEnvironmentOrder" => {
                             builder = builder.set_service_environment_order(
-                                super::super::protocol_serde::shape_service_environment_orders::de_service_environment_orders(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_service_environment_orders::de_service_environment_orders(tokens, _value, depth + 1)?,
                             );
                         }
                         "jobQueueType" => {

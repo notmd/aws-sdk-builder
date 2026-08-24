@@ -22,8 +22,7 @@ impl GenerateOrganizationsAccessReportInput {
 }
 impl GenerateOrganizationsAccessReportInput {
     /// Creates a new builder-style object to manufacture [`GenerateOrganizationsAccessReportInput`](crate::operation::generate_organizations_access_report::GenerateOrganizationsAccessReportInput).
-    pub fn builder() -> super::super::super::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportInputBuilder {
         super::super::super::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportInputBuilder::default()
     }
 }

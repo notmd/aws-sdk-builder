@@ -89,8 +89,7 @@ impl ListConnectorsOutputBuilder {
     /// - [`connector_summaries`](crate::operation::list_connectors::builders::ListConnectorsOutputBuilder::connector_summaries)
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::list_connectors::ListConnectorsOutput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::list_connectors::ListConnectorsOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_connectors::ListConnectorsOutput {
             connector_summaries: self.connector_summaries.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -15,7 +15,11 @@ pub fn de_update_continuous_backups_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::update_continuous_backups::UpdateContinuousBackupsError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::update_continuous_backups::UpdateContinuousBackupsError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -26,7 +30,12 @@ pub fn de_update_continuous_backups_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ContinuousBackupsUnavailableExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_continuous_backups_unavailable_exception::de_continuous_backups_unavailable_exception_json_err(_response_body, output).map_err(super::super::operation::update_continuous_backups::UpdateContinuousBackupsError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_continuous_backups_unavailable_exception::de_continuous_backups_unavailable_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::update_continuous_backups::UpdateContinuousBackupsError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -56,9 +65,8 @@ pub fn de_update_continuous_backups_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::update_continuous_backups::UpdateContinuousBackupsError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::update_continuous_backups::UpdateContinuousBackupsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -133,11 +141,7 @@ pub(crate) fn de_update_continuous_backups(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "ContinuousBackupsDescription" => {
                     builder = builder.set_continuous_backups_description(
-                        super::super::protocol_serde::shape_continuous_backups_description::de_continuous_backups_description(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_continuous_backups_description::de_continuous_backups_description(tokens, _value, depth + 1)?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

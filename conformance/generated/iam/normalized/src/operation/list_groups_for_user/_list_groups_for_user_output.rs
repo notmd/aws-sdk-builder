@@ -111,10 +111,8 @@ impl ListGroupsForUserOutputBuilder {
     /// - [`groups`](crate::operation::list_groups_for_user::builders::ListGroupsForUserOutputBuilder::groups)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_groups_for_user::ListGroupsForUserOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_groups_for_user::ListGroupsForUserOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_groups_for_user::ListGroupsForUserOutput {
             groups: self.groups.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

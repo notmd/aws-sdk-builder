@@ -218,9 +218,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ListFunct
         let mut force_error = false;
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            super::super::protocol_serde::shape_list_function_event_invoke_configs::de_list_function_event_invoke_configs_http_error(
-                status, headers, body,
-            )
+            super::super::protocol_serde::shape_list_function_event_invoke_configs::de_list_function_event_invoke_configs_http_error(status, headers, body)
         } else {
             super::super::protocol_serde::shape_list_function_event_invoke_configs::de_list_function_event_invoke_configs_http_response(
                 status, headers, body,

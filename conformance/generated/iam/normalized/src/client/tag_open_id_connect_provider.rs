@@ -7,9 +7,7 @@ impl super::Client {
     ///   - [`tags(Tag)`](crate::operation::tag_open_id_connect_provider::builders::TagOpenIDConnectProviderFluentBuilder::tags) / [`set_tags(Option<Vec::<Tag>>)`](crate::operation::tag_open_id_connect_provider::builders::TagOpenIDConnectProviderFluentBuilder::set_tags):<br>required: **true**<br><p>The list of tags that you want to attach to the OIDC identity provider in IAM. Each tag consists of a key name and an associated value.</p><br>
     /// - On success, responds with [`TagOpenIdConnectProviderOutput`](crate::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput)
     /// - On failure, responds with [`SdkError<TagOpenIDConnectProviderError>`](crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError)
-    pub fn tag_open_id_connect_provider(
-        &self,
-    ) -> super::super::operation::tag_open_id_connect_provider::builders::TagOpenIDConnectProviderFluentBuilder {
+    pub fn tag_open_id_connect_provider(&self) -> super::super::operation::tag_open_id_connect_provider::builders::TagOpenIDConnectProviderFluentBuilder {
         super::super::operation::tag_open_id_connect_provider::builders::TagOpenIDConnectProviderFluentBuilder::new(self.handle.clone())
     }
 }

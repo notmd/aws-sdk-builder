@@ -111,10 +111,7 @@ impl ListRolePoliciesOutputBuilder {
     /// - [`policy_names`](crate::operation::list_role_policies::builders::ListRolePoliciesOutputBuilder::policy_names)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_role_policies::ListRolePoliciesOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_role_policies::ListRolePoliciesOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_role_policies::ListRolePoliciesOutput {
             policy_names: self.policy_names.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

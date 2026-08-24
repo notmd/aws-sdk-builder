@@ -98,10 +98,8 @@ impl DeleteFunctionConcurrencyInputBuilder {
         super::super::super::operation::delete_function_concurrency::DeleteFunctionConcurrencyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_function_concurrency::DeleteFunctionConcurrencyInput {
-                function_name: self.function_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_function_concurrency::DeleteFunctionConcurrencyInput {
+            function_name: self.function_name,
+        })
     }
 }

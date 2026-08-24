@@ -15,35 +15,29 @@ pub fn de_list_capacity_providers_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::list_capacity_providers::ListCapacityProvidersError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::list_capacity_providers::ListCapacityProvidersError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "InvalidParameterValueException" => {
-            super::super::operation::list_capacity_providers::ListCapacityProvidersError::InvalidParameterValueException({
+        "InvalidParameterValueException" => super::super::operation::list_capacity_providers::ListCapacityProvidersError::InvalidParameterValueException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::list_capacity_providers::ListCapacityProvidersError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::list_capacity_providers::ListCapacityProvidersError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ServiceException" => super::super::operation::list_capacity_providers::ListCapacityProvidersError::ServiceException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -64,9 +58,8 @@ pub fn de_list_capacity_providers_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::list_capacity_providers::ListCapacityProvidersError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::list_capacity_providers::ListCapacityProvidersError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -127,9 +120,11 @@ pub(crate) fn de_list_capacity_providers(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "CapacityProviders" => {
-                    builder = builder.set_capacity_providers(
-                        super::super::protocol_serde::shape_capacity_providers_list::de_capacity_providers_list(tokens, _value, depth + 1)?,
-                    );
+                    builder = builder.set_capacity_providers(super::super::protocol_serde::shape_capacity_providers_list::de_capacity_providers_list(
+                        tokens,
+                        _value,
+                        depth + 1,
+                    )?);
                 }
                 "NextMarker" => {
                     builder = builder.set_next_marker(

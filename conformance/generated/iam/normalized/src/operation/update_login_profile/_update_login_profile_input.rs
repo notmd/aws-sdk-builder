@@ -150,10 +150,8 @@ impl UpdateLoginProfileInputBuilder {
     /// Consumes the builder and constructs a [`UpdateLoginProfileInput`](crate::operation::update_login_profile::UpdateLoginProfileInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::update_login_profile::UpdateLoginProfileInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::update_login_profile::UpdateLoginProfileInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::update_login_profile::UpdateLoginProfileInput {
             user_name: self.user_name,
             password: self.password,

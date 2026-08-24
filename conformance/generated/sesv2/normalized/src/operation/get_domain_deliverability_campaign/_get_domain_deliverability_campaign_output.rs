@@ -41,10 +41,7 @@ impl GetDomainDeliverabilityCampaignOutputBuilder {
         self
     }
     /// <p>An object that contains the deliverability data for the campaign.</p>
-    pub fn set_domain_deliverability_campaign(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::DomainDeliverabilityCampaign>,
-    ) -> Self {
+    pub fn set_domain_deliverability_campaign(mut self, input: ::std::option::Option<super::super::super::types::DomainDeliverabilityCampaign>) -> Self {
         self.domain_deliverability_campaign = input;
         self
     }

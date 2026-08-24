@@ -56,10 +56,7 @@ impl BatchGetResourceConfigOutputBuilder {
         self
     }
     /// <p>A list that contains the current configuration of one or more resources.</p>
-    pub fn set_base_configuration_items(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::BaseConfigurationItem>>,
-    ) -> Self {
+    pub fn set_base_configuration_items(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::BaseConfigurationItem>>) -> Self {
         self.base_configuration_items = input;
         self
     }

@@ -84,11 +84,7 @@ where
                             );
                         }
                         "Metrics" => {
-                            builder = builder.set_metrics(super::super::protocol_serde::shape_export_metrics::de_export_metrics(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_metrics(super::super::protocol_serde::shape_export_metrics::de_export_metrics(tokens, _value, depth + 1)?);
                         }
                         "StartDate" => {
                             builder = builder.set_start_date(::aws_smithy_json::deserialize::token::expect_timestamp_or_null(
@@ -111,11 +107,9 @@ where
                     }
                 }
             }
-            Ok(Some(
-                super::super::serde_util::metrics_data_source_correct_errors(builder)
-                    .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-            ))
+            Ok(Some(super::super::serde_util::metrics_data_source_correct_errors(builder).build().map_err(
+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+            )?))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

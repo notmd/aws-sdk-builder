@@ -11,8 +11,6 @@ impl super::Client {
     pub fn generate_service_last_accessed_details(
         &self,
     ) -> super::super::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsFluentBuilder {
-        super::super::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsFluentBuilder::new(self.handle.clone())
     }
 }

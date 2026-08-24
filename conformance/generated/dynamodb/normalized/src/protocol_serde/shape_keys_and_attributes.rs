@@ -71,38 +71,38 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "Keys" => {
-                                builder = builder.set_keys(super::super::protocol_serde::shape_key_list::de_key_list(tokens, _value, depth + 1)?);
-                            }
-                            "AttributesToGet" => {
-                                builder = builder.set_attributes_to_get(
-                                    super::super::protocol_serde::shape_attribute_name_list::de_attribute_name_list(tokens, _value, depth + 1)?,
-                                );
-                            }
-                            "ConsistentRead" => {
-                                builder = builder.set_consistent_read(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
-                            }
-                            "ProjectionExpression" => {
-                                builder = builder.set_projection_expression(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                        .transpose()?,
-                                );
-                            }
-                            "ExpressionAttributeNames" => {
-                                builder = builder.set_expression_attribute_names(
-                                    super::super::protocol_serde::shape_expression_attribute_name_map::de_expression_attribute_name_map(
-                                        tokens,
-                                        _value,
-                                        depth + 1,
-                                    )?,
-                                );
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "Keys" => {
+                            builder = builder.set_keys(super::super::protocol_serde::shape_key_list::de_key_list(tokens, _value, depth + 1)?);
                         }
-                    }
+                        "AttributesToGet" => {
+                            builder = builder.set_attributes_to_get(super::super::protocol_serde::shape_attribute_name_list::de_attribute_name_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        "ConsistentRead" => {
+                            builder = builder.set_consistent_read(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
+                        }
+                        "ProjectionExpression" => {
+                            builder = builder.set_projection_expression(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
+                        }
+                        "ExpressionAttributeNames" => {
+                            builder = builder.set_expression_attribute_names(
+                                super::super::protocol_serde::shape_expression_attribute_name_map::de_expression_attribute_name_map(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
+                        }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"
@@ -110,11 +110,9 @@ where
                     }
                 }
             }
-            Ok(Some(
-                super::super::serde_util::keys_and_attributes_correct_errors(builder)
-                    .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-            ))
+            Ok(Some(super::super::serde_util::keys_and_attributes_correct_errors(builder).build().map_err(
+                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
+            )?))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

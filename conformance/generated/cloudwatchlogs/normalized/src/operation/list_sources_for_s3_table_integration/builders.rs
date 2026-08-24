@@ -57,9 +57,7 @@ impl ListSourcesForS3TableIntegrationFluentBuilder {
         }
     }
     /// Access the ListSourcesForS3TableIntegration as a reference.
-    pub fn as_input(
-        &self,
-    ) -> &super::super::super::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationInputBuilder {
+    pub fn as_input(&self) -> &super::super::super::operation::list_sources_for_s3_table_integration::builders::ListSourcesForS3TableIntegrationInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -83,14 +81,12 @@ impl ListSourcesForS3TableIntegrationFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins =
-            super::super::super::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegration::operation_runtime_plugins(
-                self.handle.runtime_plugins.clone(),
-                &self.handle.conf,
-                self.config_override,
-            );
-        super::super::super::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegration::orchestrate(&runtime_plugins, input)
-            .await
+        let runtime_plugins = super::super::super::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegration::operation_runtime_plugins(
+            self.handle.runtime_plugins.clone(),
+            &self.handle.conf,
+            self.config_override,
+        );
+        super::super::super::operation::list_sources_for_s3_table_integration::ListSourcesForS3TableIntegration::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -115,13 +111,8 @@ impl ListSourcesForS3TableIntegrationFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::list_sources_for_s3_table_integration::paginator::ListSourcesForS3TableIntegrationPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(
-        self,
-    ) -> super::super::super::operation::list_sources_for_s3_table_integration::paginator::ListSourcesForS3TableIntegrationPaginator {
-        super::super::super::operation::list_sources_for_s3_table_integration::paginator::ListSourcesForS3TableIntegrationPaginator::new(
-            self.handle,
-            self.inner,
-        )
+    pub fn into_paginator(self) -> super::super::super::operation::list_sources_for_s3_table_integration::paginator::ListSourcesForS3TableIntegrationPaginator {
+        super::super::super::operation::list_sources_for_s3_table_integration::paginator::ListSourcesForS3TableIntegrationPaginator::new(self.handle, self.inner)
     }
     /// <p>The Amazon Resource Name (ARN) of the S3 Table Integration to list associations for.</p>
     pub fn integration_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {

@@ -28,8 +28,7 @@ impl ::aws_types::request_id::RequestId for DeleteServiceLinkedConfigurationReco
 }
 impl DeleteServiceLinkedConfigurationRecorderOutput {
     /// Creates a new builder-style object to manufacture [`DeleteServiceLinkedConfigurationRecorderOutput`](crate::operation::delete_service_linked_configuration_recorder::DeleteServiceLinkedConfigurationRecorderOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderOutputBuilder
+    pub fn builder() -> super::super::super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderOutputBuilder
     {
         super::super::super::operation::delete_service_linked_configuration_recorder::builders::DeleteServiceLinkedConfigurationRecorderOutputBuilder::default()
     }

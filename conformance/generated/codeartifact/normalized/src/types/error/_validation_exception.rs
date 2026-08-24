@@ -104,9 +104,7 @@ impl ValidationExceptionBuilder {
     /// Consumes the builder and constructs a [`ValidationException`](crate::types::error::ValidationException).
     /// This method will fail if any of the following fields are not set:
     /// - [`message`](crate::types::error::builders::ValidationExceptionBuilder::message)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::types::error::ValidationException, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::types::error::ValidationException, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::types::error::ValidationException {
             message: self.message.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

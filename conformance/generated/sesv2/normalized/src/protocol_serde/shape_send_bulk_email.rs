@@ -4,8 +4,7 @@ pub fn de_send_bulk_email_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::send_bulk_email::SendBulkEmailOutput, super::super::operation::send_bulk_email::SendBulkEmailError>
-{
+) -> std::result::Result<super::super::operation::send_bulk_email::SendBulkEmailOutput, super::super::operation::send_bulk_email::SendBulkEmailError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::send_bulk_email::SendBulkEmailError::unhandled)?;
@@ -23,9 +22,8 @@ pub fn de_send_bulk_email_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::AccountSuspendedExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_account_suspended_exception::de_account_suspended_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::send_bulk_email::SendBulkEmailError::unhandled)?;
+                output = super::super::protocol_serde::shape_account_suspended_exception::de_account_suspended_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::send_bulk_email::SendBulkEmailError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -64,22 +62,24 @@ pub fn de_send_bulk_email_http_error(
             }
             tmp
         }),
-        "MailFromDomainNotVerifiedException" => {
-            super::super::operation::send_bulk_email::SendBulkEmailError::MailFromDomainNotVerifiedException({
+        "MailFromDomainNotVerifiedException" => super::super::operation::send_bulk_email::SendBulkEmailError::MailFromDomainNotVerifiedException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::MailFromDomainNotVerifiedExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_mail_from_domain_not_verified_exception::de_mail_from_domain_not_verified_exception_json_err(_response_body, output).map_err(super::super::operation::send_bulk_email::SendBulkEmailError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::MailFromDomainNotVerifiedExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_mail_from_domain_not_verified_exception::de_mail_from_domain_not_verified_exception_json_err(
+                    _response_body,
+                    output,
+                )
+                .map_err(super::super::operation::send_bulk_email::SendBulkEmailError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "MessageRejected" => super::super::operation::send_bulk_email::SendBulkEmailError::MessageRejected({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -130,9 +130,8 @@ pub fn de_send_bulk_email_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::send_bulk_email::SendBulkEmailError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::send_bulk_email::SendBulkEmailError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -150,8 +149,7 @@ pub fn de_send_bulk_email_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::send_bulk_email::SendBulkEmailOutput, super::super::operation::send_bulk_email::SendBulkEmailError>
-{
+) -> std::result::Result<super::super::operation::send_bulk_email::SendBulkEmailOutput, super::super::operation::send_bulk_email::SendBulkEmailError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::send_bulk_email::builders::SendBulkEmailOutputBuilder::default();

@@ -28,7 +28,8 @@ impl ::aws_types::request_id::RequestId for EnableOrganizationsRootCredentialsMa
 }
 impl EnableOrganizationsRootCredentialsManagementOutput {
     /// Creates a new builder-style object to manufacture [`EnableOrganizationsRootCredentialsManagementOutput`](crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementOutput).
-    pub fn builder() -> super::super::super::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementOutputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementOutputBuilder {
         super::super::super::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementOutputBuilder::default()
     }
 }
@@ -86,9 +87,7 @@ impl EnableOrganizationsRootCredentialsManagementOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`EnableOrganizationsRootCredentialsManagementOutput`](crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementOutput).
-    pub fn build(
-        self,
-    ) -> super::super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementOutput {
+    pub fn build(self) -> super::super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementOutput {
         super::super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementOutput {
             organization_id: self.organization_id,
             enabled_features: self.enabled_features,

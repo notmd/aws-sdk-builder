@@ -26,8 +26,7 @@ impl ::aws_types::request_id::RequestId for GetBucketIntelligentTieringConfigura
 }
 impl GetBucketIntelligentTieringConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`GetBucketIntelligentTieringConfigurationOutput`](crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationOutputBuilder
+    pub fn builder() -> super::super::super::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationOutputBuilder
     {
         super::super::super::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationOutputBuilder::default()
     }
@@ -48,10 +47,7 @@ impl GetBucketIntelligentTieringConfigurationOutputBuilder {
         self
     }
     /// <p>Container for S3 Intelligent-Tiering configuration.</p>
-    pub fn set_intelligent_tiering_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::IntelligentTieringConfiguration>,
-    ) -> Self {
+    pub fn set_intelligent_tiering_configuration(mut self, input: ::std::option::Option<super::super::super::types::IntelligentTieringConfiguration>) -> Self {
         self.intelligent_tiering_configuration = input;
         self
     }
@@ -78,9 +74,7 @@ impl GetBucketIntelligentTieringConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`GetBucketIntelligentTieringConfigurationOutput`](crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationOutput).
-    pub fn build(
-        self,
-    ) -> super::super::super::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationOutput {
+    pub fn build(self) -> super::super::super::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationOutput {
         super::super::super::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationOutput {
             intelligent_tiering_configuration: self.intelligent_tiering_configuration,
             _extended_request_id: self._extended_request_id,

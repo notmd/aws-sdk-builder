@@ -20,51 +20,45 @@ pub fn de_get_domain_deliverability_campaign_http_error(
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "BadRequestException" => {
-            super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::BadRequestException({
+        "BadRequestException" => super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::BadRequestException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
-        "NotFoundException" => {
-            super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::NotFoundException({
+                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
+        "NotFoundException" => super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "TooManyRequestsException" => {
             super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::TooManyRequestsException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -89,11 +83,9 @@ pub fn de_get_domain_deliverability_campaign_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_get_domain_deliverability_campaign::de_get_domain_deliverability_campaign(_response_body, output)
-                .map_err(super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled)?;
+        let mut output = super::super::operation::get_domain_deliverability_campaign::builders::GetDomainDeliverabilityCampaignOutputBuilder::default();
+        output = super::super::protocol_serde::shape_get_domain_deliverability_campaign::de_get_domain_deliverability_campaign(_response_body, output)
+            .map_err(super::super::operation::get_domain_deliverability_campaign::GetDomainDeliverabilityCampaignError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         super::super::serde_util::get_domain_deliverability_campaign_output_output_correct_errors(output).build()
     })
@@ -104,10 +96,7 @@ pub fn ser_get_domain_deliverability_campaign_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_get_domain_deliverability_campaign_input::ser_get_domain_deliverability_campaign_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_get_domain_deliverability_campaign_input::ser_get_domain_deliverability_campaign_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }
@@ -130,11 +119,7 @@ pub(crate) fn de_get_domain_deliverability_campaign(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "DomainDeliverabilityCampaign" => {
                     builder = builder.set_domain_deliverability_campaign(
-                        super::super::protocol_serde::shape_domain_deliverability_campaign::de_domain_deliverability_campaign(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_domain_deliverability_campaign::de_domain_deliverability_campaign(tokens, _value, depth + 1)?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

@@ -90,11 +90,7 @@ impl GetAggregateDiscoveredResourceCountsFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCounts::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        super::super::super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCounts::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

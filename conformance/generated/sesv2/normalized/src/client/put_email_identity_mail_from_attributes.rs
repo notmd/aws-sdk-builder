@@ -11,8 +11,6 @@ impl super::Client {
     pub fn put_email_identity_mail_from_attributes(
         &self,
     ) -> super::super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesFluentBuilder {
-        super::super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::put_email_identity_mail_from_attributes::builders::PutEmailIdentityMailFromAttributesFluentBuilder::new(self.handle.clone())
     }
 }

@@ -46,9 +46,7 @@ impl DeleteReplicationGroupMemberActionBuilder {
     /// Consumes the builder and constructs a [`DeleteReplicationGroupMemberAction`](crate::types::DeleteReplicationGroupMemberAction).
     /// This method will fail if any of the following fields are not set:
     /// - [`region_name`](crate::types::builders::DeleteReplicationGroupMemberActionBuilder::region_name)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::DeleteReplicationGroupMemberAction, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::DeleteReplicationGroupMemberAction, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::DeleteReplicationGroupMemberAction {
             region_name: self.region_name.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

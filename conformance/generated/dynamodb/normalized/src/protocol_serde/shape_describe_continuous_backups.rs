@@ -15,7 +15,11 @@ pub fn de_describe_continuous_backups_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::describe_continuous_backups::DescribeContinuousBackupsError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::describe_continuous_backups::DescribeContinuousBackupsError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -35,26 +39,21 @@ pub fn de_describe_continuous_backups_http_error(
             }
             tmp
         }),
-        "InvalidEndpointException" => {
-            super::super::operation::describe_continuous_backups::DescribeContinuousBackupsError::InvalidEndpointException({
+        "InvalidEndpointException" => super::super::operation::describe_continuous_backups::DescribeContinuousBackupsError::InvalidEndpointException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::describe_continuous_backups::DescribeContinuousBackupsError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "TableNotFoundException" => super::super::operation::describe_continuous_backups::DescribeContinuousBackupsError::TableNotFoundException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -121,11 +120,7 @@ pub(crate) fn de_describe_continuous_backups(
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "ContinuousBackupsDescription" => {
                     builder = builder.set_continuous_backups_description(
-                        super::super::protocol_serde::shape_continuous_backups_description::de_continuous_backups_description(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_continuous_backups_description::de_continuous_backups_description(tokens, _value, depth + 1)?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

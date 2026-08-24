@@ -146,10 +146,7 @@ impl GetContactOutputBuilder {
         self
     }
     /// <p>The default topic preferences applied to the contact.</p>
-    pub fn set_topic_default_preferences(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TopicPreference>>,
-    ) -> Self {
+    pub fn set_topic_default_preferences(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TopicPreference>>) -> Self {
         self.topic_default_preferences = input;
         self
     }

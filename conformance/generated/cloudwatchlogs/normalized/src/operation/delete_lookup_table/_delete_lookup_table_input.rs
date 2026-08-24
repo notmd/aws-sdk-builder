@@ -44,10 +44,7 @@ impl DeleteLookupTableInputBuilder {
     /// Consumes the builder and constructs a [`DeleteLookupTableInput`](crate::operation::delete_lookup_table::DeleteLookupTableInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_lookup_table::DeleteLookupTableInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_lookup_table::DeleteLookupTableInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_lookup_table::DeleteLookupTableInput {
             lookup_table_arn: self.lookup_table_arn,
         })

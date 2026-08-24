@@ -211,9 +211,7 @@ impl ConverseOutputBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`output`](crate::operation::converse::builders::ConverseOutputBuilder::output)
     /// - [`stop_reason`](crate::operation::converse::builders::ConverseOutputBuilder::stop_reason)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::converse::ConverseOutput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::converse::ConverseOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::converse::ConverseOutput {
             output: self.output.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

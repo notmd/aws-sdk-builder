@@ -44,10 +44,8 @@ impl DescribeQuotaShareInputBuilder {
     /// Consumes the builder and constructs a [`DescribeQuotaShareInput`](crate::operation::describe_quota_share::DescribeQuotaShareInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::describe_quota_share::DescribeQuotaShareInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::describe_quota_share::DescribeQuotaShareInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::describe_quota_share::DescribeQuotaShareInput {
             quota_share_arn: self.quota_share_arn,
         })

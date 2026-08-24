@@ -148,10 +148,7 @@ impl DeliveryChannelBuilder {
         self
     }
     /// <p>The options for how often Config delivers configuration snapshots to the Amazon S3 bucket.</p>
-    pub fn set_config_snapshot_delivery_properties(
-        mut self,
-        input: ::std::option::Option<super::super::types::ConfigSnapshotDeliveryProperties>,
-    ) -> Self {
+    pub fn set_config_snapshot_delivery_properties(mut self, input: ::std::option::Option<super::super::types::ConfigSnapshotDeliveryProperties>) -> Self {
         self.config_snapshot_delivery_properties = input;
         self
     }

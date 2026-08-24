@@ -53,7 +53,7 @@ impl
             super::super::super::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationOutput,
             super::super::super::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -86,7 +86,7 @@ impl UpdateBucketMetadataAnnotationTableConfigurationFluentBuilder {
             super::super::super::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -96,7 +96,11 @@ impl UpdateBucketMetadataAnnotationTableConfigurationFluentBuilder {
                             &self.handle.conf,
                             self.config_override,
                         );
-        super::super::super::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfiguration::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfiguration::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -166,10 +170,7 @@ impl UpdateBucketMetadataAnnotationTableConfigurationFluentBuilder {
         self
     }
     /// <p>The annotation table configuration updates to apply.</p>
-    pub fn set_annotation_table_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::AnnotationTableConfigurationUpdates>,
-    ) -> Self {
+    pub fn set_annotation_table_configuration(mut self, input: ::std::option::Option<super::super::super::types::AnnotationTableConfigurationUpdates>) -> Self {
         self.inner = self.inner.set_annotation_table_configuration(input);
         self
     }

@@ -212,15 +212,13 @@ impl CreateManagedLoginBrandingInputBuilder {
         super::super::super::operation::create_managed_login_branding::CreateManagedLoginBrandingInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::create_managed_login_branding::CreateManagedLoginBrandingInput {
-                user_pool_id: self.user_pool_id,
-                client_id: self.client_id,
-                use_cognito_provided_values: self.use_cognito_provided_values.unwrap_or_default(),
-                settings: self.settings,
-                assets: self.assets,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::create_managed_login_branding::CreateManagedLoginBrandingInput {
+            user_pool_id: self.user_pool_id,
+            client_id: self.client_id,
+            use_cognito_provided_values: self.use_cognito_provided_values.unwrap_or_default(),
+            settings: self.settings,
+            assets: self.assets,
+        })
     }
 }
 impl ::std::fmt::Debug for CreateManagedLoginBrandingInputBuilder {

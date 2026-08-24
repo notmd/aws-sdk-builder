@@ -80,11 +80,9 @@ impl AddRoleToInstanceProfileInputBuilder {
         super::super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileInput {
-                instance_profile_name: self.instance_profile_name,
-                role_name: self.role_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileInput {
+            instance_profile_name: self.instance_profile_name,
+            role_name: self.role_name,
+        })
     }
 }

@@ -29,20 +29,14 @@ pub struct GetTenantFluentBuilder {
     inner: super::super::super::operation::get_tenant::builders::GetTenantInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::get_tenant::GetTenantOutput,
-        super::super::super::operation::get_tenant::GetTenantError,
-    > for GetTenantFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::get_tenant::GetTenantOutput, super::super::super::operation::get_tenant::GetTenantError>
+    for GetTenantFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::get_tenant::GetTenantOutput,
-            super::super::super::operation::get_tenant::GetTenantError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::get_tenant::GetTenantOutput, super::super::super::operation::get_tenant::GetTenantError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }

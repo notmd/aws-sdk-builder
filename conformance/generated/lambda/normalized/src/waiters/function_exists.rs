@@ -32,10 +32,8 @@ impl FunctionExistsFluentBuilder {
     pub async fn wait(
         self,
         max_wait: ::std::time::Duration,
-    ) -> ::std::result::Result<
-        super::super::waiters::function_exists::FunctionExistsFinalPoll,
-        super::super::waiters::function_exists::WaitUntilFunctionExistsError,
-    > {
+    ) -> ::std::result::Result<super::super::waiters::function_exists::FunctionExistsFinalPoll, super::super::waiters::function_exists::WaitUntilFunctionExistsError>
+    {
         let input = self
             .inner
             .build()

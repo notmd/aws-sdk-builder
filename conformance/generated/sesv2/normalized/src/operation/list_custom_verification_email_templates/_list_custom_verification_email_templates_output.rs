@@ -5,8 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListCustomVerificationEmailTemplatesOutput {
     /// <p>A list of the custom verification email templates that exist in your account.</p>
-    pub custom_verification_email_templates:
-        ::std::option::Option<::std::vec::Vec<super::super::super::types::CustomVerificationEmailTemplateMetadata>>,
+    pub custom_verification_email_templates: ::std::option::Option<::std::vec::Vec<super::super::super::types::CustomVerificationEmailTemplateMetadata>>,
     /// <p>A token indicating that there are additional custom verification email templates available to be listed. Pass this token to a subsequent call to <code>ListCustomVerificationEmailTemplates</code> to retrieve the next 50 custom verification email templates.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
@@ -30,10 +29,8 @@ impl ::aws_types::request_id::RequestId for ListCustomVerificationEmailTemplates
 }
 impl ListCustomVerificationEmailTemplatesOutput {
     /// Creates a new builder-style object to manufacture [`ListCustomVerificationEmailTemplatesOutput`](crate::operation::list_custom_verification_email_templates::ListCustomVerificationEmailTemplatesOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesOutputBuilder {
-        super::super::super::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesOutputBuilder::default(
-        )
+    pub fn builder() -> super::super::super::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesOutputBuilder {
+        super::super::super::operation::list_custom_verification_email_templates::builders::ListCustomVerificationEmailTemplatesOutputBuilder::default()
     }
 }
 
@@ -41,8 +38,7 @@ impl ListCustomVerificationEmailTemplatesOutput {
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ListCustomVerificationEmailTemplatesOutputBuilder {
-    pub(crate) custom_verification_email_templates:
-        ::std::option::Option<::std::vec::Vec<super::super::super::types::CustomVerificationEmailTemplateMetadata>>,
+    pub(crate) custom_verification_email_templates: ::std::option::Option<::std::vec::Vec<super::super::super::types::CustomVerificationEmailTemplateMetadata>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }

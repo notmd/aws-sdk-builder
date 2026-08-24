@@ -149,10 +149,7 @@ impl PutRemediationExceptionsFluentBuilder {
         self
     }
     /// <p>An exception list of resource exception keys to be processed with the current request. Config adds exception for each resource key. For example, Config adds 3 exceptions for 3 resource keys.</p>
-    pub fn set_resource_keys(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationExceptionResourceKey>>,
-    ) -> Self {
+    pub fn set_resource_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationExceptionResourceKey>>) -> Self {
         self.inner = self.inner.set_resource_keys(input);
         self
     }

@@ -22,9 +22,7 @@ impl GuardrailTraceAssessment {
         self.model_output.as_deref().unwrap_or_default()
     }
     /// <p>The input assessment.</p>
-    pub fn input_assessment(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::types::GuardrailAssessment>> {
+    pub fn input_assessment(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::types::GuardrailAssessment>> {
         self.input_assessment.as_ref()
     }
     /// <p>the output assessments.</p>

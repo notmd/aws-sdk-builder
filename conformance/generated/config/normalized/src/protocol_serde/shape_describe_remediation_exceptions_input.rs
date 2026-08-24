@@ -12,10 +12,7 @@ pub fn ser_describe_remediation_exceptions_input_input(
             {
                 #[allow(unused_mut)]
                 let mut object_5 = array_3.value().start_object();
-                super::super::protocol_serde::shape_remediation_exception_resource_key::ser_remediation_exception_resource_key(
-                    &mut object_5,
-                    item_4,
-                )?;
+                super::super::protocol_serde::shape_remediation_exception_resource_key::ser_remediation_exception_resource_key(&mut object_5, item_4)?;
                 object_5.finish();
             }
         }

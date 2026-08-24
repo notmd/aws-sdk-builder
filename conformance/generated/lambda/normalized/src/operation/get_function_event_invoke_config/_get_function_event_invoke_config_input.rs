@@ -119,11 +119,9 @@ impl GetFunctionEventInvokeConfigInputBuilder {
         super::super::super::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigInput {
-                function_name: self.function_name,
-                qualifier: self.qualifier,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigInput {
+            function_name: self.function_name,
+            qualifier: self.qualifier,
+        })
     }
 }

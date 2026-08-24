@@ -42,9 +42,7 @@ impl GetDeliveryInputBuilder {
         &self.id
     }
     /// Consumes the builder and constructs a [`GetDeliveryInput`](crate::operation::get_delivery::GetDeliveryInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::get_delivery::GetDeliveryInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_delivery::GetDeliveryInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_delivery::GetDeliveryInput { id: self.id })
     }
 }

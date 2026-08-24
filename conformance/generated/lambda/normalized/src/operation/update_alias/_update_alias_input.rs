@@ -198,9 +198,7 @@ impl UpdateAliasInputBuilder {
         &self.revision_id
     }
     /// Consumes the builder and constructs a [`UpdateAliasInput`](crate::operation::update_alias::UpdateAliasInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::update_alias::UpdateAliasInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::update_alias::UpdateAliasInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::update_alias::UpdateAliasInput {
             function_name: self.function_name,
             name: self.name,

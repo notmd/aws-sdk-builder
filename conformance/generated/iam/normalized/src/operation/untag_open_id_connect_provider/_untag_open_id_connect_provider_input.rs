@@ -82,11 +82,9 @@ impl UntagOpenIdConnectProviderInputBuilder {
         super::super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderInput {
-                open_id_connect_provider_arn: self.open_id_connect_provider_arn,
-                tag_keys: self.tag_keys,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderInput {
+            open_id_connect_provider_arn: self.open_id_connect_provider_arn,
+            tag_keys: self.tag_keys,
+        })
     }
 }

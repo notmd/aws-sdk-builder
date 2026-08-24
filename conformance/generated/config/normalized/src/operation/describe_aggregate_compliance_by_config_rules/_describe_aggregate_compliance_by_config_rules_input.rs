@@ -32,8 +32,7 @@ impl DescribeAggregateComplianceByConfigRulesInput {
 }
 impl DescribeAggregateComplianceByConfigRulesInput {
     /// Creates a new builder-style object to manufacture [`DescribeAggregateComplianceByConfigRulesInput`](crate::operation::describe_aggregate_compliance_by_config_rules::DescribeAggregateComplianceByConfigRulesInput).
-    pub fn builder(
-    ) -> super::super::super::operation::describe_aggregate_compliance_by_config_rules::builders::DescribeAggregateComplianceByConfigRulesInputBuilder
+    pub fn builder() -> super::super::super::operation::describe_aggregate_compliance_by_config_rules::builders::DescribeAggregateComplianceByConfigRulesInputBuilder
     {
         super::super::super::operation::describe_aggregate_compliance_by_config_rules::builders::DescribeAggregateComplianceByConfigRulesInputBuilder::default()
     }

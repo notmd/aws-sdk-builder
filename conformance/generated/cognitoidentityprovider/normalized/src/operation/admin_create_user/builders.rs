@@ -345,10 +345,7 @@ impl AdminCreateUserFluentBuilder {
         self
     }
     /// <p>Specify <code>EMAIL</code> if email will be used to send the welcome message. Specify <code>SMS</code> if the phone number will be used. The default value is <code>SMS</code>. You can specify more than one value.</p>
-    pub fn set_desired_delivery_mediums(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeliveryMediumType>>,
-    ) -> Self {
+    pub fn set_desired_delivery_mediums(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeliveryMediumType>>) -> Self {
         self.inner = self.inner.set_desired_delivery_mediums(input);
         self
     }

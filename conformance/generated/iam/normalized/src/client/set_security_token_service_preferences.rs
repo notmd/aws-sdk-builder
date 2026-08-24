@@ -9,8 +9,6 @@ impl super::Client {
     pub fn set_security_token_service_preferences(
         &self,
     ) -> super::super::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesFluentBuilder {
-        super::super::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesFluentBuilder::new(self.handle.clone())
     }
 }

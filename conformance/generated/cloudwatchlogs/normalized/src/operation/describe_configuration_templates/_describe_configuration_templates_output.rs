@@ -54,10 +54,7 @@ impl DescribeConfigurationTemplatesOutputBuilder {
         self
     }
     /// <p>An array of objects, where each object describes one configuration template that matches the filters that you specified in the request.</p>
-    pub fn set_configuration_templates(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConfigurationTemplate>>,
-    ) -> Self {
+    pub fn set_configuration_templates(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConfigurationTemplate>>) -> Self {
         self.configuration_templates = input;
         self
     }

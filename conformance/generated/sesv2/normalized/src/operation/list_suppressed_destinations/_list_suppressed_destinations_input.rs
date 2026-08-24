@@ -161,15 +161,13 @@ impl ListSuppressedDestinationsInputBuilder {
         super::super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsInput {
-                tenant_name: self.tenant_name,
-                reasons: self.reasons,
-                start_date: self.start_date,
-                end_date: self.end_date,
-                next_token: self.next_token,
-                page_size: self.page_size,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_suppressed_destinations::ListSuppressedDestinationsInput {
+            tenant_name: self.tenant_name,
+            reasons: self.reasons,
+            start_date: self.start_date,
+            end_date: self.end_date,
+            next_token: self.next_token,
+            page_size: self.page_size,
+        })
     }
 }

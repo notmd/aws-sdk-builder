@@ -15,11 +15,7 @@ pub fn de_get_job_queue_snapshot_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::get_job_queue_snapshot::GetJobQueueSnapshotError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::get_job_queue_snapshot::GetJobQueueSnapshotError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());

@@ -12,8 +12,7 @@ impl ::aws_types::request_id::RequestId for SendDurableExecutionCallbackSuccessO
 }
 impl SendDurableExecutionCallbackSuccessOutput {
     /// Creates a new builder-style object to manufacture [`SendDurableExecutionCallbackSuccessOutput`](crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessOutputBuilder {
+    pub fn builder() -> super::super::super::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessOutputBuilder {
         super::super::super::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessOutputBuilder::default()
     }
 }

@@ -54,10 +54,7 @@ impl DescribeRemediationExceptionsOutputBuilder {
         self
     }
     /// <p>Returns a list of remediation exception objects.</p>
-    pub fn set_remediation_exceptions(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationException>>,
-    ) -> Self {
+    pub fn set_remediation_exceptions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationException>>) -> Self {
         self.remediation_exceptions = input;
         self
     }

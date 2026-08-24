@@ -54,9 +54,11 @@ where
                             );
                         }
                         "evaluateOnExit" => {
-                            builder = builder.set_evaluate_on_exit(
-                                super::super::protocol_serde::shape_evaluate_on_exit_list::de_evaluate_on_exit_list(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_evaluate_on_exit(super::super::protocol_serde::shape_evaluate_on_exit_list::de_evaluate_on_exit_list(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

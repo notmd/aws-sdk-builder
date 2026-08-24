@@ -55,26 +55,21 @@ pub fn de_describe_global_table_settings_http_error(
             }
             tmp
         }),
-        "InvalidEndpointException" => {
-            super::super::operation::describe_global_table_settings::DescribeGlobalTableSettingsError::InvalidEndpointException({
+        "InvalidEndpointException" => super::super::operation::describe_global_table_settings::DescribeGlobalTableSettingsError::InvalidEndpointException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::describe_global_table_settings::DescribeGlobalTableSettingsError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::describe_global_table_settings::DescribeGlobalTableSettingsError::generic(generic),
     })
 }

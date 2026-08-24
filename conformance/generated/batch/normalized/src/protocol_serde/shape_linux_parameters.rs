@@ -74,11 +74,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "devices" => {
-                            builder = builder.set_devices(super::super::protocol_serde::shape_devices_list::de_devices_list(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_devices(super::super::protocol_serde::shape_devices_list::de_devices_list(tokens, _value, depth + 1)?);
                         }
                         "initProcessEnabled" => {
                             builder = builder.set_init_process_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);

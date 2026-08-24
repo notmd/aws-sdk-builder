@@ -59,9 +59,9 @@ impl ::std::convert::From<&str> for GuardrailSensitiveInformationPolicyAction {
             "ANONYMIZED" => GuardrailSensitiveInformationPolicyAction::Anonymized,
             "BLOCKED" => GuardrailSensitiveInformationPolicyAction::Blocked,
             "NONE" => GuardrailSensitiveInformationPolicyAction::None,
-            other => GuardrailSensitiveInformationPolicyAction::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(
-                other.to_owned(),
-            )),
+            other => {
+                GuardrailSensitiveInformationPolicyAction::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
+            }
         }
     }
 }

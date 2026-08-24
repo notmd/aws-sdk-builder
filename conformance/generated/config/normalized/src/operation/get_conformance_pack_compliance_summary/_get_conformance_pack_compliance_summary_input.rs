@@ -28,8 +28,7 @@ impl GetConformancePackComplianceSummaryInput {
 }
 impl GetConformancePackComplianceSummaryInput {
     /// Creates a new builder-style object to manufacture [`GetConformancePackComplianceSummaryInput`](crate::operation::get_conformance_pack_compliance_summary::GetConformancePackComplianceSummaryInput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_conformance_pack_compliance_summary::builders::GetConformancePackComplianceSummaryInputBuilder {
+    pub fn builder() -> super::super::super::operation::get_conformance_pack_compliance_summary::builders::GetConformancePackComplianceSummaryInputBuilder {
         super::super::super::operation::get_conformance_pack_compliance_summary::builders::GetConformancePackComplianceSummaryInputBuilder::default()
     }
 }

@@ -16,9 +16,7 @@ pub fn de_delete_configuration_set_event_destination_http_error(
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(
-                super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled(generic),
-            )
+            return Err(super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled(generic))
         }
     };
 
@@ -30,8 +28,7 @@ pub fn de_delete_configuration_set_event_destination_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-                        .map_err(
+                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output).map_err(
                         super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled,
                     )?;
                     let output = output.meta(generic);
@@ -49,8 +46,7 @@ pub fn de_delete_configuration_set_event_destination_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                        .map_err(
+                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output).map_err(
                         super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled,
                     )?;
                     let output = output.meta(generic);
@@ -63,22 +59,24 @@ pub fn de_delete_configuration_set_event_destination_http_error(
             })
         }
         "TooManyRequestsException" => {
-            super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::TooManyRequestsException(
-                {
+            super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::TooManyRequestsException({
+                #[allow(unused_mut)]
+                let mut tmp = {
                     #[allow(unused_mut)]
-                    let mut tmp = {
-                        #[allow(unused_mut)]
-                        let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                        output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled)?;
-                        let output = output.meta(generic);
-                        output.build()
-                    };
-                    if tmp.message.is_none() {
-                        tmp.message = _error_message;
-                    }
-                    tmp
-                },
-            )
+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(
+                                super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::unhandled,
+                            )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
         }
         _ => super::super::operation::delete_configuration_set_event_destination::DeleteConfigurationSetEventDestinationError::generic(generic),
     })
@@ -95,7 +93,8 @@ pub fn de_delete_configuration_set_event_destination_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output = super::super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationOutputBuilder::default();
+        let mut output =
+            super::super::operation::delete_configuration_set_event_destination::builders::DeleteConfigurationSetEventDestinationOutputBuilder::default();
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

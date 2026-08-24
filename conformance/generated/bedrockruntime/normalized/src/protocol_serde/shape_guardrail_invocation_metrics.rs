@@ -20,30 +20,30 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "guardrailProcessingLatency" => {
-                                builder = builder.set_guardrail_processing_latency(
-                                    ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
-                                        .map(i64::try_from)
-                                        .transpose()?,
-                                );
-                            }
-                            "usage" => {
-                                builder = builder.set_usage(super::super::protocol_serde::shape_guardrail_usage::de_guardrail_usage(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?);
-                            }
-                            "guardrailCoverage" => {
-                                builder = builder.set_guardrail_coverage(
-                                    super::super::protocol_serde::shape_guardrail_coverage::de_guardrail_coverage(tokens, _value, depth + 1)?,
-                                );
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "guardrailProcessingLatency" => {
+                            builder = builder.set_guardrail_processing_latency(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i64::try_from)
+                                    .transpose()?,
+                            );
                         }
-                    }
+                        "usage" => {
+                            builder = builder.set_usage(super::super::protocol_serde::shape_guardrail_usage::de_guardrail_usage(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        "guardrailCoverage" => {
+                            builder = builder.set_guardrail_coverage(super::super::protocol_serde::shape_guardrail_coverage::de_guardrail_coverage(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
+                        }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

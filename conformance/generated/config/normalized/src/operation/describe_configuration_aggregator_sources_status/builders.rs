@@ -57,7 +57,9 @@ impl DescribeConfigurationAggregatorSourcesStatusFluentBuilder {
         }
     }
     /// Access the DescribeConfigurationAggregatorSourcesStatus as a reference.
-    pub fn as_input(&self) -> &super::super::super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &super::super::super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -115,8 +117,13 @@ impl DescribeConfigurationAggregatorSourcesStatusFluentBuilder {
     /// Create a paginator for this request
     ///
     /// Paginators are used by calling [`send().await`](crate::operation::describe_configuration_aggregator_sources_status::paginator::DescribeConfigurationAggregatorSourcesStatusPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
-    pub fn into_paginator(self) -> super::super::super::operation::describe_configuration_aggregator_sources_status::paginator::DescribeConfigurationAggregatorSourcesStatusPaginator{
-        super::super::super::operation::describe_configuration_aggregator_sources_status::paginator::DescribeConfigurationAggregatorSourcesStatusPaginator::new(self.handle, self.inner)
+    pub fn into_paginator(
+        self,
+    ) -> super::super::super::operation::describe_configuration_aggregator_sources_status::paginator::DescribeConfigurationAggregatorSourcesStatusPaginator {
+        super::super::super::operation::describe_configuration_aggregator_sources_status::paginator::DescribeConfigurationAggregatorSourcesStatusPaginator::new(
+            self.handle,
+            self.inner,
+        )
     }
     /// <p>The name of the configuration aggregator.</p>
     pub fn configuration_aggregator_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -159,10 +166,7 @@ impl DescribeConfigurationAggregatorSourcesStatusFluentBuilder {
     /// <li>
     /// <p>Valid value OUTDATED indicates the data is not the most recent.</p></li>
     /// </ul>
-    pub fn set_update_status(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregatedSourceStatusType>>,
-    ) -> Self {
+    pub fn set_update_status(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AggregatedSourceStatusType>>) -> Self {
         self.inner = self.inner.set_update_status(input);
         self
     }

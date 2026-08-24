@@ -22,8 +22,7 @@ impl ::aws_types::request_id::RequestId for DescribeRemediationConfigurationsOut
 }
 impl DescribeRemediationConfigurationsOutput {
     /// Creates a new builder-style object to manufacture [`DescribeRemediationConfigurationsOutput`](crate::operation::describe_remediation_configurations::DescribeRemediationConfigurationsOutput).
-    pub fn builder() -> super::super::super::operation::describe_remediation_configurations::builders::DescribeRemediationConfigurationsOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::describe_remediation_configurations::builders::DescribeRemediationConfigurationsOutputBuilder {
         super::super::super::operation::describe_remediation_configurations::builders::DescribeRemediationConfigurationsOutputBuilder::default()
     }
 }
@@ -48,10 +47,7 @@ impl DescribeRemediationConfigurationsOutputBuilder {
         self
     }
     /// <p>Returns a remediation configuration object.</p>
-    pub fn set_remediation_configurations(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationConfiguration>>,
-    ) -> Self {
+    pub fn set_remediation_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationConfiguration>>) -> Self {
         self.remediation_configurations = input;
         self
     }

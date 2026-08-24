@@ -4,10 +4,7 @@ pub fn de_get_dedicated_ip_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::get_dedicated_ip::GetDedicatedIpOutput,
-    super::super::operation::get_dedicated_ip::GetDedicatedIpError,
-> {
+) -> std::result::Result<super::super::operation::get_dedicated_ip::GetDedicatedIpOutput, super::super::operation::get_dedicated_ip::GetDedicatedIpError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::get_dedicated_ip::GetDedicatedIpError::unhandled)?;
@@ -55,9 +52,8 @@ pub fn de_get_dedicated_ip_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::get_dedicated_ip::GetDedicatedIpError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::get_dedicated_ip::GetDedicatedIpError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -75,10 +71,7 @@ pub fn de_get_dedicated_ip_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::get_dedicated_ip::GetDedicatedIpOutput,
-    super::super::operation::get_dedicated_ip::GetDedicatedIpError,
-> {
+) -> std::result::Result<super::super::operation::get_dedicated_ip::GetDedicatedIpOutput, super::super::operation::get_dedicated_ip::GetDedicatedIpError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::get_dedicated_ip::builders::GetDedicatedIpOutputBuilder::default();
@@ -116,11 +109,7 @@ pub(crate) fn de_get_dedicated_ip(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "DedicatedIp" => {
-                    builder = builder.set_dedicated_ip(super::super::protocol_serde::shape_dedicated_ip::de_dedicated_ip(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_dedicated_ip(super::super::protocol_serde::shape_dedicated_ip::de_dedicated_ip(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

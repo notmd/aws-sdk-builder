@@ -22,11 +22,8 @@ pub fn de_revoke_grant_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::revoke_grant::RevokeGrantError::unhandled)?;
+                output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::revoke_grant::RevokeGrantError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -40,9 +37,8 @@ pub fn de_revoke_grant_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::DryRunOperationExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::revoke_grant::RevokeGrantError::unhandled)?;
+                output = super::super::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::revoke_grant::RevokeGrantError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -71,9 +67,8 @@ pub fn de_revoke_grant_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidGrantIdExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_grant_id_exception::de_invalid_grant_id_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::revoke_grant::RevokeGrantError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_grant_id_exception::de_invalid_grant_id_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::revoke_grant::RevokeGrantError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -102,9 +97,8 @@ pub fn de_revoke_grant_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::revoke_grant::RevokeGrantError::unhandled)?;
+                output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::revoke_grant::RevokeGrantError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -159,10 +153,8 @@ pub fn ser_revoke_grant_input(
 pub(crate) fn de_revoke_grant(
     _value: &[u8],
     mut builder: super::super::operation::revoke_grant::builders::RevokeGrantOutputBuilder,
-) -> ::std::result::Result<
-    super::super::operation::revoke_grant::builders::RevokeGrantOutputBuilder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
+) -> ::std::result::Result<super::super::operation::revoke_grant::builders::RevokeGrantOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+{
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]

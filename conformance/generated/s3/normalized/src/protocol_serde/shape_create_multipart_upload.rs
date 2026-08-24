@@ -14,9 +14,7 @@ pub fn de_create_multipart_upload_http_error(
     generic_builder = super::super::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
-    Err(super::super::operation::create_multipart_upload::CreateMultipartUploadError::generic(
-        generic,
-    ))
+    Err(super::super::operation::create_multipart_upload::CreateMultipartUploadError::generic(generic))
 }
 
 #[allow(clippy::unnecessary_wraps)]
@@ -76,13 +74,11 @@ pub fn de_create_multipart_upload_http_response(
             })?,
         );
         output = output.set_sse_customer_algorithm(
-            super::super::protocol_serde::shape_create_multipart_upload_output::de_sse_customer_algorithm_header(_response_headers).map_err(
-                |_| {
-                    super::super::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
-                        "Failed to parse SSECustomerAlgorithm from header `x-amz-server-side-encryption-customer-algorithm",
-                    )
-                },
-            )?,
+            super::super::protocol_serde::shape_create_multipart_upload_output::de_sse_customer_algorithm_header(_response_headers).map_err(|_| {
+                super::super::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
+                    "Failed to parse SSECustomerAlgorithm from header `x-amz-server-side-encryption-customer-algorithm",
+                )
+            })?,
         );
         output = output.set_sse_customer_key_md5(
             super::super::protocol_serde::shape_create_multipart_upload_output::de_sse_customer_key_md5_header(_response_headers).map_err(|_| {
@@ -92,13 +88,11 @@ pub fn de_create_multipart_upload_http_response(
             })?,
         );
         output = output.set_ssekms_encryption_context(
-            super::super::protocol_serde::shape_create_multipart_upload_output::de_ssekms_encryption_context_header(_response_headers).map_err(
-                |_| {
-                    super::super::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
-                        "Failed to parse SSEKMSEncryptionContext from header `x-amz-server-side-encryption-context",
-                    )
-                },
-            )?,
+            super::super::protocol_serde::shape_create_multipart_upload_output::de_ssekms_encryption_context_header(_response_headers).map_err(|_| {
+                super::super::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
+                    "Failed to parse SSEKMSEncryptionContext from header `x-amz-server-side-encryption-context",
+                )
+            })?,
         );
         output = output.set_ssekms_key_id(
             super::super::protocol_serde::shape_create_multipart_upload_output::de_ssekms_key_id_header(_response_headers).map_err(|_| {
@@ -108,13 +102,11 @@ pub fn de_create_multipart_upload_http_response(
             })?,
         );
         output = output.set_server_side_encryption(
-            super::super::protocol_serde::shape_create_multipart_upload_output::de_server_side_encryption_header(_response_headers).map_err(
-                |_| {
-                    super::super::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
-                        "Failed to parse ServerSideEncryption from header `x-amz-server-side-encryption",
-                    )
-                },
-            )?,
+            super::super::protocol_serde::shape_create_multipart_upload_output::de_server_side_encryption_header(_response_headers).map_err(|_| {
+                super::super::operation::create_multipart_upload::CreateMultipartUploadError::unhandled(
+                    "Failed to parse ServerSideEncryption from header `x-amz-server-side-encryption",
+                )
+            })?,
         );
         output._set_extended_request_id(super::super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));

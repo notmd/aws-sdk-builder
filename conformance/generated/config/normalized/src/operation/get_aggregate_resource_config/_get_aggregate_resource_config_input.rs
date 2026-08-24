@@ -70,11 +70,9 @@ impl GetAggregateResourceConfigInputBuilder {
         super::super::super::operation::get_aggregate_resource_config::GetAggregateResourceConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_aggregate_resource_config::GetAggregateResourceConfigInput {
-                configuration_aggregator_name: self.configuration_aggregator_name,
-                resource_identifier: self.resource_identifier,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_aggregate_resource_config::GetAggregateResourceConfigInput {
+            configuration_aggregator_name: self.configuration_aggregator_name,
+            resource_identifier: self.resource_identifier,
+        })
     }
 }

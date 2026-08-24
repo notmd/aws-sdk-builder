@@ -44,8 +44,7 @@ impl DeleteLogGroupInputBuilder {
     /// Consumes the builder and constructs a [`DeleteLogGroupInput`](crate::operation::delete_log_group::DeleteLogGroupInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::delete_log_group::DeleteLogGroupInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::delete_log_group::DeleteLogGroupInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_log_group::DeleteLogGroupInput {
             log_group_name: self.log_group_name,
         })

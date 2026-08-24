@@ -88,8 +88,7 @@ impl PutIntegrationInputBuilder {
     /// Consumes the builder and constructs a [`PutIntegrationInput`](crate::operation::put_integration::PutIntegrationInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::put_integration::PutIntegrationInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::put_integration::PutIntegrationInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_integration::PutIntegrationInput {
             integration_name: self.integration_name,
             resource_config: self.resource_config,

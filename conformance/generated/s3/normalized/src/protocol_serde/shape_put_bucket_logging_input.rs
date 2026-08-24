@@ -6,7 +6,9 @@ pub fn ser_bucket_logging_status_http_payload(
         Some(t) => t,
         None => return Ok(super::super::protocol_serde::rest_xml_unset_struct_payload()),
     };
-    Ok(super::super::protocol_serde::shape_put_bucket_logging_input::ser_bucket_logging_status_payload(payload)?)
+    Ok(super::super::protocol_serde::shape_put_bucket_logging_input::ser_bucket_logging_status_payload(
+        payload,
+    )?)
 }
 
 pub fn ser_bucket_logging_status_payload(

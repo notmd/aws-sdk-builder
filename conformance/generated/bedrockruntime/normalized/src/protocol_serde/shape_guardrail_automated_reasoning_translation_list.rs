@@ -26,7 +26,12 @@ where
                         break;
                     }
                     _ => {
-                        let value = super::super::protocol_serde::shape_guardrail_automated_reasoning_translation::de_guardrail_automated_reasoning_translation(tokens, _value, depth + 1)?;
+                        let value =
+                            super::super::protocol_serde::shape_guardrail_automated_reasoning_translation::de_guardrail_automated_reasoning_translation(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?;
                         if let Some(value) = value {
                             items.push(value);
                         } else {

@@ -152,10 +152,7 @@ impl SetRiskConfigurationFluentBuilder {
         self.inner.get_client_id()
     }
     /// <p>The configuration of automated reactions to detected compromised credentials. Includes settings for blocking future sign-in requests and for the types of password-submission events you want to monitor.</p>
-    pub fn compromised_credentials_risk_configuration(
-        mut self,
-        input: super::super::super::types::CompromisedCredentialsRiskConfigurationType,
-    ) -> Self {
+    pub fn compromised_credentials_risk_configuration(mut self, input: super::super::super::types::CompromisedCredentialsRiskConfigurationType) -> Self {
         self.inner = self.inner.compromised_credentials_risk_configuration(input);
         self
     }
@@ -187,9 +184,7 @@ impl SetRiskConfigurationFluentBuilder {
         self
     }
     /// <p>The settings for automated responses and notification templates for adaptive authentication with threat protection.</p>
-    pub fn get_account_takeover_risk_configuration(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::AccountTakeoverRiskConfigurationType> {
+    pub fn get_account_takeover_risk_configuration(&self) -> &::std::option::Option<super::super::super::types::AccountTakeoverRiskConfigurationType> {
         self.inner.get_account_takeover_risk_configuration()
     }
     /// <p>A set of IP-address overrides to threat protection. You can set up IP-address always-block and always-allow lists.</p>
@@ -198,10 +193,7 @@ impl SetRiskConfigurationFluentBuilder {
         self
     }
     /// <p>A set of IP-address overrides to threat protection. You can set up IP-address always-block and always-allow lists.</p>
-    pub fn set_risk_exception_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::RiskExceptionConfigurationType>,
-    ) -> Self {
+    pub fn set_risk_exception_configuration(mut self, input: ::std::option::Option<super::super::super::types::RiskExceptionConfigurationType>) -> Self {
         self.inner = self.inner.set_risk_exception_configuration(input);
         self
     }

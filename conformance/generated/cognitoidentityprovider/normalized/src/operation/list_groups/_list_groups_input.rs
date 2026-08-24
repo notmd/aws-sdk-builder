@@ -84,9 +84,7 @@ impl ListGroupsInputBuilder {
         &self.next_token
     }
     /// Consumes the builder and constructs a [`ListGroupsInput`](crate::operation::list_groups::ListGroupsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::list_groups::ListGroupsInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_groups::ListGroupsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_groups::ListGroupsInput {
             user_pool_id: self.user_pool_id,
             limit: self.limit,

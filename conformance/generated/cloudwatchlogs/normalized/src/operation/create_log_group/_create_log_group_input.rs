@@ -199,8 +199,7 @@ impl CreateLogGroupInputBuilder {
     /// Consumes the builder and constructs a [`CreateLogGroupInput`](crate::operation::create_log_group::CreateLogGroupInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::create_log_group::CreateLogGroupInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::create_log_group::CreateLogGroupInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::create_log_group::CreateLogGroupInput {
             log_group_name: self.log_group_name,
             kms_key_id: self.kms_key_id,

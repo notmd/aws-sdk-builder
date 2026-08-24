@@ -39,10 +39,9 @@ where
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
                         )),
                         "toolUse" => Some(super::super::types::ContentBlockDelta::ToolUse(
-                            super::super::protocol_serde::shape_tool_use_block_delta::de_tool_use_block_delta(tokens, _value, depth + 1)?
-                                .ok_or_else(|| {
-                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolUse' cannot be null")
-                                })?,
+                            super::super::protocol_serde::shape_tool_use_block_delta::de_tool_use_block_delta(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolUse' cannot be null"),
+                            )?,
                         )),
                         "toolResult" => Some(super::super::types::ContentBlockDelta::ToolResult(
                             super::super::protocol_serde::shape_tool_result_blocks_delta::de_tool_result_blocks_delta(tokens, _value, depth + 1)?
@@ -51,14 +50,10 @@ where
                                 })?,
                         )),
                         "reasoningContent" => Some(super::super::types::ContentBlockDelta::ReasoningContent(
-                            super::super::protocol_serde::shape_reasoning_content_block_delta::de_reasoning_content_block_delta(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?
-                            .ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningContent' cannot be null")
-                            })?,
+                            super::super::protocol_serde::shape_reasoning_content_block_delta::de_reasoning_content_block_delta(tokens, _value, depth + 1)?
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningContent' cannot be null")
+                                })?,
                         )),
                         "citation" => Some(super::super::types::ContentBlockDelta::Citation(
                             super::super::protocol_serde::shape_citations_delta::de_citations_delta(tokens, _value, depth + 1)?.ok_or_else(|| {

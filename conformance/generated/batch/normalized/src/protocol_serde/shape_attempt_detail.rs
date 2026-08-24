@@ -22,9 +22,11 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "container" => {
-                            builder = builder.set_container(
-                                super::super::protocol_serde::shape_attempt_container_detail::de_attempt_container_detail(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_container(super::super::protocol_serde::shape_attempt_container_detail::de_attempt_container_detail(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "startedAt" => {
                             builder = builder.set_started_at(

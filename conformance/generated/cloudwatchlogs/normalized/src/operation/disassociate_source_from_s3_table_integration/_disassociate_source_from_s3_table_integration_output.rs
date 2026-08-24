@@ -21,8 +21,7 @@ impl ::aws_types::request_id::RequestId for DisassociateSourceFromS3TableIntegra
 impl DisassociateSourceFromS3TableIntegrationOutput {
     /// Creates a new builder-style object to manufacture [`DisassociateSourceFromS3TableIntegrationOutput`](crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationOutput).
     pub fn builder(
-    ) -> super::super::super::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationOutputBuilder
-    {
+    ) -> super::super::super::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationOutputBuilder {
         super::super::super::operation::disassociate_source_from_s3_table_integration::builders::DisassociateSourceFromS3TableIntegrationOutputBuilder::default()
     }
 }
@@ -59,9 +58,7 @@ impl DisassociateSourceFromS3TableIntegrationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DisassociateSourceFromS3TableIntegrationOutput`](crate::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationOutput).
-    pub fn build(
-        self,
-    ) -> super::super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationOutput {
+    pub fn build(self) -> super::super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationOutput {
         super::super::super::operation::disassociate_source_from_s3_table_integration::DisassociateSourceFromS3TableIntegrationOutput {
             identifier: self.identifier,
             _request_id: self._request_id,

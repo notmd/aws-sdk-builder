@@ -22,9 +22,11 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "serviceResourceId" => {
-                            builder = builder.set_service_resource_id(
-                                super::super::protocol_serde::shape_service_resource_id::de_service_resource_id(tokens, _value, depth + 1)?,
-                            );
+                            builder = builder.set_service_resource_id(super::super::protocol_serde::shape_service_resource_id::de_service_resource_id(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
                         "startedAt" => {
                             builder = builder.set_started_at(

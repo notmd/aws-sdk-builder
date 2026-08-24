@@ -15,11 +15,7 @@ pub fn de_invoke_guardrail_checks_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::invoke_guardrail_checks::InvokeGuardrailChecksError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::invoke_guardrail_checks::InvokeGuardrailChecksError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -59,11 +55,9 @@ pub fn de_invoke_guardrail_checks_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::invoke_guardrail_checks::InvokeGuardrailChecksError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::invoke_guardrail_checks::InvokeGuardrailChecksError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -160,11 +154,7 @@ pub(crate) fn de_invoke_guardrail_checks(
                 }
                 "usage" => {
                     builder = builder.set_usage(
-                        super::super::protocol_serde::shape_guardrail_checks_usage_results::de_guardrail_checks_usage_results(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
+                        super::super::protocol_serde::shape_guardrail_checks_usage_results::de_guardrail_checks_usage_results(tokens, _value, depth + 1)?,
                     );
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

@@ -18,8 +18,10 @@ impl ::aws_types::request_id::RequestId for DeleteBucketIntelligentTieringConfig
 }
 impl DeleteBucketIntelligentTieringConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketIntelligentTieringConfigurationOutput`](crate::operation::delete_bucket_intelligent_tiering_configuration::DeleteBucketIntelligentTieringConfigurationOutput).
-    pub fn builder() -> super::super::super::operation::delete_bucket_intelligent_tiering_configuration::builders::DeleteBucketIntelligentTieringConfigurationOutputBuilder{
-        super::super::super::operation::delete_bucket_intelligent_tiering_configuration::builders::DeleteBucketIntelligentTieringConfigurationOutputBuilder::default()
+    pub fn builder(
+    ) -> super::super::super::operation::delete_bucket_intelligent_tiering_configuration::builders::DeleteBucketIntelligentTieringConfigurationOutputBuilder {
+        super::super::super::operation::delete_bucket_intelligent_tiering_configuration::builders::DeleteBucketIntelligentTieringConfigurationOutputBuilder::default(
+        )
     }
 }
 
@@ -50,9 +52,7 @@ impl DeleteBucketIntelligentTieringConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DeleteBucketIntelligentTieringConfigurationOutput`](crate::operation::delete_bucket_intelligent_tiering_configuration::DeleteBucketIntelligentTieringConfigurationOutput).
-    pub fn build(
-        self,
-    ) -> super::super::super::operation::delete_bucket_intelligent_tiering_configuration::DeleteBucketIntelligentTieringConfigurationOutput {
+    pub fn build(self) -> super::super::super::operation::delete_bucket_intelligent_tiering_configuration::DeleteBucketIntelligentTieringConfigurationOutput {
         super::super::super::operation::delete_bucket_intelligent_tiering_configuration::DeleteBucketIntelligentTieringConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

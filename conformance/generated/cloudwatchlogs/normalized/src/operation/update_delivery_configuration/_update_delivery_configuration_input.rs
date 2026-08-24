@@ -119,13 +119,11 @@ impl UpdateDeliveryConfigurationInputBuilder {
         super::super::super::operation::update_delivery_configuration::UpdateDeliveryConfigurationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::update_delivery_configuration::UpdateDeliveryConfigurationInput {
-                id: self.id,
-                record_fields: self.record_fields,
-                field_delimiter: self.field_delimiter,
-                s3_delivery_configuration: self.s3_delivery_configuration,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::update_delivery_configuration::UpdateDeliveryConfigurationInput {
+            id: self.id,
+            record_fields: self.record_fields,
+            field_delimiter: self.field_delimiter,
+            s3_delivery_configuration: self.s3_delivery_configuration,
+        })
     }
 }

@@ -49,20 +49,14 @@ pub struct SignFluentBuilder {
     inner: super::super::super::operation::sign::builders::SignInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::sign::SignOutput,
-        super::super::super::operation::sign::SignError,
-    > for SignFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::sign::SignOutput, super::super::super::operation::sign::SignError>
+    for SignFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::sign::SignOutput,
-            super::super::super::operation::sign::SignError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::sign::SignOutput, super::super::super::operation::sign::SignError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
@@ -101,22 +95,15 @@ impl SignFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::sign::Sign::operation_runtime_plugins(
-            self.handle.runtime_plugins.clone(),
-            &self.handle.conf,
-            self.config_override,
-        );
+        let runtime_plugins =
+            super::super::super::operation::sign::Sign::operation_runtime_plugins(self.handle.runtime_plugins.clone(), &self.handle.conf, self.config_override);
         super::super::super::operation::sign::Sign::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
     pub fn customize(
         self,
-    ) -> super::super::super::client::customize::CustomizableOperation<
-        super::super::super::operation::sign::SignOutput,
-        super::super::super::operation::sign::SignError,
-        Self,
-    > {
+    ) -> super::super::super::client::customize::CustomizableOperation<super::super::super::operation::sign::SignOutput, super::super::super::operation::sign::SignError, Self> {
         super::super::super::client::customize::CustomizableOperation::new(self)
     }
     pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<super::super::super::config::Builder>) -> Self {

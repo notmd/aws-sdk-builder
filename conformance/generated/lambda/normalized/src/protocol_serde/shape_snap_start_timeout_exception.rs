@@ -2,10 +2,7 @@
 pub(crate) fn de_snap_start_timeout_exception_json_err(
     _value: &[u8],
     mut builder: super::super::types::error::builders::SnapStartTimeoutExceptionBuilder,
-) -> ::std::result::Result<
-    super::super::types::error::builders::SnapStartTimeoutExceptionBuilder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
+) -> ::std::result::Result<super::super::types::error::builders::SnapStartTimeoutExceptionBuilder, ::aws_smithy_json::deserialize::error::DeserializeError> {
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]

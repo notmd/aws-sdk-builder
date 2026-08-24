@@ -147,14 +147,12 @@ impl CreateServiceEnvironmentInputBuilder {
         super::super::super::operation::create_service_environment::CreateServiceEnvironmentInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::create_service_environment::CreateServiceEnvironmentInput {
-                service_environment_name: self.service_environment_name,
-                service_environment_type: self.service_environment_type,
-                state: self.state,
-                capacity_limits: self.capacity_limits,
-                tags: self.tags,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::create_service_environment::CreateServiceEnvironmentInput {
+            service_environment_name: self.service_environment_name,
+            service_environment_type: self.service_environment_type,
+            state: self.state,
+            capacity_limits: self.capacity_limits,
+            tags: self.tags,
+        })
     }
 }

@@ -133,10 +133,7 @@ impl DescribeConfigurationTemplatesInputBuilder {
         self
     }
     /// <p>Use this parameter to filter the response to include only the configuration templates that apply to the delivery destination types that you specify here.</p>
-    pub fn set_delivery_destination_types(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeliveryDestinationType>>,
-    ) -> Self {
+    pub fn set_delivery_destination_types(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeliveryDestinationType>>) -> Self {
         self.delivery_destination_types = input;
         self
     }
@@ -179,15 +176,13 @@ impl DescribeConfigurationTemplatesInputBuilder {
         super::super::super::operation::describe_configuration_templates::DescribeConfigurationTemplatesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::describe_configuration_templates::DescribeConfigurationTemplatesInput {
-                service: self.service,
-                log_types: self.log_types,
-                resource_types: self.resource_types,
-                delivery_destination_types: self.delivery_destination_types,
-                next_token: self.next_token,
-                limit: self.limit,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::describe_configuration_templates::DescribeConfigurationTemplatesInput {
+            service: self.service,
+            log_types: self.log_types,
+            resource_types: self.resource_types,
+            delivery_destination_types: self.delivery_destination_types,
+            next_token: self.next_token,
+            limit: self.limit,
+        })
     }
 }

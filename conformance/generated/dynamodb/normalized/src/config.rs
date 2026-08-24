@@ -1177,9 +1177,9 @@ impl Builder {
     /// Overrides the default invocation ID generator.
     ///
     /// The invocation ID generator generates ID values for the `amz-sdk-invocation-id` header. By default, this will be a random UUID. Overriding it may be useful in tests that examine the HTTP request and need to be deterministic.
-    pub fn invocation_id_generator(mut self, gen: impl ::aws_runtime::invocation_id::InvocationIdGenerator + 'static) -> Self {
+    pub fn invocation_id_generator(mut self, r#gen: impl ::aws_runtime::invocation_id::InvocationIdGenerator + 'static) -> Self {
         self.set_invocation_id_generator(::std::option::Option::Some(
-            ::aws_runtime::invocation_id::SharedInvocationIdGenerator::new(gen),
+            ::aws_runtime::invocation_id::SharedInvocationIdGenerator::new(r#gen),
         ));
         self
     }
@@ -1188,9 +1188,9 @@ impl Builder {
     /// The invocation ID generator generates ID values for the `amz-sdk-invocation-id` header. By default, this will be a random UUID. Overriding it may be useful in tests that examine the HTTP request and need to be deterministic.
     pub fn set_invocation_id_generator(
         &mut self,
-        gen: ::std::option::Option<::aws_runtime::invocation_id::SharedInvocationIdGenerator>,
+        r#gen: ::std::option::Option<::aws_runtime::invocation_id::SharedInvocationIdGenerator>,
     ) -> &mut Self {
-        self.config.store_or_unset(gen);
+        self.config.store_or_unset(r#gen);
         self
     }
     /// The AccountId Endpoint Mode.

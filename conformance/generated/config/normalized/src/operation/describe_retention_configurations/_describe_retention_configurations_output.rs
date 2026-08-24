@@ -54,10 +54,7 @@ impl DescribeRetentionConfigurationsOutputBuilder {
         self
     }
     /// <p>Returns a retention configuration object.</p>
-    pub fn set_retention_configurations(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RetentionConfiguration>>,
-    ) -> Self {
+    pub fn set_retention_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RetentionConfiguration>>) -> Self {
         self.retention_configurations = input;
         self
     }

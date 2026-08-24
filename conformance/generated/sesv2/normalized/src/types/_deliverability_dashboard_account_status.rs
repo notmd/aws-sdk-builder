@@ -61,9 +61,7 @@ impl ::std::convert::From<&str> for DeliverabilityDashboardAccountStatus {
             "ACTIVE" => DeliverabilityDashboardAccountStatus::Active,
             "DISABLED" => DeliverabilityDashboardAccountStatus::Disabled,
             "PENDING_EXPIRATION" => DeliverabilityDashboardAccountStatus::PendingExpiration,
-            other => {
-                DeliverabilityDashboardAccountStatus::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => DeliverabilityDashboardAccountStatus::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

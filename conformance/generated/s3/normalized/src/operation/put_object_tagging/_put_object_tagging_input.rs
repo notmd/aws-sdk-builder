@@ -213,10 +213,7 @@ impl PutObjectTaggingInputBuilder {
     /// Consumes the builder and constructs a [`PutObjectTaggingInput`](crate::operation::put_object_tagging::PutObjectTaggingInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::put_object_tagging::PutObjectTaggingInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::put_object_tagging::PutObjectTaggingInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_object_tagging::PutObjectTaggingInput {
             bucket: self.bucket,
             key: self.key,

@@ -365,9 +365,7 @@ impl ReplicaDescriptionBuilder {
         self
     }
     /// <p>Replica-specific global secondary index settings.</p>
-    pub fn get_global_secondary_indexes(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::types::ReplicaGlobalSecondaryIndexDescription>> {
+    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::ReplicaGlobalSecondaryIndexDescription>> {
         &self.global_secondary_indexes
     }
     /// <p>The time at which the replica was first detected as inaccessible. To determine cause of inaccessibility check the <code>ReplicaStatus</code> property.</p>

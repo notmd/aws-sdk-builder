@@ -41,8 +41,7 @@ where
                             );
                         }
                         "SOARecord" => {
-                            builder =
-                                builder.set_soa_record(super::super::protocol_serde::shape_soa_record::de_soa_record(tokens, _value, depth + 1)?);
+                            builder = builder.set_soa_record(super::super::protocol_serde::shape_soa_record::de_soa_record(tokens, _value, depth + 1)?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

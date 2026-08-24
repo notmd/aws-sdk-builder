@@ -69,9 +69,7 @@ impl ListServerCertificatesOutputBuilder {
         self
     }
     /// <p>A list of server certificates.</p>
-    pub fn get_server_certificate_metadata_list(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ServerCertificateMetadata>> {
+    pub fn get_server_certificate_metadata_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ServerCertificateMetadata>> {
         &self.server_certificate_metadata_list
     }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>

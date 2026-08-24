@@ -369,10 +369,7 @@ impl ListObjectsV2InputBuilder {
     /// <p>Specifies the optional fields that you want returned in the response. Fields that you do not specify are not returned.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn set_optional_object_attributes(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::OptionalObjectAttributes>>,
-    ) -> Self {
+    pub fn set_optional_object_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::OptionalObjectAttributes>>) -> Self {
         self.optional_object_attributes = input;
         self
     }
@@ -385,8 +382,7 @@ impl ListObjectsV2InputBuilder {
     /// Consumes the builder and constructs a [`ListObjectsV2Input`](crate::operation::list_objects_v2::ListObjectsV2Input).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::list_objects_v2::ListObjectsV2Input, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::list_objects_v2::ListObjectsV2Input, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_objects_v2::ListObjectsV2Input {
             bucket: self.bucket,
             delimiter: self.delimiter,

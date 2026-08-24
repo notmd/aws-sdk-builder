@@ -57,7 +57,10 @@ impl DisableOrganizationsRootCredentialsManagementFluentBuilder {
         }
     }
     /// Access the DisableOrganizationsRootCredentialsManagement as a reference.
-    pub fn as_input(&self) -> &super::super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &super::super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.

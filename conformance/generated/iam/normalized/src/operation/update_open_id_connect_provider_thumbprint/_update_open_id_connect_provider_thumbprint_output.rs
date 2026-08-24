@@ -12,9 +12,7 @@ impl ::aws_types::request_id::RequestId for UpdateOpenIdConnectProviderThumbprin
 }
 impl UpdateOpenIdConnectProviderThumbprintOutput {
     /// Creates a new builder-style object to manufacture [`UpdateOpenIdConnectProviderThumbprintOutput`](crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintOutputBuilder {
         super::super::super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintOutputBuilder::default()
     }
 }

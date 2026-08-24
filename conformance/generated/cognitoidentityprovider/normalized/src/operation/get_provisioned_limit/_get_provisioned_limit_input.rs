@@ -44,10 +44,8 @@ impl GetProvisionedLimitInputBuilder {
     /// Consumes the builder and constructs a [`GetProvisionedLimitInput`](crate::operation::get_provisioned_limit::GetProvisionedLimitInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_provisioned_limit::GetProvisionedLimitInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_provisioned_limit::GetProvisionedLimitInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_provisioned_limit::GetProvisionedLimitInput {
             limit_definition: self.limit_definition,
         })

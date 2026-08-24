@@ -85,9 +85,7 @@ impl DeleteMessageBatchRequestEntryBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`id`](crate::types::builders::DeleteMessageBatchRequestEntryBuilder::id)
     /// - [`receipt_handle`](crate::types::builders::DeleteMessageBatchRequestEntryBuilder::receipt_handle)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::DeleteMessageBatchRequestEntry, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::DeleteMessageBatchRequestEntry, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::DeleteMessageBatchRequestEntry {
             id: self.id.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

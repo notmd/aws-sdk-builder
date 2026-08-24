@@ -58,9 +58,7 @@ impl ::std::convert::From<&str> for SmsSandboxPhoneNumberVerificationStatus {
         match s {
             "Pending" => SmsSandboxPhoneNumberVerificationStatus::Pending,
             "Verified" => SmsSandboxPhoneNumberVerificationStatus::Verified,
-            other => {
-                SmsSandboxPhoneNumberVerificationStatus::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => SmsSandboxPhoneNumberVerificationStatus::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

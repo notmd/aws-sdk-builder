@@ -9,18 +9,19 @@ pub fn de_get_organization_conformance_pack_detailed_status_http_error(
     super::super::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusError,
 > {
     #[allow(unused_mut)]
-    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body).map_err(
-        super::super::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusError::unhandled,
-    )?;
+    let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
+        .map_err(super::super::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusError::unhandled)?;
     generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(
-            super::super::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusError::unhandled(
-                generic,
-            ),
-        ),
+        None => {
+            return Err(
+                super::super::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusError::unhandled(
+                    generic,
+                ),
+            )
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -97,8 +98,14 @@ pub fn de_get_organization_conformance_pack_detailed_status_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::get_organization_conformance_pack_detailed_status::builders::GetOrganizationConformancePackDetailedStatusOutputBuilder::default();
-        output = super::super::protocol_serde::shape_get_organization_conformance_pack_detailed_status::de_get_organization_conformance_pack_detailed_status(_response_body, output)
-            .map_err(super::super::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusError::unhandled)?;
+        output =
+            super::super::protocol_serde::shape_get_organization_conformance_pack_detailed_status::de_get_organization_conformance_pack_detailed_status(
+                _response_body,
+                output,
+            )
+            .map_err(
+                super::super::operation::get_organization_conformance_pack_detailed_status::GetOrganizationConformancePackDetailedStatusError::unhandled,
+            )?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

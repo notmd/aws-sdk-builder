@@ -4,8 +4,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct DeletePackageVersionsOutput {
     /// <p>A list of the package versions that were successfully deleted. The status of every successful version will be <code>Deleted</code>.</p>
-    pub successful_versions:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::SuccessfulPackageVersionInfo>>,
+    pub successful_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::SuccessfulPackageVersionInfo>>,
     /// <p>A <code>PackageVersionError</code> object that contains a map of errors codes for the deleted package that failed. The possible error codes are:</p>
     /// <ul>
     /// <li>
@@ -46,9 +45,7 @@ impl DeletePackageVersionsOutput {
     /// <li>
     /// <p><code>SKIPPED</code></p></li>
     /// </ul>
-    pub fn failed_versions(
-        &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>> {
+    pub fn failed_versions(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>> {
         self.failed_versions.as_ref()
     }
 }
@@ -70,8 +67,7 @@ impl DeletePackageVersionsOutput {
 pub struct DeletePackageVersionsOutputBuilder {
     pub(crate) successful_versions:
         ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::SuccessfulPackageVersionInfo>>,
-    pub(crate) failed_versions:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>>,
+    pub(crate) failed_versions: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::PackageVersionError>>,
     _request_id: Option<String>,
 }
 impl DeletePackageVersionsOutputBuilder {
@@ -80,11 +76,7 @@ impl DeletePackageVersionsOutputBuilder {
     /// To override the contents of this collection use [`set_successful_versions`](Self::set_successful_versions).
     ///
     /// <p>A list of the package versions that were successfully deleted. The status of every successful version will be <code>Deleted</code>.</p>
-    pub fn successful_versions(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: super::super::super::types::SuccessfulPackageVersionInfo,
-    ) -> Self {
+    pub fn successful_versions(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::SuccessfulPackageVersionInfo) -> Self {
         let mut hash_map = self.successful_versions.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.successful_versions = ::std::option::Option::Some(hash_map);
@@ -123,11 +115,7 @@ impl DeletePackageVersionsOutputBuilder {
     /// <li>
     /// <p><code>SKIPPED</code></p></li>
     /// </ul>
-    pub fn failed_versions(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: super::super::super::types::PackageVersionError,
-    ) -> Self {
+    pub fn failed_versions(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::PackageVersionError) -> Self {
         let mut hash_map = self.failed_versions.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.failed_versions = ::std::option::Option::Some(hash_map);

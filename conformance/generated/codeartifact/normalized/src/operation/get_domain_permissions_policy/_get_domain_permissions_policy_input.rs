@@ -69,11 +69,9 @@ impl GetDomainPermissionsPolicyInputBuilder {
         super::super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput {
-                domain: self.domain,
-                domain_owner: self.domain_owner,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyInput {
+            domain: self.domain,
+            domain_owner: self.domain_owner,
+        })
     }
 }

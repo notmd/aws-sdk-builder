@@ -15,9 +15,9 @@ pub fn de_select_object_content_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::select_object_content::builders::SelectObjectContentOutputBuilder::default();
-        output = output.set_payload(Some(
-            super::super::protocol_serde::shape_select_object_content_output::de_payload_payload(_response_body)?,
-        ));
+        output = output.set_payload(Some(super::super::protocol_serde::shape_select_object_content_output::de_payload_payload(
+            _response_body,
+        )?));
         output._set_extended_request_id(super::super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output

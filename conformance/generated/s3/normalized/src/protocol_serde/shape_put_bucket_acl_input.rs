@@ -6,7 +6,9 @@ pub fn ser_access_control_policy_http_payload(
         Some(t) => t,
         None => return Ok(super::super::protocol_serde::rest_xml_unset_struct_payload()),
     };
-    Ok(super::super::protocol_serde::shape_put_bucket_acl_input::ser_access_control_policy_payload(payload)?)
+    Ok(super::super::protocol_serde::shape_put_bucket_acl_input::ser_access_control_policy_payload(
+        payload,
+    )?)
 }
 
 pub fn ser_access_control_policy_payload(

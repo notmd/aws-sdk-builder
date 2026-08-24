@@ -222,7 +222,9 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for ListFunct
                 status, headers, body,
             )
         } else {
-            super::super::protocol_serde::shape_list_function_versions_by_capacity_provider::de_list_function_versions_by_capacity_provider_http_response(status, headers, body)
+            super::super::protocol_serde::shape_list_function_versions_by_capacity_provider::de_list_function_versions_by_capacity_provider_http_response(
+                status, headers, body,
+            )
         };
         super::super::protocol_serde::type_erase_result(parse_result)
     }
@@ -301,9 +303,7 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for ListFunction
             builder
         };
         let body = ::aws_smithy_types::body::SdkBody::from(
-            super::super::protocol_serde::shape_list_function_versions_by_capacity_provider::ser_list_function_versions_by_capacity_provider_input(
-                &input,
-            )?,
+            super::super::protocol_serde::shape_list_function_versions_by_capacity_provider::ser_list_function_versions_by_capacity_provider_input(&input)?,
         );
         if let Some(content_length) = body.content_length() {
             let content_length = content_length.to_string();

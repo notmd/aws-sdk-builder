@@ -274,10 +274,8 @@ impl DeriveSharedSecretInputBuilder {
     /// Consumes the builder and constructs a [`DeriveSharedSecretInput`](crate::operation::derive_shared_secret::DeriveSharedSecretInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::derive_shared_secret::DeriveSharedSecretInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::derive_shared_secret::DeriveSharedSecretInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::derive_shared_secret::DeriveSharedSecretInput {
             key_id: self.key_id,
             key_agreement_algorithm: self.key_agreement_algorithm,

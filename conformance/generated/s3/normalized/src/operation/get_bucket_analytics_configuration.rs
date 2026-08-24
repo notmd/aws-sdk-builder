@@ -229,15 +229,13 @@ impl ::aws_smithy_runtime_api::client::ser_de::DeserializeResponse for GetBucket
         let body = response.body().bytes().expect("body loaded");
         #[allow(unused_mut)]
         let mut force_error = false;
-        ::tracing::debug!(extended_request_id = ?crate::s3_request_id::RequestIdExt::extended_request_id(response));
-        if matches!(crate::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {
+        ::tracing::debug!(extended_request_id = ?super::super::s3_request_id::RequestIdExt::extended_request_id(response));
+        if matches!(super::super::rest_xml_unwrapped_errors::body_is_error(body), Ok(true)) {
             force_error = true;
         }
         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
         let parse_result = if !success && status != 200 || force_error {
-            super::super::protocol_serde::shape_get_bucket_analytics_configuration::de_get_bucket_analytics_configuration_http_error(
-                status, headers, body,
-            )
+            super::super::protocol_serde::shape_get_bucket_analytics_configuration::de_get_bucket_analytics_configuration_http_error(status, headers, body)
         } else {
             super::super::protocol_serde::shape_get_bucket_analytics_configuration::de_get_bucket_analytics_configuration_http_response(
                 status, headers, body,
@@ -300,9 +298,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for GetBucketAna
                 let mut uri = ::std::string::String::new();
                 uri_base(input, &mut uri)?;
                 uri_query(input, &mut uri)?;
-                let builder = super::super::protocol_serde::shape_get_bucket_analytics_configuration::ser_get_bucket_analytics_configuration_headers(
-                    input, builder,
-                )?;
+                let builder =
+                    super::super::protocol_serde::shape_get_bucket_analytics_configuration::ser_get_bucket_analytics_configuration_headers(input, builder)?;
                 ::std::result::Result::Ok(builder.method("GET").uri(uri))
             }
             let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;

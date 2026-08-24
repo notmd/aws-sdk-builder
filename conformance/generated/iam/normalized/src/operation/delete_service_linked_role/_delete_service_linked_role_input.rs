@@ -48,8 +48,6 @@ impl DeleteServiceLinkedRoleInputBuilder {
         super::super::super::operation::delete_service_linked_role::DeleteServiceLinkedRoleInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(super::super::super::operation::delete_service_linked_role::DeleteServiceLinkedRoleInput {
-            role_name: self.role_name,
-        })
+        ::std::result::Result::Ok(super::super::super::operation::delete_service_linked_role::DeleteServiceLinkedRoleInput { role_name: self.role_name })
     }
 }

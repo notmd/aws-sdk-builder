@@ -13,8 +13,7 @@ impl ::aws_types::request_id::RequestId for PutConfigurationSetSendingOptionsOut
 }
 impl PutConfigurationSetSendingOptionsOutput {
     /// Creates a new builder-style object to manufacture [`PutConfigurationSetSendingOptionsOutput`](crate::operation::put_configuration_set_sending_options::PutConfigurationSetSendingOptionsOutput).
-    pub fn builder() -> super::super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsOutputBuilder {
         super::super::super::operation::put_configuration_set_sending_options::builders::PutConfigurationSetSendingOptionsOutputBuilder::default()
     }
 }

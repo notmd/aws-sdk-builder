@@ -66,11 +66,7 @@ where
                         }
                         "VectorIndexes" => {
                             builder = builder.set_vector_indexes(
-                                super::super::protocol_serde::shape_vector_indexes_capacity_map::de_vector_indexes_capacity_map(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_vector_indexes_capacity_map::de_vector_indexes_capacity_map(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

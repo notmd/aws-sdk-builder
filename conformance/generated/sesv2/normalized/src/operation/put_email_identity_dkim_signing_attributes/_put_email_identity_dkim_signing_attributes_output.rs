@@ -76,9 +76,7 @@ impl ::aws_types::request_id::RequestId for PutEmailIdentityDkimSigningAttribute
 }
 impl PutEmailIdentityDkimSigningAttributesOutput {
     /// Creates a new builder-style object to manufacture [`PutEmailIdentityDkimSigningAttributesOutput`](crate::operation::put_email_identity_dkim_signing_attributes::PutEmailIdentityDkimSigningAttributesOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesOutputBuilder {
         super::super::super::operation::put_email_identity_dkim_signing_attributes::builders::PutEmailIdentityDkimSigningAttributesOutputBuilder::default()
     }
 }

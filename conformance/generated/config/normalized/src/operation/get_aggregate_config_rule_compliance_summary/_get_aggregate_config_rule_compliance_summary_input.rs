@@ -38,8 +38,7 @@ impl GetAggregateConfigRuleComplianceSummaryInput {
 }
 impl GetAggregateConfigRuleComplianceSummaryInput {
     /// Creates a new builder-style object to manufacture [`GetAggregateConfigRuleComplianceSummaryInput`](crate::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummaryInput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_aggregate_config_rule_compliance_summary::builders::GetAggregateConfigRuleComplianceSummaryInputBuilder
+    pub fn builder() -> super::super::super::operation::get_aggregate_config_rule_compliance_summary::builders::GetAggregateConfigRuleComplianceSummaryInputBuilder
     {
         super::super::super::operation::get_aggregate_config_rule_compliance_summary::builders::GetAggregateConfigRuleComplianceSummaryInputBuilder::default()
     }

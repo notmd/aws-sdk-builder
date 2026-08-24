@@ -85,10 +85,8 @@ impl DescribeLookupTablesInputBuilder {
     /// Consumes the builder and constructs a [`DescribeLookupTablesInput`](crate::operation::describe_lookup_tables::DescribeLookupTablesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::describe_lookup_tables::DescribeLookupTablesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::describe_lookup_tables::DescribeLookupTablesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::describe_lookup_tables::DescribeLookupTablesInput {
             lookup_table_name_prefix: self.lookup_table_name_prefix,
             max_results: self.max_results.unwrap_or_default(),

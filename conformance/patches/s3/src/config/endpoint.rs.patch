@@ -10315,7 +10315,7 @@
          #[allow(unused_mut)]
          let mut context = ConditionContext::default();
 
-@@ -12529,9 +2265,9 @@
+@@ -12529,10 +2265,10 @@
                          3 => (use_dual_stack) == (&true),
                          4 => endpoint.is_some(),
                          5 => bucket.is_some(),
@@ -10323,11 +10323,13 @@
 +                        6 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_resolver = &self.partition_resolver;
 -                            (crate::endpoint_lib::coalesce::coalesce!(
+-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
 +                            (super::super::endpoint_lib::coalesce::coalesce!(
-                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
++                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                      if let Some(param) = bucket { param } else { return false },
                                      0,
-@@ -12546,9 +2282,9 @@
+                                     6,
+@@ -12546,10 +2282,10 @@
                                  "".to_string()
                              )) == ("--x-s3")
                          })(&mut _diagnostic_collector),
@@ -10335,10 +10337,12 @@
 +                        7 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_resolver = &self.partition_resolver;
 -                            (crate::endpoint_lib::coalesce::coalesce!(
+-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
 +                            (super::super::endpoint_lib::coalesce::coalesce!(
-                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
++                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                      if let Some(param) = bucket { param } else { return false },
                                      0,
+                                     7,
 @@ -12563,7 +2299,7 @@
                                  "".to_string()
                              )) == ("--xa-s3")
@@ -10419,7 +10423,7 @@
                              let partition_result = &context.partition_result;
                              let partition_resolver = &self.partition_resolver;
                              (if let Some(inner) = partition_result {
-@@ -12648,37 +2384,37 @@
+@@ -12648,38 +2384,38 @@
                                  return false;
                              }) == ("aws-cn")
                          })(&mut _diagnostic_collector),
@@ -10461,10 +10465,12 @@
                              {
                                  *s3_e_auth = Some(
 -                                    crate::endpoint_lib::ite::ite!(
+-                                        crate::endpoint_lib::coalesce::coalesce!(disable_s3_express_session_auth.clone(), false),
 +                                    super::super::endpoint_lib::ite::ite!(
-                                         crate::endpoint_lib::coalesce::coalesce!(disable_s3_express_session_auth.clone(), false),
++                                        super::super::endpoint_lib::coalesce::coalesce!(disable_s3_express_session_auth.clone(), false),
                                          "sigv4".to_string(),
                                          "sigv4-s3express".to_string()
+                                     )
 @@ -12688,19 +2424,19 @@
                                  true
                              }
@@ -10549,7 +10555,7 @@
                                      if let Some(param) = bucket { param } else { return false },
                                      "--",
                                      0,
-@@ -12762,9 +2498,9 @@
+@@ -12762,10 +2498,10 @@
                                  s3express_availability_zone_id.is_some()
                              }
                          })(&mut _diagnostic_collector),
@@ -10557,11 +10563,13 @@
 +                        28 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_resolver = &self.partition_resolver;
 -                            (crate::endpoint_lib::coalesce::coalesce!(
+-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
 +                            (super::super::endpoint_lib::coalesce::coalesce!(
-                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
++                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                      if let Some(param) = bucket { param } else { return false },
                                      0,
-@@ -12779,9 +2515,9 @@
+                                     4,
+@@ -12779,10 +2515,10 @@
                                  "".to_string()
                              )) == ("arn:")
                          })(&mut _diagnostic_collector),
@@ -10569,11 +10577,13 @@
 +                        29 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_resolver = &self.partition_resolver;
 -                            (crate::endpoint_lib::coalesce::coalesce!(
+-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
 +                            (super::super::endpoint_lib::coalesce::coalesce!(
-                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
++                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                      if let Some(param) = bucket { param } else { return false },
                                      16,
-@@ -12796,14 +2532,14 @@
+                                     18,
+@@ -12796,15 +2532,15 @@
                                  "".to_string()
                              )) == ("--")
                          })(&mut _diagnostic_collector),
@@ -10587,11 +10597,13 @@
 +                        31 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_resolver = &self.partition_resolver;
 -                            (crate::endpoint_lib::coalesce::coalesce!(
+-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
 +                            (super::super::endpoint_lib::coalesce::coalesce!(
-                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
++                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                      if let Some(param) = bucket { param } else { return false },
                                      21,
-@@ -12818,9 +2554,9 @@
+                                     23,
+@@ -12818,10 +2554,10 @@
                                  "".to_string()
                              )) == ("--")
                          })(&mut _diagnostic_collector),
@@ -10599,10 +10611,12 @@
 +                        32 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_resolver = &self.partition_resolver;
 -                            (crate::endpoint_lib::coalesce::coalesce!(
+-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
 +                            (super::super::endpoint_lib::coalesce::coalesce!(
-                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
++                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                      if let Some(param) = bucket { param } else { return false },
                                      27,
+                                     29,
 @@ -12835,17 +2571,17 @@
                                  "".to_string()
                              )) == ("--")
@@ -10670,7 +10684,7 @@
                              let bucket_arn = &context.bucket_arn;
                              let access_point_name_ssa_1 = &mut context.access_point_name_ssa_1;
                              let partition_resolver = &self.partition_resolver;
-@@ -12904,19 +2640,19 @@
+@@ -12904,20 +2640,20 @@
                                  access_point_name_ssa_1.is_some()
                              }
                          })(&mut _diagnostic_collector),
@@ -10690,11 +10704,13 @@
 +                        43 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_resolver = &self.partition_resolver;
 -                            (crate::endpoint_lib::coalesce::coalesce!(
+-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
 +                            (super::super::endpoint_lib::coalesce::coalesce!(
-                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
++                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                      if let Some(param) = bucket { param } else { return false },
                                      14,
-@@ -12931,23 +2667,23 @@
+                                     16,
+@@ -12931,24 +2667,24 @@
                                  "".to_string()
                              )) == ("--")
                          })(&mut _diagnostic_collector),
@@ -10719,10 +10735,12 @@
 +                        47 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_resolver = &self.partition_resolver;
 -                            (crate::endpoint_lib::coalesce::coalesce!(
+-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
 +                            (super::super::endpoint_lib::coalesce::coalesce!(
-                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
++                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                      if let Some(param) = bucket { param } else { return false },
                                      19,
+                                     21,
 @@ -12962,21 +2698,21 @@
                                  "".to_string()
                              )) == ("--")
@@ -10763,7 +10781,7 @@
                                  if let Some(param) = access_point_name_ssa_1 {
                                      param
                                  } else {
-@@ -13003,9 +2739,9 @@
+@@ -13003,10 +2739,10 @@
                                  _diagnostic_collector,
                              )
                          })(&mut _diagnostic_collector),
@@ -10771,11 +10789,13 @@
 +                        53 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_resolver = &self.partition_resolver;
 -                            (crate::endpoint_lib::coalesce::coalesce!(
+-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
 +                            (super::super::endpoint_lib::coalesce::coalesce!(
-                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
++                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                      if let Some(param) = bucket { param } else { return false },
                                      26,
-@@ -13020,9 +2756,9 @@
+                                     28,
+@@ -13020,10 +2756,10 @@
                                  "".to_string()
                              )) == ("--")
                          })(&mut _diagnostic_collector),
@@ -10783,10 +10803,12 @@
 +                        54 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_resolver = &self.partition_resolver;
 -                            (crate::endpoint_lib::coalesce::coalesce!(
+-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
 +                            (super::super::endpoint_lib::coalesce::coalesce!(
-                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
++                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                      if let Some(param) = bucket { param } else { return false },
                                      15,
+                                     17,
 @@ -13037,7 +2773,7 @@
                                  "".to_string()
                              )) == ("--")
@@ -10796,7 +10818,7 @@
                              let bucket_arn = &context.bucket_arn;
                              let partition_resolver = &self.partition_resolver;
                              if let Some(inner) = bucket_arn {
-@@ -13047,9 +2783,9 @@
+@@ -13047,10 +2783,10 @@
                              }
                              .is_some()
                          })(&mut _diagnostic_collector),
@@ -10804,10 +10826,12 @@
 +                        56 => (|_diagnostic_collector: &mut super::super::endpoint_lib::diagnostic::DiagnosticCollector| -> bool {
                              let partition_resolver = &self.partition_resolver;
 -                            (crate::endpoint_lib::coalesce::coalesce!(
+-                                if let Some(inner) = crate::endpoint_lib::substring::substring(
 +                            (super::super::endpoint_lib::coalesce::coalesce!(
-                                 if let Some(inner) = crate::endpoint_lib::substring::substring(
++                                if let Some(inner) = super::super::endpoint_lib::substring::substring(
                                      if let Some(param) = bucket { param } else { return false },
                                      20,
+                                     22,
 @@ -13065,11 +2801,11 @@
                              )) == ("--")
                          })(&mut _diagnostic_collector),

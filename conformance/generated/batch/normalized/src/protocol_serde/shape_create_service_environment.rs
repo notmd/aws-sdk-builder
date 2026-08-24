@@ -15,7 +15,11 @@ pub fn de_create_service_environment_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::create_service_environment::CreateServiceEnvironmentError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::create_service_environment::CreateServiceEnvironmentError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());

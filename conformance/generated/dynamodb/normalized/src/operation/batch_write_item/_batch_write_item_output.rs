@@ -22,8 +22,7 @@ pub struct BatchWriteItemOutput {
     /// </ul></li>
     /// </ul>
     /// <p>If there are no unprocessed items remaining, the response contains an empty <code>UnprocessedItems</code> map.</p>
-    pub unprocessed_items:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::super::types::WriteRequest>>>,
+    pub unprocessed_items: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::super::types::WriteRequest>>>,
     /// <p>A list of tables that were processed by <code>BatchWriteItem</code> and, for each table, information about any item collections that were affected by individual <code>DeleteItem</code> or <code>PutItem</code> operations.</p>
     /// <p>Each entry consists of the following subelements:</p>
     /// <ul>
@@ -82,8 +81,7 @@ impl BatchWriteItemOutput {
     /// </ul>
     pub fn item_collection_metrics(
         &self,
-    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>>
-    {
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>> {
         self.item_collection_metrics.as_ref()
     }
     /// <p>The capacity units consumed by the entire <code>BatchWriteItem</code> operation.</p>
@@ -147,11 +145,7 @@ impl BatchWriteItemOutputBuilder {
     /// </ul></li>
     /// </ul>
     /// <p>If there are no unprocessed items remaining, the response contains an empty <code>UnprocessedItems</code> map.</p>
-    pub fn unprocessed_items(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: ::std::vec::Vec<super::super::super::types::WriteRequest>,
-    ) -> Self {
+    pub fn unprocessed_items(mut self, k: impl ::std::convert::Into<::std::string::String>, v: ::std::vec::Vec<super::super::super::types::WriteRequest>) -> Self {
         let mut hash_map = self.unprocessed_items.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.unprocessed_items = ::std::option::Option::Some(hash_map);
@@ -239,9 +233,7 @@ impl BatchWriteItemOutputBuilder {
     /// </ul>
     pub fn set_item_collection_metrics(
         mut self,
-        input: ::std::option::Option<
-            ::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>,
-        >,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>>,
     ) -> Self {
         self.item_collection_metrics = input;
         self
@@ -257,8 +249,7 @@ impl BatchWriteItemOutputBuilder {
     /// </ul>
     pub fn get_item_collection_metrics(
         &self,
-    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>>
-    {
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>> {
         &self.item_collection_metrics
     }
     /// Appends an item to `consumed_capacity`.

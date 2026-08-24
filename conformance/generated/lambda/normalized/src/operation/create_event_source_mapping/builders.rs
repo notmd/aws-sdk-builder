@@ -649,10 +649,7 @@ impl CreateEventSourceMappingFluentBuilder {
         self
     }
     /// <p>(Kinesis, DynamoDB Streams, Amazon MSK, self-managed Apache Kafka, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
-    pub fn set_function_response_types(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::FunctionResponseType>>,
-    ) -> Self {
+    pub fn set_function_response_types(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::FunctionResponseType>>) -> Self {
         self.inner = self.inner.set_function_response_types(input);
         self
     }
@@ -674,9 +671,7 @@ impl CreateEventSourceMappingFluentBuilder {
         self
     }
     /// <p>Specific configuration settings for an Amazon Managed Streaming for Apache Kafka (Amazon MSK) event source.</p>
-    pub fn get_amazon_managed_kafka_event_source_config(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::AmazonManagedKafkaEventSourceConfig> {
+    pub fn get_amazon_managed_kafka_event_source_config(&self) -> &::std::option::Option<super::super::super::types::AmazonManagedKafkaEventSourceConfig> {
         self.inner.get_amazon_managed_kafka_event_source_config()
     }
     /// <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
@@ -693,9 +688,7 @@ impl CreateEventSourceMappingFluentBuilder {
         self
     }
     /// <p>Specific configuration settings for a self-managed Apache Kafka event source.</p>
-    pub fn get_self_managed_kafka_event_source_config(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::SelfManagedKafkaEventSourceConfig> {
+    pub fn get_self_managed_kafka_event_source_config(&self) -> &::std::option::Option<super::super::super::types::SelfManagedKafkaEventSourceConfig> {
         self.inner.get_self_managed_kafka_event_source_config()
     }
     /// <p>Specific configuration settings for a DocumentDB event source.</p>
@@ -704,10 +697,7 @@ impl CreateEventSourceMappingFluentBuilder {
         self
     }
     /// <p>Specific configuration settings for a DocumentDB event source.</p>
-    pub fn set_document_db_event_source_config(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::DocumentDbEventSourceConfig>,
-    ) -> Self {
+    pub fn set_document_db_event_source_config(mut self, input: ::std::option::Option<super::super::super::types::DocumentDbEventSourceConfig>) -> Self {
         self.inner = self.inner.set_document_db_event_source_config(input);
         self
     }

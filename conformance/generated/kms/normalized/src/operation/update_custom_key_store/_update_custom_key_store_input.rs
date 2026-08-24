@@ -333,9 +333,7 @@ impl UpdateCustomKeyStoreInputBuilder {
     /// <p>You must specify both the <code>AccessKeyId</code> and <code>SecretAccessKey</code> value in the authentication credential, even if you are only updating one value.</p>
     /// <p>This parameter doesn't establish or change your authentication credentials on the proxy. It just tells KMS the credential that you established with your external key store proxy. For example, if you rotate the credential on your external key store proxy, you can use this parameter to update the credential in KMS.</p>
     /// <p>You can change this value when the external key store is connected or disconnected.</p>
-    pub fn get_xks_proxy_authentication_credential(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::XksProxyAuthenticationCredentialType> {
+    pub fn get_xks_proxy_authentication_credential(&self) -> &::std::option::Option<super::super::super::types::XksProxyAuthenticationCredentialType> {
         &self.xks_proxy_authentication_credential
     }
     /// <p>Changes the connectivity setting for the external key store. To indicate that the external key store proxy uses a Amazon VPC endpoint service to communicate with KMS, specify <code>VPC_ENDPOINT_SERVICE</code>. Otherwise, specify <code>PUBLIC_ENDPOINT</code>.</p>
@@ -364,10 +362,8 @@ impl UpdateCustomKeyStoreInputBuilder {
     /// Consumes the builder and constructs a [`UpdateCustomKeyStoreInput`](crate::operation::update_custom_key_store::UpdateCustomKeyStoreInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::update_custom_key_store::UpdateCustomKeyStoreInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::update_custom_key_store::UpdateCustomKeyStoreInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::update_custom_key_store::UpdateCustomKeyStoreInput {
             custom_key_store_id: self.custom_key_store_id,
             new_custom_key_store_name: self.new_custom_key_store_name,

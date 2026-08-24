@@ -15,7 +15,11 @@ pub fn de_delete_delivery_destination_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::delete_delivery_destination::DeleteDeliveryDestinationError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::delete_delivery_destination::DeleteDeliveryDestinationError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -35,26 +39,21 @@ pub fn de_delete_delivery_destination_http_error(
             }
             tmp
         }),
-        "ResourceNotFoundException" => {
-            super::super::operation::delete_delivery_destination::DeleteDeliveryDestinationError::ResourceNotFoundException({
+        "ResourceNotFoundException" => super::super::operation::delete_delivery_destination::DeleteDeliveryDestinationError::ResourceNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::delete_delivery_destination::DeleteDeliveryDestinationError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ServiceQuotaExceededException" => {
             super::super::operation::delete_delivery_destination::DeleteDeliveryDestinationError::ServiceQuotaExceededException({
                 #[allow(unused_mut)]
@@ -81,11 +80,9 @@ pub fn de_delete_delivery_destination_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::delete_delivery_destination::DeleteDeliveryDestinationError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::delete_delivery_destination::DeleteDeliveryDestinationError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };

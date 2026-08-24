@@ -95,12 +95,10 @@ impl GetServiceLastAccessedDetailsInputBuilder {
         super::super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsInput {
-                job_id: self.job_id,
-                max_items: self.max_items,
-                marker: self.marker,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsInput {
+            job_id: self.job_id,
+            max_items: self.max_items,
+            marker: self.marker,
+        })
     }
 }

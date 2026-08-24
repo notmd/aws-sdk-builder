@@ -81,8 +81,7 @@ impl PutIndexPolicyInputBuilder {
     /// Consumes the builder and constructs a [`PutIndexPolicyInput`](crate::operation::put_index_policy::PutIndexPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::put_index_policy::PutIndexPolicyInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::put_index_policy::PutIndexPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_index_policy::PutIndexPolicyInput {
             log_group_identifier: self.log_group_identifier,
             policy_document: self.policy_document,

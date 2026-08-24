@@ -20,8 +20,7 @@ impl ::aws_types::request_id::RequestId for EnableOutboundWebIdentityFederationO
 }
 impl EnableOutboundWebIdentityFederationOutput {
     /// Creates a new builder-style object to manufacture [`EnableOutboundWebIdentityFederationOutput`](crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::enable_outbound_web_identity_federation::builders::EnableOutboundWebIdentityFederationOutputBuilder {
+    pub fn builder() -> super::super::super::operation::enable_outbound_web_identity_federation::builders::EnableOutboundWebIdentityFederationOutputBuilder {
         super::super::super::operation::enable_outbound_web_identity_federation::builders::EnableOutboundWebIdentityFederationOutputBuilder::default()
     }
 }

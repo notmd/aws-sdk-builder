@@ -110,13 +110,11 @@ impl DescribeQueryDefinitionsInputBuilder {
         super::super::super::operation::describe_query_definitions::DescribeQueryDefinitionsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::describe_query_definitions::DescribeQueryDefinitionsInput {
-                query_language: self.query_language,
-                query_definition_name_prefix: self.query_definition_name_prefix,
-                max_results: self.max_results,
-                next_token: self.next_token,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::describe_query_definitions::DescribeQueryDefinitionsInput {
+            query_language: self.query_language,
+            query_definition_name_prefix: self.query_definition_name_prefix,
+            max_results: self.max_results,
+            next_token: self.next_token,
+        })
     }
 }

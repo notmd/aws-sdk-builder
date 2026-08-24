@@ -3,43 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1626/1626` files compared · `654` matched · `452` mismatches · `520` missing · `0` extra · `40.22%` match (100.00% means fully matched)
-
-### `src/client/add_role_to_instance_profile.rs`
-
-```diff
---- reference/src/client/add_role_to_instance_profile.rs
-+++ generated/src/client/add_role_to_instance_profile.rs
-@@ -7,7 +7,9 @@
-     ///   - [`role_name(impl Into<String>)`](crate::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileFluentBuilder::role_name) / [`set_role_name(Option<String>)`](crate::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileFluentBuilder::set_role_name):<br>required: **true**<br><p>The name of the role to add.</p> <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p><br>
-     /// - On success, responds with [`AddRoleToInstanceProfileOutput`](crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileOutput)
-     /// - On failure, responds with [`SdkError<AddRoleToInstanceProfileError>`](crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileError)
--    pub fn add_role_to_instance_profile(&self) -> super::super::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileFluentBuilder {
-+    pub fn add_role_to_instance_profile(
-+        &self,
-+    ) -> super::super::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileFluentBuilder {
-         super::super::operation::add_role_to_instance_profile::builders::AddRoleToInstanceProfileFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/associate_delegation_request.rs`
-
-```diff
---- reference/src/client/associate_delegation_request.rs
-+++ generated/src/client/associate_delegation_request.rs
-@@ -6,7 +6,9 @@
-     ///   - [`delegation_request_id(impl Into<String>)`](crate::operation::associate_delegation_request::builders::AssociateDelegationRequestFluentBuilder::delegation_request_id) / [`set_delegation_request_id(Option<String>)`](crate::operation::associate_delegation_request::builders::AssociateDelegationRequestFluentBuilder::set_delegation_request_id):<br>required: **true**<br><p>The unique identifier of the delegation request to associate.</p><br>
-     /// - On success, responds with [`AssociateDelegationRequestOutput`](crate::operation::associate_delegation_request::AssociateDelegationRequestOutput)
-     /// - On failure, responds with [`SdkError<AssociateDelegationRequestError>`](crate::operation::associate_delegation_request::AssociateDelegationRequestError)
--    pub fn associate_delegation_request(&self) -> super::super::operation::associate_delegation_request::builders::AssociateDelegationRequestFluentBuilder {
-+    pub fn associate_delegation_request(
-+        &self,
-+    ) -> super::super::operation::associate_delegation_request::builders::AssociateDelegationRequestFluentBuilder {
-         super::super::operation::associate_delegation_request::builders::AssociateDelegationRequestFluentBuilder::new(self.handle.clone())
-     }
- }
-```
+**Progress:** `1626/1626` files compared · `876` matched · `230` mismatches · `520` missing · `0` extra · `53.87%` match (100.00% means fully matched)
 
 ### `src/client/delete_service_linked_role.rs`
 
@@ -57,172 +21,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          super::super::operation::delete_service_linked_role::builders::DeleteServiceLinkedRoleFluentBuilder::new(self.handle.clone())
 ```
 
-### `src/client/disable_organizations_root_credentials_management.rs`
-
-```diff
---- reference/src/client/disable_organizations_root_credentials_management.rs
-+++ generated/src/client/disable_organizations_root_credentials_management.rs
-@@ -7,12 +7,7 @@
-     ///   - [`organization_id(Option<String>)`](crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementOutput::organization_id): <p>The unique identifier (ID) of an organization.</p>
-     ///   - [`enabled_features(Option<Vec::<FeatureType>>)`](crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementOutput::enabled_features): <p>The features enabled for centralized root access for member accounts in your organization.</p>
-     /// - On failure, responds with [`SdkError<DisableOrganizationsRootCredentialsManagementError>`](crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError)
--    pub fn disable_organizations_root_credentials_management(
--        &self,
--    ) -> super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementFluentBuilder
--    {
--        super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementFluentBuilder::new(
--            self.handle.clone(),
--        )
-+    pub fn disable_organizations_root_credentials_management(&self) -> super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementFluentBuilder{
-+        super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/disable_organizations_root_sessions.rs`
-
-```diff
---- reference/src/client/disable_organizations_root_sessions.rs
-+++ generated/src/client/disable_organizations_root_sessions.rs
-@@ -10,6 +10,8 @@
-     pub fn disable_organizations_root_sessions(
-         &self,
-     ) -> super::super::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsFluentBuilder {
--        super::super::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsFluentBuilder::new(self.handle.clone())
-+        super::super::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsFluentBuilder::new(
-+            self.handle.clone(),
-+        )
-     }
- }
-```
-
-### `src/client/enable_organizations_root_credentials_management.rs`
-
-```diff
---- reference/src/client/enable_organizations_root_credentials_management.rs
-+++ generated/src/client/enable_organizations_root_credentials_management.rs
-@@ -9,9 +9,8 @@
-     /// - On failure, responds with [`SdkError<EnableOrganizationsRootCredentialsManagementError>`](crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError)
-     pub fn enable_organizations_root_credentials_management(
-         &self,
--    ) -> super::super::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementFluentBuilder {
--        super::super::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementFluentBuilder::new(
--            self.handle.clone(),
--        )
-+    ) -> super::super::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementFluentBuilder
-+    {
-+        super::super::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/generate_organizations_access_report.rs`
-
-```diff
---- reference/src/client/generate_organizations_access_report.rs
-+++ generated/src/client/generate_organizations_access_report.rs
-@@ -11,6 +11,8 @@
-     pub fn generate_organizations_access_report(
-         &self,
-     ) -> super::super::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportFluentBuilder {
--        super::super::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportFluentBuilder::new(self.handle.clone())
-+        super::super::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportFluentBuilder::new(
-+            self.handle.clone(),
-+        )
-     }
- }
-```
-
-### `src/client/generate_service_last_accessed_details.rs`
-
-```diff
---- reference/src/client/generate_service_last_accessed_details.rs
-+++ generated/src/client/generate_service_last_accessed_details.rs
-@@ -11,6 +11,8 @@
-     pub fn generate_service_last_accessed_details(
-         &self,
-     ) -> super::super::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsFluentBuilder {
--        super::super::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsFluentBuilder::new(self.handle.clone())
-+        super::super::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsFluentBuilder::new(
-+            self.handle.clone(),
-+        )
-     }
- }
-```
-
-### `src/client/get_account_password_policy.rs`
-
-```diff
---- reference/src/client/get_account_password_policy.rs
-+++ generated/src/client/get_account_password_policy.rs
-@@ -6,7 +6,9 @@
-     /// - On success, responds with [`GetAccountPasswordPolicyOutput`](crate::operation::get_account_password_policy::GetAccountPasswordPolicyOutput) with field(s):
-     ///   - [`password_policy(Option<PasswordPolicy>)`](crate::operation::get_account_password_policy::GetAccountPasswordPolicyOutput::password_policy): <p>A structure that contains details about the account's password policy.</p>
-     /// - On failure, responds with [`SdkError<GetAccountPasswordPolicyError>`](crate::operation::get_account_password_policy::GetAccountPasswordPolicyError)
--    pub fn get_account_password_policy(&self) -> super::super::operation::get_account_password_policy::builders::GetAccountPasswordPolicyFluentBuilder {
-+    pub fn get_account_password_policy(
-+        &self,
-+    ) -> super::super::operation::get_account_password_policy::builders::GetAccountPasswordPolicyFluentBuilder {
-         super::super::operation::get_account_password_policy::builders::GetAccountPasswordPolicyFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/get_context_keys_for_principal_policy.rs`
-
-```diff
---- reference/src/client/get_context_keys_for_principal_policy.rs
-+++ generated/src/client/get_context_keys_for_principal_policy.rs
-@@ -11,6 +11,8 @@
-     pub fn get_context_keys_for_principal_policy(
-         &self,
-     ) -> super::super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyFluentBuilder {
--        super::super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyFluentBuilder::new(self.handle.clone())
-+        super::super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyFluentBuilder::new(
-+            self.handle.clone(),
-+        )
-     }
- }
-```
-
-### `src/client/get_open_id_connect_provider.rs`
-
-```diff
---- reference/src/client/get_open_id_connect_provider.rs
-+++ generated/src/client/get_open_id_connect_provider.rs
-@@ -11,7 +11,9 @@
-     ///   - [`create_date(Option<DateTime>)`](crate::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput::create_date): <p>The date and time when the IAM OIDC provider resource object was created in the Amazon Web Services account.</p>
-     ///   - [`tags(Option<Vec::<Tag>>)`](crate::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput::tags): <p>A list of tags that are attached to the specified IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-     /// - On failure, responds with [`SdkError<GetOpenIDConnectProviderError>`](crate::operation::get_open_id_connect_provider::GetOpenIDConnectProviderError)
--    pub fn get_open_id_connect_provider(&self) -> super::super::operation::get_open_id_connect_provider::builders::GetOpenIDConnectProviderFluentBuilder {
-+    pub fn get_open_id_connect_provider(
-+        &self,
-+    ) -> super::super::operation::get_open_id_connect_provider::builders::GetOpenIDConnectProviderFluentBuilder {
-         super::super::operation::get_open_id_connect_provider::builders::GetOpenIDConnectProviderFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/get_service_last_accessed_details_with_entities.rs`
-
-```diff
---- reference/src/client/get_service_last_accessed_details_with_entities.rs
-+++ generated/src/client/get_service_last_accessed_details_with_entities.rs
-@@ -18,9 +18,8 @@
-     /// - On failure, responds with [`SdkError<GetServiceLastAccessedDetailsWithEntitiesError>`](crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesError)
-     pub fn get_service_last_accessed_details_with_entities(
-         &self,
--    ) -> super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesFluentBuilder {
--        super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesFluentBuilder::new(
--            self.handle.clone(),
--        )
-+    ) -> super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesFluentBuilder
-+    {
-+        super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
 ### `src/client/get_service_linked_role_deletion_status.rs`
 
 ```diff
@@ -237,140 +35,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// - On success, responds with [`GetServiceLinkedRoleDeletionStatusOutput`](crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusOutput) with field(s):
      ///   - [`status(DeletionTaskStatusType)`](crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusOutput::status): <p>The status of the deletion.</p>
      ///   - [`reason(Option<DeletionTaskFailureReasonType>)`](crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusOutput::reason): <p>An object that contains details about the reason the deletion failed.</p>
-@@ -11,6 +11,8 @@
-     pub fn get_service_linked_role_deletion_status(
-         &self,
-     ) -> super::super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusFluentBuilder {
--        super::super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusFluentBuilder::new(self.handle.clone())
-+        super::super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusFluentBuilder::new(
-+            self.handle.clone(),
-+        )
-     }
- }
-```
-
-### `src/client/list_attached_group_policies.rs`
-
-```diff
---- reference/src/client/list_attached_group_policies.rs
-+++ generated/src/client/list_attached_group_policies.rs
-@@ -13,7 +13,9 @@
-     ///   - [`is_truncated(bool)`](crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesOutput::is_truncated): <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
-     ///   - [`marker(Option<String>)`](crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesOutput::marker): <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-     /// - On failure, responds with [`SdkError<ListAttachedGroupPoliciesError>`](crate::operation::list_attached_group_policies::ListAttachedGroupPoliciesError)
--    pub fn list_attached_group_policies(&self) -> super::super::operation::list_attached_group_policies::builders::ListAttachedGroupPoliciesFluentBuilder {
-+    pub fn list_attached_group_policies(
-+        &self,
-+    ) -> super::super::operation::list_attached_group_policies::builders::ListAttachedGroupPoliciesFluentBuilder {
-         super::super::operation::list_attached_group_policies::builders::ListAttachedGroupPoliciesFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/list_attached_role_policies.rs`
-
-```diff
---- reference/src/client/list_attached_role_policies.rs
-+++ generated/src/client/list_attached_role_policies.rs
-@@ -13,7 +13,9 @@
-     ///   - [`is_truncated(bool)`](crate::operation::list_attached_role_policies::ListAttachedRolePoliciesOutput::is_truncated): <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
-     ///   - [`marker(Option<String>)`](crate::operation::list_attached_role_policies::ListAttachedRolePoliciesOutput::marker): <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-     /// - On failure, responds with [`SdkError<ListAttachedRolePoliciesError>`](crate::operation::list_attached_role_policies::ListAttachedRolePoliciesError)
--    pub fn list_attached_role_policies(&self) -> super::super::operation::list_attached_role_policies::builders::ListAttachedRolePoliciesFluentBuilder {
-+    pub fn list_attached_role_policies(
-+        &self,
-+    ) -> super::super::operation::list_attached_role_policies::builders::ListAttachedRolePoliciesFluentBuilder {
-         super::super::operation::list_attached_role_policies::builders::ListAttachedRolePoliciesFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/list_attached_user_policies.rs`
-
-```diff
---- reference/src/client/list_attached_user_policies.rs
-+++ generated/src/client/list_attached_user_policies.rs
-@@ -13,7 +13,9 @@
-     ///   - [`is_truncated(bool)`](crate::operation::list_attached_user_policies::ListAttachedUserPoliciesOutput::is_truncated): <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
-     ///   - [`marker(Option<String>)`](crate::operation::list_attached_user_policies::ListAttachedUserPoliciesOutput::marker): <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-     /// - On failure, responds with [`SdkError<ListAttachedUserPoliciesError>`](crate::operation::list_attached_user_policies::ListAttachedUserPoliciesError)
--    pub fn list_attached_user_policies(&self) -> super::super::operation::list_attached_user_policies::builders::ListAttachedUserPoliciesFluentBuilder {
-+    pub fn list_attached_user_policies(
-+        &self,
-+    ) -> super::super::operation::list_attached_user_policies::builders::ListAttachedUserPoliciesFluentBuilder {
-         super::super::operation::list_attached_user_policies::builders::ListAttachedUserPoliciesFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/list_organizations_features.rs`
-
-```diff
---- reference/src/client/list_organizations_features.rs
-+++ generated/src/client/list_organizations_features.rs
-@@ -7,7 +7,9 @@
-     ///   - [`organization_id(Option<String>)`](crate::operation::list_organizations_features::ListOrganizationsFeaturesOutput::organization_id): <p>The unique identifier (ID) of an organization.</p>
-     ///   - [`enabled_features(Option<Vec::<FeatureType>>)`](crate::operation::list_organizations_features::ListOrganizationsFeaturesOutput::enabled_features): <p>Specifies the features that are currently available in your organization.</p>
-     /// - On failure, responds with [`SdkError<ListOrganizationsFeaturesError>`](crate::operation::list_organizations_features::ListOrganizationsFeaturesError)
--    pub fn list_organizations_features(&self) -> super::super::operation::list_organizations_features::builders::ListOrganizationsFeaturesFluentBuilder {
-+    pub fn list_organizations_features(
-+        &self,
-+    ) -> super::super::operation::list_organizations_features::builders::ListOrganizationsFeaturesFluentBuilder {
-         super::super::operation::list_organizations_features::builders::ListOrganizationsFeaturesFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/list_policies_granting_service_access.rs`
-
-```diff
---- reference/src/client/list_policies_granting_service_access.rs
-+++ generated/src/client/list_policies_granting_service_access.rs
-@@ -14,6 +14,8 @@
-     pub fn list_policies_granting_service_access(
-         &self,
-     ) -> super::super::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessFluentBuilder {
--        super::super::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessFluentBuilder::new(self.handle.clone())
-+        super::super::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessFluentBuilder::new(
-+            self.handle.clone(),
-+        )
-     }
- }
-```
-
-### `src/client/list_server_certificate_tags.rs`
-
-```diff
---- reference/src/client/list_server_certificate_tags.rs
-+++ generated/src/client/list_server_certificate_tags.rs
-@@ -12,7 +12,9 @@
-     ///   - [`is_truncated(bool)`](crate::operation::list_server_certificate_tags::ListServerCertificateTagsOutput::is_truncated): <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
-     ///   - [`marker(Option<String>)`](crate::operation::list_server_certificate_tags::ListServerCertificateTagsOutput::marker): <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-     /// - On failure, responds with [`SdkError<ListServerCertificateTagsError>`](crate::operation::list_server_certificate_tags::ListServerCertificateTagsError)
--    pub fn list_server_certificate_tags(&self) -> super::super::operation::list_server_certificate_tags::builders::ListServerCertificateTagsFluentBuilder {
-+    pub fn list_server_certificate_tags(
-+        &self,
-+    ) -> super::super::operation::list_server_certificate_tags::builders::ListServerCertificateTagsFluentBuilder {
-         super::super::operation::list_server_certificate_tags::builders::ListServerCertificateTagsFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/client/set_security_token_service_preferences.rs`
-
-```diff
---- reference/src/client/set_security_token_service_preferences.rs
-+++ generated/src/client/set_security_token_service_preferences.rs
-@@ -9,6 +9,8 @@
-     pub fn set_security_token_service_preferences(
-         &self,
-     ) -> super::super::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesFluentBuilder {
--        super::super::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesFluentBuilder::new(self.handle.clone())
-+        super::super::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesFluentBuilder::new(
-+            self.handle.clone(),
-+        )
-     }
- }
 ```
 
 ### `src/client/simulate_custom_policy.rs`
@@ -405,55 +69,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`context_entries(ContextEntry)`](crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::context_entries) / [`set_context_entries(Option<Vec::<ContextEntry>>)`](crate::operation::simulate_principal_policy::builders::SimulatePrincipalPolicyFluentBuilder::set_context_entries):<br>required: **false**<br><p>A list of context keys and corresponding values for the simulation to use. Whenever a context key is evaluated in one of the simulated IAM permissions policies, the corresponding value is supplied.</p><br>
 ```
 
-### `src/client/tag_open_id_connect_provider.rs`
-
-```diff
---- reference/src/client/tag_open_id_connect_provider.rs
-+++ generated/src/client/tag_open_id_connect_provider.rs
-@@ -7,7 +7,9 @@
-     ///   - [`tags(Tag)`](crate::operation::tag_open_id_connect_provider::builders::TagOpenIDConnectProviderFluentBuilder::tags) / [`set_tags(Option<Vec::<Tag>>)`](crate::operation::tag_open_id_connect_provider::builders::TagOpenIDConnectProviderFluentBuilder::set_tags):<br>required: **true**<br><p>The list of tags that you want to attach to the OIDC identity provider in IAM. Each tag consists of a key name and an associated value.</p><br>
-     /// - On success, responds with [`TagOpenIdConnectProviderOutput`](crate::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderOutput)
-     /// - On failure, responds with [`SdkError<TagOpenIDConnectProviderError>`](crate::operation::tag_open_id_connect_provider::TagOpenIDConnectProviderError)
--    pub fn tag_open_id_connect_provider(&self) -> super::super::operation::tag_open_id_connect_provider::builders::TagOpenIDConnectProviderFluentBuilder {
-+    pub fn tag_open_id_connect_provider(
-+        &self,
-+    ) -> super::super::operation::tag_open_id_connect_provider::builders::TagOpenIDConnectProviderFluentBuilder {
-         super::super::operation::tag_open_id_connect_provider::builders::TagOpenIDConnectProviderFluentBuilder::new(self.handle.clone())
-     }
- }
-```
-
-### `src/config/endpoint.rs`
-
-```diff
---- reference/src/config/endpoint.rs
-+++ generated/src/config/endpoint.rs
-@@ -29,7 +29,10 @@
- /// Endpoint resolver trait specific to AWS Identity and Access Management
- pub trait ResolveEndpoint: ::std::marker::Send + ::std::marker::Sync + ::std::fmt::Debug {
-     /// Resolve an endpoint with the given parameters
--    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
-+    fn resolve_endpoint<'a>(
-+        &'a self,
-+        params: &'a super::super::config::endpoint::Params,
-+    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a>;
-
-     /// Convert this service-specific resolver into a `SharedEndpointResolver`
-     ///
-@@ -622,7 +625,10 @@
- }
-
- impl super::super::config::endpoint::ResolveEndpoint for DefaultResolver {
--    fn resolve_endpoint<'a>(&'a self, params: &'a super::super::config::endpoint::Params) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
-+    fn resolve_endpoint<'a>(
-+        &'a self,
-+        params: &'a super::super::config::endpoint::Params,
-+    ) -> ::aws_smithy_runtime_api::client::endpoint::EndpointFuture<'a> {
-         // Check single-entry cache (lock-free read via ArcSwap)
-         let cached = self.endpoint_cache.load();
-         if let Some((cached_params, cached_endpoint)) = cached.as_ref() {
-```
-
 ### `src/operation/accept_delegation_request.rs`
 
 ```diff
@@ -476,83 +91,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/acquire_role/_acquire_role_input.rs`
-
-```diff
---- reference/src/operation/acquire_role/_acquire_role_input.rs
-+++ generated/src/operation/acquire_role/_acquire_role_input.rs
-@@ -9,7 +9,8 @@
-     /// <p>The minor version of the role template to use. If you do not specify a minor version, the service uses the template's default minor version.</p>
-     pub template_minor_version: ::std::option::Option<i32>,
-     /// <p>A map of values to substitute for the parameters that are defined in the role template version. Each key is a parameter name from the template, and each value is a structure that contains the replacement values for that parameter.</p>
--    pub replacement_values: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::ReplacementValueEntry>>,
-+    pub replacement_values:
-+        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::ReplacementValueEntry>>,
- }
- impl AcquireRoleInput {
-     /// <p>The Amazon Resource Name (ARN) of the role template to create the role from.</p>
-@@ -41,7 +42,8 @@
- pub struct AcquireRoleInputBuilder {
-     pub(crate) template_arn: ::std::option::Option<::std::string::String>,
-     pub(crate) template_minor_version: ::std::option::Option<i32>,
--    pub(crate) replacement_values: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::ReplacementValueEntry>>,
-+    pub(crate) replacement_values:
-+        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::ReplacementValueEntry>>,
- }
- impl AcquireRoleInputBuilder {
-     /// <p>The Amazon Resource Name (ARN) of the role template to create the role from.</p>
-@@ -81,7 +83,11 @@
-     /// To override the contents of this collection use [`set_replacement_values`](Self::set_replacement_values).
-     ///
-     /// <p>A map of values to substitute for the parameters that are defined in the role template version. Each key is a parameter name from the template, and each value is a structure that contains the replacement values for that parameter.</p>
--    pub fn replacement_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::ReplacementValueEntry) -> Self {
-+    pub fn replacement_values(
-+        mut self,
-+        k: impl ::std::convert::Into<::std::string::String>,
-+        v: super::super::super::types::ReplacementValueEntry,
-+    ) -> Self {
-         let mut hash_map = self.replacement_values.unwrap_or_default();
-         hash_map.insert(k.into(), v);
-         self.replacement_values = ::std::option::Option::Some(hash_map);
-@@ -102,7 +108,9 @@
-         &self.replacement_values
-     }
-     /// Consumes the builder and constructs a [`AcquireRoleInput`](crate::operation::acquire_role::AcquireRoleInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::acquire_role::AcquireRoleInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::acquire_role::AcquireRoleInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::acquire_role::AcquireRoleInput {
-             template_arn: self.template_arn,
-             template_minor_version: self.template_minor_version,
-```
-
-### `src/operation/acquire_role/builders.rs`
-
-```diff
---- reference/src/operation/acquire_role/builders.rs
-+++ generated/src/operation/acquire_role/builders.rs
-@@ -146,7 +146,11 @@
-     /// To override the contents of this collection use [`set_replacement_values`](Self::set_replacement_values).
-     ///
-     /// <p>A map of values to substitute for the parameters that are defined in the role template version. Each key is a parameter name from the template, and each value is a structure that contains the replacement values for that parameter.</p>
--    pub fn replacement_values(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::ReplacementValueEntry) -> Self {
-+    pub fn replacement_values(
-+        mut self,
-+        k: impl ::std::convert::Into<::std::string::String>,
-+        v: super::super::super::types::ReplacementValueEntry,
-+    ) -> Self {
-         self.inner = self.inner.replacement_values(k.into(), v);
-         self
-     }
-```
-
 ### `src/operation/acquire_role.rs`
 
 ```diff
 --- reference/src/operation/acquire_role.rs
 +++ generated/src/operation/acquire_role.rs
-@@ -247,13 +247,11 @@
+@@ -247,13 +247,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -564,8 +108,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_acquire_role_input::ser_acquire_role_input_input_input(
 -            &input,
 -        )?);
-+        let body =
-+            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_acquire_role_input::ser_acquire_role_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_acquire_role_input::ser_acquire_role_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -629,20 +172,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
          Self {
              handle,
-@@ -57,8 +57,10 @@
+@@ -57,7 +57,7 @@
              config_override: ::std::option::Option::None,
          }
      }
 -    /// Access the AddClientIDToOpenIDConnectProvider as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderInputBuilder {
 +    /// Access the AddClientIdToOpenIdConnectProvider as a reference.
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderInputBuilder {
+     pub fn as_input(&self) -> &super::super::super::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderInputBuilder {
          &self.inner
      }
-     /// Sends the request and returns the response.
-@@ -74,7 +76,7 @@
+@@ -74,7 +74,7 @@
      ) -> ::std::result::Result<
          super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
@@ -651,7 +190,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
-@@ -83,12 +85,16 @@
+@@ -83,12 +83,12 @@
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
          let runtime_plugins =
@@ -662,15 +201,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  self.config_override,
              );
 -        super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProvider::orchestrate(&runtime_plugins, input).await
-+        super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProvider::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
++        super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProvider::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-@@ -96,7 +102,7 @@
+@@ -96,7 +96,7 @@
          self,
      ) -> super::super::super::client::customize::CustomizableOperation<
          super::super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
@@ -752,7 +287,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -265,11 +265,10 @@
+@@ -265,11 +265,14 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -762,11 +297,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_add_client_id_to_open_id_connect_provider_input::ser_add_client_id_to_open_id_connect_provider_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_add_client_id_to_open_id_connect_provider_input::ser_add_client_id_to_open_id_connect_provider_op_input(& input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(
++            super::super::protocol_serde::shape_add_client_id_to_open_id_connect_provider_input::ser_add_client_id_to_open_id_connect_provider_op_input(
++                &input,
++            )?,
++        );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -278,12 +277,12 @@
+@@ -278,12 +281,12 @@
      }
  }
  #[derive(Debug)]
@@ -782,40 +321,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -456,7 +455,9 @@
-         })
-     }
- }
--impl ::aws_types::request_id::RequestId for super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError {
-+impl ::aws_types::request_id::RequestId
-+    for super::super::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError
-+{
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-     }
-```
-
-### `src/operation/add_role_to_instance_profile/_add_role_to_instance_profile_input.rs`
-
-```diff
---- reference/src/operation/add_role_to_instance_profile/_add_role_to_instance_profile_input.rs
-+++ generated/src/operation/add_role_to_instance_profile/_add_role_to_instance_profile_input.rs
-@@ -80,9 +80,11 @@
-         super::super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileInput {
--            instance_profile_name: self.instance_profile_name,
--            role_name: self.role_name,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::add_role_to_instance_profile::AddRoleToInstanceProfileInput {
-+                instance_profile_name: self.instance_profile_name,
-+                role_name: self.role_name,
-+            },
-+        )
-     }
- }
 ```
 
 ### `src/operation/add_role_to_instance_profile.rs`
@@ -845,7 +350,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/add_user_to_group.rs
 +++ generated/src/operation/add_user_to_group.rs
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -854,33 +359,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_add_user_to_group_input::ser_add_user_to_group_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_add_user_to_group_input::ser_add_user_to_group_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_add_user_to_group_input::ser_add_user_to_group_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/associate_delegation_request/_associate_delegation_request_input.rs`
-
-```diff
---- reference/src/operation/associate_delegation_request/_associate_delegation_request_input.rs
-+++ generated/src/operation/associate_delegation_request/_associate_delegation_request_input.rs
-@@ -48,8 +48,10 @@
-         super::super::super::operation::associate_delegation_request::AssociateDelegationRequestInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::associate_delegation_request::AssociateDelegationRequestInput {
--            delegation_request_id: self.delegation_request_id,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::associate_delegation_request::AssociateDelegationRequestInput {
-+                delegation_request_id: self.delegation_request_id,
-+            },
-+        )
-     }
- }
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/associate_delegation_request.rs`
@@ -905,31 +392,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/attach_group_policy/_attach_group_policy_input.rs`
-
-```diff
---- reference/src/operation/attach_group_policy/_attach_group_policy_input.rs
-+++ generated/src/operation/attach_group_policy/_attach_group_policy_input.rs
-@@ -76,7 +76,10 @@
-     /// Consumes the builder and constructs a [`AttachGroupPolicyInput`](crate::operation::attach_group_policy::AttachGroupPolicyInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::attach_group_policy::AttachGroupPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::attach_group_policy::AttachGroupPolicyInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::attach_group_policy::AttachGroupPolicyInput {
-             group_name: self.group_name,
-             policy_arn: self.policy_arn,
-```
-
 ### `src/operation/attach_group_policy.rs`
 
 ```diff
 --- reference/src/operation/attach_group_policy.rs
 +++ generated/src/operation/attach_group_policy.rs
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -938,31 +406,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_attach_group_policy_input::ser_attach_group_policy_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_attach_group_policy_input::ser_attach_group_policy_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_attach_group_policy_input::ser_attach_group_policy_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/attach_role_policy/_attach_role_policy_input.rs`
-
-```diff
---- reference/src/operation/attach_role_policy/_attach_role_policy_input.rs
-+++ generated/src/operation/attach_role_policy/_attach_role_policy_input.rs
-@@ -76,7 +76,10 @@
-     /// Consumes the builder and constructs a [`AttachRolePolicyInput`](crate::operation::attach_role_policy::AttachRolePolicyInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::attach_role_policy::AttachRolePolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::attach_role_policy::AttachRolePolicyInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::attach_role_policy::AttachRolePolicyInput {
-             role_name: self.role_name,
-             policy_arn: self.policy_arn,
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/attach_role_policy.rs`
@@ -970,7 +422,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/attach_role_policy.rs
 +++ generated/src/operation/attach_role_policy.rs
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -979,31 +431,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_attach_role_policy_input::ser_attach_role_policy_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_attach_role_policy_input::ser_attach_role_policy_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_attach_role_policy_input::ser_attach_role_policy_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/attach_user_policy/_attach_user_policy_input.rs`
-
-```diff
---- reference/src/operation/attach_user_policy/_attach_user_policy_input.rs
-+++ generated/src/operation/attach_user_policy/_attach_user_policy_input.rs
-@@ -76,7 +76,10 @@
-     /// Consumes the builder and constructs a [`AttachUserPolicyInput`](crate::operation::attach_user_policy::AttachUserPolicyInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::attach_user_policy::AttachUserPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::attach_user_policy::AttachUserPolicyInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::attach_user_policy::AttachUserPolicyInput {
-             user_name: self.user_name,
-             policy_arn: self.policy_arn,
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/attach_user_policy.rs`
@@ -1011,7 +447,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/attach_user_policy.rs
 +++ generated/src/operation/attach_user_policy.rs
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1020,12 +456,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_attach_user_policy_input::ser_attach_user_policy_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_attach_user_policy_input::ser_attach_user_policy_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_attach_user_policy_input::ser_attach_user_policy_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/change_password.rs`
@@ -1033,7 +472,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/change_password.rs
 +++ generated/src/operation/change_password.rs
-@@ -201,13 +201,12 @@
+@@ -201,13 +201,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1045,31 +484,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_change_password_input::ser_change_password_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_change_password_input::ser_change_password_op_input(
-+            &input,
-+        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_change_password_input::ser_change_password_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/create_access_key/_create_access_key_input.rs`
-
-```diff
---- reference/src/operation/create_access_key/_create_access_key_input.rs
-+++ generated/src/operation/create_access_key/_create_access_key_input.rs
-@@ -48,7 +48,10 @@
-     /// Consumes the builder and constructs a [`CreateAccessKeyInput`](crate::operation::create_access_key::CreateAccessKeyInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::create_access_key::CreateAccessKeyInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::create_access_key::CreateAccessKeyInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::create_access_key::CreateAccessKeyInput { user_name: self.user_name })
-     }
- }
 ```
 
 ### `src/operation/create_access_key.rs`
@@ -1077,7 +495,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_access_key.rs
 +++ generated/src/operation/create_access_key.rs
-@@ -248,12 +248,11 @@
+@@ -248,13 +248,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1086,32 +504,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_create_access_key_input::ser_create_access_key_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_create_access_key_input::ser_create_access_key_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_access_key_input::ser_create_access_key_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/create_account_alias/_create_account_alias_input.rs`
-
-```diff
---- reference/src/operation/create_account_alias/_create_account_alias_input.rs
-+++ generated/src/operation/create_account_alias/_create_account_alias_input.rs
-@@ -49,8 +49,10 @@
-     /// Consumes the builder and constructs a [`CreateAccountAliasInput`](crate::operation::create_account_alias::CreateAccountAliasInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::create_account_alias::CreateAccountAliasInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::create_account_alias::CreateAccountAliasInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::create_account_alias::CreateAccountAliasInput {
-             account_alias: self.account_alias,
-         })
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/create_account_alias.rs`
@@ -1174,30 +575,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/create_group/_create_group_input.rs`
-
-```diff
---- reference/src/operation/create_group/_create_group_input.rs
-+++ generated/src/operation/create_group/_create_group_input.rs
-@@ -78,7 +78,9 @@
-         &self.group_name
-     }
-     /// Consumes the builder and constructs a [`CreateGroupInput`](crate::operation::create_group::CreateGroupInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::create_group::CreateGroupInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::create_group::CreateGroupInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::create_group::CreateGroupInput {
-             path: self.path,
-             group_name: self.group_name,
-```
-
 ### `src/operation/create_group.rs`
 
 ```diff
 --- reference/src/operation/create_group.rs
 +++ generated/src/operation/create_group.rs
-@@ -252,13 +252,11 @@
+@@ -252,13 +252,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1209,31 +592,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_group_input::ser_create_group_input_input_input(
 -            &input,
 -        )?);
-+        let body =
-+            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_group_input::ser_create_group_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_group_input::ser_create_group_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/create_instance_profile/_create_instance_profile_input.rs`
-
-```diff
---- reference/src/operation/create_instance_profile/_create_instance_profile_input.rs
-+++ generated/src/operation/create_instance_profile/_create_instance_profile_input.rs
-@@ -119,8 +119,10 @@
-     /// Consumes the builder and constructs a [`CreateInstanceProfileInput`](crate::operation::create_instance_profile::CreateInstanceProfileInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::create_instance_profile::CreateInstanceProfileInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::create_instance_profile::CreateInstanceProfileInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::create_instance_profile::CreateInstanceProfileInput {
-             instance_profile_name: self.instance_profile_name,
-             path: self.path,
 ```
 
 ### `src/operation/create_instance_profile.rs`
@@ -1263,16 +625,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_login_profile/_create_login_profile_input.rs
 +++ generated/src/operation/create_login_profile/_create_login_profile_input.rs
-@@ -114,12 +114,14 @@
-     /// Consumes the builder and constructs a [`CreateLoginProfileInput`](crate::operation::create_login_profile::CreateLoginProfileInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::create_login_profile::CreateLoginProfileInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::create_login_profile::CreateLoginProfileInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
+@@ -119,7 +119,7 @@
          ::std::result::Result::Ok(super::super::super::operation::create_login_profile::CreateLoginProfileInput {
              user_name: self.user_name,
              password: self.password,
@@ -1303,33 +656,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/create_open_id_connect_provider/_create_open_id_connect_provider_input.rs`
-
-```diff
---- reference/src/operation/create_open_id_connect_provider/_create_open_id_connect_provider_input.rs
-+++ generated/src/operation/create_open_id_connect_provider/_create_open_id_connect_provider_input.rs
-@@ -190,11 +190,13 @@
-         super::super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderInput {
--            url: self.url,
--            client_id_list: self.client_id_list,
--            thumbprint_list: self.thumbprint_list,
--            tags: self.tags,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::create_open_id_connect_provider::CreateOpenIdConnectProviderInput {
-+                url: self.url,
-+                client_id_list: self.client_id_list,
-+                thumbprint_list: self.thumbprint_list,
-+                tags: self.tags,
-+            },
-+        )
-     }
- }
 ```
 
 ### `src/operation/create_open_id_connect_provider/builders.rs`
@@ -1508,18 +834,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -209,7 +209,9 @@
-         let parse_result = if !success && status != 200 || force_error {
-             super::super::protocol_serde::shape_create_open_id_connect_provider::de_create_open_id_connect_provider_http_error(status, headers, body)
-         } else {
--            super::super::protocol_serde::shape_create_open_id_connect_provider::de_create_open_id_connect_provider_http_response(status, headers, body)
-+            super::super::protocol_serde::shape_create_open_id_connect_provider::de_create_open_id_connect_provider_http_response(
-+                status, headers, body,
-+            )
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -250,12 +252,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1534,7 +849,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -265,12 +266,12 @@
+@@ -265,12 +264,12 @@
      }
  }
  #[derive(Debug)]
@@ -1557,7 +872,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_policy.rs
 +++ generated/src/operation/create_policy.rs
-@@ -262,11 +262,10 @@
+@@ -262,13 +262,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1567,10 +882,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_policy_input::ser_create_policy_input_input_input(
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_policy_input::ser_create_policy_op_input(
-             &input,
-         )?);
+-            &input,
+-        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_create_policy_input::ser_create_policy_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/create_policy_version/_create_policy_version_input.rs`
@@ -1578,16 +895,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/create_policy_version/_create_policy_version_input.rs
 +++ generated/src/operation/create_policy_version/_create_policy_version_input.rs
-@@ -157,12 +157,14 @@
-     /// Consumes the builder and constructs a [`CreatePolicyVersionInput`](crate::operation::create_policy_version::CreatePolicyVersionInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::create_policy_version::CreatePolicyVersionInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::create_policy_version::CreatePolicyVersionInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
+@@ -162,7 +162,7 @@
          ::std::result::Result::Ok(super::super::super::operation::create_policy_version::CreatePolicyVersionInput {
              policy_arn: self.policy_arn,
              policy_document: self.policy_document,
@@ -1620,41 +928,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/create_role/_create_role_input.rs`
-
-```diff
---- reference/src/operation/create_role/_create_role_input.rs
-+++ generated/src/operation/create_role/_create_role_input.rs
-@@ -277,7 +277,9 @@
-         &self.tags
-     }
-     /// Consumes the builder and constructs a [`CreateRoleInput`](crate::operation::create_role::CreateRoleInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::create_role::CreateRoleInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::create_role::CreateRoleInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::create_role::CreateRoleInput {
-             path: self.path,
-             role_name: self.role_name,
-```
-
 ### `src/operation/create_role.rs`
 
 ```diff
 --- reference/src/operation/create_role.rs
 +++ generated/src/operation/create_role.rs
-@@ -240,7 +240,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::create_role::CreateRoleInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::create_role::CreateRoleInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -265,12 +267,10 @@
+@@ -265,12 +265,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1669,26 +948,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/create_saml_provider/_create_saml_provider_input.rs`
-
-```diff
---- reference/src/operation/create_saml_provider/_create_saml_provider_input.rs
-+++ generated/src/operation/create_saml_provider/_create_saml_provider_input.rs
-@@ -168,8 +168,10 @@
-     /// Consumes the builder and constructs a [`CreateSamlProviderInput`](crate::operation::create_saml_provider::CreateSamlProviderInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::create_saml_provider::CreateSamlProviderInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::create_saml_provider::CreateSamlProviderInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::create_saml_provider::CreateSamlProviderInput {
-             saml_metadata_document: self.saml_metadata_document,
-             name: self.name,
 ```
 
 ### `src/operation/create_saml_provider/builders.rs`
@@ -1922,62 +1181,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/create_service_specific_credential/builders.rs`
-
-```diff
---- reference/src/operation/create_service_specific_credential/builders.rs
-+++ generated/src/operation/create_service_specific_credential/builders.rs
-@@ -68,7 +68,9 @@
-         }
-     }
-     /// Access the CreateServiceSpecificCredential as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::create_service_specific_credential::builders::CreateServiceSpecificCredentialInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::create_service_specific_credential::builders::CreateServiceSpecificCredentialInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -92,12 +94,14 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::create_service_specific_credential::CreateServiceSpecificCredential::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::create_service_specific_credential::CreateServiceSpecificCredential::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::create_service_specific_credential::CreateServiceSpecificCredential::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::create_service_specific_credential::CreateServiceSpecificCredential::orchestrate(&runtime_plugins, input)
-+            .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
 ### `src/operation/create_service_specific_credential.rs`
 
 ```diff
 --- reference/src/operation/create_service_specific_credential.rs
 +++ generated/src/operation/create_service_specific_credential.rs
-@@ -219,7 +219,9 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_create_service_specific_credential::de_create_service_specific_credential_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_create_service_specific_credential::de_create_service_specific_credential_http_error(
-+                status, headers, body,
-+            )
-         } else {
-             super::super::protocol_serde::shape_create_service_specific_credential::de_create_service_specific_credential_http_response(
-                 status, headers, body,
-@@ -264,12 +266,11 @@
+@@ -264,12 +264,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -1994,41 +1203,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/create_user/_create_user_input.rs`
-
-```diff
---- reference/src/operation/create_user/_create_user_input.rs
-+++ generated/src/operation/create_user/_create_user_input.rs
-@@ -148,7 +148,9 @@
-         &self.tags
-     }
-     /// Consumes the builder and constructs a [`CreateUserInput`](crate::operation::create_user::CreateUserInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::create_user::CreateUserInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::create_user::CreateUserInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::create_user::CreateUserInput {
-             path: self.path,
-             user_name: self.user_name,
-```
-
 ### `src/operation/create_user.rs`
 
 ```diff
 --- reference/src/operation/create_user.rs
 +++ generated/src/operation/create_user.rs
-@@ -230,7 +230,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::create_user::CreateUserInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::create_user::CreateUserInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -255,12 +257,10 @@
+@@ -255,12 +255,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2254,26 +1434,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/deactivate_mfa_device/_deactivate_mfa_device_input.rs`
-
-```diff
---- reference/src/operation/deactivate_mfa_device/_deactivate_mfa_device_input.rs
-+++ generated/src/operation/deactivate_mfa_device/_deactivate_mfa_device_input.rs
-@@ -80,8 +80,10 @@
-     /// Consumes the builder and constructs a [`DeactivateMfaDeviceInput`](crate::operation::deactivate_mfa_device::DeactivateMfaDeviceInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::deactivate_mfa_device::DeactivateMfaDeviceInput {
-             user_name: self.user_name,
-             serial_number: self.serial_number,
-```
-
 ### `src/operation/deactivate_mfa_device/builders.rs`
 
 ```diff
@@ -2480,31 +1640,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/delete_access_key/_delete_access_key_input.rs`
-
-```diff
---- reference/src/operation/delete_access_key/_delete_access_key_input.rs
-+++ generated/src/operation/delete_access_key/_delete_access_key_input.rs
-@@ -75,7 +75,10 @@
-     /// Consumes the builder and constructs a [`DeleteAccessKeyInput`](crate::operation::delete_access_key::DeleteAccessKeyInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::delete_access_key::DeleteAccessKeyInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::delete_access_key::DeleteAccessKeyInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::delete_access_key::DeleteAccessKeyInput {
-             user_name: self.user_name,
-             access_key_id: self.access_key_id,
-```
-
 ### `src/operation/delete_access_key.rs`
 
 ```diff
 --- reference/src/operation/delete_access_key.rs
 +++ generated/src/operation/delete_access_key.rs
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2513,32 +1654,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_delete_access_key_input::ser_delete_access_key_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_delete_access_key_input::ser_delete_access_key_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_access_key_input::ser_delete_access_key_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/delete_account_alias/_delete_account_alias_input.rs`
-
-```diff
---- reference/src/operation/delete_account_alias/_delete_account_alias_input.rs
-+++ generated/src/operation/delete_account_alias/_delete_account_alias_input.rs
-@@ -49,8 +49,10 @@
-     /// Consumes the builder and constructs a [`DeleteAccountAliasInput`](crate::operation::delete_account_alias::DeleteAccountAliasInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::delete_account_alias::DeleteAccountAliasInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::delete_account_alias::DeleteAccountAliasInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::delete_account_alias::DeleteAccountAliasInput {
-             account_alias: self.account_alias,
-         })
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/delete_account_alias.rs`
@@ -2585,30 +1709,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/operation/delete_group/_delete_group_input.rs`
-
-```diff
---- reference/src/operation/delete_group/_delete_group_input.rs
-+++ generated/src/operation/delete_group/_delete_group_input.rs
-@@ -47,7 +47,9 @@
-         &self.group_name
-     }
-     /// Consumes the builder and constructs a [`DeleteGroupInput`](crate::operation::delete_group::DeleteGroupInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::delete_group::DeleteGroupInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::delete_group::DeleteGroupInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::delete_group::DeleteGroupInput { group_name: self.group_name })
-     }
- }
-```
-
 ### `src/operation/delete_group.rs`
 
 ```diff
 --- reference/src/operation/delete_group.rs
 +++ generated/src/operation/delete_group.rs
-@@ -247,13 +247,11 @@
+@@ -247,13 +247,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2620,30 +1726,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_group_input::ser_delete_group_input_input_input(
 -            &input,
 -        )?);
-+        let body =
-+            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_group_input::ser_delete_group_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_group_input::ser_delete_group_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/delete_group_policy/_delete_group_policy_input.rs`
-
-```diff
---- reference/src/operation/delete_group_policy/_delete_group_policy_input.rs
-+++ generated/src/operation/delete_group_policy/_delete_group_policy_input.rs
-@@ -76,7 +76,10 @@
-     /// Consumes the builder and constructs a [`DeleteGroupPolicyInput`](crate::operation::delete_group_policy::DeleteGroupPolicyInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::delete_group_policy::DeleteGroupPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::delete_group_policy::DeleteGroupPolicyInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::delete_group_policy::DeleteGroupPolicyInput {
-             group_name: self.group_name,
-             policy_name: self.policy_name,
 ```
 
 ### `src/operation/delete_group_policy.rs`
@@ -2651,7 +1737,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_group_policy.rs
 +++ generated/src/operation/delete_group_policy.rs
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2660,32 +1746,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_delete_group_policy_input::ser_delete_group_policy_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_delete_group_policy_input::ser_delete_group_policy_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_group_policy_input::ser_delete_group_policy_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/delete_instance_profile/_delete_instance_profile_input.rs`
-
-```diff
---- reference/src/operation/delete_instance_profile/_delete_instance_profile_input.rs
-+++ generated/src/operation/delete_instance_profile/_delete_instance_profile_input.rs
-@@ -49,8 +49,10 @@
-     /// Consumes the builder and constructs a [`DeleteInstanceProfileInput`](crate::operation::delete_instance_profile::DeleteInstanceProfileInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::delete_instance_profile::DeleteInstanceProfileInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::delete_instance_profile::DeleteInstanceProfileInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::delete_instance_profile::DeleteInstanceProfileInput {
-             instance_profile_name: self.instance_profile_name,
-         })
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/delete_instance_profile.rs`
@@ -2710,26 +1779,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/delete_login_profile/_delete_login_profile_input.rs`
-
-```diff
---- reference/src/operation/delete_login_profile/_delete_login_profile_input.rs
-+++ generated/src/operation/delete_login_profile/_delete_login_profile_input.rs
-@@ -53,8 +53,10 @@
-     /// Consumes the builder and constructs a [`DeleteLoginProfileInput`](crate::operation::delete_login_profile::DeleteLoginProfileInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::delete_login_profile::DeleteLoginProfileInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::delete_login_profile::DeleteLoginProfileInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::delete_login_profile::DeleteLoginProfileInput { user_name: self.user_name })
-     }
- }
-```
-
 ### `src/operation/delete_login_profile.rs`
 
 ```diff
@@ -2750,27 +1799,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/delete_open_id_connect_provider/_delete_open_id_connect_provider_input.rs`
-
-```diff
---- reference/src/operation/delete_open_id_connect_provider/_delete_open_id_connect_provider_input.rs
-+++ generated/src/operation/delete_open_id_connect_provider/_delete_open_id_connect_provider_input.rs
-@@ -48,8 +48,10 @@
-         super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderInput {
--            open_id_connect_provider_arn: self.open_id_connect_provider_arn,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderInput {
-+                open_id_connect_provider_arn: self.open_id_connect_provider_arn,
-+            },
-+        )
-     }
- }
 ```
 
 ### `src/operation/delete_open_id_connect_provider/builders.rs`
@@ -2947,18 +1975,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -209,7 +209,9 @@
-         let parse_result = if !success && status != 200 || force_error {
-             super::super::protocol_serde::shape_delete_open_id_connect_provider::de_delete_open_id_connect_provider_http_error(status, headers, body)
-         } else {
--            super::super::protocol_serde::shape_delete_open_id_connect_provider::de_delete_open_id_connect_provider_http_response(status, headers, body)
-+            super::super::protocol_serde::shape_delete_open_id_connect_provider::de_delete_open_id_connect_provider_http_response(
-+                status, headers, body,
-+            )
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -250,12 +252,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -2973,7 +1990,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -265,12 +266,12 @@
+@@ -265,12 +264,12 @@
      }
  }
  #[derive(Debug)]
@@ -2996,7 +2013,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/delete_policy.rs
 +++ generated/src/operation/delete_policy.rs
-@@ -247,11 +247,10 @@
+@@ -247,13 +247,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3006,30 +2023,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_policy_input::ser_delete_policy_input_input_input(
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_policy_input::ser_delete_policy_op_input(
-             &input,
-         )?);
+-            &input,
+-        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_policy_input::ser_delete_policy_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
-```
-
-### `src/operation/delete_policy_version/_delete_policy_version_input.rs`
-
-```diff
---- reference/src/operation/delete_policy_version/_delete_policy_version_input.rs
-+++ generated/src/operation/delete_policy_version/_delete_policy_version_input.rs
-@@ -81,8 +81,10 @@
-     /// Consumes the builder and constructs a [`DeletePolicyVersionInput`](crate::operation::delete_policy_version::DeletePolicyVersionInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::delete_policy_version::DeletePolicyVersionInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::delete_policy_version::DeletePolicyVersionInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::delete_policy_version::DeletePolicyVersionInput {
-             policy_arn: self.policy_arn,
-             version_id: self.version_id,
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/delete_policy_version.rs`
@@ -3054,41 +2053,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/delete_role/_delete_role_input.rs`
-
-```diff
---- reference/src/operation/delete_role/_delete_role_input.rs
-+++ generated/src/operation/delete_role/_delete_role_input.rs
-@@ -47,7 +47,9 @@
-         &self.role_name
-     }
-     /// Consumes the builder and constructs a [`DeleteRoleInput`](crate::operation::delete_role::DeleteRoleInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::delete_role::DeleteRoleInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::delete_role::DeleteRoleInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::delete_role::DeleteRoleInput { role_name: self.role_name })
-     }
- }
-```
-
 ### `src/operation/delete_role.rs`
 
 ```diff
 --- reference/src/operation/delete_role.rs
 +++ generated/src/operation/delete_role.rs
-@@ -220,7 +220,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::delete_role::DeleteRoleInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::delete_role::DeleteRoleInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -245,12 +247,10 @@
+@@ -245,12 +245,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3105,47 +2075,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
-### `src/operation/delete_role_permissions_boundary/_delete_role_permissions_boundary_input.rs`
-
-```diff
---- reference/src/operation/delete_role_permissions_boundary/_delete_role_permissions_boundary_input.rs
-+++ generated/src/operation/delete_role_permissions_boundary/_delete_role_permissions_boundary_input.rs
-@@ -48,8 +48,8 @@
-         super::super::super::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryInput {
--            role_name: self.role_name,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryInput { role_name: self.role_name },
-+        )
-     }
- }
-```
-
 ### `src/operation/delete_role_permissions_boundary.rs`
 
 ```diff
 --- reference/src/operation/delete_role_permissions_boundary.rs
 +++ generated/src/operation/delete_role_permissions_boundary.rs
-@@ -207,9 +207,13 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_delete_role_permissions_boundary::de_delete_role_permissions_boundary_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_delete_role_permissions_boundary::de_delete_role_permissions_boundary_http_error(
-+                status, headers, body,
-+            )
-         } else {
--            super::super::protocol_serde::shape_delete_role_permissions_boundary::de_delete_role_permissions_boundary_http_response(status, headers, body)
-+            super::super::protocol_serde::shape_delete_role_permissions_boundary::de_delete_role_permissions_boundary_http_response(
-+                status, headers, body,
-+            )
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -250,12 +254,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3162,31 +2097,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/delete_role_policy/_delete_role_policy_input.rs`
-
-```diff
---- reference/src/operation/delete_role_policy/_delete_role_policy_input.rs
-+++ generated/src/operation/delete_role_policy/_delete_role_policy_input.rs
-@@ -76,7 +76,10 @@
-     /// Consumes the builder and constructs a [`DeleteRolePolicyInput`](crate::operation::delete_role_policy::DeleteRolePolicyInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::delete_role_policy::DeleteRolePolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::delete_role_policy::DeleteRolePolicyInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::delete_role_policy::DeleteRolePolicyInput {
-             role_name: self.role_name,
-             policy_name: self.policy_name,
-```
-
 ### `src/operation/delete_role_policy.rs`
 
 ```diff
 --- reference/src/operation/delete_role_policy.rs
 +++ generated/src/operation/delete_role_policy.rs
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3195,32 +2111,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_delete_role_policy_input::ser_delete_role_policy_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_delete_role_policy_input::ser_delete_role_policy_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_role_policy_input::ser_delete_role_policy_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/delete_saml_provider/_delete_saml_provider_input.rs`
-
-```diff
---- reference/src/operation/delete_saml_provider/_delete_saml_provider_input.rs
-+++ generated/src/operation/delete_saml_provider/_delete_saml_provider_input.rs
-@@ -44,8 +44,10 @@
-     /// Consumes the builder and constructs a [`DeleteSamlProviderInput`](crate::operation::delete_saml_provider::DeleteSamlProviderInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::delete_saml_provider::DeleteSamlProviderInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::delete_saml_provider::DeleteSamlProviderInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::delete_saml_provider::DeleteSamlProviderInput {
-             saml_provider_arn: self.saml_provider_arn,
-         })
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/delete_saml_provider/builders.rs`
@@ -3454,56 +2353,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/delete_service_linked_role/_delete_service_linked_role_input.rs`
-
-```diff
---- reference/src/operation/delete_service_linked_role/_delete_service_linked_role_input.rs
-+++ generated/src/operation/delete_service_linked_role/_delete_service_linked_role_input.rs
-@@ -48,6 +48,8 @@
-         super::super::super::operation::delete_service_linked_role::DeleteServiceLinkedRoleInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::delete_service_linked_role::DeleteServiceLinkedRoleInput { role_name: self.role_name })
-+        ::std::result::Result::Ok(super::super::super::operation::delete_service_linked_role::DeleteServiceLinkedRoleInput {
-+            role_name: self.role_name,
-+        })
-     }
- }
-```
-
-### `src/operation/delete_service_linked_role/_delete_service_linked_role_output.rs`
-
-```diff
---- reference/src/operation/delete_service_linked_role/_delete_service_linked_role_output.rs
-+++ generated/src/operation/delete_service_linked_role/_delete_service_linked_role_output.rs
-@@ -97,14 +97,16 @@
-         super::super::super::operation::delete_service_linked_role::DeleteServiceLinkedRoleOutput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::delete_service_linked_role::DeleteServiceLinkedRoleOutput {
--            deletion_task_id: self.deletion_task_id.ok_or_else(|| {
--                ::aws_smithy_types::error::operation::BuildError::missing_field(
--                    "deletion_task_id",
--                    "deletion_task_id was not specified but it is required when building DeleteServiceLinkedRoleOutput",
--                )
--            })?,
--            _request_id: self._request_id,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::delete_service_linked_role::DeleteServiceLinkedRoleOutput {
-+                deletion_task_id: self.deletion_task_id.ok_or_else(|| {
-+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                        "deletion_task_id",
-+                        "deletion_task_id was not specified but it is required when building DeleteServiceLinkedRoleOutput",
-+                    )
-+                })?,
-+                _request_id: self._request_id,
-+            },
-+        )
-     }
- }
-```
-
 ### `src/operation/delete_service_linked_role.rs`
 
 ```diff
@@ -3526,62 +2375,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/delete_service_specific_credential/builders.rs`
-
-```diff
---- reference/src/operation/delete_service_specific_credential/builders.rs
-+++ generated/src/operation/delete_service_specific_credential/builders.rs
-@@ -57,7 +57,9 @@
-         }
-     }
-     /// Access the DeleteServiceSpecificCredential as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::delete_service_specific_credential::builders::DeleteServiceSpecificCredentialInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::delete_service_specific_credential::builders::DeleteServiceSpecificCredentialInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -81,12 +83,14 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::delete_service_specific_credential::DeleteServiceSpecificCredential::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::delete_service_specific_credential::DeleteServiceSpecificCredential::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::delete_service_specific_credential::DeleteServiceSpecificCredential::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::delete_service_specific_credential::DeleteServiceSpecificCredential::orchestrate(&runtime_plugins, input)
-+            .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
 ### `src/operation/delete_service_specific_credential.rs`
 
 ```diff
 --- reference/src/operation/delete_service_specific_credential.rs
 +++ generated/src/operation/delete_service_specific_credential.rs
-@@ -218,7 +218,9 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_delete_service_specific_credential::de_delete_service_specific_credential_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_delete_service_specific_credential::de_delete_service_specific_credential_http_error(
-+                status, headers, body,
-+            )
-         } else {
-             super::super::protocol_serde::shape_delete_service_specific_credential::de_delete_service_specific_credential_http_response(
-                 status, headers, body,
-@@ -263,12 +265,11 @@
+@@ -263,12 +263,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3596,29 +2395,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/delete_signing_certificate/_delete_signing_certificate_input.rs`
-
-```diff
---- reference/src/operation/delete_signing_certificate/_delete_signing_certificate_input.rs
-+++ generated/src/operation/delete_signing_certificate/_delete_signing_certificate_input.rs
-@@ -79,9 +79,11 @@
-         super::super::super::operation::delete_signing_certificate::DeleteSigningCertificateInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::delete_signing_certificate::DeleteSigningCertificateInput {
--            user_name: self.user_name,
--            certificate_id: self.certificate_id,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::delete_signing_certificate::DeleteSigningCertificateInput {
-+                user_name: self.user_name,
-+                certificate_id: self.certificate_id,
-+            },
-+        )
-     }
- }
 ```
 
 ### `src/operation/delete_signing_certificate.rs`
@@ -3641,26 +2417,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/delete_ssh_public_key/_delete_ssh_public_key_input.rs`
-
-```diff
---- reference/src/operation/delete_ssh_public_key/_delete_ssh_public_key_input.rs
-+++ generated/src/operation/delete_ssh_public_key/_delete_ssh_public_key_input.rs
-@@ -76,8 +76,10 @@
-     /// Consumes the builder and constructs a [`DeleteSshPublicKeyInput`](crate::operation::delete_ssh_public_key::DeleteSshPublicKeyInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::delete_ssh_public_key::DeleteSshPublicKeyInput {
-             user_name: self.user_name,
-             ssh_public_key_id: self.ssh_public_key_id,
 ```
 
 ### `src/operation/delete_ssh_public_key/builders.rs`
@@ -3869,41 +2625,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/delete_user/_delete_user_input.rs`
-
-```diff
---- reference/src/operation/delete_user/_delete_user_input.rs
-+++ generated/src/operation/delete_user/_delete_user_input.rs
-@@ -47,7 +47,9 @@
-         &self.user_name
-     }
-     /// Consumes the builder and constructs a [`DeleteUserInput`](crate::operation::delete_user::DeleteUserInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::delete_user::DeleteUserInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::delete_user::DeleteUserInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::delete_user::DeleteUserInput { user_name: self.user_name })
-     }
- }
-```
-
 ### `src/operation/delete_user.rs`
 
 ```diff
 --- reference/src/operation/delete_user.rs
 +++ generated/src/operation/delete_user.rs
-@@ -220,7 +220,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::delete_user::DeleteUserInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::delete_user::DeleteUserInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -245,12 +247,10 @@
+@@ -245,12 +245,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3920,47 +2647,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
-### `src/operation/delete_user_permissions_boundary/_delete_user_permissions_boundary_input.rs`
-
-```diff
---- reference/src/operation/delete_user_permissions_boundary/_delete_user_permissions_boundary_input.rs
-+++ generated/src/operation/delete_user_permissions_boundary/_delete_user_permissions_boundary_input.rs
-@@ -48,8 +48,8 @@
-         super::super::super::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryInput {
--            user_name: self.user_name,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryInput { user_name: self.user_name },
-+        )
-     }
- }
-```
-
 ### `src/operation/delete_user_permissions_boundary.rs`
 
 ```diff
 --- reference/src/operation/delete_user_permissions_boundary.rs
 +++ generated/src/operation/delete_user_permissions_boundary.rs
-@@ -207,9 +207,13 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_delete_user_permissions_boundary::de_delete_user_permissions_boundary_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_delete_user_permissions_boundary::de_delete_user_permissions_boundary_http_error(
-+                status, headers, body,
-+            )
-         } else {
--            super::super::protocol_serde::shape_delete_user_permissions_boundary::de_delete_user_permissions_boundary_http_response(status, headers, body)
-+            super::super::protocol_serde::shape_delete_user_permissions_boundary::de_delete_user_permissions_boundary_http_response(
-+                status, headers, body,
-+            )
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -250,12 +254,11 @@
+@@ -250,12 +250,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -3977,31 +2669,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/delete_user_policy/_delete_user_policy_input.rs`
-
-```diff
---- reference/src/operation/delete_user_policy/_delete_user_policy_input.rs
-+++ generated/src/operation/delete_user_policy/_delete_user_policy_input.rs
-@@ -76,7 +76,10 @@
-     /// Consumes the builder and constructs a [`DeleteUserPolicyInput`](crate::operation::delete_user_policy::DeleteUserPolicyInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::delete_user_policy::DeleteUserPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::delete_user_policy::DeleteUserPolicyInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::delete_user_policy::DeleteUserPolicyInput {
-             user_name: self.user_name,
-             policy_name: self.policy_name,
-```
-
 ### `src/operation/delete_user_policy.rs`
 
 ```diff
 --- reference/src/operation/delete_user_policy.rs
 +++ generated/src/operation/delete_user_policy.rs
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4010,12 +2683,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_delete_user_policy_input::ser_delete_user_policy_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_delete_user_policy_input::ser_delete_user_policy_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_delete_user_policy_input::ser_delete_user_policy_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/delete_virtual_mfa_device/builders.rs`
@@ -4225,31 +2901,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/detach_group_policy/_detach_group_policy_input.rs`
-
-```diff
---- reference/src/operation/detach_group_policy/_detach_group_policy_input.rs
-+++ generated/src/operation/detach_group_policy/_detach_group_policy_input.rs
-@@ -76,7 +76,10 @@
-     /// Consumes the builder and constructs a [`DetachGroupPolicyInput`](crate::operation::detach_group_policy::DetachGroupPolicyInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::detach_group_policy::DetachGroupPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::detach_group_policy::DetachGroupPolicyInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::detach_group_policy::DetachGroupPolicyInput {
-             group_name: self.group_name,
-             policy_arn: self.policy_arn,
-```
-
 ### `src/operation/detach_group_policy.rs`
 
 ```diff
 --- reference/src/operation/detach_group_policy.rs
 +++ generated/src/operation/detach_group_policy.rs
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4258,31 +2915,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_detach_group_policy_input::ser_detach_group_policy_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_detach_group_policy_input::ser_detach_group_policy_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_detach_group_policy_input::ser_detach_group_policy_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/detach_role_policy/_detach_role_policy_input.rs`
-
-```diff
---- reference/src/operation/detach_role_policy/_detach_role_policy_input.rs
-+++ generated/src/operation/detach_role_policy/_detach_role_policy_input.rs
-@@ -76,7 +76,10 @@
-     /// Consumes the builder and constructs a [`DetachRolePolicyInput`](crate::operation::detach_role_policy::DetachRolePolicyInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::detach_role_policy::DetachRolePolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::detach_role_policy::DetachRolePolicyInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::detach_role_policy::DetachRolePolicyInput {
-             role_name: self.role_name,
-             policy_arn: self.policy_arn,
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/detach_role_policy.rs`
@@ -4290,7 +2931,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/detach_role_policy.rs
 +++ generated/src/operation/detach_role_policy.rs
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4299,31 +2940,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_detach_role_policy_input::ser_detach_role_policy_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_detach_role_policy_input::ser_detach_role_policy_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_detach_role_policy_input::ser_detach_role_policy_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/detach_user_policy/_detach_user_policy_input.rs`
-
-```diff
---- reference/src/operation/detach_user_policy/_detach_user_policy_input.rs
-+++ generated/src/operation/detach_user_policy/_detach_user_policy_input.rs
-@@ -76,7 +76,10 @@
-     /// Consumes the builder and constructs a [`DetachUserPolicyInput`](crate::operation::detach_user_policy::DetachUserPolicyInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::detach_user_policy::DetachUserPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::detach_user_policy::DetachUserPolicyInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::detach_user_policy::DetachUserPolicyInput {
-             user_name: self.user_name,
-             policy_arn: self.policy_arn,
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/detach_user_policy.rs`
@@ -4331,7 +2956,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/detach_user_policy.rs
 +++ generated/src/operation/detach_user_policy.rs
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4340,60 +2965,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_detach_user_policy_input::ser_detach_user_policy_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_detach_user_policy_input::ser_detach_user_policy_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_detach_user_policy_input::ser_detach_user_policy_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/disable_organizations_root_credentials_management/_disable_organizations_root_credentials_management_output.rs`
-
-```diff
---- reference/src/operation/disable_organizations_root_credentials_management/_disable_organizations_root_credentials_management_output.rs
-+++ generated/src/operation/disable_organizations_root_credentials_management/_disable_organizations_root_credentials_management_output.rs
-@@ -28,9 +28,7 @@
- }
- impl DisableOrganizationsRootCredentialsManagementOutput {
-     /// Creates a new builder-style object to manufacture [`DisableOrganizationsRootCredentialsManagementOutput`](crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementOutput).
--    pub fn builder(
--    ) -> super::super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementOutputBuilder
--    {
-+    pub fn builder() -> super::super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementOutputBuilder{
-         super::super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementOutputBuilder::default()
-     }
- }
-@@ -88,7 +86,9 @@
-         self
-     }
-     /// Consumes the builder and constructs a [`DisableOrganizationsRootCredentialsManagementOutput`](crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementOutput).
--    pub fn build(self) -> super::super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementOutput {
-+    pub fn build(
-+        self,
-+    ) -> super::super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementOutput {
-         super::super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementOutput {
-             organization_id: self.organization_id,
-             enabled_features: self.enabled_features,
-```
-
-### `src/operation/disable_organizations_root_credentials_management/builders.rs`
-
-```diff
---- reference/src/operation/disable_organizations_root_credentials_management/builders.rs
-+++ generated/src/operation/disable_organizations_root_credentials_management/builders.rs
-@@ -57,10 +57,7 @@
-         }
-     }
-     /// Access the DisableOrganizationsRootCredentialsManagement as a reference.
--    pub fn as_input(
--        &self,
--    ) -> &super::super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementInputBuilder
--    {
-+    pub fn as_input(&self) -> &super::super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementInputBuilder{
-         &self.inner
-     }
-     /// Sends the request and returns the response.
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/disable_organizations_root_credentials_management.rs`
@@ -4401,32 +2981,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/disable_organizations_root_credentials_management.rs
 +++ generated/src/operation/disable_organizations_root_credentials_management.rs
-@@ -30,12 +30,7 @@
-             .await
-             .map_err(map_err)?;
-         let output = context.finalize().map_err(map_err)?;
--        ::std::result::Result::Ok(
--            output
--                .downcast::<super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementOutput>(
--                )
--                .expect("correct output type"),
--        )
-+        ::std::result::Result::Ok(output.downcast::<super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementOutput>().expect("correct output type"))
-     }
-
-     pub(crate) async fn orchestrate_with_stop_point(
-@@ -184,9 +179,7 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input
--            .downcast::<super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementInput>()
--            .expect("correct type");
-+        let input = input.downcast::<super::super::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementInput>().expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -211,11 +204,9 @@
+@@ -211,11 +211,9 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4441,62 +2996,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/operation/disable_organizations_root_sessions/builders.rs`
-
-```diff
---- reference/src/operation/disable_organizations_root_sessions/builders.rs
-+++ generated/src/operation/disable_organizations_root_sessions/builders.rs
-@@ -57,7 +57,9 @@
-         }
-     }
-     /// Access the DisableOrganizationsRootSessions as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::disable_organizations_root_sessions::builders::DisableOrganizationsRootSessionsInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -81,12 +83,14 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessions::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessions::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessions::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessions::orchestrate(&runtime_plugins, input)
-+            .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
 ### `src/operation/disable_organizations_root_sessions.rs`
 
 ```diff
 --- reference/src/operation/disable_organizations_root_sessions.rs
 +++ generated/src/operation/disable_organizations_root_sessions.rs
-@@ -167,7 +167,9 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_disable_organizations_root_sessions::de_disable_organizations_root_sessions_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_disable_organizations_root_sessions::de_disable_organizations_root_sessions_http_error(
-+                status, headers, body,
-+            )
-         } else {
-             super::super::protocol_serde::shape_disable_organizations_root_sessions::de_disable_organizations_root_sessions_http_response(
-                 status, headers, body,
-@@ -212,15 +214,9 @@
+@@ -212,15 +212,9 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4513,56 +3018,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-```
-
-### `src/operation/disable_outbound_web_identity_federation/_disable_outbound_web_identity_federation_input.rs`
-
-```diff
---- reference/src/operation/disable_outbound_web_identity_federation/_disable_outbound_web_identity_federation_input.rs
-+++ generated/src/operation/disable_outbound_web_identity_federation/_disable_outbound_web_identity_federation_input.rs
-@@ -5,8 +5,10 @@
- pub struct DisableOutboundWebIdentityFederationInput {}
- impl DisableOutboundWebIdentityFederationInput {
-     /// Creates a new builder-style object to manufacture [`DisableOutboundWebIdentityFederationInput`](crate::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationInput).
--    pub fn builder() -> super::super::super::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationInputBuilder {
--        super::super::super::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationInputBuilder::default()
-+    pub fn builder(
-+    ) -> super::super::super::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationInputBuilder {
-+        super::super::super::operation::disable_outbound_web_identity_federation::builders::DisableOutboundWebIdentityFederationInputBuilder::default(
-+        )
-     }
- }
-
-@@ -22,6 +24,8 @@
-         super::super::super::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationInput {})
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationInput {},
-+        )
-     }
- }
-```
-
-### `src/operation/disable_outbound_web_identity_federation/builders.rs`
-
-```diff
---- reference/src/operation/disable_outbound_web_identity_federation/builders.rs
-+++ generated/src/operation/disable_outbound_web_identity_federation/builders.rs
-@@ -89,7 +89,11 @@
-                 &self.handle.conf,
-                 self.config_override,
-             );
--        super::super::super::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederation::orchestrate(&runtime_plugins, input).await
-+        super::super::super::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederation::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 ```
 
 ### `src/operation/disable_outbound_web_identity_federation.rs`
@@ -4583,36 +3038,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-@@ -362,7 +360,9 @@
-         })
-     }
- }
--impl ::aws_types::request_id::RequestId for super::super::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationError {
-+impl ::aws_types::request_id::RequestId
-+    for super::super::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederationError
-+{
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-     }
-```
-
-### `src/operation/enable_mfa_device/_enable_mfa_device_input.rs`
-
-```diff
---- reference/src/operation/enable_mfa_device/_enable_mfa_device_input.rs
-+++ generated/src/operation/enable_mfa_device/_enable_mfa_device_input.rs
-@@ -150,7 +150,10 @@
-     /// Consumes the builder and constructs a [`EnableMfaDeviceInput`](crate::operation::enable_mfa_device::EnableMfaDeviceInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::enable_mfa_device::EnableMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::enable_mfa_device::EnableMfaDeviceInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::enable_mfa_device::EnableMfaDeviceInput {
-             user_name: self.user_name,
-             serial_number: self.serial_number,
 ```
 
 ### `src/operation/enable_mfa_device/builders.rs`
@@ -4787,7 +3212,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -262,12 +262,11 @@
+@@ -262,13 +262,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4796,12 +3221,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_enable_mfa_device_input::ser_enable_mfa_device_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_enable_mfa_device_input::ser_enable_mfa_device_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_enable_mfa_device_input::ser_enable_mfa_device_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 @@ -277,12 +276,12 @@
      }
  }
@@ -4820,92 +3248,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/enable_organizations_root_credentials_management/_enable_organizations_root_credentials_management_output.rs`
-
-```diff
---- reference/src/operation/enable_organizations_root_credentials_management/_enable_organizations_root_credentials_management_output.rs
-+++ generated/src/operation/enable_organizations_root_credentials_management/_enable_organizations_root_credentials_management_output.rs
-@@ -28,8 +28,7 @@
- }
- impl EnableOrganizationsRootCredentialsManagementOutput {
-     /// Creates a new builder-style object to manufacture [`EnableOrganizationsRootCredentialsManagementOutput`](crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementOutput).
--    pub fn builder(
--    ) -> super::super::super::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementOutputBuilder {
-+    pub fn builder() -> super::super::super::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementOutputBuilder{
-         super::super::super::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementOutputBuilder::default()
-     }
- }
-@@ -87,7 +86,9 @@
-         self
-     }
-     /// Consumes the builder and constructs a [`EnableOrganizationsRootCredentialsManagementOutput`](crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementOutput).
--    pub fn build(self) -> super::super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementOutput {
-+    pub fn build(
-+        self,
-+    ) -> super::super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementOutput {
-         super::super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementOutput {
-             organization_id: self.organization_id,
-             enabled_features: self.enabled_features,
-```
-
-### `src/operation/enable_organizations_root_credentials_management/builders.rs`
-
-```diff
---- reference/src/operation/enable_organizations_root_credentials_management/builders.rs
-+++ generated/src/operation/enable_organizations_root_credentials_management/builders.rs
-@@ -64,9 +64,7 @@
-         }
-     }
-     /// Access the EnableOrganizationsRootCredentialsManagement as a reference.
--    pub fn as_input(
--        &self,
--    ) -> &super::super::super::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementInputBuilder {
-+    pub fn as_input(&self) -> &super::super::super::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementInputBuilder{
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-```
-
 ### `src/operation/enable_organizations_root_credentials_management.rs`
 
 ```diff
 --- reference/src/operation/enable_organizations_root_credentials_management.rs
 +++ generated/src/operation/enable_organizations_root_credentials_management.rs
-@@ -23,20 +23,14 @@
-             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-         >| {
-             err.map_service_error(|err| {
--                err.downcast::<super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError>(
--                )
--                .expect("correct error type")
--            })
-+                                err.downcast::<super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementError>().expect("correct error type")
-+                            })
-         };
-         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-             .await
-             .map_err(map_err)?;
-         let output = context.finalize().map_err(map_err)?;
--        ::std::result::Result::Ok(
--            output
--                .downcast::<super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementOutput>()
--                .expect("correct output type"),
--        )
-+        ::std::result::Result::Ok(output.downcast::<super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementOutput>().expect("correct output type"))
-     }
-
-     pub(crate) async fn orchestrate_with_stop_point(
-@@ -186,7 +180,8 @@
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
-         let input = input
--            .downcast::<super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementInput>()
-+            .downcast::<super::super::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementInput>(
-+            )
-             .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-@@ -212,11 +207,9 @@
+@@ -212,11 +212,9 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4920,62 +3268,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/operation/enable_organizations_root_sessions/builders.rs`
-
-```diff
---- reference/src/operation/enable_organizations_root_sessions/builders.rs
-+++ generated/src/operation/enable_organizations_root_sessions/builders.rs
-@@ -64,7 +64,9 @@
-         }
-     }
-     /// Access the EnableOrganizationsRootSessions as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::enable_organizations_root_sessions::builders::EnableOrganizationsRootSessionsInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -88,12 +90,14 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessions::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessions::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessions::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessions::orchestrate(&runtime_plugins, input)
-+            .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
 ### `src/operation/enable_organizations_root_sessions.rs`
 
 ```diff
 --- reference/src/operation/enable_organizations_root_sessions.rs
 +++ generated/src/operation/enable_organizations_root_sessions.rs
-@@ -167,7 +167,9 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_enable_organizations_root_sessions::de_enable_organizations_root_sessions_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_enable_organizations_root_sessions::de_enable_organizations_root_sessions_http_error(
-+                status, headers, body,
-+            )
-         } else {
-             super::super::protocol_serde::shape_enable_organizations_root_sessions::de_enable_organizations_root_sessions_http_response(
-                 status, headers, body,
-@@ -212,13 +214,9 @@
+@@ -212,13 +212,9 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -4990,64 +3288,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-```
-
-### `src/operation/enable_outbound_web_identity_federation/_enable_outbound_web_identity_federation_input.rs`
-
-```diff
---- reference/src/operation/enable_outbound_web_identity_federation/_enable_outbound_web_identity_federation_input.rs
-+++ generated/src/operation/enable_outbound_web_identity_federation/_enable_outbound_web_identity_federation_input.rs
-@@ -5,7 +5,8 @@
- pub struct EnableOutboundWebIdentityFederationInput {}
- impl EnableOutboundWebIdentityFederationInput {
-     /// Creates a new builder-style object to manufacture [`EnableOutboundWebIdentityFederationInput`](crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationInput).
--    pub fn builder() -> super::super::super::operation::enable_outbound_web_identity_federation::builders::EnableOutboundWebIdentityFederationInputBuilder {
-+    pub fn builder(
-+    ) -> super::super::super::operation::enable_outbound_web_identity_federation::builders::EnableOutboundWebIdentityFederationInputBuilder {
-         super::super::super::operation::enable_outbound_web_identity_federation::builders::EnableOutboundWebIdentityFederationInputBuilder::default()
-     }
- }
-@@ -22,6 +23,8 @@
-         super::super::super::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationInput {})
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationInput {},
-+        )
-     }
- }
-```
-
-### `src/operation/enable_outbound_web_identity_federation/builders.rs`
-
-```diff
---- reference/src/operation/enable_outbound_web_identity_federation/builders.rs
-+++ generated/src/operation/enable_outbound_web_identity_federation/builders.rs
-@@ -57,7 +57,9 @@
-         }
-     }
-     /// Access the EnableOutboundWebIdentityFederation as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::enable_outbound_web_identity_federation::builders::EnableOutboundWebIdentityFederationInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::enable_outbound_web_identity_federation::builders::EnableOutboundWebIdentityFederationInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -87,7 +89,11 @@
-                 &self.handle.conf,
-                 self.config_override,
-             );
--        super::super::super::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederation::orchestrate(&runtime_plugins, input).await
-+        super::super::super::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederation::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 ```
 
 ### `src/operation/enable_outbound_web_identity_federation.rs`
@@ -5067,17 +3307,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
-@@ -362,7 +360,9 @@
-         })
-     }
- }
--impl ::aws_types::request_id::RequestId for super::super::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationError {
-+impl ::aws_types::request_id::RequestId
-+    for super::super::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationError
-+{
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
      }
 ```
 
@@ -5103,51 +3332,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/operation/generate_organizations_access_report/builders.rs`
-
-```diff
---- reference/src/operation/generate_organizations_access_report/builders.rs
-+++ generated/src/operation/generate_organizations_access_report/builders.rs
-@@ -89,7 +89,9 @@
-         }
-     }
-     /// Access the GenerateOrganizationsAccessReport as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::generate_organizations_access_report::builders::GenerateOrganizationsAccessReportInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -113,12 +115,14 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::generate_organizations_access_report::GenerateOrganizationsAccessReport::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::generate_organizations_access_report::GenerateOrganizationsAccessReport::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::generate_organizations_access_report::GenerateOrganizationsAccessReport::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::generate_organizations_access_report::GenerateOrganizationsAccessReport::orchestrate(&runtime_plugins, input)
-+            .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
 ### `src/operation/generate_organizations_access_report.rs`
 
 ```diff
 --- reference/src/operation/generate_organizations_access_report.rs
 +++ generated/src/operation/generate_organizations_access_report.rs
-@@ -265,12 +265,11 @@
+@@ -265,14 +265,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -5158,52 +3348,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_generate_organizations_access_report_input::ser_generate_organizations_access_report_input_input_input(
-+            super::super::protocol_serde::shape_generate_organizations_access_report_input::ser_generate_organizations_access_report_op_input(
-                 &input,
-             )?,
+-                &input,
+-            )?,
++            super::super::protocol_serde::shape_generate_organizations_access_report_input::ser_generate_organizations_access_report_op_input(&input)?,
          );
-```
-
-### `src/operation/generate_service_last_accessed_details/builders.rs`
-
-```diff
---- reference/src/operation/generate_service_last_accessed_details/builders.rs
-+++ generated/src/operation/generate_service_last_accessed_details/builders.rs
-@@ -72,7 +72,9 @@
-         }
-     }
-     /// Access the GenerateServiceLastAccessedDetails as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::generate_service_last_accessed_details::builders::GenerateServiceLastAccessedDetailsInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -96,12 +98,17 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetails::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetails::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetails::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetails::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/generate_service_last_accessed_details.rs`
@@ -5211,7 +3361,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/generate_service_last_accessed_details.rs
 +++ generated/src/operation/generate_service_last_accessed_details.rs
-@@ -260,12 +260,11 @@
+@@ -260,14 +260,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -5222,30 +3372,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_generate_service_last_accessed_details_input::ser_generate_service_last_accessed_details_input_input_input(
-+            super::super::protocol_serde::shape_generate_service_last_accessed_details_input::ser_generate_service_last_accessed_details_op_input(
-                 &input,
-             )?,
+-                &input,
+-            )?,
++            super::super::protocol_serde::shape_generate_service_last_accessed_details_input::ser_generate_service_last_accessed_details_op_input(&input)?,
          );
-```
-
-### `src/operation/get_access_key_last_used/_get_access_key_last_used_input.rs`
-
-```diff
---- reference/src/operation/get_access_key_last_used/_get_access_key_last_used_input.rs
-+++ generated/src/operation/get_access_key_last_used/_get_access_key_last_used_input.rs
-@@ -49,8 +49,10 @@
-     /// Consumes the builder and constructs a [`GetAccessKeyLastUsedInput`](crate::operation::get_access_key_last_used::GetAccessKeyLastUsedInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_access_key_last_used::GetAccessKeyLastUsedInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_access_key_last_used::GetAccessKeyLastUsedInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_access_key_last_used::GetAccessKeyLastUsedInput {
-             access_key_id: self.access_key_id,
-         })
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/get_access_key_last_used.rs`
@@ -5270,105 +3402,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/get_account_authorization_details/_get_account_authorization_details_input.rs`
-
-```diff
---- reference/src/operation/get_account_authorization_details/_get_account_authorization_details_input.rs
-+++ generated/src/operation/get_account_authorization_details/_get_account_authorization_details_input.rs
-@@ -107,10 +107,12 @@
-         super::super::super::operation::get_account_authorization_details::GetAccountAuthorizationDetailsInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::get_account_authorization_details::GetAccountAuthorizationDetailsInput {
--            filter: self.filter,
--            max_items: self.max_items,
--            marker: self.marker,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::get_account_authorization_details::GetAccountAuthorizationDetailsInput {
-+                filter: self.filter,
-+                max_items: self.max_items,
-+                marker: self.marker,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/get_account_authorization_details/builders.rs`
-
-```diff
---- reference/src/operation/get_account_authorization_details/builders.rs
-+++ generated/src/operation/get_account_authorization_details/builders.rs
-@@ -60,7 +60,9 @@
-         }
-     }
-     /// Access the GetAccountAuthorizationDetails as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::get_account_authorization_details::builders::GetAccountAuthorizationDetailsInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -84,11 +86,12 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::get_account_authorization_details::GetAccountAuthorizationDetails::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
-+        let runtime_plugins =
-+            super::super::super::operation::get_account_authorization_details::GetAccountAuthorizationDetails::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-         super::super::super::operation::get_account_authorization_details::GetAccountAuthorizationDetails::orchestrate(&runtime_plugins, input).await
-     }
-
-@@ -114,8 +117,13 @@
-     /// Create a paginator for this request
-     ///
-     /// Paginators are used by calling [`send().await`](crate::operation::get_account_authorization_details::paginator::GetAccountAuthorizationDetailsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
--    pub fn into_paginator(self) -> super::super::super::operation::get_account_authorization_details::paginator::GetAccountAuthorizationDetailsPaginator {
--        super::super::super::operation::get_account_authorization_details::paginator::GetAccountAuthorizationDetailsPaginator::new(self.handle, self.inner)
-+    pub fn into_paginator(
-+        self,
-+    ) -> super::super::super::operation::get_account_authorization_details::paginator::GetAccountAuthorizationDetailsPaginator {
-+        super::super::super::operation::get_account_authorization_details::paginator::GetAccountAuthorizationDetailsPaginator::new(
-+            self.handle,
-+            self.inner,
-+        )
-     }
-     ///
-     /// Appends an item to `Filter`.
-```
-
 ### `src/operation/get_account_authorization_details.rs`
 
 ```diff
 --- reference/src/operation/get_account_authorization_details.rs
 +++ generated/src/operation/get_account_authorization_details.rs
-@@ -213,9 +213,13 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_get_account_authorization_details::de_get_account_authorization_details_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_get_account_authorization_details::de_get_account_authorization_details_http_error(
-+                status, headers, body,
-+            )
-         } else {
--            super::super::protocol_serde::shape_get_account_authorization_details::de_get_account_authorization_details_http_response(status, headers, body)
-+            super::super::protocol_serde::shape_get_account_authorization_details::de_get_account_authorization_details_http_response(
-+                status, headers, body,
-+            )
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -256,12 +260,11 @@
+@@ -256,12 +256,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -5407,26 +3446,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/operation/get_account_properties/_get_account_properties_input.rs`
-
-```diff
---- reference/src/operation/get_account_properties/_get_account_properties_input.rs
-+++ generated/src/operation/get_account_properties/_get_account_properties_input.rs
-@@ -18,8 +18,10 @@
-     /// Consumes the builder and constructs a [`GetAccountPropertiesInput`](crate::operation::get_account_properties::GetAccountPropertiesInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_account_properties::GetAccountPropertiesInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_account_properties::GetAccountPropertiesInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_account_properties::GetAccountPropertiesInput {})
-     }
- }
-```
-
 ### `src/operation/get_account_properties.rs`
 
 ```diff
@@ -5446,44 +3465,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        let body = ::aws_smithy_types::body::SdkBody::from("");
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
-     }
-```
-
-### `src/operation/get_account_summary/_get_account_summary_input.rs`
-
-```diff
---- reference/src/operation/get_account_summary/_get_account_summary_input.rs
-+++ generated/src/operation/get_account_summary/_get_account_summary_input.rs
-@@ -18,7 +18,10 @@
-     /// Consumes the builder and constructs a [`GetAccountSummaryInput`](crate::operation::get_account_summary::GetAccountSummaryInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_account_summary::GetAccountSummaryInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_account_summary::GetAccountSummaryInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_account_summary::GetAccountSummaryInput {})
-     }
- }
-```
-
-### `src/operation/get_account_summary/_get_account_summary_output.rs`
-
-```diff
---- reference/src/operation/get_account_summary/_get_account_summary_output.rs
-+++ generated/src/operation/get_account_summary/_get_account_summary_output.rs
-@@ -46,7 +46,10 @@
-         self
-     }
-     /// <p>A set of key–value pairs containing information about IAM entity usage and IAM quotas.</p>
--    pub fn set_summary_map(mut self, input: ::std::option::Option<::std::collections::HashMap<super::super::super::types::SummaryKeyType, i32>>) -> Self {
-+    pub fn set_summary_map(
-+        mut self,
-+        input: ::std::option::Option<::std::collections::HashMap<super::super::super::types::SummaryKeyType, i32>>,
-+    ) -> Self {
-         self.summary_map = input;
-         self
      }
 ```
 
@@ -5509,80 +3490,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/operation/get_context_keys_for_custom_policy/_get_context_keys_for_custom_policy_input.rs`
-
-```diff
---- reference/src/operation/get_context_keys_for_custom_policy/_get_context_keys_for_custom_policy_input.rs
-+++ generated/src/operation/get_context_keys_for_custom_policy/_get_context_keys_for_custom_policy_input.rs
-@@ -100,8 +100,10 @@
-         super::super::super::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyInput {
--            policy_input_list: self.policy_input_list,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicyInput {
-+                policy_input_list: self.policy_input_list,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/get_context_keys_for_custom_policy/builders.rs`
-
-```diff
---- reference/src/operation/get_context_keys_for_custom_policy/builders.rs
-+++ generated/src/operation/get_context_keys_for_custom_policy/builders.rs
-@@ -58,7 +58,9 @@
-         }
-     }
-     /// Access the GetContextKeysForCustomPolicy as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::get_context_keys_for_custom_policy::builders::GetContextKeysForCustomPolicyInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::get_context_keys_for_custom_policy::builders::GetContextKeysForCustomPolicyInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -82,11 +84,12 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicy::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
-+        let runtime_plugins =
-+            super::super::super::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicy::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-         super::super::super::operation::get_context_keys_for_custom_policy::GetContextKeysForCustomPolicy::orchestrate(&runtime_plugins, input).await
-     }
-
-```
-
 ### `src/operation/get_context_keys_for_custom_policy.rs`
 
 ```diff
 --- reference/src/operation/get_context_keys_for_custom_policy.rs
 +++ generated/src/operation/get_context_keys_for_custom_policy.rs
-@@ -161,7 +161,9 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_get_context_keys_for_custom_policy::de_get_context_keys_for_custom_policy_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_get_context_keys_for_custom_policy::de_get_context_keys_for_custom_policy_http_error(
-+                status, headers, body,
-+            )
-         } else {
-             super::super::protocol_serde::shape_get_context_keys_for_custom_policy::de_get_context_keys_for_custom_policy_http_response(
-                 status, headers, body,
-@@ -206,12 +208,11 @@
+@@ -206,12 +206,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -5599,51 +3512,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/get_context_keys_for_principal_policy/builders.rs`
-
-```diff
---- reference/src/operation/get_context_keys_for_principal_policy/builders.rs
-+++ generated/src/operation/get_context_keys_for_principal_policy/builders.rs
-@@ -60,7 +60,9 @@
-         }
-     }
-     /// Access the GetContextKeysForPrincipalPolicy as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::get_context_keys_for_principal_policy::builders::GetContextKeysForPrincipalPolicyInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -84,12 +86,14 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicy::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicy::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicy::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::get_context_keys_for_principal_policy::GetContextKeysForPrincipalPolicy::orchestrate(&runtime_plugins, input)
-+            .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
 ### `src/operation/get_context_keys_for_principal_policy.rs`
 
 ```diff
 --- reference/src/operation/get_context_keys_for_principal_policy.rs
 +++ generated/src/operation/get_context_keys_for_principal_policy.rs
-@@ -260,12 +260,11 @@
+@@ -260,14 +260,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -5654,30 +3528,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_get_context_keys_for_principal_policy_input::ser_get_context_keys_for_principal_policy_input_input_input(
-+            super::super::protocol_serde::shape_get_context_keys_for_principal_policy_input::ser_get_context_keys_for_principal_policy_op_input(
-                 &input,
-             )?,
+-                &input,
+-            )?,
++            super::super::protocol_serde::shape_get_context_keys_for_principal_policy_input::ser_get_context_keys_for_principal_policy_op_input(&input)?,
          );
-```
-
-### `src/operation/get_credential_report/_get_credential_report_input.rs`
-
-```diff
---- reference/src/operation/get_credential_report/_get_credential_report_input.rs
-+++ generated/src/operation/get_credential_report/_get_credential_report_input.rs
-@@ -18,8 +18,10 @@
-     /// Consumes the builder and constructs a [`GetCredentialReportInput`](crate::operation::get_credential_report::GetCredentialReportInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_credential_report::GetCredentialReportInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_credential_report::GetCredentialReportInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_credential_report::GetCredentialReportInput {})
-     }
- }
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/get_credential_report.rs`
@@ -5707,16 +3563,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_delegation_request/_get_delegation_request_input.rs
 +++ generated/src/operation/get_delegation_request/_get_delegation_request_input.rs
-@@ -75,11 +75,13 @@
-     /// Consumes the builder and constructs a [`GetDelegationRequestInput`](crate::operation::get_delegation_request::GetDelegationRequestInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_delegation_request::GetDelegationRequestInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_delegation_request::GetDelegationRequestInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
+@@ -79,7 +79,7 @@
+     {
          ::std::result::Result::Ok(super::super::super::operation::get_delegation_request::GetDelegationRequestInput {
              delegation_request_id: self.delegation_request_id,
 -            delegation_permission_check: self.delegation_permission_check,
@@ -5748,157 +3596,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/get_group/_get_group_input.rs`
-
-```diff
---- reference/src/operation/get_group/_get_group_input.rs
-+++ generated/src/operation/get_group/_get_group_input.rs
-@@ -94,7 +94,9 @@
-         &self.max_items
-     }
-     /// Consumes the builder and constructs a [`GetGroupInput`](crate::operation::get_group::GetGroupInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_group::GetGroupInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::get_group::GetGroupInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::get_group::GetGroupInput {
-             group_name: self.group_name,
-             marker: self.marker,
-```
-
-### `src/operation/get_group/_get_group_output.rs`
-
-```diff
---- reference/src/operation/get_group/_get_group_output.rs
-+++ generated/src/operation/get_group/_get_group_output.rs
-@@ -131,7 +131,9 @@
-     /// Consumes the builder and constructs a [`GetGroupOutput`](crate::operation::get_group::GetGroupOutput).
-     /// This method will fail if any of the following fields are not set:
-     /// - [`users`](crate::operation::get_group::builders::GetGroupOutputBuilder::users)
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_group::GetGroupOutput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::get_group::GetGroupOutput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::get_group::GetGroupOutput {
-             group: self.group,
-             users: self.users.ok_or_else(|| {
-```
-
-### `src/operation/get_group/builders.rs`
-
-```diff
---- reference/src/operation/get_group/builders.rs
-+++ generated/src/operation/get_group/builders.rs
-@@ -29,14 +29,20 @@
-     inner: super::super::super::operation::get_group::builders::GetGroupInputBuilder,
-     config_override: ::std::option::Option<super::super::super::config::Builder>,
- }
--impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::get_group::GetGroupOutput, super::super::super::operation::get_group::GetGroupError>
--    for GetGroupFluentBuilder
-+impl
-+    super::super::super::client::customize::internal::CustomizableSend<
-+        super::super::super::operation::get_group::GetGroupOutput,
-+        super::super::super::operation::get_group::GetGroupError,
-+    > for GetGroupFluentBuilder
- {
-     fn send(
-         self,
-         config_override: super::super::super::config::Builder,
-     ) -> super::super::super::client::customize::internal::BoxFuture<
--        super::super::super::client::customize::internal::SendResult<super::super::super::operation::get_group::GetGroupOutput, super::super::super::operation::get_group::GetGroupError>,
-+        super::super::super::client::customize::internal::SendResult<
-+            super::super::super::operation::get_group::GetGroupOutput,
-+            super::super::super::operation::get_group::GetGroupError,
-+        >,
-     > {
-         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-     }
-@@ -86,8 +92,11 @@
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-     pub fn customize(
-         self,
--    ) -> super::super::super::client::customize::CustomizableOperation<super::super::super::operation::get_group::GetGroupOutput, super::super::super::operation::get_group::GetGroupError, Self>
--    {
-+    ) -> super::super::super::client::customize::CustomizableOperation<
-+        super::super::super::operation::get_group::GetGroupOutput,
-+        super::super::super::operation::get_group::GetGroupError,
-+        Self,
-+    > {
-         super::super::super::client::customize::CustomizableOperation::new(self)
-     }
-     pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<super::super::super::config::Builder>) -> Self {
-```
-
-### `src/operation/get_group/paginator.rs`
-
-```diff
---- reference/src/operation/get_group/paginator.rs
-+++ generated/src/operation/get_group/paginator.rs
-@@ -8,7 +8,10 @@
-
- impl GetGroupPaginator {
-     /// Create a new paginator-wrapper
--    pub(crate) fn new(handle: std::sync::Arc<super::super::super::client::Handle>, builder: super::super::super::operation::get_group::builders::GetGroupInputBuilder) -> Self {
-+    pub(crate) fn new(
-+        handle: std::sync::Arc<super::super::super::client::Handle>,
-+        builder: super::super::super::operation::get_group::builders::GetGroupInputBuilder,
-+    ) -> Self {
-         Self {
-             handle,
-             builder,
-@@ -136,7 +139,10 @@
-             >,
-         >,
-     > {
--        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send())
--            .flat_map(|page| super::super::super::lens::lens_get_group_output_output_users(page).unwrap_or_default().into_iter())
-+        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
-+            super::super::super::lens::lens_get_group_output_output_users(page)
-+                .unwrap_or_default()
-+                .into_iter()
-+        })
-     }
- }
-```
-
 ### `src/operation/get_group.rs`
 
 ```diff
 --- reference/src/operation/get_group.rs
 +++ generated/src/operation/get_group.rs
-@@ -18,11 +18,15 @@
-             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-         >,
-     > {
--        let map_err =
--            |err: ::aws_smithy_runtime_api::client::result::SdkError<
--                ::aws_smithy_runtime_api::client::interceptors::context::Error,
--                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
--            >| { err.map_service_error(|err| err.downcast::<super::super::operation::get_group::GetGroupError>().expect("correct error type")) };
-+        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-+        >| {
-+            err.map_service_error(|err| {
-+                err.downcast::<super::super::operation::get_group::GetGroupError>()
-+                    .expect("correct error type")
-+            })
-+        };
-         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-             .await
-             .map_err(map_err)?;
-@@ -221,7 +225,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::get_group::GetGroupInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::get_group::GetGroupInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -246,11 +252,10 @@
+@@ -246,11 +246,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -5919,7 +3622,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_group_policy.rs
 +++ generated/src/operation/get_group_policy.rs
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -5928,12 +3631,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_get_group_policy_input::ser_get_group_policy_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_group_policy_input::ser_get_group_policy_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_group_policy_input::ser_get_group_policy_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/get_human_readable_summary/builders.rs`
@@ -5974,26 +3680,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/get_instance_profile/_get_instance_profile_input.rs`
-
-```diff
---- reference/src/operation/get_instance_profile/_get_instance_profile_input.rs
-+++ generated/src/operation/get_instance_profile/_get_instance_profile_input.rs
-@@ -49,8 +49,10 @@
-     /// Consumes the builder and constructs a [`GetInstanceProfileInput`](crate::operation::get_instance_profile::GetInstanceProfileInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_instance_profile::GetInstanceProfileInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_instance_profile::GetInstanceProfileInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_instance_profile::GetInstanceProfileInput {
-             instance_profile_name: self.instance_profile_name,
-         })
-```
-
 ### `src/operation/get_instance_profile.rs`
 
 ```diff
@@ -6016,31 +3702,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/get_login_profile/_get_login_profile_input.rs`
-
-```diff
---- reference/src/operation/get_login_profile/_get_login_profile_input.rs
-+++ generated/src/operation/get_login_profile/_get_login_profile_input.rs
-@@ -53,7 +53,10 @@
-     /// Consumes the builder and constructs a [`GetLoginProfileInput`](crate::operation::get_login_profile::GetLoginProfileInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_login_profile::GetLoginProfileInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_login_profile::GetLoginProfileInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_login_profile::GetLoginProfileInput { user_name: self.user_name })
-     }
- }
-```
-
 ### `src/operation/get_login_profile.rs`
 
 ```diff
 --- reference/src/operation/get_login_profile.rs
 +++ generated/src/operation/get_login_profile.rs
-@@ -247,12 +247,11 @@
+@@ -247,13 +247,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -6049,12 +3716,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_get_login_profile_input::ser_get_login_profile_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_login_profile_input::ser_get_login_profile_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_login_profile_input::ser_get_login_profile_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/get_mfa_device/builders.rs`
@@ -6229,7 +3899,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,11 +252,10 @@
+@@ -252,13 +252,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -6239,11 +3909,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_mfa_device_input::ser_get_mfa_device_input_input_input(
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_mfa_device_input::ser_get_mfa_device_op_input(
-             &input,
-         )?);
+-            &input,
+-        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_mfa_device_input::ser_get_mfa_device_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
-@@ -267,12 +266,12 @@
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+@@ -267,12 +264,12 @@
      }
  }
  #[derive(Debug)]
@@ -6259,27 +3931,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/get_open_id_connect_provider/_get_open_id_connect_provider_input.rs`
-
-```diff
---- reference/src/operation/get_open_id_connect_provider/_get_open_id_connect_provider_input.rs
-+++ generated/src/operation/get_open_id_connect_provider/_get_open_id_connect_provider_input.rs
-@@ -53,8 +53,10 @@
-         super::super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderInput {
--            open_id_connect_provider_arn: self.open_id_connect_provider_arn,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::get_open_id_connect_provider::GetOpenIdConnectProviderInput {
-+                open_id_connect_provider_arn: self.open_id_connect_provider_arn,
-+            },
-+        )
-     }
- }
 ```
 
 ### `src/operation/get_open_id_connect_provider/builders.rs`
@@ -6487,109 +4138,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/get_organizations_access_report/_get_organizations_access_report_input.rs`
-
-```diff
---- reference/src/operation/get_organizations_access_report/_get_organizations_access_report_input.rs
-+++ generated/src/operation/get_organizations_access_report/_get_organizations_access_report_input.rs
-@@ -116,11 +116,13 @@
-         super::super::super::operation::get_organizations_access_report::GetOrganizationsAccessReportInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::get_organizations_access_report::GetOrganizationsAccessReportInput {
--            job_id: self.job_id,
--            max_items: self.max_items,
--            marker: self.marker,
--            sort_key: self.sort_key,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::get_organizations_access_report::GetOrganizationsAccessReportInput {
-+                job_id: self.job_id,
-+                max_items: self.max_items,
-+                marker: self.marker,
-+                sort_key: self.sort_key,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/get_organizations_access_report/_get_organizations_access_report_output.rs`
-
-```diff
---- reference/src/operation/get_organizations_access_report/_get_organizations_access_report_output.rs
-+++ generated/src/operation/get_organizations_access_report/_get_organizations_access_report_output.rs
-@@ -254,27 +254,29 @@
-         super::super::super::operation::get_organizations_access_report::GetOrganizationsAccessReportOutput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::get_organizations_access_report::GetOrganizationsAccessReportOutput {
--            job_status: self.job_status.ok_or_else(|| {
--                ::aws_smithy_types::error::operation::BuildError::missing_field(
--                    "job_status",
--                    "job_status was not specified but it is required when building GetOrganizationsAccessReportOutput",
--                )
--            })?,
--            job_creation_date: self.job_creation_date.ok_or_else(|| {
--                ::aws_smithy_types::error::operation::BuildError::missing_field(
--                    "job_creation_date",
--                    "job_creation_date was not specified but it is required when building GetOrganizationsAccessReportOutput",
--                )
--            })?,
--            job_completion_date: self.job_completion_date,
--            number_of_services_accessible: self.number_of_services_accessible,
--            number_of_services_not_accessed: self.number_of_services_not_accessed,
--            access_details: self.access_details,
--            is_truncated: self.is_truncated.unwrap_or_default(),
--            marker: self.marker,
--            error_details: self.error_details,
--            _request_id: self._request_id,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::get_organizations_access_report::GetOrganizationsAccessReportOutput {
-+                job_status: self.job_status.ok_or_else(|| {
-+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                        "job_status",
-+                        "job_status was not specified but it is required when building GetOrganizationsAccessReportOutput",
-+                    )
-+                })?,
-+                job_creation_date: self.job_creation_date.ok_or_else(|| {
-+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                        "job_creation_date",
-+                        "job_creation_date was not specified but it is required when building GetOrganizationsAccessReportOutput",
-+                    )
-+                })?,
-+                job_completion_date: self.job_completion_date,
-+                number_of_services_accessible: self.number_of_services_accessible,
-+                number_of_services_not_accessed: self.number_of_services_not_accessed,
-+                access_details: self.access_details,
-+                is_truncated: self.is_truncated.unwrap_or_default(),
-+                marker: self.marker,
-+                error_details: self.error_details,
-+                _request_id: self._request_id,
-+            },
-+        )
-     }
- }
-```
-
 ### `src/operation/get_organizations_access_report.rs`
 
 ```diff
 --- reference/src/operation/get_organizations_access_report.rs
 +++ generated/src/operation/get_organizations_access_report.rs
-@@ -214,7 +214,9 @@
-         let parse_result = if !success && status != 200 || force_error {
-             super::super::protocol_serde::shape_get_organizations_access_report::de_get_organizations_access_report_http_error(status, headers, body)
-         } else {
--            super::super::protocol_serde::shape_get_organizations_access_report::de_get_organizations_access_report_http_response(status, headers, body)
-+            super::super::protocol_serde::shape_get_organizations_access_report::de_get_organizations_access_report_http_response(
-+                status, headers, body,
-+            )
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -255,12 +257,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -6604,67 +4158,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/get_outbound_web_identity_federation_info/_get_outbound_web_identity_federation_info_input.rs`
-
-```diff
---- reference/src/operation/get_outbound_web_identity_federation_info/_get_outbound_web_identity_federation_info_input.rs
-+++ generated/src/operation/get_outbound_web_identity_federation_info/_get_outbound_web_identity_federation_info_input.rs
-@@ -5,8 +5,10 @@
- pub struct GetOutboundWebIdentityFederationInfoInput {}
- impl GetOutboundWebIdentityFederationInfoInput {
-     /// Creates a new builder-style object to manufacture [`GetOutboundWebIdentityFederationInfoInput`](crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoInput).
--    pub fn builder() -> super::super::super::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoInputBuilder {
--        super::super::super::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoInputBuilder::default()
-+    pub fn builder(
-+    ) -> super::super::super::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoInputBuilder {
-+        super::super::super::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoInputBuilder::default(
-+        )
-     }
- }
-
-@@ -22,6 +24,8 @@
-         super::super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoInput {})
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoInput {},
-+        )
-     }
- }
-```
-
-### `src/operation/get_outbound_web_identity_federation_info/builders.rs`
-
-```diff
---- reference/src/operation/get_outbound_web_identity_federation_info/builders.rs
-+++ generated/src/operation/get_outbound_web_identity_federation_info/builders.rs
-@@ -83,13 +83,16 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins =
--            super::super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfo::operation_runtime_plugins(
--                self.handle.runtime_plugins.clone(),
--                &self.handle.conf,
--                self.config_override,
--            );
--        super::super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfo::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins = super::super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfo::operation_runtime_plugins(
-+                            self.handle.runtime_plugins.clone(),
-+                            &self.handle.conf,
-+                            self.config_override,
-+                        );
-+        super::super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfo::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
 ```
 
 ### `src/operation/get_outbound_web_identity_federation_info.rs`
@@ -6685,66 +4178,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-@@ -362,7 +360,9 @@
-         })
-     }
- }
--impl ::aws_types::request_id::RequestId for super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError {
-+impl ::aws_types::request_id::RequestId
-+    for super::super::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoError
-+{
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-     }
-```
-
-### `src/operation/get_policy/_get_policy_input.rs`
-
-```diff
---- reference/src/operation/get_policy/_get_policy_input.rs
-+++ generated/src/operation/get_policy/_get_policy_input.rs
-@@ -47,7 +47,9 @@
-         &self.policy_arn
-     }
-     /// Consumes the builder and constructs a [`GetPolicyInput`](crate::operation::get_policy::GetPolicyInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_policy::GetPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::get_policy::GetPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::get_policy::GetPolicyInput { policy_arn: self.policy_arn })
-     }
- }
-```
-
-### `src/operation/get_policy/builders.rs`
-
-```diff
---- reference/src/operation/get_policy/builders.rs
-+++ generated/src/operation/get_policy/builders.rs
-@@ -31,14 +31,20 @@
-     inner: super::super::super::operation::get_policy::builders::GetPolicyInputBuilder,
-     config_override: ::std::option::Option<super::super::super::config::Builder>,
- }
--impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::get_policy::GetPolicyOutput, super::super::super::operation::get_policy::GetPolicyError>
--    for GetPolicyFluentBuilder
-+impl
-+    super::super::super::client::customize::internal::CustomizableSend<
-+        super::super::super::operation::get_policy::GetPolicyOutput,
-+        super::super::super::operation::get_policy::GetPolicyError,
-+    > for GetPolicyFluentBuilder
- {
-     fn send(
-         self,
-         config_override: super::super::super::config::Builder,
-     ) -> super::super::super::client::customize::internal::BoxFuture<
--        super::super::super::client::customize::internal::SendResult<super::super::super::operation::get_policy::GetPolicyOutput, super::super::super::operation::get_policy::GetPolicyError>,
-+        super::super::super::client::customize::internal::SendResult<
-+            super::super::super::operation::get_policy::GetPolicyOutput,
-+            super::super::super::operation::get_policy::GetPolicyError,
-+        >,
-     > {
-         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-     }
 ```
 
 ### `src/operation/get_policy.rs`
@@ -6752,18 +4185,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_policy.rs
 +++ generated/src/operation/get_policy.rs
-@@ -220,7 +220,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::get_policy::GetPolicyInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::get_policy::GetPolicyInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -245,11 +247,10 @@
+@@ -245,11 +245,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -6779,31 +4201,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
-### `src/operation/get_policy_version/_get_policy_version_input.rs`
-
-```diff
---- reference/src/operation/get_policy_version/_get_policy_version_input.rs
-+++ generated/src/operation/get_policy_version/_get_policy_version_input.rs
-@@ -76,7 +76,10 @@
-     /// Consumes the builder and constructs a [`GetPolicyVersionInput`](crate::operation::get_policy_version::GetPolicyVersionInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_policy_version::GetPolicyVersionInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_policy_version::GetPolicyVersionInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_policy_version::GetPolicyVersionInput {
-             policy_arn: self.policy_arn,
-             version_id: self.version_id,
-```
-
 ### `src/operation/get_policy_version.rs`
 
 ```diff
 --- reference/src/operation/get_policy_version.rs
 +++ generated/src/operation/get_policy_version.rs
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -6812,75 +4215,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_get_policy_version_input::ser_get_policy_version_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_policy_version_input::ser_get_policy_version_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_policy_version_input::ser_get_policy_version_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/get_role/_get_role_input.rs`
-
-```diff
---- reference/src/operation/get_role/_get_role_input.rs
-+++ generated/src/operation/get_role/_get_role_input.rs
-@@ -47,7 +47,9 @@
-         &self.role_name
-     }
-     /// Consumes the builder and constructs a [`GetRoleInput`](crate::operation::get_role::GetRoleInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_role::GetRoleInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::get_role::GetRoleInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::get_role::GetRoleInput { role_name: self.role_name })
-     }
- }
-```
-
-### `src/operation/get_role/builders.rs`
-
-```diff
---- reference/src/operation/get_role/builders.rs
-+++ generated/src/operation/get_role/builders.rs
-@@ -31,14 +31,20 @@
-     inner: super::super::super::operation::get_role::builders::GetRoleInputBuilder,
-     config_override: ::std::option::Option<super::super::super::config::Builder>,
- }
--impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::get_role::GetRoleOutput, super::super::super::operation::get_role::GetRoleError>
--    for GetRoleFluentBuilder
-+impl
-+    super::super::super::client::customize::internal::CustomizableSend<
-+        super::super::super::operation::get_role::GetRoleOutput,
-+        super::super::super::operation::get_role::GetRoleError,
-+    > for GetRoleFluentBuilder
- {
-     fn send(
-         self,
-         config_override: super::super::super::config::Builder,
-     ) -> super::super::super::client::customize::internal::BoxFuture<
--        super::super::super::client::customize::internal::SendResult<super::super::super::operation::get_role::GetRoleOutput, super::super::super::operation::get_role::GetRoleError>,
-+        super::super::super::client::customize::internal::SendResult<
-+            super::super::super::operation::get_role::GetRoleOutput,
-+            super::super::super::operation::get_role::GetRoleError,
-+        >,
-     > {
-         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-     }
-@@ -88,8 +94,11 @@
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-     pub fn customize(
-         self,
--    ) -> super::super::super::client::customize::CustomizableOperation<super::super::super::operation::get_role::GetRoleOutput, super::super::super::operation::get_role::GetRoleError, Self>
--    {
-+    ) -> super::super::super::client::customize::CustomizableOperation<
-+        super::super::super::operation::get_role::GetRoleOutput,
-+        super::super::super::operation::get_role::GetRoleError,
-+        Self,
-+    > {
-         super::super::super::client::customize::CustomizableOperation::new(self)
-     }
-     pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<super::super::super::config::Builder>) -> Self {
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/get_role.rs`
@@ -6888,28 +4231,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_role.rs
 +++ generated/src/operation/get_role.rs
-@@ -18,11 +18,15 @@
-             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-         >,
-     > {
--        let map_err =
--            |err: ::aws_smithy_runtime_api::client::result::SdkError<
--                ::aws_smithy_runtime_api::client::interceptors::context::Error,
--                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
--            >| { err.map_service_error(|err| err.downcast::<super::super::operation::get_role::GetRoleError>().expect("correct error type")) };
-+        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-+        >| {
-+            err.map_service_error(|err| {
-+                err.downcast::<super::super::operation::get_role::GetRoleError>()
-+                    .expect("correct error type")
-+            })
-+        };
-         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-             .await
-             .map_err(map_err)?;
-@@ -241,11 +245,10 @@
+@@ -241,11 +241,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -6930,7 +4252,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_role_policy.rs
 +++ generated/src/operation/get_role_policy.rs
-@@ -252,13 +252,12 @@
+@@ -252,13 +252,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -6942,9 +4264,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_get_role_policy_input::ser_get_role_policy_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_role_policy_input::ser_get_role_policy_op_input(
-+            &input,
-+        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_role_policy_input::ser_get_role_policy_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -6970,25 +4290,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/get_saml_provider/_get_saml_provider_input.rs`
-
-```diff
---- reference/src/operation/get_saml_provider/_get_saml_provider_input.rs
-+++ generated/src/operation/get_saml_provider/_get_saml_provider_input.rs
-@@ -49,7 +49,10 @@
-     /// Consumes the builder and constructs a [`GetSamlProviderInput`](crate::operation::get_saml_provider::GetSamlProviderInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_saml_provider::GetSamlProviderInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_saml_provider::GetSamlProviderInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_saml_provider::GetSamlProviderInput {
-             saml_provider_arn: self.saml_provider_arn,
-         })
 ```
 
 ### `src/operation/get_saml_provider/builders.rs`
@@ -7165,7 +4466,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -247,12 +247,11 @@
+@@ -247,13 +247,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -7174,12 +4475,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_get_saml_provider_input::ser_get_saml_provider_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_saml_provider_input::ser_get_saml_provider_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_saml_provider_input::ser_get_saml_provider_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 @@ -262,12 +261,12 @@
      }
  }
@@ -7196,26 +4500,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/get_server_certificate/_get_server_certificate_input.rs`
-
-```diff
---- reference/src/operation/get_server_certificate/_get_server_certificate_input.rs
-+++ generated/src/operation/get_server_certificate/_get_server_certificate_input.rs
-@@ -49,8 +49,10 @@
-     /// Consumes the builder and constructs a [`GetServerCertificateInput`](crate::operation::get_server_certificate::GetServerCertificateInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_server_certificate::GetServerCertificateInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_server_certificate::GetServerCertificateInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_server_certificate::GetServerCertificateInput {
-             server_certificate_name: self.server_certificate_name,
-         })
 ```
 
 ### `src/operation/get_server_certificate.rs`
@@ -7240,178 +4524,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/get_service_last_accessed_details/_get_service_last_accessed_details_input.rs`
-
-```diff
---- reference/src/operation/get_service_last_accessed_details/_get_service_last_accessed_details_input.rs
-+++ generated/src/operation/get_service_last_accessed_details/_get_service_last_accessed_details_input.rs
-@@ -95,10 +95,12 @@
-         super::super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsInput {
--            job_id: self.job_id,
--            max_items: self.max_items,
--            marker: self.marker,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsInput {
-+                job_id: self.job_id,
-+                max_items: self.max_items,
-+                marker: self.marker,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/get_service_last_accessed_details/_get_service_last_accessed_details_output.rs`
-
-```diff
---- reference/src/operation/get_service_last_accessed_details/_get_service_last_accessed_details_output.rs
-+++ generated/src/operation/get_service_last_accessed_details/_get_service_last_accessed_details_output.rs
-@@ -141,7 +141,10 @@
-         self
-     }
-     /// <p>A <code>ServiceLastAccessed</code> object that contains details about the most recent attempt to access the service.</p>
--    pub fn set_services_last_accessed(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceLastAccessed>>) -> Self {
-+    pub fn set_services_last_accessed(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceLastAccessed>>,
-+    ) -> Self {
-         self.services_last_accessed = input;
-         self
-     }
-@@ -230,36 +233,38 @@
-         super::super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput {
--            job_status: self.job_status.ok_or_else(|| {
--                ::aws_smithy_types::error::operation::BuildError::missing_field(
--                    "job_status",
--                    "job_status was not specified but it is required when building GetServiceLastAccessedDetailsOutput",
--                )
--            })?,
--            job_type: self.job_type,
--            job_creation_date: self.job_creation_date.ok_or_else(|| {
--                ::aws_smithy_types::error::operation::BuildError::missing_field(
--                    "job_creation_date",
--                    "job_creation_date was not specified but it is required when building GetServiceLastAccessedDetailsOutput",
--                )
--            })?,
--            services_last_accessed: self.services_last_accessed.ok_or_else(|| {
--                ::aws_smithy_types::error::operation::BuildError::missing_field(
--                    "services_last_accessed",
--                    "services_last_accessed was not specified but it is required when building GetServiceLastAccessedDetailsOutput",
--                )
--            })?,
--            job_completion_date: self.job_completion_date.ok_or_else(|| {
--                ::aws_smithy_types::error::operation::BuildError::missing_field(
--                    "job_completion_date",
--                    "job_completion_date was not specified but it is required when building GetServiceLastAccessedDetailsOutput",
--                )
--            })?,
--            is_truncated: self.is_truncated.unwrap_or_default(),
--            marker: self.marker,
--            error: self.error,
--            _request_id: self._request_id,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetailsOutput {
-+                job_status: self.job_status.ok_or_else(|| {
-+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                        "job_status",
-+                        "job_status was not specified but it is required when building GetServiceLastAccessedDetailsOutput",
-+                    )
-+                })?,
-+                job_type: self.job_type,
-+                job_creation_date: self.job_creation_date.ok_or_else(|| {
-+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                        "job_creation_date",
-+                        "job_creation_date was not specified but it is required when building GetServiceLastAccessedDetailsOutput",
-+                    )
-+                })?,
-+                services_last_accessed: self.services_last_accessed.ok_or_else(|| {
-+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                        "services_last_accessed",
-+                        "services_last_accessed was not specified but it is required when building GetServiceLastAccessedDetailsOutput",
-+                    )
-+                })?,
-+                job_completion_date: self.job_completion_date.ok_or_else(|| {
-+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                        "job_completion_date",
-+                        "job_completion_date was not specified but it is required when building GetServiceLastAccessedDetailsOutput",
-+                    )
-+                })?,
-+                is_truncated: self.is_truncated.unwrap_or_default(),
-+                marker: self.marker,
-+                error: self.error,
-+                _request_id: self._request_id,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/get_service_last_accessed_details/builders.rs`
-
-```diff
---- reference/src/operation/get_service_last_accessed_details/builders.rs
-+++ generated/src/operation/get_service_last_accessed_details/builders.rs
-@@ -74,7 +74,9 @@
-         }
-     }
-     /// Access the GetServiceLastAccessedDetails as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::get_service_last_accessed_details::builders::GetServiceLastAccessedDetailsInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -98,11 +100,12 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetails::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
-+        let runtime_plugins =
-+            super::super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetails::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-         super::super::super::operation::get_service_last_accessed_details::GetServiceLastAccessedDetails::orchestrate(&runtime_plugins, input).await
-     }
-
-```
-
 ### `src/operation/get_service_last_accessed_details.rs`
 
 ```diff
 --- reference/src/operation/get_service_last_accessed_details.rs
 +++ generated/src/operation/get_service_last_accessed_details.rs
-@@ -212,9 +212,13 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_get_service_last_accessed_details::de_get_service_last_accessed_details_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_get_service_last_accessed_details::de_get_service_last_accessed_details_http_error(
-+                status, headers, body,
-+            )
-         } else {
--            super::super::protocol_serde::shape_get_service_last_accessed_details::de_get_service_last_accessed_details_http_response(status, headers, body)
-+            super::super::protocol_serde::shape_get_service_last_accessed_details::de_get_service_last_accessed_details_http_response(
-+                status, headers, body,
-+            )
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -255,12 +259,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -7428,82 +4546,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/get_service_last_accessed_details_with_entities/builders.rs`
-
-```diff
---- reference/src/operation/get_service_last_accessed_details_with_entities/builders.rs
-+++ generated/src/operation/get_service_last_accessed_details_with_entities/builders.rs
-@@ -3,7 +3,9 @@
-
- pub use super::super::super::operation::get_service_last_accessed_details_with_entities::_get_service_last_accessed_details_with_entities_output::GetServiceLastAccessedDetailsWithEntitiesOutputBuilder;
-
--impl super::super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesInputBuilder {
-+impl
-+    super::super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesInputBuilder
-+{
-     /// Sends a request with this input using the given client.
-     pub async fn send_with(
-         self,
-@@ -66,9 +68,7 @@
-         }
-     }
-     /// Access the GetServiceLastAccessedDetailsWithEntities as a reference.
--    pub fn as_input(
--        &self,
--    ) -> &super::super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesInputBuilder {
-+    pub fn as_input(&self) -> &super::super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesInputBuilder{
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -92,12 +92,11 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins =
--            super::super::super::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntities::operation_runtime_plugins(
--                self.handle.runtime_plugins.clone(),
--                &self.handle.conf,
--                self.config_override,
--            );
-+        let runtime_plugins = super::super::super::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntities::operation_runtime_plugins(
-+                            self.handle.runtime_plugins.clone(),
-+                            &self.handle.conf,
-+                            self.config_override,
-+                        );
-         super::super::super::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntities::orchestrate(
-             &runtime_plugins,
-             input,
-```
-
 ### `src/operation/get_service_last_accessed_details_with_entities.rs`
 
 ```diff
 --- reference/src/operation/get_service_last_accessed_details_with_entities.rs
 +++ generated/src/operation/get_service_last_accessed_details_with_entities.rs
-@@ -23,19 +23,14 @@
-             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-         >| {
-             err.map_service_error(|err| {
--                err.downcast::<super::super::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesError>()
--                    .expect("correct error type")
--            })
-+                                err.downcast::<super::super::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesError>().expect("correct error type")
-+                            })
-         };
-         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-             .await
-             .map_err(map_err)?;
-         let output = context.finalize().map_err(map_err)?;
--        ::std::result::Result::Ok(
--            output
--                .downcast::<super::super::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesOutput>()
--                .expect("correct output type"),
--        )
-+        ::std::result::Result::Ok(output.downcast::<super::super::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesOutput>().expect("correct output type"))
-     }
-
-     pub(crate) async fn orchestrate_with_stop_point(
-@@ -267,11 +262,10 @@
+@@ -267,11 +267,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -7519,43 +4567,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
-### `src/operation/get_service_linked_role_deletion_status/builders.rs`
-
-```diff
---- reference/src/operation/get_service_linked_role_deletion_status/builders.rs
-+++ generated/src/operation/get_service_linked_role_deletion_status/builders.rs
-@@ -57,7 +57,9 @@
-         }
-     }
-     /// Access the GetServiceLinkedRoleDeletionStatus as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -87,7 +89,11 @@
-                 &self.handle.conf,
-                 self.config_override,
-             );
--        super::super::super::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatus::orchestrate(&runtime_plugins, input).await
-+        super::super::super::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatus::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
 ### `src/operation/get_service_linked_role_deletion_status.rs`
 
 ```diff
 --- reference/src/operation/get_service_linked_role_deletion_status.rs
 +++ generated/src/operation/get_service_linked_role_deletion_status.rs
-@@ -260,11 +260,14 @@
+@@ -260,11 +260,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -7566,43 +4583,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_service_linked_role_deletion_status_input::ser_get_service_linked_role_deletion_status_input_input_input(&input)?);
 +        let body = ::aws_smithy_types::body::SdkBody::from(
-+            super::super::protocol_serde::shape_get_service_linked_role_deletion_status_input::ser_get_service_linked_role_deletion_status_op_input(
-+                &input,
-+            )?,
++            super::super::protocol_serde::shape_get_service_linked_role_deletion_status_input::ser_get_service_linked_role_deletion_status_op_input(&input)?,
 +        );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -431,7 +434,9 @@
-         })
-     }
- }
--impl ::aws_types::request_id::RequestId for super::super::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError {
-+impl ::aws_types::request_id::RequestId
-+    for super::super::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusError
-+{
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-     }
-```
-
-### `src/operation/get_ssh_public_key/_get_ssh_public_key_input.rs`
-
-```diff
---- reference/src/operation/get_ssh_public_key/_get_ssh_public_key_input.rs
-+++ generated/src/operation/get_ssh_public_key/_get_ssh_public_key_input.rs
-@@ -98,7 +98,10 @@
-     /// Consumes the builder and constructs a [`GetSshPublicKeyInput`](crate::operation::get_ssh_public_key::GetSshPublicKeyInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::get_ssh_public_key::GetSshPublicKeyInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::get_ssh_public_key::GetSshPublicKeyInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::get_ssh_public_key::GetSshPublicKeyInput {
-             user_name: self.user_name,
-             ssh_public_key_id: self.ssh_public_key_id,
 ```
 
 ### `src/operation/get_ssh_public_key/builders.rs`
@@ -7778,7 +4763,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -7787,12 +4772,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_get_ssh_public_key_input::ser_get_ssh_public_key_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_get_ssh_public_key_input::ser_get_ssh_public_key_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_ssh_public_key_input::ser_get_ssh_public_key_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 @@ -267,12 +266,12 @@
      }
  }
@@ -7811,96 +4799,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/get_user/_get_user_input.rs`
-
-```diff
---- reference/src/operation/get_user/_get_user_input.rs
-+++ generated/src/operation/get_user/_get_user_input.rs
-@@ -46,7 +46,9 @@
-         &self.user_name
-     }
-     /// Consumes the builder and constructs a [`GetUserInput`](crate::operation::get_user::GetUserInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_user::GetUserInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::get_user::GetUserInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::get_user::GetUserInput { user_name: self.user_name })
-     }
- }
-```
-
-### `src/operation/get_user/builders.rs`
-
-```diff
---- reference/src/operation/get_user/builders.rs
-+++ generated/src/operation/get_user/builders.rs
-@@ -30,14 +30,20 @@
-     inner: super::super::super::operation::get_user::builders::GetUserInputBuilder,
-     config_override: ::std::option::Option<super::super::super::config::Builder>,
- }
--impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::get_user::GetUserOutput, super::super::super::operation::get_user::GetUserError>
--    for GetUserFluentBuilder
-+impl
-+    super::super::super::client::customize::internal::CustomizableSend<
-+        super::super::super::operation::get_user::GetUserOutput,
-+        super::super::super::operation::get_user::GetUserError,
-+    > for GetUserFluentBuilder
- {
-     fn send(
-         self,
-         config_override: super::super::super::config::Builder,
-     ) -> super::super::super::client::customize::internal::BoxFuture<
--        super::super::super::client::customize::internal::SendResult<super::super::super::operation::get_user::GetUserOutput, super::super::super::operation::get_user::GetUserError>,
-+        super::super::super::client::customize::internal::SendResult<
-+            super::super::super::operation::get_user::GetUserOutput,
-+            super::super::super::operation::get_user::GetUserError,
-+        >,
-     > {
-         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-     }
-@@ -87,8 +93,11 @@
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-     pub fn customize(
-         self,
--    ) -> super::super::super::client::customize::CustomizableOperation<super::super::super::operation::get_user::GetUserOutput, super::super::super::operation::get_user::GetUserError, Self>
--    {
-+    ) -> super::super::super::client::customize::CustomizableOperation<
-+        super::super::super::operation::get_user::GetUserOutput,
-+        super::super::super::operation::get_user::GetUserError,
-+        Self,
-+    > {
-         super::super::super::client::customize::CustomizableOperation::new(self)
-     }
-     pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<super::super::super::config::Builder>) -> Self {
-```
-
 ### `src/operation/get_user.rs`
 
 ```diff
 --- reference/src/operation/get_user.rs
 +++ generated/src/operation/get_user.rs
-@@ -18,11 +18,15 @@
-             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-         >,
-     > {
--        let map_err =
--            |err: ::aws_smithy_runtime_api::client::result::SdkError<
--                ::aws_smithy_runtime_api::client::interceptors::context::Error,
--                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
--            >| { err.map_service_error(|err| err.downcast::<super::super::operation::get_user::GetUserError>().expect("correct error type")) };
-+        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-+        >| {
-+            err.map_service_error(|err| {
-+                err.downcast::<super::super::operation::get_user::GetUserError>()
-+                    .expect("correct error type")
-+            })
-+        };
-         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-             .await
-             .map_err(map_err)?;
-@@ -241,11 +245,10 @@
+@@ -241,11 +241,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -7921,7 +4825,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/get_user_policy.rs
 +++ generated/src/operation/get_user_policy.rs
-@@ -252,13 +252,12 @@
+@@ -252,13 +252,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -7933,9 +4837,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_get_user_policy_input::ser_get_user_policy_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_user_policy_input::ser_get_user_policy_op_input(
-+            &input,
-+        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_get_user_policy_input::ser_get_user_policy_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -7946,7 +4848,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_access_keys.rs
 +++ generated/src/operation/list_access_keys.rs
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -7955,52 +4857,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_list_access_keys_input::ser_list_access_keys_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_access_keys_input::ser_list_access_keys_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_access_keys_input::ser_list_access_keys_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/list_account_aliases/_list_account_aliases_input.rs`
-
-```diff
---- reference/src/operation/list_account_aliases/_list_account_aliases_input.rs
-+++ generated/src/operation/list_account_aliases/_list_account_aliases_input.rs
-@@ -69,8 +69,10 @@
-     /// Consumes the builder and constructs a [`ListAccountAliasesInput`](crate::operation::list_account_aliases::ListAccountAliasesInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_account_aliases::ListAccountAliasesInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_account_aliases::ListAccountAliasesInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_account_aliases::ListAccountAliasesInput {
-             marker: self.marker,
-             max_items: self.max_items,
-```
-
-### `src/operation/list_account_aliases/_list_account_aliases_output.rs`
-
-```diff
---- reference/src/operation/list_account_aliases/_list_account_aliases_output.rs
-+++ generated/src/operation/list_account_aliases/_list_account_aliases_output.rs
-@@ -111,8 +111,10 @@
-     /// - [`account_aliases`](crate::operation::list_account_aliases::builders::ListAccountAliasesOutputBuilder::account_aliases)
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_account_aliases::ListAccountAliasesOutput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_account_aliases::ListAccountAliasesOutput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_account_aliases::ListAccountAliasesOutput {
-             account_aliases: self.account_aliases.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/list_account_aliases.rs`
@@ -8025,55 +4890,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/list_attached_group_policies/_list_attached_group_policies_input.rs`
-
-```diff
---- reference/src/operation/list_attached_group_policies/_list_attached_group_policies_input.rs
-+++ generated/src/operation/list_attached_group_policies/_list_attached_group_policies_input.rs
-@@ -126,11 +126,13 @@
-         super::super::super::operation::list_attached_group_policies::ListAttachedGroupPoliciesInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_attached_group_policies::ListAttachedGroupPoliciesInput {
--            group_name: self.group_name,
--            path_prefix: self.path_prefix,
--            marker: self.marker,
--            max_items: self.max_items,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_attached_group_policies::ListAttachedGroupPoliciesInput {
-+                group_name: self.group_name,
-+                path_prefix: self.path_prefix,
-+                marker: self.marker,
-+                max_items: self.max_items,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/list_attached_group_policies/paginator.rs`
-
-```diff
---- reference/src/operation/list_attached_group_policies/paginator.rs
-+++ generated/src/operation/list_attached_group_policies/paginator.rs
-@@ -86,9 +86,11 @@
-                         }
-                     };
-                     loop {
--                        let resp =
--                            super::super::super::operation::list_attached_group_policies::ListAttachedGroupPolicies::orchestrate(&runtime_plugins, input.clone())
--                                .await;
-+                        let resp = super::super::super::operation::list_attached_group_policies::ListAttachedGroupPolicies::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
-```
-
 ### `src/operation/list_attached_group_policies.rs`
 
 ```diff
@@ -8096,55 +4912,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/list_attached_role_policies/_list_attached_role_policies_input.rs`
-
-```diff
---- reference/src/operation/list_attached_role_policies/_list_attached_role_policies_input.rs
-+++ generated/src/operation/list_attached_role_policies/_list_attached_role_policies_input.rs
-@@ -126,11 +126,13 @@
-         super::super::super::operation::list_attached_role_policies::ListAttachedRolePoliciesInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_attached_role_policies::ListAttachedRolePoliciesInput {
--            role_name: self.role_name,
--            path_prefix: self.path_prefix,
--            marker: self.marker,
--            max_items: self.max_items,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_attached_role_policies::ListAttachedRolePoliciesInput {
-+                role_name: self.role_name,
-+                path_prefix: self.path_prefix,
-+                marker: self.marker,
-+                max_items: self.max_items,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/list_attached_role_policies/paginator.rs`
-
-```diff
---- reference/src/operation/list_attached_role_policies/paginator.rs
-+++ generated/src/operation/list_attached_role_policies/paginator.rs
-@@ -86,9 +86,11 @@
-                         }
-                     };
-                     loop {
--                        let resp =
--                            super::super::super::operation::list_attached_role_policies::ListAttachedRolePolicies::orchestrate(&runtime_plugins, input.clone())
--                                .await;
-+                        let resp = super::super::super::operation::list_attached_role_policies::ListAttachedRolePolicies::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
-```
-
 ### `src/operation/list_attached_role_policies.rs`
 
 ```diff
@@ -8165,55 +4932,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/list_attached_user_policies/_list_attached_user_policies_input.rs`
-
-```diff
---- reference/src/operation/list_attached_user_policies/_list_attached_user_policies_input.rs
-+++ generated/src/operation/list_attached_user_policies/_list_attached_user_policies_input.rs
-@@ -126,11 +126,13 @@
-         super::super::super::operation::list_attached_user_policies::ListAttachedUserPoliciesInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_attached_user_policies::ListAttachedUserPoliciesInput {
--            user_name: self.user_name,
--            path_prefix: self.path_prefix,
--            marker: self.marker,
--            max_items: self.max_items,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_attached_user_policies::ListAttachedUserPoliciesInput {
-+                user_name: self.user_name,
-+                path_prefix: self.path_prefix,
-+                marker: self.marker,
-+                max_items: self.max_items,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/list_attached_user_policies/paginator.rs`
-
-```diff
---- reference/src/operation/list_attached_user_policies/paginator.rs
-+++ generated/src/operation/list_attached_user_policies/paginator.rs
-@@ -86,9 +86,11 @@
-                         }
-                     };
-                     loop {
--                        let resp =
--                            super::super::super::operation::list_attached_user_policies::ListAttachedUserPolicies::orchestrate(&runtime_plugins, input.clone())
--                                .await;
-+                        let resp = super::super::super::operation::list_attached_user_policies::ListAttachedUserPolicies::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
 ```
 
 ### `src/operation/list_attached_user_policies.rs`
@@ -8260,47 +4978,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/list_entities_for_policy/_list_entities_for_policy_input.rs`
-
-```diff
---- reference/src/operation/list_entities_for_policy/_list_entities_for_policy_input.rs
-+++ generated/src/operation/list_entities_for_policy/_list_entities_for_policy_input.rs
-@@ -179,8 +179,10 @@
-     /// Consumes the builder and constructs a [`ListEntitiesForPolicyInput`](crate::operation::list_entities_for_policy::ListEntitiesForPolicyInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_entities_for_policy::ListEntitiesForPolicyInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_entities_for_policy::ListEntitiesForPolicyInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_entities_for_policy::ListEntitiesForPolicyInput {
-             policy_arn: self.policy_arn,
-             entity_filter: self.entity_filter,
-```
-
-### `src/operation/list_entities_for_policy/paginator.rs`
-
-```diff
---- reference/src/operation/list_entities_for_policy/paginator.rs
-+++ generated/src/operation/list_entities_for_policy/paginator.rs
-@@ -78,8 +78,11 @@
-                         }
-                     };
-                     loop {
--                        let resp =
--                            super::super::super::operation::list_entities_for_policy::ListEntitiesForPolicy::orchestrate(&runtime_plugins, input.clone()).await;
-+                        let resp = super::super::super::operation::list_entities_for_policy::ListEntitiesForPolicy::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
-```
-
 ### `src/operation/list_entities_for_policy.rs`
 
 ```diff
@@ -8323,50 +5000,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/list_group_policies/_list_group_policies_input.rs`
-
-```diff
---- reference/src/operation/list_group_policies/_list_group_policies_input.rs
-+++ generated/src/operation/list_group_policies/_list_group_policies_input.rs
-@@ -96,7 +96,10 @@
-     /// Consumes the builder and constructs a [`ListGroupPoliciesInput`](crate::operation::list_group_policies::ListGroupPoliciesInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_group_policies::ListGroupPoliciesInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_group_policies::ListGroupPoliciesInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_group_policies::ListGroupPoliciesInput {
-             group_name: self.group_name,
-             marker: self.marker,
-```
-
-### `src/operation/list_group_policies/_list_group_policies_output.rs`
-
-```diff
---- reference/src/operation/list_group_policies/_list_group_policies_output.rs
-+++ generated/src/operation/list_group_policies/_list_group_policies_output.rs
-@@ -116,7 +116,10 @@
-     /// - [`policy_names`](crate::operation::list_group_policies::builders::ListGroupPoliciesOutputBuilder::policy_names)
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_group_policies::ListGroupPoliciesOutput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_group_policies::ListGroupPoliciesOutput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_group_policies::ListGroupPoliciesOutput {
-             policy_names: self.policy_names.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
-```
-
 ### `src/operation/list_group_policies.rs`
 
 ```diff
 --- reference/src/operation/list_group_policies.rs
 +++ generated/src/operation/list_group_policies.rs
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -8375,68 +5014,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_list_group_policies_input::ser_list_group_policies_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_group_policies_input::ser_list_group_policies_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_group_policies_input::ser_list_group_policies_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/list_groups/_list_groups_input.rs`
-
-```diff
---- reference/src/operation/list_groups/_list_groups_input.rs
-+++ generated/src/operation/list_groups/_list_groups_input.rs
-@@ -93,7 +93,9 @@
-         &self.max_items
-     }
-     /// Consumes the builder and constructs a [`ListGroupsInput`](crate::operation::list_groups::ListGroupsInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_groups::ListGroupsInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::list_groups::ListGroupsInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::list_groups::ListGroupsInput {
-             path_prefix: self.path_prefix,
-             marker: self.marker,
-```
-
-### `src/operation/list_groups/_list_groups_output.rs`
-
-```diff
---- reference/src/operation/list_groups/_list_groups_output.rs
-+++ generated/src/operation/list_groups/_list_groups_output.rs
-@@ -109,7 +109,9 @@
-     /// Consumes the builder and constructs a [`ListGroupsOutput`](crate::operation::list_groups::ListGroupsOutput).
-     /// This method will fail if any of the following fields are not set:
-     /// - [`groups`](crate::operation::list_groups::builders::ListGroupsOutputBuilder::groups)
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_groups::ListGroupsOutput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::list_groups::ListGroupsOutput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::list_groups::ListGroupsOutput {
-             groups: self.groups.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
-```
-
-### `src/operation/list_groups/paginator.rs`
-
-```diff
---- reference/src/operation/list_groups/paginator.rs
-+++ generated/src/operation/list_groups/paginator.rs
-@@ -139,7 +139,10 @@
-             >,
-         >,
-     > {
--        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send())
--            .flat_map(|page| super::super::super::lens::lens_list_groups_output_output_groups(page).unwrap_or_default().into_iter())
-+        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
-+            super::super::super::lens::lens_list_groups_output_output_groups(page)
-+                .unwrap_or_default()
-+                .into_iter()
-+        })
-     }
- }
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/list_groups.rs`
@@ -8444,18 +5030,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_groups.rs
 +++ generated/src/operation/list_groups.rs
-@@ -225,7 +225,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::list_groups::ListGroupsInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::list_groups::ListGroupsInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -250,12 +252,10 @@
+@@ -250,12 +250,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -8470,45 +5045,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/list_groups_for_user/_list_groups_for_user_input.rs`
-
-```diff
---- reference/src/operation/list_groups_for_user/_list_groups_for_user_input.rs
-+++ generated/src/operation/list_groups_for_user/_list_groups_for_user_input.rs
-@@ -96,7 +96,10 @@
-     /// Consumes the builder and constructs a [`ListGroupsForUserInput`](crate::operation::list_groups_for_user::ListGroupsForUserInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_groups_for_user::ListGroupsForUserInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_groups_for_user::ListGroupsForUserInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_groups_for_user::ListGroupsForUserInput {
-             user_name: self.user_name,
-             marker: self.marker,
-```
-
-### `src/operation/list_groups_for_user/_list_groups_for_user_output.rs`
-
-```diff
---- reference/src/operation/list_groups_for_user/_list_groups_for_user_output.rs
-+++ generated/src/operation/list_groups_for_user/_list_groups_for_user_output.rs
-@@ -111,8 +111,10 @@
-     /// - [`groups`](crate::operation::list_groups_for_user::builders::ListGroupsForUserOutputBuilder::groups)
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_groups_for_user::ListGroupsForUserOutput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_groups_for_user::ListGroupsForUserOutput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_groups_for_user::ListGroupsForUserOutput {
-             groups: self.groups.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### `src/operation/list_groups_for_user.rs`
@@ -8533,64 +5069,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/list_instance_profile_tags/_list_instance_profile_tags_output.rs`
-
-```diff
---- reference/src/operation/list_instance_profile_tags/_list_instance_profile_tags_output.rs
-+++ generated/src/operation/list_instance_profile_tags/_list_instance_profile_tags_output.rs
-@@ -114,16 +114,18 @@
-         super::super::super::operation::list_instance_profile_tags::ListInstanceProfileTagsOutput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_instance_profile_tags::ListInstanceProfileTagsOutput {
--            tags: self.tags.ok_or_else(|| {
--                ::aws_smithy_types::error::operation::BuildError::missing_field(
--                    "tags",
--                    "tags was not specified but it is required when building ListInstanceProfileTagsOutput",
--                )
--            })?,
--            is_truncated: self.is_truncated.unwrap_or_default(),
--            marker: self.marker,
--            _request_id: self._request_id,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_instance_profile_tags::ListInstanceProfileTagsOutput {
-+                tags: self.tags.ok_or_else(|| {
-+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                        "tags",
-+                        "tags was not specified but it is required when building ListInstanceProfileTagsOutput",
-+                    )
-+                })?,
-+                is_truncated: self.is_truncated.unwrap_or_default(),
-+                marker: self.marker,
-+                _request_id: self._request_id,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/list_instance_profile_tags/paginator.rs`
-
-```diff
---- reference/src/operation/list_instance_profile_tags/paginator.rs
-+++ generated/src/operation/list_instance_profile_tags/paginator.rs
-@@ -86,8 +86,11 @@
-                         }
-                     };
-                     loop {
--                        let resp =
--                            super::super::super::operation::list_instance_profile_tags::ListInstanceProfileTags::orchestrate(&runtime_plugins, input.clone()).await;
-+                        let resp = super::super::super::operation::list_instance_profile_tags::ListInstanceProfileTags::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
-```
-
 ### `src/operation/list_instance_profile_tags.rs`
 
 ```diff
@@ -8611,66 +5089,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/list_instance_profiles/_list_instance_profiles_input.rs`
-
-```diff
---- reference/src/operation/list_instance_profiles/_list_instance_profiles_input.rs
-+++ generated/src/operation/list_instance_profiles/_list_instance_profiles_input.rs
-@@ -95,8 +95,10 @@
-     /// Consumes the builder and constructs a [`ListInstanceProfilesInput`](crate::operation::list_instance_profiles::ListInstanceProfilesInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_instance_profiles::ListInstanceProfilesInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_instance_profiles::ListInstanceProfilesInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_instance_profiles::ListInstanceProfilesInput {
-             path_prefix: self.path_prefix,
-             marker: self.marker,
-```
-
-### `src/operation/list_instance_profiles/_list_instance_profiles_output.rs`
-
-```diff
---- reference/src/operation/list_instance_profiles/_list_instance_profiles_output.rs
-+++ generated/src/operation/list_instance_profiles/_list_instance_profiles_output.rs
-@@ -111,8 +111,10 @@
-     /// - [`instance_profiles`](crate::operation::list_instance_profiles::builders::ListInstanceProfilesOutputBuilder::instance_profiles)
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_instance_profiles::ListInstanceProfilesOutput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_instance_profiles::ListInstanceProfilesOutput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_instance_profiles::ListInstanceProfilesOutput {
-             instance_profiles: self.instance_profiles.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
-```
-
-### `src/operation/list_instance_profiles/paginator.rs`
-
-```diff
---- reference/src/operation/list_instance_profiles/paginator.rs
-+++ generated/src/operation/list_instance_profiles/paginator.rs
-@@ -86,7 +86,11 @@
-                         }
-                     };
-                     loop {
--                        let resp = super::super::super::operation::list_instance_profiles::ListInstanceProfiles::orchestrate(&runtime_plugins, input.clone()).await;
-+                        let resp = super::super::super::operation::list_instance_profiles::ListInstanceProfiles::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
 ```
 
 ### `src/operation/list_instance_profiles.rs`
@@ -8695,85 +5113,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/list_instance_profiles_for_role/_list_instance_profiles_for_role_input.rs`
-
-```diff
---- reference/src/operation/list_instance_profiles_for_role/_list_instance_profiles_for_role_input.rs
-+++ generated/src/operation/list_instance_profiles_for_role/_list_instance_profiles_for_role_input.rs
-@@ -100,10 +100,12 @@
-         super::super::super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleInput {
--            role_name: self.role_name,
--            marker: self.marker,
--            max_items: self.max_items,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleInput {
-+                role_name: self.role_name,
-+                marker: self.marker,
-+                max_items: self.max_items,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/list_instance_profiles_for_role/_list_instance_profiles_for_role_output.rs`
-
-```diff
---- reference/src/operation/list_instance_profiles_for_role/_list_instance_profiles_for_role_output.rs
-+++ generated/src/operation/list_instance_profiles_for_role/_list_instance_profiles_for_role_output.rs
-@@ -115,16 +115,18 @@
-         super::super::super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleOutput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleOutput {
--            instance_profiles: self.instance_profiles.ok_or_else(|| {
--                ::aws_smithy_types::error::operation::BuildError::missing_field(
--                    "instance_profiles",
--                    "instance_profiles was not specified but it is required when building ListInstanceProfilesForRoleOutput",
--                )
--            })?,
--            is_truncated: self.is_truncated.unwrap_or_default(),
--            marker: self.marker,
--            _request_id: self._request_id,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleOutput {
-+                instance_profiles: self.instance_profiles.ok_or_else(|| {
-+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                        "instance_profiles",
-+                        "instance_profiles was not specified but it is required when building ListInstanceProfilesForRoleOutput",
-+                    )
-+                })?,
-+                is_truncated: self.is_truncated.unwrap_or_default(),
-+                marker: self.marker,
-+                _request_id: self._request_id,
-+            },
-+        )
-     }
- }
-```
-
 ### `src/operation/list_instance_profiles_for_role.rs`
 
 ```diff
 --- reference/src/operation/list_instance_profiles_for_role.rs
 +++ generated/src/operation/list_instance_profiles_for_role.rs
-@@ -214,7 +214,9 @@
-         let parse_result = if !success && status != 200 || force_error {
-             super::super::protocol_serde::shape_list_instance_profiles_for_role::de_list_instance_profiles_for_role_http_error(status, headers, body)
-         } else {
--            super::super::protocol_serde::shape_list_instance_profiles_for_role::de_list_instance_profiles_for_role_http_response(status, headers, body)
-+            super::super::protocol_serde::shape_list_instance_profiles_for_role::de_list_instance_profiles_for_role_http_response(
-+                status, headers, body,
-+            )
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -255,12 +257,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -8788,45 +5133,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/list_mfa_device_tags/_list_mfa_device_tags_input.rs`
-
-```diff
---- reference/src/operation/list_mfa_device_tags/_list_mfa_device_tags_input.rs
-+++ generated/src/operation/list_mfa_device_tags/_list_mfa_device_tags_input.rs
-@@ -96,7 +96,10 @@
-     /// Consumes the builder and constructs a [`ListMfaDeviceTagsInput`](crate::operation::list_mfa_device_tags::ListMfaDeviceTagsInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsInput {
-             serial_number: self.serial_number,
-             marker: self.marker,
-```
-
-### `src/operation/list_mfa_device_tags/_list_mfa_device_tags_output.rs`
-
-```diff
---- reference/src/operation/list_mfa_device_tags/_list_mfa_device_tags_output.rs
-+++ generated/src/operation/list_mfa_device_tags/_list_mfa_device_tags_output.rs
-@@ -110,8 +110,10 @@
-     /// - [`tags`](crate::operation::list_mfa_device_tags::builders::ListMfaDeviceTagsOutputBuilder::tags)
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_mfa_device_tags::ListMfaDeviceTagsOutput {
-             tags: self.tags.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### `src/operation/list_mfa_device_tags/builders.rs`
@@ -9207,7 +5513,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -9216,12 +5522,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_list_mfa_devices_input::ser_list_mfa_devices_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_mfa_devices_input::ser_list_mfa_devices_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_mfa_devices_input::ser_list_mfa_devices_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 @@ -267,12 +266,12 @@
      }
  }
@@ -9238,31 +5547,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/list_open_id_connect_provider_tags/_list_open_id_connect_provider_tags_input.rs`
-
-```diff
---- reference/src/operation/list_open_id_connect_provider_tags/_list_open_id_connect_provider_tags_input.rs
-+++ generated/src/operation/list_open_id_connect_provider_tags/_list_open_id_connect_provider_tags_input.rs
-@@ -100,10 +100,12 @@
-         super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsInput {
--            open_id_connect_provider_arn: self.open_id_connect_provider_arn,
--            marker: self.marker,
--            max_items: self.max_items,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsInput {
-+                open_id_connect_provider_arn: self.open_id_connect_provider_arn,
-+                marker: self.marker,
-+                max_items: self.max_items,
-+            },
-+        )
-     }
- }
 ```
 
 ### `src/operation/list_open_id_connect_provider_tags/builders.rs`
@@ -9323,20 +5607,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
          Self {
              handle,
-@@ -57,8 +57,10 @@
+@@ -57,7 +57,7 @@
              config_override: ::std::option::Option::None,
          }
      }
 -    /// Access the ListOpenIDConnectProviderTags as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsInputBuilder {
 +    /// Access the ListOpenIdConnectProviderTags as a reference.
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsInputBuilder {
+     pub fn as_input(&self) -> &super::super::super::operation::list_open_id_connect_provider_tags::builders::ListOpenIdConnectProviderTagsInputBuilder {
          &self.inner
      }
-     /// Sends the request and returns the response.
-@@ -74,7 +76,7 @@
+@@ -74,7 +74,7 @@
      ) -> ::std::result::Result<
          super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
@@ -9345,27 +5625,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
-@@ -82,12 +84,13 @@
+@@ -82,12 +82,12 @@
              .inner
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
 -        let runtime_plugins = super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTags::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
++        let runtime_plugins = super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTags::operation_runtime_plugins(
+             self.handle.runtime_plugins.clone(),
+             &self.handle.conf,
+             self.config_override,
+         );
 -        super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTags::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTags::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
 +        super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTags::orchestrate(&runtime_plugins, input).await
      }
 
      /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-@@ -95,7 +98,7 @@
+@@ -95,7 +95,7 @@
          self,
      ) -> super::super::super::client::customize::CustomizableOperation<
          super::super::super::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
@@ -9374,22 +5649,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          Self,
      > {
          super::super::super::client::customize::CustomizableOperation::new(self)
-@@ -112,8 +115,13 @@
-     /// Create a paginator for this request
-     ///
-     /// Paginators are used by calling [`send().await`](crate::operation::list_open_id_connect_provider_tags::paginator::ListOpenIdConnectProviderTagsPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
--    pub fn into_paginator(self) -> super::super::super::operation::list_open_id_connect_provider_tags::paginator::ListOpenIdConnectProviderTagsPaginator {
--        super::super::super::operation::list_open_id_connect_provider_tags::paginator::ListOpenIdConnectProviderTagsPaginator::new(self.handle, self.inner)
-+    pub fn into_paginator(
-+        self,
-+    ) -> super::super::super::operation::list_open_id_connect_provider_tags::paginator::ListOpenIdConnectProviderTagsPaginator {
-+        super::super::super::operation::list_open_id_connect_provider_tags::paginator::ListOpenIdConnectProviderTagsPaginator::new(
-+            self.handle,
-+            self.inner,
-+        )
-     }
-     /// <p>The ARN of the OpenID Connect (OIDC) identity provider whose tags you want to see.</p>
-     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
 ```
 
 ### `src/operation/list_open_id_connect_provider_tags.rs`
@@ -9463,18 +5722,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -212,7 +212,9 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_list_open_id_connect_provider_tags::de_list_open_id_connect_provider_tags_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_list_open_id_connect_provider_tags::de_list_open_id_connect_provider_tags_http_error(
-+                status, headers, body,
-+            )
-         } else {
-             super::super::protocol_serde::shape_list_open_id_connect_provider_tags::de_list_open_id_connect_provider_tags_http_response(
-                 status, headers, body,
-@@ -257,12 +259,11 @@
+@@ -257,12 +257,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -9489,7 +5737,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-@@ -272,12 +273,12 @@
+@@ -272,12 +271,12 @@
      }
  }
  #[derive(Debug)]
@@ -9505,24 +5753,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/list_open_id_connect_providers/_list_open_id_connect_providers_output.rs`
-
-```diff
---- reference/src/operation/list_open_id_connect_providers/_list_open_id_connect_providers_output.rs
-+++ generated/src/operation/list_open_id_connect_providers/_list_open_id_connect_providers_output.rs
-@@ -56,7 +56,9 @@
-         self
-     }
-     /// <p>The list of IAM OIDC provider resource objects defined in the Amazon Web Services account.</p>
--    pub fn get_open_id_connect_provider_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::OpenIdConnectProviderListEntry>> {
-+    pub fn get_open_id_connect_provider_list(
-+        &self,
-+    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::OpenIdConnectProviderListEntry>> {
-         &self.open_id_connect_provider_list
-     }
-     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
 ```
 
 ### `src/operation/list_open_id_connect_providers/builders.rs`
@@ -9734,13 +5964,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_policies/_list_policies_input.rs
 +++ generated/src/operation/list_policies/_list_policies_input.rs
-@@ -178,10 +178,11 @@
-     /// Consumes the builder and constructs a [`ListPoliciesInput`](crate::operation::list_policies::ListPoliciesInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_policies::ListPoliciesInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<super::super::super::operation::list_policies::ListPoliciesInput, ::aws_smithy_types::error::operation::BuildError>
-+    {
+@@ -181,7 +181,7 @@
+     ) -> ::std::result::Result<super::super::super::operation::list_policies::ListPoliciesInput, ::aws_smithy_types::error::operation::BuildError> {
          ::std::result::Result::Ok(super::super::super::operation::list_policies::ListPoliciesInput {
              scope: self.scope,
 -            only_attached: self.only_attached,
@@ -9755,7 +5980,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_policies.rs
 +++ generated/src/operation/list_policies.rs
-@@ -252,11 +252,10 @@
+@@ -252,13 +252,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -9765,49 +5990,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_policies_input::ser_list_policies_input_input_input(
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_policies_input::ser_list_policies_op_input(
-             &input,
-         )?);
+-            &input,
+-        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_policies_input::ser_list_policies_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
-```
-
-### `src/operation/list_policies_granting_service_access/builders.rs`
-
-```diff
---- reference/src/operation/list_policies_granting_service_access/builders.rs
-+++ generated/src/operation/list_policies_granting_service_access/builders.rs
-@@ -70,7 +70,9 @@
-         }
-     }
-     /// Access the ListPoliciesGrantingServiceAccess as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::list_policies_granting_service_access::builders::ListPoliciesGrantingServiceAccessInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -94,12 +96,14 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccess::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccess::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccess::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccess::orchestrate(&runtime_plugins, input)
-+            .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/list_policies_granting_service_access.rs`
@@ -9815,7 +6003,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_policies_granting_service_access.rs
 +++ generated/src/operation/list_policies_granting_service_access.rs
-@@ -265,12 +265,11 @@
+@@ -265,14 +265,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -9826,10 +6014,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_list_policies_granting_service_access_input::ser_list_policies_granting_service_access_input_input_input(
-+            super::super::protocol_serde::shape_list_policies_granting_service_access_input::ser_list_policies_granting_service_access_op_input(
-                 &input,
-             )?,
+-                &input,
+-            )?,
++            super::super::protocol_serde::shape_list_policies_granting_service_access_input::ser_list_policies_granting_service_access_op_input(&input)?,
          );
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/list_policy_tags.rs`
@@ -9837,7 +6027,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_policy_tags.rs
 +++ generated/src/operation/list_policy_tags.rs
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -9846,32 +6036,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_list_policy_tags_input::ser_list_policy_tags_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_policy_tags_input::ser_list_policy_tags_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_policy_tags_input::ser_list_policy_tags_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/list_policy_versions/_list_policy_versions_input.rs`
-
-```diff
---- reference/src/operation/list_policy_versions/_list_policy_versions_input.rs
-+++ generated/src/operation/list_policy_versions/_list_policy_versions_input.rs
-@@ -96,8 +96,10 @@
-     /// Consumes the builder and constructs a [`ListPolicyVersionsInput`](crate::operation::list_policy_versions::ListPolicyVersionsInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_policy_versions::ListPolicyVersionsInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_policy_versions::ListPolicyVersionsInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_policy_versions::ListPolicyVersionsInput {
-             policy_arn: self.policy_arn,
-             marker: self.marker,
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/list_policy_versions.rs`
@@ -9896,50 +6069,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/list_role_policies/_list_role_policies_input.rs`
-
-```diff
---- reference/src/operation/list_role_policies/_list_role_policies_input.rs
-+++ generated/src/operation/list_role_policies/_list_role_policies_input.rs
-@@ -96,7 +96,10 @@
-     /// Consumes the builder and constructs a [`ListRolePoliciesInput`](crate::operation::list_role_policies::ListRolePoliciesInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_role_policies::ListRolePoliciesInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_role_policies::ListRolePoliciesInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_role_policies::ListRolePoliciesInput {
-             role_name: self.role_name,
-             marker: self.marker,
-```
-
-### `src/operation/list_role_policies/_list_role_policies_output.rs`
-
-```diff
---- reference/src/operation/list_role_policies/_list_role_policies_output.rs
-+++ generated/src/operation/list_role_policies/_list_role_policies_output.rs
-@@ -111,7 +111,10 @@
-     /// - [`policy_names`](crate::operation::list_role_policies::builders::ListRolePoliciesOutputBuilder::policy_names)
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_role_policies::ListRolePoliciesOutput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_role_policies::ListRolePoliciesOutput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_role_policies::ListRolePoliciesOutput {
-             policy_names: self.policy_names.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
-```
-
 ### `src/operation/list_role_policies.rs`
 
 ```diff
 --- reference/src/operation/list_role_policies.rs
 +++ generated/src/operation/list_role_policies.rs
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -9948,32 +6083,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_list_role_policies_input::ser_list_role_policies_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_role_policies_input::ser_list_role_policies_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_role_policies_input::ser_list_role_policies_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/list_role_tags/paginator.rs`
-
-```diff
---- reference/src/operation/list_role_tags/paginator.rs
-+++ generated/src/operation/list_role_tags/paginator.rs
-@@ -139,7 +139,10 @@
-             >,
-         >,
-     > {
--        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send())
--            .flat_map(|page| super::super::super::lens::lens_list_role_tags_output_output_tags(page).unwrap_or_default().into_iter())
-+        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
-+            super::super::super::lens::lens_list_role_tags_output_output_tags(page)
-+                .unwrap_or_default()
-+                .into_iter()
-+        })
-     }
- }
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/list_role_tags.rs`
@@ -9981,7 +6099,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_role_tags.rs
 +++ generated/src/operation/list_role_tags.rs
-@@ -252,11 +252,10 @@
+@@ -252,13 +252,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -9991,109 +6109,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_role_tags_input::ser_list_role_tags_input_input_input(
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_role_tags_input::ser_list_role_tags_op_input(
-             &input,
-         )?);
+-            &input,
+-        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_role_tags_input::ser_list_role_tags_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
-```
-
-### `src/operation/list_roles/_list_roles_input.rs`
-
-```diff
---- reference/src/operation/list_roles/_list_roles_input.rs
-+++ generated/src/operation/list_roles/_list_roles_input.rs
-@@ -93,7 +93,9 @@
-         &self.max_items
-     }
-     /// Consumes the builder and constructs a [`ListRolesInput`](crate::operation::list_roles::ListRolesInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_roles::ListRolesInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::list_roles::ListRolesInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::list_roles::ListRolesInput {
-             path_prefix: self.path_prefix,
-             marker: self.marker,
-```
-
-### `src/operation/list_roles/_list_roles_output.rs`
-
-```diff
---- reference/src/operation/list_roles/_list_roles_output.rs
-+++ generated/src/operation/list_roles/_list_roles_output.rs
-@@ -109,7 +109,9 @@
-     /// Consumes the builder and constructs a [`ListRolesOutput`](crate::operation::list_roles::ListRolesOutput).
-     /// This method will fail if any of the following fields are not set:
-     /// - [`roles`](crate::operation::list_roles::builders::ListRolesOutputBuilder::roles)
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_roles::ListRolesOutput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::list_roles::ListRolesOutput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::list_roles::ListRolesOutput {
-             roles: self.roles.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
-```
-
-### `src/operation/list_roles/builders.rs`
-
-```diff
---- reference/src/operation/list_roles/builders.rs
-+++ generated/src/operation/list_roles/builders.rs
-@@ -41,14 +41,20 @@
-     inner: super::super::super::operation::list_roles::builders::ListRolesInputBuilder,
-     config_override: ::std::option::Option<super::super::super::config::Builder>,
- }
--impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::list_roles::ListRolesOutput, super::super::super::operation::list_roles::ListRolesError>
--    for ListRolesFluentBuilder
-+impl
-+    super::super::super::client::customize::internal::CustomizableSend<
-+        super::super::super::operation::list_roles::ListRolesOutput,
-+        super::super::super::operation::list_roles::ListRolesError,
-+    > for ListRolesFluentBuilder
- {
-     fn send(
-         self,
-         config_override: super::super::super::config::Builder,
-     ) -> super::super::super::client::customize::internal::BoxFuture<
--        super::super::super::client::customize::internal::SendResult<super::super::super::operation::list_roles::ListRolesOutput, super::super::super::operation::list_roles::ListRolesError>,
-+        super::super::super::client::customize::internal::SendResult<
-+            super::super::super::operation::list_roles::ListRolesOutput,
-+            super::super::super::operation::list_roles::ListRolesError,
-+        >,
-     > {
-         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-     }
-```
-
-### `src/operation/list_roles/paginator.rs`
-
-```diff
---- reference/src/operation/list_roles/paginator.rs
-+++ generated/src/operation/list_roles/paginator.rs
-@@ -8,7 +8,10 @@
-
- impl ListRolesPaginator {
-     /// Create a new paginator-wrapper
--    pub(crate) fn new(handle: std::sync::Arc<super::super::super::client::Handle>, builder: super::super::super::operation::list_roles::builders::ListRolesInputBuilder) -> Self {
-+    pub(crate) fn new(
-+        handle: std::sync::Arc<super::super::super::client::Handle>,
-+        builder: super::super::super::operation::list_roles::builders::ListRolesInputBuilder,
-+    ) -> Self {
-         Self {
-             handle,
-             builder,
-@@ -136,7 +139,10 @@
-             >,
-         >,
-     > {
--        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send())
--            .flat_map(|page| super::super::super::lens::lens_list_roles_output_output_roles(page).unwrap_or_default().into_iter())
-+        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
-+            super::super::super::lens::lens_list_roles_output_output_roles(page)
-+                .unwrap_or_default()
-+                .into_iter()
-+        })
-     }
- }
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/list_roles.rs`
@@ -10101,18 +6122,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_roles.rs
 +++ generated/src/operation/list_roles.rs
-@@ -225,7 +225,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::list_roles::ListRolesInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::list_roles::ListRolesInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -250,11 +252,10 @@
+@@ -250,11 +250,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -10126,46 +6136,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/list_saml_provider_tags/_list_saml_provider_tags_input.rs`
-
-```diff
---- reference/src/operation/list_saml_provider_tags/_list_saml_provider_tags_input.rs
-+++ generated/src/operation/list_saml_provider_tags/_list_saml_provider_tags_input.rs
-@@ -96,8 +96,10 @@
-     /// Consumes the builder and constructs a [`ListSamlProviderTagsInput`](crate::operation::list_saml_provider_tags::ListSamlProviderTagsInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsInput {
-             saml_provider_arn: self.saml_provider_arn,
-             marker: self.marker,
-```
-
-### `src/operation/list_saml_provider_tags/_list_saml_provider_tags_output.rs`
-
-```diff
---- reference/src/operation/list_saml_provider_tags/_list_saml_provider_tags_output.rs
-+++ generated/src/operation/list_saml_provider_tags/_list_saml_provider_tags_output.rs
-@@ -110,8 +110,10 @@
-     /// - [`tags`](crate::operation::list_saml_provider_tags::builders::ListSamlProviderTagsOutputBuilder::tags)
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsOutput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsOutput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsOutput {
-             tags: self.tags.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
 ```
 
 ### `src/operation/list_saml_provider_tags/builders.rs`
@@ -10270,27 +6240,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          super::super::super::client::customize::CustomizableOperation::new(self)
 ```
 
-### `src/operation/list_saml_provider_tags/paginator.rs`
-
-```diff
---- reference/src/operation/list_saml_provider_tags/paginator.rs
-+++ generated/src/operation/list_saml_provider_tags/paginator.rs
-@@ -86,8 +86,11 @@
-                         }
-                     };
-                     loop {
--                        let resp =
--                            super::super::super::operation::list_saml_provider_tags::ListSAMLProviderTags::orchestrate(&runtime_plugins, input.clone()).await;
-+                        let resp = super::super::super::operation::list_saml_provider_tags::ListSAMLProviderTags::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
-```
-
 ### `src/operation/list_saml_provider_tags.rs`
 
 ```diff
@@ -10393,44 +6342,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/list_saml_providers/_list_saml_providers_input.rs`
-
-```diff
---- reference/src/operation/list_saml_providers/_list_saml_providers_input.rs
-+++ generated/src/operation/list_saml_providers/_list_saml_providers_input.rs
-@@ -18,7 +18,10 @@
-     /// Consumes the builder and constructs a [`ListSamlProvidersInput`](crate::operation::list_saml_providers::ListSamlProvidersInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_saml_providers::ListSamlProvidersInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_saml_providers::ListSamlProvidersInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_saml_providers::ListSamlProvidersInput {})
-     }
- }
-```
-
-### `src/operation/list_saml_providers/_list_saml_providers_output.rs`
-
-```diff
---- reference/src/operation/list_saml_providers/_list_saml_providers_output.rs
-+++ generated/src/operation/list_saml_providers/_list_saml_providers_output.rs
-@@ -48,7 +48,10 @@
-         self
-     }
-     /// <p>The list of SAML provider resource objects defined in IAM for this Amazon Web Services account.</p>
--    pub fn set_saml_provider_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SamlProviderListEntry>>) -> Self {
-+    pub fn set_saml_provider_list(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SamlProviderListEntry>>,
-+    ) -> Self {
-         self.saml_provider_list = input;
-         self
-     }
 ```
 
 ### `src/operation/list_saml_providers/builders.rs`
@@ -10615,90 +6526,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/list_server_certificate_tags/_list_server_certificate_tags_input.rs`
-
-```diff
---- reference/src/operation/list_server_certificate_tags/_list_server_certificate_tags_input.rs
-+++ generated/src/operation/list_server_certificate_tags/_list_server_certificate_tags_input.rs
-@@ -100,10 +100,12 @@
-         super::super::super::operation::list_server_certificate_tags::ListServerCertificateTagsInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_server_certificate_tags::ListServerCertificateTagsInput {
--            server_certificate_name: self.server_certificate_name,
--            marker: self.marker,
--            max_items: self.max_items,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_server_certificate_tags::ListServerCertificateTagsInput {
-+                server_certificate_name: self.server_certificate_name,
-+                marker: self.marker,
-+                max_items: self.max_items,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/list_server_certificate_tags/_list_server_certificate_tags_output.rs`
-
-```diff
---- reference/src/operation/list_server_certificate_tags/_list_server_certificate_tags_output.rs
-+++ generated/src/operation/list_server_certificate_tags/_list_server_certificate_tags_output.rs
-@@ -114,16 +114,18 @@
-         super::super::super::operation::list_server_certificate_tags::ListServerCertificateTagsOutput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_server_certificate_tags::ListServerCertificateTagsOutput {
--            tags: self.tags.ok_or_else(|| {
--                ::aws_smithy_types::error::operation::BuildError::missing_field(
--                    "tags",
--                    "tags was not specified but it is required when building ListServerCertificateTagsOutput",
--                )
--            })?,
--            is_truncated: self.is_truncated.unwrap_or_default(),
--            marker: self.marker,
--            _request_id: self._request_id,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_server_certificate_tags::ListServerCertificateTagsOutput {
-+                tags: self.tags.ok_or_else(|| {
-+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-+                        "tags",
-+                        "tags was not specified but it is required when building ListServerCertificateTagsOutput",
-+                    )
-+                })?,
-+                is_truncated: self.is_truncated.unwrap_or_default(),
-+                marker: self.marker,
-+                _request_id: self._request_id,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/list_server_certificate_tags/paginator.rs`
-
-```diff
---- reference/src/operation/list_server_certificate_tags/paginator.rs
-+++ generated/src/operation/list_server_certificate_tags/paginator.rs
-@@ -86,9 +86,11 @@
-                         }
-                     };
-                     loop {
--                        let resp =
--                            super::super::super::operation::list_server_certificate_tags::ListServerCertificateTags::orchestrate(&runtime_plugins, input.clone())
--                                .await;
-+                        let resp = super::super::super::operation::list_server_certificate_tags::ListServerCertificateTags::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
-```
-
 ### `src/operation/list_server_certificate_tags.rs`
 
 ```diff
@@ -10719,45 +6546,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/list_server_certificates/_list_server_certificates_output.rs`
-
-```diff
---- reference/src/operation/list_server_certificates/_list_server_certificates_output.rs
-+++ generated/src/operation/list_server_certificates/_list_server_certificates_output.rs
-@@ -69,7 +69,9 @@
-         self
-     }
-     /// <p>A list of server certificates.</p>
--    pub fn get_server_certificate_metadata_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ServerCertificateMetadata>> {
-+    pub fn get_server_certificate_metadata_list(
-+        &self,
-+    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ServerCertificateMetadata>> {
-         &self.server_certificate_metadata_list
-     }
-     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
-```
-
-### `src/operation/list_server_certificates/paginator.rs`
-
-```diff
---- reference/src/operation/list_server_certificates/paginator.rs
-+++ generated/src/operation/list_server_certificates/paginator.rs
-@@ -86,8 +86,11 @@
-                         }
-                     };
-                     loop {
--                        let resp =
--                            super::super::super::operation::list_server_certificates::ListServerCertificates::orchestrate(&runtime_plugins, input.clone()).await;
-+                        let resp = super::super::super::operation::list_server_certificates::ListServerCertificates::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
 ```
 
 ### `src/operation/list_server_certificates.rs`
@@ -10782,111 +6570,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/list_service_specific_credentials/_list_service_specific_credentials_input.rs`
-
-```diff
---- reference/src/operation/list_service_specific_credentials/_list_service_specific_credentials_input.rs
-+++ generated/src/operation/list_service_specific_credentials/_list_service_specific_credentials_input.rs
-@@ -136,12 +136,14 @@
-         super::super::super::operation::list_service_specific_credentials::ListServiceSpecificCredentialsInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::list_service_specific_credentials::ListServiceSpecificCredentialsInput {
--            user_name: self.user_name,
--            service_name: self.service_name,
--            all_users: self.all_users,
--            marker: self.marker,
--            max_items: self.max_items,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::list_service_specific_credentials::ListServiceSpecificCredentialsInput {
-+                user_name: self.user_name,
-+                service_name: self.service_name,
-+                all_users: self.all_users,
-+                marker: self.marker,
-+                max_items: self.max_items,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/list_service_specific_credentials/_list_service_specific_credentials_output.rs`
-
-```diff
---- reference/src/operation/list_service_specific_credentials/_list_service_specific_credentials_output.rs
-+++ generated/src/operation/list_service_specific_credentials/_list_service_specific_credentials_output.rs
-@@ -69,7 +69,9 @@
-         self
-     }
-     /// <p>A list of structures that each contain details about a service-specific credential.</p>
--    pub fn get_service_specific_credentials(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceSpecificCredentialMetadata>> {
-+    pub fn get_service_specific_credentials(
-+        &self,
-+    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceSpecificCredentialMetadata>> {
-         &self.service_specific_credentials
-     }
-     /// <p>When IsTruncated is true, this element is present and contains the value to use for the Marker parameter in a subsequent pagination request.</p>
-```
-
-### `src/operation/list_service_specific_credentials/builders.rs`
-
-```diff
---- reference/src/operation/list_service_specific_credentials/builders.rs
-+++ generated/src/operation/list_service_specific_credentials/builders.rs
-@@ -65,7 +65,9 @@
-         }
-     }
-     /// Access the ListServiceSpecificCredentials as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::list_service_specific_credentials::builders::ListServiceSpecificCredentialsInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::list_service_specific_credentials::builders::ListServiceSpecificCredentialsInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -89,11 +91,12 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::list_service_specific_credentials::ListServiceSpecificCredentials::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
-+        let runtime_plugins =
-+            super::super::super::operation::list_service_specific_credentials::ListServiceSpecificCredentials::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-         super::super::super::operation::list_service_specific_credentials::ListServiceSpecificCredentials::orchestrate(&runtime_plugins, input).await
-     }
-
-```
-
 ### `src/operation/list_service_specific_credentials.rs`
 
 ```diff
 --- reference/src/operation/list_service_specific_credentials.rs
 +++ generated/src/operation/list_service_specific_credentials.rs
-@@ -223,9 +223,13 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_list_service_specific_credentials::de_list_service_specific_credentials_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_list_service_specific_credentials::de_list_service_specific_credentials_http_error(
-+                status, headers, body,
-+            )
-         } else {
--            super::super::protocol_serde::shape_list_service_specific_credentials::de_list_service_specific_credentials_http_response(status, headers, body)
-+            super::super::protocol_serde::shape_list_service_specific_credentials::de_list_service_specific_credentials_http_response(
-+                status, headers, body,
-+            )
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -266,12 +270,11 @@
+@@ -266,12 +266,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -10901,27 +6590,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/list_signing_certificates/paginator.rs`
-
-```diff
---- reference/src/operation/list_signing_certificates/paginator.rs
-+++ generated/src/operation/list_signing_certificates/paginator.rs
-@@ -86,8 +86,11 @@
-                         }
-                     };
-                     loop {
--                        let resp =
--                            super::super::super::operation::list_signing_certificates::ListSigningCertificates::orchestrate(&runtime_plugins, input.clone()).await;
-+                        let resp = super::super::super::operation::list_signing_certificates::ListSigningCertificates::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
 ```
 
 ### `src/operation/list_signing_certificates.rs`
@@ -10944,25 +6612,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/list_ssh_public_keys/_list_ssh_public_keys_input.rs`
-
-```diff
---- reference/src/operation/list_ssh_public_keys/_list_ssh_public_keys_input.rs
-+++ generated/src/operation/list_ssh_public_keys/_list_ssh_public_keys_input.rs
-@@ -95,7 +95,10 @@
-     /// Consumes the builder and constructs a [`ListSshPublicKeysInput`](crate::operation::list_ssh_public_keys::ListSshPublicKeysInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_ssh_public_keys::ListSshPublicKeysInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_ssh_public_keys::ListSshPublicKeysInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_ssh_public_keys::ListSshPublicKeysInput {
-             user_name: self.user_name,
-             marker: self.marker,
 ```
 
 ### `src/operation/list_ssh_public_keys/builders.rs`
@@ -11172,50 +6821,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/list_user_policies/_list_user_policies_input.rs`
-
-```diff
---- reference/src/operation/list_user_policies/_list_user_policies_input.rs
-+++ generated/src/operation/list_user_policies/_list_user_policies_input.rs
-@@ -96,7 +96,10 @@
-     /// Consumes the builder and constructs a [`ListUserPoliciesInput`](crate::operation::list_user_policies::ListUserPoliciesInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_user_policies::ListUserPoliciesInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_user_policies::ListUserPoliciesInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_user_policies::ListUserPoliciesInput {
-             user_name: self.user_name,
-             marker: self.marker,
-```
-
-### `src/operation/list_user_policies/_list_user_policies_output.rs`
-
-```diff
---- reference/src/operation/list_user_policies/_list_user_policies_output.rs
-+++ generated/src/operation/list_user_policies/_list_user_policies_output.rs
-@@ -111,7 +111,10 @@
-     /// - [`policy_names`](crate::operation::list_user_policies::builders::ListUserPoliciesOutputBuilder::policy_names)
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_user_policies::ListUserPoliciesOutput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_user_policies::ListUserPoliciesOutput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_user_policies::ListUserPoliciesOutput {
-             policy_names: self.policy_names.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
-```
-
 ### `src/operation/list_user_policies.rs`
 
 ```diff
 --- reference/src/operation/list_user_policies.rs
 +++ generated/src/operation/list_user_policies.rs
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -11224,32 +6835,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_list_user_policies_input::ser_list_user_policies_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_list_user_policies_input::ser_list_user_policies_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_user_policies_input::ser_list_user_policies_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/list_user_tags/paginator.rs`
-
-```diff
---- reference/src/operation/list_user_tags/paginator.rs
-+++ generated/src/operation/list_user_tags/paginator.rs
-@@ -139,7 +139,10 @@
-             >,
-         >,
-     > {
--        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send())
--            .flat_map(|page| super::super::super::lens::lens_list_user_tags_output_output_tags(page).unwrap_or_default().into_iter())
-+        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
-+            super::super::super::lens::lens_list_user_tags_output_output_tags(page)
-+                .unwrap_or_default()
-+                .into_iter()
-+        })
-     }
- }
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/list_user_tags.rs`
@@ -11257,7 +6851,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_user_tags.rs
 +++ generated/src/operation/list_user_tags.rs
-@@ -252,11 +252,10 @@
+@@ -252,13 +252,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -11267,109 +6861,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_user_tags_input::ser_list_user_tags_input_input_input(
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_user_tags_input::ser_list_user_tags_op_input(
-             &input,
-         )?);
+-            &input,
+-        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_list_user_tags_input::ser_list_user_tags_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
-```
-
-### `src/operation/list_users/_list_users_input.rs`
-
-```diff
---- reference/src/operation/list_users/_list_users_input.rs
-+++ generated/src/operation/list_users/_list_users_input.rs
-@@ -93,7 +93,9 @@
-         &self.max_items
-     }
-     /// Consumes the builder and constructs a [`ListUsersInput`](crate::operation::list_users::ListUsersInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_users::ListUsersInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::list_users::ListUsersInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::list_users::ListUsersInput {
-             path_prefix: self.path_prefix,
-             marker: self.marker,
-```
-
-### `src/operation/list_users/_list_users_output.rs`
-
-```diff
---- reference/src/operation/list_users/_list_users_output.rs
-+++ generated/src/operation/list_users/_list_users_output.rs
-@@ -109,7 +109,9 @@
-     /// Consumes the builder and constructs a [`ListUsersOutput`](crate::operation::list_users::ListUsersOutput).
-     /// This method will fail if any of the following fields are not set:
-     /// - [`users`](crate::operation::list_users::builders::ListUsersOutputBuilder::users)
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_users::ListUsersOutput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::list_users::ListUsersOutput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::list_users::ListUsersOutput {
-             users: self.users.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
-```
-
-### `src/operation/list_users/builders.rs`
-
-```diff
---- reference/src/operation/list_users/builders.rs
-+++ generated/src/operation/list_users/builders.rs
-@@ -39,14 +39,20 @@
-     inner: super::super::super::operation::list_users::builders::ListUsersInputBuilder,
-     config_override: ::std::option::Option<super::super::super::config::Builder>,
- }
--impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::list_users::ListUsersOutput, super::super::super::operation::list_users::ListUsersError>
--    for ListUsersFluentBuilder
-+impl
-+    super::super::super::client::customize::internal::CustomizableSend<
-+        super::super::super::operation::list_users::ListUsersOutput,
-+        super::super::super::operation::list_users::ListUsersError,
-+    > for ListUsersFluentBuilder
- {
-     fn send(
-         self,
-         config_override: super::super::super::config::Builder,
-     ) -> super::super::super::client::customize::internal::BoxFuture<
--        super::super::super::client::customize::internal::SendResult<super::super::super::operation::list_users::ListUsersOutput, super::super::super::operation::list_users::ListUsersError>,
-+        super::super::super::client::customize::internal::SendResult<
-+            super::super::super::operation::list_users::ListUsersOutput,
-+            super::super::super::operation::list_users::ListUsersError,
-+        >,
-     > {
-         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-     }
-```
-
-### `src/operation/list_users/paginator.rs`
-
-```diff
---- reference/src/operation/list_users/paginator.rs
-+++ generated/src/operation/list_users/paginator.rs
-@@ -8,7 +8,10 @@
-
- impl ListUsersPaginator {
-     /// Create a new paginator-wrapper
--    pub(crate) fn new(handle: std::sync::Arc<super::super::super::client::Handle>, builder: super::super::super::operation::list_users::builders::ListUsersInputBuilder) -> Self {
-+    pub(crate) fn new(
-+        handle: std::sync::Arc<super::super::super::client::Handle>,
-+        builder: super::super::super::operation::list_users::builders::ListUsersInputBuilder,
-+    ) -> Self {
-         Self {
-             handle,
-             builder,
-@@ -136,7 +139,10 @@
-             >,
-         >,
-     > {
--        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send())
--            .flat_map(|page| super::super::super::lens::lens_list_users_output_output_users(page).unwrap_or_default().into_iter())
-+        ::aws_smithy_async::future::pagination_stream::TryFlatMap::new(self.0.send()).flat_map(|page| {
-+            super::super::super::lens::lens_list_users_output_output_users(page)
-+                .unwrap_or_default()
-+                .into_iter()
-+        })
-     }
- }
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/list_users.rs`
@@ -11377,18 +6874,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/list_users.rs
 +++ generated/src/operation/list_users.rs
-@@ -225,7 +225,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::list_users::ListUsersInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::list_users::ListUsersInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -250,11 +252,10 @@
+@@ -250,11 +250,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -11402,26 +6888,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/list_virtual_mfa_devices/_list_virtual_mfa_devices_input.rs`
-
-```diff
---- reference/src/operation/list_virtual_mfa_devices/_list_virtual_mfa_devices_input.rs
-+++ generated/src/operation/list_virtual_mfa_devices/_list_virtual_mfa_devices_input.rs
-@@ -90,8 +90,10 @@
-     /// Consumes the builder and constructs a [`ListVirtualMfaDevicesInput`](crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesInput {
-             assignment_status: self.assignment_status,
-             marker: self.marker,
 ```
 
 ### `src/operation/list_virtual_mfa_devices/builders.rs`
@@ -11529,27 +6995,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          super::super::super::client::customize::CustomizableOperation::new(self)
 ```
 
-### `src/operation/list_virtual_mfa_devices/paginator.rs`
-
-```diff
---- reference/src/operation/list_virtual_mfa_devices/paginator.rs
-+++ generated/src/operation/list_virtual_mfa_devices/paginator.rs
-@@ -86,8 +86,11 @@
-                         }
-                     };
-                     loop {
--                        let resp =
--                            super::super::super::operation::list_virtual_mfa_devices::ListVirtualMFADevices::orchestrate(&runtime_plugins, input.clone()).await;
-+                        let resp = super::super::super::operation::list_virtual_mfa_devices::ListVirtualMFADevices::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
-```
-
 ### `src/operation/list_virtual_mfa_devices.rs`
 
 ```diff
@@ -11654,26 +7099,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/put_account_properties/_put_account_properties_input.rs`
-
-```diff
---- reference/src/operation/put_account_properties/_put_account_properties_input.rs
-+++ generated/src/operation/put_account_properties/_put_account_properties_input.rs
-@@ -59,8 +59,10 @@
-     /// Consumes the builder and constructs a [`PutAccountPropertiesInput`](crate::operation::put_account_properties::PutAccountPropertiesInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::put_account_properties::PutAccountPropertiesInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::put_account_properties::PutAccountPropertiesInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::put_account_properties::PutAccountPropertiesInput { properties: self.properties })
-     }
- }
-```
-
 ### `src/operation/put_account_properties.rs`
 
 ```diff
@@ -11701,7 +7126,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/put_group_policy.rs
 +++ generated/src/operation/put_group_policy.rs
-@@ -257,12 +257,11 @@
+@@ -257,13 +257,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -11710,35 +7135,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_put_group_policy_input::ser_put_group_policy_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_put_group_policy_input::ser_put_group_policy_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_put_group_policy_input::ser_put_group_policy_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/put_role_permissions_boundary/_put_role_permissions_boundary_input.rs`
-
-```diff
---- reference/src/operation/put_role_permissions_boundary/_put_role_permissions_boundary_input.rs
-+++ generated/src/operation/put_role_permissions_boundary/_put_role_permissions_boundary_input.rs
-@@ -80,9 +80,11 @@
-         super::super::super::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryInput {
--            role_name: self.role_name,
--            permissions_boundary: self.permissions_boundary,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::put_role_permissions_boundary::PutRolePermissionsBoundaryInput {
-+                role_name: self.role_name,
-+                permissions_boundary: self.permissions_boundary,
-+            },
-+        )
-     }
- }
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/put_role_permissions_boundary.rs`
@@ -11768,7 +7173,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/put_role_policy.rs
 +++ generated/src/operation/put_role_policy.rs
-@@ -257,13 +257,12 @@
+@@ -257,13 +257,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -11780,35 +7185,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_put_role_policy_input::ser_put_role_policy_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_put_role_policy_input::ser_put_role_policy_op_input(
-+            &input,
-+        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_put_role_policy_input::ser_put_role_policy_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/put_user_permissions_boundary/_put_user_permissions_boundary_input.rs`
-
-```diff
---- reference/src/operation/put_user_permissions_boundary/_put_user_permissions_boundary_input.rs
-+++ generated/src/operation/put_user_permissions_boundary/_put_user_permissions_boundary_input.rs
-@@ -80,9 +80,11 @@
-         super::super::super::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryInput {
--            user_name: self.user_name,
--            permissions_boundary: self.permissions_boundary,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::put_user_permissions_boundary::PutUserPermissionsBoundaryInput {
-+                user_name: self.user_name,
-+                permissions_boundary: self.permissions_boundary,
-+            },
-+        )
-     }
- }
 ```
 
 ### `src/operation/put_user_permissions_boundary.rs`
@@ -11838,7 +7218,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/put_user_policy.rs
 +++ generated/src/operation/put_user_policy.rs
-@@ -257,13 +257,12 @@
+@@ -257,13 +257,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -11850,9 +7230,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_put_user_policy_input::ser_put_user_policy_input_input_input(&input)?,
 -        );
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_put_user_policy_input::ser_put_user_policy_op_input(
-+            &input,
-+        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_put_user_policy_input::ser_put_user_policy_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
@@ -11880,34 +7258,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/remove_client_id_from_open_id_connect_provider/_remove_client_id_from_open_id_connect_provider_output.rs`
-
-```diff
---- reference/src/operation/remove_client_id_from_open_id_connect_provider/_remove_client_id_from_open_id_connect_provider_output.rs
-+++ generated/src/operation/remove_client_id_from_open_id_connect_provider/_remove_client_id_from_open_id_connect_provider_output.rs
-@@ -13,7 +13,8 @@
- impl RemoveClientIdFromOpenIdConnectProviderOutput {
-     /// Creates a new builder-style object to manufacture [`RemoveClientIdFromOpenIdConnectProviderOutput`](crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput).
-     pub fn builder(
--    ) -> super::super::super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderOutputBuilder {
-+    ) -> super::super::super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderOutputBuilder
-+    {
-         super::super::super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderOutputBuilder::default()
-     }
- }
-@@ -35,7 +36,9 @@
-         self
-     }
-     /// Consumes the builder and constructs a [`RemoveClientIdFromOpenIdConnectProviderOutput`](crate::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput).
--    pub fn build(self) -> super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput {
-+    pub fn build(
-+        self,
-+    ) -> super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput {
-         super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput {
-             _request_id: self._request_id,
-         }
-```
-
 ### `src/operation/remove_client_id_from_open_id_connect_provider/builders.rs`
 
 ```diff
@@ -11922,7 +7272,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
-@@ -20,21 +20,22 @@
+@@ -20,12 +20,12 @@
          fluent_builder.send().await
      }
  }
@@ -11935,11 +7285,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -pub struct RemoveClientIDFromOpenIDConnectProviderFluentBuilder {
 +pub struct RemoveClientIdFromOpenIdConnectProviderFluentBuilder {
      handle: ::std::sync::Arc<super::super::super::client::Handle>,
--    inner: super::super::super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderInputBuilder,
-+    inner:
-+        super::super::super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderInputBuilder,
+     inner: super::super::super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderInputBuilder,
      config_override: ::std::option::Option<super::super::super::config::Builder>,
- }
+@@ -33,8 +33,8 @@
  impl
      super::super::super::client::customize::internal::CustomizableSend<
          super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
@@ -11950,7 +7298,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  {
      fn send(
          self,
-@@ -42,14 +43,14 @@
+@@ -42,14 +42,14 @@
      ) -> super::super::super::client::customize::internal::BoxFuture<
          super::super::super::client::customize::internal::SendResult<
              super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
@@ -11968,7 +7316,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
          Self {
              handle,
-@@ -57,10 +58,11 @@
+@@ -57,7 +57,7 @@
              config_override: ::std::option::Option::None,
          }
      }
@@ -11976,13 +7324,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    /// Access the RemoveClientIdFromOpenIdConnectProvider as a reference.
      pub fn as_input(
          &self,
--    ) -> &super::super::super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderInputBuilder {
-+    ) -> &super::super::super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderInputBuilder
-+    {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -76,7 +78,7 @@
+     ) -> &super::super::super::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderInputBuilder {
+@@ -76,7 +76,7 @@
      ) -> ::std::result::Result<
          super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
@@ -11991,27 +7334,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
-@@ -84,13 +86,12 @@
-             .inner
+@@ -85,12 +85,12 @@
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins =
+         let runtime_plugins =
 -            super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProvider::operation_runtime_plugins(
--                self.handle.runtime_plugins.clone(),
--                &self.handle.conf,
--                self.config_override,
--            );
++            super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProvider::operation_runtime_plugins(
+                 self.handle.runtime_plugins.clone(),
+                 &self.handle.conf,
+                 self.config_override,
+             );
 -        super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProvider::orchestrate(
-+        let runtime_plugins = super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProvider::operation_runtime_plugins(
-+                            self.handle.runtime_plugins.clone(),
-+                            &self.handle.conf,
-+                            self.config_override,
-+                        );
 +        super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProvider::orchestrate(
              &runtime_plugins,
              input,
          )
-@@ -102,7 +103,7 @@
+@@ -102,7 +102,7 @@
          self,
      ) -> super::super::super::client::customize::CustomizableOperation<
          super::super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIdFromOpenIdConnectProviderOutput,
@@ -12042,19 +7380,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn new() -> Self {
          Self
      }
-@@ -23,8 +23,9 @@
-             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-         >| {
-             err.map_service_error(|err| {
--                err.downcast::<super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError>()
--                    .expect("correct error type")
-+                err.downcast::<super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError>(
-+                )
-+                .expect("correct error type")
-             })
-         };
-         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-@@ -90,15 +91,15 @@
+@@ -90,15 +90,15 @@
          runtime_plugins
      }
  }
@@ -12073,7 +7399,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          ));
 
          cfg.store_put(::aws_smithy_runtime_api::client::auth::AuthSchemeOptionResolverParams::new(
-@@ -133,13 +134,13 @@
+@@ -133,13 +133,13 @@
          #[allow(unused_mut)]
          let mut rcb = ::aws_smithy_runtime_api::client::runtime_components::RuntimeComponentsBuilder::new("RemoveClientIDFromOpenIDConnectProvider")
              .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(
@@ -12089,7 +7415,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ))
              .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
                  super::super::operation::remove_client_id_from_open_id_connect_provider::RemoveClientIDFromOpenIDConnectProviderError,
-@@ -156,12 +157,12 @@
+@@ -156,12 +156,12 @@
  }
 
  #[derive(Debug)]
@@ -12105,18 +7431,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -218,9 +219,7 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_remove_client_id_from_open_id_connect_provider::de_remove_client_id_from_open_id_connect_provider_http_error(
--                status, headers, body,
--            )
-+            super::super::protocol_serde::shape_remove_client_id_from_open_id_connect_provider::de_remove_client_id_from_open_id_connect_provider_http_error(status, headers, body)
-         } else {
-             super::super::protocol_serde::shape_remove_client_id_from_open_id_connect_provider::de_remove_client_id_from_open_id_connect_provider_http_response(status, headers, body)
-         };
-@@ -263,11 +262,10 @@
+@@ -263,11 +263,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -12130,7 +7445,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -276,12 +274,12 @@
+@@ -276,12 +275,12 @@
      }
  }
  #[derive(Debug)]
@@ -12148,87 +7463,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/remove_role_from_instance_profile/_remove_role_from_instance_profile_input.rs`
-
-```diff
---- reference/src/operation/remove_role_from_instance_profile/_remove_role_from_instance_profile_input.rs
-+++ generated/src/operation/remove_role_from_instance_profile/_remove_role_from_instance_profile_input.rs
-@@ -80,9 +80,11 @@
-         super::super::super::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileInput {
--            instance_profile_name: self.instance_profile_name,
--            role_name: self.role_name,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfileInput {
-+                instance_profile_name: self.instance_profile_name,
-+                role_name: self.role_name,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/remove_role_from_instance_profile/builders.rs`
-
-```diff
---- reference/src/operation/remove_role_from_instance_profile/builders.rs
-+++ generated/src/operation/remove_role_from_instance_profile/builders.rs
-@@ -60,7 +60,9 @@
-         }
-     }
-     /// Access the RemoveRoleFromInstanceProfile as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::remove_role_from_instance_profile::builders::RemoveRoleFromInstanceProfileInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::remove_role_from_instance_profile::builders::RemoveRoleFromInstanceProfileInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -84,11 +86,12 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfile::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
-+        let runtime_plugins =
-+            super::super::super::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfile::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-         super::super::super::operation::remove_role_from_instance_profile::RemoveRoleFromInstanceProfile::orchestrate(&runtime_plugins, input).await
-     }
-
-```
-
 ### `src/operation/remove_role_from_instance_profile.rs`
 
 ```diff
 --- reference/src/operation/remove_role_from_instance_profile.rs
 +++ generated/src/operation/remove_role_from_instance_profile.rs
-@@ -212,9 +212,13 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_remove_role_from_instance_profile::de_remove_role_from_instance_profile_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_remove_role_from_instance_profile::de_remove_role_from_instance_profile_http_error(
-+                status, headers, body,
-+            )
-         } else {
--            super::super::protocol_serde::shape_remove_role_from_instance_profile::de_remove_role_from_instance_profile_http_response(status, headers, body)
-+            super::super::protocol_serde::shape_remove_role_from_instance_profile::de_remove_role_from_instance_profile_http_response(
-+                status, headers, body,
-+            )
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -255,12 +259,11 @@
+@@ -255,12 +255,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -12243,26 +7483,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/remove_user_from_group/_remove_user_from_group_input.rs`
-
-```diff
---- reference/src/operation/remove_user_from_group/_remove_user_from_group_input.rs
-+++ generated/src/operation/remove_user_from_group/_remove_user_from_group_input.rs
-@@ -76,8 +76,10 @@
-     /// Consumes the builder and constructs a [`RemoveUserFromGroupInput`](crate::operation::remove_user_from_group::RemoveUserFromGroupInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::remove_user_from_group::RemoveUserFromGroupInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::remove_user_from_group::RemoveUserFromGroupInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::remove_user_from_group::RemoveUserFromGroupInput {
-             group_name: self.group_name,
-             user_name: self.user_name,
 ```
 
 ### `src/operation/remove_user_from_group.rs`
@@ -12287,87 +7507,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/reset_service_specific_credential/_reset_service_specific_credential_input.rs`
-
-```diff
---- reference/src/operation/reset_service_specific_credential/_reset_service_specific_credential_input.rs
-+++ generated/src/operation/reset_service_specific_credential/_reset_service_specific_credential_input.rs
-@@ -79,9 +79,11 @@
-         super::super::super::operation::reset_service_specific_credential::ResetServiceSpecificCredentialInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::reset_service_specific_credential::ResetServiceSpecificCredentialInput {
--            user_name: self.user_name,
--            service_specific_credential_id: self.service_specific_credential_id,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::reset_service_specific_credential::ResetServiceSpecificCredentialInput {
-+                user_name: self.user_name,
-+                service_specific_credential_id: self.service_specific_credential_id,
-+            },
-+        )
-     }
- }
-```
-
-### `src/operation/reset_service_specific_credential/builders.rs`
-
-```diff
---- reference/src/operation/reset_service_specific_credential/builders.rs
-+++ generated/src/operation/reset_service_specific_credential/builders.rs
-@@ -57,7 +57,9 @@
-         }
-     }
-     /// Access the ResetServiceSpecificCredential as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::reset_service_specific_credential::builders::ResetServiceSpecificCredentialInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::reset_service_specific_credential::builders::ResetServiceSpecificCredentialInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -81,11 +83,12 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::reset_service_specific_credential::ResetServiceSpecificCredential::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
-+        let runtime_plugins =
-+            super::super::super::operation::reset_service_specific_credential::ResetServiceSpecificCredential::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-         super::super::super::operation::reset_service_specific_credential::ResetServiceSpecificCredential::orchestrate(&runtime_plugins, input).await
-     }
-
-```
-
 ### `src/operation/reset_service_specific_credential.rs`
 
 ```diff
 --- reference/src/operation/reset_service_specific_credential.rs
 +++ generated/src/operation/reset_service_specific_credential.rs
-@@ -219,9 +219,13 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_reset_service_specific_credential::de_reset_service_specific_credential_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_reset_service_specific_credential::de_reset_service_specific_credential_http_error(
-+                status, headers, body,
-+            )
-         } else {
--            super::super::protocol_serde::shape_reset_service_specific_credential::de_reset_service_specific_credential_http_response(status, headers, body)
-+            super::super::protocol_serde::shape_reset_service_specific_credential::de_reset_service_specific_credential_http_response(
-+                status, headers, body,
-+            )
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -262,12 +266,11 @@
+@@ -262,12 +262,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -12382,25 +7527,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/resync_mfa_device/_resync_mfa_device_input.rs`
-
-```diff
---- reference/src/operation/resync_mfa_device/_resync_mfa_device_input.rs
-+++ generated/src/operation/resync_mfa_device/_resync_mfa_device_input.rs
-@@ -130,7 +130,10 @@
-     /// Consumes the builder and constructs a [`ResyncMfaDeviceInput`](crate::operation::resync_mfa_device::ResyncMfaDeviceInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::resync_mfa_device::ResyncMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::resync_mfa_device::ResyncMfaDeviceInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::resync_mfa_device::ResyncMfaDeviceInput {
-             user_name: self.user_name,
-             serial_number: self.serial_number,
 ```
 
 ### `src/operation/resync_mfa_device/builders.rs`
@@ -12576,7 +7702,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -262,12 +262,11 @@
+@@ -262,13 +262,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -12585,12 +7711,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_resync_mfa_device_input::ser_resync_mfa_device_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_resync_mfa_device_input::ser_resync_mfa_device_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_resync_mfa_device_input::ser_resync_mfa_device_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 @@ -277,12 +276,12 @@
      }
  }
@@ -12607,26 +7736,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/send_delegation_token/_send_delegation_token_input.rs`
-
-```diff
---- reference/src/operation/send_delegation_token/_send_delegation_token_input.rs
-+++ generated/src/operation/send_delegation_token/_send_delegation_token_input.rs
-@@ -44,8 +44,10 @@
-     /// Consumes the builder and constructs a [`SendDelegationTokenInput`](crate::operation::send_delegation_token::SendDelegationTokenInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::send_delegation_token::SendDelegationTokenInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::send_delegation_token::SendDelegationTokenInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::send_delegation_token::SendDelegationTokenInput {
-             delegation_request_id: self.delegation_request_id,
-         })
 ```
 
 ### `src/operation/send_delegation_token.rs`
@@ -12673,54 +7782,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/set_security_token_service_preferences/builders.rs`
-
-```diff
---- reference/src/operation/set_security_token_service_preferences/builders.rs
-+++ generated/src/operation/set_security_token_service_preferences/builders.rs
-@@ -60,7 +60,9 @@
-         }
-     }
-     /// Access the SetSecurityTokenServicePreferences as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::set_security_token_service_preferences::builders::SetSecurityTokenServicePreferencesInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -84,12 +86,17 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferences::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferences::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferences::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::set_security_token_service_preferences::SetSecurityTokenServicePreferences::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
 ### `src/operation/set_security_token_service_preferences.rs`
 
 ```diff
 --- reference/src/operation/set_security_token_service_preferences.rs
 +++ generated/src/operation/set_security_token_service_preferences.rs
-@@ -214,12 +214,11 @@
+@@ -214,14 +214,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -12731,89 +7798,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          };
          let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_set_security_token_service_preferences_input::ser_set_security_token_service_preferences_input_input_input(
-+            super::super::protocol_serde::shape_set_security_token_service_preferences_input::ser_set_security_token_service_preferences_op_input(
-                 &input,
-             )?,
+-                &input,
+-            )?,
++            super::super::protocol_serde::shape_set_security_token_service_preferences_input::ser_set_security_token_service_preferences_op_input(&input)?,
          );
-```
-
-### `src/operation/simulate_custom_policy/_simulate_custom_policy_input.rs`
-
-```diff
---- reference/src/operation/simulate_custom_policy/_simulate_custom_policy_input.rs
-+++ generated/src/operation/simulate_custom_policy/_simulate_custom_policy_input.rs
-@@ -217,7 +217,8 @@
- pub struct SimulateCustomPolicyInputBuilder {
-     pub(crate) policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-     pub(crate) permissions_boundary_policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
--    pub(crate) ordered_organization_policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::OrderedOrganizationPolicyType>>,
-+    pub(crate) ordered_organization_policy_input_list:
-+        ::std::option::Option<::std::vec::Vec<super::super::super::types::OrderedOrganizationPolicyType>>,
-     pub(crate) action_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-     pub(crate) resource_arns: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-     pub(crate) resource_policy: ::std::option::Option<::std::string::String>,
-@@ -355,7 +356,9 @@
-     /// <p>An ordered list of service control policies (SCPs) to include in the simulation. Each element represents one level of an Organizations hierarchy, from the organization root to the account.</p>
-     /// <p>The simulator evaluates SCPs in the order that you provide, consistent with how Organizations enforces SCPs. The first element must represent the organization root, and the last element must represent the account. Any elements between them represent organizational units (OUs) in descending order.</p>
-     /// <p>Use this parameter to simulate the effect of an SCP hierarchy without calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a>.</p>
--    pub fn get_ordered_organization_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::OrderedOrganizationPolicyType>> {
-+    pub fn get_ordered_organization_policy_input_list(
-+        &self,
-+    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::OrderedOrganizationPolicyType>> {
-         &self.ordered_organization_policy_input_list
-     }
-     /// Appends an item to `action_names`.
-@@ -610,8 +613,10 @@
-     /// Consumes the builder and constructs a [`SimulateCustomPolicyInput`](crate::operation::simulate_custom_policy::SimulateCustomPolicyInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::simulate_custom_policy::SimulateCustomPolicyInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::simulate_custom_policy::SimulateCustomPolicyInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::simulate_custom_policy::SimulateCustomPolicyInput {
-             policy_input_list: self.policy_input_list,
-             permissions_boundary_policy_input_list: self.permissions_boundary_policy_input_list,
-```
-
-### `src/operation/simulate_custom_policy/builders.rs`
-
-```diff
---- reference/src/operation/simulate_custom_policy/builders.rs
-+++ generated/src/operation/simulate_custom_policy/builders.rs
-@@ -243,7 +243,9 @@
-     /// <p>An ordered list of service control policies (SCPs) to include in the simulation. Each element represents one level of an Organizations hierarchy, from the organization root to the account.</p>
-     /// <p>The simulator evaluates SCPs in the order that you provide, consistent with how Organizations enforces SCPs. The first element must represent the organization root, and the last element must represent the account. Any elements between them represent organizational units (OUs) in descending order.</p>
-     /// <p>Use this parameter to simulate the effect of an SCP hierarchy without calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a>.</p>
--    pub fn get_ordered_organization_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::OrderedOrganizationPolicyType>> {
-+    pub fn get_ordered_organization_policy_input_list(
-+        &self,
-+    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::OrderedOrganizationPolicyType>> {
-         self.inner.get_ordered_organization_policy_input_list()
-     }
-     ///
-```
-
-### `src/operation/simulate_custom_policy/paginator.rs`
-
-```diff
---- reference/src/operation/simulate_custom_policy/paginator.rs
-+++ generated/src/operation/simulate_custom_policy/paginator.rs
-@@ -86,7 +86,11 @@
-                         }
-                     };
-                     loop {
--                        let resp = super::super::super::operation::simulate_custom_policy::SimulateCustomPolicy::orchestrate(&runtime_plugins, input.clone()).await;
-+                        let resp = super::super::super::operation::simulate_custom_policy::SimulateCustomPolicy::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
+         if let Some(content_length) = body.content_length() {
+             let content_length = content_length.to_string();
 ```
 
 ### `src/operation/simulate_custom_policy.rs`
@@ -12838,27 +7828,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/simulate_principal_policy/paginator.rs`
-
-```diff
---- reference/src/operation/simulate_principal_policy/paginator.rs
-+++ generated/src/operation/simulate_principal_policy/paginator.rs
-@@ -86,8 +86,11 @@
-                         }
-                     };
-                     loop {
--                        let resp =
--                            super::super::super::operation::simulate_principal_policy::SimulatePrincipalPolicy::orchestrate(&runtime_plugins, input.clone()).await;
-+                        let resp = super::super::super::operation::simulate_principal_policy::SimulatePrincipalPolicy::orchestrate(
-+                            &runtime_plugins,
-+                            input.clone(),
-+                        )
-+                        .await;
-                         // If the input member is None or it was an error
-                         let done = match resp {
-                             ::std::result::Result::Ok(ref resp) => {
-```
-
 ### `src/operation/simulate_principal_policy.rs`
 
 ```diff
@@ -12879,26 +7848,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/tag_instance_profile/_tag_instance_profile_input.rs`
-
-```diff
---- reference/src/operation/tag_instance_profile/_tag_instance_profile_input.rs
-+++ generated/src/operation/tag_instance_profile/_tag_instance_profile_input.rs
-@@ -78,8 +78,10 @@
-     /// Consumes the builder and constructs a [`TagInstanceProfileInput`](crate::operation::tag_instance_profile::TagInstanceProfileInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::tag_instance_profile::TagInstanceProfileInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::tag_instance_profile::TagInstanceProfileInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::tag_instance_profile::TagInstanceProfileInput {
-             instance_profile_name: self.instance_profile_name,
-             tags: self.tags,
 ```
 
 ### `src/operation/tag_instance_profile.rs`
@@ -13099,7 +8048,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -247,11 +247,10 @@
+@@ -247,13 +247,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -13109,11 +8058,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_mfa_device_input::ser_tag_mfa_device_input_input_input(
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_mfa_device_input::ser_tag_mfa_device_op_input(
-             &input,
-         )?);
+-            &input,
+-        )?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_mfa_device_input::ser_tag_mfa_device_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
-@@ -262,12 +261,12 @@
+             let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
+@@ -262,12 +259,12 @@
      }
  }
  #[derive(Debug)]
@@ -13129,29 +8080,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/tag_open_id_connect_provider/_tag_open_id_connect_provider_input.rs`
-
-```diff
---- reference/src/operation/tag_open_id_connect_provider/_tag_open_id_connect_provider_input.rs
-+++ generated/src/operation/tag_open_id_connect_provider/_tag_open_id_connect_provider_input.rs
-@@ -82,9 +82,11 @@
-         super::super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderInput {
--            open_id_connect_provider_arn: self.open_id_connect_provider_arn,
--            tags: self.tags,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::tag_open_id_connect_provider::TagOpenIdConnectProviderInput {
-+                open_id_connect_provider_arn: self.open_id_connect_provider_arn,
-+                tags: self.tags,
-+            },
-+        )
-     }
- }
 ```
 
 ### `src/operation/tag_open_id_connect_provider/builders.rs`
@@ -13363,72 +8291,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/tag_policy/_tag_policy_input.rs`
-
-```diff
---- reference/src/operation/tag_policy/_tag_policy_input.rs
-+++ generated/src/operation/tag_policy/_tag_policy_input.rs
-@@ -76,7 +76,9 @@
-         &self.tags
-     }
-     /// Consumes the builder and constructs a [`TagPolicyInput`](crate::operation::tag_policy::TagPolicyInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::tag_policy::TagPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::tag_policy::TagPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::tag_policy::TagPolicyInput {
-             policy_arn: self.policy_arn,
-             tags: self.tags,
-```
-
-### `src/operation/tag_policy/builders.rs`
-
-```diff
---- reference/src/operation/tag_policy/builders.rs
-+++ generated/src/operation/tag_policy/builders.rs
-@@ -43,14 +43,20 @@
-     inner: super::super::super::operation::tag_policy::builders::TagPolicyInputBuilder,
-     config_override: ::std::option::Option<super::super::super::config::Builder>,
- }
--impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::tag_policy::TagPolicyOutput, super::super::super::operation::tag_policy::TagPolicyError>
--    for TagPolicyFluentBuilder
-+impl
-+    super::super::super::client::customize::internal::CustomizableSend<
-+        super::super::super::operation::tag_policy::TagPolicyOutput,
-+        super::super::super::operation::tag_policy::TagPolicyError,
-+    > for TagPolicyFluentBuilder
- {
-     fn send(
-         self,
-         config_override: super::super::super::config::Builder,
-     ) -> super::super::super::client::customize::internal::BoxFuture<
--        super::super::super::client::customize::internal::SendResult<super::super::super::operation::tag_policy::TagPolicyOutput, super::super::super::operation::tag_policy::TagPolicyError>,
-+        super::super::super::client::customize::internal::SendResult<
-+            super::super::super::operation::tag_policy::TagPolicyOutput,
-+            super::super::super::operation::tag_policy::TagPolicyError,
-+        >,
-     > {
-         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-     }
-```
-
 ### `src/operation/tag_policy.rs`
 
 ```diff
 --- reference/src/operation/tag_policy.rs
 +++ generated/src/operation/tag_policy.rs
-@@ -220,7 +220,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::tag_policy::TagPolicyInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::tag_policy::TagPolicyInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -245,11 +247,10 @@
+@@ -245,11 +245,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -13444,96 +8312,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
-### `src/operation/tag_role/_tag_role_input.rs`
-
-```diff
---- reference/src/operation/tag_role/_tag_role_input.rs
-+++ generated/src/operation/tag_role/_tag_role_input.rs
-@@ -76,7 +76,9 @@
-         &self.tags
-     }
-     /// Consumes the builder and constructs a [`TagRoleInput`](crate::operation::tag_role::TagRoleInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::tag_role::TagRoleInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::tag_role::TagRoleInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::tag_role::TagRoleInput {
-             role_name: self.role_name,
-             tags: self.tags,
-```
-
-### `src/operation/tag_role/builders.rs`
-
-```diff
---- reference/src/operation/tag_role/builders.rs
-+++ generated/src/operation/tag_role/builders.rs
-@@ -46,14 +46,20 @@
-     inner: super::super::super::operation::tag_role::builders::TagRoleInputBuilder,
-     config_override: ::std::option::Option<super::super::super::config::Builder>,
- }
--impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::tag_role::TagRoleOutput, super::super::super::operation::tag_role::TagRoleError>
--    for TagRoleFluentBuilder
-+impl
-+    super::super::super::client::customize::internal::CustomizableSend<
-+        super::super::super::operation::tag_role::TagRoleOutput,
-+        super::super::super::operation::tag_role::TagRoleError,
-+    > for TagRoleFluentBuilder
- {
-     fn send(
-         self,
-         config_override: super::super::super::config::Builder,
-     ) -> super::super::super::client::customize::internal::BoxFuture<
--        super::super::super::client::customize::internal::SendResult<super::super::super::operation::tag_role::TagRoleOutput, super::super::super::operation::tag_role::TagRoleError>,
-+        super::super::super::client::customize::internal::SendResult<
-+            super::super::super::operation::tag_role::TagRoleOutput,
-+            super::super::super::operation::tag_role::TagRoleError,
-+        >,
-     > {
-         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-     }
-@@ -103,8 +109,11 @@
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-     pub fn customize(
-         self,
--    ) -> super::super::super::client::customize::CustomizableOperation<super::super::super::operation::tag_role::TagRoleOutput, super::super::super::operation::tag_role::TagRoleError, Self>
--    {
-+    ) -> super::super::super::client::customize::CustomizableOperation<
-+        super::super::super::operation::tag_role::TagRoleOutput,
-+        super::super::super::operation::tag_role::TagRoleError,
-+        Self,
-+    > {
-         super::super::super::client::customize::CustomizableOperation::new(self)
-     }
-     pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<super::super::super::config::Builder>) -> Self {
-```
-
 ### `src/operation/tag_role.rs`
 
 ```diff
 --- reference/src/operation/tag_role.rs
 +++ generated/src/operation/tag_role.rs
-@@ -18,11 +18,15 @@
-             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-         >,
-     > {
--        let map_err =
--            |err: ::aws_smithy_runtime_api::client::result::SdkError<
--                ::aws_smithy_runtime_api::client::interceptors::context::Error,
--                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
--            >| { err.map_service_error(|err| err.downcast::<super::super::operation::tag_role::TagRoleError>().expect("correct error type")) };
-+        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-+        >| {
-+            err.map_service_error(|err| {
-+                err.downcast::<super::super::operation::tag_role::TagRoleError>()
-+                    .expect("correct error type")
-+            })
-+        };
-         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-             .await
-             .map_err(map_err)?;
-@@ -241,11 +245,10 @@
+@@ -241,11 +241,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -13547,25 +8331,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/tag_saml_provider/_tag_saml_provider_input.rs`
-
-```diff
---- reference/src/operation/tag_saml_provider/_tag_saml_provider_input.rs
-+++ generated/src/operation/tag_saml_provider/_tag_saml_provider_input.rs
-@@ -78,7 +78,10 @@
-     /// Consumes the builder and constructs a [`TagSamlProviderInput`](crate::operation::tag_saml_provider::TagSamlProviderInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::tag_saml_provider::TagSamlProviderInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::tag_saml_provider::TagSamlProviderInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::tag_saml_provider::TagSamlProviderInput {
-             saml_provider_arn: self.saml_provider_arn,
-             tags: self.tags,
 ```
 
 ### `src/operation/tag_saml_provider/builders.rs`
@@ -13744,7 +8509,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -247,12 +247,11 @@
+@@ -247,13 +247,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -13753,12 +8518,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_tag_saml_provider_input::ser_tag_saml_provider_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_tag_saml_provider_input::ser_tag_saml_provider_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_tag_saml_provider_input::ser_tag_saml_provider_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 @@ -262,12 +261,12 @@
      }
  }
@@ -13775,26 +8543,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/tag_server_certificate/_tag_server_certificate_input.rs`
-
-```diff
---- reference/src/operation/tag_server_certificate/_tag_server_certificate_input.rs
-+++ generated/src/operation/tag_server_certificate/_tag_server_certificate_input.rs
-@@ -78,8 +78,10 @@
-     /// Consumes the builder and constructs a [`TagServerCertificateInput`](crate::operation::tag_server_certificate::TagServerCertificateInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::tag_server_certificate::TagServerCertificateInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::tag_server_certificate::TagServerCertificateInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::tag_server_certificate::TagServerCertificateInput {
-             server_certificate_name: self.server_certificate_name,
-             tags: self.tags,
 ```
 
 ### `src/operation/tag_server_certificate.rs`
@@ -13819,96 +8567,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/tag_user/_tag_user_input.rs`
-
-```diff
---- reference/src/operation/tag_user/_tag_user_input.rs
-+++ generated/src/operation/tag_user/_tag_user_input.rs
-@@ -76,7 +76,9 @@
-         &self.tags
-     }
-     /// Consumes the builder and constructs a [`TagUserInput`](crate::operation::tag_user::TagUserInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::tag_user::TagUserInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::tag_user::TagUserInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::tag_user::TagUserInput {
-             user_name: self.user_name,
-             tags: self.tags,
-```
-
-### `src/operation/tag_user/builders.rs`
-
-```diff
---- reference/src/operation/tag_user/builders.rs
-+++ generated/src/operation/tag_user/builders.rs
-@@ -46,14 +46,20 @@
-     inner: super::super::super::operation::tag_user::builders::TagUserInputBuilder,
-     config_override: ::std::option::Option<super::super::super::config::Builder>,
- }
--impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::tag_user::TagUserOutput, super::super::super::operation::tag_user::TagUserError>
--    for TagUserFluentBuilder
-+impl
-+    super::super::super::client::customize::internal::CustomizableSend<
-+        super::super::super::operation::tag_user::TagUserOutput,
-+        super::super::super::operation::tag_user::TagUserError,
-+    > for TagUserFluentBuilder
- {
-     fn send(
-         self,
-         config_override: super::super::super::config::Builder,
-     ) -> super::super::super::client::customize::internal::BoxFuture<
--        super::super::super::client::customize::internal::SendResult<super::super::super::operation::tag_user::TagUserOutput, super::super::super::operation::tag_user::TagUserError>,
-+        super::super::super::client::customize::internal::SendResult<
-+            super::super::super::operation::tag_user::TagUserOutput,
-+            super::super::super::operation::tag_user::TagUserError,
-+        >,
-     > {
-         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-     }
-@@ -103,8 +109,11 @@
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-     pub fn customize(
-         self,
--    ) -> super::super::super::client::customize::CustomizableOperation<super::super::super::operation::tag_user::TagUserOutput, super::super::super::operation::tag_user::TagUserError, Self>
--    {
-+    ) -> super::super::super::client::customize::CustomizableOperation<
-+        super::super::super::operation::tag_user::TagUserOutput,
-+        super::super::super::operation::tag_user::TagUserError,
-+        Self,
-+    > {
-         super::super::super::client::customize::CustomizableOperation::new(self)
-     }
-     pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<super::super::super::config::Builder>) -> Self {
-```
-
 ### `src/operation/tag_user.rs`
 
 ```diff
 --- reference/src/operation/tag_user.rs
 +++ generated/src/operation/tag_user.rs
-@@ -18,11 +18,15 @@
-             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-         >,
-     > {
--        let map_err =
--            |err: ::aws_smithy_runtime_api::client::result::SdkError<
--                ::aws_smithy_runtime_api::client::interceptors::context::Error,
--                ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
--            >| { err.map_service_error(|err| err.downcast::<super::super::operation::tag_user::TagUserError>().expect("correct error type")) };
-+        let map_err = |err: ::aws_smithy_runtime_api::client::result::SdkError<
-+            ::aws_smithy_runtime_api::client::interceptors::context::Error,
-+            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
-+        >| {
-+            err.map_service_error(|err| {
-+                err.downcast::<super::super::operation::tag_user::TagUserError>()
-+                    .expect("correct error type")
-+            })
-+        };
-         let context = Self::orchestrate_with_stop_point(runtime_plugins, input, ::aws_smithy_runtime::client::orchestrator::StopPoint::None)
-             .await
-             .map_err(map_err)?;
-@@ -241,11 +245,10 @@
+@@ -241,11 +241,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -13922,26 +8586,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/untag_instance_profile/_untag_instance_profile_input.rs`
-
-```diff
---- reference/src/operation/untag_instance_profile/_untag_instance_profile_input.rs
-+++ generated/src/operation/untag_instance_profile/_untag_instance_profile_input.rs
-@@ -78,8 +78,10 @@
-     /// Consumes the builder and constructs a [`UntagInstanceProfileInput`](crate::operation::untag_instance_profile::UntagInstanceProfileInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::untag_instance_profile::UntagInstanceProfileInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::untag_instance_profile::UntagInstanceProfileInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::untag_instance_profile::UntagInstanceProfileInput {
-             instance_profile_name: self.instance_profile_name,
-             tag_keys: self.tag_keys,
 ```
 
 ### `src/operation/untag_instance_profile.rs`
@@ -14138,7 +8782,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -247,12 +247,11 @@
+@@ -247,13 +247,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -14147,12 +8791,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_untag_mfa_device_input::ser_untag_mfa_device_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_untag_mfa_device_input::ser_untag_mfa_device_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_mfa_device_input::ser_untag_mfa_device_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 @@ -262,12 +261,12 @@
      }
  }
@@ -14169,29 +8816,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-```
-
-### `src/operation/untag_open_id_connect_provider/_untag_open_id_connect_provider_input.rs`
-
-```diff
---- reference/src/operation/untag_open_id_connect_provider/_untag_open_id_connect_provider_input.rs
-+++ generated/src/operation/untag_open_id_connect_provider/_untag_open_id_connect_provider_input.rs
-@@ -82,9 +82,11 @@
-         super::super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderInput {
--            open_id_connect_provider_arn: self.open_id_connect_provider_arn,
--            tag_keys: self.tag_keys,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderInput {
-+                open_id_connect_provider_arn: self.open_id_connect_provider_arn,
-+                tag_keys: self.tag_keys,
-+            },
-+        )
-     }
- }
 ```
 
 ### `src/operation/untag_open_id_connect_provider/builders.rs`
@@ -14399,30 +9023,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/untag_policy/_untag_policy_input.rs`
-
-```diff
---- reference/src/operation/untag_policy/_untag_policy_input.rs
-+++ generated/src/operation/untag_policy/_untag_policy_input.rs
-@@ -76,7 +76,9 @@
-         &self.tag_keys
-     }
-     /// Consumes the builder and constructs a [`UntagPolicyInput`](crate::operation::untag_policy::UntagPolicyInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::untag_policy::UntagPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::untag_policy::UntagPolicyInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::untag_policy::UntagPolicyInput {
-             policy_arn: self.policy_arn,
-             tag_keys: self.tag_keys,
-```
-
 ### `src/operation/untag_policy.rs`
 
 ```diff
 --- reference/src/operation/untag_policy.rs
 +++ generated/src/operation/untag_policy.rs
-@@ -247,13 +247,11 @@
+@@ -247,13 +247,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -14434,60 +9040,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_policy_input::ser_untag_policy_input_input_input(
 -            &input,
 -        )?);
-+        let body =
-+            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_policy_input::ser_untag_policy_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_policy_input::ser_untag_policy_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/untag_role/_untag_role_input.rs`
-
-```diff
---- reference/src/operation/untag_role/_untag_role_input.rs
-+++ generated/src/operation/untag_role/_untag_role_input.rs
-@@ -76,7 +76,9 @@
-         &self.tag_keys
-     }
-     /// Consumes the builder and constructs a [`UntagRoleInput`](crate::operation::untag_role::UntagRoleInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::untag_role::UntagRoleInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::untag_role::UntagRoleInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::untag_role::UntagRoleInput {
-             role_name: self.role_name,
-             tag_keys: self.tag_keys,
-```
-
-### `src/operation/untag_role/builders.rs`
-
-```diff
---- reference/src/operation/untag_role/builders.rs
-+++ generated/src/operation/untag_role/builders.rs
-@@ -29,14 +29,20 @@
-     inner: super::super::super::operation::untag_role::builders::UntagRoleInputBuilder,
-     config_override: ::std::option::Option<super::super::super::config::Builder>,
- }
--impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::untag_role::UntagRoleOutput, super::super::super::operation::untag_role::UntagRoleError>
--    for UntagRoleFluentBuilder
-+impl
-+    super::super::super::client::customize::internal::CustomizableSend<
-+        super::super::super::operation::untag_role::UntagRoleOutput,
-+        super::super::super::operation::untag_role::UntagRoleError,
-+    > for UntagRoleFluentBuilder
- {
-     fn send(
-         self,
-         config_override: super::super::super::config::Builder,
-     ) -> super::super::super::client::customize::internal::BoxFuture<
--        super::super::super::client::customize::internal::SendResult<super::super::super::operation::untag_role::UntagRoleOutput, super::super::super::operation::untag_role::UntagRoleError>,
-+        super::super::super::client::customize::internal::SendResult<
-+            super::super::super::operation::untag_role::UntagRoleOutput,
-+            super::super::super::operation::untag_role::UntagRoleError,
-+        >,
-     > {
-         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-     }
 ```
 
 ### `src/operation/untag_role.rs`
@@ -14495,18 +9051,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/untag_role.rs
 +++ generated/src/operation/untag_role.rs
-@@ -220,7 +220,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::untag_role::UntagRoleInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::untag_role::UntagRoleInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -245,11 +247,10 @@
+@@ -245,11 +245,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -14520,25 +9065,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/untag_saml_provider/_untag_saml_provider_input.rs`
-
-```diff
---- reference/src/operation/untag_saml_provider/_untag_saml_provider_input.rs
-+++ generated/src/operation/untag_saml_provider/_untag_saml_provider_input.rs
-@@ -78,7 +78,10 @@
-     /// Consumes the builder and constructs a [`UntagSamlProviderInput`](crate::operation::untag_saml_provider::UntagSamlProviderInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::untag_saml_provider::UntagSamlProviderInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::untag_saml_provider::UntagSamlProviderInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::untag_saml_provider::UntagSamlProviderInput {
-             saml_provider_arn: self.saml_provider_arn,
-             tag_keys: self.tag_keys,
 ```
 
 ### `src/operation/untag_saml_provider/builders.rs`
@@ -14713,7 +9239,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -247,12 +247,11 @@
+@@ -247,13 +247,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -14722,12 +9248,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_untag_saml_provider_input::ser_untag_saml_provider_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_untag_saml_provider_input::ser_untag_saml_provider_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_untag_saml_provider_input::ser_untag_saml_provider_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 @@ -262,12 +261,12 @@
      }
  }
@@ -14768,72 +9297,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/untag_user/_untag_user_input.rs`
-
-```diff
---- reference/src/operation/untag_user/_untag_user_input.rs
-+++ generated/src/operation/untag_user/_untag_user_input.rs
-@@ -76,7 +76,9 @@
-         &self.tag_keys
-     }
-     /// Consumes the builder and constructs a [`UntagUserInput`](crate::operation::untag_user::UntagUserInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::untag_user::UntagUserInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::untag_user::UntagUserInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::untag_user::UntagUserInput {
-             user_name: self.user_name,
-             tag_keys: self.tag_keys,
-```
-
-### `src/operation/untag_user/builders.rs`
-
-```diff
---- reference/src/operation/untag_user/builders.rs
-+++ generated/src/operation/untag_user/builders.rs
-@@ -29,14 +29,20 @@
-     inner: super::super::super::operation::untag_user::builders::UntagUserInputBuilder,
-     config_override: ::std::option::Option<super::super::super::config::Builder>,
- }
--impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::untag_user::UntagUserOutput, super::super::super::operation::untag_user::UntagUserError>
--    for UntagUserFluentBuilder
-+impl
-+    super::super::super::client::customize::internal::CustomizableSend<
-+        super::super::super::operation::untag_user::UntagUserOutput,
-+        super::super::super::operation::untag_user::UntagUserError,
-+    > for UntagUserFluentBuilder
- {
-     fn send(
-         self,
-         config_override: super::super::super::config::Builder,
-     ) -> super::super::super::client::customize::internal::BoxFuture<
--        super::super::super::client::customize::internal::SendResult<super::super::super::operation::untag_user::UntagUserOutput, super::super::super::operation::untag_user::UntagUserError>,
-+        super::super::super::client::customize::internal::SendResult<
-+            super::super::super::operation::untag_user::UntagUserOutput,
-+            super::super::super::operation::untag_user::UntagUserError,
-+        >,
-     > {
-         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
-     }
-```
-
 ### `src/operation/untag_user.rs`
 
 ```diff
 --- reference/src/operation/untag_user.rs
 +++ generated/src/operation/untag_user.rs
-@@ -220,7 +220,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::untag_user::UntagUserInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::untag_user::UntagUserInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -245,11 +247,10 @@
+@@ -245,11 +245,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -14849,31 +9318,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
-### `src/operation/update_access_key/_update_access_key_input.rs`
-
-```diff
---- reference/src/operation/update_access_key/_update_access_key_input.rs
-+++ generated/src/operation/update_access_key/_update_access_key_input.rs
-@@ -97,7 +97,10 @@
-     /// Consumes the builder and constructs a [`UpdateAccessKeyInput`](crate::operation::update_access_key::UpdateAccessKeyInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::update_access_key::UpdateAccessKeyInput, ::aws_smithy_types::error::operation::BuildError> {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::update_access_key::UpdateAccessKeyInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::update_access_key::UpdateAccessKeyInput {
-             user_name: self.user_name,
-             access_key_id: self.access_key_id,
-```
-
 ### `src/operation/update_access_key.rs`
 
 ```diff
 --- reference/src/operation/update_access_key.rs
 +++ generated/src/operation/update_access_key.rs
-@@ -252,12 +252,11 @@
+@@ -252,13 +252,12 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -14882,12 +9332,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            builder = _header_serialization_settings.set_default_header(builder, ::http_1x::header::CONTENT_TYPE, "application/xml");
              builder
          };
-         let body = ::aws_smithy_types::body::SdkBody::from(
+-        let body = ::aws_smithy_types::body::SdkBody::from(
 -            super::super::protocol_serde::shape_update_access_key_input::ser_update_access_key_input_input_input(&input)?,
-+            super::super::protocol_serde::shape_update_access_key_input::ser_update_access_key_op_input(&input)?,
-         );
+-        );
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_access_key_input::ser_update_access_key_op_input(
++            &input,
++        )?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
+             request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
 ```
 
 ### `src/operation/update_account_password_policy/_update_account_password_policy_input.rs`
@@ -14895,36 +9348,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/update_account_password_policy/_update_account_password_policy_input.rs
 +++ generated/src/operation/update_account_password_policy/_update_account_password_policy_input.rs
-@@ -275,16 +275,18 @@
-         super::super::super::operation::update_account_password_policy::UpdateAccountPasswordPolicyInput,
-         ::aws_smithy_types::error::operation::BuildError,
+@@ -277,11 +277,11 @@
      > {
--        ::std::result::Result::Ok(super::super::super::operation::update_account_password_policy::UpdateAccountPasswordPolicyInput {
--            minimum_password_length: self.minimum_password_length,
+         ::std::result::Result::Ok(super::super::super::operation::update_account_password_policy::UpdateAccountPasswordPolicyInput {
+             minimum_password_length: self.minimum_password_length,
 -            require_symbols: self.require_symbols,
 -            require_numbers: self.require_numbers,
 -            require_uppercase_characters: self.require_uppercase_characters,
 -            require_lowercase_characters: self.require_lowercase_characters,
 -            allow_users_to_change_password: self.allow_users_to_change_password,
--            max_password_age: self.max_password_age,
--            password_reuse_prevention: self.password_reuse_prevention,
--            hard_expiry: self.hard_expiry,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::update_account_password_policy::UpdateAccountPasswordPolicyInput {
-+                minimum_password_length: self.minimum_password_length,
-+                require_symbols: self.require_symbols.unwrap_or_default(),
-+                require_numbers: self.require_numbers.unwrap_or_default(),
-+                require_uppercase_characters: self.require_uppercase_characters.unwrap_or_default(),
-+                require_lowercase_characters: self.require_lowercase_characters.unwrap_or_default(),
-+                allow_users_to_change_password: self.allow_users_to_change_password.unwrap_or_default(),
-+                max_password_age: self.max_password_age,
-+                password_reuse_prevention: self.password_reuse_prevention,
-+                hard_expiry: self.hard_expiry,
-+            },
-+        )
-     }
- }
++            require_symbols: self.require_symbols.unwrap_or_default(),
++            require_numbers: self.require_numbers.unwrap_or_default(),
++            require_uppercase_characters: self.require_uppercase_characters.unwrap_or_default(),
++            require_lowercase_characters: self.require_lowercase_characters.unwrap_or_default(),
++            allow_users_to_change_password: self.allow_users_to_change_password.unwrap_or_default(),
+             max_password_age: self.max_password_age,
+             password_reuse_prevention: self.password_reuse_prevention,
+             hard_expiry: self.hard_expiry,
 ```
 
 ### `src/operation/update_account_password_policy.rs`
@@ -14993,30 +9433,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/update_group/_update_group_input.rs`
-
-```diff
---- reference/src/operation/update_group/_update_group_input.rs
-+++ generated/src/operation/update_group/_update_group_input.rs
-@@ -99,7 +99,9 @@
-         &self.new_group_name
-     }
-     /// Consumes the builder and constructs a [`UpdateGroupInput`](crate::operation::update_group::UpdateGroupInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::update_group::UpdateGroupInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::update_group::UpdateGroupInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::update_group::UpdateGroupInput {
-             group_name: self.group_name,
-             new_path: self.new_path,
-```
-
 ### `src/operation/update_group.rs`
 
 ```diff
 --- reference/src/operation/update_group.rs
 +++ generated/src/operation/update_group.rs
-@@ -257,13 +257,11 @@
+@@ -257,13 +257,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -15028,31 +9450,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_group_input::ser_update_group_input_input_input(
 -            &input,
 -        )?);
-+        let body =
-+            ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_group_input::ser_update_group_op_input(&input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_group_input::ser_update_group_op_input(&input)?);
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/update_login_profile/_update_login_profile_input.rs`
-
-```diff
---- reference/src/operation/update_login_profile/_update_login_profile_input.rs
-+++ generated/src/operation/update_login_profile/_update_login_profile_input.rs
-@@ -150,8 +150,10 @@
-     /// Consumes the builder and constructs a [`UpdateLoginProfileInput`](crate::operation::update_login_profile::UpdateLoginProfileInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::update_login_profile::UpdateLoginProfileInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::update_login_profile::UpdateLoginProfileInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::update_login_profile::UpdateLoginProfileInput {
-             user_name: self.user_name,
-             password: self.password,
 ```
 
 ### `src/operation/update_login_profile.rs`
@@ -15138,7 +9539,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) fn new(handle: ::std::sync::Arc<super::super::super::client::Handle>) -> Self {
          Self {
              handle,
-@@ -62,10 +62,11 @@
+@@ -62,7 +62,7 @@
              config_override: ::std::option::Option::None,
          }
      }
@@ -15146,13 +9547,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    /// Access the UpdateOpenIdConnectProviderThumbprint as a reference.
      pub fn as_input(
          &self,
--    ) -> &super::super::super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintInputBuilder {
-+    ) -> &super::super::super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintInputBuilder
-+    {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -81,7 +82,7 @@
+     ) -> &super::super::super::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintInputBuilder {
+@@ -81,7 +81,7 @@
      ) -> ::std::result::Result<
          super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
          ::aws_smithy_runtime_api::client::result::SdkError<
@@ -15161,32 +9557,22 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
          >,
      > {
-@@ -89,14 +90,16 @@
-             .inner
+@@ -90,12 +90,12 @@
              .build()
              .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins =
+         let runtime_plugins =
 -            super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprint::operation_runtime_plugins(
--                self.handle.runtime_plugins.clone(),
--                &self.handle.conf,
--                self.config_override,
--            );
++            super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprint::operation_runtime_plugins(
+                 self.handle.runtime_plugins.clone(),
+                 &self.handle.conf,
+                 self.config_override,
+             );
 -        super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprint::orchestrate(&runtime_plugins, input)
--            .await
-+        let runtime_plugins = super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprint::operation_runtime_plugins(
-+                            self.handle.runtime_plugins.clone(),
-+                            &self.handle.conf,
-+                            self.config_override,
-+                        );
-+        super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprint::orchestrate(
-+            &runtime_plugins,
-+            input,
-+        )
-+        .await
++        super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprint::orchestrate(&runtime_plugins, input)
+             .await
      }
 
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-@@ -104,7 +107,7 @@
+@@ -104,7 +104,7 @@
          self,
      ) -> super::super::super::client::customize::CustomizableOperation<
          super::super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
@@ -15268,18 +9654,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -217,9 +217,7 @@
-                 status, headers, body,
-             )
-         } else {
--            super::super::protocol_serde::shape_update_open_id_connect_provider_thumbprint::de_update_open_id_connect_provider_thumbprint_http_response(
--                status, headers, body,
--            )
-+            super::super::protocol_serde::shape_update_open_id_connect_provider_thumbprint::de_update_open_id_connect_provider_thumbprint_http_response(status, headers, body)
-         };
-         super::super::protocol_serde::type_erase_result(parse_result)
-     }
-@@ -260,11 +258,10 @@
+@@ -260,11 +260,14 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -15289,11 +9664,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              builder
          };
 -        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_open_id_connect_provider_thumbprint_input::ser_update_open_id_connect_provider_thumbprint_input_input_input(&input)?);
-+        let body = ::aws_smithy_types::body::SdkBody::from(super::super::protocol_serde::shape_update_open_id_connect_provider_thumbprint_input::ser_update_open_id_connect_provider_thumbprint_op_input(& input)?);
++        let body = ::aws_smithy_types::body::SdkBody::from(
++            super::super::protocol_serde::shape_update_open_id_connect_provider_thumbprint_input::ser_update_open_id_connect_provider_thumbprint_op_input(
++                &input,
++            )?,
++        );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-@@ -273,12 +270,12 @@
+@@ -273,12 +276,12 @@
      }
  }
  #[derive(Debug)]
@@ -15309,35 +9688,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 
      fn read_before_execution(
-@@ -441,7 +438,9 @@
-         })
-     }
- }
--impl ::aws_types::request_id::RequestId for super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError {
-+impl ::aws_types::request_id::RequestId
-+    for super::super::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError
-+{
-     fn request_id(&self) -> Option<&str> {
-         self.meta().request_id()
-     }
-```
-
-### `src/operation/update_role/_update_role_input.rs`
-
-```diff
---- reference/src/operation/update_role/_update_role_input.rs
-+++ generated/src/operation/update_role/_update_role_input.rs
-@@ -99,7 +99,9 @@
-         &self.max_session_duration
-     }
-     /// Consumes the builder and constructs a [`UpdateRoleInput`](crate::operation::update_role::UpdateRoleInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::update_role::UpdateRoleInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::update_role::UpdateRoleInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::update_role::UpdateRoleInput {
-             role_name: self.role_name,
-             description: self.description,
 ```
 
 ### `src/operation/update_role.rs`
@@ -15345,18 +9695,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/update_role.rs
 +++ generated/src/operation/update_role.rs
-@@ -225,7 +225,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::update_role::UpdateRoleInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::update_role::UpdateRoleInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -250,12 +252,10 @@
+@@ -250,12 +250,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -15371,26 +9710,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/update_role_description/_update_role_description_input.rs`
-
-```diff
---- reference/src/operation/update_role_description/_update_role_description_input.rs
-+++ generated/src/operation/update_role_description/_update_role_description_input.rs
-@@ -66,8 +66,10 @@
-     /// Consumes the builder and constructs a [`UpdateRoleDescriptionInput`](crate::operation::update_role_description::UpdateRoleDescriptionInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::update_role_description::UpdateRoleDescriptionInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::update_role_description::UpdateRoleDescriptionInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::update_role_description::UpdateRoleDescriptionInput {
-             role_name: self.role_name,
-             description: self.description,
 ```
 
 ### `src/operation/update_role_description.rs`
@@ -15413,26 +9732,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/update_saml_provider/_update_saml_provider_input.rs`
-
-```diff
---- reference/src/operation/update_saml_provider/_update_saml_provider_input.rs
-+++ generated/src/operation/update_saml_provider/_update_saml_provider_input.rs
-@@ -144,8 +144,10 @@
-     /// Consumes the builder and constructs a [`UpdateSamlProviderInput`](crate::operation::update_saml_provider::UpdateSamlProviderInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::update_saml_provider::UpdateSamlProviderInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::update_saml_provider::UpdateSamlProviderInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::update_saml_provider::UpdateSamlProviderInput {
-             saml_metadata_document: self.saml_metadata_document,
-             saml_provider_arn: self.saml_provider_arn,
 ```
 
 ### `src/operation/update_saml_provider/builders.rs`
@@ -15662,62 +9961,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/update_service_specific_credential/builders.rs`
-
-```diff
---- reference/src/operation/update_service_specific_credential/builders.rs
-+++ generated/src/operation/update_service_specific_credential/builders.rs
-@@ -57,7 +57,9 @@
-         }
-     }
-     /// Access the UpdateServiceSpecificCredential as a reference.
--    pub fn as_input(&self) -> &super::super::super::operation::update_service_specific_credential::builders::UpdateServiceSpecificCredentialInputBuilder {
-+    pub fn as_input(
-+        &self,
-+    ) -> &super::super::super::operation::update_service_specific_credential::builders::UpdateServiceSpecificCredentialInputBuilder {
-         &self.inner
-     }
-     /// Sends the request and returns the response.
-@@ -81,12 +83,14 @@
-             .inner
-             .build()
-             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
--        let runtime_plugins = super::super::super::operation::update_service_specific_credential::UpdateServiceSpecificCredential::operation_runtime_plugins(
--            self.handle.runtime_plugins.clone(),
--            &self.handle.conf,
--            self.config_override,
--        );
--        super::super::super::operation::update_service_specific_credential::UpdateServiceSpecificCredential::orchestrate(&runtime_plugins, input).await
-+        let runtime_plugins =
-+            super::super::super::operation::update_service_specific_credential::UpdateServiceSpecificCredential::operation_runtime_plugins(
-+                self.handle.runtime_plugins.clone(),
-+                &self.handle.conf,
-+                self.config_override,
-+            );
-+        super::super::super::operation::update_service_specific_credential::UpdateServiceSpecificCredential::orchestrate(&runtime_plugins, input)
-+            .await
-     }
-
-     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
-```
-
 ### `src/operation/update_service_specific_credential.rs`
 
 ```diff
 --- reference/src/operation/update_service_specific_credential.rs
 +++ generated/src/operation/update_service_specific_credential.rs
-@@ -218,7 +218,9 @@
-         let mut force_error = false;
-         ::tracing::debug!(request_id = ?::aws_types::request_id::RequestId::request_id(response));
-         let parse_result = if !success && status != 200 || force_error {
--            super::super::protocol_serde::shape_update_service_specific_credential::de_update_service_specific_credential_http_error(status, headers, body)
-+            super::super::protocol_serde::shape_update_service_specific_credential::de_update_service_specific_credential_http_error(
-+                status, headers, body,
-+            )
-         } else {
-             super::super::protocol_serde::shape_update_service_specific_credential::de_update_service_specific_credential_http_response(
-                 status, headers, body,
-@@ -263,12 +265,11 @@
+@@ -263,12 +263,11 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -15732,31 +9981,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/update_signing_certificate/_update_signing_certificate_input.rs`
-
-```diff
---- reference/src/operation/update_signing_certificate/_update_signing_certificate_input.rs
-+++ generated/src/operation/update_signing_certificate/_update_signing_certificate_input.rs
-@@ -101,10 +101,12 @@
-         super::super::super::operation::update_signing_certificate::UpdateSigningCertificateInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::update_signing_certificate::UpdateSigningCertificateInput {
--            user_name: self.user_name,
--            certificate_id: self.certificate_id,
--            status: self.status,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::update_signing_certificate::UpdateSigningCertificateInput {
-+                user_name: self.user_name,
-+                certificate_id: self.certificate_id,
-+                status: self.status,
-+            },
-+        )
-     }
- }
 ```
 
 ### `src/operation/update_signing_certificate.rs`
@@ -15779,26 +10003,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/update_ssh_public_key/_update_ssh_public_key_input.rs`
-
-```diff
---- reference/src/operation/update_ssh_public_key/_update_ssh_public_key_input.rs
-+++ generated/src/operation/update_ssh_public_key/_update_ssh_public_key_input.rs
-@@ -98,8 +98,10 @@
-     /// Consumes the builder and constructs a [`UpdateSshPublicKeyInput`](crate::operation::update_ssh_public_key::UpdateSshPublicKeyInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::update_ssh_public_key::UpdateSshPublicKeyInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::update_ssh_public_key::UpdateSshPublicKeyInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::update_ssh_public_key::UpdateSshPublicKeyInput {
-             user_name: self.user_name,
-             ssh_public_key_id: self.ssh_public_key_id,
 ```
 
 ### `src/operation/update_ssh_public_key/builders.rs`
@@ -16007,41 +10211,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      fn read_before_execution(
 ```
 
-### `src/operation/update_user/_update_user_input.rs`
-
-```diff
---- reference/src/operation/update_user/_update_user_input.rs
-+++ generated/src/operation/update_user/_update_user_input.rs
-@@ -99,7 +99,9 @@
-         &self.new_user_name
-     }
-     /// Consumes the builder and constructs a [`UpdateUserInput`](crate::operation::update_user::UpdateUserInput).
--    pub fn build(self) -> ::std::result::Result<super::super::super::operation::update_user::UpdateUserInput, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::super::operation::update_user::UpdateUserInput, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::super::operation::update_user::UpdateUserInput {
-             user_name: self.user_name,
-             new_path: self.new_path,
-```
-
 ### `src/operation/update_user.rs`
 
 ```diff
 --- reference/src/operation/update_user.rs
 +++ generated/src/operation/update_user.rs
-@@ -230,7 +230,9 @@
-         input: ::aws_smithy_runtime_api::client::interceptors::context::Input,
-         _cfg: &mut ::aws_smithy_types::config_bag::ConfigBag,
-     ) -> ::std::result::Result<::aws_smithy_runtime_api::client::orchestrator::HttpRequest, ::aws_smithy_runtime_api::box_error::BoxError> {
--        let input = input.downcast::<super::super::operation::update_user::UpdateUserInput>().expect("correct type");
-+        let input = input
-+            .downcast::<super::super::operation::update_user::UpdateUserInput>()
-+            .expect("correct type");
-         let _header_serialization_settings = _cfg
-             .load::<super::super::serialization_settings::HeaderSerializationSettings>()
-             .cloned()
-@@ -255,12 +257,10 @@
+@@ -255,12 +255,10 @@
                  ::std::result::Result::Ok(builder.method("POST").uri(uri))
              }
              let mut builder = update_http_builder(&input, ::http_1x::request::Builder::new())?;
@@ -16080,29 +10255,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              let content_length = content_length.to_string();
 ```
 
-### `src/operation/upload_signing_certificate/_upload_signing_certificate_input.rs`
-
-```diff
---- reference/src/operation/upload_signing_certificate/_upload_signing_certificate_input.rs
-+++ generated/src/operation/upload_signing_certificate/_upload_signing_certificate_input.rs
-@@ -119,9 +119,11 @@
-         super::super::super::operation::upload_signing_certificate::UploadSigningCertificateInput,
-         ::aws_smithy_types::error::operation::BuildError,
-     > {
--        ::std::result::Result::Ok(super::super::super::operation::upload_signing_certificate::UploadSigningCertificateInput {
--            user_name: self.user_name,
--            certificate_body: self.certificate_body,
--        })
-+        ::std::result::Result::Ok(
-+            super::super::super::operation::upload_signing_certificate::UploadSigningCertificateInput {
-+                user_name: self.user_name,
-+                certificate_body: self.certificate_body,
-+            },
-+        )
-     }
- }
-```
-
 ### `src/operation/upload_signing_certificate.rs`
 
 ```diff
@@ -16123,26 +10275,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          );
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
-```
-
-### `src/operation/upload_ssh_public_key/_upload_ssh_public_key_input.rs`
-
-```diff
---- reference/src/operation/upload_ssh_public_key/_upload_ssh_public_key_input.rs
-+++ generated/src/operation/upload_ssh_public_key/_upload_ssh_public_key_input.rs
-@@ -116,8 +116,10 @@
-     /// Consumes the builder and constructs a [`UploadSshPublicKeyInput`](crate::operation::upload_ssh_public_key::UploadSshPublicKeyInput).
-     pub fn build(
-         self,
--    ) -> ::std::result::Result<super::super::super::operation::upload_ssh_public_key::UploadSshPublicKeyInput, ::aws_smithy_types::error::operation::BuildError>
--    {
-+    ) -> ::std::result::Result<
-+        super::super::super::operation::upload_ssh_public_key::UploadSshPublicKeyInput,
-+        ::aws_smithy_types::error::operation::BuildError,
-+    > {
-         ::std::result::Result::Ok(super::super::super::operation::upload_ssh_public_key::UploadSshPublicKeyInput {
-             user_name: self.user_name,
-             ssh_public_key_body: self.ssh_public_key_body,
 ```
 
 ### `src/operation/upload_ssh_public_key/builders.rs`
@@ -16568,94 +10700,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/types/_evaluation_result.rs`
-
-```diff
---- reference/src/types/_evaluation_result.rs
-+++ generated/src/types/_evaluation_result.rs
-@@ -32,7 +32,8 @@
-     /// <p>If the simulation evaluates policies within the same account and includes a resource ARN, then the parameter is present but the response is empty. If the simulation evaluates policies within the same account and specifies all resources (<code>*</code>), then the parameter is not returned.</p>
-     /// <p>When you make a cross-account request, Amazon Web Services evaluates the request in the trusting account and the trusted account. The request is allowed only if both evaluations return <code>true</code>. For more information about how policies are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-basics">Evaluating policies within a single account</a>.</p>
-     /// <p>If an Organizations SCP included in the evaluation denies access, the simulation ends. In this case, policy evaluation does not proceed any further and this parameter is not returned.</p>
--    pub eval_decision_details: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::PolicyEvaluationDecisionType>>,
-+    pub eval_decision_details:
-+        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::PolicyEvaluationDecisionType>>,
-     /// <p>The individual results of the simulation of the API operation specified in EvalActionName on each resource.</p>
-     pub resource_specific_results: ::std::option::Option<::std::vec::Vec<super::super::types::ResourceSpecificResult>>,
- }
-@@ -234,7 +235,10 @@
-         self
-     }
-     /// <p>Contains information about the effect that a permissions boundary has on a policy simulation when the boundary is applied to an IAM entity.</p>
--    pub fn set_permissions_boundary_decision_detail(mut self, input: ::std::option::Option<super::super::types::PermissionsBoundaryDecisionDetail>) -> Self {
-+    pub fn set_permissions_boundary_decision_detail(
-+        mut self,
-+        input: ::std::option::Option<super::super::types::PermissionsBoundaryDecisionDetail>,
-+    ) -> Self {
-         self.permissions_boundary_decision_detail = input;
-         self
-     }
-@@ -295,7 +299,10 @@
-         self
-     }
-     /// <p>The individual results of the simulation of the API operation specified in EvalActionName on each resource.</p>
--    pub fn set_resource_specific_results(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::ResourceSpecificResult>>) -> Self {
-+    pub fn set_resource_specific_results(
-+        mut self,
-+        input: ::std::option::Option<::std::vec::Vec<super::super::types::ResourceSpecificResult>>,
-+    ) -> Self {
-         self.resource_specific_results = input;
-         self
-     }
-```
-
-### `src/types/_resource_specific_result.rs`
-
-```diff
---- reference/src/types/_resource_specific_result.rs
-+++ generated/src/types/_resource_specific_result.rs
-@@ -14,7 +14,8 @@
-     /// <p>A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the <code>ResourceArns</code> parameter instead of "*". If you do not specify individual resources, by setting <code>ResourceArns</code> to "*" or by not including the <code>ResourceArns</code> parameter, then any missing context values are instead included under the <code>EvaluationResults</code> section. To discover the context keys used by a set of policies, you can call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
-     pub missing_context_values: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-     /// <p>Additional details about the results of the evaluation decision on a single resource. This parameter is returned only for cross-account simulations. This parameter explains how each policy type contributes to the resource-specific evaluation decision.</p>
--    pub eval_decision_details: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::PolicyEvaluationDecisionType>>,
-+    pub eval_decision_details:
-+        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::types::PolicyEvaluationDecisionType>>,
-     /// <p>Contains information about the effect that a permissions boundary has on a policy simulation when that boundary is applied to an IAM entity.</p>
-     pub permissions_boundary_decision_detail: ::std::option::Option<super::super::types::PermissionsBoundaryDecisionDetail>,
- }
-@@ -176,7 +177,10 @@
-         self
-     }
-     /// <p>Contains information about the effect that a permissions boundary has on a policy simulation when that boundary is applied to an IAM entity.</p>
--    pub fn set_permissions_boundary_decision_detail(mut self, input: ::std::option::Option<super::super::types::PermissionsBoundaryDecisionDetail>) -> Self {
-+    pub fn set_permissions_boundary_decision_detail(
-+        mut self,
-+        input: ::std::option::Option<super::super::types::PermissionsBoundaryDecisionDetail>,
-+    ) -> Self {
-         self.permissions_boundary_decision_detail = input;
-         self
-     }
-```
-
-### `src/types/_service_specific_credential_metadata.rs`
-
-```diff
---- reference/src/types/_service_specific_credential_metadata.rs
-+++ generated/src/types/_service_specific_credential_metadata.rs
-@@ -204,7 +204,9 @@
-     /// - [`create_date`](crate::types::builders::ServiceSpecificCredentialMetadataBuilder::create_date)
-     /// - [`service_specific_credential_id`](crate::types::builders::ServiceSpecificCredentialMetadataBuilder::service_specific_credential_id)
-     /// - [`service_name`](crate::types::builders::ServiceSpecificCredentialMetadataBuilder::service_name)
--    pub fn build(self) -> ::std::result::Result<super::super::types::ServiceSpecificCredentialMetadata, ::aws_smithy_types::error::operation::BuildError> {
-+    pub fn build(
-+        self,
-+    ) -> ::std::result::Result<super::super::types::ServiceSpecificCredentialMetadata, ::aws_smithy_types::error::operation::BuildError> {
-         ::std::result::Result::Ok(super::super::types::ServiceSpecificCredentialMetadata {
-             user_name: self.user_name.ok_or_else(|| {
-                 ::aws_smithy_types::error::operation::BuildError::missing_field(
-```
-
 ### `src/types/error/builders.rs`
 
 ```diff
@@ -16709,116 +10753,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  mod _account_not_management_or_delegated_administrator_exception;
 
  mod _caller_is_not_management_account_exception;
-```
-
-### `src/waiters/policy_exists.rs`
-
-```diff
---- reference/src/waiters/policy_exists.rs
-+++ generated/src/waiters/policy_exists.rs
-@@ -32,7 +32,10 @@
-     pub async fn wait(
-         self,
-         max_wait: ::std::time::Duration,
--    ) -> ::std::result::Result<super::super::waiters::policy_exists::PolicyExistsFinalPoll, super::super::waiters::policy_exists::WaitUntilPolicyExistsError> {
-+    ) -> ::std::result::Result<
-+        super::super::waiters::policy_exists::PolicyExistsFinalPoll,
-+        super::super::waiters::policy_exists::WaitUntilPolicyExistsError,
-+    > {
-         let input = self
-             .inner
-             .build()
-@@ -51,18 +54,20 @@
-         let sleep_impl = time_components.sleep_impl().expect("a sleep impl is required by waiters");
-         let time_source = time_components.time_source().expect("a time source is required by waiters");
-
--        let acceptor =
--            move |result: ::std::result::Result<&super::super::operation::get_policy::GetPolicyOutput, &super::super::operation::get_policy::GetPolicyError>| {
--                // Matches: {"success":true}
--                if super::super::waiters::matchers::match_get_policy_c955e57777ec0d736(result) {
--                    return ::aws_smithy_runtime::client::waiters::AcceptorState::Success;
--                }
--                // Matches: {"errorType":"NoSuchEntity"}
--                if super::super::waiters::matchers::match_get_policy_606386b4be9df73c9(result) {
--                    return ::aws_smithy_runtime::client::waiters::AcceptorState::Retry;
--                }
--                ::aws_smithy_runtime::client::waiters::AcceptorState::NoAcceptorsMatched
--            };
-+        let acceptor = move |result: ::std::result::Result<
-+            &super::super::operation::get_policy::GetPolicyOutput,
-+            &super::super::operation::get_policy::GetPolicyError,
-+        >| {
-+            // Matches: {"success":true}
-+            if super::super::waiters::matchers::match_get_policy_c955e57777ec0d736(result) {
-+                return ::aws_smithy_runtime::client::waiters::AcceptorState::Success;
-+            }
-+            // Matches: {"errorType":"NoSuchEntity"}
-+            if super::super::waiters::matchers::match_get_policy_606386b4be9df73c9(result) {
-+                return ::aws_smithy_runtime::client::waiters::AcceptorState::Retry;
-+            }
-+            ::aws_smithy_runtime::client::waiters::AcceptorState::NoAcceptorsMatched
-+        };
-         let operation = move || {
-             let input = input.clone();
-             let runtime_plugins = runtime_plugins.clone();
-```
-
-### `src/waiters/role_exists.rs`
-
-```diff
---- reference/src/waiters/role_exists.rs
-+++ generated/src/waiters/role_exists.rs
-@@ -32,7 +32,8 @@
-     pub async fn wait(
-         self,
-         max_wait: ::std::time::Duration,
--    ) -> ::std::result::Result<super::super::waiters::role_exists::RoleExistsFinalPoll, super::super::waiters::role_exists::WaitUntilRoleExistsError> {
-+    ) -> ::std::result::Result<super::super::waiters::role_exists::RoleExistsFinalPoll, super::super::waiters::role_exists::WaitUntilRoleExistsError>
-+    {
-         let input = self
-             .inner
-             .build()
-@@ -51,7 +52,10 @@
-         let sleep_impl = time_components.sleep_impl().expect("a sleep impl is required by waiters");
-         let time_source = time_components.time_source().expect("a time source is required by waiters");
-
--        let acceptor = move |result: ::std::result::Result<&super::super::operation::get_role::GetRoleOutput, &super::super::operation::get_role::GetRoleError>| {
-+        let acceptor = move |result: ::std::result::Result<
-+            &super::super::operation::get_role::GetRoleOutput,
-+            &super::super::operation::get_role::GetRoleError,
-+        >| {
-             // Matches: {"success":true}
-             if super::super::waiters::matchers::match_get_role_c955e57777ec0d736(result) {
-                 return ::aws_smithy_runtime::client::waiters::AcceptorState::Success;
-```
-
-### `src/waiters/user_exists.rs`
-
-```diff
---- reference/src/waiters/user_exists.rs
-+++ generated/src/waiters/user_exists.rs
-@@ -32,7 +32,8 @@
-     pub async fn wait(
-         self,
-         max_wait: ::std::time::Duration,
--    ) -> ::std::result::Result<super::super::waiters::user_exists::UserExistsFinalPoll, super::super::waiters::user_exists::WaitUntilUserExistsError> {
-+    ) -> ::std::result::Result<super::super::waiters::user_exists::UserExistsFinalPoll, super::super::waiters::user_exists::WaitUntilUserExistsError>
-+    {
-         let input = self
-             .inner
-             .build()
-@@ -51,7 +52,10 @@
-         let sleep_impl = time_components.sleep_impl().expect("a sleep impl is required by waiters");
-         let time_source = time_components.time_source().expect("a time source is required by waiters");
-
--        let acceptor = move |result: ::std::result::Result<&super::super::operation::get_user::GetUserOutput, &super::super::operation::get_user::GetUserError>| {
-+        let acceptor = move |result: ::std::result::Result<
-+            &super::super::operation::get_user::GetUserOutput,
-+            &super::super::operation::get_user::GetUserError,
-+        >| {
-             // Matches: {"success":true}
-             if super::super::waiters::matchers::match_get_user_c955e57777ec0d736(result) {
-                 return ::aws_smithy_runtime::client::waiters::AcceptorState::Success;
 ```
 
 ### Missing reference files

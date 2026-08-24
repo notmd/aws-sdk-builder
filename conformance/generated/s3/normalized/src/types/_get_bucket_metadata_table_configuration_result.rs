@@ -67,10 +67,7 @@ impl GetBucketMetadataTableConfigurationResultBuilder {
         self
     }
     /// <p>The V1 S3 Metadata configuration for a general purpose bucket.</p>
-    pub fn set_metadata_table_configuration_result(
-        mut self,
-        input: ::std::option::Option<super::super::types::MetadataTableConfigurationResult>,
-    ) -> Self {
+    pub fn set_metadata_table_configuration_result(mut self, input: ::std::option::Option<super::super::types::MetadataTableConfigurationResult>) -> Self {
         self.metadata_table_configuration_result = input;
         self
     }

@@ -16,84 +16,109 @@ pub fn de_send_durable_execution_callback_heartbeat_http_error(
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(
-                super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled(generic),
-            )
+            return Err(super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled(generic))
         }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
     Err(match error_code {
-        "CallbackTimeoutException" => super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::CallbackTimeoutException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+        "CallbackTimeoutException" => {
+            super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::CallbackTimeoutException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::CallbackTimeoutExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_callback_timeout_exception::de_callback_timeout_exception_json_err(_response_body, output).map_err(super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "InvalidParameterValueException" => super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::InvalidParameterValueException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::CallbackTimeoutExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_callback_timeout_exception::de_callback_timeout_exception_json_err(_response_body, output)
+                        .map_err(
+                            super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "InvalidParameterValueException" => {
+            super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::InvalidParameterValueException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(_response_body, output).map_err(super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ResourceNotFoundException" => super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::ResourceNotFoundException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::InvalidParameterValueExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_invalid_parameter_value_exception::de_invalid_parameter_value_exception_json_err(
+                        _response_body,
+                        output,
+                    )
+                    .map_err(super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled)?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ResourceNotFoundException" => {
+            super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::ResourceNotFoundException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "ServiceException" => super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::ServiceException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                            .map_err(
+                            super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
+                        )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "ServiceException" => {
+            super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::ServiceException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::ServiceExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output).map_err(super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
-        "TooManyRequestsException" => super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::TooManyRequestsException({
-            #[allow(unused_mut)]
-            let mut tmp = {
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::ServiceExceptionBuilder::default();
+                    output = super::super::protocol_serde::shape_service_exception::de_service_exception_json_err(_response_body, output).map_err(
+                        super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
+                    )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
+        "TooManyRequestsException" => {
+            super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::TooManyRequestsException({
                 #[allow(unused_mut)]
-                let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output).map_err(super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled)?;
-                let output = output.meta(generic);
-                output.build()
-            };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
-            tmp
-        }),
+                let mut tmp = {
+                    #[allow(unused_mut)]
+                    let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(
+                                super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::unhandled,
+                            )?;
+                    let output = output.meta(generic);
+                    output.build()
+                };
+                if tmp.message.is_none() {
+                    tmp.message = _error_message;
+                }
+                tmp
+            })
+        }
         _ => super::super::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatError::generic(generic),
     })
 }
@@ -110,8 +135,7 @@ pub fn de_send_durable_execution_callback_heartbeat_http_response(
     Ok({
         #[allow(unused_mut)]
         let mut output =
-            super::super::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder::default(
-            );
+            super::super::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatOutputBuilder::default();
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

@@ -38,7 +38,9 @@ impl UpdateBucketMetadataJournalTableConfigurationInput {
 }
 impl UpdateBucketMetadataJournalTableConfigurationInput {
     /// Creates a new builder-style object to manufacture [`UpdateBucketMetadataJournalTableConfigurationInput`](crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationInput).
-    pub fn builder() -> super::super::super::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationInputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationInputBuilder
+    {
         super::super::super::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationInputBuilder::default()
     }
 }
@@ -104,10 +106,7 @@ impl UpdateBucketMetadataJournalTableConfigurationInputBuilder {
         self
     }
     /// <p>The contents of your journal table configuration.</p>
-    pub fn set_journal_table_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::JournalTableConfigurationUpdates>,
-    ) -> Self {
+    pub fn set_journal_table_configuration(mut self, input: ::std::option::Option<super::super::super::types::JournalTableConfigurationUpdates>) -> Self {
         self.journal_table_configuration = input;
         self
     }

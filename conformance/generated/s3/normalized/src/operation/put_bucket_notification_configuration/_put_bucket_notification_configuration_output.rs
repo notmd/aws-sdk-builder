@@ -18,8 +18,7 @@ impl ::aws_types::request_id::RequestId for PutBucketNotificationConfigurationOu
 }
 impl PutBucketNotificationConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`PutBucketNotificationConfigurationOutput`](crate::operation::put_bucket_notification_configuration::PutBucketNotificationConfigurationOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::put_bucket_notification_configuration::builders::PutBucketNotificationConfigurationOutputBuilder {
+    pub fn builder() -> super::super::super::operation::put_bucket_notification_configuration::builders::PutBucketNotificationConfigurationOutputBuilder {
         super::super::super::operation::put_bucket_notification_configuration::builders::PutBucketNotificationConfigurationOutputBuilder::default()
     }
 }

@@ -69,10 +69,7 @@ impl GuardrailAutomatedReasoningInvalidFindingBuilder {
         self
     }
     /// <p>The automated reasoning policy rules that contradict the claims in the input.</p>
-    pub fn set_contradicting_rules(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningRule>>,
-    ) -> Self {
+    pub fn set_contradicting_rules(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailAutomatedReasoningRule>>) -> Self {
         self.contradicting_rules = input;
         self
     }

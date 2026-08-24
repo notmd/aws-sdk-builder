@@ -36,7 +36,8 @@ impl GetServiceLastAccessedDetailsWithEntitiesInput {
 }
 impl GetServiceLastAccessedDetailsWithEntitiesInput {
     /// Creates a new builder-style object to manufacture [`GetServiceLastAccessedDetailsWithEntitiesInput`](crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesInput).
-    pub fn builder() -> super::super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesInputBuilder{
+    pub fn builder(
+    ) -> super::super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesInputBuilder {
         super::super::super::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesInputBuilder::default()
     }
 }

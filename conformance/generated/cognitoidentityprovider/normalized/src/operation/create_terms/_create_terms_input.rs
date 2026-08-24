@@ -174,9 +174,7 @@ impl CreateTermsInputBuilder {
         &self.links
     }
     /// Consumes the builder and constructs a [`CreateTermsInput`](crate::operation::create_terms::CreateTermsInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::create_terms::CreateTermsInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::create_terms::CreateTermsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::create_terms::CreateTermsInput {
             user_pool_id: self.user_pool_id,
             client_id: self.client_id,

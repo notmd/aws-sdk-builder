@@ -31,9 +31,7 @@ impl ListFunctionEventInvokeConfigsPaginator {
     ///
     /// This paginator automatically flattens results using `function_event_invoke_configs`. Queries to the underlying service
     /// are dispatched lazily.
-    pub fn items(
-        self,
-    ) -> super::super::super::operation::list_function_event_invoke_configs::paginator::ListFunctionEventInvokeConfigsPaginatorItems {
+    pub fn items(self) -> super::super::super::operation::list_function_event_invoke_configs::paginator::ListFunctionEventInvokeConfigsPaginatorItems {
         super::super::super::operation::list_function_event_invoke_configs::paginator::ListFunctionEventInvokeConfigsPaginatorItems(self)
     }
 
@@ -67,13 +65,12 @@ impl ListFunctionEventInvokeConfigsPaginator {
         // Move individual fields out of self for the borrow checker
         let builder = self.builder;
         let handle = self.handle;
-        let runtime_plugins =
-            super::super::super::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigs::operation_runtime_plugins(
-                handle.runtime_plugins.clone(),
-                &handle.conf,
-                ::std::option::Option::None,
-            )
-            .with_operation_plugin(super::super::super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
+        let runtime_plugins = super::super::super::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigs::operation_runtime_plugins(
+            handle.runtime_plugins.clone(),
+            &handle.conf,
+            ::std::option::Option::None,
+        )
+        .with_operation_plugin(super::super::super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
         ::aws_smithy_async::future::pagination_stream::PaginationStream::new(::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(
             move |tx| {
                 ::std::boxed::Box::pin(async move {

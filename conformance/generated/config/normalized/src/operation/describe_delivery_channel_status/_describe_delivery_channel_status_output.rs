@@ -48,10 +48,7 @@ impl DescribeDeliveryChannelStatusOutputBuilder {
         self
     }
     /// <p>A list that contains the status of a specified delivery channel.</p>
-    pub fn set_delivery_channels_status(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeliveryChannelStatus>>,
-    ) -> Self {
+    pub fn set_delivery_channels_status(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeliveryChannelStatus>>) -> Self {
         self.delivery_channels_status = input;
         self
     }

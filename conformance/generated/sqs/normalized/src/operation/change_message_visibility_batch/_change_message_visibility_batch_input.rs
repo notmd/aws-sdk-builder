@@ -68,10 +68,7 @@ impl ChangeMessageVisibilityBatchInputBuilder {
         self
     }
     /// <p>Lists the receipt handles of the messages for which the visibility timeout must be changed.</p>
-    pub fn set_entries(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchRequestEntry>>,
-    ) -> Self {
+    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchRequestEntry>>) -> Self {
         self.entries = input;
         self
     }
@@ -86,11 +83,9 @@ impl ChangeMessageVisibilityBatchInputBuilder {
         super::super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchInput {
-                queue_url: self.queue_url,
-                entries: self.entries,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchInput {
+            queue_url: self.queue_url,
+            entries: self.entries,
+        })
     }
 }

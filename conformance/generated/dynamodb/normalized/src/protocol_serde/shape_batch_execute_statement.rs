@@ -15,11 +15,7 @@ pub fn de_batch_execute_statement_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::batch_execute_statement::BatchExecuteStatementError::unhandled(
-                generic,
-            ))
-        }
+        None => return Err(super::super::operation::batch_execute_statement::BatchExecuteStatementError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -117,21 +113,23 @@ pub(crate) fn de_batch_execute_statement(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "Responses" => {
-                    builder = builder.set_responses(super::super::protocol_serde::shape_parti_ql_batch_response::de_parti_ql_batch_response(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "Responses" => {
+                        builder = builder.set_responses(super::super::protocol_serde::shape_parti_ql_batch_response::de_parti_ql_batch_response(
+                            tokens,
+                            _value,
+                            depth + 1,
+                        )?);
+                    }
+                    "ConsumedCapacity" => {
+                        builder = builder.set_consumed_capacity(
+                            super::super::protocol_serde::shape_consumed_capacity_multiple::de_consumed_capacity_multiple(tokens, _value, depth + 1)?,
+                        );
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                "ConsumedCapacity" => {
-                    builder = builder.set_consumed_capacity(
-                        super::super::protocol_serde::shape_consumed_capacity_multiple::de_consumed_capacity_multiple(tokens, _value, depth + 1)?,
-                    );
-                }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

@@ -15,9 +15,7 @@ pub fn de_describe_pending_aggregation_requests_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => {
-            return Err(super::super::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsError::unhandled(generic))
-        }
+        None => return Err(super::super::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsError::unhandled(generic)),
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -29,9 +27,7 @@ pub fn de_describe_pending_aggregation_requests_http_error(
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidLimitExceptionBuilder::default();
                     output = super::super::protocol_serde::shape_invalid_limit_exception::de_invalid_limit_exception_json_err(_response_body, output)
-                        .map_err(
-                            super::super::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsError::unhandled,
-                        )?;
+                        .map_err(super::super::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -47,11 +43,9 @@ pub fn de_describe_pending_aggregation_requests_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidNextTokenExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_next_token_exception::de_invalid_next_token_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -98,11 +92,8 @@ pub fn de_describe_pending_aggregation_requests_http_response(
         #[allow(unused_mut)]
         let mut output =
             super::super::operation::describe_pending_aggregation_requests::builders::DescribePendingAggregationRequestsOutputBuilder::default();
-        output = super::super::protocol_serde::shape_describe_pending_aggregation_requests::de_describe_pending_aggregation_requests(
-            _response_body,
-            output,
-        )
-        .map_err(super::super::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsError::unhandled)?;
+        output = super::super::protocol_serde::shape_describe_pending_aggregation_requests::de_describe_pending_aggregation_requests(_response_body, output)
+            .map_err(super::super::operation::describe_pending_aggregation_requests::DescribePendingAggregationRequestsError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })

@@ -140,10 +140,7 @@ impl TransactWriteItemsInputBuilder {
         self
     }
     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections (if any), that were modified during the operation and are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-    pub fn set_return_item_collection_metrics(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
-    ) -> Self {
+    pub fn set_return_item_collection_metrics(mut self, input: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>) -> Self {
         self.return_item_collection_metrics = input;
         self
     }
@@ -177,10 +174,8 @@ impl TransactWriteItemsInputBuilder {
     /// Consumes the builder and constructs a [`TransactWriteItemsInput`](crate::operation::transact_write_items::TransactWriteItemsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::transact_write_items::TransactWriteItemsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::transact_write_items::TransactWriteItemsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::transact_write_items::TransactWriteItemsInput {
             transact_items: self.transact_items,
             return_consumed_capacity: self.return_consumed_capacity,

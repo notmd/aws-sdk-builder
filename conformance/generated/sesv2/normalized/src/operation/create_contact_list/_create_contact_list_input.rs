@@ -123,10 +123,7 @@ impl CreateContactListInputBuilder {
     /// Consumes the builder and constructs a [`CreateContactListInput`](crate::operation::create_contact_list::CreateContactListInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::create_contact_list::CreateContactListInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::create_contact_list::CreateContactListInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::create_contact_list::CreateContactListInput {
             contact_list_name: self.contact_list_name,
             topics: self.topics,

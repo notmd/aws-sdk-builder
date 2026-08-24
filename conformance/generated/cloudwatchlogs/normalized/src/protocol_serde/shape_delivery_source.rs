@@ -36,11 +36,8 @@ where
                             );
                         }
                         "resourceArns" => {
-                            builder = builder.set_resource_arns(super::super::protocol_serde::shape_resource_arns::de_resource_arns(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_resource_arns(super::super::protocol_serde::shape_resource_arns::de_resource_arns(tokens, _value, depth + 1)?);
                         }
                         "service" => {
                             builder = builder.set_service(
@@ -78,10 +75,7 @@ where
                         "statusReason" => {
                             builder = builder.set_status_reason(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| super::super::types::DeliverySourceStatusReason::from(u.as_ref()))
-                                    })
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::DeliverySourceStatusReason::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }

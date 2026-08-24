@@ -26,11 +26,9 @@ pub fn de_generate_data_key_without_plaintext_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::DependencyTimeoutExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_dependency_timeout_exception::de_dependency_timeout_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -40,34 +38,30 @@ pub fn de_generate_data_key_without_plaintext_http_error(
                 tmp
             })
         }
-        "DisabledException" => {
-            super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::DisabledException({
+        "DisabledException" => super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::DisabledException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::DisabledExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::DisabledExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_disabled_exception::de_disabled_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "DryRunOperationException" => {
             super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::DryRunOperationException({
                 #[allow(unused_mut)]
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::DryRunOperationExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_dry_run_operation_exception::de_dry_run_operation_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -83,11 +77,9 @@ pub fn de_generate_data_key_without_plaintext_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidGrantTokenExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_grant_token_exception::de_invalid_grant_token_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -103,11 +95,9 @@ pub fn de_generate_data_key_without_plaintext_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::InvalidKeyUsageExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_invalid_key_usage_exception::de_invalid_key_usage_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -123,9 +113,8 @@ pub fn de_generate_data_key_without_plaintext_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::KeyUnavailableExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_key_unavailable_exception::de_key_unavailable_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::unhandled)?;
+                    output = super::super::protocol_serde::shape_key_unavailable_exception::de_key_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -141,9 +130,8 @@ pub fn de_generate_data_key_without_plaintext_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::KmsInternalExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::unhandled)?;
+                    output = super::super::protocol_serde::shape_kms_internal_exception::de_kms_internal_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -159,11 +147,9 @@ pub fn de_generate_data_key_without_plaintext_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::KmsInvalidStateExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_kms_invalid_state_exception::de_kms_invalid_state_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -173,23 +159,21 @@ pub fn de_generate_data_key_without_plaintext_http_error(
                 tmp
             })
         }
-        "NotFoundException" => {
-            super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::NotFoundException({
+        "NotFoundException" => super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::NotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::NotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_not_found_exception::de_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         _ => super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::generic(generic),
     })
 }
@@ -205,11 +189,9 @@ pub fn de_generate_data_key_without_plaintext_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::generate_data_key_without_plaintext::builders::GenerateDataKeyWithoutPlaintextOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_generate_data_key_without_plaintext::de_generate_data_key_without_plaintext(_response_body, output)
-                .map_err(super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::unhandled)?;
+        let mut output = super::super::operation::generate_data_key_without_plaintext::builders::GenerateDataKeyWithoutPlaintextOutputBuilder::default();
+        output = super::super::protocol_serde::shape_generate_data_key_without_plaintext::de_generate_data_key_without_plaintext(_response_body, output)
+            .map_err(super::super::operation::generate_data_key_without_plaintext::GenerateDataKeyWithoutPlaintextError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -220,10 +202,7 @@ pub fn ser_generate_data_key_without_plaintext_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_generate_data_key_without_plaintext_input::ser_generate_data_key_without_plaintext_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_generate_data_key_without_plaintext_input::ser_generate_data_key_without_plaintext_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

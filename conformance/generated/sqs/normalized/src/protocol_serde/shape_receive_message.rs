@@ -4,8 +4,7 @@ pub fn de_receive_message_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::receive_message::ReceiveMessageOutput, super::super::operation::receive_message::ReceiveMessageError>
-{
+) -> std::result::Result<super::super::operation::receive_message::ReceiveMessageOutput, super::super::operation::receive_message::ReceiveMessageError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::receive_message::ReceiveMessageError::unhandled)?;
@@ -222,8 +221,7 @@ pub fn de_receive_message_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::receive_message::ReceiveMessageOutput, super::super::operation::receive_message::ReceiveMessageError>
-{
+) -> std::result::Result<super::super::operation::receive_message::ReceiveMessageOutput, super::super::operation::receive_message::ReceiveMessageError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::receive_message::builders::ReceiveMessageOutputBuilder::default();
@@ -261,11 +259,7 @@ pub(crate) fn de_receive_message(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "Messages" => {
-                    builder = builder.set_messages(super::super::protocol_serde::shape_message_list::de_message_list(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_messages(super::super::protocol_serde::shape_message_list::de_message_list(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

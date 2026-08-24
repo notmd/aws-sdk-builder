@@ -32,20 +32,14 @@ pub struct GetDeviceFluentBuilder {
     inner: super::super::super::operation::get_device::builders::GetDeviceInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
-impl
-    super::super::super::client::customize::internal::CustomizableSend<
-        super::super::super::operation::get_device::GetDeviceOutput,
-        super::super::super::operation::get_device::GetDeviceError,
-    > for GetDeviceFluentBuilder
+impl super::super::super::client::customize::internal::CustomizableSend<super::super::super::operation::get_device::GetDeviceOutput, super::super::super::operation::get_device::GetDeviceError>
+    for GetDeviceFluentBuilder
 {
     fn send(
         self,
         config_override: super::super::super::config::Builder,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::operation::get_device::GetDeviceOutput,
-            super::super::super::operation::get_device::GetDeviceError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::operation::get_device::GetDeviceOutput, super::super::super::operation::get_device::GetDeviceError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }

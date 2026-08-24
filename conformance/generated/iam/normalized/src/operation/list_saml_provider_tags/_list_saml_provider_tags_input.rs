@@ -96,10 +96,8 @@ impl ListSamlProviderTagsInputBuilder {
     /// Consumes the builder and constructs a [`ListSamlProviderTagsInput`](crate::operation::list_saml_provider_tags::ListSamlProviderTagsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_saml_provider_tags::ListSamlProviderTagsInput {
             saml_provider_arn: self.saml_provider_arn,
             marker: self.marker,

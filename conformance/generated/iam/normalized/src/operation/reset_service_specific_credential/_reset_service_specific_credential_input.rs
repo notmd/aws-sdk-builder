@@ -79,11 +79,9 @@ impl ResetServiceSpecificCredentialInputBuilder {
         super::super::super::operation::reset_service_specific_credential::ResetServiceSpecificCredentialInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::reset_service_specific_credential::ResetServiceSpecificCredentialInput {
-                user_name: self.user_name,
-                service_specific_credential_id: self.service_specific_credential_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::reset_service_specific_credential::ResetServiceSpecificCredentialInput {
+            user_name: self.user_name,
+            service_specific_credential_id: self.service_specific_credential_id,
+        })
     }
 }

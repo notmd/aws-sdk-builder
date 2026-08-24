@@ -14,8 +14,9 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<DescribeConfigurationAggregatorSourcesStatusError>`](crate::operation::describe_configuration_aggregator_sources_status::DescribeConfigurationAggregatorSourcesStatusError)
     pub fn describe_configuration_aggregator_sources_status(
         &self,
-    ) -> super::super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusFluentBuilder
-    {
-        super::super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusFluentBuilder::new(self.handle.clone())
+    ) -> super::super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusFluentBuilder {
+        super::super::operation::describe_configuration_aggregator_sources_status::builders::DescribeConfigurationAggregatorSourcesStatusFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -167,20 +167,18 @@ impl GetDeliverabilityTestReportOutputBuilder {
         super::super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportOutput {
-                deliverability_test_report: self.deliverability_test_report,
-                overall_placement: self.overall_placement,
-                isp_placements: self.isp_placements.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "isp_placements",
-                        "isp_placements was not specified but it is required when building GetDeliverabilityTestReportOutput",
-                    )
-                })?,
-                message: self.message,
-                tags: self.tags,
-                _request_id: self._request_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_deliverability_test_report::GetDeliverabilityTestReportOutput {
+            deliverability_test_report: self.deliverability_test_report,
+            overall_placement: self.overall_placement,
+            isp_placements: self.isp_placements.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "isp_placements",
+                    "isp_placements was not specified but it is required when building GetDeliverabilityTestReportOutput",
+                )
+            })?,
+            message: self.message,
+            tags: self.tags,
+            _request_id: self._request_id,
+        })
     }
 }

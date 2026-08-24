@@ -40,10 +40,7 @@ impl PutRemediationConfigurationsInputBuilder {
         self
     }
     /// <p>A list of remediation configuration objects.</p>
-    pub fn set_remediation_configurations(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationConfiguration>>,
-    ) -> Self {
+    pub fn set_remediation_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RemediationConfiguration>>) -> Self {
         self.remediation_configurations = input;
         self
     }
@@ -58,10 +55,8 @@ impl PutRemediationConfigurationsInputBuilder {
         super::super::super::operation::put_remediation_configurations::PutRemediationConfigurationsInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::put_remediation_configurations::PutRemediationConfigurationsInput {
-                remediation_configurations: self.remediation_configurations,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::put_remediation_configurations::PutRemediationConfigurationsInput {
+            remediation_configurations: self.remediation_configurations,
+        })
     }
 }

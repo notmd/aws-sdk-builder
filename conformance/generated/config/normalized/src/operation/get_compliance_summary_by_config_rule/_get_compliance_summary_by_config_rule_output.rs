@@ -21,8 +21,7 @@ impl ::aws_types::request_id::RequestId for GetComplianceSummaryByConfigRuleOutp
 }
 impl GetComplianceSummaryByConfigRuleOutput {
     /// Creates a new builder-style object to manufacture [`GetComplianceSummaryByConfigRuleOutput`](crate::operation::get_compliance_summary_by_config_rule::GetComplianceSummaryByConfigRuleOutput).
-    pub fn builder() -> super::super::super::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleOutputBuilder {
         super::super::super::operation::get_compliance_summary_by_config_rule::builders::GetComplianceSummaryByConfigRuleOutputBuilder::default()
     }
 }

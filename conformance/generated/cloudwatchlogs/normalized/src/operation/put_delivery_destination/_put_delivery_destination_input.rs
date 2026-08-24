@@ -121,10 +121,7 @@ impl PutDeliveryDestinationInputBuilder {
     /// <p>A structure that contains the ARN of the Amazon Web Services resource that will receive the logs.</p><note>
     /// <p><code>deliveryDestinationConfiguration</code> is required for CloudWatch Logs, Amazon S3, Firehose log delivery destinations and not required for X-Ray trace delivery destinations. <code>deliveryDestinationType</code> is needed for X-Ray trace delivery destinations but not required for other logs delivery destinations.</p>
     /// </note>
-    pub fn set_delivery_destination_configuration(
-        mut self,
-        input: ::std::option::Option<super::super::super::types::DeliveryDestinationConfiguration>,
-    ) -> Self {
+    pub fn set_delivery_destination_configuration(mut self, input: ::std::option::Option<super::super::super::types::DeliveryDestinationConfiguration>) -> Self {
         self.delivery_destination_configuration = input;
         self
     }

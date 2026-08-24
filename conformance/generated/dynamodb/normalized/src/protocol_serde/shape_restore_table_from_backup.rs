@@ -15,7 +15,11 @@ pub fn de_restore_table_from_backup_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::restore_table_from_backup::RestoreTableFromBackupError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::restore_table_from_backup::RestoreTableFromBackupError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -40,9 +44,8 @@ pub fn de_restore_table_from_backup_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::BackupNotFoundExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_backup_not_found_exception::de_backup_not_found_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::restore_table_from_backup::RestoreTableFromBackupError::unhandled)?;
+                output = super::super::protocol_serde::shape_backup_not_found_exception::de_backup_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::restore_table_from_backup::RestoreTableFromBackupError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -71,9 +74,8 @@ pub fn de_restore_table_from_backup_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::restore_table_from_backup::RestoreTableFromBackupError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::restore_table_from_backup::RestoreTableFromBackupError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -97,26 +99,22 @@ pub fn de_restore_table_from_backup_http_error(
             }
             tmp
         }),
-        "TableAlreadyExistsException" => {
-            super::super::operation::restore_table_from_backup::RestoreTableFromBackupError::TableAlreadyExistsException({
+        "TableAlreadyExistsException" => super::super::operation::restore_table_from_backup::RestoreTableFromBackupError::TableAlreadyExistsException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::TableAlreadyExistsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_table_already_exists_exception::de_table_already_exists_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::restore_table_from_backup::RestoreTableFromBackupError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::TableAlreadyExistsExceptionBuilder::default();
+                output =
+                    super::super::protocol_serde::shape_table_already_exists_exception::de_table_already_exists_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::restore_table_from_backup::RestoreTableFromBackupError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "TableInUseException" => super::super::operation::restore_table_from_backup::RestoreTableFromBackupError::TableInUseException({
             #[allow(unused_mut)]
             let mut tmp = {

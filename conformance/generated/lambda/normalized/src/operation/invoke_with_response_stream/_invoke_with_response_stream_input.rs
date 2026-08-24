@@ -272,17 +272,15 @@ impl InvokeWithResponseStreamInputBuilder {
         super::super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamInput {
-                function_name: self.function_name,
-                log_type: self.log_type,
-                client_context: self.client_context,
-                qualifier: self.qualifier,
-                payload: self.payload,
-                tenant_id: self.tenant_id,
-                invocation_type: self.invocation_type,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::invoke_with_response_stream::InvokeWithResponseStreamInput {
+            function_name: self.function_name,
+            log_type: self.log_type,
+            client_context: self.client_context,
+            qualifier: self.qualifier,
+            payload: self.payload,
+            tenant_id: self.tenant_id,
+            invocation_type: self.invocation_type,
+        })
     }
 }
 impl ::std::fmt::Debug for InvokeWithResponseStreamInputBuilder {

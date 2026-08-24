@@ -38,8 +38,7 @@ impl ::aws_types::request_id::RequestId for UpdateKinesisStreamingDestinationOut
 }
 impl UpdateKinesisStreamingDestinationOutput {
     /// Creates a new builder-style object to manufacture [`UpdateKinesisStreamingDestinationOutput`](crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationOutput).
-    pub fn builder() -> super::super::super::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationOutputBuilder {
         super::super::super::operation::update_kinesis_streaming_destination::builders::UpdateKinesisStreamingDestinationOutputBuilder::default()
     }
 }
@@ -111,9 +110,7 @@ impl UpdateKinesisStreamingDestinationOutputBuilder {
         self
     }
     /// <p>The command to update the Kinesis streaming destination configuration.</p>
-    pub fn get_update_kinesis_streaming_configuration(
-        &self,
-    ) -> &::std::option::Option<super::super::super::types::UpdateKinesisStreamingConfiguration> {
+    pub fn get_update_kinesis_streaming_configuration(&self) -> &::std::option::Option<super::super::super::types::UpdateKinesisStreamingConfiguration> {
         &self.update_kinesis_streaming_configuration
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

@@ -40,10 +40,7 @@ impl GuardrailChecksPromptAttackConfigBuilder {
         self
     }
     /// <p>The prompt attack categories to evaluate.</p>
-    pub fn set_categories(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksPromptAttackCategoryConfig>>,
-    ) -> Self {
+    pub fn set_categories(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::GuardrailChecksPromptAttackCategoryConfig>>) -> Self {
         self.categories = input;
         self
     }
@@ -54,9 +51,7 @@ impl GuardrailChecksPromptAttackConfigBuilder {
     /// Consumes the builder and constructs a [`GuardrailChecksPromptAttackConfig`](crate::types::GuardrailChecksPromptAttackConfig).
     /// This method will fail if any of the following fields are not set:
     /// - [`categories`](crate::types::builders::GuardrailChecksPromptAttackConfigBuilder::categories)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::GuardrailChecksPromptAttackConfig, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailChecksPromptAttackConfig, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::GuardrailChecksPromptAttackConfig {
             categories: self.categories.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

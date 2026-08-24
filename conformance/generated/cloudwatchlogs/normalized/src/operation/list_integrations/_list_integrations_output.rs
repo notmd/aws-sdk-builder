@@ -47,10 +47,7 @@ impl ListIntegrationsOutputBuilder {
         self
     }
     /// <p>An array, where each object in the array contains information about one CloudWatch Logs integration in this account.</p>
-    pub fn set_integration_summaries(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::IntegrationSummary>>,
-    ) -> Self {
+    pub fn set_integration_summaries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::IntegrationSummary>>) -> Self {
         self.integration_summaries = input;
         self
     }

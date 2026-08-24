@@ -126,13 +126,11 @@ impl ListAttachedRolePoliciesInputBuilder {
         super::super::super::operation::list_attached_role_policies::ListAttachedRolePoliciesInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_attached_role_policies::ListAttachedRolePoliciesInput {
-                role_name: self.role_name,
-                path_prefix: self.path_prefix,
-                marker: self.marker,
-                max_items: self.max_items,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_attached_role_policies::ListAttachedRolePoliciesInput {
+            role_name: self.role_name,
+            path_prefix: self.path_prefix,
+            marker: self.marker,
+            max_items: self.max_items,
+        })
     }
 }

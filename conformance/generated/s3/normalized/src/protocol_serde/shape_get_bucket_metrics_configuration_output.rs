@@ -13,9 +13,7 @@ pub(crate) fn de_metrics_configuration_payload(
         .transpose()
 }
 
-pub fn de_metrics_configuration(
-    inp: &[u8],
-) -> std::result::Result<super::super::types::MetricsConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
+pub fn de_metrics_configuration(inp: &[u8]) -> std::result::Result<super::super::types::MetricsConfiguration, ::aws_smithy_xml::decode::XmlDecodeError> {
     let mut doc = ::aws_smithy_xml::decode::Document::try_from(inp)?;
     #[allow(unused_mut)]
     let mut decoder = doc.root_element()?;

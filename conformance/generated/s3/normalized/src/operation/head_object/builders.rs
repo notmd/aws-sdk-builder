@@ -238,8 +238,7 @@ impl HeadObjectFluentBuilder {
             })
         })?;
         let request = context.take_request().expect("request set before transmit");
-        super::super::super::presigning::PresignedRequest::new(request)
-            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)
+        super::super::super::presigning::PresignedRequest::new(request).map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)
     }
     /// <p>The name of the bucket that contains the object.</p>
     /// <p><b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code> <i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>. Path-style requests are not supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must follow the format <code> <i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code> <i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -696,18 +695,13 @@ impl HeadObjectFluentBuilder {
     }
 }
 
-impl super::super::super::client::customize::internal::CustomizablePresigned<super::super::super::operation::head_object::HeadObjectError>
-    for HeadObjectFluentBuilder
-{
+impl super::super::super::client::customize::internal::CustomizablePresigned<super::super::super::operation::head_object::HeadObjectError> for HeadObjectFluentBuilder {
     fn presign(
         self,
         config_override: super::super::super::config::Builder,
         presigning_config: super::super::super::presigning::PresigningConfig,
     ) -> super::super::super::client::customize::internal::BoxFuture<
-        super::super::super::client::customize::internal::SendResult<
-            super::super::super::presigning::PresignedRequest,
-            super::super::super::operation::head_object::HeadObjectError,
-        >,
+        super::super::super::client::customize::internal::SendResult<super::super::super::presigning::PresignedRequest, super::super::super::operation::head_object::HeadObjectError>,
     > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).presigned(presigning_config).await })
     }

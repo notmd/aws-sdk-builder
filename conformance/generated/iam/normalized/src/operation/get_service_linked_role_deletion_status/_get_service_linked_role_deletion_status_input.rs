@@ -26,8 +26,7 @@ impl GetServiceLinkedRoleDeletionStatusInput {
 }
 impl GetServiceLinkedRoleDeletionStatusInput {
     /// Creates a new builder-style object to manufacture [`GetServiceLinkedRoleDeletionStatusInput`](crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusInput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusInputBuilder {
+    pub fn builder() -> super::super::super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusInputBuilder {
         super::super::super::operation::get_service_linked_role_deletion_status::builders::GetServiceLinkedRoleDeletionStatusInputBuilder::default()
     }
 }

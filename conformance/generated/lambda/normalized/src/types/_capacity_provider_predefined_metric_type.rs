@@ -51,9 +51,7 @@ impl ::std::convert::From<&str> for CapacityProviderPredefinedMetricType {
     fn from(s: &str) -> Self {
         match s {
             "LambdaCapacityProviderAverageCPUUtilization" => CapacityProviderPredefinedMetricType::LambdaCapacityProviderAverageCpuUtilization,
-            other => {
-                CapacityProviderPredefinedMetricType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => CapacityProviderPredefinedMetricType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

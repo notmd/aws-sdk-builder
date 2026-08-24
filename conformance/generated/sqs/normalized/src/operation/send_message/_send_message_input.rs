@@ -18,8 +18,7 @@ pub struct SendMessageInput {
     /// </note>
     pub delay_seconds: ::std::option::Option<i32>,
     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub message_attributes:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::MessageAttributeValue>>,
+    pub message_attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::MessageAttributeValue>>,
     /// <p>The message system attribute to send. Each message system attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.</p><important>
     /// <ul>
     /// <li>
@@ -29,10 +28,7 @@ pub struct SendMessageInput {
     /// </ul>
     /// </important>
     pub message_system_attributes: ::std::option::Option<
-        ::std::collections::HashMap<
-            super::super::super::types::MessageSystemAttributeNameForSends,
-            super::super::super::types::MessageSystemAttributeValue,
-        >,
+        ::std::collections::HashMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>,
     >,
     /// <p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
     /// <p>The token used for deduplication of sent messages. If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, any messages sent with the same <code>MessageDeduplicationId</code> are accepted successfully but aren't delivered during the 5-minute deduplication interval. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html"> Exactly-once processing</a> in the <i>Amazon SQS Developer Guide</i>.</p>
@@ -111,10 +107,7 @@ impl SendMessageInput {
     pub fn message_system_attributes(
         &self,
     ) -> ::std::option::Option<
-        &::std::collections::HashMap<
-            super::super::super::types::MessageSystemAttributeNameForSends,
-            super::super::super::types::MessageSystemAttributeValue,
-        >,
+        &::std::collections::HashMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>,
     > {
         self.message_system_attributes.as_ref()
     }
@@ -176,13 +169,9 @@ pub struct SendMessageInputBuilder {
     pub(crate) queue_url: ::std::option::Option<::std::string::String>,
     pub(crate) message_body: ::std::option::Option<::std::string::String>,
     pub(crate) delay_seconds: ::std::option::Option<i32>,
-    pub(crate) message_attributes:
-        ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::MessageAttributeValue>>,
+    pub(crate) message_attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, super::super::super::types::MessageAttributeValue>>,
     pub(crate) message_system_attributes: ::std::option::Option<
-        ::std::collections::HashMap<
-            super::super::super::types::MessageSystemAttributeNameForSends,
-            super::super::super::types::MessageSystemAttributeValue,
-        >,
+        ::std::collections::HashMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>,
     >,
     pub(crate) message_deduplication_id: ::std::option::Option<::std::string::String>,
     pub(crate) message_group_id: ::std::option::Option<::std::string::String>,
@@ -258,11 +247,7 @@ impl SendMessageInputBuilder {
     /// To override the contents of this collection use [`set_message_attributes`](Self::set_message_attributes).
     ///
     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub fn message_attributes(
-        mut self,
-        k: impl ::std::convert::Into<::std::string::String>,
-        v: super::super::super::types::MessageAttributeValue,
-    ) -> Self {
+    pub fn message_attributes(mut self, k: impl ::std::convert::Into<::std::string::String>, v: super::super::super::types::MessageAttributeValue) -> Self {
         let mut hash_map = self.message_attributes.unwrap_or_default();
         hash_map.insert(k.into(), v);
         self.message_attributes = ::std::option::Option::Some(hash_map);
@@ -315,10 +300,7 @@ impl SendMessageInputBuilder {
     pub fn set_message_system_attributes(
         mut self,
         input: ::std::option::Option<
-            ::std::collections::HashMap<
-                super::super::super::types::MessageSystemAttributeNameForSends,
-                super::super::super::types::MessageSystemAttributeValue,
-            >,
+            ::std::collections::HashMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>,
         >,
     ) -> Self {
         self.message_system_attributes = input;
@@ -335,10 +317,7 @@ impl SendMessageInputBuilder {
     pub fn get_message_system_attributes(
         &self,
     ) -> &::std::option::Option<
-        ::std::collections::HashMap<
-            super::super::super::types::MessageSystemAttributeNameForSends,
-            super::super::super::types::MessageSystemAttributeValue,
-        >,
+        ::std::collections::HashMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>,
     > {
         &self.message_system_attributes
     }
@@ -476,9 +455,7 @@ impl SendMessageInputBuilder {
         &self.message_group_id
     }
     /// Consumes the builder and constructs a [`SendMessageInput`](crate::operation::send_message::SendMessageInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::send_message::SendMessageInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::send_message::SendMessageInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::send_message::SendMessageInput {
             queue_url: self.queue_url,
             message_body: self.message_body,

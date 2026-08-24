@@ -32,8 +32,7 @@ impl ListBucketInventoryConfigurationsInput {
 }
 impl ListBucketInventoryConfigurationsInput {
     /// Creates a new builder-style object to manufacture [`ListBucketInventoryConfigurationsInput`](crate::operation::list_bucket_inventory_configurations::ListBucketInventoryConfigurationsInput).
-    pub fn builder() -> super::super::super::operation::list_bucket_inventory_configurations::builders::ListBucketInventoryConfigurationsInputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::list_bucket_inventory_configurations::builders::ListBucketInventoryConfigurationsInputBuilder {
         super::super::super::operation::list_bucket_inventory_configurations::builders::ListBucketInventoryConfigurationsInputBuilder::default()
     }
 }

@@ -95,10 +95,8 @@ impl ListInstanceProfilesInputBuilder {
     /// Consumes the builder and constructs a [`ListInstanceProfilesInput`](crate::operation::list_instance_profiles::ListInstanceProfilesInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_instance_profiles::ListInstanceProfilesInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_instance_profiles::ListInstanceProfilesInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_instance_profiles::ListInstanceProfilesInput {
             path_prefix: self.path_prefix,
             marker: self.marker,

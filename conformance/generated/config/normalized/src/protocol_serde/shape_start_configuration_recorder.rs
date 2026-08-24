@@ -26,7 +26,12 @@ pub fn de_start_configuration_recorder_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::NoAvailableDeliveryChannelExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_no_available_delivery_channel_exception::de_no_available_delivery_channel_exception_json_err(_response_body, output).map_err(super::super::operation::start_configuration_recorder::StartConfigurationRecorderError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_no_available_delivery_channel_exception::de_no_available_delivery_channel_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::start_configuration_recorder::StartConfigurationRecorderError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -42,7 +47,12 @@ pub fn de_start_configuration_recorder_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::NoSuchConfigurationRecorderExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_no_such_configuration_recorder_exception::de_no_such_configuration_recorder_exception_json_err(_response_body, output).map_err(super::super::operation::start_configuration_recorder::StartConfigurationRecorderError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_no_such_configuration_recorder_exception::de_no_such_configuration_recorder_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::start_configuration_recorder::StartConfigurationRecorderError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -58,11 +68,9 @@ pub fn de_start_configuration_recorder_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::UnmodifiableEntityExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_unmodifiable_entity_exception::de_unmodifiable_entity_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::start_configuration_recorder::StartConfigurationRecorderError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_unmodifiable_entity_exception::de_unmodifiable_entity_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::start_configuration_recorder::StartConfigurationRecorderError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };

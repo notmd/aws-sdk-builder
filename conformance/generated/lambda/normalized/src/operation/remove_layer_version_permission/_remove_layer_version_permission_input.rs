@@ -113,13 +113,11 @@ impl RemoveLayerVersionPermissionInputBuilder {
         super::super::super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput {
-                layer_name: self.layer_name,
-                version_number: self.version_number.unwrap_or_default(),
-                statement_id: self.statement_id,
-                revision_id: self.revision_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::remove_layer_version_permission::RemoveLayerVersionPermissionInput {
+            layer_name: self.layer_name,
+            version_number: self.version_number.unwrap_or_default(),
+            statement_id: self.statement_id,
+            revision_id: self.revision_id,
+        })
     }
 }

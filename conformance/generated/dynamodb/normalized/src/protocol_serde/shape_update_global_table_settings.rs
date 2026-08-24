@@ -15,7 +15,11 @@ pub fn de_update_global_table_settings_http_error(
     let generic = generic_builder.build();
     let error_code = match generic.code() {
         Some(code) => code,
-        None => return Err(super::super::operation::update_global_table_settings::UpdateGlobalTableSettingsError::unhandled(generic)),
+        None => {
+            return Err(super::super::operation::update_global_table_settings::UpdateGlobalTableSettingsError::unhandled(
+                generic,
+            ))
+        }
     };
 
     let _error_message = generic.message().map(|msg| msg.to_owned());
@@ -70,26 +74,21 @@ pub fn de_update_global_table_settings_http_error(
             }
             tmp
         }),
-        "InvalidEndpointException" => {
-            super::super::operation::update_global_table_settings::UpdateGlobalTableSettingsError::InvalidEndpointException({
+        "InvalidEndpointException" => super::super::operation::update_global_table_settings::UpdateGlobalTableSettingsError::InvalidEndpointException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::update_global_table_settings::UpdateGlobalTableSettingsError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "LimitExceededException" => super::super::operation::update_global_table_settings::UpdateGlobalTableSettingsError::LimitExceededException({
             #[allow(unused_mut)]
             let mut tmp = {
@@ -105,26 +104,21 @@ pub fn de_update_global_table_settings_http_error(
             }
             tmp
         }),
-        "ReplicaNotFoundException" => {
-            super::super::operation::update_global_table_settings::UpdateGlobalTableSettingsError::ReplicaNotFoundException({
+        "ReplicaNotFoundException" => super::super::operation::update_global_table_settings::UpdateGlobalTableSettingsError::ReplicaNotFoundException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::ReplicaNotFoundExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_replica_not_found_exception::de_replica_not_found_exception_json_err(
-                        _response_body,
-                        output,
-                    )
+                let mut output = super::super::types::error::builders::ReplicaNotFoundExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_replica_not_found_exception::de_replica_not_found_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::update_global_table_settings::UpdateGlobalTableSettingsError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ResourceInUseException" => super::super::operation::update_global_table_settings::UpdateGlobalTableSettingsError::ResourceInUseException({
             #[allow(unused_mut)]
             let mut tmp = {

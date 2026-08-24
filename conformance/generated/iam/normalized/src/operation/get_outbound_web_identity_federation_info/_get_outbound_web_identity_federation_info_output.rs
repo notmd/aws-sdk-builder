@@ -26,8 +26,7 @@ impl ::aws_types::request_id::RequestId for GetOutboundWebIdentityFederationInfo
 }
 impl GetOutboundWebIdentityFederationInfoOutput {
     /// Creates a new builder-style object to manufacture [`GetOutboundWebIdentityFederationInfoOutput`](crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoOutputBuilder {
+    pub fn builder() -> super::super::super::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoOutputBuilder {
         super::super::super::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoOutputBuilder::default()
     }
 }

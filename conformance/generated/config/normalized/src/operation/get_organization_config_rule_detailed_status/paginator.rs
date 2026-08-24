@@ -2,8 +2,7 @@
 /// Paginator for [`GetOrganizationConfigRuleDetailedStatus`](crate::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatus)
 pub struct GetOrganizationConfigRuleDetailedStatusPaginator {
     handle: std::sync::Arc<super::super::super::client::Handle>,
-    builder:
-        super::super::super::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusInputBuilder,
+    builder: super::super::super::operation::get_organization_config_rule_detailed_status::builders::GetOrganizationConfigRuleDetailedStatusInputBuilder,
     stop_on_duplicate_token: bool,
 }
 
@@ -34,11 +33,8 @@ impl GetOrganizationConfigRuleDetailedStatusPaginator {
     /// are dispatched lazily.
     pub fn items(
         self,
-    ) -> super::super::super::operation::get_organization_config_rule_detailed_status::paginator::GetOrganizationConfigRuleDetailedStatusPaginatorItems
-    {
-        super::super::super::operation::get_organization_config_rule_detailed_status::paginator::GetOrganizationConfigRuleDetailedStatusPaginatorItems(
-            self,
-        )
+    ) -> super::super::super::operation::get_organization_config_rule_detailed_status::paginator::GetOrganizationConfigRuleDetailedStatusPaginatorItems {
+        super::super::super::operation::get_organization_config_rule_detailed_status::paginator::GetOrganizationConfigRuleDetailedStatusPaginatorItems(self)
     }
 
     /// Stop paginating when the service returns the same pagination token twice in a row.
@@ -71,12 +67,13 @@ impl GetOrganizationConfigRuleDetailedStatusPaginator {
         // Move individual fields out of self for the borrow checker
         let builder = self.builder;
         let handle = self.handle;
-        let runtime_plugins = super::super::super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatus::operation_runtime_plugins(
-            handle.runtime_plugins.clone(),
-            &handle.conf,
-            ::std::option::Option::None,
-        )
-        .with_operation_plugin(super::super::super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
+        let runtime_plugins =
+            super::super::super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatus::operation_runtime_plugins(
+                handle.runtime_plugins.clone(),
+                &handle.conf,
+                ::std::option::Option::None,
+            )
+            .with_operation_plugin(super::super::super::sdk_feature_tracker::paginator::PaginatorFeatureTrackerRuntimePlugin::new());
         ::aws_smithy_async::future::pagination_stream::PaginationStream::new(::aws_smithy_async::future::pagination_stream::fn_stream::FnStream::new(
             move |tx| {
                 ::std::boxed::Box::pin(async move {
@@ -92,12 +89,16 @@ impl GetOrganizationConfigRuleDetailedStatusPaginator {
                         }
                     };
                     loop {
-                        let resp = super::super::super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatus::orchestrate(&runtime_plugins, input.clone()).await;
+                        let resp =
+                            super::super::super::operation::get_organization_config_rule_detailed_status::GetOrganizationConfigRuleDetailedStatus::orchestrate(
+                                &runtime_plugins,
+                                input.clone(),
+                            )
+                            .await;
                         // If the input member is None or it was an error
                         let done = match resp {
                             ::std::result::Result::Ok(ref resp) => {
-                                let new_token =
-                                    super::super::super::lens::reflens_get_organization_config_rule_detailed_status_output_output_next_token(resp);
+                                let new_token = super::super::super::lens::reflens_get_organization_config_rule_detailed_status_output_output_next_token(resp);
                                 // Pagination is exhausted when the next token is an empty string
                                 let is_empty = new_token.map(|token| token.is_empty()).unwrap_or(true);
                                 if !is_empty && new_token == input.next_token.as_ref() && self.stop_on_duplicate_token {

@@ -64,10 +64,7 @@ where
                         "ResourceConfigurationSchemaType" => {
                             builder = builder.set_resource_configuration_schema_type(
                                 ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| super::super::types::ResourceConfigurationSchemaType::from(u.as_ref()))
-                                    })
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::ResourceConfigurationSchemaType::from(u.as_ref())))
                                     .transpose()?,
                             );
                         }

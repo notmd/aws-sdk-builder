@@ -16,8 +16,6 @@ impl super::Client {
     pub fn list_aggregate_discovered_resources(
         &self,
     ) -> super::super::operation::list_aggregate_discovered_resources::builders::ListAggregateDiscoveredResourcesFluentBuilder {
-        super::super::operation::list_aggregate_discovered_resources::builders::ListAggregateDiscoveredResourcesFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::list_aggregate_discovered_resources::builders::ListAggregateDiscoveredResourcesFluentBuilder::new(self.handle.clone())
     }
 }

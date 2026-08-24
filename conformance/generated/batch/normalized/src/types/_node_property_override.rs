@@ -148,10 +148,7 @@ impl NodePropertyOverrideBuilder {
         self
     }
     /// <p>An object that contains overrides for the consumable resources of a job.</p>
-    pub fn set_consumable_resource_properties_override(
-        mut self,
-        input: ::std::option::Option<super::super::types::ConsumableResourceProperties>,
-    ) -> Self {
+    pub fn set_consumable_resource_properties_override(mut self, input: ::std::option::Option<super::super::types::ConsumableResourceProperties>) -> Self {
         self.consumable_resource_properties_override = input;
         self
     }

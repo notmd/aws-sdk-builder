@@ -52,9 +52,8 @@ pub fn de_revoke_token_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::revoke_token::RevokeTokenError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::revoke_token::RevokeTokenError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -68,11 +67,9 @@ pub fn de_revoke_token_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::revoke_token::RevokeTokenError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::revoke_token::RevokeTokenError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -86,9 +83,8 @@ pub fn de_revoke_token_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::revoke_token::RevokeTokenError::unhandled)?;
+                output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::revoke_token::RevokeTokenError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -117,11 +113,9 @@ pub fn de_revoke_token_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UnsupportedOperationExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::revoke_token::RevokeTokenError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_unsupported_operation_exception::de_unsupported_operation_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::revoke_token::RevokeTokenError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -179,10 +173,8 @@ pub fn ser_revoke_token_input(
 pub(crate) fn de_revoke_token(
     _value: &[u8],
     mut builder: super::super::operation::revoke_token::builders::RevokeTokenOutputBuilder,
-) -> ::std::result::Result<
-    super::super::operation::revoke_token::builders::RevokeTokenOutputBuilder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
+) -> ::std::result::Result<super::super::operation::revoke_token::builders::RevokeTokenOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+{
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]

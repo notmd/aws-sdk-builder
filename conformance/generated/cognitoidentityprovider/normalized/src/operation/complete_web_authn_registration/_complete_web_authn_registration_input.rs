@@ -78,12 +78,10 @@ impl CompleteWebAuthnRegistrationInputBuilder {
         super::super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationInput {
-                access_token: self.access_token,
-                credential: self.credential,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::complete_web_authn_registration::CompleteWebAuthnRegistrationInput {
+            access_token: self.access_token,
+            credential: self.credential,
+        })
     }
 }
 impl ::std::fmt::Debug for CompleteWebAuthnRegistrationInputBuilder {

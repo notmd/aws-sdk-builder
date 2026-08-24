@@ -20,23 +20,23 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "domainEntryPoint" => {
-                                builder = builder.set_domain_entry_point(
-                                    super::super::protocol_serde::shape_domain_entry_point::de_domain_entry_point(tokens, _value, depth + 1)?,
-                                );
-                            }
-                            "originType" => {
-                                builder = builder.set_origin_type(
-                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                        .map(|s| s.to_unescaped().map(|u| super::super::types::PackageVersionOriginType::from(u.as_ref())))
-                                        .transpose()?,
-                                );
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "domainEntryPoint" => {
+                            builder = builder.set_domain_entry_point(super::super::protocol_serde::shape_domain_entry_point::de_domain_entry_point(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?);
                         }
-                    }
+                        "originType" => {
+                            builder = builder.set_origin_type(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| super::super::types::PackageVersionOriginType::from(u.as_ref())))
+                                    .transpose()?,
+                            );
+                        }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

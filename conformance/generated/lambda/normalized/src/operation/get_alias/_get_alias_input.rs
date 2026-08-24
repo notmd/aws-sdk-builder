@@ -114,9 +114,7 @@ impl GetAliasInputBuilder {
         &self.name
     }
     /// Consumes the builder and constructs a [`GetAliasInput`](crate::operation::get_alias::GetAliasInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::get_alias::GetAliasInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::get_alias::GetAliasInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::get_alias::GetAliasInput {
             function_name: self.function_name,
             name: self.name,

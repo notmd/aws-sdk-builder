@@ -86,10 +86,8 @@ impl ListIdentityProvidersInputBuilder {
     /// Consumes the builder and constructs a [`ListIdentityProvidersInput`](crate::operation::list_identity_providers::ListIdentityProvidersInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_identity_providers::ListIdentityProvidersInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::list_identity_providers::ListIdentityProvidersInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::list_identity_providers::ListIdentityProvidersInput {
             user_pool_id: self.user_pool_id,
             max_results: self.max_results,

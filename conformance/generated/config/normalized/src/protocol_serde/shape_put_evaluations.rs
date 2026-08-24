@@ -4,8 +4,7 @@ pub fn de_put_evaluations_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::put_evaluations::PutEvaluationsOutput, super::super::operation::put_evaluations::PutEvaluationsError>
-{
+) -> std::result::Result<super::super::operation::put_evaluations::PutEvaluationsOutput, super::super::operation::put_evaluations::PutEvaluationsError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::put_evaluations::PutEvaluationsError::unhandled)?;
@@ -41,11 +40,9 @@ pub fn de_put_evaluations_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidResultTokenExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_invalid_result_token_exception::de_invalid_result_token_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::put_evaluations::PutEvaluationsError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_invalid_result_token_exception::de_invalid_result_token_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::put_evaluations::PutEvaluationsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -59,11 +56,9 @@ pub fn de_put_evaluations_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::NoSuchConfigRuleExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_no_such_config_rule_exception::de_no_such_config_rule_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::put_evaluations::PutEvaluationsError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_no_such_config_rule_exception::de_no_such_config_rule_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::put_evaluations::PutEvaluationsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -81,8 +76,7 @@ pub fn de_put_evaluations_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<super::super::operation::put_evaluations::PutEvaluationsOutput, super::super::operation::put_evaluations::PutEvaluationsError>
-{
+) -> std::result::Result<super::super::operation::put_evaluations::PutEvaluationsOutput, super::super::operation::put_evaluations::PutEvaluationsError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::put_evaluations::builders::PutEvaluationsOutputBuilder::default();
@@ -120,11 +114,7 @@ pub(crate) fn de_put_evaluations(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "FailedEvaluations" => {
-                    builder = builder.set_failed_evaluations(super::super::protocol_serde::shape_evaluations::de_evaluations(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_failed_evaluations(super::super::protocol_serde::shape_evaluations::de_evaluations(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

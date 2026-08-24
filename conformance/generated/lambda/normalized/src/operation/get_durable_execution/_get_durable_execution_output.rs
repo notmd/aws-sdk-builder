@@ -346,10 +346,8 @@ impl GetDurableExecutionOutputBuilder {
     /// - [`status`](crate::operation::get_durable_execution::builders::GetDurableExecutionOutputBuilder::status)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_durable_execution::GetDurableExecutionOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_durable_execution::GetDurableExecutionOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_durable_execution::GetDurableExecutionOutput {
             durable_execution_arn: self.durable_execution_arn.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

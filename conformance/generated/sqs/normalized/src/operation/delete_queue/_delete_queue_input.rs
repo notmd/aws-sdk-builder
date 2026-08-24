@@ -48,9 +48,7 @@ impl DeleteQueueInputBuilder {
         &self.queue_url
     }
     /// Consumes the builder and constructs a [`DeleteQueueInput`](crate::operation::delete_queue::DeleteQueueInput).
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::delete_queue::DeleteQueueInput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::super::operation::delete_queue::DeleteQueueInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::delete_queue::DeleteQueueInput { queue_url: self.queue_url })
     }
 }

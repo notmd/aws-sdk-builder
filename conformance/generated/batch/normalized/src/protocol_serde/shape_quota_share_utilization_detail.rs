@@ -20,14 +20,18 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "topCapacityUtilization" => {
-                                builder = builder.set_top_capacity_utilization(super::super::protocol_serde::shape_quota_share_capacity_utilization_list::de_quota_share_capacity_utilization_list(tokens, _value, depth + 1)?);
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "topCapacityUtilization" => {
+                            builder = builder.set_top_capacity_utilization(
+                                super::super::protocol_serde::shape_quota_share_capacity_utilization_list::de_quota_share_capacity_utilization_list(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
                         }
-                    }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

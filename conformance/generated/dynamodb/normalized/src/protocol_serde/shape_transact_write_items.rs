@@ -26,7 +26,12 @@ pub fn de_transact_write_items_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::IdempotentParameterMismatchExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_idempotent_parameter_mismatch_exception::de_idempotent_parameter_mismatch_exception_json_err(_response_body, output).map_err(super::super::operation::transact_write_items::TransactWriteItemsError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_idempotent_parameter_mismatch_exception::de_idempotent_parameter_mismatch_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::transact_write_items::TransactWriteItemsError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -56,9 +61,8 @@ pub fn de_transact_write_items_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidEndpointExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::transact_write_items::TransactWriteItemsError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_endpoint_exception::de_invalid_endpoint_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::transact_write_items::TransactWriteItemsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -103,11 +107,8 @@ pub fn de_transact_write_items_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::transact_write_items::TransactWriteItemsError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::transact_write_items::TransactWriteItemsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -136,11 +137,9 @@ pub fn de_transact_write_items_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::TransactionCanceledExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_transaction_canceled_exception::de_transaction_canceled_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::transact_write_items::TransactWriteItemsError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_transaction_canceled_exception::de_transaction_canceled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::transact_write_items::TransactWriteItemsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -215,23 +214,25 @@ pub(crate) fn de_transact_write_items(
     loop {
         match tokens.next().transpose()? {
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                "ConsumedCapacity" => {
-                    builder = builder.set_consumed_capacity(
-                        super::super::protocol_serde::shape_consumed_capacity_multiple::de_consumed_capacity_multiple(tokens, _value, depth + 1)?,
-                    );
+            Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                match key.to_unescaped()?.as_ref() {
+                    "ConsumedCapacity" => {
+                        builder = builder.set_consumed_capacity(
+                            super::super::protocol_serde::shape_consumed_capacity_multiple::de_consumed_capacity_multiple(tokens, _value, depth + 1)?,
+                        );
+                    }
+                    "ItemCollectionMetrics" => {
+                        builder = builder.set_item_collection_metrics(
+                            super::super::protocol_serde::shape_item_collection_metrics_per_table::de_item_collection_metrics_per_table(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?,
+                        );
+                    }
+                    _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                 }
-                "ItemCollectionMetrics" => {
-                    builder = builder.set_item_collection_metrics(
-                        super::super::protocol_serde::shape_item_collection_metrics_per_table::de_item_collection_metrics_per_table(
-                            tokens,
-                            _value,
-                            depth + 1,
-                        )?,
-                    );
-                }
-                _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-            },
+            }
             other => {
                 return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                     "expected object key or end object, found: {other:?}"

@@ -134,8 +134,7 @@ impl PutBucketAbacInputBuilder {
     /// Consumes the builder and constructs a [`PutBucketAbacInput`](crate::operation::put_bucket_abac::PutBucketAbacInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::put_bucket_abac::PutBucketAbacInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::put_bucket_abac::PutBucketAbacInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_bucket_abac::PutBucketAbacInput {
             bucket: self.bucket,
             content_md5: self.content_md5,

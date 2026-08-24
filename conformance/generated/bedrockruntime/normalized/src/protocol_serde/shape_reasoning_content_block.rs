@@ -56,10 +56,9 @@ where
                     }
                     variant = match key.as_ref() {
                         "reasoningText" => Some(super::super::types::ReasoningContentBlock::ReasoningText(
-                            super::super::protocol_serde::shape_reasoning_text_block::de_reasoning_text_block(tokens, _value, depth + 1)?
-                                .ok_or_else(|| {
-                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningText' cannot be null")
-                                })?,
+                            super::super::protocol_serde::shape_reasoning_text_block::de_reasoning_text_block(tokens, _value, depth + 1)?.ok_or_else(
+                                || ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningText' cannot be null"),
+                            )?,
                         )),
                         "redactedContent" => Some(super::super::types::ReasoningContentBlock::RedactedContent(
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| {

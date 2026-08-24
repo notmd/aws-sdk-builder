@@ -181,10 +181,7 @@ impl PutAccountDetailsInputBuilder {
     /// Consumes the builder and constructs a [`PutAccountDetailsInput`](crate::operation::put_account_details::PutAccountDetailsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::put_account_details::PutAccountDetailsInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::put_account_details::PutAccountDetailsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::put_account_details::PutAccountDetailsInput {
             mail_type: self.mail_type,
             website_url: self.website_url,

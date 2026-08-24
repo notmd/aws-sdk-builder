@@ -13,8 +13,6 @@ impl super::Client {
     pub fn create_bucket_metadata_configuration(
         &self,
     ) -> super::super::operation::create_bucket_metadata_configuration::builders::CreateBucketMetadataConfigurationFluentBuilder {
-        super::super::operation::create_bucket_metadata_configuration::builders::CreateBucketMetadataConfigurationFluentBuilder::new(
-            self.handle.clone(),
-        )
+        super::super::operation::create_bucket_metadata_configuration::builders::CreateBucketMetadataConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

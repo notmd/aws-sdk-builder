@@ -42,9 +42,7 @@ pub fn de_upload_part_http_response(
         );
         output = output.set_checksum_crc64_nvme(
             super::super::protocol_serde::shape_upload_part_output::de_checksum_crc64_nvme_header(_response_headers).map_err(|_| {
-                super::super::operation::upload_part::UploadPartError::unhandled(
-                    "Failed to parse ChecksumCRC64NVME from header `x-amz-checksum-crc64nvme",
-                )
+                super::super::operation::upload_part::UploadPartError::unhandled("Failed to parse ChecksumCRC64NVME from header `x-amz-checksum-crc64nvme")
             })?,
         );
         output = output.set_checksum_md5(
@@ -69,23 +67,17 @@ pub fn de_upload_part_http_response(
         );
         output = output.set_checksum_xxhash128(
             super::super::protocol_serde::shape_upload_part_output::de_checksum_xxhash128_header(_response_headers).map_err(|_| {
-                super::super::operation::upload_part::UploadPartError::unhandled(
-                    "Failed to parse ChecksumXXHASH128 from header `x-amz-checksum-xxhash128",
-                )
+                super::super::operation::upload_part::UploadPartError::unhandled("Failed to parse ChecksumXXHASH128 from header `x-amz-checksum-xxhash128")
             })?,
         );
         output = output.set_checksum_xxhash3(
             super::super::protocol_serde::shape_upload_part_output::de_checksum_xxhash3_header(_response_headers).map_err(|_| {
-                super::super::operation::upload_part::UploadPartError::unhandled(
-                    "Failed to parse ChecksumXXHASH3 from header `x-amz-checksum-xxhash3",
-                )
+                super::super::operation::upload_part::UploadPartError::unhandled("Failed to parse ChecksumXXHASH3 from header `x-amz-checksum-xxhash3")
             })?,
         );
         output = output.set_checksum_xxhash64(
             super::super::protocol_serde::shape_upload_part_output::de_checksum_xxhash64_header(_response_headers).map_err(|_| {
-                super::super::operation::upload_part::UploadPartError::unhandled(
-                    "Failed to parse ChecksumXXHASH64 from header `x-amz-checksum-xxhash64",
-                )
+                super::super::operation::upload_part::UploadPartError::unhandled("Failed to parse ChecksumXXHASH64 from header `x-amz-checksum-xxhash64")
             })?,
         );
         output = output.set_e_tag(

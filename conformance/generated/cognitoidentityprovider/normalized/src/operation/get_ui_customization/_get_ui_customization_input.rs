@@ -73,10 +73,8 @@ impl GetUiCustomizationInputBuilder {
     /// Consumes the builder and constructs a [`GetUiCustomizationInput`](crate::operation::get_ui_customization::GetUiCustomizationInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_ui_customization::GetUiCustomizationInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_ui_customization::GetUiCustomizationInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_ui_customization::GetUiCustomizationInput {
             user_pool_id: self.user_pool_id,
             client_id: self.client_id,

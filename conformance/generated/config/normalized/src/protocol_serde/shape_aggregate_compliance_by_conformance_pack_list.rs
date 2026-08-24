@@ -26,7 +26,12 @@ where
                         break;
                     }
                     _ => {
-                        let value = super::super::protocol_serde::shape_aggregate_compliance_by_conformance_pack::de_aggregate_compliance_by_conformance_pack(tokens, _value, depth + 1)?;
+                        let value =
+                            super::super::protocol_serde::shape_aggregate_compliance_by_conformance_pack::de_aggregate_compliance_by_conformance_pack(
+                                tokens,
+                                _value,
+                                depth + 1,
+                            )?;
                         if let Some(value) = value {
                             items.push(value);
                         } else {

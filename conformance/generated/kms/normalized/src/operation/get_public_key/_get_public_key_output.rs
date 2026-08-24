@@ -205,10 +205,7 @@ impl GetPublicKeyOutputBuilder {
     /// <p>The encryption algorithms that KMS supports for this key.</p>
     /// <p>This information is critical. If a public key encrypts data outside of KMS by using an unsupported encryption algorithm, the ciphertext cannot be decrypted.</p>
     /// <p>This field appears in the response only when the <code>KeyUsage</code> of the public key is <code>ENCRYPT_DECRYPT</code>.</p>
-    pub fn set_encryption_algorithms(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::EncryptionAlgorithmSpec>>,
-    ) -> Self {
+    pub fn set_encryption_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::EncryptionAlgorithmSpec>>) -> Self {
         self.encryption_algorithms = input;
         self
     }
@@ -253,10 +250,7 @@ impl GetPublicKeyOutputBuilder {
         self
     }
     /// <p>The key agreement algorithm used to derive a shared secret. This field is present only when the KMS key has a <code>KeyUsage</code> value of <code>KEY_AGREEMENT</code>.</p>
-    pub fn set_key_agreement_algorithms(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::KeyAgreementAlgorithmSpec>>,
-    ) -> Self {
+    pub fn set_key_agreement_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::KeyAgreementAlgorithmSpec>>) -> Self {
         self.key_agreement_algorithms = input;
         self
     }

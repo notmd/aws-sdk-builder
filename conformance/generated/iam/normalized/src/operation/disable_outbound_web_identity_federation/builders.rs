@@ -89,11 +89,7 @@ impl DisableOutboundWebIdentityFederationFluentBuilder {
                 &self.handle.conf,
                 self.config_override,
             );
-        super::super::super::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederation::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        super::super::super::operation::disable_outbound_web_identity_federation::DisableOutboundWebIdentityFederation::orchestrate(&runtime_plugins, input).await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

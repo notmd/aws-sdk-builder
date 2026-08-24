@@ -1,4 +1,5 @@
 use crate::manifest::Exclusions;
+use aws_sdk_builder::ORIGINAL_FILE;
 use proc_macro2::LineColumn;
 use std::{
     collections::BTreeMap,
@@ -62,6 +63,7 @@ pub fn patch_path(patches_root: &Path, relative: &Path) -> PathBuf {
 pub fn normalize_reference_source(source: &str, relative: &Path) -> Result<String, String> {
     let depth = module_depth(relative);
     let normalized = normalize_crate_paths(source, depth)?;
+    let normalized = normalize_2024_keywords(&normalized)?;
     drop_inline_unit_tests(&normalized, relative)
 }
 
@@ -121,6 +123,33 @@ pub fn normalize_crate_paths(source: &str, depth: usize) -> Result<String, Strin
     Ok(normalized)
 }
 
+/// Make reference sources comparable with generated code parsed in Rust 2024.
+/// The pinned Smithy-RS snapshot uses `gen` as an ordinary identifier, while
+/// Rust 2024 reserves that spelling as a keyword.
+fn normalize_2024_keywords(source: &str) -> Result<String, String> {
+    let file = syn::parse_file(source)
+        .map_err(|error| format!("cannot parse reference Rust source: {error}"))?;
+    let mut visitor = RawGenVisitor::default();
+    syn::visit::visit_file(&mut visitor, &file);
+    let mut normalized = source.to_owned();
+    let mut starts = visitor
+        .spans
+        .into_iter()
+        .map(|span| source_offset(source, span.start()))
+        .collect::<Result<Vec<_>, _>>()?;
+    starts.sort_unstable();
+    starts.dedup();
+    for start in starts.into_iter().rev() {
+        if source.get(start..start + 3) == Some("gen") {
+            normalized.replace_range(start..start + 3, "r#gen");
+        }
+    }
+    syn::parse_file(&normalized).map_err(|error| {
+        format!("2024-normalized reference Rust source no longer parses: {error}")
+    })?;
+    Ok(normalized)
+}
+
 /// Prepare a canonical projection for rustfmt without changing token widths.
 ///
 /// Canonical composition replaces crate-rooted paths with depth-specific
@@ -130,23 +159,7 @@ pub fn normalize_crate_paths(source: &str, depth: usize) -> Result<String, Strin
 /// module layout; `restore_canonical_paths` reverses the substitution after
 /// rustfmt.
 pub fn prepare_canonical_projection(source: &str, relative: &Path) -> Result<String, String> {
-    let depth = canonical_module_depth(relative);
-    let needle = std::iter::repeat_n("super::", depth).collect::<String>();
-    let mut prepared = source.to_owned();
-    let mut start = 0;
-    while let Some(offset) = prepared[start..].find(&needle) {
-        let absolute = start + offset;
-        let end = absolute + needle.len();
-        if !starts_token(&prepared, absolute) || !ends_chain(&prepared, end) {
-            start = absolute + "super".len();
-            continue;
-        }
-        prepared.replace_range(absolute..end, "crate::");
-        start = absolute + "crate::".len();
-    }
-    syn::parse_file(&prepared)
-        .map_err(|error| format!("canonical projection no longer parses: {error}"))?;
-    Ok(prepared)
+    rewrite_canonical_paths(source, relative)
 }
 
 /// Restore the depth-specific `super` chains removed for rustfmt.
@@ -154,28 +167,42 @@ pub fn restore_canonical_paths(source: &str, relative: &Path) -> Result<String, 
     if relative == Path::new("src/lib.rs") {
         return Ok(source.to_owned());
     }
-    normalize_crate_paths(source, canonical_module_depth(relative))
+    normalize_crate_paths(
+        source,
+        relative.components().count().saturating_sub(1).max(1),
+    )
 }
 
-fn canonical_module_depth(relative: &Path) -> usize {
-    relative.components().count().saturating_sub(1).max(1)
-}
-
-fn starts_token(source: &str, start: usize) -> bool {
-    start == 0
-        || !source[..start]
-            .chars()
-            .next_back()
-            .is_some_and(|char| char.is_ascii_alphanumeric() || char == '_' || char == ':')
-}
-
-fn ends_chain(source: &str, end: usize) -> bool {
-    let rest = &source[end..];
-    !rest.starts_with("super::")
-        && !rest
-            .chars()
-            .next()
-            .is_some_and(|char| char.is_ascii_alphanumeric() || char == '_')
+fn rewrite_canonical_paths(source: &str, relative: &Path) -> Result<String, String> {
+    let base_depth = if relative == Path::new("src/lib.rs") {
+        0
+    } else {
+        relative.components().count().saturating_sub(1).max(1)
+    };
+    let file = syn::parse_file(source)
+        .map_err(|error| format!("canonical projection no longer parses: {error}"))?;
+    let mut visitor = CanonicalPathVisitor {
+        base_depth,
+        ..Default::default()
+    };
+    syn::visit::visit_file(&mut visitor, &file);
+    let mut replacements = visitor
+        .spans
+        .into_iter()
+        .map(|(start, end)| {
+            let start = source_offset(source, start.start())?;
+            let end = source_offset(source, end.start())?;
+            Ok((start, end))
+        })
+        .collect::<Result<Vec<_>, String>>()?;
+    replacements.sort_by_key(|(start, _)| std::cmp::Reverse(*start));
+    let mut rewritten = source.to_owned();
+    for (start, end) in replacements {
+        rewritten.replace_range(start..end, "crate::");
+    }
+    syn::parse_file(&rewritten)
+        .map_err(|error| format!("canonical projection no longer parses: {error}"))?;
+    Ok(rewritten)
 }
 
 /// Remove inline `#[cfg(test)] mod ...` units from a Rust source file.
@@ -260,6 +287,198 @@ impl<'ast> syn::visit::Visit<'ast> for CratePathVisitor {
             self.spans.push(path.span());
         }
         syn::visit::visit_path(self, path);
+    }
+
+    fn visit_macro(&mut self, mac: &'ast syn::Macro) {
+        if path_starts_at_crate(&mac.path) {
+            use syn::spanned::Spanned;
+            self.spans.push(mac.path.span());
+        }
+        collect_macro_crate_paths(mac.tokens.clone(), &mut self.spans);
+    }
+}
+
+fn collect_macro_crate_paths(tokens: proc_macro2::TokenStream, spans: &mut Vec<proc_macro2::Span>) {
+    let tokens = tokens.into_iter().collect::<Vec<_>>();
+    for index in 0..tokens.len().saturating_sub(2) {
+        let proc_macro2::TokenTree::Ident(ident) = &tokens[index] else {
+            continue;
+        };
+        if ident == "crate"
+            && !(index > 0
+                && matches!(
+                    &tokens[index - 1],
+                    proc_macro2::TokenTree::Punct(punct) if punct.as_char() == '$'
+                ))
+            && matches!(
+                (&tokens[index + 1], &tokens[index + 2]),
+                (
+                    proc_macro2::TokenTree::Punct(first),
+                    proc_macro2::TokenTree::Punct(second)
+                ) if first.as_char() == ':' && second.as_char() == ':'
+            )
+        {
+            spans.push(ident.span());
+        }
+    }
+    for token in tokens {
+        if let proc_macro2::TokenTree::Group(group) = token {
+            collect_macro_crate_paths(group.stream(), spans);
+        }
+    }
+}
+
+#[derive(Default)]
+struct RawGenVisitor {
+    spans: Vec<proc_macro2::Span>,
+}
+
+impl<'ast> syn::visit::Visit<'ast> for RawGenVisitor {
+    fn visit_ident(&mut self, ident: &'ast syn::Ident) {
+        if ident == "gen" {
+            self.spans.push(ident.span());
+        }
+    }
+}
+
+#[derive(Default)]
+struct CanonicalPathVisitor {
+    base_depth: usize,
+    module_depth: usize,
+    spans: Vec<(proc_macro2::Span, proc_macro2::Span)>,
+}
+
+impl<'ast> syn::visit::Visit<'ast> for CanonicalPathVisitor {
+    fn visit_item_use(&mut self, item: &'ast syn::ItemUse) {
+        if let Some((start, end, depth)) = leading_super_use_tree(&item.tree)
+            && depth == self.base_depth + self.module_depth
+        {
+            self.spans.push((start, end));
+        }
+        syn::visit::visit_item_use(self, item);
+    }
+
+    fn visit_path(&mut self, path: &'ast syn::Path) {
+        let depth = leading_super_path_depth(path);
+        if depth == self.base_depth + self.module_depth && depth != 0 && path.segments.len() > depth
+        {
+            let start = path.segments.first().unwrap().ident.span();
+            let end = path.segments[depth].ident.span();
+            self.spans.push((start, end));
+        }
+        syn::visit::visit_path(self, path);
+    }
+
+    fn visit_macro(&mut self, mac: &'ast syn::Macro) {
+        let depth = leading_super_path_depth(&mac.path);
+        if depth == self.base_depth + self.module_depth
+            && depth != 0
+            && mac.path.segments.len() > depth
+        {
+            let start = mac.path.segments.first().unwrap().ident.span();
+            let end = mac.path.segments[depth].ident.span();
+            self.spans.push((start, end));
+        }
+        collect_macro_super_paths(
+            mac.tokens.clone(),
+            self.base_depth + self.module_depth,
+            &mut self.spans,
+        );
+    }
+
+    fn visit_item_mod(&mut self, item: &'ast syn::ItemMod) {
+        for attribute in &item.attrs {
+            self.visit_attribute(attribute);
+        }
+        self.visit_visibility(&item.vis);
+        if let Some((_, items)) = &item.content {
+            self.module_depth += 1;
+            for nested in items {
+                self.visit_item(nested);
+            }
+            self.module_depth -= 1;
+        }
+    }
+}
+
+fn collect_macro_super_paths(
+    tokens: proc_macro2::TokenStream,
+    expected_depth: usize,
+    spans: &mut Vec<(proc_macro2::Span, proc_macro2::Span)>,
+) {
+    if expected_depth == 0 {
+        return;
+    }
+    let tokens = tokens.into_iter().collect::<Vec<_>>();
+    let mut index = 0;
+    while index < tokens.len() {
+        let start = index;
+        let mut depth = 0;
+        let mut cursor = index;
+        while let Some(proc_macro2::TokenTree::Ident(ident)) = tokens.get(cursor) {
+            if ident != "super"
+                || !matches!(
+                    (tokens.get(cursor + 1), tokens.get(cursor + 2)),
+                    (
+                        Some(proc_macro2::TokenTree::Punct(first)),
+                        Some(proc_macro2::TokenTree::Punct(second))
+                    ) if first.as_char() == ':' && second.as_char() == ':'
+                )
+            {
+                break;
+            }
+            depth += 1;
+            cursor += 3;
+            if depth == expected_depth {
+                if let Some(proc_macro2::TokenTree::Ident(target)) = tokens.get(cursor) {
+                    spans.push((
+                        match &tokens[start] {
+                            proc_macro2::TokenTree::Ident(first) => first.span(),
+                            _ => unreachable!(),
+                        },
+                        target.span(),
+                    ));
+                }
+                break;
+            }
+        }
+        index = if cursor > index { cursor } else { index + 1 };
+    }
+    for token in tokens {
+        if let proc_macro2::TokenTree::Group(group) = token {
+            collect_macro_super_paths(group.stream(), expected_depth, spans);
+        }
+    }
+}
+
+fn leading_super_path_depth(path: &syn::Path) -> usize {
+    path.segments
+        .iter()
+        .take_while(|segment| segment.ident == "super")
+        .count()
+}
+
+fn leading_super_use_tree(
+    tree: &syn::UseTree,
+) -> Option<(proc_macro2::Span, proc_macro2::Span, usize)> {
+    use syn::spanned::Spanned;
+    let syn::UseTree::Path(path) = tree else {
+        return None;
+    };
+    if path.ident != "super" {
+        return None;
+    }
+    let start = path.ident.span();
+    match path.tree.as_ref() {
+        syn::UseTree::Path(next) if next.ident == "super" => {
+            let (_, end, depth) = leading_super_use_tree(&path.tree)?;
+            Some((start, end, depth + 1))
+        }
+        syn::UseTree::Path(next) => Some((start, next.ident.span(), 1)),
+        syn::UseTree::Name(next) => Some((start, next.ident.span(), 1)),
+        syn::UseTree::Rename(next) => Some((start, next.ident.span(), 1)),
+        syn::UseTree::Glob(next) => Some((start, next.star_token.span(), 1)),
+        syn::UseTree::Group(next) => Some((start, next.brace_token.span.open(), 1)),
     }
 }
 
@@ -424,6 +643,13 @@ fn copy_directory(
     Ok(count)
 }
 
+fn is_canonical_artifact(relative: &Path) -> bool {
+    relative
+        .file_name()
+        .and_then(|name| name.to_str())
+        .is_some_and(|name| name == ORIGINAL_FILE)
+}
+
 fn strip_directory(
     current: &Path,
     relative_root: &Path,
@@ -440,7 +666,7 @@ fn strip_directory(
             .file_type()
             .map_err(|error| format!("{}: {error}", path.display()))?;
         reject_symlink(&path, &file_type)?;
-        if exclusions.excludes(&relative) {
+        if exclusions.excludes(&relative) && !is_canonical_artifact(&relative) {
             if file_type.is_dir() {
                 fs::remove_dir_all(&path)
                     .map_err(|error| format!("{}: {error}", path.display()))?;
@@ -510,7 +736,11 @@ mod tests {
 
     fn exclusions() -> Exclusions {
         Exclusions {
-            files: vec!["Cargo.toml".to_owned(), "README.md".to_owned()],
+            files: vec![
+                "Cargo.toml".to_owned(),
+                "README.md".to_owned(),
+                "original.rs".to_owned(),
+            ],
             directories: vec!["tests".to_owned(), "benches".to_owned()],
         }
     }
@@ -524,6 +754,7 @@ mod tests {
         fs::write(root.path().join("Cargo.toml"), "package").unwrap();
         fs::write(root.path().join("README.md"), "readme").unwrap();
         fs::write(root.path().join("LICENSE"), "license").unwrap();
+        fs::write(root.path().join("original.rs"), "canonical").unwrap();
         fs::write(root.path().join("src/lib.rs"), "source").unwrap();
         fs::write(root.path().join("tests/data/input.json"), "test").unwrap();
         fs::write(root.path().join("benches/bench.rs"), "bench").unwrap();
@@ -535,6 +766,7 @@ mod tests {
         assert!(!root.path().join("tests").exists());
         assert!(!root.path().join("benches").exists());
         assert!(root.path().join("LICENSE").exists());
+        assert!(root.path().join("original.rs").exists());
         assert!(root.path().join("src/lib.rs").exists());
         assert_eq!(count_files(root.path(), &exclusions()).unwrap(), 2);
     }
@@ -569,6 +801,19 @@ mod tests {
         assert!(normalized.contains("use super::error::Error;"));
         assert!(normalized.contains("super::runtime::value()"));
         assert!(!normalized.contains("crate::"));
+    }
+
+    #[test]
+    fn canonical_projection_accounts_for_inline_module_depth() {
+        let source = "pub use super::types::Thing;\nmod nested {\n    pub use super::super::error::Error;\n}\n";
+        let prepared = prepare_canonical_projection(source, Path::new("src/module.rs")).unwrap();
+        assert!(prepared.contains("pub use crate::types::Thing;"));
+        assert!(prepared.contains("pub use crate::error::Error;"));
+        let restored = restore_canonical_paths(&prepared, Path::new("src/module.rs")).unwrap();
+        assert_eq!(
+            restored,
+            "pub use super::types::Thing;\nmod nested {\n    pub use super::error::Error;\n}\n"
+        );
     }
 
     #[test]

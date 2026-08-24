@@ -49,11 +49,7 @@ where
                         }
                         "lookupTableConfiguration" => {
                             builder = builder.set_lookup_table_configuration(
-                                super::super::protocol_serde::shape_lookup_table_configuration::de_lookup_table_configuration(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
+                                super::super::protocol_serde::shape_lookup_table_configuration::de_lookup_table_configuration(tokens, _value, depth + 1)?,
                             );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,

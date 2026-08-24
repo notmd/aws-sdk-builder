@@ -4,10 +4,7 @@ pub fn de_put_index_policy_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::put_index_policy::PutIndexPolicyOutput,
-    super::super::operation::put_index_policy::PutIndexPolicyError,
-> {
+) -> std::result::Result<super::super::operation::put_index_policy::PutIndexPolicyOutput, super::super::operation::put_index_policy::PutIndexPolicyError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::put_index_policy::PutIndexPolicyError::unhandled)?;
@@ -25,9 +22,8 @@ pub fn de_put_index_policy_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::put_index_policy::PutIndexPolicyError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::put_index_policy::PutIndexPolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -56,9 +52,8 @@ pub fn de_put_index_policy_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::OperationAbortedExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::put_index_policy::PutIndexPolicyError::unhandled)?;
+                output = super::super::protocol_serde::shape_operation_aborted_exception::de_operation_aborted_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::put_index_policy::PutIndexPolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -72,11 +67,8 @@ pub fn de_put_index_policy_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::put_index_policy::PutIndexPolicyError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::put_index_policy::PutIndexPolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -90,11 +82,9 @@ pub fn de_put_index_policy_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::put_index_policy::PutIndexPolicyError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::put_index_policy::PutIndexPolicyError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -112,10 +102,7 @@ pub fn de_put_index_policy_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::put_index_policy::PutIndexPolicyOutput,
-    super::super::operation::put_index_policy::PutIndexPolicyError,
-> {
+) -> std::result::Result<super::super::operation::put_index_policy::PutIndexPolicyOutput, super::super::operation::put_index_policy::PutIndexPolicyError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::put_index_policy::builders::PutIndexPolicyOutputBuilder::default();
@@ -153,11 +140,7 @@ pub(crate) fn de_put_index_policy(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "indexPolicy" => {
-                    builder = builder.set_index_policy(super::super::protocol_serde::shape_index_policy::de_index_policy(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_index_policy(super::super::protocol_serde::shape_index_policy::de_index_policy(tokens, _value, depth + 1)?);
                 }
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

@@ -16,9 +16,7 @@ pub fn de_get_aggregate_discovered_resource_counts_http_error(
     let error_code = match generic.code() {
         Some(code) => code,
         None => {
-            return Err(
-                super::super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::unhandled(generic),
-            )
+            return Err(super::super::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsError::unhandled(generic))
         }
     };
 

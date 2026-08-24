@@ -23,8 +23,7 @@ impl ::aws_types::request_id::RequestId for DescribeConfigurationRecorderStatusO
 }
 impl DescribeConfigurationRecorderStatusOutput {
     /// Creates a new builder-style object to manufacture [`DescribeConfigurationRecorderStatusOutput`](crate::operation::describe_configuration_recorder_status::DescribeConfigurationRecorderStatusOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusOutputBuilder {
+    pub fn builder() -> super::super::super::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusOutputBuilder {
         super::super::super::operation::describe_configuration_recorder_status::builders::DescribeConfigurationRecorderStatusOutputBuilder::default()
     }
 }
@@ -57,9 +56,7 @@ impl DescribeConfigurationRecorderStatusOutputBuilder {
         self
     }
     /// <p>A list that contains status of the specified recorders.</p>
-    pub fn get_configuration_recorders_status(
-        &self,
-    ) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConfigurationRecorderStatus>> {
+    pub fn get_configuration_recorders_status(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConfigurationRecorderStatus>> {
         &self.configuration_recorders_status
     }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {

@@ -27,11 +27,9 @@ pub fn de_describe_remediation_configurations_http_response(
 > {
     Ok({
         #[allow(unused_mut)]
-        let mut output =
-            super::super::operation::describe_remediation_configurations::builders::DescribeRemediationConfigurationsOutputBuilder::default();
-        output =
-            super::super::protocol_serde::shape_describe_remediation_configurations::de_describe_remediation_configurations(_response_body, output)
-                .map_err(super::super::operation::describe_remediation_configurations::DescribeRemediationConfigurationsError::unhandled)?;
+        let mut output = super::super::operation::describe_remediation_configurations::builders::DescribeRemediationConfigurationsOutputBuilder::default();
+        output = super::super::protocol_serde::shape_describe_remediation_configurations::de_describe_remediation_configurations(_response_body, output)
+            .map_err(super::super::operation::describe_remediation_configurations::DescribeRemediationConfigurationsError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
         output.build()
     })
@@ -42,10 +40,7 @@ pub fn ser_describe_remediation_configurations_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_describe_remediation_configurations_input::ser_describe_remediation_configurations_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_describe_remediation_configurations_input::ser_describe_remediation_configurations_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

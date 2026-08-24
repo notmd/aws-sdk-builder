@@ -92,10 +92,8 @@ impl PutDestinationPolicyInputBuilder {
     /// Consumes the builder and constructs a [`PutDestinationPolicyInput`](crate::operation::put_destination_policy::PutDestinationPolicyInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::put_destination_policy::PutDestinationPolicyInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::put_destination_policy::PutDestinationPolicyInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::put_destination_policy::PutDestinationPolicyInput {
             destination_name: self.destination_name,
             access_policy: self.access_policy,

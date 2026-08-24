@@ -125,10 +125,8 @@ pub fn ser_get_queue_url_input(
 pub(crate) fn de_get_queue_url(
     _value: &[u8],
     mut builder: super::super::operation::get_queue_url::builders::GetQueueUrlOutputBuilder,
-) -> ::std::result::Result<
-    super::super::operation::get_queue_url::builders::GetQueueUrlOutputBuilder,
-    ::aws_smithy_json::deserialize::error::DeserializeError,
-> {
+) -> ::std::result::Result<super::super::operation::get_queue_url::builders::GetQueueUrlOutputBuilder, ::aws_smithy_json::deserialize::error::DeserializeError>
+{
     let mut tokens_owned = ::aws_smithy_json::deserialize::json_token_iter(super::super::protocol_serde::or_empty_doc(_value)).peekable();
     let tokens = &mut tokens_owned;
     #[allow(unused_variables)]

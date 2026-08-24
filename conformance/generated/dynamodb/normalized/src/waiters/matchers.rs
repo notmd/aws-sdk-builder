@@ -54,10 +54,7 @@ pub(crate) fn match_describe_contributor_insights_5ba948784ca4cb322(
 
 /// Matcher union: {"output":{"path":"ExportDescription.ExportStatus","expected":"COMPLETED","comparator":"stringEquals"}}
 pub(crate) fn match_describe_export_a4219f96bc64309c4(
-    _result: ::std::result::Result<
-        &super::super::operation::describe_export::DescribeExportOutput,
-        &super::super::operation::describe_export::DescribeExportError,
-    >,
+    _result: ::std::result::Result<&super::super::operation::describe_export::DescribeExportOutput, &super::super::operation::describe_export::DescribeExportError>,
 ) -> bool {
     fn path_traversal<'a>(
         _output: &'a super::super::operation::describe_export::DescribeExportOutput,
@@ -81,10 +78,7 @@ pub(crate) fn match_describe_export_a4219f96bc64309c4(
 
 /// Matcher union: {"output":{"path":"ExportDescription.ExportStatus","expected":"FAILED","comparator":"stringEquals"}}
 pub(crate) fn match_describe_export_8d899fd0681b891e9(
-    _result: ::std::result::Result<
-        &super::super::operation::describe_export::DescribeExportOutput,
-        &super::super::operation::describe_export::DescribeExportError,
-    >,
+    _result: ::std::result::Result<&super::super::operation::describe_export::DescribeExportOutput, &super::super::operation::describe_export::DescribeExportError>,
 ) -> bool {
     fn path_traversal<'a>(
         _output: &'a super::super::operation::describe_export::DescribeExportOutput,
@@ -108,10 +102,7 @@ pub(crate) fn match_describe_export_8d899fd0681b891e9(
 
 /// Matcher union: {"output":{"path":"ImportTableDescription.ImportStatus","expected":"COMPLETED","comparator":"stringEquals"}}
 pub(crate) fn match_describe_import_6175a829c57972dc3(
-    _result: ::std::result::Result<
-        &super::super::operation::describe_import::DescribeImportOutput,
-        &super::super::operation::describe_import::DescribeImportError,
-    >,
+    _result: ::std::result::Result<&super::super::operation::describe_import::DescribeImportOutput, &super::super::operation::describe_import::DescribeImportError>,
 ) -> bool {
     fn path_traversal<'a>(
         _output: &'a super::super::operation::describe_import::DescribeImportOutput,
@@ -135,10 +126,7 @@ pub(crate) fn match_describe_import_6175a829c57972dc3(
 
 /// Matcher union: {"output":{"path":"ImportTableDescription.ImportStatus","expected":"FAILED","comparator":"stringEquals"}}
 pub(crate) fn match_describe_import_ba4301a7fe05a6956(
-    _result: ::std::result::Result<
-        &super::super::operation::describe_import::DescribeImportOutput,
-        &super::super::operation::describe_import::DescribeImportError,
-    >,
+    _result: ::std::result::Result<&super::super::operation::describe_import::DescribeImportOutput, &super::super::operation::describe_import::DescribeImportError>,
 ) -> bool {
     fn path_traversal<'a>(
         _output: &'a super::super::operation::describe_import::DescribeImportOutput,
@@ -162,10 +150,7 @@ pub(crate) fn match_describe_import_ba4301a7fe05a6956(
 
 /// Matcher union: {"output":{"path":"ImportTableDescription.ImportStatus","expected":"CANCELLED","comparator":"stringEquals"}}
 pub(crate) fn match_describe_import_b4c5c86bd60d42041(
-    _result: ::std::result::Result<
-        &super::super::operation::describe_import::DescribeImportOutput,
-        &super::super::operation::describe_import::DescribeImportError,
-    >,
+    _result: ::std::result::Result<&super::super::operation::describe_import::DescribeImportOutput, &super::super::operation::describe_import::DescribeImportError>,
 ) -> bool {
     fn path_traversal<'a>(
         _output: &'a super::super::operation::describe_import::DescribeImportOutput,
@@ -282,10 +267,7 @@ pub(crate) fn match_describe_kinesis_streaming_destination_ce975c8fb2b65f98f(
 
 /// Matcher union: {"output":{"path":"Table.TableStatus","expected":"ACTIVE","comparator":"stringEquals"}}
 pub(crate) fn match_describe_table_0429b99996ae6dab6(
-    _result: ::std::result::Result<
-        &super::super::operation::describe_table::DescribeTableOutput,
-        &super::super::operation::describe_table::DescribeTableError,
-    >,
+    _result: ::std::result::Result<&super::super::operation::describe_table::DescribeTableOutput, &super::super::operation::describe_table::DescribeTableError>,
 ) -> bool {
     fn path_traversal<'a>(
         _output: &'a super::super::operation::describe_table::DescribeTableOutput,
@@ -309,10 +291,7 @@ pub(crate) fn match_describe_table_0429b99996ae6dab6(
 
 /// Matcher union: {"errorType":"ResourceNotFoundException"}
 pub(crate) fn match_describe_table_1cce2c05524fb92d4(
-    _result: ::std::result::Result<
-        &super::super::operation::describe_table::DescribeTableOutput,
-        &super::super::operation::describe_table::DescribeTableError,
-    >,
+    _result: ::std::result::Result<&super::super::operation::describe_table::DescribeTableOutput, &super::super::operation::describe_table::DescribeTableError>,
 ) -> bool {
     if let ::std::result::Result::Err(err) = _result {
         if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(err) {

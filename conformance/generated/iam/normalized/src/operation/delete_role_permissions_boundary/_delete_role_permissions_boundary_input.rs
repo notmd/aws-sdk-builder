@@ -48,8 +48,8 @@ impl DeleteRolePermissionsBoundaryInputBuilder {
         super::super::super::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryInput { role_name: self.role_name },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryInput {
+            role_name: self.role_name,
+        })
     }
 }

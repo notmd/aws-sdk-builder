@@ -18,9 +18,7 @@ impl ::aws_types::request_id::RequestId for DeleteBucketMetadataTableConfigurati
 }
 impl DeleteBucketMetadataTableConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketMetadataTableConfigurationOutput`](crate::operation::delete_bucket_metadata_table_configuration::DeleteBucketMetadataTableConfigurationOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::delete_bucket_metadata_table_configuration::builders::DeleteBucketMetadataTableConfigurationOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::delete_bucket_metadata_table_configuration::builders::DeleteBucketMetadataTableConfigurationOutputBuilder {
         super::super::super::operation::delete_bucket_metadata_table_configuration::builders::DeleteBucketMetadataTableConfigurationOutputBuilder::default()
     }
 }

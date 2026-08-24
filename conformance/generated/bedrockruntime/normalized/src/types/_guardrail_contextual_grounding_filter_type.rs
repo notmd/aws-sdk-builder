@@ -55,9 +55,7 @@ impl ::std::convert::From<&str> for GuardrailContextualGroundingFilterType {
         match s {
             "GROUNDING" => GuardrailContextualGroundingFilterType::Grounding,
             "RELEVANCE" => GuardrailContextualGroundingFilterType::Relevance,
-            other => {
-                GuardrailContextualGroundingFilterType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => GuardrailContextualGroundingFilterType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

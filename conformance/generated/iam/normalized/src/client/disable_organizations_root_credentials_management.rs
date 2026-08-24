@@ -7,7 +7,12 @@ impl super::Client {
     ///   - [`organization_id(Option<String>)`](crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementOutput::organization_id): <p>The unique identifier (ID) of an organization.</p>
     ///   - [`enabled_features(Option<Vec::<FeatureType>>)`](crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementOutput::enabled_features): <p>The features enabled for centralized root access for member accounts in your organization.</p>
     /// - On failure, responds with [`SdkError<DisableOrganizationsRootCredentialsManagementError>`](crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementError)
-    pub fn disable_organizations_root_credentials_management(&self) -> super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementFluentBuilder{
-        super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementFluentBuilder::new(self.handle.clone())
+    pub fn disable_organizations_root_credentials_management(
+        &self,
+    ) -> super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementFluentBuilder
+    {
+        super::super::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

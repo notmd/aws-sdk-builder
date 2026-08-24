@@ -28,8 +28,7 @@ impl super::super::super::operation::get_aggregate_config_rule_compliance_summar
 #[derive(::std::clone::Clone, ::std::fmt::Debug)]
 pub struct GetAggregateConfigRuleComplianceSummaryFluentBuilder {
     handle: ::std::sync::Arc<super::super::super::client::Handle>,
-    inner:
-        super::super::super::operation::get_aggregate_config_rule_compliance_summary::builders::GetAggregateConfigRuleComplianceSummaryInputBuilder,
+    inner: super::super::super::operation::get_aggregate_config_rule_compliance_summary::builders::GetAggregateConfigRuleComplianceSummaryInputBuilder,
     config_override: ::std::option::Option<super::super::super::config::Builder>,
 }
 impl
@@ -62,8 +61,7 @@ impl GetAggregateConfigRuleComplianceSummaryFluentBuilder {
     /// Access the GetAggregateConfigRuleComplianceSummary as a reference.
     pub fn as_input(
         &self,
-    ) -> &super::super::super::operation::get_aggregate_config_rule_compliance_summary::builders::GetAggregateConfigRuleComplianceSummaryInputBuilder
-    {
+    ) -> &super::super::super::operation::get_aggregate_config_rule_compliance_summary::builders::GetAggregateConfigRuleComplianceSummaryInputBuilder {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -87,16 +85,14 @@ impl GetAggregateConfigRuleComplianceSummaryFluentBuilder {
             .inner
             .build()
             .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;
-        let runtime_plugins = super::super::super::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummary::operation_runtime_plugins(
-                            self.handle.runtime_plugins.clone(),
-                            &self.handle.conf,
-                            self.config_override,
-                        );
-        super::super::super::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummary::orchestrate(
-            &runtime_plugins,
-            input,
-        )
-        .await
+        let runtime_plugins =
+            super::super::super::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummary::operation_runtime_plugins(
+                self.handle.runtime_plugins.clone(),
+                &self.handle.conf,
+                self.config_override,
+            );
+        super::super::super::operation::get_aggregate_config_rule_compliance_summary::GetAggregateConfigRuleComplianceSummary::orchestrate(&runtime_plugins, input)
+            .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.
@@ -123,8 +119,7 @@ impl GetAggregateConfigRuleComplianceSummaryFluentBuilder {
     /// Paginators are used by calling [`send().await`](crate::operation::get_aggregate_config_rule_compliance_summary::paginator::GetAggregateConfigRuleComplianceSummaryPaginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).
     pub fn into_paginator(
         self,
-    ) -> super::super::super::operation::get_aggregate_config_rule_compliance_summary::paginator::GetAggregateConfigRuleComplianceSummaryPaginator
-    {
+    ) -> super::super::super::operation::get_aggregate_config_rule_compliance_summary::paginator::GetAggregateConfigRuleComplianceSummaryPaginator {
         super::super::super::operation::get_aggregate_config_rule_compliance_summary::paginator::GetAggregateConfigRuleComplianceSummaryPaginator::new(
             self.handle,
             self.inner,

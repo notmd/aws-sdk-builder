@@ -149,10 +149,8 @@ impl CreateUserPoolDomainInputBuilder {
     /// Consumes the builder and constructs a [`CreateUserPoolDomainInput`](crate::operation::create_user_pool_domain::CreateUserPoolDomainInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::create_user_pool_domain::CreateUserPoolDomainInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::create_user_pool_domain::CreateUserPoolDomainInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::create_user_pool_domain::CreateUserPoolDomainInput {
             domain: self.domain,
             user_pool_id: self.user_pool_id,

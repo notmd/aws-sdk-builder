@@ -12,8 +12,7 @@ impl ::aws_types::request_id::RequestId for DeleteOrganizationConformancePackOut
 }
 impl DeleteOrganizationConformancePackOutput {
     /// Creates a new builder-style object to manufacture [`DeleteOrganizationConformancePackOutput`](crate::operation::delete_organization_conformance_pack::DeleteOrganizationConformancePackOutput).
-    pub fn builder() -> super::super::super::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackOutputBuilder {
         super::super::super::operation::delete_organization_conformance_pack::builders::DeleteOrganizationConformancePackOutputBuilder::default()
     }
 }

@@ -4,10 +4,7 @@ pub fn de_start_async_invoke_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::start_async_invoke::StartAsyncInvokeOutput,
-    super::super::operation::start_async_invoke::StartAsyncInvokeError,
-> {
+) -> std::result::Result<super::super::operation::start_async_invoke::StartAsyncInvokeOutput, super::super::operation::start_async_invoke::StartAsyncInvokeError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::start_async_invoke::StartAsyncInvokeError::unhandled)?;
@@ -70,11 +67,8 @@ pub fn de_start_async_invoke_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::start_async_invoke::StartAsyncInvokeError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::start_async_invoke::StartAsyncInvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -106,11 +100,9 @@ pub fn de_start_async_invoke_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ServiceUnavailableExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::start_async_invoke::StartAsyncInvokeError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_service_unavailable_exception::de_service_unavailable_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::start_async_invoke::StartAsyncInvokeError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -158,10 +150,7 @@ pub fn de_start_async_invoke_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::start_async_invoke::StartAsyncInvokeOutput,
-    super::super::operation::start_async_invoke::StartAsyncInvokeError,
-> {
+) -> std::result::Result<super::super::operation::start_async_invoke::StartAsyncInvokeOutput, super::super::operation::start_async_invoke::StartAsyncInvokeError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::start_async_invoke::builders::StartAsyncInvokeOutputBuilder::default();

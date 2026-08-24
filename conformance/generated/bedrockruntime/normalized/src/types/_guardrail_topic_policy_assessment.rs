@@ -51,9 +51,7 @@ impl GuardrailTopicPolicyAssessmentBuilder {
     /// Consumes the builder and constructs a [`GuardrailTopicPolicyAssessment`](crate::types::GuardrailTopicPolicyAssessment).
     /// This method will fail if any of the following fields are not set:
     /// - [`topics`](crate::types::builders::GuardrailTopicPolicyAssessmentBuilder::topics)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::GuardrailTopicPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(self) -> ::std::result::Result<super::super::types::GuardrailTopicPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::GuardrailTopicPolicyAssessment {
             topics: self.topics.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

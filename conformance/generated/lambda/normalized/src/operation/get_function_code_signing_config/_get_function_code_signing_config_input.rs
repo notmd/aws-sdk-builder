@@ -98,10 +98,8 @@ impl GetFunctionCodeSigningConfigInputBuilder {
         super::super::super::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigInput {
-                function_name: self.function_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_function_code_signing_config::GetFunctionCodeSigningConfigInput {
+            function_name: self.function_name,
+        })
     }
 }

@@ -144,10 +144,8 @@ impl GetObjectLegalHoldInputBuilder {
     /// Consumes the builder and constructs a [`GetObjectLegalHoldInput`](crate::operation::get_object_legal_hold::GetObjectLegalHoldInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_object_legal_hold::GetObjectLegalHoldInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_object_legal_hold::GetObjectLegalHoldInput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_object_legal_hold::GetObjectLegalHoldInput {
             bucket: self.bucket,
             key: self.key,

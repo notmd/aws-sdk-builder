@@ -70,11 +70,9 @@ impl GetSuppressedDestinationInputBuilder {
         super::super::super::operation::get_suppressed_destination::GetSuppressedDestinationInput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::get_suppressed_destination::GetSuppressedDestinationInput {
-                email_address: self.email_address,
-                tenant_name: self.tenant_name,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::get_suppressed_destination::GetSuppressedDestinationInput {
+            email_address: self.email_address,
+            tenant_name: self.tenant_name,
+        })
     }
 }

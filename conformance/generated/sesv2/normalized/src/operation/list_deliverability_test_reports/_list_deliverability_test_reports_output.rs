@@ -54,10 +54,7 @@ impl ListDeliverabilityTestReportsOutputBuilder {
         self
     }
     /// <p>An object that contains a lists of predictive inbox placement tests that you've performed.</p>
-    pub fn set_deliverability_test_reports(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeliverabilityTestReport>>,
-    ) -> Self {
+    pub fn set_deliverability_test_reports(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeliverabilityTestReport>>) -> Self {
         self.deliverability_test_reports = input;
         self
     }
@@ -97,17 +94,15 @@ impl ListDeliverabilityTestReportsOutputBuilder {
         super::super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsOutput,
         ::aws_smithy_types::error::operation::BuildError,
     > {
-        ::std::result::Result::Ok(
-            super::super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsOutput {
-                deliverability_test_reports: self.deliverability_test_reports.ok_or_else(|| {
-                    ::aws_smithy_types::error::operation::BuildError::missing_field(
-                        "deliverability_test_reports",
-                        "deliverability_test_reports was not specified but it is required when building ListDeliverabilityTestReportsOutput",
-                    )
-                })?,
-                next_token: self.next_token,
-                _request_id: self._request_id,
-            },
-        )
+        ::std::result::Result::Ok(super::super::super::operation::list_deliverability_test_reports::ListDeliverabilityTestReportsOutput {
+            deliverability_test_reports: self.deliverability_test_reports.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "deliverability_test_reports",
+                    "deliverability_test_reports was not specified but it is required when building ListDeliverabilityTestReportsOutput",
+                )
+            })?,
+            next_token: self.next_token,
+            _request_id: self._request_id,
+        })
     }
 }

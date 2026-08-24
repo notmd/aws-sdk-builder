@@ -55,10 +55,7 @@ impl DeleteMessageBatchOutputBuilder {
         self
     }
     /// <p>A list of <code> <code>DeleteMessageBatchResultEntry</code> </code> items.</p>
-    pub fn set_successful(
-        mut self,
-        input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMessageBatchResultEntry>>,
-    ) -> Self {
+    pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMessageBatchResultEntry>>) -> Self {
         self.successful = input;
         self
     }
@@ -101,10 +98,8 @@ impl DeleteMessageBatchOutputBuilder {
     /// - [`failed`](crate::operation::delete_message_batch::builders::DeleteMessageBatchOutputBuilder::failed)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::delete_message_batch::DeleteMessageBatchOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::delete_message_batch::DeleteMessageBatchOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::delete_message_batch::DeleteMessageBatchOutput {
             successful: self.successful.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

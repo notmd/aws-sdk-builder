@@ -15,10 +15,7 @@ pub fn ser_kafka_schema_registry_config(
             {
                 #[allow(unused_mut)]
                 let mut object_6 = array_4.value().start_object();
-                super::super::protocol_serde::shape_kafka_schema_registry_access_config::ser_kafka_schema_registry_access_config(
-                    &mut object_6,
-                    item_5,
-                )?;
+                super::super::protocol_serde::shape_kafka_schema_registry_access_config::ser_kafka_schema_registry_access_config(&mut object_6, item_5)?;
                 object_6.finish();
             }
         }
@@ -60,38 +57,37 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                        "SchemaRegistryURI" => {
-                            builder = builder.set_schema_registry_uri(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
-                                    .transpose()?,
-                            );
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
+                        match key.to_unescaped()?.as_ref() {
+                            "SchemaRegistryURI" => {
+                                builder = builder.set_schema_registry_uri(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                        .transpose()?,
+                                );
+                            }
+                            "EventRecordFormat" => {
+                                builder = builder.set_event_record_format(
+                                    ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                        .map(|s| s.to_unescaped().map(|u| super::super::types::SchemaRegistryEventRecordFormat::from(u.as_ref())))
+                                        .transpose()?,
+                                );
+                            }
+                            "AccessConfigs" => {
+                                builder = builder.set_access_configs(super::super::protocol_serde::shape_kafka_schema_registry_access_config_list::de_kafka_schema_registry_access_config_list(tokens, _value, depth + 1)?);
+                            }
+                            "SchemaValidationConfigs" => {
+                                builder = builder.set_schema_validation_configs(
+                                    super::super::protocol_serde::shape_kafka_schema_validation_config_list::de_kafka_schema_validation_config_list(
+                                        tokens,
+                                        _value,
+                                        depth + 1,
+                                    )?,
+                                );
+                            }
+                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                         }
-                        "EventRecordFormat" => {
-                            builder = builder.set_event_record_format(
-                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
-                                    .map(|s| {
-                                        s.to_unescaped()
-                                            .map(|u| super::super::types::SchemaRegistryEventRecordFormat::from(u.as_ref()))
-                                    })
-                                    .transpose()?,
-                            );
-                        }
-                        "AccessConfigs" => {
-                            builder = builder.set_access_configs(super::super::protocol_serde::shape_kafka_schema_registry_access_config_list::de_kafka_schema_registry_access_config_list(tokens, _value, depth + 1)?);
-                        }
-                        "SchemaValidationConfigs" => {
-                            builder = builder.set_schema_validation_configs(
-                                super::super::protocol_serde::shape_kafka_schema_validation_config_list::de_kafka_schema_validation_config_list(
-                                    tokens,
-                                    _value,
-                                    depth + 1,
-                                )?,
-                            );
-                        }
-                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-                    },
+                    }
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"

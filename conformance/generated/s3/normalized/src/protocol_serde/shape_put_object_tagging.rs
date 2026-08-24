@@ -4,10 +4,7 @@ pub fn de_put_object_tagging_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::put_object_tagging::PutObjectTaggingOutput,
-    super::super::operation::put_object_tagging::PutObjectTaggingError,
-> {
+) -> std::result::Result<super::super::operation::put_object_tagging::PutObjectTaggingOutput, super::super::operation::put_object_tagging::PutObjectTaggingError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::put_object_tagging::PutObjectTaggingError::unhandled)?;
@@ -22,18 +19,13 @@ pub fn de_put_object_tagging_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::put_object_tagging::PutObjectTaggingOutput,
-    super::super::operation::put_object_tagging::PutObjectTaggingError,
-> {
+) -> std::result::Result<super::super::operation::put_object_tagging::PutObjectTaggingOutput, super::super::operation::put_object_tagging::PutObjectTaggingError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::put_object_tagging::builders::PutObjectTaggingOutputBuilder::default();
         output = output.set_version_id(
             super::super::protocol_serde::shape_put_object_tagging_output::de_version_id_header(_response_headers).map_err(|_| {
-                super::super::operation::put_object_tagging::PutObjectTaggingError::unhandled(
-                    "Failed to parse VersionId from header `x-amz-version-id",
-                )
+                super::super::operation::put_object_tagging::PutObjectTaggingError::unhandled("Failed to parse VersionId from header `x-amz-version-id")
             })?,
         );
         output._set_extended_request_id(super::super::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));

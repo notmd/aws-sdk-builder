@@ -26,11 +26,9 @@ pub fn de_create_deliverability_test_report_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::AccountSuspendedExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_account_suspended_exception::de_account_suspended_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_account_suspended_exception::de_account_suspended_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -40,23 +38,21 @@ pub fn de_create_deliverability_test_report_http_error(
                 tmp
             })
         }
-        "BadRequestException" => {
-            super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::BadRequestException({
+        "BadRequestException" => super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::BadRequestException({
+            #[allow(unused_mut)]
+            let mut tmp = {
                 #[allow(unused_mut)]
-                let mut tmp = {
-                    #[allow(unused_mut)]
-                    let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
-                    let output = output.meta(generic);
-                    output.build()
-                };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
-                tmp
-            })
-        }
+                let mut output = super::super::types::error::builders::BadRequestExceptionBuilder::default();
+                output = super::super::protocol_serde::shape_bad_request_exception::de_bad_request_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
+                let output = output.meta(generic);
+                output.build()
+            };
+            if tmp.message.is_none() {
+                tmp.message = _error_message;
+            }
+            tmp
+        }),
         "ConcurrentModificationException" => {
             super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::ConcurrentModificationException({
                 #[allow(unused_mut)]
@@ -83,9 +79,8 @@ pub fn de_create_deliverability_test_report_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::LimitExceededExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
+                    output = super::super::protocol_serde::shape_limit_exceeded_exception::de_limit_exceeded_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -101,7 +96,12 @@ pub fn de_create_deliverability_test_report_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::MailFromDomainNotVerifiedExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_mail_from_domain_not_verified_exception::de_mail_from_domain_not_verified_exception_json_err(_response_body, output).map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_mail_from_domain_not_verified_exception::de_mail_from_domain_not_verified_exception_json_err(
+                            _response_body,
+                            output,
+                        )
+                        .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -147,9 +147,8 @@ pub fn de_create_deliverability_test_report_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::SendingPausedExceptionBuilder::default();
-                    output =
-                        super::super::protocol_serde::shape_sending_paused_exception::de_sending_paused_exception_json_err(_response_body, output)
-                            .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
+                    output = super::super::protocol_serde::shape_sending_paused_exception::de_sending_paused_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -165,11 +164,9 @@ pub fn de_create_deliverability_test_report_http_error(
                 let mut tmp = {
                     #[allow(unused_mut)]
                     let mut output = super::super::types::error::builders::TooManyRequestsExceptionBuilder::default();
-                    output = super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(
-                        _response_body,
-                        output,
-                    )
-                    .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
+                    output =
+                        super::super::protocol_serde::shape_too_many_requests_exception::de_too_many_requests_exception_json_err(_response_body, output)
+                            .map_err(super::super::operation::create_deliverability_test_report::CreateDeliverabilityTestReportError::unhandled)?;
                     let output = output.meta(generic);
                     output.build()
                 };
@@ -209,10 +206,7 @@ pub fn ser_create_deliverability_test_report_input(
 ) -> ::std::result::Result<::aws_smithy_types::body::SdkBody, ::aws_smithy_types::error::operation::SerializationError> {
     let mut out = String::new();
     let mut object = ::aws_smithy_json::serialize::JsonObjectWriter::new(&mut out);
-    super::super::protocol_serde::shape_create_deliverability_test_report_input::ser_create_deliverability_test_report_input_input(
-        &mut object,
-        input,
-    )?;
+    super::super::protocol_serde::shape_create_deliverability_test_report_input::ser_create_deliverability_test_report_input_input(&mut object, input)?;
     object.finish();
     Ok(::aws_smithy_types::body::SdkBody::from(out))
 }

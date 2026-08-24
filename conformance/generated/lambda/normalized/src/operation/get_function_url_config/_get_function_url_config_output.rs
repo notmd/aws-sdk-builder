@@ -230,10 +230,8 @@ impl GetFunctionUrlConfigOutputBuilder {
     /// - [`last_modified_time`](crate::operation::get_function_url_config::builders::GetFunctionUrlConfigOutputBuilder::last_modified_time)
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::get_function_url_config::GetFunctionUrlConfigOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::get_function_url_config::GetFunctionUrlConfigOutput, ::aws_smithy_types::error::operation::BuildError>
+    {
         ::std::result::Result::Ok(super::super::super::operation::get_function_url_config::GetFunctionUrlConfigOutput {
             function_url: self.function_url.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

@@ -147,11 +147,7 @@ pub(crate) fn de_list_dead_letter_source_queues(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "queueUrls" => {
-                    builder = builder.set_queue_urls(super::super::protocol_serde::shape_queue_url_list::de_queue_url_list(
-                        tokens,
-                        _value,
-                        depth + 1,
-                    )?);
+                    builder = builder.set_queue_urls(super::super::protocol_serde::shape_queue_url_list::de_queue_url_list(tokens, _value, depth + 1)?);
                 }
                 "NextToken" => {
                     builder = builder.set_next_token(

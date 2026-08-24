@@ -55,9 +55,7 @@ impl ::std::convert::From<&str> for PackageGroupAllowedRepositoryUpdateType {
         match s {
             "ADDED" => PackageGroupAllowedRepositoryUpdateType::Added,
             "REMOVED" => PackageGroupAllowedRepositoryUpdateType::Removed,
-            other => {
-                PackageGroupAllowedRepositoryUpdateType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned()))
-            }
+            other => PackageGroupAllowedRepositoryUpdateType::Unknown(super::super::primitives::sealed_enum_unknown::UnknownVariantValue(other.to_owned())),
         }
     }
 }

@@ -13,9 +13,7 @@ impl ::aws_types::request_id::RequestId for CreateConfigurationSetEventDestinati
 }
 impl CreateConfigurationSetEventDestinationOutput {
     /// Creates a new builder-style object to manufacture [`CreateConfigurationSetEventDestinationOutput`](crate::operation::create_configuration_set_event_destination::CreateConfigurationSetEventDestinationOutput).
-    pub fn builder(
-    ) -> super::super::super::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationOutputBuilder
-    {
+    pub fn builder() -> super::super::super::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationOutputBuilder {
         super::super::super::operation::create_configuration_set_event_destination::builders::CreateConfigurationSetEventDestinationOutputBuilder::default()
     }
 }

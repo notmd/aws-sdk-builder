@@ -4,10 +4,7 @@ pub fn de_set_user_settings_http_error(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::set_user_settings::SetUserSettingsOutput,
-    super::super::operation::set_user_settings::SetUserSettingsError,
-> {
+) -> std::result::Result<super::super::operation::set_user_settings::SetUserSettingsOutput, super::super::operation::set_user_settings::SetUserSettingsError> {
     #[allow(unused_mut)]
     let mut generic_builder = super::super::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)
         .map_err(super::super::operation::set_user_settings::SetUserSettingsError::unhandled)?;
@@ -55,9 +52,8 @@ pub fn de_set_user_settings_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::InvalidParameterExceptionBuilder::default();
-                output =
-                    super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
-                        .map_err(super::super::operation::set_user_settings::SetUserSettingsError::unhandled)?;
+                output = super::super::protocol_serde::shape_invalid_parameter_exception::de_invalid_parameter_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::set_user_settings::SetUserSettingsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -86,11 +82,9 @@ pub fn de_set_user_settings_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::OperationNotEnabledExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::set_user_settings::SetUserSettingsError::unhandled)?;
+                output =
+                    super::super::protocol_serde::shape_operation_not_enabled_exception::de_operation_not_enabled_exception_json_err(_response_body, output)
+                        .map_err(super::super::operation::set_user_settings::SetUserSettingsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -122,11 +116,8 @@ pub fn de_set_user_settings_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::set_user_settings::SetUserSettingsError::unhandled)?;
+                output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::set_user_settings::SetUserSettingsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -140,11 +131,8 @@ pub fn de_set_user_settings_http_error(
             let mut tmp = {
                 #[allow(unused_mut)]
                 let mut output = super::super::types::error::builders::UserNotConfirmedExceptionBuilder::default();
-                output = super::super::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(
-                    _response_body,
-                    output,
-                )
-                .map_err(super::super::operation::set_user_settings::SetUserSettingsError::unhandled)?;
+                output = super::super::protocol_serde::shape_user_not_confirmed_exception::de_user_not_confirmed_exception_json_err(_response_body, output)
+                    .map_err(super::super::operation::set_user_settings::SetUserSettingsError::unhandled)?;
                 let output = output.meta(generic);
                 output.build()
             };
@@ -177,10 +165,7 @@ pub fn de_set_user_settings_http_response(
     _response_status: u16,
     _response_headers: &::aws_smithy_runtime_api::http::Headers,
     _response_body: &[u8],
-) -> std::result::Result<
-    super::super::operation::set_user_settings::SetUserSettingsOutput,
-    super::super::operation::set_user_settings::SetUserSettingsError,
-> {
+) -> std::result::Result<super::super::operation::set_user_settings::SetUserSettingsOutput, super::super::operation::set_user_settings::SetUserSettingsError> {
     Ok({
         #[allow(unused_mut)]
         let mut output = super::super::operation::set_user_settings::builders::SetUserSettingsOutputBuilder::default();

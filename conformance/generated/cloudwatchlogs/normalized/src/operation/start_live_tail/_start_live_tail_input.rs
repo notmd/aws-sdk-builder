@@ -190,8 +190,7 @@ impl StartLiveTailInputBuilder {
     /// Consumes the builder and constructs a [`StartLiveTailInput`](crate::operation::start_live_tail::StartLiveTailInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::start_live_tail::StartLiveTailInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::start_live_tail::StartLiveTailInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::start_live_tail::StartLiveTailInput {
             log_group_identifiers: self.log_group_identifiers,
             log_stream_names: self.log_stream_names,

@@ -170,33 +170,26 @@ where
                             builder = builder.set_add_keys(super::super::protocol_serde::shape_add_keys::de_add_keys(tokens, _value, depth + 1)?);
                         }
                         "copyValue" => {
-                            builder =
-                                builder.set_copy_value(super::super::protocol_serde::shape_copy_value::de_copy_value(tokens, _value, depth + 1)?);
+                            builder = builder.set_copy_value(super::super::protocol_serde::shape_copy_value::de_copy_value(tokens, _value, depth + 1)?);
                         }
                         "csv" => {
                             builder = builder.set_csv(super::super::protocol_serde::shape_csv::de_csv(tokens, _value, depth + 1)?);
                         }
                         "dateTimeConverter" => {
-                            builder = builder.set_date_time_converter(
-                                super::super::protocol_serde::shape_date_time_converter::de_date_time_converter(tokens, _value, depth + 1)?,
-                            );
-                        }
-                        "deleteKeys" => {
-                            builder = builder.set_delete_keys(super::super::protocol_serde::shape_delete_keys::de_delete_keys(
+                            builder = builder.set_date_time_converter(super::super::protocol_serde::shape_date_time_converter::de_date_time_converter(
                                 tokens,
                                 _value,
                                 depth + 1,
                             )?);
+                        }
+                        "deleteKeys" => {
+                            builder = builder.set_delete_keys(super::super::protocol_serde::shape_delete_keys::de_delete_keys(tokens, _value, depth + 1)?);
                         }
                         "grok" => {
                             builder = builder.set_grok(super::super::protocol_serde::shape_grok::de_grok(tokens, _value, depth + 1)?);
                         }
                         "listToMap" => {
-                            builder = builder.set_list_to_map(super::super::protocol_serde::shape_list_to_map::de_list_to_map(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_list_to_map(super::super::protocol_serde::shape_list_to_map::de_list_to_map(tokens, _value, depth + 1)?);
                         }
                         "lowerCaseString" => {
                             builder = builder.set_lower_case_string(super::super::protocol_serde::shape_lower_case_string::de_lower_case_string(
@@ -216,8 +209,7 @@ where
                             )?);
                         }
                         "parseJSON" => {
-                            builder =
-                                builder.set_parse_json(super::super::protocol_serde::shape_parse_json::de_parse_json(tokens, _value, depth + 1)?);
+                            builder = builder.set_parse_json(super::super::protocol_serde::shape_parse_json::de_parse_json(tokens, _value, depth + 1)?);
                         }
                         "parseKeyValue" => {
                             builder = builder.set_parse_key_value(super::super::protocol_serde::shape_parse_key_value::de_parse_key_value(
@@ -227,18 +219,12 @@ where
                             )?);
                         }
                         "parseRoute53" => {
-                            builder = builder.set_parse_route53(super::super::protocol_serde::shape_parse_route53::de_parse_route53(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_parse_route53(super::super::protocol_serde::shape_parse_route53::de_parse_route53(tokens, _value, depth + 1)?);
                         }
                         "parseToOCSF" => {
-                            builder = builder.set_parse_to_ocsf(super::super::protocol_serde::shape_parse_to_ocsf::de_parse_to_ocsf(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_parse_to_ocsf(super::super::protocol_serde::shape_parse_to_ocsf::de_parse_to_ocsf(tokens, _value, depth + 1)?);
                         }
                         "parsePostgres" => {
                             builder = builder.set_parse_postgres(super::super::protocol_serde::shape_parse_postgres::de_parse_postgres(
@@ -254,18 +240,11 @@ where
                             builder = builder.set_parse_waf(super::super::protocol_serde::shape_parse_waf::de_parse_waf(tokens, _value, depth + 1)?);
                         }
                         "renameKeys" => {
-                            builder = builder.set_rename_keys(super::super::protocol_serde::shape_rename_keys::de_rename_keys(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_rename_keys(super::super::protocol_serde::shape_rename_keys::de_rename_keys(tokens, _value, depth + 1)?);
                         }
                         "splitString" => {
-                            builder = builder.set_split_string(super::super::protocol_serde::shape_split_string::de_split_string(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder =
+                                builder.set_split_string(super::super::protocol_serde::shape_split_string::de_split_string(tokens, _value, depth + 1)?);
                         }
                         "substituteString" => {
                             builder = builder.set_substitute_string(super::super::protocol_serde::shape_substitute_string::de_substitute_string(
@@ -275,11 +254,7 @@ where
                             )?);
                         }
                         "trimString" => {
-                            builder = builder.set_trim_string(super::super::protocol_serde::shape_trim_string::de_trim_string(
-                                tokens,
-                                _value,
-                                depth + 1,
-                            )?);
+                            builder = builder.set_trim_string(super::super::protocol_serde::shape_trim_string::de_trim_string(tokens, _value, depth + 1)?);
                         }
                         "typeConverter" => {
                             builder = builder.set_type_converter(super::super::protocol_serde::shape_type_converter::de_type_converter(

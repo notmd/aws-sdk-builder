@@ -51,7 +51,7 @@ impl
             super::super::super::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderOutput,
             super::super::super::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderError,
         >,
-    >{
+    > {
         ::std::boxed::Box::pin(async move { self.config_override(config_override).send().await })
     }
 }
@@ -65,7 +65,10 @@ impl PutThirdPartyServiceLinkedConfigurationRecorderFluentBuilder {
         }
     }
     /// Access the PutThirdPartyServiceLinkedConfigurationRecorder as a reference.
-    pub fn as_input(&self) -> &super::super::super::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderInputBuilder{
+    pub fn as_input(
+        &self,
+    ) -> &super::super::super::operation::put_third_party_service_linked_configuration_recorder::builders::PutThirdPartyServiceLinkedConfigurationRecorderInputBuilder
+    {
         &self.inner
     }
     /// Sends the request and returns the response.
@@ -84,7 +87,7 @@ impl PutThirdPartyServiceLinkedConfigurationRecorderFluentBuilder {
             super::super::super::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
-    >{
+    > {
         let input = self
             .inner
             .build()
@@ -94,7 +97,11 @@ impl PutThirdPartyServiceLinkedConfigurationRecorderFluentBuilder {
                             &self.handle.conf,
                             self.config_override,
                         );
-        super::super::super::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorder::orchestrate(&runtime_plugins, input).await
+        super::super::super::operation::put_third_party_service_linked_configuration_recorder::PutThirdPartyServiceLinkedConfigurationRecorder::orchestrate(
+            &runtime_plugins,
+            input,
+        )
+        .await
     }
 
     /// Consumes this builder, creating a customizable operation that can be modified before being sent.

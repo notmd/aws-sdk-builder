@@ -150,10 +150,7 @@ impl EnableMfaDeviceInputBuilder {
     /// Consumes the builder and constructs a [`EnableMfaDeviceInput`](crate::operation::enable_mfa_device::EnableMfaDeviceInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::enable_mfa_device::EnableMfaDeviceInput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
+    ) -> ::std::result::Result<super::super::super::operation::enable_mfa_device::EnableMfaDeviceInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::enable_mfa_device::EnableMfaDeviceInput {
             user_name: self.user_name,
             serial_number: self.serial_number,

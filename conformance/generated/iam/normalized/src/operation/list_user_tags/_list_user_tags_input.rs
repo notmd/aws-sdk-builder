@@ -96,8 +96,7 @@ impl ListUserTagsInputBuilder {
     /// Consumes the builder and constructs a [`ListUserTagsInput`](crate::operation::list_user_tags::ListUserTagsInput).
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::super::operation::list_user_tags::ListUserTagsInput, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::super::operation::list_user_tags::ListUserTagsInput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::super::operation::list_user_tags::ListUserTagsInput {
             user_name: self.user_name,
             marker: self.marker,

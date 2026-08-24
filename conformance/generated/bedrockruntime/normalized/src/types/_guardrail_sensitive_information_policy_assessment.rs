@@ -82,8 +82,7 @@ impl GuardrailSensitiveInformationPolicyAssessmentBuilder {
     /// - [`regexes`](crate::types::builders::GuardrailSensitiveInformationPolicyAssessmentBuilder::regexes)
     pub fn build(
         self,
-    ) -> ::std::result::Result<super::super::types::GuardrailSensitiveInformationPolicyAssessment, ::aws_smithy_types::error::operation::BuildError>
-    {
+    ) -> ::std::result::Result<super::super::types::GuardrailSensitiveInformationPolicyAssessment, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(super::super::types::GuardrailSensitiveInformationPolicyAssessment {
             pii_entities: self.pii_entities.ok_or_else(|| {
                 ::aws_smithy_types::error::operation::BuildError::missing_field(

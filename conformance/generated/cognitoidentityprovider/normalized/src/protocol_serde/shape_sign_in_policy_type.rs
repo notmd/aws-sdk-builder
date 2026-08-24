@@ -36,14 +36,18 @@ where
             loop {
                 match tokens.next().transpose()? {
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
-                        match key.to_unescaped()?.as_ref() {
-                            "AllowedFirstAuthFactors" => {
-                                builder = builder.set_allowed_first_auth_factors(super::super::protocol_serde::shape_allowed_first_auth_factors_list_type::de_allowed_first_auth_factors_list_type(tokens, _value, depth + 1)?);
-                            }
-                            _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
+                        "AllowedFirstAuthFactors" => {
+                            builder = builder.set_allowed_first_auth_factors(
+                                super::super::protocol_serde::shape_allowed_first_auth_factors_list_type::de_allowed_first_auth_factors_list_type(
+                                    tokens,
+                                    _value,
+                                    depth + 1,
+                                )?,
+                            );
                         }
-                    }
+                        _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
+                    },
                     other => {
                         return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(format!(
                             "expected object key or end object, found: {other:?}"
