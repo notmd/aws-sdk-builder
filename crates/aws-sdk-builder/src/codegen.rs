@@ -10378,6 +10378,7 @@ fn render_json_structure_serializer_body(
             state,
             0,
             force_optional || protocol_member_is_optional(selected, member),
+            !force_optional && !has_trait(shape, "smithy.api#input"),
             serializer_roots,
         );
     }
@@ -10395,6 +10396,7 @@ fn render_json_serialize_member(
     state: &mut JsonRenderState,
     indent: usize,
     optional: bool,
+    omit_primitive_default: bool,
     serializer_roots: &mut BTreeMap<String, String>,
 ) {
     let Some(target) = member_target(member) else {
@@ -10411,6 +10413,22 @@ fn render_json_serialize_member(
             target,
             writer,
             &variable,
+            state,
+            indent + 4,
+            serializer_roots,
+        );
+        writeln!(output, "{prefix}}}").unwrap();
+    } else if omit_primitive_default
+        && let Some(condition) = json_primitive_default_condition(selected, member, target, expression)
+    {
+        writeln!(output, "{prefix}if {condition} {{").unwrap();
+        render_json_serialize_value(
+            output,
+            selected,
+            member_name,
+            target,
+            writer,
+            expression,
             state,
             indent + 4,
             serializer_roots,
@@ -10513,6 +10531,7 @@ fn render_json_serialize_value(
                     state,
                     indent + 4,
                     sparse,
+                    false,
                     serializer_roots,
                 );
             }
@@ -10617,6 +10636,7 @@ fn render_json_serialize_map_value(
             value,
             state,
             indent,
+            false,
             false,
             serializer_roots,
         );
