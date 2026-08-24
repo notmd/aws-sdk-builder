@@ -138,17 +138,17 @@ impl PublishLayerVersionFluentBuilder {
         self.inner.get_description()
     }
     /// <p>The function layer archive.</p>
-    pub fn content(mut self, input: super::super::super::operation::publish_layer_version::Input) -> Self {
+    pub fn content(mut self, input: super::super::super::types::LayerVersionContentInput) -> Self {
         self.inner = self.inner.content(input);
         self
     }
     /// <p>The function layer archive.</p>
-    pub fn set_content(mut self, input: ::std::option::Option<super::super::super::operation::publish_layer_version::Input>) -> Self {
+    pub fn set_content(mut self, input: ::std::option::Option<super::super::super::types::LayerVersionContentInput>) -> Self {
         self.inner = self.inner.set_content(input);
         self
     }
     /// <p>The function layer archive.</p>
-    pub fn get_content(&self) -> &::std::option::Option<super::super::super::operation::publish_layer_version::Input> {
+    pub fn get_content(&self) -> &::std::option::Option<super::super::super::types::LayerVersionContentInput> {
         self.inner.get_content()
     }
     ///

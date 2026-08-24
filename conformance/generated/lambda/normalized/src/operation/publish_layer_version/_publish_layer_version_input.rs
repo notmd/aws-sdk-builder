@@ -8,7 +8,7 @@ pub struct PublishLayerVersionInput {
     /// <p>The description of the version.</p>
     pub description: ::std::option::Option<::std::string::String>,
     /// <p>The function layer archive.</p>
-    pub content: ::std::option::Option<super::super::super::operation::publish_layer_version::Input>,
+    pub content: ::std::option::Option<super::super::super::types::LayerVersionContentInput>,
     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
     pub compatible_architectures: ::std::option::Option<::std::vec::Vec<super::super::super::types::Architecture>>,
     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function runtimes</a>. Used for filtering with <code>ListLayers</code> and <code>ListLayerVersions</code>.</p>
@@ -35,7 +35,7 @@ impl PublishLayerVersionInput {
         self.description.as_deref()
     }
     /// <p>The function layer archive.</p>
-    pub fn content(&self) -> ::std::option::Option<&super::super::super::operation::publish_layer_version::Input> {
+    pub fn content(&self) -> ::std::option::Option<&super::super::super::types::LayerVersionContentInput> {
         self.content.as_ref()
     }
     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
@@ -77,7 +77,7 @@ impl PublishLayerVersionInput {
 pub struct PublishLayerVersionInputBuilder {
     pub(crate) layer_name: ::std::option::Option<::std::string::String>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
-    pub(crate) content: ::std::option::Option<super::super::super::operation::publish_layer_version::Input>,
+    pub(crate) content: ::std::option::Option<super::super::super::types::LayerVersionContentInput>,
     pub(crate) compatible_architectures: ::std::option::Option<::std::vec::Vec<super::super::super::types::Architecture>>,
     pub(crate) compatible_runtimes: ::std::option::Option<::std::vec::Vec<super::super::super::types::Runtime>>,
     pub(crate) license_info: ::std::option::Option<::std::string::String>,
@@ -114,17 +114,17 @@ impl PublishLayerVersionInputBuilder {
     }
     /// <p>The function layer archive.</p>
     /// This field is required.
-    pub fn content(mut self, input: super::super::super::operation::publish_layer_version::Input) -> Self {
+    pub fn content(mut self, input: super::super::super::types::LayerVersionContentInput) -> Self {
         self.content = ::std::option::Option::Some(input);
         self
     }
     /// <p>The function layer archive.</p>
-    pub fn set_content(mut self, input: ::std::option::Option<super::super::super::operation::publish_layer_version::Input>) -> Self {
+    pub fn set_content(mut self, input: ::std::option::Option<super::super::super::types::LayerVersionContentInput>) -> Self {
         self.content = input;
         self
     }
     /// <p>The function layer archive.</p>
-    pub fn get_content(&self) -> &::std::option::Option<super::super::super::operation::publish_layer_version::Input> {
+    pub fn get_content(&self) -> &::std::option::Option<super::super::super::types::LayerVersionContentInput> {
         &self.content
     }
     /// Appends an item to `compatible_architectures`.

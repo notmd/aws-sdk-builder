@@ -16049,10 +16049,10 @@ fn type_expr(selected: &SelectedModel, target: &str, context: Context) -> String
         Context::Operation { module, .. } => {
             if name == "StreamingBlob" {
                 "::aws_smithy_types::byte_stream::ByteStream".to_owned()
-            } else if name.ends_with("Input") {
-                format!("crate::operation::{module}::Input")
-            } else if name.ends_with("Output") {
-                format!("crate::operation::{module}::Output")
+            } else if let Some(operation_type) =
+                synthetic_operation_type(selected.model.shapes.get(target), &module)
+            {
+                operation_type
             } else {
                 format!("crate::types::{known}")
             }
@@ -16060,15 +16060,27 @@ fn type_expr(selected: &SelectedModel, target: &str, context: Context) -> String
         Context::Builder { module, .. } => {
             if name == "StreamingBlob" {
                 "::aws_smithy_types::byte_stream::ByteStream".to_owned()
-            } else if name.ends_with("Input") {
-                format!("crate::operation::{module}::Input")
-            } else if name.ends_with("Output") {
-                format!("crate::operation::{module}::Output")
+            } else if let Some(operation_type) =
+                synthetic_operation_type(selected.model.shapes.get(target), &module)
+            {
+                operation_type
             } else {
                 format!("crate::types::{known}")
             }
         }
     }
+}
+
+fn synthetic_operation_type(shape: Option<&Value>, module: &str) -> Option<String> {
+    let traits = shape?.get("traits").and_then(Value::as_object)?;
+    let suffix = if traits.contains_key("smithy.api.internal#syntheticInput") {
+        "Input"
+    } else if traits.contains_key("smithy.api.internal#syntheticOutput") {
+        "Output"
+    } else {
+        return None;
+    };
+    Some(format!("crate::operation::{module}::{suffix}"))
 }
 
 fn primitive_type(name: &str) -> String {
@@ -16190,6 +16202,30 @@ mod tests {
             "AssumeRoleWithSAML"
         );
         assert_eq!(operation_error_type_name("CreateThing"), "CreateThing");
+    }
+
+    #[test]
+    fn operation_context_only_maps_synthetic_io_shapes() {
+        let synthetic_input = serde_json::json!({
+            "traits": {"smithy.api.internal#syntheticInput": {}}
+        });
+        let synthetic_output = serde_json::json!({
+            "traits": {"smithy.api.internal#syntheticOutput": {}}
+        });
+        let modeled_input = serde_json::json!({"type": "structure"});
+
+        assert_eq!(
+            synthetic_operation_type(Some(&synthetic_input), "get_layer_version"),
+            Some("crate::operation::get_layer_version::Input".to_owned())
+        );
+        assert_eq!(
+            synthetic_operation_type(Some(&synthetic_output), "get_layer_version"),
+            Some("crate::operation::get_layer_version::Output".to_owned())
+        );
+        assert_eq!(
+            synthetic_operation_type(Some(&modeled_input), "get_layer_version"),
+            None
+        );
     }
 
     #[test]

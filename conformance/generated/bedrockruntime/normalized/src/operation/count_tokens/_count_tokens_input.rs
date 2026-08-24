@@ -13,7 +13,7 @@ pub struct CountTokensInput {
     /// <p>For <code>Converse</code> requests, provide the messages and system content in the <code>converse</code> field</p></li>
     /// </ul>
     /// <p>The input format must be compatible with the model specified in the <code>modelId</code> parameter.</p>
-    pub input: ::std::option::Option<super::super::super::operation::count_tokens::Input>,
+    pub input: ::std::option::Option<super::super::super::types::CountTokensInput>,
 }
 impl CountTokensInput {
     /// <p>The unique identifier or ARN of the foundation model to use for token counting. Each model processes tokens differently, so the token count is specific to the model you specify.</p>
@@ -28,7 +28,7 @@ impl CountTokensInput {
     /// <p>For <code>Converse</code> requests, provide the messages and system content in the <code>converse</code> field</p></li>
     /// </ul>
     /// <p>The input format must be compatible with the model specified in the <code>modelId</code> parameter.</p>
-    pub fn input(&self) -> ::std::option::Option<&super::super::super::operation::count_tokens::Input> {
+    pub fn input(&self) -> ::std::option::Option<&super::super::super::types::CountTokensInput> {
         self.input.as_ref()
     }
 }
@@ -44,7 +44,7 @@ impl CountTokensInput {
 #[non_exhaustive]
 pub struct CountTokensInputBuilder {
     pub(crate) model_id: ::std::option::Option<::std::string::String>,
-    pub(crate) input: ::std::option::Option<super::super::super::operation::count_tokens::Input>,
+    pub(crate) input: ::std::option::Option<super::super::super::types::CountTokensInput>,
 }
 impl CountTokensInputBuilder {
     /// <p>The unique identifier or ARN of the foundation model to use for token counting. Each model processes tokens differently, so the token count is specific to the model you specify.</p>
@@ -71,7 +71,7 @@ impl CountTokensInputBuilder {
     /// </ul>
     /// <p>The input format must be compatible with the model specified in the <code>modelId</code> parameter.</p>
     /// This field is required.
-    pub fn input(mut self, input: super::super::super::operation::count_tokens::Input) -> Self {
+    pub fn input(mut self, input: super::super::super::types::CountTokensInput) -> Self {
         self.input = ::std::option::Option::Some(input);
         self
     }
@@ -83,7 +83,7 @@ impl CountTokensInputBuilder {
     /// <p>For <code>Converse</code> requests, provide the messages and system content in the <code>converse</code> field</p></li>
     /// </ul>
     /// <p>The input format must be compatible with the model specified in the <code>modelId</code> parameter.</p>
-    pub fn set_input(mut self, input: ::std::option::Option<super::super::super::operation::count_tokens::Input>) -> Self {
+    pub fn set_input(mut self, input: ::std::option::Option<super::super::super::types::CountTokensInput>) -> Self {
         self.input = input;
         self
     }
@@ -95,7 +95,7 @@ impl CountTokensInputBuilder {
     /// <p>For <code>Converse</code> requests, provide the messages and system content in the <code>converse</code> field</p></li>
     /// </ul>
     /// <p>The input format must be compatible with the model specified in the <code>modelId</code> parameter.</p>
-    pub fn get_input(&self) -> &::std::option::Option<super::super::super::operation::count_tokens::Input> {
+    pub fn get_input(&self) -> &::std::option::Option<super::super::super::types::CountTokensInput> {
         &self.input
     }
     /// Consumes the builder and constructs a [`CountTokensInput`](crate::operation::count_tokens::CountTokensInput).

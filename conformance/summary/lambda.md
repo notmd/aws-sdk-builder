@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1077/1077` files compared · `935` matched · `141` mismatches · `0` missing · `1` extra · `86.82%` match (100.00% means fully matched)
+**Progress:** `1077/1077` files compared · `940` matched · `136` mismatches · `0` missing · `1` extra · `87.28%` match (100.00% means fully matched)
 
 ### `src/client/delete_resource_policy.rs`
 
@@ -325,61 +325,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/operation/get_layer_version/_get_layer_version_output.rs`
-
-```diff
---- reference/src/operation/get_layer_version/_get_layer_version_output.rs
-+++ generated/src/operation/get_layer_version/_get_layer_version_output.rs
-@@ -4,7 +4,7 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct GetLayerVersionOutput {
-     /// <p>Details about the layer version.</p>
--    pub content: ::std::option::Option<super::super::super::types::LayerVersionContentOutput>,
-+    pub content: ::std::option::Option<super::super::super::operation::get_layer_version::Output>,
-     /// <p>The ARN of the layer.</p>
-     pub layer_arn: ::std::option::Option<::std::string::String>,
-     /// <p>The ARN of the layer version.</p>
-@@ -27,7 +27,7 @@
- }
- impl GetLayerVersionOutput {
-     /// <p>Details about the layer version.</p>
--    pub fn content(&self) -> ::std::option::Option<&super::super::super::types::LayerVersionContentOutput> {
-+    pub fn content(&self) -> ::std::option::Option<&super::super::super::operation::get_layer_version::Output> {
-         self.content.as_ref()
-     }
-     /// <p>The ARN of the layer.</p>
-@@ -85,7 +85,7 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
- #[non_exhaustive]
- pub struct GetLayerVersionOutputBuilder {
--    pub(crate) content: ::std::option::Option<super::super::super::types::LayerVersionContentOutput>,
-+    pub(crate) content: ::std::option::Option<super::super::super::operation::get_layer_version::Output>,
-     pub(crate) layer_arn: ::std::option::Option<::std::string::String>,
-     pub(crate) layer_version_arn: ::std::option::Option<::std::string::String>,
-     pub(crate) description: ::std::option::Option<::std::string::String>,
-@@ -98,17 +98,17 @@
- }
- impl GetLayerVersionOutputBuilder {
-     /// <p>Details about the layer version.</p>
--    pub fn content(mut self, input: super::super::super::types::LayerVersionContentOutput) -> Self {
-+    pub fn content(mut self, input: super::super::super::operation::get_layer_version::Output) -> Self {
-         self.content = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>Details about the layer version.</p>
--    pub fn set_content(mut self, input: ::std::option::Option<super::super::super::types::LayerVersionContentOutput>) -> Self {
-+    pub fn set_content(mut self, input: ::std::option::Option<super::super::super::operation::get_layer_version::Output>) -> Self {
-         self.content = input;
-         self
-     }
-     /// <p>Details about the layer version.</p>
--    pub fn get_content(&self) -> &::std::option::Option<super::super::super::types::LayerVersionContentOutput> {
-+    pub fn get_content(&self) -> &::std::option::Option<super::super::super::operation::get_layer_version::Output> {
-         &self.content
-     }
-     /// <p>The ARN of the layer.</p>
-```
-
 ### `src/operation/get_layer_version.rs`
 
 ```diff
@@ -395,61 +340,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  if version_number.is_empty() {
                      return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
                          "version_number",
-```
-
-### `src/operation/get_layer_version_by_arn/_get_layer_version_by_arn_output.rs`
-
-```diff
---- reference/src/operation/get_layer_version_by_arn/_get_layer_version_by_arn_output.rs
-+++ generated/src/operation/get_layer_version_by_arn/_get_layer_version_by_arn_output.rs
-@@ -4,7 +4,7 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct GetLayerVersionByArnOutput {
-     /// <p>Details about the layer version.</p>
--    pub content: ::std::option::Option<super::super::super::types::LayerVersionContentOutput>,
-+    pub content: ::std::option::Option<super::super::super::operation::get_layer_version_by_arn::Output>,
-     /// <p>The ARN of the layer.</p>
-     pub layer_arn: ::std::option::Option<::std::string::String>,
-     /// <p>The ARN of the layer version.</p>
-@@ -27,7 +27,7 @@
- }
- impl GetLayerVersionByArnOutput {
-     /// <p>Details about the layer version.</p>
--    pub fn content(&self) -> ::std::option::Option<&super::super::super::types::LayerVersionContentOutput> {
-+    pub fn content(&self) -> ::std::option::Option<&super::super::super::operation::get_layer_version_by_arn::Output> {
-         self.content.as_ref()
-     }
-     /// <p>The ARN of the layer.</p>
-@@ -85,7 +85,7 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
- #[non_exhaustive]
- pub struct GetLayerVersionByArnOutputBuilder {
--    pub(crate) content: ::std::option::Option<super::super::super::types::LayerVersionContentOutput>,
-+    pub(crate) content: ::std::option::Option<super::super::super::operation::get_layer_version_by_arn::Output>,
-     pub(crate) layer_arn: ::std::option::Option<::std::string::String>,
-     pub(crate) layer_version_arn: ::std::option::Option<::std::string::String>,
-     pub(crate) description: ::std::option::Option<::std::string::String>,
-@@ -98,17 +98,17 @@
- }
- impl GetLayerVersionByArnOutputBuilder {
-     /// <p>Details about the layer version.</p>
--    pub fn content(mut self, input: super::super::super::types::LayerVersionContentOutput) -> Self {
-+    pub fn content(mut self, input: super::super::super::operation::get_layer_version_by_arn::Output) -> Self {
-         self.content = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>Details about the layer version.</p>
--    pub fn set_content(mut self, input: ::std::option::Option<super::super::super::types::LayerVersionContentOutput>) -> Self {
-+    pub fn set_content(mut self, input: ::std::option::Option<super::super::super::operation::get_layer_version_by_arn::Output>) -> Self {
-         self.content = input;
-         self
-     }
-     /// <p>Details about the layer version.</p>
--    pub fn get_content(&self) -> &::std::option::Option<super::super::super::types::LayerVersionContentOutput> {
-+    pub fn get_content(&self) -> &::std::option::Option<super::super::super::operation::get_layer_version_by_arn::Output> {
-         &self.content
-     }
-     /// <p>The ARN of the layer.</p>
 ```
 
 ### `src/operation/get_layer_version_policy/_get_layer_version_policy_input.rs`
@@ -618,144 +508,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                  }
                  ::std::result::Result::Ok(())
-```
-
-### `src/operation/publish_layer_version/_publish_layer_version_input.rs`
-
-```diff
---- reference/src/operation/publish_layer_version/_publish_layer_version_input.rs
-+++ generated/src/operation/publish_layer_version/_publish_layer_version_input.rs
-@@ -8,7 +8,7 @@
-     /// <p>The description of the version.</p>
-     pub description: ::std::option::Option<::std::string::String>,
-     /// <p>The function layer archive.</p>
--    pub content: ::std::option::Option<super::super::super::types::LayerVersionContentInput>,
-+    pub content: ::std::option::Option<super::super::super::operation::publish_layer_version::Input>,
-     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-     pub compatible_architectures: ::std::option::Option<::std::vec::Vec<super::super::super::types::Architecture>>,
-     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function runtimes</a>. Used for filtering with <code>ListLayers</code> and <code>ListLayerVersions</code>.</p>
-@@ -35,7 +35,7 @@
-         self.description.as_deref()
-     }
-     /// <p>The function layer archive.</p>
--    pub fn content(&self) -> ::std::option::Option<&super::super::super::types::LayerVersionContentInput> {
-+    pub fn content(&self) -> ::std::option::Option<&super::super::super::operation::publish_layer_version::Input> {
-         self.content.as_ref()
-     }
-     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-@@ -77,7 +77,7 @@
- pub struct PublishLayerVersionInputBuilder {
-     pub(crate) layer_name: ::std::option::Option<::std::string::String>,
-     pub(crate) description: ::std::option::Option<::std::string::String>,
--    pub(crate) content: ::std::option::Option<super::super::super::types::LayerVersionContentInput>,
-+    pub(crate) content: ::std::option::Option<super::super::super::operation::publish_layer_version::Input>,
-     pub(crate) compatible_architectures: ::std::option::Option<::std::vec::Vec<super::super::super::types::Architecture>>,
-     pub(crate) compatible_runtimes: ::std::option::Option<::std::vec::Vec<super::super::super::types::Runtime>>,
-     pub(crate) license_info: ::std::option::Option<::std::string::String>,
-@@ -114,17 +114,17 @@
-     }
-     /// <p>The function layer archive.</p>
-     /// This field is required.
--    pub fn content(mut self, input: super::super::super::types::LayerVersionContentInput) -> Self {
-+    pub fn content(mut self, input: super::super::super::operation::publish_layer_version::Input) -> Self {
-         self.content = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>The function layer archive.</p>
--    pub fn set_content(mut self, input: ::std::option::Option<super::super::super::types::LayerVersionContentInput>) -> Self {
-+    pub fn set_content(mut self, input: ::std::option::Option<super::super::super::operation::publish_layer_version::Input>) -> Self {
-         self.content = input;
-         self
-     }
-     /// <p>The function layer archive.</p>
--    pub fn get_content(&self) -> &::std::option::Option<super::super::super::types::LayerVersionContentInput> {
-+    pub fn get_content(&self) -> &::std::option::Option<super::super::super::operation::publish_layer_version::Input> {
-         &self.content
-     }
-     /// Appends an item to `compatible_architectures`.
-```
-
-### `src/operation/publish_layer_version/_publish_layer_version_output.rs`
-
-```diff
---- reference/src/operation/publish_layer_version/_publish_layer_version_output.rs
-+++ generated/src/operation/publish_layer_version/_publish_layer_version_output.rs
-@@ -4,7 +4,7 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
- pub struct PublishLayerVersionOutput {
-     /// <p>Details about the layer version.</p>
--    pub content: ::std::option::Option<super::super::super::types::LayerVersionContentOutput>,
-+    pub content: ::std::option::Option<super::super::super::operation::publish_layer_version::Output>,
-     /// <p>The ARN of the layer.</p>
-     pub layer_arn: ::std::option::Option<::std::string::String>,
-     /// <p>The ARN of the layer version.</p>
-@@ -27,7 +27,7 @@
- }
- impl PublishLayerVersionOutput {
-     /// <p>Details about the layer version.</p>
--    pub fn content(&self) -> ::std::option::Option<&super::super::super::types::LayerVersionContentOutput> {
-+    pub fn content(&self) -> ::std::option::Option<&super::super::super::operation::publish_layer_version::Output> {
-         self.content.as_ref()
-     }
-     /// <p>The ARN of the layer.</p>
-@@ -85,7 +85,7 @@
- #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
- #[non_exhaustive]
- pub struct PublishLayerVersionOutputBuilder {
--    pub(crate) content: ::std::option::Option<super::super::super::types::LayerVersionContentOutput>,
-+    pub(crate) content: ::std::option::Option<super::super::super::operation::publish_layer_version::Output>,
-     pub(crate) layer_arn: ::std::option::Option<::std::string::String>,
-     pub(crate) layer_version_arn: ::std::option::Option<::std::string::String>,
-     pub(crate) description: ::std::option::Option<::std::string::String>,
-@@ -98,17 +98,17 @@
- }
- impl PublishLayerVersionOutputBuilder {
-     /// <p>Details about the layer version.</p>
--    pub fn content(mut self, input: super::super::super::types::LayerVersionContentOutput) -> Self {
-+    pub fn content(mut self, input: super::super::super::operation::publish_layer_version::Output) -> Self {
-         self.content = ::std::option::Option::Some(input);
-         self
-     }
-     /// <p>Details about the layer version.</p>
--    pub fn set_content(mut self, input: ::std::option::Option<super::super::super::types::LayerVersionContentOutput>) -> Self {
-+    pub fn set_content(mut self, input: ::std::option::Option<super::super::super::operation::publish_layer_version::Output>) -> Self {
-         self.content = input;
-         self
-     }
-     /// <p>Details about the layer version.</p>
--    pub fn get_content(&self) -> &::std::option::Option<super::super::super::types::LayerVersionContentOutput> {
-+    pub fn get_content(&self) -> &::std::option::Option<super::super::super::operation::publish_layer_version::Output> {
-         &self.content
-     }
-     /// <p>The ARN of the layer.</p>
-```
-
-### `src/operation/publish_layer_version/builders.rs`
-
-```diff
---- reference/src/operation/publish_layer_version/builders.rs
-+++ generated/src/operation/publish_layer_version/builders.rs
-@@ -138,17 +138,17 @@
-         self.inner.get_description()
-     }
-     /// <p>The function layer archive.</p>
--    pub fn content(mut self, input: super::super::super::types::LayerVersionContentInput) -> Self {
-+    pub fn content(mut self, input: super::super::super::operation::publish_layer_version::Input) -> Self {
-         self.inner = self.inner.content(input);
-         self
-     }
-     /// <p>The function layer archive.</p>
--    pub fn set_content(mut self, input: ::std::option::Option<super::super::super::types::LayerVersionContentInput>) -> Self {
-+    pub fn set_content(mut self, input: ::std::option::Option<super::super::super::operation::publish_layer_version::Input>) -> Self {
-         self.inner = self.inner.set_content(input);
-         self
-     }
-     /// <p>The function layer archive.</p>
--    pub fn get_content(&self) -> &::std::option::Option<super::super::super::types::LayerVersionContentInput> {
-+    pub fn get_content(&self) -> &::std::option::Option<super::super::super::operation::publish_layer_version::Input> {
-         self.inner.get_content()
-     }
-     ///
 ```
 
 ### `src/operation/remove_layer_version_permission/_remove_layer_version_permission_input.rs`

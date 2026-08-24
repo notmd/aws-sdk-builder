@@ -148,7 +148,7 @@ impl CountTokensFluentBuilder {
     /// <p>For <code>Converse</code> requests, provide the messages and system content in the <code>converse</code> field</p></li>
     /// </ul>
     /// <p>The input format must be compatible with the model specified in the <code>modelId</code> parameter.</p>
-    pub fn input(mut self, input: super::super::super::operation::count_tokens::Input) -> Self {
+    pub fn input(mut self, input: super::super::super::types::CountTokensInput) -> Self {
         self.inner = self.inner.input(input);
         self
     }
@@ -160,7 +160,7 @@ impl CountTokensFluentBuilder {
     /// <p>For <code>Converse</code> requests, provide the messages and system content in the <code>converse</code> field</p></li>
     /// </ul>
     /// <p>The input format must be compatible with the model specified in the <code>modelId</code> parameter.</p>
-    pub fn set_input(mut self, input: ::std::option::Option<super::super::super::operation::count_tokens::Input>) -> Self {
+    pub fn set_input(mut self, input: ::std::option::Option<super::super::super::types::CountTokensInput>) -> Self {
         self.inner = self.inner.set_input(input);
         self
     }
@@ -172,7 +172,7 @@ impl CountTokensFluentBuilder {
     /// <p>For <code>Converse</code> requests, provide the messages and system content in the <code>converse</code> field</p></li>
     /// </ul>
     /// <p>The input format must be compatible with the model specified in the <code>modelId</code> parameter.</p>
-    pub fn get_input(&self) -> &::std::option::Option<super::super::super::operation::count_tokens::Input> {
+    pub fn get_input(&self) -> &::std::option::Option<super::super::super::types::CountTokensInput> {
         self.inner.get_input()
     }
 }
