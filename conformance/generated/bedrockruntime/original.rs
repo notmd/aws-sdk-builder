@@ -36530,7 +36530,9 @@ pub(crate) fn de_apply_guardrail(
                             .transpose()?);
                 },
                 "actionReason" => {
-                    builder = builder.set_action_reason(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_action_reason(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "outputs" => {
                     builder = builder.set_outputs(super::super::protocol_serde::shape_guardrail_output_content_list::de_guardrail_output_content_list(tokens, _value, depth + 1)?);
@@ -36766,7 +36768,7 @@ pub(crate) fn de_converse(
                     builder = builder.set_metrics(super::super::protocol_serde::shape_converse_metrics::de_converse_metrics(tokens, _value, depth + 1)?);
                 },
                 "additionalModelResponseFields" => {
-                    builder = builder.set_additional_model_response_fields(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_additional_model_response_fields(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
                 },
                 "trace" => {
                     builder = builder.set_trace(super::super::protocol_serde::shape_converse_trace::de_converse_trace(tokens, _value, depth + 1)?);
@@ -37128,7 +37130,9 @@ pub(crate) fn de_count_tokens(
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "inputTokens" => {
-                    builder = builder.set_input_tokens(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_input_tokens(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -38556,6 +38560,7 @@ if let Some(var_13) = &input.guardrail_config {
     object_14.finish();
 }
 if let Some(var_15) = &input.additional_model_request_fields {
+    object.key("additionalModelRequestFields").document(var_15);
 }
 if let Some(var_16) = &input.prompt_variables {
     #[allow(unused_mut)]
@@ -38574,6 +38579,7 @@ if let Some(var_21) = &input.additional_model_response_field_paths {
     let mut array_22 = object.key("additionalModelResponseFieldPaths").start_array();
     for item_23 in var_21 {
         {
+            array_22.value().string(item_23.as_str());
         }
     }
     array_22.finish();
@@ -38583,6 +38589,7 @@ if let Some(var_24) = &input.request_metadata {
     let mut object_25 = object.key("requestMetadata").start_object();
     for (key_26, value_27) in var_24 {
         {
+            object_25.key(key_26.as_str()).string(value_27.as_str());
         }
     }
     object_25.finish();
@@ -38658,6 +38665,7 @@ if let Some(var_13) = &input.guardrail_config {
     object_14.finish();
 }
 if let Some(var_15) = &input.additional_model_request_fields {
+    object.key("additionalModelRequestFields").document(var_15);
 }
 if let Some(var_16) = &input.prompt_variables {
     #[allow(unused_mut)]
@@ -38676,6 +38684,7 @@ if let Some(var_21) = &input.additional_model_response_field_paths {
     let mut array_22 = object.key("additionalModelResponseFieldPaths").start_array();
     for item_23 in var_21 {
         {
+            array_22.value().string(item_23.as_str());
         }
     }
     array_22.finish();
@@ -38685,6 +38694,7 @@ if let Some(var_24) = &input.request_metadata {
     let mut object_25 = object.key("requestMetadata").start_object();
     for (key_26, value_27) in var_24 {
         {
+            object_25.key(key_26.as_str()).string(value_27.as_str());
         }
     }
     object_25.finish();
@@ -39751,7 +39761,9 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "latencyMs" => {
-                    builder = builder.set_latency_ms(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_latency_ms(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i64::try_from)
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -40401,10 +40413,22 @@ pub fn ser_inference_configuration(
     input: &super::super::types::InferenceConfiguration,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 if let Some(var_1) = &input.max_tokens {
+    object.key("maxTokens").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_1).into()),
+    );
 }
 if let Some(var_2) = &input.temperature {
+    object.key("temperature").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::Float((*var_2).into()),
+    );
 }
 if let Some(var_3) = &input.top_p {
+    object.key("topP").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::Float((*var_3).into()),
+    );
 }
 if let Some(var_4) = &input.stop_sequences {
     let mut array_5 = object.key("stopSequences").start_array();
@@ -40568,7 +40592,7 @@ where
                             .transpose()?);
                 },
                 "additionalModelResponseFields" => {
-                    builder = builder.set_additional_model_response_fields(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_additional_model_response_fields(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -40601,6 +40625,7 @@ if let Some(var_1) = &input.text_format {
     object_2.finish();
 }
 if let Some(var_3) = &input.effort {
+    object.key("effort").string(var_3.as_str());
 }
     Ok(())
 }
@@ -40716,6 +40741,7 @@ pub fn ser_prompt_variable_values(
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
         super::super::types::PromptVariableValues::Text(inner) => {
+            object.key("text").string(inner.as_str());
         }
         super::super::types::PromptVariableValues::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
@@ -40857,19 +40883,29 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "inputTokens" => {
-                    builder = builder.set_input_tokens(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_input_tokens(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 "outputTokens" => {
-                    builder = builder.set_output_tokens(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_output_tokens(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 "totalTokens" => {
-                    builder = builder.set_total_tokens(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_total_tokens(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 "cacheReadInputTokens" => {
-                    builder = builder.set_cache_read_input_tokens(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_cache_read_input_tokens(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 "cacheWriteInputTokens" => {
-                    builder = builder.set_cache_write_input_tokens(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_cache_write_input_tokens(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 "cacheDetails" => {
                     builder = builder.set_cache_details(super::super::protocol_serde::shape_cache_details_list::de_cache_details_list(tokens, _value, depth + 1)?);
@@ -41191,6 +41227,7 @@ pub fn ser_content_block(
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
         super::super::types::ContentBlock::Text(inner) => {
+            object.key("text").string(inner.as_str());
         }
         super::super::types::ContentBlock::Image(inner) => {
             #[allow(unused_mut)]
@@ -41314,7 +41351,9 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "text" => Some(super::super::types::ContentBlock::Text(::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
+                        "text" => Some(super::super::types::ContentBlock::Text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
                         "image" => Some(super::super::types::ContentBlock::Image(super::super::protocol_serde::shape_image_block::de_image_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'image' cannot be null"))?)),
                         "document" => Some(super::super::types::ContentBlock::Document(super::super::protocol_serde::shape_document_block::de_document_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'document' cannot be null"))?)),
                         "video" => Some(super::super::types::ContentBlock::Video(super::super::protocol_serde::shape_video_block::de_video_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'video' cannot be null"))?)),
@@ -41393,7 +41432,9 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "text" => Some(super::super::types::ContentBlockDelta::Text(::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
+                        "text" => Some(super::super::types::ContentBlockDelta::Text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
                         "toolUse" => Some(super::super::types::ContentBlockDelta::ToolUse(super::super::protocol_serde::shape_tool_use_block_delta::de_tool_use_block_delta(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolUse' cannot be null"))?)),
                         "toolResult" => Some(super::super::types::ContentBlockDelta::ToolResult(super::super::protocol_serde::shape_tool_result_blocks_delta::de_tool_result_blocks_delta(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'toolResult' cannot be null"))?)),
                         "reasoningContent" => Some(super::super::types::ContentBlockDelta::ReasoningContent(super::super::protocol_serde::shape_reasoning_content_block_delta::de_reasoning_content_block_delta(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningContent' cannot be null"))?)),
@@ -41520,7 +41561,9 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "latencyMs" => {
-                    builder = builder.set_latency_ms(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_latency_ms(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i64::try_from)
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -41625,6 +41668,7 @@ if let Some(var_9) = &input.tool_config {
     object_10.finish();
 }
 if let Some(var_11) = &input.additional_model_request_fields {
+    object.key("additionalModelRequestFields").document(var_11);
 }
     Ok(())
 }
@@ -41808,7 +41852,9 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "textUnits" => {
-                    builder = builder.set_text_units(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_text_units(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -41920,7 +41966,9 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "textUnits" => {
-                    builder = builder.set_text_units(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_text_units(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -41990,7 +42038,7 @@ where
                     builder = builder.set_results(super::super::protocol_serde::shape_guardrail_checks_sensitive_information_result_list::de_guardrail_checks_sensitive_information_result_list(tokens, _value, depth + 1)?);
                 },
                 "truncated" => {
-                    builder = builder.set_truncated(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_truncated(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -42035,7 +42083,9 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "textUnits" => {
-                    builder = builder.set_text_units(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_text_units(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -42273,6 +42323,7 @@ pub fn ser_guardrail_text_block(
     input: &super::super::types::GuardrailTextBlock,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 {
+    object.key("text").string(input.text.as_str());
 }
 if let Some(var_1) = &input.qualifiers {
     let mut array_2 = object.key("qualifiers").start_array();
@@ -42373,7 +42424,9 @@ where
                     builder = builder.set_output_assessments(super::super::protocol_serde::shape_guardrail_assessment_list_map::de_guardrail_assessment_list_map(tokens, _value, depth + 1)?);
                 },
                 "actionReason" => {
-                    builder = builder.set_action_reason(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_action_reason(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -42732,7 +42785,9 @@ where
                             .transpose()?);
                 },
                 "inputTokens" => {
-                    builder = builder.set_input_tokens(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_input_tokens(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -42856,10 +42911,14 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "title" => {
-                    builder = builder.set_title(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_title(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "source" => {
-                    builder = builder.set_source(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_source(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "sourceContent" => {
                     builder = builder.set_source_content(super::super::protocol_serde::shape_citation_source_content_list_delta::de_citation_source_content_list_delta(tokens, _value, depth + 1)?);
@@ -42941,6 +43000,7 @@ pub fn ser_document_block(
     object.key("format").string(input.format.as_str());
 }
 {
+    object.key("name").string(input.name.as_str());
 }
 {
     #[allow(unused_mut)]
@@ -42949,6 +43009,7 @@ pub fn ser_document_block(
     object_1.finish();
 }
 if let Some(var_2) = &input.context {
+    object.key("context").string(var_2.as_str());
 }
 if let Some(var_3) = &input.citations {
     #[allow(unused_mut)]
@@ -42987,13 +43048,17 @@ where
                             .transpose()?);
                 },
                 "name" => {
-                    builder = builder.set_name(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "source" => {
                     builder = builder.set_source(super::super::protocol_serde::shape_document_source::de_document_source(tokens, _value, depth + 1)?);
                 },
                 "context" => {
-                    builder = builder.set_context(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_context(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "citations" => {
                     builder = builder.set_citations(super::super::protocol_serde::shape_citations_config::de_citations_config(tokens, _value, depth + 1)?);
@@ -43501,6 +43566,7 @@ pub fn ser_guardrail_converse_text_block(
     input: &super::super::types::GuardrailConverseTextBlock,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 {
+    object.key("text").string(input.text.as_str());
 }
 if let Some(var_1) = &input.qualifiers {
     let mut array_2 = object.key("qualifiers").start_array();
@@ -43537,7 +43603,9 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "text" => {
-                    builder = builder.set_text(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "qualifiers" => {
                     builder = builder.set_qualifiers(super::super::protocol_serde::shape_guardrail_converse_content_qualifier_list::de_guardrail_converse_content_qualifier_list(tokens, _value, depth + 1)?);
@@ -43568,6 +43636,7 @@ pub fn ser_guardrail_image_source(
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
         super::super::types::GuardrailImageSource::Bytes(inner) => {
+            object.key("bytes").string_unchecked(&::aws_smithy_types::base64::encode(inner));
         }
         super::super::types::GuardrailImageSource::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
@@ -44028,6 +44097,7 @@ pub fn ser_reasoning_content_block(
             object_1.finish();
         }
         super::super::types::ReasoningContentBlock::RedactedContent(inner) => {
+            object.key("redactedContent").string_unchecked(&::aws_smithy_types::base64::encode(inner));
         }
         super::super::types::ReasoningContentBlock::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
@@ -44074,7 +44144,7 @@ where
                     }
                     variant = match key.as_ref() {
                         "reasoningText" => Some(super::super::types::ReasoningContentBlock::ReasoningText(super::super::protocol_serde::shape_reasoning_text_block::de_reasoning_text_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'reasoningText' cannot be null"))?)),
-                        "redactedContent" => Some(super::super::types::ReasoningContentBlock::RedactedContent(::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'redactedContent' cannot be null"))?)),
+                        "redactedContent" => Some(super::super::types::ReasoningContentBlock::RedactedContent(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'redactedContent' cannot be null"))?)),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::ReasoningContentBlock::Unknown)
@@ -44140,9 +44210,13 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "text" => Some(super::super::types::ReasoningContentBlockDelta::Text(::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
-                        "redactedContent" => Some(super::super::types::ReasoningContentBlockDelta::RedactedContent(::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'redactedContent' cannot be null"))?)),
-                        "signature" => Some(super::super::types::ReasoningContentBlockDelta::Signature(::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'signature' cannot be null"))?)),
+                        "text" => Some(super::super::types::ReasoningContentBlockDelta::Text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
+                        "redactedContent" => Some(super::super::types::ReasoningContentBlockDelta::RedactedContent(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'redactedContent' cannot be null"))?)),
+                        "signature" => Some(super::super::types::ReasoningContentBlockDelta::Signature(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'signature' cannot be null"))?)),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::ReasoningContentBlockDelta::Unknown)
@@ -44178,8 +44252,10 @@ pub fn ser_search_result_block(
     input: &super::super::types::SearchResultBlock,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 {
+    object.key("source").string(input.source.as_str());
 }
 {
+    object.key("title").string(input.title.as_str());
 }
 {
     let mut array_1 = object.key("content").start_array();
@@ -44225,10 +44301,14 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "source" => {
-                    builder = builder.set_source(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_source(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "title" => {
-                    builder = builder.set_title(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_title(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "content" => {
                     builder = builder.set_content(super::super::protocol_serde::shape_search_result_content_blocks::de_search_result_content_blocks(tokens, _value, depth + 1)?);
@@ -44421,6 +44501,7 @@ if let Some(var_4) = &input.status {
     object.key("status").string(var_4.as_str());
 }
 if let Some(var_5) = &input.r#type {
+    object.key("type").string(var_5.as_str());
 }
     Ok(())
 }
@@ -44461,7 +44542,9 @@ where
                             .transpose()?);
                 },
                 "type" => {
-                    builder = builder.set_type(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -44511,7 +44594,9 @@ where
                             .transpose()?);
                 },
                 "type" => {
-                    builder = builder.set_type(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "status" => {
                     builder = builder.set_status(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -44601,6 +44686,7 @@ if let Some(var_1) = &input.description {
     object_2.finish();
 }
 if let Some(var_3) = &input.strict {
+    object.key("strict").boolean(*var_3);
 }
     Ok(())
 }
@@ -44619,6 +44705,7 @@ pub fn ser_tool_use_block(
     object.key("name").string(input.name.as_str());
 }
 {
+    object.key("input").document(&input.input);
 }
 if let Some(var_1) = &input.r#type {
     object.key("type").string(var_1.as_str());
@@ -44659,7 +44746,7 @@ where
                             .transpose()?);
                 },
                 "input" => {
-                    builder = builder.set_input(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_input(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
                 },
                 "type" => {
                     builder = builder.set_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -44709,7 +44796,9 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "input" => {
-                    builder = builder.set_input(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_input(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -44860,6 +44949,7 @@ pub fn ser_audio_source(
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
         super::super::types::AudioSource::Bytes(inner) => {
+            object.key("bytes").string_unchecked(&::aws_smithy_types::base64::encode(inner));
         }
         super::super::types::AudioSource::S3Location(inner) => {
             #[allow(unused_mut)]
@@ -44911,7 +45001,7 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "bytes" => Some(super::super::types::AudioSource::Bytes(::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?)),
+                        "bytes" => Some(super::super::types::AudioSource::Bytes(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?)),
                         "s3Location" => Some(super::super::types::AudioSource::S3Location(super::super::protocol_serde::shape_s3_location::de_s3_location(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 's3Location' cannot be null"))?)),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
@@ -44948,8 +45038,10 @@ pub fn ser_citation(
     input: &super::super::types::Citation,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 if let Some(var_1) = &input.title {
+    object.key("title").string(var_1.as_str());
 }
 if let Some(var_2) = &input.source {
+    object.key("source").string(var_2.as_str());
 }
 if let Some(var_3) = &input.source_content {
     let mut array_4 = object.key("sourceContent").start_array();
@@ -44995,10 +45087,14 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "title" => {
-                    builder = builder.set_title(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_title(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "source" => {
-                    builder = builder.set_source(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_source(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "sourceContent" => {
                     builder = builder.set_source_content(super::super::protocol_serde::shape_citation_source_content_list::de_citation_source_content_list(tokens, _value, depth + 1)?);
@@ -45032,6 +45128,7 @@ pub fn ser_citation_generated_content(
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
         super::super::types::CitationGeneratedContent::Text(inner) => {
+            object.key("text").string(inner.as_str());
         }
         super::super::types::CitationGeneratedContent::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
@@ -45077,7 +45174,9 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "text" => Some(super::super::types::CitationGeneratedContent::Text(::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
+                        "text" => Some(super::super::types::CitationGeneratedContent::Text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::CitationGeneratedContent::Unknown)
@@ -45273,6 +45372,7 @@ pub fn ser_citations_config(
     input: &super::super::types::CitationsConfig,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 {
+    object.key("enabled").boolean(input.enabled);
 }
     Ok(())
 }
@@ -45300,7 +45400,7 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "enabled" => {
-                    builder = builder.set_enabled(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -45328,6 +45428,7 @@ pub fn ser_document_source(
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
         super::super::types::DocumentSource::Bytes(inner) => {
+            object.key("bytes").string_unchecked(&::aws_smithy_types::base64::encode(inner));
         }
         super::super::types::DocumentSource::S3Location(inner) => {
             #[allow(unused_mut)]
@@ -45336,6 +45437,7 @@ pub fn ser_document_source(
             object_1.finish();
         }
         super::super::types::DocumentSource::Text(inner) => {
+            object.key("text").string(inner.as_str());
         }
         super::super::types::DocumentSource::Content(inner) => {
             let mut array_1 = object.key("content").start_array();
@@ -45393,9 +45495,11 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "bytes" => Some(super::super::types::DocumentSource::Bytes(::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?)),
+                        "bytes" => Some(super::super::types::DocumentSource::Bytes(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?)),
                         "s3Location" => Some(super::super::types::DocumentSource::S3Location(super::super::protocol_serde::shape_s3_location::de_s3_location(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 's3Location' cannot be null"))?)),
-                        "text" => Some(super::super::types::DocumentSource::Text(::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
+                        "text" => Some(super::super::types::DocumentSource::Text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
                         "content" => Some(super::super::types::DocumentSource::Content(super::super::protocol_serde::shape_document_content_blocks::de_document_content_blocks(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'content' cannot be null"))?)),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
@@ -45432,6 +45536,7 @@ pub fn ser_error_block(
     input: &super::super::types::ErrorBlock,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 if let Some(var_1) = &input.message {
+    object.key("message").string(var_1.as_str());
 }
     Ok(())
 }
@@ -45459,7 +45564,9 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "message" => {
-                    builder = builder.set_message(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_message(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -45555,7 +45662,7 @@ where
                             .transpose()?);
                 },
                 "severityScore" => {
-                    builder = builder.set_severity_score(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_severity_score(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?.map(|v| v.to_f64_lossy()));
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -45605,7 +45712,7 @@ where
                             .transpose()?);
                 },
                 "severityScore" => {
-                    builder = builder.set_severity_score(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_severity_score(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?.map(|v| v.to_f64_lossy()));
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -45655,19 +45762,27 @@ where
                             .transpose()?);
                 },
                 "confidenceScore" => {
-                    builder = builder.set_confidence_score(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_confidence_score(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?.map(|v| v.to_f64_lossy()));
                 },
                 "beginOffset" => {
-                    builder = builder.set_begin_offset(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_begin_offset(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 "endOffset" => {
-                    builder = builder.set_end_offset(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_end_offset(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 "messageIndex" => {
-                    builder = builder.set_message_index(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_message_index(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 "contentIndex" => {
-                    builder = builder.set_content_index(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_content_index(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -45787,6 +45902,7 @@ pub fn ser_guardrail_converse_image_source(
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
         super::super::types::GuardrailConverseImageSource::Bytes(inner) => {
+            object.key("bytes").string_unchecked(&::aws_smithy_types::base64::encode(inner));
         }
         super::super::types::GuardrailConverseImageSource::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
@@ -45832,7 +45948,7 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "bytes" => Some(super::super::types::GuardrailConverseImageSource::Bytes(::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?)),
+                        "bytes" => Some(super::super::types::GuardrailConverseImageSource::Bytes(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?)),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::GuardrailConverseImageSource::Unknown)
@@ -46147,6 +46263,7 @@ pub fn ser_image_source(
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
         super::super::types::ImageSource::Bytes(inner) => {
+            object.key("bytes").string_unchecked(&::aws_smithy_types::base64::encode(inner));
         }
         super::super::types::ImageSource::S3Location(inner) => {
             #[allow(unused_mut)]
@@ -46198,7 +46315,7 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "bytes" => Some(super::super::types::ImageSource::Bytes(::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?)),
+                        "bytes" => Some(super::super::types::ImageSource::Bytes(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?)),
                         "s3Location" => Some(super::super::types::ImageSource::S3Location(super::super::protocol_serde::shape_s3_location::de_s3_location(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 's3Location' cannot be null"))?)),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
@@ -46235,10 +46352,13 @@ pub fn ser_json_schema_definition(
     input: &super::super::types::JsonSchemaDefinition,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 {
+    object.key("schema").string(input.schema.as_str());
 }
 if let Some(var_1) = &input.name {
+    object.key("name").string(var_1.as_str());
 }
 if let Some(var_2) = &input.description {
+    object.key("description").string(var_2.as_str());
 }
     Ok(())
 }
@@ -46251,8 +46371,10 @@ pub fn ser_reasoning_text_block(
     input: &super::super::types::ReasoningTextBlock,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 {
+    object.key("text").string(input.text.as_str());
 }
 if let Some(var_1) = &input.signature {
+    object.key("signature").string(var_1.as_str());
 }
     Ok(())
 }
@@ -46280,10 +46402,14 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "text" => {
-                    builder = builder.set_text(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "signature" => {
-                    builder = builder.set_signature(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_signature(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -46310,6 +46436,7 @@ pub fn ser_search_result_content_block(
     input: &super::super::types::SearchResultContentBlock,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 {
+    object.key("text").string(input.text.as_str());
 }
     Ok(())
 }
@@ -46337,7 +46464,9 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "text" => {
-                    builder = builder.set_text(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -46365,6 +46494,7 @@ pub fn ser_tool_input_schema(
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
         super::super::types::ToolInputSchema::Json(inner) => {
+            object.key("json").document(inner);
         }
         super::super::types::ToolInputSchema::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
@@ -46383,10 +46513,13 @@ pub fn ser_tool_reference(
     input: &super::super::types::ToolReference,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 if let Some(var_1) = &input.r#type {
+    object.key("type").string(var_1.as_str());
 }
 if let Some(var_2) = &input.name {
+    object.key("name").string(var_2.as_str());
 }
 if let Some(var_3) = &input.server_name {
+    object.key("serverName").string(var_3.as_str());
 }
     Ok(())
 }
@@ -46414,13 +46547,19 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "type" => {
-                    builder = builder.set_type(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "name" => {
-                    builder = builder.set_name(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "serverName" => {
-                    builder = builder.set_server_name(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_server_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -46477,8 +46616,10 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "text" => Some(super::super::types::ToolResultBlockDelta::Text(::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
-                        "json" => Some(super::super::types::ToolResultBlockDelta::Json(::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'json' cannot be null"))?)),
+                        "text" => Some(super::super::types::ToolResultBlockDelta::Text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
+                        "json" => Some(super::super::types::ToolResultBlockDelta::Json(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?).ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'json' cannot be null"))?)),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::ToolResultBlockDelta::Unknown)
@@ -46515,8 +46656,10 @@ pub fn ser_tool_result_content_block(
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
         super::super::types::ToolResultContentBlock::Json(inner) => {
+            object.key("json").document(inner);
         }
         super::super::types::ToolResultContentBlock::Text(inner) => {
+            object.key("text").string(inner.as_str());
         }
         super::super::types::ToolResultContentBlock::Image(inner) => {
             #[allow(unused_mut)]
@@ -46586,8 +46729,10 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "json" => Some(super::super::types::ToolResultContentBlock::Json(::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'json' cannot be null"))?)),
-                        "text" => Some(super::super::types::ToolResultContentBlock::Text(::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
+                        "json" => Some(super::super::types::ToolResultContentBlock::Json(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?).ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'json' cannot be null"))?)),
+                        "text" => Some(super::super::types::ToolResultContentBlock::Text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
                         "image" => Some(super::super::types::ToolResultContentBlock::Image(super::super::protocol_serde::shape_image_block::de_image_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'image' cannot be null"))?)),
                         "document" => Some(super::super::types::ToolResultContentBlock::Document(super::super::protocol_serde::shape_document_block::de_document_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'document' cannot be null"))?)),
                         "video" => Some(super::super::types::ToolResultContentBlock::Video(super::super::protocol_serde::shape_video_block::de_video_block(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'video' cannot be null"))?)),
@@ -46628,6 +46773,7 @@ pub fn ser_video_source(
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
         super::super::types::VideoSource::Bytes(inner) => {
+            object.key("bytes").string_unchecked(&::aws_smithy_types::base64::encode(inner));
         }
         super::super::types::VideoSource::S3Location(inner) => {
             #[allow(unused_mut)]
@@ -46679,7 +46825,7 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "bytes" => Some(super::super::types::VideoSource::Bytes(::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?)),
+                        "bytes" => Some(super::super::types::VideoSource::Bytes(::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?)),
                         "s3Location" => Some(super::super::types::VideoSource::S3Location(super::super::protocol_serde::shape_s3_location::de_s3_location(tokens, _value, depth + 1)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 's3Location' cannot be null"))?)),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
@@ -46717,6 +46863,7 @@ pub fn ser_citation_source_content(
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
         super::super::types::CitationSourceContent::Text(inner) => {
+            object.key("text").string(inner.as_str());
         }
         super::super::types::CitationSourceContent::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
@@ -46762,7 +46909,9 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "text" => Some(super::super::types::CitationSourceContent::Text(::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
+                        "text" => Some(super::super::types::CitationSourceContent::Text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::CitationSourceContent::Unknown)
@@ -46816,7 +46965,9 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "text" => {
-                    builder = builder.set_text(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -46843,10 +46994,22 @@ pub fn ser_document_char_location(
     input: &super::super::types::DocumentCharLocation,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 if let Some(var_1) = &input.document_index {
+    object.key("documentIndex").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_1).into()),
+    );
 }
 if let Some(var_2) = &input.start {
+    object.key("start").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_2).into()),
+    );
 }
 if let Some(var_3) = &input.end {
+    object.key("end").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_3).into()),
+    );
 }
     Ok(())
 }
@@ -46874,13 +47037,19 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "documentIndex" => {
-                    builder = builder.set_document_index(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_document_index(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 "start" => {
-                    builder = builder.set_start(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_start(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 "end" => {
-                    builder = builder.set_end(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_end(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -46907,10 +47076,22 @@ pub fn ser_document_chunk_location(
     input: &super::super::types::DocumentChunkLocation,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 if let Some(var_1) = &input.document_index {
+    object.key("documentIndex").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_1).into()),
+    );
 }
 if let Some(var_2) = &input.start {
+    object.key("start").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_2).into()),
+    );
 }
 if let Some(var_3) = &input.end {
+    object.key("end").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_3).into()),
+    );
 }
     Ok(())
 }
@@ -46938,13 +47119,19 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "documentIndex" => {
-                    builder = builder.set_document_index(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_document_index(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 "start" => {
-                    builder = builder.set_start(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_start(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 "end" => {
-                    builder = builder.set_end(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_end(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -46972,6 +47159,7 @@ pub fn ser_document_content_block(
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
         super::super::types::DocumentContentBlock::Text(inner) => {
+            object.key("text").string(inner.as_str());
         }
         super::super::types::DocumentContentBlock::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
@@ -47017,7 +47205,9 @@ where
                         ));
                     }
                     variant = match key.as_ref() {
-                        "text" => Some(super::super::types::DocumentContentBlock::Text(::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
+                        "text" => Some(super::super::types::DocumentContentBlock::Text(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?.ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?)),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;
                             Some(super::super::types::DocumentContentBlock::Unknown)
@@ -47053,10 +47243,22 @@ pub fn ser_document_page_location(
     input: &super::super::types::DocumentPageLocation,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 if let Some(var_1) = &input.document_index {
+    object.key("documentIndex").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_1).into()),
+    );
 }
 if let Some(var_2) = &input.start {
+    object.key("start").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_2).into()),
+    );
 }
 if let Some(var_3) = &input.end {
+    object.key("end").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_3).into()),
+    );
 }
     Ok(())
 }
@@ -47084,13 +47286,19 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "documentIndex" => {
-                    builder = builder.set_document_index(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_document_index(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 "start" => {
-                    builder = builder.set_start(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_start(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 "end" => {
-                    builder = builder.set_end(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_end(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -47227,7 +47435,7 @@ where
                             .transpose()?);
                 },
                 "detected" => {
-                    builder = builder.set_detected(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_detected(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -47277,10 +47485,10 @@ where
                             .transpose()?);
                 },
                 "threshold" => {
-                    builder = builder.set_threshold(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_threshold(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?.map(|v| v.to_f64_lossy()));
                 },
                 "score" => {
-                    builder = builder.set_score(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_score(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?.map(|v| v.to_f64_lossy()));
                 },
                 "action" => {
                     builder = builder.set_action(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -47288,7 +47496,7 @@ where
                             .transpose()?);
                 },
                 "detected" => {
-                    builder = builder.set_detected(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_detected(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -47333,7 +47541,9 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "match" => {
-                    builder = builder.set_match(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_match(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "action" => {
                     builder = builder.set_action(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -47341,7 +47551,7 @@ where
                             .transpose()?);
                 },
                 "detected" => {
-                    builder = builder.set_detected(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_detected(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -47386,7 +47596,9 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "match" => {
-                    builder = builder.set_match(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_match(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "type" => {
                     builder = builder.set_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -47399,7 +47611,7 @@ where
                             .transpose()?);
                 },
                 "detected" => {
-                    builder = builder.set_detected(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_detected(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -47444,7 +47656,9 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "match" => {
-                    builder = builder.set_match(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_match(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "type" => {
                     builder = builder.set_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -47457,7 +47671,7 @@ where
                             .transpose()?);
                 },
                 "detected" => {
-                    builder = builder.set_detected(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_detected(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -47502,13 +47716,19 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "name" => {
-                    builder = builder.set_name(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "match" => {
-                    builder = builder.set_match(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_match(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "regex" => {
-                    builder = builder.set_regex(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_regex(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "action" => {
                     builder = builder.set_action(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -47516,7 +47736,7 @@ where
                             .transpose()?);
                 },
                 "detected" => {
-                    builder = builder.set_detected(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_detected(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -47561,7 +47781,9 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "name" => {
-                    builder = builder.set_name(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_name(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "type" => {
                     builder = builder.set_type(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
@@ -47574,7 +47796,7 @@ where
                             .transpose()?);
                 },
                 "detected" => {
-                    builder = builder.set_detected(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_detected(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -47666,10 +47888,22 @@ pub fn ser_search_result_location(
     input: &super::super::types::SearchResultLocation,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 if let Some(var_1) = &input.search_result_index {
+    object.key("searchResultIndex").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_1).into()),
+    );
 }
 if let Some(var_2) = &input.start {
+    object.key("start").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_2).into()),
+    );
 }
 if let Some(var_3) = &input.end {
+    object.key("end").number(
+        #[allow(clippy::useless_conversion)]
+        ::aws_smithy_types::Number::NegInt((*var_3).into()),
+    );
 }
     Ok(())
 }
@@ -47697,13 +47931,19 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "searchResultIndex" => {
-                    builder = builder.set_search_result_index(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_search_result_index(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 "start" => {
-                    builder = builder.set_start(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_start(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 "end" => {
-                    builder = builder.set_end(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_end(::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                            .map(i32::try_from)
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },
@@ -47730,8 +47970,10 @@ pub fn ser_web_location(
     input: &super::super::types::WebLocation,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
 if let Some(var_1) = &input.url {
+    object.key("url").string(var_1.as_str());
 }
 if let Some(var_2) = &input.domain {
+    object.key("domain").string(var_2.as_str());
 }
     Ok(())
 }
@@ -47759,10 +48001,14 @@ where
             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                 "url" => {
-                    builder = builder.set_url(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_url(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 "domain" => {
-                    builder = builder.set_domain(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                    builder = builder.set_domain(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                            .transpose()?);
                 },
                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
             },

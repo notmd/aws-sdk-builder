@@ -4,7 +4,9 @@ pub fn ser_guardrail_converse_image_source(
     input: &super::super::types::GuardrailConverseImageSource,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
-        super::super::types::GuardrailConverseImageSource::Bytes(inner) => {}
+        super::super::types::GuardrailConverseImageSource::Bytes(inner) => {
+            object.key("bytes").string_unchecked(&::aws_smithy_types::base64::encode(inner));
+        }
         super::super::types::GuardrailConverseImageSource::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                 "GuardrailConverseImageSource",
@@ -50,7 +52,7 @@ where
                     }
                     variant = match key.as_ref() {
                         "bytes" => Some(super::super::types::GuardrailConverseImageSource::Bytes(
-                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
+                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?,
                         )),
                         _ => {

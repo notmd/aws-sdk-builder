@@ -22,19 +22,39 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "inputTokens" => {
-                            builder = builder.set_input_tokens(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_input_tokens(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i32::try_from)
+                                    .transpose()?,
+                            );
                         }
                         "outputTokens" => {
-                            builder = builder.set_output_tokens(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_output_tokens(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i32::try_from)
+                                    .transpose()?,
+                            );
                         }
                         "totalTokens" => {
-                            builder = builder.set_total_tokens(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_total_tokens(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i32::try_from)
+                                    .transpose()?,
+                            );
                         }
                         "cacheReadInputTokens" => {
-                            builder = builder.set_cache_read_input_tokens(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_cache_read_input_tokens(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i32::try_from)
+                                    .transpose()?,
+                            );
                         }
                         "cacheWriteInputTokens" => {
-                            builder = builder.set_cache_write_input_tokens(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_cache_write_input_tokens(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i32::try_from)
+                                    .transpose()?,
+                            );
                         }
                         "cacheDetails" => {
                             builder = builder.set_cache_details(super::super::protocol_serde::shape_cache_details_list::de_cache_details_list(

@@ -35,19 +35,37 @@ where
                             );
                         }
                         "confidenceScore" => {
-                            builder = builder.set_confidence_score(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_confidence_score(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?.map(|v| v.to_f64_lossy()),
+                            );
                         }
                         "beginOffset" => {
-                            builder = builder.set_begin_offset(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_begin_offset(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i32::try_from)
+                                    .transpose()?,
+                            );
                         }
                         "endOffset" => {
-                            builder = builder.set_end_offset(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_end_offset(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i32::try_from)
+                                    .transpose()?,
+                            );
                         }
                         "messageIndex" => {
-                            builder = builder.set_message_index(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_message_index(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i32::try_from)
+                                    .transpose()?,
+                            );
                         }
                         "contentIndex" => {
-                            builder = builder.set_content_index(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_content_index(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i32::try_from)
+                                    .transpose()?,
+                            );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

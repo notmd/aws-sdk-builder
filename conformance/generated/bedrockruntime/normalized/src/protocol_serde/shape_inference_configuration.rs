@@ -3,9 +3,24 @@ pub fn ser_inference_configuration(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::InferenceConfiguration,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.max_tokens {}
-    if let Some(var_2) = &input.temperature {}
-    if let Some(var_3) = &input.top_p {}
+    if let Some(var_1) = &input.max_tokens {
+        object.key("maxTokens").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_1).into()),
+        );
+    }
+    if let Some(var_2) = &input.temperature {
+        object.key("temperature").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::Float((*var_2).into()),
+        );
+    }
+    if let Some(var_3) = &input.top_p {
+        object.key("topP").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::Float((*var_3).into()),
+        );
+    }
     if let Some(var_4) = &input.stop_sequences {
         let mut array_5 = object.key("stopSequences").start_array();
         for item_6 in var_4 {

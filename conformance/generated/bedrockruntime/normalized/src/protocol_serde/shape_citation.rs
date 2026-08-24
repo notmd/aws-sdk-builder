@@ -3,8 +3,12 @@ pub fn ser_citation(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::Citation,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.title {}
-    if let Some(var_2) = &input.source {}
+    if let Some(var_1) = &input.title {
+        object.key("title").string(var_1.as_str());
+    }
+    if let Some(var_2) = &input.source {
+        object.key("source").string(var_2.as_str());
+    }
     if let Some(var_3) = &input.source_content {
         let mut array_4 = object.key("sourceContent").start_array();
         for item_5 in var_3 {
@@ -49,10 +53,18 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "title" => {
-                            builder = builder.set_title(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_title(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
                         }
                         "source" => {
-                            builder = builder.set_source(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_source(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
                         }
                         "sourceContent" => {
                             builder = builder.set_source_content(

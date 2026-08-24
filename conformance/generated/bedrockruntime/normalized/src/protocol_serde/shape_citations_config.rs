@@ -3,7 +3,9 @@ pub fn ser_citations_config(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::CitationsConfig,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {}
+    {
+        object.key("enabled").boolean(input.enabled);
+    }
     Ok(())
 }
 
@@ -30,7 +32,7 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "enabled" => {
-                            builder = builder.set_enabled(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_enabled(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

@@ -32,7 +32,9 @@ where
                             );
                         }
                         "severityScore" => {
-                            builder = builder.set_severity_score(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_severity_score(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?.map(|v| v.to_f64_lossy()),
+                            );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

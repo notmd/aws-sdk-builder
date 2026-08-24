@@ -4,7 +4,9 @@ pub fn ser_document_content_block(
     input: &super::super::types::DocumentContentBlock,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
-        super::super::types::DocumentContentBlock::Text(inner) => {}
+        super::super::types::DocumentContentBlock::Text(inner) => {
+            object.key("text").string(inner.as_str());
+        }
         super::super::types::DocumentContentBlock::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                 "DocumentContentBlock",
@@ -50,7 +52,9 @@ where
                     }
                     variant = match key.as_ref() {
                         "text" => Some(super::super::types::DocumentContentBlock::Text(
-                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
                         )),
                         _ => {

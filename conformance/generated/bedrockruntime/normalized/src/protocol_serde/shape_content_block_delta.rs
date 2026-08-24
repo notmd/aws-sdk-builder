@@ -35,7 +35,9 @@ where
                     }
                     variant = match key.as_ref() {
                         "text" => Some(super::super::types::ContentBlockDelta::Text(
-                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
                         )),
                         "toolUse" => Some(super::super::types::ContentBlockDelta::ToolUse(

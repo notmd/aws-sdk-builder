@@ -29,7 +29,11 @@ where
                             );
                         }
                         "inputTokens" => {
-                            builder = builder.set_input_tokens(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_input_tokens(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i32::try_from)
+                                    .transpose()?,
+                            );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

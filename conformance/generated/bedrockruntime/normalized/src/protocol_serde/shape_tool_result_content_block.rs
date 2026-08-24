@@ -4,8 +4,12 @@ pub fn ser_tool_result_content_block(
     input: &super::super::types::ToolResultContentBlock,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
-        super::super::types::ToolResultContentBlock::Json(inner) => {}
-        super::super::types::ToolResultContentBlock::Text(inner) => {}
+        super::super::types::ToolResultContentBlock::Json(inner) => {
+            object.key("json").document(inner);
+        }
+        super::super::types::ToolResultContentBlock::Text(inner) => {
+            object.key("text").string(inner.as_str());
+        }
         super::super::types::ToolResultContentBlock::Image(inner) => {
             #[allow(unused_mut)]
             let mut object_1 = object.key("image").start_object();
@@ -75,11 +79,13 @@ where
                     }
                     variant = match key.as_ref() {
                         "json" => Some(super::super::types::ToolResultContentBlock::Json(
-                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
+                            Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?)
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'json' cannot be null"))?,
                         )),
                         "text" => Some(super::super::types::ToolResultContentBlock::Text(
-                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
                         )),
                         "image" => Some(super::super::types::ToolResultContentBlock::Image(

@@ -4,7 +4,9 @@ pub fn ser_prompt_variable_values(
     input: &super::super::types::PromptVariableValues,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
-        super::super::types::PromptVariableValues::Text(inner) => {}
+        super::super::types::PromptVariableValues::Text(inner) => {
+            object.key("text").string(inner.as_str());
+        }
         super::super::types::PromptVariableValues::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                 "PromptVariableValues",

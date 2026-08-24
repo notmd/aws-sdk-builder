@@ -3,7 +3,9 @@ pub fn ser_guardrail_text_block(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::GuardrailTextBlock,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {}
+    {
+        object.key("text").string(input.text.as_str());
+    }
     if let Some(var_1) = &input.qualifiers {
         let mut array_2 = object.key("qualifiers").start_array();
         for item_3 in var_1 {

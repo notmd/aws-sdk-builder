@@ -15,6 +15,8 @@ pub fn ser_tool_specification(
         super::super::protocol_serde::shape_tool_input_schema::ser_tool_input_schema(&mut object_2, &input.input_schema)?;
         object_2.finish();
     }
-    if let Some(var_3) = &input.strict {}
+    if let Some(var_3) = &input.strict {
+        object.key("strict").boolean(*var_3);
+    }
     Ok(())
 }

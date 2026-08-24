@@ -3,8 +3,12 @@ pub fn ser_reasoning_text_block(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::ReasoningTextBlock,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {}
-    if let Some(var_1) = &input.signature {}
+    {
+        object.key("text").string(input.text.as_str());
+    }
+    if let Some(var_1) = &input.signature {
+        object.key("signature").string(var_1.as_str());
+    }
     Ok(())
 }
 
@@ -31,10 +35,18 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "text" => {
-                            builder = builder.set_text(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_text(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
                         }
                         "signature" => {
-                            builder = builder.set_signature(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_signature(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

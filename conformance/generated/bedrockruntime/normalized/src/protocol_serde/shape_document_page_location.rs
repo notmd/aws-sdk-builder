@@ -3,9 +3,24 @@ pub fn ser_document_page_location(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::DocumentPageLocation,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    if let Some(var_1) = &input.document_index {}
-    if let Some(var_2) = &input.start {}
-    if let Some(var_3) = &input.end {}
+    if let Some(var_1) = &input.document_index {
+        object.key("documentIndex").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_1).into()),
+        );
+    }
+    if let Some(var_2) = &input.start {
+        object.key("start").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_2).into()),
+        );
+    }
+    if let Some(var_3) = &input.end {
+        object.key("end").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_3).into()),
+        );
+    }
     Ok(())
 }
 
@@ -32,13 +47,25 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "documentIndex" => {
-                            builder = builder.set_document_index(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_document_index(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i32::try_from)
+                                    .transpose()?,
+                            );
                         }
                         "start" => {
-                            builder = builder.set_start(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_start(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i32::try_from)
+                                    .transpose()?,
+                            );
                         }
                         "end" => {
-                            builder = builder.set_end(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_end(
+                                ::aws_smithy_json::deserialize::token::expect_number_or_null(tokens.next())?
+                                    .map(i32::try_from)
+                                    .transpose()?,
+                            );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

@@ -33,6 +33,8 @@ pub fn ser_converse_tokens_request(
         super::super::protocol_serde::shape_tool_configuration::ser_tool_configuration(&mut object_10, var_9)?;
         object_10.finish();
     }
-    if let Some(var_11) = &input.additional_model_request_fields {}
+    if let Some(var_11) = &input.additional_model_request_fields {
+        object.key("additionalModelRequestFields").document(var_11);
+    }
     Ok(())
 }

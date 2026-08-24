@@ -224,7 +224,8 @@ pub(crate) fn de_converse(
                         )?);
                     }
                     "additionalModelResponseFields" => {
-                        builder = builder.set_additional_model_response_fields(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                        builder = builder
+                            .set_additional_model_response_fields(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
                     }
                     "trace" => {
                         builder = builder.set_trace(super::super::protocol_serde::shape_converse_trace::de_converse_trace(tokens, _value, depth + 1)?);

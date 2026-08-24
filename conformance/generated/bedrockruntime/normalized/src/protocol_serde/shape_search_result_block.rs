@@ -3,8 +3,12 @@ pub fn ser_search_result_block(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::SearchResultBlock,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {}
-    {}
+    {
+        object.key("source").string(input.source.as_str());
+    }
+    {
+        object.key("title").string(input.title.as_str());
+    }
     {
         let mut array_1 = object.key("content").start_array();
         for item_2 in &input.content {
@@ -49,10 +53,18 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "source" => {
-                            builder = builder.set_source(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_source(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
                         }
                         "title" => {
-                            builder = builder.set_title(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_title(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
                         }
                         "content" => {
                             builder = builder.set_content(

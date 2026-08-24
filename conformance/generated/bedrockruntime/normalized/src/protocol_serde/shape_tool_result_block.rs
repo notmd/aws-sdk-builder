@@ -21,7 +21,9 @@ pub fn ser_tool_result_block(
     if let Some(var_4) = &input.status {
         object.key("status").string(var_4.as_str());
     }
-    if let Some(var_5) = &input.r#type {}
+    if let Some(var_5) = &input.r#type {
+        object.key("type").string(var_5.as_str());
+    }
     Ok(())
 }
 
@@ -69,7 +71,11 @@ where
                             );
                         }
                         "type" => {
-                            builder = builder.set_type(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_type(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

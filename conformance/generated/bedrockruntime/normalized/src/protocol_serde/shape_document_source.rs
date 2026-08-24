@@ -4,14 +4,18 @@ pub fn ser_document_source(
     input: &super::super::types::DocumentSource,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
-        super::super::types::DocumentSource::Bytes(inner) => {}
+        super::super::types::DocumentSource::Bytes(inner) => {
+            object.key("bytes").string_unchecked(&::aws_smithy_types::base64::encode(inner));
+        }
         super::super::types::DocumentSource::S3Location(inner) => {
             #[allow(unused_mut)]
             let mut object_1 = object.key("s3Location").start_object();
             super::super::protocol_serde::shape_s3_location::ser_s3_location(&mut object_1, inner)?;
             object_1.finish();
         }
-        super::super::types::DocumentSource::Text(inner) => {}
+        super::super::types::DocumentSource::Text(inner) => {
+            object.key("text").string(inner.as_str());
+        }
         super::super::types::DocumentSource::Content(inner) => {
             let mut array_1 = object.key("content").start_array();
             for item_2 in inner {
@@ -69,7 +73,7 @@ where
                     }
                     variant = match key.as_ref() {
                         "bytes" => Some(super::super::types::DocumentSource::Bytes(
-                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
+                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?,
                         )),
                         "s3Location" => Some(super::super::types::DocumentSource::S3Location(
@@ -78,7 +82,9 @@ where
                             })?,
                         )),
                         "text" => Some(super::super::types::DocumentSource::Text(
-                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
                         )),
                         "content" => Some(super::super::types::DocumentSource::Content(

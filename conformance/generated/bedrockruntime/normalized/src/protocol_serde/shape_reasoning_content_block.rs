@@ -10,7 +10,9 @@ pub fn ser_reasoning_content_block(
             super::super::protocol_serde::shape_reasoning_text_block::ser_reasoning_text_block(&mut object_1, inner)?;
             object_1.finish();
         }
-        super::super::types::ReasoningContentBlock::RedactedContent(inner) => {}
+        super::super::types::ReasoningContentBlock::RedactedContent(inner) => {
+            object.key("redactedContent").string_unchecked(&::aws_smithy_types::base64::encode(inner));
+        }
         super::super::types::ReasoningContentBlock::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                 "ReasoningContentBlock",
@@ -61,7 +63,7 @@ where
                             )?,
                         )),
                         "redactedContent" => Some(super::super::types::ReasoningContentBlock::RedactedContent(
-                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| {
+                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'redactedContent' cannot be null")
                             })?,
                         )),

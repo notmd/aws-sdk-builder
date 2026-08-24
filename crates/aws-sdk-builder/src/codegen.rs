@@ -5548,7 +5548,7 @@ fn render_standalone_request_serializer(
                     writeln!(output, "                let inner_{index} = inner_{index}").unwrap();
                     writeln!(output, "                    .as_ref()").unwrap();
                     writeln!(output, "                    .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field({field:?}, \"cannot be empty or unset\"))?;").unwrap();
-                    if matches!(kind, "string" | "String") {
+                    if kind == "string" {
                         writeln!(output, "                if inner_{index}.is_empty() {{").unwrap();
                         writeln!(output, "                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(").unwrap();
                         writeln!(output, "                        {field:?},").unwrap();
@@ -5686,11 +5686,11 @@ fn render_standalone_query_value(
             output,
             "{indentation}query.push_kv({query_name:?}, &::aws_smithy_http::query::fmt_string({expression}.as_str()));"
         ),
-        "string" | "String" => writeln!(
+        "string" => writeln!(
             output,
             "{indentation}query.push_kv({query_name:?}, &::aws_smithy_http::query::fmt_string({expression}));"
         ),
-        "timestamp" | "Timestamp" => writeln!(
+        "timestamp" => writeln!(
             output,
             "{indentation}query.push_kv({query_name:?}, &::aws_smithy_http::query::fmt_timestamp({expression}, ::aws_smithy_types::date_time::Format::{})?);",
             standalone_query_timestamp_format(selected, member, target)
@@ -11337,14 +11337,35 @@ impl ProtocolRenderState {
 }
 
 fn protocol_shape_kind<'a>(selected: &'a SelectedModel, target: &'a str) -> &'a str {
-    selected
+    let kind = selected
         .model
         .shapes
         .get(target)
         .and_then(|shape| shape.get("type"))
         .and_then(Value::as_str)
         .or_else(|| target.strip_prefix("smithy.api#"))
-        .unwrap_or("string")
+        .unwrap_or("string");
+    normalize_protocol_shape_kind(kind)
+}
+
+fn normalize_protocol_shape_kind(kind: &str) -> &str {
+    match kind {
+        "String" => "string",
+        "Blob" => "blob",
+        "Boolean" => "boolean",
+        "Byte" => "byte",
+        "Short" => "short",
+        "Integer" => "integer",
+        "Long" => "long",
+        "Float" => "float",
+        "Double" => "double",
+        "BigInteger" => "bigInteger",
+        "BigDecimal" => "bigDecimal",
+        "Timestamp" => "timestamp",
+        "Document" => "document",
+        "Unit" => "unit",
+        other => other,
+    }
 }
 
 fn protocol_shape_type(selected: &SelectedModel, target: &str) -> String {
@@ -16334,6 +16355,22 @@ mod tests {
             primitive_type_for_namespace("Document"),
             "::aws_smithy_types::Document"
         );
+    }
+
+    #[test]
+    fn protocol_shape_kind_normalizes_smithy_prelude_names() {
+        for (input, expected) in [
+            ("String", "string"),
+            ("Blob", "blob"),
+            ("Boolean", "boolean"),
+            ("Integer", "integer"),
+            ("Timestamp", "timestamp"),
+            ("Document", "document"),
+            ("Unit", "unit"),
+        ] {
+            assert_eq!(normalize_protocol_shape_kind(input), expected);
+        }
+        assert_eq!(normalize_protocol_shape_kind("structure"), "structure");
     }
 
     #[test]

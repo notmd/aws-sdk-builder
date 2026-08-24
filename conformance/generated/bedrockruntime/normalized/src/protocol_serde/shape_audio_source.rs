@@ -4,7 +4,9 @@ pub fn ser_audio_source(
     input: &super::super::types::AudioSource,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
-        super::super::types::AudioSource::Bytes(inner) => {}
+        super::super::types::AudioSource::Bytes(inner) => {
+            object.key("bytes").string_unchecked(&::aws_smithy_types::base64::encode(inner));
+        }
         super::super::types::AudioSource::S3Location(inner) => {
             #[allow(unused_mut)]
             let mut object_1 = object.key("s3Location").start_object();
@@ -52,7 +54,7 @@ where
                     }
                     variant = match key.as_ref() {
                         "bytes" => Some(super::super::types::AudioSource::Bytes(
-                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
+                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'bytes' cannot be null"))?,
                         )),
                         "s3Location" => Some(super::super::types::AudioSource::S3Location(

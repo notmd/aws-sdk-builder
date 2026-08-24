@@ -22,10 +22,18 @@ where
                     Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
                     Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
                         "title" => {
-                            builder = builder.set_title(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_title(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
                         }
                         "source" => {
-                            builder = builder.set_source(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_source(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
                         }
                         "sourceContent" => {
                             builder = builder.set_source_content(

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sqs
-**Progress:** `294/294` files compared · `229` matched · `64` mismatches · `1` missing · `0` extra · `77.89%` match (100.00% means fully matched)
+**Progress:** `294/294` files compared · `231` matched · `62` mismatches · `1` missing · `0` extra · `78.57%` match (100.00% means fully matched)
 
 ### `src/aws_query_compatible_errors.rs`
 
@@ -1203,26 +1203,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                  #[allow(unused_mut)]
 ```
 
-### `src/protocol_serde/shape_invalid_id_format.rs`
-
-```diff
---- reference/src/protocol_serde/shape_invalid_id_format.rs
-+++ generated/src/protocol_serde/shape_invalid_id_format.rs
-@@ -13,11 +13,7 @@
-             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                 "Message" => {
--                    builder = builder.set_message(
--                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
--                            .transpose()?,
--                    );
-+                    builder = builder.set_message(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
-                 }
-                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-             },
-```
-
 ### `src/protocol_serde/shape_list_dead_letter_source_queues.rs`
 
 ```diff
@@ -1390,26 +1370,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              #[allow(unused_mut)]
              let mut tmp = {
                  #[allow(unused_mut)]
-```
-
-### `src/protocol_serde/shape_message_not_inflight.rs`
-
-```diff
---- reference/src/protocol_serde/shape_message_not_inflight.rs
-+++ generated/src/protocol_serde/shape_message_not_inflight.rs
-@@ -13,11 +13,7 @@
-             Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-             Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => match key.to_unescaped()?.as_ref() {
-                 "Message" => {
--                    builder = builder.set_message(
--                        ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
--                            .map(|s| s.to_unescaped().map(|u| u.into_owned()))
--                            .transpose()?,
--                    );
-+                    builder = builder.set_message(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
-                 }
-                 _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
-             },
 ```
 
 ### `src/protocol_serde/shape_message_system_attribute_map.rs`

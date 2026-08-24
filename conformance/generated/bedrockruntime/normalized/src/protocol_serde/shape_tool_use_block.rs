@@ -9,7 +9,9 @@ pub fn ser_tool_use_block(
     {
         object.key("name").string(input.name.as_str());
     }
-    {}
+    {
+        object.key("input").document(&input.input);
+    }
     if let Some(var_1) = &input.r#type {
         object.key("type").string(var_1.as_str());
     }
@@ -53,7 +55,7 @@ where
                             );
                         }
                         "input" => {
-                            builder = builder.set_input(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_input(Some(::aws_smithy_json::deserialize::token::expect_document(tokens.next())?));
                         }
                         "type" => {
                             builder = builder.set_type(

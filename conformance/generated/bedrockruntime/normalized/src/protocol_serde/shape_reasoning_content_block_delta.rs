@@ -35,18 +35,23 @@ where
                     }
                     variant = match key.as_ref() {
                         "text" => Some(super::super::types::ReasoningContentBlockDelta::Text(
-                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?
                                 .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
                         )),
                         "redactedContent" => Some(super::super::types::ReasoningContentBlockDelta::RedactedContent(
-                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| {
+                            ::aws_smithy_json::deserialize::token::expect_blob_or_null(tokens.next())?.ok_or_else(|| {
                                 ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'redactedContent' cannot be null")
                             })?,
                         )),
                         "signature" => Some(super::super::types::ReasoningContentBlockDelta::Signature(
-                            ::aws_smithy_json::deserialize::token::skip_value(tokens)?.ok_or_else(|| {
-                                ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'signature' cannot be null")
-                            })?,
+                            ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                .transpose()?
+                                .ok_or_else(|| {
+                                    ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'signature' cannot be null")
+                                })?,
                         )),
                         _ => {
                             ::aws_smithy_json::deserialize::token::skip_value(tokens)?;

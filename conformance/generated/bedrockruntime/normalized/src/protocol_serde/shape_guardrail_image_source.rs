@@ -4,7 +4,9 @@ pub fn ser_guardrail_image_source(
     input: &super::super::types::GuardrailImageSource,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
-        super::super::types::GuardrailImageSource::Bytes(inner) => {}
+        super::super::types::GuardrailImageSource::Bytes(inner) => {
+            object.key("bytes").string_unchecked(&::aws_smithy_types::base64::encode(inner));
+        }
         super::super::types::GuardrailImageSource::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                 "GuardrailImageSource",

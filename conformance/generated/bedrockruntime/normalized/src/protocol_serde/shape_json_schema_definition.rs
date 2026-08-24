@@ -3,8 +3,14 @@ pub fn ser_json_schema_definition(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::JsonSchemaDefinition,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {}
-    if let Some(var_1) = &input.name {}
-    if let Some(var_2) = &input.description {}
+    {
+        object.key("schema").string(input.schema.as_str());
+    }
+    if let Some(var_1) = &input.name {
+        object.key("name").string(var_1.as_str());
+    }
+    if let Some(var_2) = &input.description {
+        object.key("description").string(var_2.as_str());
+    }
     Ok(())
 }

@@ -45,7 +45,9 @@ pub fn ser_converse_input_input(
         super::super::protocol_serde::shape_guardrail_configuration::ser_guardrail_configuration(&mut object_14, var_13)?;
         object_14.finish();
     }
-    if let Some(var_15) = &input.additional_model_request_fields {}
+    if let Some(var_15) = &input.additional_model_request_fields {
+        object.key("additionalModelRequestFields").document(var_15);
+    }
     if let Some(var_16) = &input.prompt_variables {
         #[allow(unused_mut)]
         let mut object_17 = object.key("promptVariables").start_object();
@@ -62,7 +64,9 @@ pub fn ser_converse_input_input(
     if let Some(var_21) = &input.additional_model_response_field_paths {
         let mut array_22 = object.key("additionalModelResponseFieldPaths").start_array();
         for item_23 in var_21 {
-            {}
+            {
+                array_22.value().string(item_23.as_str());
+            }
         }
         array_22.finish();
     }
@@ -70,7 +74,9 @@ pub fn ser_converse_input_input(
         #[allow(unused_mut)]
         let mut object_25 = object.key("requestMetadata").start_object();
         for (key_26, value_27) in var_24 {
-            {}
+            {
+                object_25.key(key_26.as_str()).string(value_27.as_str());
+            }
         }
         object_25.finish();
     }

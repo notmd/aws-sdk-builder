@@ -25,7 +25,7 @@ where
                             builder = builder.set_results(super::super::protocol_serde::shape_guardrail_checks_sensitive_information_result_list::de_guardrail_checks_sensitive_information_result_list(tokens, _value, depth + 1)?);
                         }
                         "truncated" => {
-                            builder = builder.set_truncated(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_truncated(::aws_smithy_json::deserialize::token::expect_bool_or_null(tokens.next())?);
                         }
                         _ => ::aws_smithy_json::deserialize::token::skip_value(tokens)?,
                     },

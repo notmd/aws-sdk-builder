@@ -4,7 +4,9 @@ pub fn ser_tool_input_schema(
     input: &super::super::types::ToolInputSchema,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
     match input {
-        super::super::types::ToolInputSchema::Json(inner) => {}
+        super::super::types::ToolInputSchema::Json(inner) => {
+            object.key("json").document(inner);
+        }
         super::super::types::ToolInputSchema::Unknown => {
             return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
                 "ToolInputSchema",

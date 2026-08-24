@@ -6,14 +6,18 @@ pub fn ser_document_block(
     {
         object.key("format").string(input.format.as_str());
     }
-    {}
+    {
+        object.key("name").string(input.name.as_str());
+    }
     {
         #[allow(unused_mut)]
         let mut object_1 = object.key("source").start_object();
         super::super::protocol_serde::shape_document_source::ser_document_source(&mut object_1, &input.source)?;
         object_1.finish();
     }
-    if let Some(var_2) = &input.context {}
+    if let Some(var_2) = &input.context {
+        object.key("context").string(var_2.as_str());
+    }
     if let Some(var_3) = &input.citations {
         #[allow(unused_mut)]
         let mut object_4 = object.key("citations").start_object();
@@ -53,7 +57,11 @@ where
                             );
                         }
                         "name" => {
-                            builder = builder.set_name(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_name(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
                         }
                         "source" => {
                             builder = builder.set_source(super::super::protocol_serde::shape_document_source::de_document_source(
@@ -63,7 +71,11 @@ where
                             )?);
                         }
                         "context" => {
-                            builder = builder.set_context(::aws_smithy_json::deserialize::token::skip_value(tokens)?);
+                            builder = builder.set_context(
+                                ::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?
+                                    .map(|s| s.to_unescaped().map(|u| u.into_owned()))
+                                    .transpose()?,
+                            );
                         }
                         "citations" => {
                             builder = builder.set_citations(super::super::protocol_serde::shape_citations_config::de_citations_config(
