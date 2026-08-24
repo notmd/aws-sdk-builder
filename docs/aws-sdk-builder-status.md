@@ -4,6 +4,26 @@ Updated 2026-08-24. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-24 — Match event-stream error dispatch cardinality
+- State: in progress
+- Changed: event-stream response deserializers now derive modeled error dispatch from
+  the union members: no type dispatch is emitted when there are no modeled errors, a
+  single modeled error uses Smithy-RS's `if` form, and multiple modeled errors use a
+  `match` with an unknown fallback. The rule is generic and model-driven. A focused
+  regression test covers the no-modeled-error case. The implementation was checked
+  against the pinned Smithy-RS `EventStreamUnmarshallerGenerator` at `/tmp/smithy-rs`,
+  commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Conformance: `just conformance` generated 15 services and 1,133 operations,
+  formatted 13,164 generated Rust files, and compared `13,168` files: `11,965`
+  matched, `1,198` mismatched, `4` missing, and `1` extra (`88.52%` average match).
+  This is `+2` exact files and `-2` mismatches from the previous `11,963/1,200`
+  checkpoint; S3 is now exact at `1,281/1,281`. The command exits 1 only because
+  broader parity gaps remain.
+- Verification: focused event-stream regression, `cargo test --workspace`, workspace
+  Clippy with `-D warnings`, formatting, and `git diff --check` pass. Conformance
+  generation and rustfmt complete without generated-source parse errors.
+- Next action: continue generic protocol, auth, retry, and formatting parity work.
+
 ### Checkpoint: 2026-08-24 — Honor client-optional required members
 - State: in progress
 - Changed: member requiredness now follows Smithy-RS client nullability for members

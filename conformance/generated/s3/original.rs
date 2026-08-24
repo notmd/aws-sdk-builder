@@ -206954,9 +206954,6 @@ impl ::aws_smithy_eventstream::frame::UnmarshallMessage for SelectObjectContentE
                         ))
                     }
                 };
-                match response_headers.smithy_type.as_str() {
-                    _ => {}
-                }
                 Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
                     super::types::error::SelectObjectContentEventStreamError::generic(generic),
                 ))

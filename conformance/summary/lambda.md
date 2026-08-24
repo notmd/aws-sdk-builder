@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1077/1077` files compared · `842` matched · `234` mismatches · `0` missing · `1` extra · `78.18%` match (100.00% means fully matched)
+**Progress:** `1077/1077` files compared · `843` matched · `233` mismatches · `0` missing · `1` extra · `78.27%` match (100.00% means fully matched)
 
 ### `src/client/delete_resource_policy.rs`
 
@@ -177,38 +177,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// - On failure, responds with [`SdkError<UpdateFunctionEventInvokeConfigError>`](crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigError)
      pub fn update_function_event_invoke_config(
          &self,
-```
-
-### `src/event_stream_serde.rs`
-
-```diff
---- reference/src/event_stream_serde.rs
-+++ generated/src/event_stream_serde.rs
-@@ -34,10 +34,10 @@
-                 }
-                 "InvokeComplete" => {
-                     let parsed =
--                            super::protocol_serde::shape_invoke_with_response_stream_complete_event::de_invoke_with_response_stream_complete_event_payload(&message.payload()[..])
--                                                .map_err(|err| {
--                                                    ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall InvokeComplete: {err}"))
--                                                })?
-+                        super::protocol_serde::shape_invoke_with_response_stream_complete_event::de_invoke_with_response_stream_complete_event_payload(&message.payload()[..])
-+                            .map_err(|err| {
-+                                ::aws_smithy_eventstream::error::Error::unmarshalling(format!("failed to unmarshall InvokeComplete: {err}"))
-+                            })?
-                         ;
-                     Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Event(
-                         super::types::InvokeWithResponseStreamResponseEvent::InvokeComplete(parsed),
-@@ -56,6 +56,9 @@
-                         ))
-                     }
-                 };
-+                match response_headers.smithy_type.as_str() {
-+                    _ => {}
-+                }
-                 Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(
-                     super::types::error::InvokeWithResponseStreamResponseEventError::generic(generic),
-                 ))
 ```
 
 ### `src/operation/add_layer_version_permission/_add_layer_version_permission_input.rs`

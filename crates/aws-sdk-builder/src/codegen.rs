@@ -1703,27 +1703,53 @@ fn render_event_stream_serde_file(selected: &SelectedModel) -> String {
         );
         output.push_str("                let generic = match crate::protocol_serde::parse_event_stream_error_metadata(message.payload()) {\n                    Ok(builder) => builder.build(),\n                    Err(err) => {\n                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(\n                            crate::types::error::");
         output.push_str(&union_name);
-        output.push_str("Error::unhandled(err),\n                        ))\n                    }\n                };\n                match response_headers.smithy_type.as_str() {\n");
-        for (member_name, member) in members(shape) {
-            let Some(target) = member_target(member) else {
-                continue;
-            };
-            if selected
-                .model
-                .shapes
-                .get(target)
-                .is_some_and(is_error_shape)
-            {
+        output.push_str("Error::unhandled(err),\n                        ))\n                    }\n                };\n");
+        let error_members = members(shape)
+            .into_iter()
+            .filter_map(|(member_name, member)| {
+                let target = member_target(member)?;
+                selected
+                    .model
+                    .shapes
+                    .get(target)
+                    .is_some_and(is_error_shape)
+                    .then_some((member_name, target.to_owned()))
+            })
+            .collect::<Vec<_>>();
+        match error_members.as_slice() {
+            [] => {}
+            [(member_name, target)] => {
+                writeln!(
+                    output,
+                    "                if response_headers.smithy_type.as_str() == {member_name:?} {{"
+                )
+                .unwrap();
                 render_event_stream_error_member(
                     &mut output,
                     selected,
                     &union_name,
-                    &member_name,
+                    member_name,
                     target,
+                    false,
                 );
+                output.push_str("                }\n");
+            }
+            _ => {
+                output.push_str("                match response_headers.smithy_type.as_str() {\n");
+                for (member_name, target) in &error_members {
+                    render_event_stream_error_member(
+                        &mut output,
+                        selected,
+                        &union_name,
+                        member_name,
+                        target,
+                        true,
+                    );
+                }
+                output.push_str("                    _ => {}\n                }\n");
             }
         }
-        output.push_str("                    _ => {}\n                }\n                Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(\n                    crate::types::error::");
+        output.push_str("                Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(\n                    crate::types::error::");
         output.push_str(&union_name);
         output.push_str("Error::generic(generic),\n                ))\n            }\n            value => {\n                return Err(::aws_smithy_eventstream::error::Error::unmarshalling(format!(\n                    \"unrecognized :message-type: {value}\"\n                )));\n            }\n        }\n    }\n}\n");
     }
@@ -1885,13 +1911,19 @@ fn render_event_stream_error_member(
     union_name: &str,
     member_name: &str,
     target: &str,
+    match_arm: bool,
 ) {
     let variant = rust_type_name(member_name);
     let error_name = rust_type_name(terminal(target));
     let module = names::rust_module_name(terminal(target));
+    let branch = if match_arm {
+        format!("{member_name:?} =>")
+    } else {
+        format!("if response_headers.smithy_type.as_str() == {member_name:?}")
+    };
     writeln!(
         output,
-        "                    {member_name:?} => {{\n                        let mut builder = crate::types::error::builders::{error_name}Builder::default();\n                        builder = crate::protocol_serde::shape_{module}::de_{module}_json_err(\n                            &message.payload()[..],\n                            builder,\n                        )\n                        .map_err(|err| {{\n                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!(\"failed to unmarshall {member_name}: {{err}}\"))\n                        }})?;\n                        builder.set_meta(Some(generic));\n                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(\n                            crate::types::error::{union_name}Error::{variant}(builder.build()),\n                        ));\n                    }}"
+        "                    {branch} {{\n                        let mut builder = crate::types::error::builders::{error_name}Builder::default();\n                        builder = crate::protocol_serde::shape_{module}::de_{module}_json_err(\n                            &message.payload()[..],\n                            builder,\n                        )\n                        .map_err(|err| {{\n                            ::aws_smithy_eventstream::error::Error::unmarshalling(format!(\"failed to unmarshall {member_name}: {{err}}\"))\n                        }})?;\n                        builder.set_meta(Some(generic));\n                        return Ok(::aws_smithy_eventstream::frame::UnmarshalledMessage::Error(\n                            crate::types::error::{union_name}Error::{variant}(builder.build()),\n                        ));\n                    }}"
     )
     .unwrap();
     let _ = selected;
@@ -15633,6 +15665,61 @@ mod tests {
                 .get("example#Chunk")
                 .is_some_and(|roles| roles.serialize)
         );
+    }
+
+    #[test]
+    fn event_stream_without_modeled_errors_omits_error_type_dispatch() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Invoke"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Invoke": {
+                        "type": "operation",
+                        "output": {"target": "example#Output"}
+                    },
+                    "example#Output": {
+                        "type": "structure",
+                        "members": {
+                            "events": {
+                                "target": "example#Events",
+                                "traits": {"smithy.api#httpPayload": {}}
+                            }
+                        }
+                    },
+                    "example#Events": {
+                        "type": "union",
+                        "members": {"chunk": {"target": "example#Chunk"}},
+                        "traits": {"smithy.api#streaming": {}}
+                    },
+                    "example#Chunk": {
+                        "type": "structure",
+                        "members": {"data": {"target": "smithy.api#Blob"}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let rendered = render_event_stream_serde_file(&selected);
+        let exception = rendered
+            .split_once("exception")
+            .map(|(_, rest)| rest)
+            .expect("event-stream exception branch");
+
+        assert!(!exception.contains("match response_headers.smithy_type.as_str()"));
+        assert!(!exception.contains("if response_headers.smithy_type.as_str()"));
     }
 
     #[test]
