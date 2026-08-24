@@ -77,3 +77,62 @@ and refuses non-loopback endpoints unless ALLOW_NONLOCAL_FLOCI=1 is set.
 
   For now focus on s3 sdk only
 ```
+
+```
+/goal
+  Refactor the AWS SDK codegen so consumer and conformance use one canonical generated
+  implementation, while preserving the current conformance coverage exactly.
+
+  First read Prompt.md, docs/aws-sdk-builder-status.md, git status, and
+  conformance/summary.md. Record the current baseline before editing. The current
+  baseline is approximately:
+
+    4904 matched / 6396 compared
+    724 mismatched, 713 missing, 55 extra
+
+  Generate one file per service:
+
+    OUT_DIR/generated/<service>/original.rs
+
+  The provider's include_sdk!() macro must include that service's original.rs.
+  Conformance must preserve the same file at:
+
+    conformance/generated/<service>/original.rs
+
+  Remove consumer_namespace, consumer_crate, and relative_snapshot_paths from the
+  rendering pipeline. Do not introduce another consumer/conformance mode flag.
+  Generated paths must be resolved from the Rust module tree so original.rs works at
+  crate root and inside any caller-owned wrapper.
+
+  Derive the comparison tree from each original.rs:
+
+    conformance/generated/<service>/normalized/src/**
+
+  Use a deterministic syn-based or shared module-tree transform. Preserve module paths,
+  visibility, attributes, docs, item order, macro scope, and relative paths. The
+  normalized tree is only a projection for comparison, not a second codegen mode.
+
+  This task is architecture migration only. Do not expand protocol support, fix
+  unrelated parity gaps, add services, or change generated semantics.
+
+  Acceptance criteria:
+
+  1. Consumer and conformance use the same per-service original.rs.
+  2. No consumer/conformance renderer branches remain.
+  3. Splitting original.rs is deterministic and semantics-preserving.
+  4. The post-migration conformance report matches the recorded baseline:
+     no fewer exact matches and no increase in mismatched, missing, or extra files.
+  5. Existing consumer and conformance tests continue to pass.
+
+  Run after the migration:
+
+    cargo fmt --all
+    just conformance
+    cargo test --workspace
+    cargo clippy --workspace --all-targets -- -D warnings
+    git diff --check
+
+  `just conformance` may continue to exit 1 because the baseline is not fully
+  conformant. Do not require full parity for this goal. Record the before/after counts
+  and any changed generated files in docs/aws-sdk-builder-status.md.
+```

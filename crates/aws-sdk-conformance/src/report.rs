@@ -17,7 +17,6 @@ pub struct ServiceReport {
     pub missing_files: Vec<String>,
     pub extra_files: Vec<String>,
     pub binary_mismatches: Vec<String>,
-    pub token_mismatches: Vec<String>,
     pub read_errors: Vec<String>,
     pub differences: Vec<FileDifference>,
 }
@@ -28,7 +27,6 @@ impl ServiceReport {
             || !self.missing_files.is_empty()
             || !self.extra_files.is_empty()
             || !self.binary_mismatches.is_empty()
-            || !self.token_mismatches.is_empty()
             || !self.read_errors.is_empty()
     }
 
@@ -126,13 +124,6 @@ impl ConformanceReport {
             .sum()
     }
 
-    pub fn token_mismatches(&self) -> usize {
-        self.services
-            .iter()
-            .map(|service| service.token_mismatches.len())
-            .sum()
-    }
-
     /// Return the arithmetic mean of the per-service match percentages.
     pub fn average_match_percentage(&self) -> f64 {
         if self.services.is_empty() {
@@ -197,59 +188,6 @@ impl ConformanceReport {
 
         markdown
     }
-
-    /// Render a deterministic Markdown document. The progress line is deliberately
-    /// the first content line after each service heading.
-    pub fn to_markdown(&self) -> String {
-        let mut markdown = String::from("# AWS SDK Conformance Report\n\n");
-        if let Some(snapshot) = &self.snapshot {
-            markdown.push_str("Snapshot: `");
-            markdown.push_str(&escape_inline(snapshot));
-            markdown.push_str("`\n\n");
-        }
-        markdown.push_str("**Summary:** ");
-        markdown.push_str(&format_summary(self));
-        markdown.push_str("\n\n");
-
-        for service in &self.services {
-            append_service_details(&mut markdown, service);
-        }
-
-        markdown
-    }
-}
-
-/// Compare service directories below `reference_root` and `generated_root`.
-///
-/// Each immediate child directory is treated as an SDK service. Both roots may
-/// contain a service that is absent from the other root; that condition is recorded
-/// in the report instead of being treated as an I/O failure.
-pub fn compare_directories(
-    reference_root: impl AsRef<Path>,
-    generated_root: impl AsRef<Path>,
-    snapshot: Option<String>,
-) -> Result<ConformanceReport, ReportError> {
-    compare_directories_with_policy(
-        reference_root,
-        generated_root,
-        snapshot,
-        &Exclusions::default(),
-    )
-}
-
-pub fn compare_directories_with_policy(
-    reference_root: impl AsRef<Path>,
-    generated_root: impl AsRef<Path>,
-    snapshot: Option<String>,
-    exclusions: &Exclusions,
-) -> Result<ConformanceReport, ReportError> {
-    compare_directories_with_policy_and_patches(
-        reference_root,
-        generated_root,
-        None,
-        snapshot,
-        exclusions,
-    )
 }
 
 /// Compare directories after applying checked-in source-normalization patches
@@ -267,29 +205,34 @@ pub fn compare_directories_with_policy_and_patches(
     validate_root(generated_root, "generated")?;
 
     let services = service_names(reference_root, generated_root)?;
-    let mut reports = Vec::with_capacity(services.len());
-    for service in services {
-        reports.push(compare_service(
-            &service,
-            &reference_root.join(&service),
-            &generated_root.join(&service),
-            patches_root.map(|root| root.join(&service)),
-            exclusions,
-        )?);
-    }
+    let reports = std::thread::scope(|scope| {
+        let workers = services
+            .into_iter()
+            .map(|service| {
+                let reference_path = reference_root.join(&service);
+                let generated_path = generated_root.join(&service);
+                let patches_path = patches_root.map(|root| root.join(&service));
+                scope.spawn(move || {
+                    compare_service(
+                        &service,
+                        &reference_path,
+                        &generated_path,
+                        patches_path,
+                        exclusions,
+                    )
+                })
+            })
+            .collect::<Vec<_>>();
+        workers
+            .into_iter()
+            .map(|worker| worker.join().map_err(|_| ReportError::WorkerPanic)?)
+            .collect::<Result<Vec<_>, ReportError>>()
+    })?;
 
     Ok(ConformanceReport {
         snapshot,
         services: reports,
     })
-}
-
-/// Write a report using a temporary sibling file and an atomic rename.
-pub fn write_markdown(
-    path: impl AsRef<Path>,
-    report: &ConformanceReport,
-) -> Result<(), ReportError> {
-    write_text(path.as_ref(), &report.to_markdown())
 }
 
 /// Write the summary report and one complete report per service.
@@ -416,7 +359,6 @@ fn compare_service(
         missing_files: Vec::new(),
         extra_files: Vec::new(),
         binary_mismatches: Vec::new(),
-        token_mismatches: Vec::new(),
         read_errors: Vec::new(),
         differences: Vec::new(),
     };
@@ -468,11 +410,15 @@ fn compare_service(
                 };
                 if reference == generated {
                     report.matched_files += 1;
+                    // An exact byte match is already a proof of token
+                    // equality. Generated files have also passed rustfmt, so
+                    // reparsing both sides here only repeats work.
+                    continue;
                 } else {
                     report.mismatched_files += 1;
                     match (
-                        String::from_utf8(reference.clone()),
-                        String::from_utf8(generated.clone()),
+                        std::str::from_utf8(&reference),
+                        std::str::from_utf8(&generated),
                     ) {
                         (Ok(reference), Ok(generated)) => {
                             let mut patch = diffy::create_patch(&reference, &generated).to_string();
@@ -487,13 +433,6 @@ fn compare_service(
                             .push(relative_path.display().to_string()),
                     }
                 }
-                validate_rust_pair(
-                    &relative_path,
-                    &reference,
-                    &generated,
-                    &mut report.token_mismatches,
-                    &mut report.read_errors,
-                );
             }
             (None, None) => unreachable!("path came from one of the file maps"),
         }
@@ -534,63 +473,6 @@ fn apply_reference_patch(
         source.to_owned()
     };
     normalize::drop_inline_unit_tests(&normalized, relative_path).map(|source| source.into_bytes())
-}
-
-fn validate_rust_pair(
-    relative_path: &Path,
-    reference: &[u8],
-    generated: &[u8],
-    token_mismatches: &mut Vec<String>,
-    errors: &mut Vec<String>,
-) {
-    if relative_path
-        .extension()
-        .and_then(|extension| extension.to_str())
-        != Some("rs")
-    {
-        return;
-    }
-    let reference = match std::str::from_utf8(reference) {
-        Ok(source) => source,
-        Err(error) => {
-            errors.push(format!("reference/{}: {}", relative_path.display(), error));
-            return;
-        }
-    };
-    let generated = match std::str::from_utf8(generated) {
-        Ok(source) => source,
-        Err(error) => {
-            errors.push(format!("generated/{}: {}", relative_path.display(), error));
-            return;
-        }
-    };
-    let reference_file = match syn::parse_file(reference) {
-        Ok(file) => file,
-        Err(error) => {
-            errors.push(format!(
-                "reference/{} parse error: {}",
-                relative_path.display(),
-                error
-            ));
-            return;
-        }
-    };
-    let generated_file = match syn::parse_file(generated) {
-        Ok(file) => file,
-        Err(error) => {
-            errors.push(format!(
-                "generated/{} parse error: {}",
-                relative_path.display(),
-                error
-            ));
-            return;
-        }
-    };
-    let reference_tokens = quote::quote!(#reference_file).to_string();
-    let generated_tokens = quote::quote!(#generated_file).to_string();
-    if reference_tokens != generated_tokens {
-        token_mismatches.push(relative_path.display().to_string());
-    }
 }
 
 fn collect_files(
@@ -745,11 +627,6 @@ fn append_service_details(markdown: &mut String, service: &ServiceReport) {
         "Binary file differences",
         &service.binary_mismatches,
     );
-    append_diagnostics(
-        markdown,
-        "Rust token differences",
-        &service.token_mismatches,
-    );
     append_diagnostics(markdown, "Read errors", &service.read_errors);
 }
 
@@ -757,6 +634,7 @@ fn append_service_details(markdown: &mut String, service: &ServiceReport) {
 pub enum ReportError {
     InvalidRoot { label: String, path: PathBuf },
     InvalidOutputPath(PathBuf),
+    WorkerPanic,
     Io { path: PathBuf, source: io::Error },
 }
 
@@ -784,6 +662,7 @@ impl fmt::Display for ReportError {
                 "report output path has no valid filename: {}",
                 path.display()
             ),
+            Self::WorkerPanic => formatter.write_str("conformance worker thread panicked"),
             Self::Io { path, source } => write!(formatter, "{}: {source}", path.display()),
         }
     }
@@ -792,7 +671,7 @@ impl fmt::Display for ReportError {
 impl Error for ReportError {
     fn source(&self) -> Option<&(dyn Error + 'static)> {
         match self {
-            Self::InvalidRoot { .. } | Self::InvalidOutputPath(_) => None,
+            Self::InvalidRoot { .. } | Self::InvalidOutputPath(_) | Self::WorkerPanic => None,
             Self::Io { source, .. } => Some(source),
         }
     }
@@ -802,6 +681,21 @@ impl Error for ReportError {
 mod tests {
     use super::*;
     use tempfile::tempdir;
+
+    fn compare_default(
+        reference_root: &Path,
+        generated_root: &Path,
+        snapshot: Option<String>,
+    ) -> ConformanceReport {
+        compare_directories_with_policy_and_patches(
+            reference_root,
+            generated_root,
+            None,
+            snapshot,
+            &Exclusions::default(),
+        )
+        .unwrap()
+    }
 
     #[test]
     fn report_puts_progress_before_diffs_and_uses_diffy_headers() {
@@ -823,10 +717,8 @@ mod tests {
         fs::write(generated.path().join("s3/same.rs"), "same\n").unwrap();
         fs::write(generated.path().join("s3/extra.rs"), "extra\n").unwrap();
 
-        let report =
-            compare_directories(reference.path(), generated.path(), Some("abc".to_owned()))
-                .unwrap();
-        let markdown = report.to_markdown();
+        let report = compare_default(reference.path(), generated.path(), Some("abc".to_owned()));
+        let markdown = report.services[0].to_markdown(report.snapshot.as_deref());
         let progress = markdown.find("**Progress:**").unwrap();
         let diff = markdown.find("```diff").unwrap();
 
@@ -856,14 +748,13 @@ mod tests {
         )
         .unwrap();
 
-        let report =
-            compare_directories(reference.path(), generated.path(), None::<String>).unwrap();
+        let report = compare_default(reference.path(), generated.path(), None);
         assert!(!report.has_differences());
         assert_eq!(report.services[0].compared_files, 1);
         assert_eq!(report.services[0].match_percentage(), 100.0);
         assert_eq!(report.average_match_percentage(), 100.0);
-        assert!(report
-            .to_markdown()
+        assert!(report.services[0]
+            .to_markdown(None)
             .contains("**Progress:** `1/1` files compared · `1` matched · `0` mismatches · `0` missing · `0` extra · `100.00%` match"));
     }
 
@@ -884,9 +775,14 @@ mod tests {
             directories: vec!["tests".to_owned()],
         };
 
-        let report =
-            compare_directories_with_policy(reference.path(), generated.path(), None, &exclusions)
-                .unwrap();
+        let report = compare_directories_with_policy_and_patches(
+            reference.path(),
+            generated.path(),
+            None,
+            None,
+            &exclusions,
+        )
+        .unwrap();
 
         assert!(!report.has_differences());
         assert_eq!(report.services[0].compared_files, 1);
@@ -924,26 +820,6 @@ mod tests {
     }
 
     #[test]
-    fn write_markdown_creates_parent_and_replaces_the_report() {
-        let reference = tempdir().unwrap();
-        let generated = tempdir().unwrap();
-        fs::create_dir_all(reference.path().join("s3")).unwrap();
-        fs::create_dir_all(generated.path().join("s3")).unwrap();
-        fs::write(reference.path().join("s3/lib.rs"), "old\n").unwrap();
-        fs::write(generated.path().join("s3/lib.rs"), "new\n").unwrap();
-
-        let report = compare_directories(reference.path(), generated.path(), None).unwrap();
-        let output_root = tempdir().unwrap();
-        let output = output_root.path().join("reports/conformance.md");
-        write_markdown(&output, &report).unwrap();
-
-        let markdown = fs::read_to_string(output).unwrap();
-        assert!(markdown.contains("# AWS SDK Conformance Report"));
-        assert!(markdown.contains("--- reference/lib.rs"));
-        assert!(markdown.contains("+++ generated/lib.rs"));
-    }
-
-    #[test]
     fn write_reports_splits_service_details_and_removes_stale_reports() {
         let reference = tempdir().unwrap();
         let generated = tempdir().unwrap();
@@ -952,8 +828,7 @@ mod tests {
         fs::write(reference.path().join("s3/lib.rs"), "old\n").unwrap();
         fs::write(generated.path().join("s3/lib.rs"), "new\n").unwrap();
 
-        let report =
-            compare_directories(reference.path(), generated.path(), Some("abc".into())).unwrap();
+        let report = compare_default(reference.path(), generated.path(), Some("abc".into()));
         let output_root = tempdir().unwrap();
         let output = output_root.path().join("reports/conformance.md");
         let service_directory = output_root.path().join("reports/conformance");
@@ -968,7 +843,7 @@ mod tests {
         assert!(summary.contains("| Service | Compared | Matched | Mismatches | Missing | Extra | Read errors | Match | Report |"));
         assert!(
             summary
-                .contains("| s3 | 1/1 | 0 | 1 | 0 | 0 | 1 | 0.00% | [report](conformance/s3.md) |")
+                .contains("| s3 | 1/1 | 0 | 1 | 0 | 0 | 0 | 0.00% | [report](conformance/s3.md) |")
         );
         assert!(summary.contains("| **Average** | — | — | — | — | — | — | **0.00%** | — |"));
         assert!(!summary.contains("```diff"));

@@ -1682,28 +1682,3 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn message(&self) -> ::std::option::Option<&str> {
          self.message.as_deref()
 ```
-
-### Rust token differences
-
-- `src/client/batch_get_item.rs`
-- `src/client/create_table.rs`
-- `src/client/delete_item.rs`
-- `src/client/get_item.rs`
-- `src/client/put_item.rs`
-- `src/client/query.rs`
-- `src/client/scan.rs`
-- `src/client/update_item.rs`
-- `src/config/endpoint.rs`
-- `src/operation/describe_endpoints.rs`
-- `src/operation/describe_limits.rs`
-- `src/operation/list_contributor_insights/_list_contributor_insights_input.rs`
-- `src/operation/put_resource_policy/_put_resource_policy_input.rs`
-- `src/protocol_serde/shape_attribute_value.rs`
-- `src/protocol_serde/shape_enable_kinesis_streaming_configuration.rs`
-- `src/protocol_serde/shape_tag_resource.rs`
-- `src/protocol_serde/shape_time_to_live_specification.rs`
-- `src/protocol_serde/shape_untag_resource.rs`
-- `src/protocol_serde/shape_update_kinesis_streaming_configuration.rs`
-- `src/serde_util.rs`
-- `src/types/_attribute_value.rs`
-- `src/types/error/_replicated_write_conflict_exception.rs`

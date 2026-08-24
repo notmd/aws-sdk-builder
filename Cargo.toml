@@ -8,6 +8,10 @@ opt-level = 3
 [profile.dev.package.diffy]
 opt-level = 3
 
+# Keep conformance in the debug profile while optimizing its CPU-heavy paths.
+[profile.dev.package.aws-sdk-conformance]
+opt-level = 1
+
 [workspace.package]
 edition = "2024"
 license = "Apache-2.0"
