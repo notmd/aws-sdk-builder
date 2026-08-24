@@ -4,6 +4,40 @@ Updated 2026-08-24. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-24 — Remove redundant conformance work
+- State: in progress
+- Changed: `aws-sdk-conformance` now collects formatter inputs during the exclusion walk,
+  formats and restores each batch in one pass, skips unchanged restoration writes, and
+  avoids redundant post-projection and leaf-module syntax parses. Rayon 1.12.0 remains
+  scoped to the conformance runner.
+- Evidence: the pinned Smithy-RS reference remains `/tmp/smithy-rs` at
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; the final timed `just conformance` run took
+  `87.56s` wall time, consistent with the warm `87.49s` run.
+- Conformance: `10628/1815/724/134` matched/mismatched/missing/extra, `13,301` files
+  compared, `77.18%` average match, and S3 remains `1,281/1,281`. Coverage is unchanged;
+  the command exits 1 only for existing parity gaps.
+- Verification: 21 conformance tests, release Clippy with `-D warnings`, formatting, and
+  `git diff --check` pass.
+- Blocker: remaining conformance differences are generator parity gaps, not runner
+  behavior.
+- Next action: continue parity work while retaining the reduced post-processing work.
+
+### Checkpoint: 2026-08-24 — Parallelize conformance post-processing
+- State: in progress
+- Changed: `crates/aws-sdk-conformance/src/main.rs` now projects completed services while
+  generation workers are active, formats disjoint Rust batches with Rayon 1.12.0, and
+  restores canonical paths in parallel. `normalize.rs` skips syntax parsing for
+  already-restored files without `crate::` paths.
+- Evidence: the pinned Smithy-RS reference remains `/tmp/smithy-rs` at
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; focused conformance tests pass. The timed
+  `just conformance` run improved from `2:12.75` to `1:22.09` wall time.
+- Conformance: `10628/1815/724/134` matched/mismatched/missing/extra before and after;
+  `13,301` files compared, `77.18%` average match, and S3 remains `1,281/1,281`.
+  Coverage is baseline-equivalent; the command exits 1 only for existing parity gaps.
+- Blocker: remaining conformance differences are generator parity gaps, not runner
+  behavior.
+- Next action: preserve the optimized conformance runner and continue parity work.
+
 ### Checkpoint: 2026-08-24 — Make per-service `original.rs` the canonical artifact
 - State: in progress
 - Changed: each generated service now has one canonical `original.rs` artifact under

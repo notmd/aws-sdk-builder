@@ -2,9 +2,15 @@ use std::{
     env,
     ffi::OsString,
     fs,
+    panic::AssertUnwindSafe,
     path::{Path, PathBuf},
     process::{Command, ExitCode},
+    sync::Mutex,
 };
+
+use rayon::prelude::*;
+
+const WORK_BATCH_SIZE: usize = 512;
 
 mod canonical;
 mod manifest;
@@ -109,13 +115,13 @@ fn run_conformance(arguments: &[OsString]) -> Result<bool, Box<dyn std::error::E
         services.len(),
         conformance.operation_count
     );
-    let removed = normalize::strip_excluded(&generated, &manifest.comparison.exclude)?;
+    let (removed, formatted_files) =
+        normalize::strip_excluded_and_collect_rust_files(&generated, &manifest.comparison.exclude)?;
     eprintln!("removed {removed} excluded generated snapshot path(s)");
-    let formatted_files = format_generated_sources(&generated)?;
-    restore_canonical_projection(&generated)?;
+    let formatted_file_count = format_generated_sources(&generated, formatted_files)?;
     eprintln!(
         "formatted {} generated Rust snapshot file(s) with rustfmt",
-        formatted_files
+        formatted_file_count
     );
     let report = report::compare_directories_with_policy_and_patches(
         &reference,
@@ -185,46 +191,45 @@ fn generate_conformance_snapshot(
         .prefix("aws-sdk-conformance-")
         .tempdir_in(parent)
         .map_err(|error| format!("{}: {error}", parent.display()))?;
-
-    let counts = std::thread::scope(|scope| {
-        let workers = services
-            .into_iter()
-            .map(|service| {
-                let service_key = service.metadata.key.to_owned();
-                let service_output = stage
-                    .path()
-                    .join(format!(".aws-sdk-conformance-service-{service_key}"));
-                scope.spawn(move || {
-                    aws_sdk_builder::generate_all(&service_output, [service])
-                        .map_err(|error| error.to_string())
-                        .map(|snapshot| {
-                            let files = snapshot
-                                .service_files
-                                .get(&service_key)
-                                .cloned()
-                                .unwrap_or_default();
-                            (snapshot.operation_count, files, service_output, service_key)
-                        })
-                })
-            })
-            .collect::<Vec<_>>();
-        workers
-            .into_iter()
-            .map(|worker| {
-                worker
-                    .join()
-                    .map_err(|_| "conformance generation worker panicked".to_owned())?
-            })
-            .collect::<Result<Vec<_>, String>>()
-    })?;
+    let stage_root = stage.path().to_owned();
+    let counts = services
+        .into_par_iter()
+        .map(|service| {
+            let service_key = service.metadata.key.to_owned();
+            let service_output =
+                stage_root.join(format!(".aws-sdk-conformance-service-{service_key}"));
+            let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+                aws_sdk_builder::generate_all(&service_output, [service])
+                    .map_err(|error| error.to_string())
+                    .map(|snapshot| {
+                        let files = snapshot
+                            .service_files
+                            .get(&service_key)
+                            .cloned()
+                            .unwrap_or_default();
+                        (snapshot, files)
+                    })
+                    .and_then(|(snapshot, files)| {
+                        let generated_service = service_output.join(&service_key);
+                        project_original(&generated_service, &files)
+                            .map_err(|error| format!("{service_key}: {error}"))?;
+                        Ok((snapshot.operation_count, files, service_output, service_key))
+                    })
+            }));
+            match result {
+                Ok(result) => result,
+                Err(_) => Err("conformance generation worker panicked".to_owned()),
+            }
+        })
+        .collect::<Vec<_>>()
+        .into_iter()
+        .collect::<Result<Vec<_>, String>>()?;
     let mut operation_count = 0;
     let mut service_files = std::collections::BTreeMap::new();
     for (count, files, service_output, service_key) in counts {
         operation_count += count;
-        let generated_service = service_output.join(&service_key);
-        project_original(&generated_service, &files)
-            .map_err(|error| format!("{service_key}: {error}"))?;
         service_files.insert(service_key.clone(), files);
+        let generated_service = service_output.join(&service_key);
         let destination = stage.path().join(&service_key);
         fs::rename(&generated_service, &destination)
             .map_err(|error| format!("{}: {error}", destination.display()))?;
@@ -283,45 +288,46 @@ fn project_original(
     Ok(())
 }
 
-fn format_generated_sources(root: &Path) -> Result<usize, String> {
-    let mut files = Vec::new();
-    collect_rust_files(root, &mut files)?;
-    files.sort();
-
+fn format_generated_sources(root: &Path, files: Vec<PathBuf>) -> Result<usize, String> {
+    let file_count = files.len();
     if files.is_empty() {
         return Ok(0);
     }
 
     // The canonical artifact is preserved byte-for-byte; only its normalized
-    // projection is formatted. Avoid reopening every file to inspect headers.
-    for batch in files.chunks(128) {
-        let output = Command::new("rustfmt")
-            .args([
-                "--edition",
-                "2021",
-                "--config",
-                "max_width=150,skip_children=true",
-            ])
-            .args(batch)
-            .output()
-            .map_err(|error| format!("failed to run rustfmt: {error}"))?;
-        if !output.status.success() {
-            let mut message = String::from_utf8_lossy(&output.stderr).into_owned();
-            if message.trim().is_empty() {
-                message = format!("rustfmt exited with {}", output.status);
-            }
-            return Err(format!("rustfmt failed for generated sources: {message}"));
-        }
-    }
+    // projection is formatted and restored in the same batch.
+    let batches = files
+        .chunks(WORK_BATCH_SIZE)
+        .map(<[PathBuf]>::to_vec)
+        .collect();
+    parallel_for_each(
+        batches,
+        |batch| run_rustfmt_and_restore(root, batch),
+        "rustfmt worker thread panicked",
+    )?;
 
-    Ok(files.len())
+    Ok(file_count)
 }
 
-fn restore_canonical_projection(root: &Path) -> Result<usize, String> {
-    let mut files = Vec::new();
-    collect_rust_files(root, &mut files)?;
-    files.sort();
-    for path in files {
+fn run_rustfmt_and_restore(root: &Path, batch: Vec<PathBuf>) -> Result<(), String> {
+    let output = Command::new("rustfmt")
+        .args([
+            "--edition",
+            "2021",
+            "--config",
+            "max_width=150,skip_children=true",
+        ])
+        .args(&batch)
+        .output()
+        .map_err(|error| format!("failed to run rustfmt: {error}"))?;
+    if !output.status.success() {
+        let mut message = String::from_utf8_lossy(&output.stderr).into_owned();
+        if message.trim().is_empty() {
+            message = format!("rustfmt exited with {}", output.status);
+        }
+        return Err(format!("rustfmt failed for generated sources: {message}"));
+    }
+    batch.into_iter().try_for_each(|path| {
         let service = path
             .strip_prefix(root)
             .map_err(|error| error.to_string())?
@@ -341,34 +347,62 @@ fn restore_canonical_projection(root: &Path) -> Result<usize, String> {
                 path.display()
             )
         })?;
-        if relative.as_os_str().is_empty() {
-            continue;
+        if !relative.as_os_str().is_empty() {
+            let source = fs::read_to_string(&path)
+                .map_err(|error| format!("{}: {error}", path.display()))?;
+            if relative != Path::new("src/lib.rs") && source.contains("crate::") {
+                let restored = normalize::restore_canonical_paths(&source, relative)?;
+                if restored != source {
+                    fs::write(&path, restored)
+                        .map_err(|error| format!("{}: {error}", path.display()))?;
+                }
+            }
         }
-        let source =
-            fs::read_to_string(&path).map_err(|error| format!("{}: {error}", path.display()))?;
-        let restored = normalize::restore_canonical_paths(&source, relative)?;
-        fs::write(&path, restored).map_err(|error| format!("{}: {error}", path.display()))?;
-    }
-    Ok(0)
+        Ok(())
+    })
 }
 
-fn collect_rust_files(root: &Path, files: &mut Vec<PathBuf>) -> Result<(), String> {
-    for entry in fs::read_dir(root).map_err(|error| format!("{}: {error}", root.display()))? {
-        let entry = entry.map_err(|error| format!("{}: {error}", root.display()))?;
-        let path = entry.path();
-        let file_type = entry
-            .file_type()
-            .map_err(|error| format!("{}: {error}", path.display()))?;
-        if file_type.is_dir() {
-            collect_rust_files(&path, files)?;
-        } else if file_type.is_file()
-            && path.extension().and_then(|extension| extension.to_str()) == Some("rs")
-            && path
-                .file_name()
-                .is_some_and(|name| name != canonical::ORIGINAL_FILE)
-        {
-            files.push(path);
+fn parallel_for_each<T, F>(jobs: Vec<T>, operation: F, panic_message: &str) -> Result<(), String>
+where
+    T: Send,
+    F: Fn(T) -> Result<(), String> + Sync,
+{
+    if jobs.is_empty() {
+        return Ok(());
+    }
+
+    let worker_count = rayon::current_num_threads().min(jobs.len());
+    let mut buckets = (0..worker_count)
+        .map(|_| Vec::new())
+        .collect::<Vec<Vec<T>>>();
+    for (index, job) in jobs.into_iter().enumerate() {
+        buckets[index % worker_count].push(job);
+    }
+
+    let results = Mutex::new(
+        (0..worker_count)
+            .map(|_| None)
+            .collect::<Vec<Option<Result<(), String>>>>(),
+    );
+    rayon::scope(|scope| {
+        let operation = &operation;
+        for (index, bucket) in buckets.into_iter().enumerate() {
+            let results = &results;
+            scope.spawn(move |_| {
+                let result = std::panic::catch_unwind(AssertUnwindSafe(|| {
+                    bucket.into_iter().try_for_each(operation)
+                }))
+                .unwrap_or_else(|_| Err(panic_message.to_owned()));
+                if let Ok(mut results) = results.lock() {
+                    results[index] = Some(result);
+                }
+            });
         }
+    });
+
+    let results = results.into_inner().map_err(|_| panic_message.to_owned())?;
+    for result in results {
+        result.ok_or_else(|| "conformance worker did not report a result".to_owned())??;
     }
     Ok(())
 }
@@ -399,4 +433,45 @@ fn print_usage() {
 
 fn usage() -> &'static str {
     "Usage: aws-sdk-conformance [conformance] [--manifest FILE] [--reference DIR] [--generated DIR] [--patches DIR] [--output FILE] [--snapshot SHA]\n       aws-sdk-conformance update-reference [--manifest FILE] [--dry-run]\n\nThe conformance command generates all packaged operations, removes configured non-source files, applies checked-in reference normalization patches in memory, compares selected services, and writes deterministic reports. The update-reference command downloads the pinned upstream GitHub archive, refreshes reference trees, normalization patches, and service model.json files atomically, and exits without changing files on --dry-run. Exit status: 0 means equal or update succeeded, 1 means conformance differences, 2 means the runner failed."
+}
+
+#[cfg(test)]
+mod tests {
+    use super::parallel_for_each;
+    use std::sync::{
+        Arc,
+        atomic::{AtomicUsize, Ordering},
+    };
+
+    #[test]
+    fn parallel_for_each_processes_every_job() {
+        let processed = Arc::new(AtomicUsize::new(0));
+        let counter = Arc::clone(&processed);
+        parallel_for_each(
+            (0..1024).collect(),
+            move |_| {
+                counter.fetch_add(1, Ordering::Relaxed);
+                Ok(())
+            },
+            "worker thread panicked",
+        )
+        .unwrap();
+        assert_eq!(processed.load(Ordering::Relaxed), 1024);
+    }
+
+    #[test]
+    fn parallel_for_each_propagates_worker_errors() {
+        let result = parallel_for_each(
+            vec![0, 1, 2],
+            |job| {
+                if job == 1 {
+                    Err("expected worker error".to_owned())
+                } else {
+                    Ok(())
+                }
+            },
+            "worker thread panicked",
+        );
+        assert_eq!(result, Err("expected worker error".to_owned()));
+    }
 }

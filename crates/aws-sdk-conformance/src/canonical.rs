@@ -14,12 +14,13 @@ const CANONICAL_MODULE: &str = "__aws_sdk_builder_generated";
 /// strings, attributes, docs, and nested items therefore remain token data.
 pub fn split(source: &str, files: &BTreeSet<String>) -> Result<BTreeMap<String, String>, String> {
     validate_split_plan(files)?;
-    syn::parse_file(source)
+    let file = syn::parse_file(source)
         .map_err(|error| format!("canonical original.rs does not parse: {error}"))?;
 
     let mut output = BTreeMap::new();
-    let body = unwrap_canonical_module(source)?;
-    project_module(&body, "src/lib.rs", files, &mut output)?;
+    let body = unwrap_canonical_module(source, &file)?;
+    let children = child_file_index(files);
+    project_module(&body, "src/lib.rs", &children, &mut output)?;
     if output.len() != files.len() {
         return Err(format!(
             "canonical projection materialized {} of {} planned files",
@@ -30,10 +31,8 @@ pub fn split(source: &str, files: &BTreeSet<String>) -> Result<BTreeMap<String, 
     Ok(output)
 }
 
-fn unwrap_canonical_module(source: &str) -> Result<String, String> {
-    let file = syn::parse_file(source)
-        .map_err(|error| format!("canonical original.rs does not parse: {error}"))?;
-    let item = top_level_module(&file, CANONICAL_MODULE).ok_or_else(|| {
+fn unwrap_canonical_module(source: &str, file: &syn::File) -> Result<String, String> {
+    let item = top_level_module(file, CANONICAL_MODULE).ok_or_else(|| {
         format!("canonical original.rs has no module declaration for {CANONICAL_MODULE}")
     })?;
     let Some((brace, _)) = &item.content else {
@@ -61,15 +60,21 @@ fn validate_split_plan(files: &BTreeSet<String>) -> Result<(), String> {
 fn project_module(
     source: &str,
     relative: &str,
-    files: &BTreeSet<String>,
+    children: &BTreeMap<std::path::PathBuf, Vec<String>>,
     output: &mut BTreeMap<String, String>,
 ) -> Result<(), String> {
     let mut body = normalize_source(source);
-    let children = child_files(relative, files);
+    let child_paths = child_files(relative, children);
+    if child_paths.is_empty() {
+        if output.insert(relative.to_owned(), body).is_some() {
+            return Err(format!("duplicate projected module path: {relative}"));
+        }
+        return Ok(());
+    }
     let file = syn::parse_file(&body)
         .map_err(|error| format!("cannot parse module {relative}: {error}"))?;
     let mut child_projections = Vec::new();
-    for child in children {
+    for child in child_paths {
         let module = module_name(&child)?;
         let bounds = inline_module_bounds(&body, &file, &module, relative)?;
         let child_source = normalize_source(strip_leading_newline(
@@ -82,37 +87,57 @@ fn project_module(
     for (child, bounds, child_source) in child_projections {
         let declaration = format!("{};", body[bounds.item_start..bounds.open_start].trim_end());
         body.replace_range(bounds.item_start..bounds.item_end, &declaration);
-        project_module(&child_source, &child, files, output)?;
+        project_module(&child_source, &child, children, output)?;
     }
 
-    syn::parse_file(&body)
-        .map_err(|error| format!("projected module {relative} does not parse: {error}"))?;
     if output.insert(relative.to_owned(), body).is_some() {
         return Err(format!("duplicate projected module path: {relative}"));
     }
     Ok(())
 }
 
-fn child_files(relative: &str, files: &BTreeSet<String>) -> Vec<String> {
-    let path = Path::new(relative);
-    let Some(filename) = path.file_name().and_then(|name| name.to_str()) else {
+fn child_file_index(files: &BTreeSet<String>) -> BTreeMap<std::path::PathBuf, Vec<String>> {
+    let mut index = BTreeMap::new();
+    for candidate in files {
+        if let Some(directory) = Path::new(candidate)
+            .parent()
+            .map(|parent| parent.to_owned())
+        {
+            index
+                .entry(directory)
+                .or_insert_with(Vec::new)
+                .push(candidate.clone());
+        }
+    }
+    index
+}
+
+fn child_files(
+    relative: &str,
+    children: &BTreeMap<std::path::PathBuf, Vec<String>>,
+) -> Vec<String> {
+    let Some(directory) = module_directory(relative) else {
         return Vec::new();
     };
-    let module_directory = if filename == "lib.rs" {
+    children
+        .get(&directory)
+        .into_iter()
+        .flatten()
+        .filter(|candidate| candidate.as_str() != relative)
+        .cloned()
+        .collect()
+}
+
+fn module_directory(relative: &str) -> Option<std::path::PathBuf> {
+    let path = Path::new(relative);
+    let filename = path.file_name()?.to_str()?;
+    Some(if filename == "lib.rs" {
         path.parent().unwrap_or_else(|| Path::new("")).to_owned()
     } else {
         path.parent()
             .unwrap_or_else(|| Path::new(""))
             .join(filename.strip_suffix(".rs").unwrap_or(filename))
-    };
-    files
-        .iter()
-        .filter(|candidate| {
-            *candidate != relative
-                && Path::new(candidate).parent() == Some(module_directory.as_path())
-        })
-        .cloned()
-        .collect()
+    })
 }
 
 struct ModuleBounds {

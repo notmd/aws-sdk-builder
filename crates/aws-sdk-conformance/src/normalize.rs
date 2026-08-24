@@ -87,6 +87,18 @@ fn module_depth(relative: &Path) -> usize {
 /// path. This transformation is stored in a checked-in patch and applied to
 /// the reference at comparison time.
 pub fn normalize_crate_paths(source: &str, depth: usize) -> Result<String, String> {
+    normalize_crate_paths_impl(source, depth, true)
+}
+
+fn normalize_crate_paths_without_validation(source: &str, depth: usize) -> Result<String, String> {
+    normalize_crate_paths_impl(source, depth, false)
+}
+
+fn normalize_crate_paths_impl(
+    source: &str,
+    depth: usize,
+    validate_normalized: bool,
+) -> Result<String, String> {
     let file = syn::parse_file(source)
         .map_err(|error| format!("cannot parse reference Rust source: {error}"))?;
     let mut visitor = CratePathVisitor::default();
@@ -118,8 +130,11 @@ pub fn normalize_crate_paths(source: &str, depth: usize) -> Result<String, Strin
     for start in starts.into_iter().rev() {
         normalized.replace_range(start..start + "crate".len(), &replacement);
     }
-    syn::parse_file(&normalized)
-        .map_err(|error| format!("normalized reference Rust source no longer parses: {error}"))?;
+    if validate_normalized {
+        syn::parse_file(&normalized).map_err(|error| {
+            format!("normalized reference Rust source no longer parses: {error}")
+        })?;
+    }
     Ok(normalized)
 }
 
@@ -164,10 +179,10 @@ pub fn prepare_canonical_projection(source: &str, relative: &Path) -> Result<Str
 
 /// Restore the depth-specific `super` chains removed for rustfmt.
 pub fn restore_canonical_paths(source: &str, relative: &Path) -> Result<String, String> {
-    if relative == Path::new("src/lib.rs") {
+    if relative == Path::new("src/lib.rs") || !source.contains("crate::") {
         return Ok(source.to_owned());
     }
-    normalize_crate_paths(
+    normalize_crate_paths_without_validation(
         source,
         relative.components().count().saturating_sub(1).max(1),
     )
@@ -195,6 +210,9 @@ fn rewrite_canonical_paths(source: &str, relative: &Path) -> Result<String, Stri
             Ok((start, end))
         })
         .collect::<Result<Vec<_>, String>>()?;
+    if replacements.is_empty() {
+        return Ok(source.to_owned());
+    }
     replacements.sort_by_key(|(start, _)| std::cmp::Reverse(*start));
     let mut rewritten = source.to_owned();
     for (start, end) in replacements {
@@ -584,14 +602,23 @@ pub fn copy_filtered_tree(
     copy_directory(source, destination, Path::new(""), exclusions)
 }
 
-pub fn strip_excluded(root: &Path, exclusions: &Exclusions) -> Result<usize, String> {
+/// Remove excluded snapshot artifacts while collecting the Rust projection
+/// files that the formatter will process. Keeping these operations in one walk
+/// avoids rediscovering the same generated tree immediately afterward.
+pub fn strip_excluded_and_collect_rust_files(
+    root: &Path,
+    exclusions: &Exclusions,
+) -> Result<(usize, Vec<PathBuf>), String> {
     if !root.is_dir() {
         return Err(format!(
             "snapshot root is not a directory: {}",
             root.display()
         ));
     }
-    strip_directory(root, Path::new(""), exclusions)
+    let mut rust_files = Vec::new();
+    let removed = strip_directory(root, Path::new(""), exclusions, Some(&mut rust_files))?;
+    rust_files.sort_unstable();
+    Ok((removed, rust_files))
 }
 
 pub fn count_files(root: &Path, exclusions: &Exclusions) -> Result<usize, String> {
@@ -654,6 +681,7 @@ fn strip_directory(
     current: &Path,
     relative_root: &Path,
     exclusions: &Exclusions,
+    mut rust_files: Option<&mut Vec<PathBuf>>,
 ) -> Result<usize, String> {
     let mut removed = 0;
     let entries =
@@ -677,7 +705,13 @@ fn strip_directory(
             }
             removed += 1;
         } else if file_type.is_dir() {
-            removed += strip_directory(&path, &relative, exclusions)?;
+            removed += strip_directory(&path, &relative, exclusions, rust_files.as_deref_mut())?;
+        } else if file_type.is_file()
+            && path.extension().and_then(|extension| extension.to_str()) == Some("rs")
+            && !is_canonical_artifact(&relative)
+            && let Some(rust_files) = rust_files.as_mut()
+        {
+            rust_files.push(path);
         }
     }
     Ok(removed)
@@ -759,7 +793,7 @@ mod tests {
         fs::write(root.path().join("tests/data/input.json"), "test").unwrap();
         fs::write(root.path().join("benches/bench.rs"), "bench").unwrap();
 
-        strip_excluded(root.path(), &exclusions()).unwrap();
+        strip_excluded_and_collect_rust_files(root.path(), &exclusions()).unwrap();
 
         assert!(!root.path().join("Cargo.toml").exists());
         assert!(!root.path().join("README.md").exists());
@@ -769,6 +803,27 @@ mod tests {
         assert!(root.path().join("original.rs").exists());
         assert!(root.path().join("src/lib.rs").exists());
         assert_eq!(count_files(root.path(), &exclusions()).unwrap(), 2);
+    }
+
+    #[test]
+    fn collects_projection_sources_during_exclusion_walk() {
+        let root = tempdir().unwrap();
+        fs::create_dir_all(root.path().join("normalized/src")).unwrap();
+        fs::write(root.path().join("original.rs"), "canonical").unwrap();
+        fs::write(root.path().join("normalized/src/lib.rs"), "source").unwrap();
+        fs::write(root.path().join("normalized/src/types.rs"), "source").unwrap();
+
+        let (removed, files) =
+            strip_excluded_and_collect_rust_files(root.path(), &exclusions()).unwrap();
+
+        assert_eq!(removed, 0);
+        assert_eq!(
+            files,
+            vec![
+                root.path().join("normalized/src/lib.rs"),
+                root.path().join("normalized/src/types.rs"),
+            ]
+        );
     }
 
     #[test]
