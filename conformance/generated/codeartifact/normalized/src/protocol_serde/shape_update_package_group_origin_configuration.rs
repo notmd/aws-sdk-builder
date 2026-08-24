@@ -33,11 +33,10 @@ pub fn de_update_package_group_origin_configuration_http_error(
                             super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
                         )?;
                     let output = output.meta(generic);
-                    output.build()
+                    super::super::serde_util::access_denied_exception_correct_errors(output)
+                        .build()
+                        .map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
                 };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
                 tmp
             })
         }
@@ -52,11 +51,10 @@ pub fn de_update_package_group_origin_configuration_http_error(
                             super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
                         )?;
                     let output = output.meta(generic);
-                    output.build()
+                    super::super::serde_util::internal_server_exception_correct_errors(output)
+                        .build()
+                        .map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
                 };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
                 tmp
             })
         }
@@ -72,11 +70,10 @@ pub fn de_update_package_group_origin_configuration_http_error(
                             super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
                         )?;
                     let output = output.meta(generic);
-                    output.build()
+                    super::super::serde_util::resource_not_found_exception_correct_errors(output)
+                        .build()
+                        .map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
                 };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
                 tmp
             })
         }
@@ -92,11 +89,10 @@ pub fn de_update_package_group_origin_configuration_http_error(
                     )
                     .map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
                     let output = output.meta(generic);
-                    output.build()
+                    super::super::serde_util::service_quota_exceeded_exception_correct_errors(output)
+                        .build()
+                        .map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
                 };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
                 tmp
             })
         }
@@ -117,11 +113,10 @@ pub fn de_update_package_group_origin_configuration_http_error(
                         })?,
                     );
                     let output = output.meta(generic);
-                    output.build()
+                    super::super::serde_util::throttling_exception_correct_errors(output)
+                        .build()
+                        .map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
                 };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
                 tmp
             })
         }
@@ -135,11 +130,10 @@ pub fn de_update_package_group_origin_configuration_http_error(
                         super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled,
                     )?;
                     let output = output.meta(generic);
-                    output.build()
+                    super::super::serde_util::validation_exception_correct_errors(output)
+                        .build()
+                        .map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
                 };
-                if tmp.message.is_none() {
-                    tmp.message = _error_message;
-                }
                 tmp
             })
         }

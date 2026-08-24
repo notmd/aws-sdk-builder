@@ -32,11 +32,10 @@ pub fn de_list_associated_packages_http_error(
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output)
+                    .build()
+                    .map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::list_associated_packages::ListAssociatedPackagesError::InternalServerException({
@@ -47,11 +46,10 @@ pub fn de_list_associated_packages_http_error(
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output)
+                    .build()
+                    .map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::list_associated_packages::ListAssociatedPackagesError::ResourceNotFoundException({
@@ -62,11 +60,10 @@ pub fn de_list_associated_packages_http_error(
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output)
+                    .build()
+                    .map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::list_associated_packages::ListAssociatedPackagesError::ValidationException({
@@ -77,11 +74,10 @@ pub fn de_list_associated_packages_http_error(
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output)
+                    .build()
+                    .map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::list_associated_packages::ListAssociatedPackagesError::generic(generic),

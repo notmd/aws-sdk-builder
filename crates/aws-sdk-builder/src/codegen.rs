@@ -9824,8 +9824,28 @@ fn render_json_protocol_error_arm(
     )
     .unwrap();
     render_protocol_error_header_assignments(output, selected, error, &error_module, error_path);
-    output.push_str("                let output = output.meta(generic);\n                output.build()\n            };\n");
-    output.push_str("            if tmp.message.is_none() {\n                tmp.message = _error_message;\n            }\n            tmp\n        }),\n");
+    output.push_str("                let output = output.meta(generic);\n");
+    if let Some(shape) = selected.model.shapes.get(error)
+        && serde_util_shape_needs_correction(shape)
+    {
+        let correction = format!(
+            "crate::serde_util::{}_correct_errors(output)",
+            names::rust_module_name(terminal(error))
+        );
+        if serde_util_builder_is_fallible(selected, shape) {
+            writeln!(
+                output,
+                "                {correction}.build().map_err({error_path}::unhandled)?"
+            )
+            .unwrap();
+        } else {
+            writeln!(output, "                {correction}.build()").unwrap();
+        }
+        output.push_str("            };\n            tmp\n        }),\n");
+    } else {
+        output.push_str("                output.build()\n            };\n");
+        output.push_str("            if tmp.message.is_none() {\n                tmp.message = _error_message;\n            }\n            tmp\n        }),\n");
+    }
 }
 
 fn render_json_protocol_error_file(selected: &SelectedModel, shape_id: &str) -> String {
@@ -16375,6 +16395,10 @@ mod tests {
                     "example#TooMany": {
                         "type": "structure",
                         "members": {
+                            "message": {
+                                "target": "smithy.api#String",
+                                "traits": {"smithy.api#required": {}}
+                            },
                             "retryAfterSeconds": {
                                 "target": "smithy.api#String",
                                 "traits": {"smithy.api#httpHeader": "Retry-After"}
@@ -16393,6 +16417,8 @@ mod tests {
 
         assert!(operation.contains("output = output.set_retry_after_seconds("));
         assert!(operation.contains("de_retry_after_seconds_header(_response_headers)"));
+        assert!(operation.contains("crate::serde_util::too_many_correct_errors(output)"));
+        assert!(!operation.contains("if tmp.message.is_none()"));
         assert!(error.contains("pub(crate) fn de_retry_after_seconds_header("));
     }
 

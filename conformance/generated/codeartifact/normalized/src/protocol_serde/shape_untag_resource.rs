@@ -25,11 +25,10 @@ pub fn de_untag_resource_http_error(
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output)
+                    .build()
+                    .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::untag_resource::UntagResourceError::ResourceNotFoundException({
@@ -40,11 +39,10 @@ pub fn de_untag_resource_http_error(
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output)
+                    .build()
+                    .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::untag_resource::UntagResourceError::ThrottlingException({
@@ -60,11 +58,10 @@ pub fn de_untag_resource_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output)
+                    .build()
+                    .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::untag_resource::UntagResourceError::ValidationException({
@@ -75,11 +72,10 @@ pub fn de_untag_resource_http_error(
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output)
                     .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output)
+                    .build()
+                    .map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::untag_resource::UntagResourceError::generic(generic),

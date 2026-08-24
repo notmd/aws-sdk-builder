@@ -22,6 +22,26 @@ full audit trail.
   `git diff --check` pass.
 - Next action: continue with the largest remaining generic protocol mismatch.
 
+### Checkpoint: 2026-08-25 — Apply modeled error corrections in JSON operation errors
+- State: in progress
+- Changed: Rest JSON operation error arms now apply the existing model-driven
+  `serde_util::*_correct_errors` builder corrections for required modeled error members,
+  matching the XML error path and Smithy-RS output. Corrected errors use the fallible
+  builder mapping and do not add the generic-message fallback that applies to optional
+  errors. A focused regression covers a required modeled error message plus an HTTP
+  error header.
+- Conformance: `just conformance` generated 15 services and 1,133 operations,
+  formatted 13,164 generated Rust files, and compared `13,168` files: `12,246` matched,
+  `917` mismatched, `4` missing, and `1` extra (`91.33%` average match). This is `+31`
+  exact files and `-31` mismatches from the `12,215/948` checkpoint; CodeArtifact
+  improved from `382/77` to `413/46` exact/mismatched files. Generation and snapshot
+  parsing completed without generated-source parse errors. The command exits 1 only
+  because broader parity gaps remain.
+- Verification: focused JSON modeled-error test, `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`, formatting, and
+  `git diff --check` pass.
+- Next action: continue with the next largest generic mismatch class.
+
 ### Checkpoint: 2026-08-24 — Use Smithy Document runtime type
 - State: in progress
 - Changed: Smithy `Document` shapes now map to

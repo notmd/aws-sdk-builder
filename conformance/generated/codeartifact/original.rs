@@ -59306,11 +59306,8 @@ pub fn de_associate_external_connection_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::associate_external_connection::AssociateExternalConnectionError::ConflictException({
@@ -59320,11 +59317,8 @@ pub fn de_associate_external_connection_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::associate_external_connection::AssociateExternalConnectionError::InternalServerException({
@@ -59334,11 +59328,8 @@ pub fn de_associate_external_connection_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::associate_external_connection::AssociateExternalConnectionError::ResourceNotFoundException({
@@ -59348,11 +59339,8 @@ pub fn de_associate_external_connection_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ServiceQuotaExceededException" => super::super::operation::associate_external_connection::AssociateExternalConnectionError::ServiceQuotaExceededException({
@@ -59362,11 +59350,8 @@ pub fn de_associate_external_connection_http_error(
                 let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output).build().map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::associate_external_connection::AssociateExternalConnectionError::ThrottlingException({
@@ -59381,11 +59366,8 @@ pub fn de_associate_external_connection_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::associate_external_connection::AssociateExternalConnectionError::ValidationException({
@@ -59395,11 +59377,8 @@ pub fn de_associate_external_connection_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::associate_external_connection::AssociateExternalConnectionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::associate_external_connection::AssociateExternalConnectionError::generic(generic),
@@ -59483,11 +59462,8 @@ pub fn de_copy_package_versions_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::copy_package_versions::CopyPackageVersionsError::ConflictException({
@@ -59497,11 +59473,8 @@ pub fn de_copy_package_versions_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::copy_package_versions::CopyPackageVersionsError::InternalServerException({
@@ -59511,11 +59484,8 @@ pub fn de_copy_package_versions_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::copy_package_versions::CopyPackageVersionsError::ResourceNotFoundException({
@@ -59525,11 +59495,8 @@ pub fn de_copy_package_versions_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ServiceQuotaExceededException" => super::super::operation::copy_package_versions::CopyPackageVersionsError::ServiceQuotaExceededException({
@@ -59539,11 +59506,8 @@ pub fn de_copy_package_versions_http_error(
                 let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output).build().map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::copy_package_versions::CopyPackageVersionsError::ThrottlingException({
@@ -59558,11 +59522,8 @@ pub fn de_copy_package_versions_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::copy_package_versions::CopyPackageVersionsError::ValidationException({
@@ -59572,11 +59533,8 @@ pub fn de_copy_package_versions_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::copy_package_versions::CopyPackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::copy_package_versions::CopyPackageVersionsError::generic(generic),
@@ -59674,11 +59632,8 @@ pub fn de_create_domain_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::create_domain::CreateDomainError::ConflictException({
@@ -59688,11 +59643,8 @@ pub fn de_create_domain_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::create_domain::CreateDomainError::InternalServerException({
@@ -59702,11 +59654,8 @@ pub fn de_create_domain_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::create_domain::CreateDomainError::ResourceNotFoundException({
@@ -59716,11 +59665,8 @@ pub fn de_create_domain_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ServiceQuotaExceededException" => super::super::operation::create_domain::CreateDomainError::ServiceQuotaExceededException({
@@ -59730,11 +59676,8 @@ pub fn de_create_domain_http_error(
                 let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output).build().map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::create_domain::CreateDomainError::ThrottlingException({
@@ -59749,11 +59692,8 @@ pub fn de_create_domain_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::create_domain::CreateDomainError::ValidationException({
@@ -59763,11 +59703,8 @@ pub fn de_create_domain_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::create_domain::CreateDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::create_domain::CreateDomainError::generic(generic),
@@ -59862,11 +59799,8 @@ pub fn de_create_package_group_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::create_package_group::CreatePackageGroupError::ConflictException({
@@ -59876,11 +59810,8 @@ pub fn de_create_package_group_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::create_package_group::CreatePackageGroupError::InternalServerException({
@@ -59890,11 +59821,8 @@ pub fn de_create_package_group_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::create_package_group::CreatePackageGroupError::ResourceNotFoundException({
@@ -59904,11 +59832,8 @@ pub fn de_create_package_group_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ServiceQuotaExceededException" => super::super::operation::create_package_group::CreatePackageGroupError::ServiceQuotaExceededException({
@@ -59918,11 +59843,8 @@ pub fn de_create_package_group_http_error(
                 let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output).build().map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::create_package_group::CreatePackageGroupError::ThrottlingException({
@@ -59937,11 +59859,8 @@ pub fn de_create_package_group_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::create_package_group::CreatePackageGroupError::ValidationException({
@@ -59951,11 +59870,8 @@ pub fn de_create_package_group_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::create_package_group::CreatePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::create_package_group::CreatePackageGroupError::generic(generic),
@@ -60050,11 +59966,8 @@ pub fn de_create_repository_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::create_repository::CreateRepositoryError::ConflictException({
@@ -60064,11 +59977,8 @@ pub fn de_create_repository_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::create_repository::CreateRepositoryError::InternalServerException({
@@ -60078,11 +59988,8 @@ pub fn de_create_repository_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::create_repository::CreateRepositoryError::ResourceNotFoundException({
@@ -60092,11 +59999,8 @@ pub fn de_create_repository_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ServiceQuotaExceededException" => super::super::operation::create_repository::CreateRepositoryError::ServiceQuotaExceededException({
@@ -60106,11 +60010,8 @@ pub fn de_create_repository_http_error(
                 let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output).build().map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::create_repository::CreateRepositoryError::ThrottlingException({
@@ -60125,11 +60026,8 @@ pub fn de_create_repository_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::create_repository::CreateRepositoryError::ValidationException({
@@ -60139,11 +60037,8 @@ pub fn de_create_repository_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::create_repository::CreateRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::create_repository::CreateRepositoryError::generic(generic),
@@ -60238,11 +60133,8 @@ pub fn de_delete_domain_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::delete_domain::DeleteDomainError::ConflictException({
@@ -60252,11 +60144,8 @@ pub fn de_delete_domain_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::delete_domain::DeleteDomainError::InternalServerException({
@@ -60266,11 +60155,8 @@ pub fn de_delete_domain_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::delete_domain::DeleteDomainError::ThrottlingException({
@@ -60285,11 +60171,8 @@ pub fn de_delete_domain_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::delete_domain::DeleteDomainError::ValidationException({
@@ -60299,11 +60182,8 @@ pub fn de_delete_domain_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::delete_domain::DeleteDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::delete_domain::DeleteDomainError::generic(generic),
@@ -60387,11 +60267,8 @@ pub fn de_delete_domain_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::ConflictException({
@@ -60401,11 +60278,8 @@ pub fn de_delete_domain_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::InternalServerException({
@@ -60415,11 +60289,8 @@ pub fn de_delete_domain_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::ResourceNotFoundException({
@@ -60429,11 +60300,8 @@ pub fn de_delete_domain_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::ThrottlingException({
@@ -60448,11 +60316,8 @@ pub fn de_delete_domain_permissions_policy_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::ValidationException({
@@ -60462,11 +60327,8 @@ pub fn de_delete_domain_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::delete_domain_permissions_policy::DeleteDomainPermissionsPolicyError::generic(generic),
@@ -60550,11 +60412,8 @@ pub fn de_delete_package_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::delete_package::DeletePackageError::ConflictException({
@@ -60564,11 +60423,8 @@ pub fn de_delete_package_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::delete_package::DeletePackageError::InternalServerException({
@@ -60578,11 +60434,8 @@ pub fn de_delete_package_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::delete_package::DeletePackageError::ResourceNotFoundException({
@@ -60592,11 +60445,8 @@ pub fn de_delete_package_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::delete_package::DeletePackageError::ThrottlingException({
@@ -60611,11 +60461,8 @@ pub fn de_delete_package_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::delete_package::DeletePackageError::ValidationException({
@@ -60625,11 +60472,8 @@ pub fn de_delete_package_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::delete_package::DeletePackageError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::delete_package::DeletePackageError::generic(generic),
@@ -60713,11 +60557,8 @@ pub fn de_delete_package_group_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::delete_package_group::DeletePackageGroupError::ConflictException({
@@ -60727,11 +60568,8 @@ pub fn de_delete_package_group_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::delete_package_group::DeletePackageGroupError::InternalServerException({
@@ -60741,11 +60579,8 @@ pub fn de_delete_package_group_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::delete_package_group::DeletePackageGroupError::ResourceNotFoundException({
@@ -60755,11 +60590,8 @@ pub fn de_delete_package_group_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ServiceQuotaExceededException" => super::super::operation::delete_package_group::DeletePackageGroupError::ServiceQuotaExceededException({
@@ -60769,11 +60601,8 @@ pub fn de_delete_package_group_http_error(
                 let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output).build().map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::delete_package_group::DeletePackageGroupError::ThrottlingException({
@@ -60788,11 +60617,8 @@ pub fn de_delete_package_group_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::delete_package_group::DeletePackageGroupError::ValidationException({
@@ -60802,11 +60628,8 @@ pub fn de_delete_package_group_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::delete_package_group::DeletePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::delete_package_group::DeletePackageGroupError::generic(generic),
@@ -60890,11 +60713,8 @@ pub fn de_delete_package_versions_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::delete_package_versions::DeletePackageVersionsError::ConflictException({
@@ -60904,11 +60724,8 @@ pub fn de_delete_package_versions_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::delete_package_versions::DeletePackageVersionsError::InternalServerException({
@@ -60918,11 +60735,8 @@ pub fn de_delete_package_versions_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::delete_package_versions::DeletePackageVersionsError::ResourceNotFoundException({
@@ -60932,11 +60746,8 @@ pub fn de_delete_package_versions_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::delete_package_versions::DeletePackageVersionsError::ThrottlingException({
@@ -60951,11 +60762,8 @@ pub fn de_delete_package_versions_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::delete_package_versions::DeletePackageVersionsError::ValidationException({
@@ -60965,11 +60773,8 @@ pub fn de_delete_package_versions_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::delete_package_versions::DeletePackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::delete_package_versions::DeletePackageVersionsError::generic(generic),
@@ -61067,11 +60872,8 @@ pub fn de_delete_repository_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::delete_repository::DeleteRepositoryError::ConflictException({
@@ -61081,11 +60883,8 @@ pub fn de_delete_repository_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::delete_repository::DeleteRepositoryError::InternalServerException({
@@ -61095,11 +60894,8 @@ pub fn de_delete_repository_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::delete_repository::DeleteRepositoryError::ResourceNotFoundException({
@@ -61109,11 +60905,8 @@ pub fn de_delete_repository_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::delete_repository::DeleteRepositoryError::ThrottlingException({
@@ -61128,11 +60921,8 @@ pub fn de_delete_repository_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::delete_repository::DeleteRepositoryError::ValidationException({
@@ -61142,11 +60932,8 @@ pub fn de_delete_repository_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::delete_repository::DeleteRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::delete_repository::DeleteRepositoryError::generic(generic),
@@ -61230,11 +61017,8 @@ pub fn de_delete_repository_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::ConflictException({
@@ -61244,11 +61028,8 @@ pub fn de_delete_repository_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::InternalServerException({
@@ -61258,11 +61039,8 @@ pub fn de_delete_repository_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::ResourceNotFoundException({
@@ -61272,11 +61050,8 @@ pub fn de_delete_repository_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::ThrottlingException({
@@ -61291,11 +61066,8 @@ pub fn de_delete_repository_permissions_policy_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::ValidationException({
@@ -61305,11 +61077,8 @@ pub fn de_delete_repository_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::delete_repository_permissions_policy::DeleteRepositoryPermissionsPolicyError::generic(generic),
@@ -61393,11 +61162,8 @@ pub fn de_describe_domain_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::describe_domain::DescribeDomainError::InternalServerException({
@@ -61407,11 +61173,8 @@ pub fn de_describe_domain_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::describe_domain::DescribeDomainError::ResourceNotFoundException({
@@ -61421,11 +61184,8 @@ pub fn de_describe_domain_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::describe_domain::DescribeDomainError::ThrottlingException({
@@ -61440,11 +61200,8 @@ pub fn de_describe_domain_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::describe_domain::DescribeDomainError::ValidationException({
@@ -61454,11 +61211,8 @@ pub fn de_describe_domain_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::describe_domain::DescribeDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::describe_domain::DescribeDomainError::generic(generic),
@@ -61542,11 +61296,8 @@ pub fn de_describe_package_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::describe_package::DescribePackageError::InternalServerException({
@@ -61556,11 +61307,8 @@ pub fn de_describe_package_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::describe_package::DescribePackageError::ResourceNotFoundException({
@@ -61570,11 +61318,8 @@ pub fn de_describe_package_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::describe_package::DescribePackageError::ThrottlingException({
@@ -61589,11 +61334,8 @@ pub fn de_describe_package_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::describe_package::DescribePackageError::ValidationException({
@@ -61603,11 +61345,8 @@ pub fn de_describe_package_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::describe_package::DescribePackageError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::describe_package::DescribePackageError::generic(generic),
@@ -61692,11 +61431,8 @@ pub fn de_describe_package_group_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::describe_package_group::DescribePackageGroupError::InternalServerException({
@@ -61706,11 +61442,8 @@ pub fn de_describe_package_group_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::describe_package_group::DescribePackageGroupError::ResourceNotFoundException({
@@ -61720,11 +61453,8 @@ pub fn de_describe_package_group_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::describe_package_group::DescribePackageGroupError::ThrottlingException({
@@ -61739,11 +61469,8 @@ pub fn de_describe_package_group_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::describe_package_group::DescribePackageGroupError::ValidationException({
@@ -61753,11 +61480,8 @@ pub fn de_describe_package_group_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::describe_package_group::DescribePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::describe_package_group::DescribePackageGroupError::generic(generic),
@@ -61841,11 +61565,8 @@ pub fn de_describe_package_version_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::describe_package_version::DescribePackageVersionError::ConflictException({
@@ -61855,11 +61576,8 @@ pub fn de_describe_package_version_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::describe_package_version::DescribePackageVersionError::InternalServerException({
@@ -61869,11 +61587,8 @@ pub fn de_describe_package_version_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::describe_package_version::DescribePackageVersionError::ResourceNotFoundException({
@@ -61883,11 +61598,8 @@ pub fn de_describe_package_version_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::describe_package_version::DescribePackageVersionError::ThrottlingException({
@@ -61902,11 +61614,8 @@ pub fn de_describe_package_version_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::describe_package_version::DescribePackageVersionError::ValidationException({
@@ -61916,11 +61625,8 @@ pub fn de_describe_package_version_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::describe_package_version::DescribePackageVersionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::describe_package_version::DescribePackageVersionError::generic(generic),
@@ -62005,11 +61711,8 @@ pub fn de_describe_repository_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::describe_repository::DescribeRepositoryError::InternalServerException({
@@ -62019,11 +61722,8 @@ pub fn de_describe_repository_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::describe_repository::DescribeRepositoryError::ResourceNotFoundException({
@@ -62033,11 +61733,8 @@ pub fn de_describe_repository_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::describe_repository::DescribeRepositoryError::ThrottlingException({
@@ -62052,11 +61749,8 @@ pub fn de_describe_repository_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::describe_repository::DescribeRepositoryError::ValidationException({
@@ -62066,11 +61760,8 @@ pub fn de_describe_repository_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::describe_repository::DescribeRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::describe_repository::DescribeRepositoryError::generic(generic),
@@ -62154,11 +61845,8 @@ pub fn de_disassociate_external_connection_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::ConflictException({
@@ -62168,11 +61856,8 @@ pub fn de_disassociate_external_connection_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::InternalServerException({
@@ -62182,11 +61867,8 @@ pub fn de_disassociate_external_connection_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::ResourceNotFoundException({
@@ -62196,11 +61878,8 @@ pub fn de_disassociate_external_connection_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ServiceQuotaExceededException" => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::ServiceQuotaExceededException({
@@ -62210,11 +61889,8 @@ pub fn de_disassociate_external_connection_http_error(
                 let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output).build().map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::ThrottlingException({
@@ -62229,11 +61905,8 @@ pub fn de_disassociate_external_connection_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::ValidationException({
@@ -62243,11 +61916,8 @@ pub fn de_disassociate_external_connection_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::disassociate_external_connection::DisassociateExternalConnectionError::generic(generic),
@@ -62331,11 +62001,8 @@ pub fn de_dispose_package_versions_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::dispose_package_versions::DisposePackageVersionsError::ConflictException({
@@ -62345,11 +62012,8 @@ pub fn de_dispose_package_versions_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::dispose_package_versions::DisposePackageVersionsError::InternalServerException({
@@ -62359,11 +62023,8 @@ pub fn de_dispose_package_versions_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::dispose_package_versions::DisposePackageVersionsError::ResourceNotFoundException({
@@ -62373,11 +62034,8 @@ pub fn de_dispose_package_versions_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::dispose_package_versions::DisposePackageVersionsError::ThrottlingException({
@@ -62392,11 +62050,8 @@ pub fn de_dispose_package_versions_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::dispose_package_versions::DisposePackageVersionsError::ValidationException({
@@ -62406,11 +62061,8 @@ pub fn de_dispose_package_versions_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::dispose_package_versions::DisposePackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::dispose_package_versions::DisposePackageVersionsError::generic(generic),
@@ -62508,11 +62160,8 @@ pub fn de_get_associated_package_group_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::InternalServerException({
@@ -62522,11 +62171,8 @@ pub fn de_get_associated_package_group_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::ResourceNotFoundException({
@@ -62536,11 +62182,8 @@ pub fn de_get_associated_package_group_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::ValidationException({
@@ -62550,11 +62193,8 @@ pub fn de_get_associated_package_group_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::get_associated_package_group::GetAssociatedPackageGroupError::generic(generic),
@@ -62643,11 +62283,8 @@ pub fn de_get_authorization_token_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::get_authorization_token::GetAuthorizationTokenError::InternalServerException({
@@ -62657,11 +62294,8 @@ pub fn de_get_authorization_token_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::get_authorization_token::GetAuthorizationTokenError::ResourceNotFoundException({
@@ -62671,11 +62305,8 @@ pub fn de_get_authorization_token_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::get_authorization_token::GetAuthorizationTokenError::ThrottlingException({
@@ -62690,11 +62321,8 @@ pub fn de_get_authorization_token_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::get_authorization_token::GetAuthorizationTokenError::ValidationException({
@@ -62704,11 +62332,8 @@ pub fn de_get_authorization_token_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::get_authorization_token::GetAuthorizationTokenError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::get_authorization_token::GetAuthorizationTokenError::generic(generic),
@@ -62797,11 +62422,8 @@ pub fn de_get_domain_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::InternalServerException({
@@ -62811,11 +62433,8 @@ pub fn de_get_domain_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ResourceNotFoundException({
@@ -62825,11 +62444,8 @@ pub fn de_get_domain_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ThrottlingException({
@@ -62844,11 +62460,8 @@ pub fn de_get_domain_permissions_policy_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::ValidationException({
@@ -62858,11 +62471,8 @@ pub fn de_get_domain_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::get_domain_permissions_policy::GetDomainPermissionsPolicyError::generic(generic),
@@ -62967,11 +62577,8 @@ pub fn de_get_package_version_asset_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::get_package_version_asset::GetPackageVersionAssetError::ConflictException({
@@ -62981,11 +62588,8 @@ pub fn de_get_package_version_asset_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::get_package_version_asset::GetPackageVersionAssetError::InternalServerException({
@@ -62995,11 +62599,8 @@ pub fn de_get_package_version_asset_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::get_package_version_asset::GetPackageVersionAssetError::ResourceNotFoundException({
@@ -63009,11 +62610,8 @@ pub fn de_get_package_version_asset_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::get_package_version_asset::GetPackageVersionAssetError::ThrottlingException({
@@ -63028,11 +62626,8 @@ pub fn de_get_package_version_asset_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::get_package_version_asset::GetPackageVersionAssetError::ValidationException({
@@ -63042,11 +62637,8 @@ pub fn de_get_package_version_asset_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::get_package_version_asset::GetPackageVersionAssetError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::get_package_version_asset::GetPackageVersionAssetError::generic(generic),
@@ -63081,11 +62673,8 @@ pub fn de_get_package_version_readme_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::InternalServerException({
@@ -63095,11 +62684,8 @@ pub fn de_get_package_version_readme_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::ResourceNotFoundException({
@@ -63109,11 +62695,8 @@ pub fn de_get_package_version_readme_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::ThrottlingException({
@@ -63128,11 +62711,8 @@ pub fn de_get_package_version_readme_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::ValidationException({
@@ -63142,11 +62722,8 @@ pub fn de_get_package_version_readme_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::get_package_version_readme::GetPackageVersionReadmeError::generic(generic),
@@ -63257,11 +62834,8 @@ pub fn de_get_repository_endpoint_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::InternalServerException({
@@ -63271,11 +62845,8 @@ pub fn de_get_repository_endpoint_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::ResourceNotFoundException({
@@ -63285,11 +62856,8 @@ pub fn de_get_repository_endpoint_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::ThrottlingException({
@@ -63304,11 +62872,8 @@ pub fn de_get_repository_endpoint_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::ValidationException({
@@ -63318,11 +62883,8 @@ pub fn de_get_repository_endpoint_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::get_repository_endpoint::GetRepositoryEndpointError::generic(generic),
@@ -63408,11 +62970,8 @@ pub fn de_get_repository_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::InternalServerException({
@@ -63422,11 +62981,8 @@ pub fn de_get_repository_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::ResourceNotFoundException({
@@ -63436,11 +62992,8 @@ pub fn de_get_repository_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::ThrottlingException({
@@ -63455,11 +63008,8 @@ pub fn de_get_repository_permissions_policy_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::ValidationException({
@@ -63469,11 +63019,8 @@ pub fn de_get_repository_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::get_repository_permissions_policy::GetRepositoryPermissionsPolicyError::generic(generic),
@@ -63557,11 +63104,8 @@ pub fn de_list_allowed_repositories_for_group_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::InternalServerException({
@@ -63571,11 +63115,8 @@ pub fn de_list_allowed_repositories_for_group_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ResourceNotFoundException({
@@ -63585,11 +63126,8 @@ pub fn de_list_allowed_repositories_for_group_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ServiceQuotaExceededException" => super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ServiceQuotaExceededException({
@@ -63599,11 +63137,8 @@ pub fn de_list_allowed_repositories_for_group_http_error(
                 let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output).build().map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ThrottlingException({
@@ -63618,11 +63153,8 @@ pub fn de_list_allowed_repositories_for_group_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::ValidationException({
@@ -63632,11 +63164,8 @@ pub fn de_list_allowed_repositories_for_group_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::list_allowed_repositories_for_group::ListAllowedRepositoriesForGroupError::generic(generic),
@@ -63725,11 +63254,8 @@ pub fn de_list_associated_packages_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::list_associated_packages::ListAssociatedPackagesError::InternalServerException({
@@ -63739,11 +63265,8 @@ pub fn de_list_associated_packages_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::list_associated_packages::ListAssociatedPackagesError::ResourceNotFoundException({
@@ -63753,11 +63276,8 @@ pub fn de_list_associated_packages_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::list_associated_packages::ListAssociatedPackagesError::ValidationException({
@@ -63767,11 +63287,8 @@ pub fn de_list_associated_packages_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::list_associated_packages::ListAssociatedPackagesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::list_associated_packages::ListAssociatedPackagesError::generic(generic),
@@ -63860,11 +63377,8 @@ pub fn de_list_domains_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::list_domains::ListDomainsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::list_domains::ListDomainsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::list_domains::ListDomainsError::InternalServerException({
@@ -63874,11 +63388,8 @@ pub fn de_list_domains_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::list_domains::ListDomainsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::list_domains::ListDomainsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::list_domains::ListDomainsError::ThrottlingException({
@@ -63893,11 +63404,8 @@ pub fn de_list_domains_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::list_domains::ListDomainsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::list_domains::ListDomainsError::ValidationException({
@@ -63907,11 +63415,8 @@ pub fn de_list_domains_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::list_domains::ListDomainsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::list_domains::ListDomainsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::list_domains::ListDomainsError::generic(generic),
@@ -64011,11 +63516,8 @@ pub fn de_list_package_groups_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::list_package_groups::ListPackageGroupsError::InternalServerException({
@@ -64025,11 +63527,8 @@ pub fn de_list_package_groups_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::list_package_groups::ListPackageGroupsError::ResourceNotFoundException({
@@ -64039,11 +63538,8 @@ pub fn de_list_package_groups_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::list_package_groups::ListPackageGroupsError::ThrottlingException({
@@ -64058,11 +63554,8 @@ pub fn de_list_package_groups_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::list_package_groups::ListPackageGroupsError::ValidationException({
@@ -64072,11 +63565,8 @@ pub fn de_list_package_groups_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::list_package_groups::ListPackageGroupsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::list_package_groups::ListPackageGroupsError::generic(generic),
@@ -64165,11 +63655,8 @@ pub fn de_list_package_version_assets_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::InternalServerException({
@@ -64179,11 +63666,8 @@ pub fn de_list_package_version_assets_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::ResourceNotFoundException({
@@ -64193,11 +63677,8 @@ pub fn de_list_package_version_assets_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::ThrottlingException({
@@ -64212,11 +63693,8 @@ pub fn de_list_package_version_assets_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::ValidationException({
@@ -64226,11 +63704,8 @@ pub fn de_list_package_version_assets_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::list_package_version_assets::ListPackageVersionAssetsError::generic(generic),
@@ -64344,11 +63819,8 @@ pub fn de_list_package_version_dependencies_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::InternalServerException({
@@ -64358,11 +63830,8 @@ pub fn de_list_package_version_dependencies_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::ResourceNotFoundException({
@@ -64372,11 +63841,8 @@ pub fn de_list_package_version_dependencies_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::ThrottlingException({
@@ -64391,11 +63857,8 @@ pub fn de_list_package_version_dependencies_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::ValidationException({
@@ -64405,11 +63868,8 @@ pub fn de_list_package_version_dependencies_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::list_package_version_dependencies::ListPackageVersionDependenciesError::generic(generic),
@@ -64523,11 +63983,8 @@ pub fn de_list_package_versions_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::list_package_versions::ListPackageVersionsError::InternalServerException({
@@ -64537,11 +63994,8 @@ pub fn de_list_package_versions_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::list_package_versions::ListPackageVersionsError::ResourceNotFoundException({
@@ -64551,11 +64005,8 @@ pub fn de_list_package_versions_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::list_package_versions::ListPackageVersionsError::ThrottlingException({
@@ -64570,11 +64021,8 @@ pub fn de_list_package_versions_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::list_package_versions::ListPackageVersionsError::ValidationException({
@@ -64584,11 +64032,8 @@ pub fn de_list_package_versions_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::list_package_versions::ListPackageVersionsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::list_package_versions::ListPackageVersionsError::generic(generic),
@@ -64697,11 +64142,8 @@ pub fn de_list_packages_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::list_packages::ListPackagesError::InternalServerException({
@@ -64711,11 +64153,8 @@ pub fn de_list_packages_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::list_packages::ListPackagesError::ResourceNotFoundException({
@@ -64725,11 +64164,8 @@ pub fn de_list_packages_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::list_packages::ListPackagesError::ThrottlingException({
@@ -64744,11 +64180,8 @@ pub fn de_list_packages_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::list_packages::ListPackagesError::ValidationException({
@@ -64758,11 +64191,8 @@ pub fn de_list_packages_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::list_packages::ListPackagesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::list_packages::ListPackagesError::generic(generic),
@@ -64851,11 +64281,8 @@ pub fn de_list_repositories_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::list_repositories::ListRepositoriesError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::list_repositories::ListRepositoriesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::list_repositories::ListRepositoriesError::InternalServerException({
@@ -64865,11 +64292,8 @@ pub fn de_list_repositories_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::list_repositories::ListRepositoriesError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::list_repositories::ListRepositoriesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::list_repositories::ListRepositoriesError::ThrottlingException({
@@ -64884,11 +64308,8 @@ pub fn de_list_repositories_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::list_repositories::ListRepositoriesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::list_repositories::ListRepositoriesError::ValidationException({
@@ -64898,11 +64319,8 @@ pub fn de_list_repositories_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::list_repositories::ListRepositoriesError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::list_repositories::ListRepositoriesError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::list_repositories::ListRepositoriesError::generic(generic),
@@ -64991,11 +64409,8 @@ pub fn de_list_repositories_in_domain_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::InternalServerException({
@@ -65005,11 +64420,8 @@ pub fn de_list_repositories_in_domain_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::ResourceNotFoundException({
@@ -65019,11 +64431,8 @@ pub fn de_list_repositories_in_domain_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::ThrottlingException({
@@ -65038,11 +64447,8 @@ pub fn de_list_repositories_in_domain_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::ValidationException({
@@ -65052,11 +64458,8 @@ pub fn de_list_repositories_in_domain_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::list_repositories_in_domain::ListRepositoriesInDomainError::generic(generic),
@@ -65145,11 +64548,8 @@ pub fn de_list_sub_package_groups_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::InternalServerException({
@@ -65159,11 +64559,8 @@ pub fn de_list_sub_package_groups_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::ResourceNotFoundException({
@@ -65173,11 +64570,8 @@ pub fn de_list_sub_package_groups_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::ThrottlingException({
@@ -65192,11 +64586,8 @@ pub fn de_list_sub_package_groups_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::ValidationException({
@@ -65206,11 +64597,8 @@ pub fn de_list_sub_package_groups_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::list_sub_package_groups::ListSubPackageGroupsError::generic(generic),
@@ -65299,11 +64687,8 @@ pub fn de_list_tags_for_resource_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::list_tags_for_resource::ListTagsForResourceError::ResourceNotFoundException({
@@ -65313,11 +64698,8 @@ pub fn de_list_tags_for_resource_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::list_tags_for_resource::ListTagsForResourceError::ThrottlingException({
@@ -65332,11 +64714,8 @@ pub fn de_list_tags_for_resource_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::list_tags_for_resource::ListTagsForResourceError::ValidationException({
@@ -65346,11 +64725,8 @@ pub fn de_list_tags_for_resource_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::list_tags_for_resource::ListTagsForResourceError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::list_tags_for_resource::ListTagsForResourceError::generic(generic),
@@ -65434,11 +64810,8 @@ pub fn de_publish_package_version_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::publish_package_version::PublishPackageVersionError::ConflictException({
@@ -65448,11 +64821,8 @@ pub fn de_publish_package_version_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::publish_package_version::PublishPackageVersionError::InternalServerException({
@@ -65462,11 +64832,8 @@ pub fn de_publish_package_version_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::publish_package_version::PublishPackageVersionError::ResourceNotFoundException({
@@ -65476,11 +64843,8 @@ pub fn de_publish_package_version_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ServiceQuotaExceededException" => super::super::operation::publish_package_version::PublishPackageVersionError::ServiceQuotaExceededException({
@@ -65490,11 +64854,8 @@ pub fn de_publish_package_version_http_error(
                 let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output).build().map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::publish_package_version::PublishPackageVersionError::ThrottlingException({
@@ -65509,11 +64870,8 @@ pub fn de_publish_package_version_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::publish_package_version::PublishPackageVersionError::ValidationException({
@@ -65523,11 +64881,8 @@ pub fn de_publish_package_version_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::publish_package_version::PublishPackageVersionError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::publish_package_version::PublishPackageVersionError::generic(generic),
@@ -65641,11 +64996,8 @@ pub fn de_put_domain_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::ConflictException({
@@ -65655,11 +65007,8 @@ pub fn de_put_domain_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::InternalServerException({
@@ -65669,11 +65018,8 @@ pub fn de_put_domain_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::ResourceNotFoundException({
@@ -65683,11 +65029,8 @@ pub fn de_put_domain_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ServiceQuotaExceededException" => super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::ServiceQuotaExceededException({
@@ -65697,11 +65040,8 @@ pub fn de_put_domain_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output).build().map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::ThrottlingException({
@@ -65716,11 +65056,8 @@ pub fn de_put_domain_permissions_policy_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::ValidationException({
@@ -65730,11 +65067,8 @@ pub fn de_put_domain_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::put_domain_permissions_policy::PutDomainPermissionsPolicyError::generic(generic),
@@ -65829,11 +65163,8 @@ pub fn de_put_package_origin_configuration_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::InternalServerException({
@@ -65843,11 +65174,8 @@ pub fn de_put_package_origin_configuration_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::ResourceNotFoundException({
@@ -65857,11 +65185,8 @@ pub fn de_put_package_origin_configuration_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::ThrottlingException({
@@ -65876,11 +65201,8 @@ pub fn de_put_package_origin_configuration_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::ValidationException({
@@ -65890,11 +65212,8 @@ pub fn de_put_package_origin_configuration_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::put_package_origin_configuration::PutPackageOriginConfigurationError::generic(generic),
@@ -65989,11 +65308,8 @@ pub fn de_put_repository_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::ConflictException({
@@ -66003,11 +65319,8 @@ pub fn de_put_repository_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::InternalServerException({
@@ -66017,11 +65330,8 @@ pub fn de_put_repository_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::ResourceNotFoundException({
@@ -66031,11 +65341,8 @@ pub fn de_put_repository_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ServiceQuotaExceededException" => super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::ServiceQuotaExceededException({
@@ -66045,11 +65352,8 @@ pub fn de_put_repository_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output).build().map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::ThrottlingException({
@@ -66064,11 +65368,8 @@ pub fn de_put_repository_permissions_policy_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::ValidationException({
@@ -66078,11 +65379,8 @@ pub fn de_put_repository_permissions_policy_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::put_repository_permissions_policy::PutRepositoryPermissionsPolicyError::generic(generic),
@@ -66177,11 +65475,8 @@ pub fn de_tag_resource_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::tag_resource::TagResourceError::ResourceNotFoundException({
@@ -66191,11 +65486,8 @@ pub fn de_tag_resource_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ServiceQuotaExceededException" => super::super::operation::tag_resource::TagResourceError::ServiceQuotaExceededException({
@@ -66205,11 +65497,8 @@ pub fn de_tag_resource_http_error(
                 let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output).build().map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::tag_resource::TagResourceError::ThrottlingException({
@@ -66224,11 +65513,8 @@ pub fn de_tag_resource_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::tag_resource::TagResourceError::ValidationException({
@@ -66238,11 +65524,8 @@ pub fn de_tag_resource_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::tag_resource::TagResourceError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::tag_resource::TagResourceError::generic(generic),
@@ -66301,11 +65584,8 @@ pub fn de_untag_resource_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::untag_resource::UntagResourceError::ResourceNotFoundException({
@@ -66315,11 +65595,8 @@ pub fn de_untag_resource_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::untag_resource::UntagResourceError::ThrottlingException({
@@ -66334,11 +65611,8 @@ pub fn de_untag_resource_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::untag_resource::UntagResourceError::ValidationException({
@@ -66348,11 +65622,8 @@ pub fn de_untag_resource_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::untag_resource::UntagResourceError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::untag_resource::UntagResourceError::generic(generic),
@@ -66411,11 +65682,8 @@ pub fn de_update_package_group_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::update_package_group::UpdatePackageGroupError::InternalServerException({
@@ -66425,11 +65693,8 @@ pub fn de_update_package_group_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::update_package_group::UpdatePackageGroupError::ResourceNotFoundException({
@@ -66439,11 +65704,8 @@ pub fn de_update_package_group_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ServiceQuotaExceededException" => super::super::operation::update_package_group::UpdatePackageGroupError::ServiceQuotaExceededException({
@@ -66453,11 +65715,8 @@ pub fn de_update_package_group_http_error(
                 let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output).build().map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::update_package_group::UpdatePackageGroupError::ThrottlingException({
@@ -66472,11 +65731,8 @@ pub fn de_update_package_group_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::update_package_group::UpdatePackageGroupError::ValidationException({
@@ -66486,11 +65742,8 @@ pub fn de_update_package_group_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::update_package_group::UpdatePackageGroupError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::update_package_group::UpdatePackageGroupError::generic(generic),
@@ -66585,11 +65838,8 @@ pub fn de_update_package_group_origin_configuration_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::InternalServerException({
@@ -66599,11 +65849,8 @@ pub fn de_update_package_group_origin_configuration_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::ResourceNotFoundException({
@@ -66613,11 +65860,8 @@ pub fn de_update_package_group_origin_configuration_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ServiceQuotaExceededException" => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::ServiceQuotaExceededException({
@@ -66627,11 +65871,8 @@ pub fn de_update_package_group_origin_configuration_http_error(
                 let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output).build().map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::ThrottlingException({
@@ -66646,11 +65887,8 @@ pub fn de_update_package_group_origin_configuration_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::ValidationException({
@@ -66660,11 +65898,8 @@ pub fn de_update_package_group_origin_configuration_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::update_package_group_origin_configuration::UpdatePackageGroupOriginConfigurationError::generic(generic),
@@ -66762,11 +65997,8 @@ pub fn de_update_package_versions_status_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::ConflictException({
@@ -66776,11 +66008,8 @@ pub fn de_update_package_versions_status_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::InternalServerException({
@@ -66790,11 +66019,8 @@ pub fn de_update_package_versions_status_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::ResourceNotFoundException({
@@ -66804,11 +66030,8 @@ pub fn de_update_package_versions_status_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::ThrottlingException({
@@ -66823,11 +66046,8 @@ pub fn de_update_package_versions_status_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::ValidationException({
@@ -66837,11 +66057,8 @@ pub fn de_update_package_versions_status_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::update_package_versions_status::UpdatePackageVersionsStatusError::generic(generic),
@@ -66939,11 +66156,8 @@ pub fn de_update_repository_http_error(
                 let mut output = super::super::types::error::builders::AccessDeniedExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_access_denied_exception::de_access_denied_exception_json_err(_response_body, output).map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::access_denied_exception_correct_errors(output).build().map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ConflictException" => super::super::operation::update_repository::UpdateRepositoryError::ConflictException({
@@ -66953,11 +66167,8 @@ pub fn de_update_repository_http_error(
                 let mut output = super::super::types::error::builders::ConflictExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_conflict_exception::de_conflict_exception_json_err(_response_body, output).map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::conflict_exception_correct_errors(output).build().map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "InternalServerException" => super::super::operation::update_repository::UpdateRepositoryError::InternalServerException({
@@ -66967,11 +66178,8 @@ pub fn de_update_repository_http_error(
                 let mut output = super::super::types::error::builders::InternalServerExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_internal_server_exception::de_internal_server_exception_json_err(_response_body, output).map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::internal_server_exception_correct_errors(output).build().map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ResourceNotFoundException" => super::super::operation::update_repository::UpdateRepositoryError::ResourceNotFoundException({
@@ -66981,11 +66189,8 @@ pub fn de_update_repository_http_error(
                 let mut output = super::super::types::error::builders::ResourceNotFoundExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_resource_not_found_exception::de_resource_not_found_exception_json_err(_response_body, output).map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::resource_not_found_exception_correct_errors(output).build().map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ServiceQuotaExceededException" => super::super::operation::update_repository::UpdateRepositoryError::ServiceQuotaExceededException({
@@ -66995,11 +66200,8 @@ pub fn de_update_repository_http_error(
                 let mut output = super::super::types::error::builders::ServiceQuotaExceededExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_service_quota_exceeded_exception::de_service_quota_exceeded_exception_json_err(_response_body, output).map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::service_quota_exceeded_exception_correct_errors(output).build().map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ThrottlingException" => super::super::operation::update_repository::UpdateRepositoryError::ThrottlingException({
@@ -67014,11 +66216,8 @@ pub fn de_update_repository_http_error(
                     })?,
                 );
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::throttling_exception_correct_errors(output).build().map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         "ValidationException" => super::super::operation::update_repository::UpdateRepositoryError::ValidationException({
@@ -67028,11 +66227,8 @@ pub fn de_update_repository_http_error(
                 let mut output = super::super::types::error::builders::ValidationExceptionBuilder::default();
                 output = super::super::protocol_serde::shape_validation_exception::de_validation_exception_json_err(_response_body, output).map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?;
                 let output = output.meta(generic);
-                output.build()
+                super::super::serde_util::validation_exception_correct_errors(output).build().map_err(super::super::operation::update_repository::UpdateRepositoryError::unhandled)?
             };
-            if tmp.message.is_none() {
-                tmp.message = _error_message;
-            }
             tmp
         }),
         _ => super::super::operation::update_repository::UpdateRepositoryError::generic(generic),
