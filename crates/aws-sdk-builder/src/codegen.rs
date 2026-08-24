@@ -15751,7 +15751,7 @@ fn render_client_operation_file(selected: &SelectedModel, operation: &str) -> St
             output.push_str("    /// - The fluent builder is configurable:\n");
             for (name, member) in input_members {
                 let field = names::rust_identifier(&name);
-                let field_method = field.strip_prefix("r#").unwrap_or(&field);
+                let field_method = names::rustdoc_identifier(&field);
                 let target_id = member_target(member).unwrap_or("smithy.api#String");
                 let target = client_documentation_input_type(selected, target_id);
                 let argument = client_documentation_input_argument_types(selected, target_id);
@@ -15764,7 +15764,7 @@ fn render_client_operation_file(selected: &SelectedModel, operation: &str) -> St
                 };
                 writeln!(
                     output,
-                    "    ///   - [`{field_method}({argument})`](crate::operation::{module}::builders::{operation_symbol}FluentBuilder::{field_method}) / [`set_{field_method}({setter_type})`](crate::operation::{module}::builders::{operation_symbol}FluentBuilder::set_{field_method}):<br>required: **{required}**<br>{documentation}<br>"
+                    "    ///   - [`{field}({argument})`](crate::operation::{module}::builders::{operation_symbol}FluentBuilder::{field_method}) / [`set_{field_method}({setter_type})`](crate::operation::{module}::builders::{operation_symbol}FluentBuilder::set_{field_method}):<br>required: **{required}**<br>{documentation}<br>"
                 )
                 .unwrap();
             }
@@ -17038,6 +17038,51 @@ mod tests {
     fn reserved_self_type_names_follow_smithy_rust_renames() {
         assert_eq!(rust_type_name("SELF"), "SelfValue");
         assert_eq!(rust_type_name("SELF_VALUE"), "SelfValue_");
+    }
+
+    #[test]
+    fn client_operation_docs_render_reserved_member_names_as_raw_identifiers() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "input": {"target": "example#Input"},
+                        "output": {"target": "smithy.api#Unit"}
+                    },
+                    "example#Input": {
+                        "type": "structure",
+                        "members": {
+                            "type": {
+                                "target": "smithy.api#String",
+                                "traits": {"smithy.api#required": {}}
+                            }
+                        }
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let client = render_client_operation_file(&selected, "Get");
+
+        assert!(client.contains(
+            "[`r#type(impl Into<String>)`](crate::operation::get::builders::GetFluentBuilder::type)"
+        ));
+        assert!(!client.contains("[`type(impl Into<String>)]"));
     }
 
     #[test]

@@ -4,6 +4,26 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Preserve raw identifiers in client operation docs
+- State: in progress
+- Changed: client operation documentation now renders reserved Rust member methods with
+  their raw identifier spelling, such as `r#type(...)`, while using the unescaped
+  spelling for intra-doc link paths. The rule is shared across all services and follows
+  Smithy-RS's symbol-provider spelling for fluent builder documentation, with a focused
+  regression.
+- Evidence: focused documentation regression, `just conformance` regeneration and
+  formatting, `cargo test --workspace`, `cargo clippy --workspace --all-targets --
+  -D warnings`, `cargo fmt --all -- --check`, and `git diff --check` pass. Conformance
+  generated and formatted all `13,166` snapshot files without generated-source parse
+  errors.
+- Conformance: `12,905/13,168` exact, `260` mismatches, `2` missing, and `1` extra
+  (`97.87%`) -> `12,906/13,168` exact, `259` mismatches, `2` missing, and `1` extra
+  (`97.88%`). Batch improved from `755/7` to `756/6` mismatched files.
+- Blocker: broader protocol, shape, documentation, and runtime parity gaps remain;
+  no blocker in this checkpoint.
+- Next action: continue with the next highest-impact generic parity mismatch after
+  committing this checkpoint.
+
 ### Checkpoint: 2026-08-25 — Preserve Smithy complete-word identifier spellings
 - State: in progress
 - Changed: the shared Rust identifier splitter now keeps Smithy-RS complete words such
