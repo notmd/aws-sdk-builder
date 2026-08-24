@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct EcsTaskProperties {
     /// <p>This object is a list of containers.</p>
-    pub containers: ::std::vec::Vec<super::super::types::TaskContainerProperties>,
+    pub containers: ::std::option::Option<::std::vec::Vec<super::super::types::TaskContainerProperties>>,
     /// <p>The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on Fargate.</p>
     pub ephemeral_storage: ::std::option::Option<super::super::types::EphemeralStorage>,
     /// <p>The Amazon Resource Name (ARN) of the execution role that Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html">Batch execution IAM role</a> in the <i>Batch User Guide</i>.</p>
@@ -45,9 +45,10 @@ pub struct EcsTaskProperties {
 }
 impl EcsTaskProperties {
     /// <p>This object is a list of containers.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.containers.is_none()`.
     pub fn containers(&self) -> &[super::super::types::TaskContainerProperties] {
-        use std::ops::Deref;
-        self.containers.deref()
+        self.containers.as_deref().unwrap_or_default()
     }
     /// <p>The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on Fargate.</p>
     pub fn ephemeral_storage(&self) -> ::std::option::Option<&super::super::types::EphemeralStorage> {
@@ -358,16 +359,9 @@ impl EcsTaskPropertiesBuilder {
         &self.network_mode
     }
     /// Consumes the builder and constructs a [`EcsTaskProperties`](crate::types::EcsTaskProperties).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`containers`](crate::types::builders::EcsTaskPropertiesBuilder::containers)
-    pub fn build(self) -> ::std::result::Result<super::super::types::EcsTaskProperties, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::EcsTaskProperties {
-            containers: self.containers.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "containers",
-                    "containers was not specified but it is required when building EcsTaskProperties",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::EcsTaskProperties {
+        super::super::types::EcsTaskProperties {
+            containers: self.containers,
             ephemeral_storage: self.ephemeral_storage,
             execution_role_arn: self.execution_role_arn,
             platform_version: self.platform_version,
@@ -379,6 +373,6 @@ impl EcsTaskPropertiesBuilder {
             volumes: self.volumes,
             enable_execute_command: self.enable_execute_command,
             network_mode: self.network_mode,
-        })
+        }
     }
 }

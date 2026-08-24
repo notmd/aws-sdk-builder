@@ -5,20 +5,22 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ManagedInstancesNetworkConfiguration {
     /// <p>The VPC subnets where managed instances are launched. If your subnets don't provide public IP addresses, they must have a NAT gateway for outbound internet access.</p>
-    pub subnets: ::std::vec::Vec<::std::string::String>,
+    pub subnets: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>The VPC security groups to associate with the managed instances.</p>
-    pub security_groups: ::std::vec::Vec<::std::string::String>,
+    pub security_groups: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl ManagedInstancesNetworkConfiguration {
     /// <p>The VPC subnets where managed instances are launched. If your subnets don't provide public IP addresses, they must have a NAT gateway for outbound internet access.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.subnets.is_none()`.
     pub fn subnets(&self) -> &[::std::string::String] {
-        use std::ops::Deref;
-        self.subnets.deref()
+        self.subnets.as_deref().unwrap_or_default()
     }
     /// <p>The VPC security groups to associate with the managed instances.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.security_groups.is_none()`.
     pub fn security_groups(&self) -> &[::std::string::String] {
-        use std::ops::Deref;
-        self.security_groups.deref()
+        self.security_groups.as_deref().unwrap_or_default()
     }
 }
 impl ManagedInstancesNetworkConfiguration {
@@ -77,25 +79,10 @@ impl ManagedInstancesNetworkConfigurationBuilder {
         &self.security_groups
     }
     /// Consumes the builder and constructs a [`ManagedInstancesNetworkConfiguration`](crate::types::ManagedInstancesNetworkConfiguration).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`subnets`](crate::types::builders::ManagedInstancesNetworkConfigurationBuilder::subnets)
-    /// - [`security_groups`](crate::types::builders::ManagedInstancesNetworkConfigurationBuilder::security_groups)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::types::ManagedInstancesNetworkConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::ManagedInstancesNetworkConfiguration {
-            subnets: self.subnets.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "subnets",
-                    "subnets was not specified but it is required when building ManagedInstancesNetworkConfiguration",
-                )
-            })?,
-            security_groups: self.security_groups.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "security_groups",
-                    "security_groups was not specified but it is required when building ManagedInstancesNetworkConfiguration",
-                )
-            })?,
-        })
+    pub fn build(self) -> super::super::types::ManagedInstancesNetworkConfiguration {
+        super::super::types::ManagedInstancesNetworkConfiguration {
+            subnets: self.subnets,
+            security_groups: self.security_groups,
+        }
     }
 }

@@ -12,8 +12,8 @@ pub fn ser_evaluate_on_exit(
     if let Some(var_3) = &input.on_exit_code {
         object.key("onExitCode").string(var_3.as_str());
     }
-    {
-        object.key("action").string(input.action.as_str());
+    if let Some(var_4) = &input.action {
+        object.key("action").string(var_4.as_str());
     }
     Ok(())
 }
@@ -77,9 +77,7 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::evaluate_on_exit_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::evaluate_on_exit_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

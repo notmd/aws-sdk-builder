@@ -5,19 +5,18 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ServiceEnvironmentOrder {
     /// <p>The order of the service environment. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
-    pub order: i32,
+    pub order: ::std::option::Option<i32>,
     /// <p>The name or ARN of the service environment.</p>
-    pub service_environment: ::std::string::String,
+    pub service_environment: ::std::option::Option<::std::string::String>,
 }
 impl ServiceEnvironmentOrder {
     /// <p>The order of the service environment. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
-    pub fn order(&self) -> i32 {
+    pub fn order(&self) -> ::std::option::Option<i32> {
         self.order
     }
     /// <p>The name or ARN of the service environment.</p>
-    pub fn service_environment(&self) -> &str {
-        use std::ops::Deref;
-        self.service_environment.deref()
+    pub fn service_environment(&self) -> ::std::option::Option<&str> {
+        self.service_environment.as_deref()
     }
 }
 impl ServiceEnvironmentOrder {
@@ -66,23 +65,10 @@ impl ServiceEnvironmentOrderBuilder {
         &self.service_environment
     }
     /// Consumes the builder and constructs a [`ServiceEnvironmentOrder`](crate::types::ServiceEnvironmentOrder).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`order`](crate::types::builders::ServiceEnvironmentOrderBuilder::order)
-    /// - [`service_environment`](crate::types::builders::ServiceEnvironmentOrderBuilder::service_environment)
-    pub fn build(self) -> ::std::result::Result<super::super::types::ServiceEnvironmentOrder, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::ServiceEnvironmentOrder {
-            order: self.order.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "order",
-                    "order was not specified but it is required when building ServiceEnvironmentOrder",
-                )
-            })?,
-            service_environment: self.service_environment.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "service_environment",
-                    "service_environment was not specified but it is required when building ServiceEnvironmentOrder",
-                )
-            })?,
-        })
+    pub fn build(self) -> super::super::types::ServiceEnvironmentOrder {
+        super::super::types::ServiceEnvironmentOrder {
+            order: self.order,
+            service_environment: self.service_environment,
+        }
     }
 }

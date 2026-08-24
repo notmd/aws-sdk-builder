@@ -3,41 +3,41 @@ pub fn ser_node_range_property(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::NodeRangeProperty,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
-        object.key("targetNodes").string(input.target_nodes.as_str());
+    if let Some(var_1) = &input.target_nodes {
+        object.key("targetNodes").string(var_1.as_str());
     }
-    if let Some(var_1) = &input.container {
+    if let Some(var_2) = &input.container {
         #[allow(unused_mut)]
-        let mut object_2 = object.key("container").start_object();
-        super::super::protocol_serde::shape_container_properties::ser_container_properties(&mut object_2, var_1)?;
-        object_2.finish();
+        let mut object_3 = object.key("container").start_object();
+        super::super::protocol_serde::shape_container_properties::ser_container_properties(&mut object_3, var_2)?;
+        object_3.finish();
     }
-    if let Some(var_3) = &input.instance_types {
-        let mut array_4 = object.key("instanceTypes").start_array();
-        for item_5 in var_3 {
+    if let Some(var_4) = &input.instance_types {
+        let mut array_5 = object.key("instanceTypes").start_array();
+        for item_6 in var_4 {
             {
-                array_4.value().string(item_5.as_str());
+                array_5.value().string(item_6.as_str());
             }
         }
-        array_4.finish();
+        array_5.finish();
     }
-    if let Some(var_6) = &input.ecs_properties {
+    if let Some(var_7) = &input.ecs_properties {
         #[allow(unused_mut)]
-        let mut object_7 = object.key("ecsProperties").start_object();
-        super::super::protocol_serde::shape_ecs_properties::ser_ecs_properties(&mut object_7, var_6)?;
-        object_7.finish();
+        let mut object_8 = object.key("ecsProperties").start_object();
+        super::super::protocol_serde::shape_ecs_properties::ser_ecs_properties(&mut object_8, var_7)?;
+        object_8.finish();
     }
-    if let Some(var_8) = &input.eks_properties {
+    if let Some(var_9) = &input.eks_properties {
         #[allow(unused_mut)]
-        let mut object_9 = object.key("eksProperties").start_object();
-        super::super::protocol_serde::shape_eks_properties::ser_eks_properties(&mut object_9, var_8)?;
-        object_9.finish();
+        let mut object_10 = object.key("eksProperties").start_object();
+        super::super::protocol_serde::shape_eks_properties::ser_eks_properties(&mut object_10, var_9)?;
+        object_10.finish();
     }
-    if let Some(var_10) = &input.consumable_resource_properties {
+    if let Some(var_11) = &input.consumable_resource_properties {
         #[allow(unused_mut)]
-        let mut object_11 = object.key("consumableResourceProperties").start_object();
-        super::super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_11, var_10)?;
-        object_11.finish();
+        let mut object_12 = object.key("consumableResourceProperties").start_object();
+        super::super::protocol_serde::shape_consumable_resource_properties::ser_consumable_resource_properties(&mut object_12, var_11)?;
+        object_12.finish();
     }
     Ok(())
 }
@@ -114,9 +114,7 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::node_range_property_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::node_range_property_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

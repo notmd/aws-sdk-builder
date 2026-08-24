@@ -186,9 +186,9 @@ pub struct ResourceRequirement {
     /// </dl>
     /// </dd>
     /// </dl>
-    pub value: ::std::string::String,
+    pub value: ::std::option::Option<::std::string::String>,
     /// <p>The type of resource to assign to a container. The supported resources include <code>GPU</code>, <code>MEMORY</code>, and <code>VCPU</code>.</p>
-    pub r#type: super::super::types::ResourceType,
+    pub r#type: ::std::option::Option<super::super::types::ResourceType>,
 }
 impl ResourceRequirement {
     /// <p>The quantity of the specified resource to reserve for the container. The values vary based on the <code>type</code> specified.</p>
@@ -373,13 +373,12 @@ impl ResourceRequirement {
     /// </dl>
     /// </dd>
     /// </dl>
-    pub fn value(&self) -> &str {
-        use std::ops::Deref;
-        self.value.deref()
+    pub fn value(&self) -> ::std::option::Option<&str> {
+        self.value.as_deref()
     }
     /// <p>The type of resource to assign to a container. The supported resources include <code>GPU</code>, <code>MEMORY</code>, and <code>VCPU</code>.</p>
-    pub fn r#type(&self) -> &super::super::types::ResourceType {
-        &self.r#type
+    pub fn r#type(&self) -> ::std::option::Option<&super::super::types::ResourceType> {
+        self.r#type.as_ref()
     }
 }
 impl ResourceRequirement {
@@ -971,23 +970,10 @@ impl ResourceRequirementBuilder {
         &self.r#type
     }
     /// Consumes the builder and constructs a [`ResourceRequirement`](crate::types::ResourceRequirement).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`value`](crate::types::builders::ResourceRequirementBuilder::value)
-    /// - [`r#type`](crate::types::builders::ResourceRequirementBuilder::type)
-    pub fn build(self) -> ::std::result::Result<super::super::types::ResourceRequirement, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::ResourceRequirement {
-            value: self.value.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "value",
-                    "value was not specified but it is required when building ResourceRequirement",
-                )
-            })?,
-            r#type: self.r#type.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "r#type",
-                    "r#type was not specified but it is required when building ResourceRequirement",
-                )
-            })?,
-        })
+    pub fn build(self) -> super::super::types::ResourceRequirement {
+        super::super::types::ResourceRequirement {
+            value: self.value,
+            r#type: self.r#type,
+        }
     }
 }

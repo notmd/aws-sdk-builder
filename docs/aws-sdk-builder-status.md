@@ -4,6 +4,25 @@ Updated 2026-08-24. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-24 — Honor client-optional required members
+- State: in progress
+- Changed: member requiredness now follows Smithy-RS client nullability for members
+  carrying `smithy.api#clientOptional`, including members that also carry
+  `smithy.api#required`. This shared rule feeds generated structures, builders,
+  accessors, and protocol serializers. A focused regression test covers the
+  required-plus-client-optional case. The implementation was checked against the
+  pinned Smithy-RS checkout at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Conformance: `just conformance` generated 15 services and 1,133 operations,
+  formatted 13,164 generated Rust files, and compared `13,168` files: `11,963`
+  matched, `1,200` mismatched, `4` missing, and `1` extra (`88.51%` average match).
+  This is `+129` exact files and `-129` mismatches from the `11,834/1,329/4/1`
+  checkpoint; the command exits 1 only because broader parity gaps remain.
+- Verification: focused nullability test, workspace Clippy with `-D warnings`,
+  formatting, and `git diff --check` pass. Conformance generation and rustfmt
+  complete without generated-source parse errors.
+- Next action: continue generic nullability and protocol parity work.
+
 ### Checkpoint: 2026-08-24 — Preserve acronym operation symbols
 - State: in progress
 - Changed: operation-root, error, fluent-builder, paginator, waiter, and protocol

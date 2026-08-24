@@ -4,21 +4,19 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CreateSchedulingPolicyOutput {
     /// <p>The name of the scheduling policy.</p>
-    pub name: ::std::string::String,
+    pub name: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of the scheduling policy. The format is <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i> </code>. For example, <code>aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy</code>.</p>
-    pub arn: ::std::string::String,
+    pub arn: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl CreateSchedulingPolicyOutput {
     /// <p>The name of the scheduling policy.</p>
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> ::std::option::Option<&str> {
+        self.name.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the scheduling policy. The format is <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i> </code>. For example, <code>aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy</code>.</p>
-    pub fn arn(&self) -> &str {
-        use std::ops::Deref;
-        self.arn.deref()
+    pub fn arn(&self) -> ::std::option::Option<&str> {
+        self.arn.as_deref()
     }
 }
 impl ::aws_types::request_id::RequestId for CreateSchedulingPolicyOutput {
@@ -82,29 +80,11 @@ impl CreateSchedulingPolicyOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateSchedulingPolicyOutput`](crate::operation::create_scheduling_policy::CreateSchedulingPolicyOutput).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`name`](crate::operation::create_scheduling_policy::builders::CreateSchedulingPolicyOutputBuilder::name)
-    /// - [`arn`](crate::operation::create_scheduling_policy::builders::CreateSchedulingPolicyOutputBuilder::arn)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::create_scheduling_policy::CreateSchedulingPolicyOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(super::super::super::operation::create_scheduling_policy::CreateSchedulingPolicyOutput {
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building CreateSchedulingPolicyOutput",
-                )
-            })?,
-            arn: self.arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "arn",
-                    "arn was not specified but it is required when building CreateSchedulingPolicyOutput",
-                )
-            })?,
+    pub fn build(self) -> super::super::super::operation::create_scheduling_policy::CreateSchedulingPolicyOutput {
+        super::super::super::operation::create_scheduling_policy::CreateSchedulingPolicyOutput {
+            name: self.name,
+            arn: self.arn,
             _request_id: self._request_id,
-        })
+        }
     }
 }

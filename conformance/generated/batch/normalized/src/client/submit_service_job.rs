@@ -17,8 +17,8 @@ impl super::Client {
     ///   - [`client_token(impl Into<String>)`](crate::operation::submit_service_job::builders::SubmitServiceJobFluentBuilder::client_token) / [`set_client_token(Option<String>)`](crate::operation::submit_service_job::builders::SubmitServiceJobFluentBuilder::set_client_token):<br>required: **false**<br><p>A unique identifier for the request. This token is used to ensure idempotency of requests. If this parameter is specified and two submit requests with identical payloads and <code>clientToken</code>s are received, these requests are considered the same request and the second request is rejected.</p><br>
     /// - On success, responds with [`SubmitServiceJobOutput`](crate::operation::submit_service_job::SubmitServiceJobOutput) with field(s):
     ///   - [`job_arn(Option<String>)`](crate::operation::submit_service_job::SubmitServiceJobOutput::job_arn): <p>The Amazon Resource Name (ARN) for the service job.</p>
-    ///   - [`job_name(String)`](crate::operation::submit_service_job::SubmitServiceJobOutput::job_name): <p>The name of the service job.</p>
-    ///   - [`job_id(String)`](crate::operation::submit_service_job::SubmitServiceJobOutput::job_id): <p>The unique identifier for the service job.</p>
+    ///   - [`job_name(Option<String>)`](crate::operation::submit_service_job::SubmitServiceJobOutput::job_name): <p>The name of the service job.</p>
+    ///   - [`job_id(Option<String>)`](crate::operation::submit_service_job::SubmitServiceJobOutput::job_id): <p>The unique identifier for the service job.</p>
     /// - On failure, responds with [`SdkError<SubmitServiceJobError>`](crate::operation::submit_service_job::SubmitServiceJobError)
     pub fn submit_service_job(&self) -> super::super::operation::submit_service_job::builders::SubmitServiceJobFluentBuilder {
         super::super::operation::submit_service_job::builders::SubmitServiceJobFluentBuilder::new(self.handle.clone())

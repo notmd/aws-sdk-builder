@@ -69,9 +69,7 @@ pub fn de_describe_service_job_http_response(
         output = super::super::protocol_serde::shape_describe_service_job::de_describe_service_job(_response_body, output)
             .map_err(super::super::operation::describe_service_job::DescribeServiceJobError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        super::super::serde_util::describe_service_job_output_output_correct_errors(output)
-            .build()
-            .map_err(super::super::operation::describe_service_job::DescribeServiceJobError::unhandled)?
+        super::super::serde_util::describe_service_job_output_output_correct_errors(output).build()
     })
 }
 

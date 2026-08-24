@@ -13,13 +13,13 @@ pub struct ServiceJobSummary {
     /// <p>The Amazon Resource Name (ARN) of the service job.</p>
     pub job_arn: ::std::option::Option<::std::string::String>,
     /// <p>The job ID for the service job.</p>
-    pub job_id: ::std::string::String,
+    pub job_id: ::std::option::Option<::std::string::String>,
     /// <p>The name of the service job.</p>
-    pub job_name: ::std::string::String,
+    pub job_name: ::std::option::Option<::std::string::String>,
     /// <p>The Unix timestamp (in milliseconds) for when the service job was scheduled for execution.</p>
     pub scheduled_at: ::std::option::Option<i64>,
     /// <p>The type of service job. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
-    pub service_job_type: super::super::types::ServiceJobType,
+    pub service_job_type: ::std::option::Option<super::super::types::ServiceJobType>,
     /// <p>The share identifier for the job.</p>
     pub share_identifier: ::std::option::Option<::std::string::String>,
     /// <p>The quota share for the service job.</p>
@@ -53,22 +53,20 @@ impl ServiceJobSummary {
         self.job_arn.as_deref()
     }
     /// <p>The job ID for the service job.</p>
-    pub fn job_id(&self) -> &str {
-        use std::ops::Deref;
-        self.job_id.deref()
+    pub fn job_id(&self) -> ::std::option::Option<&str> {
+        self.job_id.as_deref()
     }
     /// <p>The name of the service job.</p>
-    pub fn job_name(&self) -> &str {
-        use std::ops::Deref;
-        self.job_name.deref()
+    pub fn job_name(&self) -> ::std::option::Option<&str> {
+        self.job_name.as_deref()
     }
     /// <p>The Unix timestamp (in milliseconds) for when the service job was scheduled for execution.</p>
     pub fn scheduled_at(&self) -> ::std::option::Option<i64> {
         self.scheduled_at
     }
     /// <p>The type of service job. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
-    pub fn service_job_type(&self) -> &super::super::types::ServiceJobType {
-        &self.service_job_type
+    pub fn service_job_type(&self) -> ::std::option::Option<&super::super::types::ServiceJobType> {
+        self.service_job_type.as_ref()
     }
     /// <p>The share identifier for the job.</p>
     pub fn share_identifier(&self) -> ::std::option::Option<&str> {
@@ -328,41 +326,22 @@ impl ServiceJobSummaryBuilder {
         &self.stopped_at
     }
     /// Consumes the builder and constructs a [`ServiceJobSummary`](crate::types::ServiceJobSummary).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`job_id`](crate::types::builders::ServiceJobSummaryBuilder::job_id)
-    /// - [`job_name`](crate::types::builders::ServiceJobSummaryBuilder::job_name)
-    /// - [`service_job_type`](crate::types::builders::ServiceJobSummaryBuilder::service_job_type)
-    pub fn build(self) -> ::std::result::Result<super::super::types::ServiceJobSummary, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::ServiceJobSummary {
+    pub fn build(self) -> super::super::types::ServiceJobSummary {
+        super::super::types::ServiceJobSummary {
             latest_attempt: self.latest_attempt,
             capacity_usage: self.capacity_usage,
             created_at: self.created_at,
             job_arn: self.job_arn,
-            job_id: self.job_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_id",
-                    "job_id was not specified but it is required when building ServiceJobSummary",
-                )
-            })?,
-            job_name: self.job_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_name",
-                    "job_name was not specified but it is required when building ServiceJobSummary",
-                )
-            })?,
+            job_id: self.job_id,
+            job_name: self.job_name,
             scheduled_at: self.scheduled_at,
-            service_job_type: self.service_job_type.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "service_job_type",
-                    "service_job_type was not specified but it is required when building ServiceJobSummary",
-                )
-            })?,
+            service_job_type: self.service_job_type,
             share_identifier: self.share_identifier,
             quota_share_name: self.quota_share_name,
             status: self.status,
             status_reason: self.status_reason,
             started_at: self.started_at,
             stopped_at: self.stopped_at,
-        })
+        }
     }
 }

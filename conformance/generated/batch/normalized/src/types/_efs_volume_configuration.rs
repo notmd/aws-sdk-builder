@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct EfsVolumeConfiguration {
     /// <p>The Amazon EFS file system ID to use.</p>
-    pub file_system_id: ::std::string::String,
+    pub file_system_id: ::std::option::Option<::std::string::String>,
     /// <p>The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume is used instead. Specifying <code>/</code> has the same effect as omitting this parameter. The maximum length is 4,096 characters.</p><important>
     /// <p>If an EFS access point is specified in the <code>authorizationConfig</code>, the root directory parameter must either be omitted or set to <code>/</code>, which enforces the path set on the Amazon EFS access point.</p>
     /// </important>
@@ -19,9 +19,8 @@ pub struct EfsVolumeConfiguration {
 }
 impl EfsVolumeConfiguration {
     /// <p>The Amazon EFS file system ID to use.</p>
-    pub fn file_system_id(&self) -> &str {
-        use std::ops::Deref;
-        self.file_system_id.deref()
+    pub fn file_system_id(&self) -> ::std::option::Option<&str> {
+        self.file_system_id.as_deref()
     }
     /// <p>The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume is used instead. Specifying <code>/</code> has the same effect as omitting this parameter. The maximum length is 4,096 characters.</p><important>
     /// <p>If an EFS access point is specified in the <code>authorizationConfig</code>, the root directory parameter must either be omitted or set to <code>/</code>, which enforces the path set on the Amazon EFS access point.</p>
@@ -138,20 +137,13 @@ impl EfsVolumeConfigurationBuilder {
         &self.authorization_config
     }
     /// Consumes the builder and constructs a [`EfsVolumeConfiguration`](crate::types::EfsVolumeConfiguration).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`file_system_id`](crate::types::builders::EfsVolumeConfigurationBuilder::file_system_id)
-    pub fn build(self) -> ::std::result::Result<super::super::types::EfsVolumeConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::EfsVolumeConfiguration {
-            file_system_id: self.file_system_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "file_system_id",
-                    "file_system_id was not specified but it is required when building EfsVolumeConfiguration",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::EfsVolumeConfiguration {
+        super::super::types::EfsVolumeConfiguration {
+            file_system_id: self.file_system_id,
             root_directory: self.root_directory,
             transit_encryption: self.transit_encryption,
             transit_encryption_port: self.transit_encryption_port,
             authorization_config: self.authorization_config,
-        })
+        }
     }
 }

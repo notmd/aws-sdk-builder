@@ -3,19 +3,19 @@ pub fn ser_ulimit(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::Ulimit,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
+    if let Some(var_1) = &input.hard_limit {
         object.key("hardLimit").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((input.hard_limit).into()),
+            ::aws_smithy_types::Number::NegInt((*var_1).into()),
         );
     }
-    {
-        object.key("name").string(input.name.as_str());
+    if let Some(var_2) = &input.name {
+        object.key("name").string(var_2.as_str());
     }
-    {
+    if let Some(var_3) = &input.soft_limit {
         object.key("softLimit").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((input.soft_limit).into()),
+            ::aws_smithy_types::Number::NegInt((*var_3).into()),
         );
     }
     Ok(())
@@ -73,9 +73,7 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::ulimit_correct_errors(builder).build().map_err(|err| {
-                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
-            })?))
+            Ok(Some(super::super::serde_util::ulimit_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

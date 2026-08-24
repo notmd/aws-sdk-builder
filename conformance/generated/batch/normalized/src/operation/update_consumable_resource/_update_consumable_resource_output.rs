@@ -4,23 +4,21 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct UpdateConsumableResourceOutput {
     /// <p>The name of the consumable resource to be updated.</p>
-    pub consumable_resource_name: ::std::string::String,
+    pub consumable_resource_name: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of the consumable resource.</p>
-    pub consumable_resource_arn: ::std::string::String,
+    pub consumable_resource_arn: ::std::option::Option<::std::string::String>,
     /// <p>The total amount of the consumable resource that is available.</p>
     pub total_quantity: ::std::option::Option<i64>,
     _request_id: Option<String>,
 }
 impl UpdateConsumableResourceOutput {
     /// <p>The name of the consumable resource to be updated.</p>
-    pub fn consumable_resource_name(&self) -> &str {
-        use std::ops::Deref;
-        self.consumable_resource_name.deref()
+    pub fn consumable_resource_name(&self) -> ::std::option::Option<&str> {
+        self.consumable_resource_name.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the consumable resource.</p>
-    pub fn consumable_resource_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.consumable_resource_arn.deref()
+    pub fn consumable_resource_arn(&self) -> ::std::option::Option<&str> {
+        self.consumable_resource_arn.as_deref()
     }
     /// <p>The total amount of the consumable resource that is available.</p>
     pub fn total_quantity(&self) -> ::std::option::Option<i64> {
@@ -103,30 +101,12 @@ impl UpdateConsumableResourceOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateConsumableResourceOutput`](crate::operation::update_consumable_resource::UpdateConsumableResourceOutput).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`consumable_resource_name`](crate::operation::update_consumable_resource::builders::UpdateConsumableResourceOutputBuilder::consumable_resource_name)
-    /// - [`consumable_resource_arn`](crate::operation::update_consumable_resource::builders::UpdateConsumableResourceOutputBuilder::consumable_resource_arn)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::update_consumable_resource::UpdateConsumableResourceOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(super::super::super::operation::update_consumable_resource::UpdateConsumableResourceOutput {
-            consumable_resource_name: self.consumable_resource_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "consumable_resource_name",
-                    "consumable_resource_name was not specified but it is required when building UpdateConsumableResourceOutput",
-                )
-            })?,
-            consumable_resource_arn: self.consumable_resource_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "consumable_resource_arn",
-                    "consumable_resource_arn was not specified but it is required when building UpdateConsumableResourceOutput",
-                )
-            })?,
+    pub fn build(self) -> super::super::super::operation::update_consumable_resource::UpdateConsumableResourceOutput {
+        super::super::super::operation::update_consumable_resource::UpdateConsumableResourceOutput {
+            consumable_resource_name: self.consumable_resource_name,
+            consumable_resource_arn: self.consumable_resource_arn,
             total_quantity: self.total_quantity,
             _request_id: self._request_id,
-        })
+        }
     }
 }

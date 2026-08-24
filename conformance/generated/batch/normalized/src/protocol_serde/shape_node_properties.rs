@@ -3,29 +3,29 @@ pub fn ser_node_properties(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::NodeProperties,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
+    if let Some(var_1) = &input.num_nodes {
         object.key("numNodes").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((input.num_nodes).into()),
+            ::aws_smithy_types::Number::NegInt((*var_1).into()),
         );
     }
-    {
+    if let Some(var_2) = &input.main_node {
         object.key("mainNode").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((input.main_node).into()),
+            ::aws_smithy_types::Number::NegInt((*var_2).into()),
         );
     }
-    {
-        let mut array_1 = object.key("nodeRangeProperties").start_array();
-        for item_2 in &input.node_range_properties {
+    if let Some(var_3) = &input.node_range_properties {
+        let mut array_4 = object.key("nodeRangeProperties").start_array();
+        for item_5 in var_3 {
             {
                 #[allow(unused_mut)]
-                let mut object_3 = array_1.value().start_object();
-                super::super::protocol_serde::shape_node_range_property::ser_node_range_property(&mut object_3, item_2)?;
-                object_3.finish();
+                let mut object_6 = array_4.value().start_object();
+                super::super::protocol_serde::shape_node_range_property::ser_node_range_property(&mut object_6, item_5)?;
+                object_6.finish();
             }
         }
-        array_1.finish();
+        array_4.finish();
     }
     Ok(())
 }
@@ -80,9 +80,7 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::node_properties_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::node_properties_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

@@ -4,21 +4,19 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CreateJobQueueOutput {
     /// <p>The name of the job queue.</p>
-    pub job_queue_name: ::std::string::String,
+    pub job_queue_name: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of the job queue.</p>
-    pub job_queue_arn: ::std::string::String,
+    pub job_queue_arn: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl CreateJobQueueOutput {
     /// <p>The name of the job queue.</p>
-    pub fn job_queue_name(&self) -> &str {
-        use std::ops::Deref;
-        self.job_queue_name.deref()
+    pub fn job_queue_name(&self) -> ::std::option::Option<&str> {
+        self.job_queue_name.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the job queue.</p>
-    pub fn job_queue_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.job_queue_arn.deref()
+    pub fn job_queue_arn(&self) -> ::std::option::Option<&str> {
+        self.job_queue_arn.as_deref()
     }
 }
 impl ::aws_types::request_id::RequestId for CreateJobQueueOutput {
@@ -82,26 +80,11 @@ impl CreateJobQueueOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateJobQueueOutput`](crate::operation::create_job_queue::CreateJobQueueOutput).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`job_queue_name`](crate::operation::create_job_queue::builders::CreateJobQueueOutputBuilder::job_queue_name)
-    /// - [`job_queue_arn`](crate::operation::create_job_queue::builders::CreateJobQueueOutputBuilder::job_queue_arn)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::create_job_queue::CreateJobQueueOutput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::super::operation::create_job_queue::CreateJobQueueOutput {
-            job_queue_name: self.job_queue_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_queue_name",
-                    "job_queue_name was not specified but it is required when building CreateJobQueueOutput",
-                )
-            })?,
-            job_queue_arn: self.job_queue_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_queue_arn",
-                    "job_queue_arn was not specified but it is required when building CreateJobQueueOutput",
-                )
-            })?,
+    pub fn build(self) -> super::super::super::operation::create_job_queue::CreateJobQueueOutput {
+        super::super::super::operation::create_job_queue::CreateJobQueueOutput {
+            job_queue_name: self.job_queue_name,
+            job_queue_arn: self.job_queue_arn,
             _request_id: self._request_id,
-        })
+        }
     }
 }

@@ -3,13 +3,13 @@ pub fn ser_share_attributes(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::ShareAttributes,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
-        object.key("shareIdentifier").string(input.share_identifier.as_str());
+    if let Some(var_1) = &input.share_identifier {
+        object.key("shareIdentifier").string(var_1.as_str());
     }
-    if let Some(var_1) = &input.weight_factor {
+    if let Some(var_2) = &input.weight_factor {
         object.key("weightFactor").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::Float((*var_1).into()),
+            ::aws_smithy_types::Number::Float((*var_2).into()),
         );
     }
     Ok(())
@@ -58,9 +58,7 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::share_attributes_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::share_attributes_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

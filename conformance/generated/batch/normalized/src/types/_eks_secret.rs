@@ -5,15 +5,14 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct EksSecret {
     /// <p>The name of the secret. The name must be allowed as a DNS subdomain name. For more information, see <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names">DNS subdomain names</a> in the <i>Kubernetes documentation</i>.</p>
-    pub secret_name: ::std::string::String,
+    pub secret_name: ::std::option::Option<::std::string::String>,
     /// <p>Specifies whether the secret or the secret's keys must be defined.</p>
     pub optional: ::std::option::Option<bool>,
 }
 impl EksSecret {
     /// <p>The name of the secret. The name must be allowed as a DNS subdomain name. For more information, see <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names">DNS subdomain names</a> in the <i>Kubernetes documentation</i>.</p>
-    pub fn secret_name(&self) -> &str {
-        use std::ops::Deref;
-        self.secret_name.deref()
+    pub fn secret_name(&self) -> ::std::option::Option<&str> {
+        self.secret_name.as_deref()
     }
     /// <p>Specifies whether the secret or the secret's keys must be defined.</p>
     pub fn optional(&self) -> ::std::option::Option<bool> {
@@ -65,17 +64,10 @@ impl EksSecretBuilder {
         &self.optional
     }
     /// Consumes the builder and constructs a [`EksSecret`](crate::types::EksSecret).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`secret_name`](crate::types::builders::EksSecretBuilder::secret_name)
-    pub fn build(self) -> ::std::result::Result<super::super::types::EksSecret, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::EksSecret {
-            secret_name: self.secret_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "secret_name",
-                    "secret_name was not specified but it is required when building EksSecret",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::EksSecret {
+        super::super::types::EksSecret {
+            secret_name: self.secret_name,
             optional: self.optional,
-        })
+        }
     }
 }

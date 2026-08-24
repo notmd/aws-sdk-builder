@@ -7,25 +7,26 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct NodeProperties {
     /// <p>The number of nodes that are associated with a multi-node parallel job.</p>
-    pub num_nodes: i32,
+    pub num_nodes: ::std::option::Option<i32>,
     /// <p>Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.</p>
-    pub main_node: i32,
+    pub main_node: ::std::option::Option<i32>,
     /// <p>A list of node ranges and their properties that are associated with a multi-node parallel job.</p>
-    pub node_range_properties: ::std::vec::Vec<super::super::types::NodeRangeProperty>,
+    pub node_range_properties: ::std::option::Option<::std::vec::Vec<super::super::types::NodeRangeProperty>>,
 }
 impl NodeProperties {
     /// <p>The number of nodes that are associated with a multi-node parallel job.</p>
-    pub fn num_nodes(&self) -> i32 {
+    pub fn num_nodes(&self) -> ::std::option::Option<i32> {
         self.num_nodes
     }
     /// <p>Specifies the node index for the main node of a multi-node parallel job. This node index value must be fewer than the number of nodes.</p>
-    pub fn main_node(&self) -> i32 {
+    pub fn main_node(&self) -> ::std::option::Option<i32> {
         self.main_node
     }
     /// <p>A list of node ranges and their properties that are associated with a multi-node parallel job.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.node_range_properties.is_none()`.
     pub fn node_range_properties(&self) -> &[super::super::types::NodeRangeProperty] {
-        use std::ops::Deref;
-        self.node_range_properties.deref()
+        self.node_range_properties.as_deref().unwrap_or_default()
     }
 }
 impl NodeProperties {
@@ -95,30 +96,11 @@ impl NodePropertiesBuilder {
         &self.node_range_properties
     }
     /// Consumes the builder and constructs a [`NodeProperties`](crate::types::NodeProperties).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`num_nodes`](crate::types::builders::NodePropertiesBuilder::num_nodes)
-    /// - [`main_node`](crate::types::builders::NodePropertiesBuilder::main_node)
-    /// - [`node_range_properties`](crate::types::builders::NodePropertiesBuilder::node_range_properties)
-    pub fn build(self) -> ::std::result::Result<super::super::types::NodeProperties, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::NodeProperties {
-            num_nodes: self.num_nodes.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "num_nodes",
-                    "num_nodes was not specified but it is required when building NodeProperties",
-                )
-            })?,
-            main_node: self.main_node.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "main_node",
-                    "main_node was not specified but it is required when building NodeProperties",
-                )
-            })?,
-            node_range_properties: self.node_range_properties.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "node_range_properties",
-                    "node_range_properties was not specified but it is required when building NodeProperties",
-                )
-            })?,
-        })
+    pub fn build(self) -> super::super::types::NodeProperties {
+        super::super::types::NodeProperties {
+            num_nodes: self.num_nodes,
+            main_node: self.main_node,
+            node_range_properties: self.node_range_properties,
+        }
     }
 }

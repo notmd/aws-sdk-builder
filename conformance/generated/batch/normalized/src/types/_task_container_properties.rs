@@ -20,7 +20,7 @@ pub struct TaskContainerProperties {
     /// <p>The FireLens configuration for the container. This is used to specify and configure a log router for container logs. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html">Custom log</a> routing in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
     pub firelens_configuration: ::std::option::Option<super::super::types::FirelensConfiguration>,
     /// <p>The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either <code>repository-url/image:tag</code> or <code>repository-url/image@digest</code>. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to <code>Image</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>IMAGE</code> parameter of the <a href="https://docs.docker.com/engine/reference/run/#security-configuration"> <i>docker run</i> </a>.</p>
-    pub image: ::std::string::String,
+    pub image: ::std::option::Option<::std::string::String>,
     /// <p>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html">KernelCapabilities</a>.</p>
     pub linux_parameters: ::std::option::Option<super::super::types::LinuxParameters>,
     /// <p>The log configuration specification for the container.</p>
@@ -117,9 +117,8 @@ impl TaskContainerProperties {
         self.firelens_configuration.as_ref()
     }
     /// <p>The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either <code>repository-url/image:tag</code> or <code>repository-url/image@digest</code>. Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to <code>Image</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>IMAGE</code> parameter of the <a href="https://docs.docker.com/engine/reference/run/#security-configuration"> <i>docker run</i> </a>.</p>
-    pub fn image(&self) -> &str {
-        use std::ops::Deref;
-        self.image.deref()
+    pub fn image(&self) -> ::std::option::Option<&str> {
+        self.image.as_deref()
     }
     /// <p>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_KernelCapabilities.html">KernelCapabilities</a>.</p>
     pub fn linux_parameters(&self) -> ::std::option::Option<&super::super::types::LinuxParameters> {
@@ -683,21 +682,14 @@ impl TaskContainerPropertiesBuilder {
         &self.stop_timeout
     }
     /// Consumes the builder and constructs a [`TaskContainerProperties`](crate::types::TaskContainerProperties).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`image`](crate::types::builders::TaskContainerPropertiesBuilder::image)
-    pub fn build(self) -> ::std::result::Result<super::super::types::TaskContainerProperties, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::TaskContainerProperties {
+    pub fn build(self) -> super::super::types::TaskContainerProperties {
+        super::super::types::TaskContainerProperties {
             command: self.command,
             depends_on: self.depends_on,
             environment: self.environment,
             essential: self.essential,
             firelens_configuration: self.firelens_configuration,
-            image: self.image.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "image",
-                    "image was not specified but it is required when building TaskContainerProperties",
-                )
-            })?,
+            image: self.image,
             linux_parameters: self.linux_parameters,
             log_configuration: self.log_configuration,
             mount_points: self.mount_points,
@@ -711,6 +703,6 @@ impl TaskContainerPropertiesBuilder {
             user: self.user,
             start_timeout: self.start_timeout,
             stop_timeout: self.stop_timeout,
-        })
+        }
     }
 }

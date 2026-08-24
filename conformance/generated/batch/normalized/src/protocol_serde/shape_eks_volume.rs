@@ -3,32 +3,32 @@ pub fn ser_eks_volume(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::EksVolume,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
-        object.key("name").string(input.name.as_str());
+    if let Some(var_1) = &input.name {
+        object.key("name").string(var_1.as_str());
     }
-    if let Some(var_1) = &input.host_path {
+    if let Some(var_2) = &input.host_path {
         #[allow(unused_mut)]
-        let mut object_2 = object.key("hostPath").start_object();
-        super::super::protocol_serde::shape_eks_host_path::ser_eks_host_path(&mut object_2, var_1)?;
-        object_2.finish();
+        let mut object_3 = object.key("hostPath").start_object();
+        super::super::protocol_serde::shape_eks_host_path::ser_eks_host_path(&mut object_3, var_2)?;
+        object_3.finish();
     }
-    if let Some(var_3) = &input.empty_dir {
+    if let Some(var_4) = &input.empty_dir {
         #[allow(unused_mut)]
-        let mut object_4 = object.key("emptyDir").start_object();
-        super::super::protocol_serde::shape_eks_empty_dir::ser_eks_empty_dir(&mut object_4, var_3)?;
-        object_4.finish();
+        let mut object_5 = object.key("emptyDir").start_object();
+        super::super::protocol_serde::shape_eks_empty_dir::ser_eks_empty_dir(&mut object_5, var_4)?;
+        object_5.finish();
     }
-    if let Some(var_5) = &input.secret {
+    if let Some(var_6) = &input.secret {
         #[allow(unused_mut)]
-        let mut object_6 = object.key("secret").start_object();
-        super::super::protocol_serde::shape_eks_secret::ser_eks_secret(&mut object_6, var_5)?;
-        object_6.finish();
+        let mut object_7 = object.key("secret").start_object();
+        super::super::protocol_serde::shape_eks_secret::ser_eks_secret(&mut object_7, var_6)?;
+        object_7.finish();
     }
-    if let Some(var_7) = &input.persistent_volume_claim {
+    if let Some(var_8) = &input.persistent_volume_claim {
         #[allow(unused_mut)]
-        let mut object_8 = object.key("persistentVolumeClaim").start_object();
-        super::super::protocol_serde::shape_eks_persistent_volume_claim::ser_eks_persistent_volume_claim(&mut object_8, var_7)?;
-        object_8.finish();
+        let mut object_9 = object.key("persistentVolumeClaim").start_object();
+        super::super::protocol_serde::shape_eks_persistent_volume_claim::ser_eks_persistent_volume_claim(&mut object_9, var_8)?;
+        object_9.finish();
     }
     Ok(())
 }
@@ -85,9 +85,7 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::eks_volume_correct_errors(builder).build().map_err(|err| {
-                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
-            })?))
+            Ok(Some(super::super::serde_util::eks_volume_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

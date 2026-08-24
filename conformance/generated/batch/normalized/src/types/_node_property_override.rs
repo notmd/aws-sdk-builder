@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct NodePropertyOverride {
     /// <p>The range of nodes, using node index values, that's used to override. A range of <code>0:3</code> indicates nodes with index values of <code>0</code> through <code>3</code>. If the starting range value is omitted (<code>:n</code>), then <code>0</code> is used to start the range. If the ending range value is omitted (<code>n:</code>), then the highest possible node index is used to end the range.</p>
-    pub target_nodes: ::std::string::String,
+    pub target_nodes: ::std::option::Option<::std::string::String>,
     /// <p>The overrides that are sent to a node range.</p>
     pub container_overrides: ::std::option::Option<super::super::types::ContainerOverrides>,
     /// <p>An object that contains the properties that you want to replace for the existing Amazon ECS resources of a job.</p>
@@ -19,9 +19,8 @@ pub struct NodePropertyOverride {
 }
 impl NodePropertyOverride {
     /// <p>The range of nodes, using node index values, that's used to override. A range of <code>0:3</code> indicates nodes with index values of <code>0</code> through <code>3</code>. If the starting range value is omitted (<code>:n</code>), then <code>0</code> is used to start the range. If the ending range value is omitted (<code>n:</code>), then the highest possible node index is used to end the range.</p>
-    pub fn target_nodes(&self) -> &str {
-        use std::ops::Deref;
-        self.target_nodes.deref()
+    pub fn target_nodes(&self) -> ::std::option::Option<&str> {
+        self.target_nodes.as_deref()
     }
     /// <p>The overrides that are sent to a node range.</p>
     pub fn container_overrides(&self) -> ::std::option::Option<&super::super::types::ContainerOverrides> {
@@ -157,21 +156,14 @@ impl NodePropertyOverrideBuilder {
         &self.consumable_resource_properties_override
     }
     /// Consumes the builder and constructs a [`NodePropertyOverride`](crate::types::NodePropertyOverride).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`target_nodes`](crate::types::builders::NodePropertyOverrideBuilder::target_nodes)
-    pub fn build(self) -> ::std::result::Result<super::super::types::NodePropertyOverride, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::NodePropertyOverride {
-            target_nodes: self.target_nodes.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "target_nodes",
-                    "target_nodes was not specified but it is required when building NodePropertyOverride",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::NodePropertyOverride {
+        super::super::types::NodePropertyOverride {
+            target_nodes: self.target_nodes,
             container_overrides: self.container_overrides,
             ecs_properties_override: self.ecs_properties_override,
             instance_types: self.instance_types,
             eks_properties_override: self.eks_properties_override,
             consumable_resource_properties_override: self.consumable_resource_properties_override,
-        })
+        }
     }
 }

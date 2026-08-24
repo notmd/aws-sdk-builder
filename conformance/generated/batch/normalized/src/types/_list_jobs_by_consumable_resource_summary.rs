@@ -5,11 +5,11 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListJobsByConsumableResourceSummary {
     /// <p>The Amazon Resource Name (ARN) of the job.</p>
-    pub job_arn: ::std::string::String,
+    pub job_arn: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of the job queue.</p>
-    pub job_queue_arn: ::std::string::String,
+    pub job_queue_arn: ::std::option::Option<::std::string::String>,
     /// <p>The name of the job.</p>
-    pub job_name: ::std::string::String,
+    pub job_name: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of the job definition.</p>
     pub job_definition_arn: ::std::option::Option<::std::string::String>,
     /// <p>The fair-share scheduling identifier for the job.</p>
@@ -31,33 +31,30 @@ pub struct ListJobsByConsumableResourceSummary {
     /// <li>
     /// <p><code>FAILED</code></p></li>
     /// </ul>
-    pub job_status: ::std::string::String,
+    pub job_status: ::std::option::Option<::std::string::String>,
     /// <p>The total amount of the consumable resource that is available.</p>
-    pub quantity: i64,
+    pub quantity: ::std::option::Option<i64>,
     /// <p>A short, human-readable string to provide more details for the current status of the job.</p>
     pub status_reason: ::std::option::Option<::std::string::String>,
     /// <p>The Unix timestamp for when the job was started. More specifically, it's when the job transitioned from the <code>STARTING</code> state to the <code>RUNNING</code> state.</p>
     pub started_at: ::std::option::Option<i64>,
     /// <p>The Unix timestamp (in milliseconds) for when the consumable resource was created.</p>
-    pub created_at: i64,
+    pub created_at: ::std::option::Option<i64>,
     /// <p>Contains a list of consumable resources required by the job.</p>
     pub consumable_resource_properties: ::std::option::Option<super::super::types::ConsumableResourceProperties>,
 }
 impl ListJobsByConsumableResourceSummary {
     /// <p>The Amazon Resource Name (ARN) of the job.</p>
-    pub fn job_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.job_arn.deref()
+    pub fn job_arn(&self) -> ::std::option::Option<&str> {
+        self.job_arn.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the job queue.</p>
-    pub fn job_queue_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.job_queue_arn.deref()
+    pub fn job_queue_arn(&self) -> ::std::option::Option<&str> {
+        self.job_queue_arn.as_deref()
     }
     /// <p>The name of the job.</p>
-    pub fn job_name(&self) -> &str {
-        use std::ops::Deref;
-        self.job_name.deref()
+    pub fn job_name(&self) -> ::std::option::Option<&str> {
+        self.job_name.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the job definition.</p>
     pub fn job_definition_arn(&self) -> ::std::option::Option<&str> {
@@ -84,12 +81,11 @@ impl ListJobsByConsumableResourceSummary {
     /// <li>
     /// <p><code>FAILED</code></p></li>
     /// </ul>
-    pub fn job_status(&self) -> &str {
-        use std::ops::Deref;
-        self.job_status.deref()
+    pub fn job_status(&self) -> ::std::option::Option<&str> {
+        self.job_status.as_deref()
     }
     /// <p>The total amount of the consumable resource that is available.</p>
-    pub fn quantity(&self) -> i64 {
+    pub fn quantity(&self) -> ::std::option::Option<i64> {
         self.quantity
     }
     /// <p>A short, human-readable string to provide more details for the current status of the job.</p>
@@ -101,7 +97,7 @@ impl ListJobsByConsumableResourceSummary {
         self.started_at
     }
     /// <p>The Unix timestamp (in milliseconds) for when the consumable resource was created.</p>
-    pub fn created_at(&self) -> i64 {
+    pub fn created_at(&self) -> ::std::option::Option<i64> {
         self.created_at
     }
     /// <p>Contains a list of consumable resources required by the job.</p>
@@ -343,56 +339,19 @@ impl ListJobsByConsumableResourceSummaryBuilder {
         &self.consumable_resource_properties
     }
     /// Consumes the builder and constructs a [`ListJobsByConsumableResourceSummary`](crate::types::ListJobsByConsumableResourceSummary).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`job_arn`](crate::types::builders::ListJobsByConsumableResourceSummaryBuilder::job_arn)
-    /// - [`job_queue_arn`](crate::types::builders::ListJobsByConsumableResourceSummaryBuilder::job_queue_arn)
-    /// - [`job_name`](crate::types::builders::ListJobsByConsumableResourceSummaryBuilder::job_name)
-    /// - [`job_status`](crate::types::builders::ListJobsByConsumableResourceSummaryBuilder::job_status)
-    /// - [`quantity`](crate::types::builders::ListJobsByConsumableResourceSummaryBuilder::quantity)
-    /// - [`created_at`](crate::types::builders::ListJobsByConsumableResourceSummaryBuilder::created_at)
-    pub fn build(self) -> ::std::result::Result<super::super::types::ListJobsByConsumableResourceSummary, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::ListJobsByConsumableResourceSummary {
-            job_arn: self.job_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_arn",
-                    "job_arn was not specified but it is required when building ListJobsByConsumableResourceSummary",
-                )
-            })?,
-            job_queue_arn: self.job_queue_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_queue_arn",
-                    "job_queue_arn was not specified but it is required when building ListJobsByConsumableResourceSummary",
-                )
-            })?,
-            job_name: self.job_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_name",
-                    "job_name was not specified but it is required when building ListJobsByConsumableResourceSummary",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::ListJobsByConsumableResourceSummary {
+        super::super::types::ListJobsByConsumableResourceSummary {
+            job_arn: self.job_arn,
+            job_queue_arn: self.job_queue_arn,
+            job_name: self.job_name,
             job_definition_arn: self.job_definition_arn,
             share_identifier: self.share_identifier,
-            job_status: self.job_status.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_status",
-                    "job_status was not specified but it is required when building ListJobsByConsumableResourceSummary",
-                )
-            })?,
-            quantity: self.quantity.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "quantity",
-                    "quantity was not specified but it is required when building ListJobsByConsumableResourceSummary",
-                )
-            })?,
+            job_status: self.job_status,
+            quantity: self.quantity,
             status_reason: self.status_reason,
             started_at: self.started_at,
-            created_at: self.created_at.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "created_at",
-                    "created_at was not specified but it is required when building ListJobsByConsumableResourceSummary",
-                )
-            })?,
+            created_at: self.created_at,
             consumable_resource_properties: self.consumable_resource_properties,
-        })
+        }
     }
 }

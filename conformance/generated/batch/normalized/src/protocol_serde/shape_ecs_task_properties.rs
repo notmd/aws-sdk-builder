@@ -3,68 +3,68 @@ pub fn ser_ecs_task_properties(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::EcsTaskProperties,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
-        let mut array_1 = object.key("containers").start_array();
-        for item_2 in &input.containers {
+    if let Some(var_1) = &input.containers {
+        let mut array_2 = object.key("containers").start_array();
+        for item_3 in var_1 {
             {
                 #[allow(unused_mut)]
-                let mut object_3 = array_1.value().start_object();
-                super::super::protocol_serde::shape_task_container_properties::ser_task_container_properties(&mut object_3, item_2)?;
-                object_3.finish();
+                let mut object_4 = array_2.value().start_object();
+                super::super::protocol_serde::shape_task_container_properties::ser_task_container_properties(&mut object_4, item_3)?;
+                object_4.finish();
             }
         }
-        array_1.finish();
+        array_2.finish();
     }
-    if let Some(var_4) = &input.ephemeral_storage {
+    if let Some(var_5) = &input.ephemeral_storage {
         #[allow(unused_mut)]
-        let mut object_5 = object.key("ephemeralStorage").start_object();
-        super::super::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_5, var_4)?;
-        object_5.finish();
+        let mut object_6 = object.key("ephemeralStorage").start_object();
+        super::super::protocol_serde::shape_ephemeral_storage::ser_ephemeral_storage(&mut object_6, var_5)?;
+        object_6.finish();
     }
-    if let Some(var_6) = &input.execution_role_arn {
-        object.key("executionRoleArn").string(var_6.as_str());
+    if let Some(var_7) = &input.execution_role_arn {
+        object.key("executionRoleArn").string(var_7.as_str());
     }
-    if let Some(var_7) = &input.platform_version {
-        object.key("platformVersion").string(var_7.as_str());
+    if let Some(var_8) = &input.platform_version {
+        object.key("platformVersion").string(var_8.as_str());
     }
-    if let Some(var_8) = &input.ipc_mode {
-        object.key("ipcMode").string(var_8.as_str());
+    if let Some(var_9) = &input.ipc_mode {
+        object.key("ipcMode").string(var_9.as_str());
     }
-    if let Some(var_9) = &input.task_role_arn {
-        object.key("taskRoleArn").string(var_9.as_str());
+    if let Some(var_10) = &input.task_role_arn {
+        object.key("taskRoleArn").string(var_10.as_str());
     }
-    if let Some(var_10) = &input.pid_mode {
-        object.key("pidMode").string(var_10.as_str());
+    if let Some(var_11) = &input.pid_mode {
+        object.key("pidMode").string(var_11.as_str());
     }
-    if let Some(var_11) = &input.network_configuration {
+    if let Some(var_12) = &input.network_configuration {
         #[allow(unused_mut)]
-        let mut object_12 = object.key("networkConfiguration").start_object();
-        super::super::protocol_serde::shape_network_configuration::ser_network_configuration(&mut object_12, var_11)?;
-        object_12.finish();
+        let mut object_13 = object.key("networkConfiguration").start_object();
+        super::super::protocol_serde::shape_network_configuration::ser_network_configuration(&mut object_13, var_12)?;
+        object_13.finish();
     }
-    if let Some(var_13) = &input.runtime_platform {
+    if let Some(var_14) = &input.runtime_platform {
         #[allow(unused_mut)]
-        let mut object_14 = object.key("runtimePlatform").start_object();
-        super::super::protocol_serde::shape_runtime_platform::ser_runtime_platform(&mut object_14, var_13)?;
-        object_14.finish();
+        let mut object_15 = object.key("runtimePlatform").start_object();
+        super::super::protocol_serde::shape_runtime_platform::ser_runtime_platform(&mut object_15, var_14)?;
+        object_15.finish();
     }
-    if let Some(var_15) = &input.volumes {
-        let mut array_16 = object.key("volumes").start_array();
-        for item_17 in var_15 {
+    if let Some(var_16) = &input.volumes {
+        let mut array_17 = object.key("volumes").start_array();
+        for item_18 in var_16 {
             {
                 #[allow(unused_mut)]
-                let mut object_18 = array_16.value().start_object();
-                super::super::protocol_serde::shape_volume::ser_volume(&mut object_18, item_17)?;
-                object_18.finish();
+                let mut object_19 = array_17.value().start_object();
+                super::super::protocol_serde::shape_volume::ser_volume(&mut object_19, item_18)?;
+                object_19.finish();
             }
         }
-        array_16.finish();
+        array_17.finish();
     }
-    if let Some(var_19) = &input.enable_execute_command {
-        object.key("enableExecuteCommand").boolean(*var_19);
+    if let Some(var_20) = &input.enable_execute_command {
+        object.key("enableExecuteCommand").boolean(*var_20);
     }
-    if let Some(var_20) = &input.network_mode {
-        object.key("networkMode").string(var_20.as_str());
+    if let Some(var_21) = &input.network_mode {
+        object.key("networkMode").string(var_21.as_str());
     }
     Ok(())
 }
@@ -176,9 +176,7 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::ecs_task_properties_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::ecs_task_properties_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

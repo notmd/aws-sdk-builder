@@ -7,24 +7,23 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct Ulimit {
     /// <p>The hard limit for the <code>ulimit</code> type.</p>
-    pub hard_limit: i32,
+    pub hard_limit: ::std::option::Option<i32>,
     /// <p>The <code>type</code> of the <code>ulimit</code>. Valid values are: <code>core</code> | <code>cpu</code> | <code>data</code> | <code>fsize</code> | <code>locks</code> | <code>memlock</code> | <code>msgqueue</code> | <code>nice</code> | <code>nofile</code> | <code>nproc</code> | <code>rss</code> | <code>rtprio</code> | <code>rttime</code> | <code>sigpending</code> | <code>stack</code>.</p>
-    pub name: ::std::string::String,
+    pub name: ::std::option::Option<::std::string::String>,
     /// <p>The soft limit for the <code>ulimit</code> type.</p>
-    pub soft_limit: i32,
+    pub soft_limit: ::std::option::Option<i32>,
 }
 impl Ulimit {
     /// <p>The hard limit for the <code>ulimit</code> type.</p>
-    pub fn hard_limit(&self) -> i32 {
+    pub fn hard_limit(&self) -> ::std::option::Option<i32> {
         self.hard_limit
     }
     /// <p>The <code>type</code> of the <code>ulimit</code>. Valid values are: <code>core</code> | <code>cpu</code> | <code>data</code> | <code>fsize</code> | <code>locks</code> | <code>memlock</code> | <code>msgqueue</code> | <code>nice</code> | <code>nofile</code> | <code>nproc</code> | <code>rss</code> | <code>rtprio</code> | <code>rttime</code> | <code>sigpending</code> | <code>stack</code>.</p>
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> ::std::option::Option<&str> {
+        self.name.as_deref()
     }
     /// <p>The soft limit for the <code>ulimit</code> type.</p>
-    pub fn soft_limit(&self) -> i32 {
+    pub fn soft_limit(&self) -> ::std::option::Option<i32> {
         self.soft_limit
     }
 }
@@ -90,30 +89,11 @@ impl UlimitBuilder {
         &self.soft_limit
     }
     /// Consumes the builder and constructs a [`Ulimit`](crate::types::Ulimit).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`hard_limit`](crate::types::builders::UlimitBuilder::hard_limit)
-    /// - [`name`](crate::types::builders::UlimitBuilder::name)
-    /// - [`soft_limit`](crate::types::builders::UlimitBuilder::soft_limit)
-    pub fn build(self) -> ::std::result::Result<super::super::types::Ulimit, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::Ulimit {
-            hard_limit: self.hard_limit.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "hard_limit",
-                    "hard_limit was not specified but it is required when building Ulimit",
-                )
-            })?,
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building Ulimit",
-                )
-            })?,
-            soft_limit: self.soft_limit.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "soft_limit",
-                    "soft_limit was not specified but it is required when building Ulimit",
-                )
-            })?,
-        })
+    pub fn build(self) -> super::super::types::Ulimit {
+        super::super::types::Ulimit {
+            hard_limit: self.hard_limit,
+            name: self.name,
+            soft_limit: self.soft_limit,
+        }
     }
 }

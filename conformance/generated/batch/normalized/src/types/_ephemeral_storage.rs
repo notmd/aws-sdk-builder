@@ -5,11 +5,11 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct EphemeralStorage {
     /// <p>The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is <code>21</code> GiB and the maximum supported value is <code>200</code> GiB.</p>
-    pub size_in_gi_b: i32,
+    pub size_in_gi_b: ::std::option::Option<i32>,
 }
 impl EphemeralStorage {
     /// <p>The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is <code>21</code> GiB and the maximum supported value is <code>200</code> GiB.</p>
-    pub fn size_in_gi_b(&self) -> i32 {
+    pub fn size_in_gi_b(&self) -> ::std::option::Option<i32> {
         self.size_in_gi_b
     }
 }
@@ -43,16 +43,9 @@ impl EphemeralStorageBuilder {
         &self.size_in_gi_b
     }
     /// Consumes the builder and constructs a [`EphemeralStorage`](crate::types::EphemeralStorage).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`size_in_gi_b`](crate::types::builders::EphemeralStorageBuilder::size_in_gi_b)
-    pub fn build(self) -> ::std::result::Result<super::super::types::EphemeralStorage, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::EphemeralStorage {
-            size_in_gi_b: self.size_in_gi_b.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "size_in_gi_b",
-                    "size_in_gi_b was not specified but it is required when building EphemeralStorage",
-                )
-            })?,
-        })
+    pub fn build(self) -> super::super::types::EphemeralStorage {
+        super::super::types::EphemeralStorage {
+            size_in_gi_b: self.size_in_gi_b,
+        }
     }
 }

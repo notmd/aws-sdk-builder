@@ -7,15 +7,15 @@ pub struct JobDetail {
     /// <p>The Amazon Resource Name (ARN) of the job.</p>
     pub job_arn: ::std::option::Option<::std::string::String>,
     /// <p>The job name.</p>
-    pub job_name: ::std::string::String,
+    pub job_name: ::std::option::Option<::std::string::String>,
     /// <p>The job ID.</p>
-    pub job_id: ::std::string::String,
+    pub job_id: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of the job queue that the job is associated with.</p>
-    pub job_queue: ::std::string::String,
+    pub job_queue: ::std::option::Option<::std::string::String>,
     /// <p>The current status for the job.</p><note>
     /// <p>If your jobs don't progress to <code>STARTING</code>, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#job_stuck_in_runnable">Jobs stuck in RUNNABLE status</a> in the troubleshooting section of the <i>Batch User Guide</i>.</p>
     /// </note>
-    pub status: super::super::types::JobStatus,
+    pub status: ::std::option::Option<super::super::types::JobStatus>,
     /// <p>The share identifier for the job.</p>
     pub share_identifier: ::std::option::Option<::std::string::String>,
     /// <p>The scheduling policy of the job definition. This only affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.</p>
@@ -39,13 +39,13 @@ pub struct JobDetail {
     /// <p>The retry strategy to use for this job if an attempt fails.</p>
     pub retry_strategy: ::std::option::Option<super::super::types::RetryStrategy>,
     /// <p>The Unix timestamp (in milliseconds) for when the job was started. More specifically, it's when the job transitioned from the <code>STARTING</code> state to the <code>RUNNING</code> state.</p>
-    pub started_at: i64,
+    pub started_at: ::std::option::Option<i64>,
     /// <p>The Unix timestamp (in milliseconds) for when the job was stopped. More specifically, it's when the job transitioned from the <code>RUNNING</code> state to a terminal state, such as <code>SUCCEEDED</code> or <code>FAILED</code>.</p>
     pub stopped_at: ::std::option::Option<i64>,
     /// <p>A list of job IDs that this job depends on.</p>
     pub depends_on: ::std::option::Option<::std::vec::Vec<super::super::types::JobDependency>>,
     /// <p>The Amazon Resource Name (ARN) of the job definition that this job uses.</p>
-    pub job_definition: ::std::string::String,
+    pub job_definition: ::std::option::Option<::std::string::String>,
     /// <p>Additional parameters that are passed to the job that replace parameter substitution placeholders or override any corresponding parameter defaults from the job definition.</p>
     pub parameters: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     /// <p>An object that represents the details for the container that's associated with the job. If the details are for a multiple-container job, this object will be empty.</p>
@@ -85,25 +85,22 @@ impl JobDetail {
         self.job_arn.as_deref()
     }
     /// <p>The job name.</p>
-    pub fn job_name(&self) -> &str {
-        use std::ops::Deref;
-        self.job_name.deref()
+    pub fn job_name(&self) -> ::std::option::Option<&str> {
+        self.job_name.as_deref()
     }
     /// <p>The job ID.</p>
-    pub fn job_id(&self) -> &str {
-        use std::ops::Deref;
-        self.job_id.deref()
+    pub fn job_id(&self) -> ::std::option::Option<&str> {
+        self.job_id.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the job queue that the job is associated with.</p>
-    pub fn job_queue(&self) -> &str {
-        use std::ops::Deref;
-        self.job_queue.deref()
+    pub fn job_queue(&self) -> ::std::option::Option<&str> {
+        self.job_queue.as_deref()
     }
     /// <p>The current status for the job.</p><note>
     /// <p>If your jobs don't progress to <code>STARTING</code>, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html#job_stuck_in_runnable">Jobs stuck in RUNNABLE status</a> in the troubleshooting section of the <i>Batch User Guide</i>.</p>
     /// </note>
-    pub fn status(&self) -> &super::super::types::JobStatus {
-        &self.status
+    pub fn status(&self) -> ::std::option::Option<&super::super::types::JobStatus> {
+        self.status.as_ref()
     }
     /// <p>The share identifier for the job.</p>
     pub fn share_identifier(&self) -> ::std::option::Option<&str> {
@@ -142,7 +139,7 @@ impl JobDetail {
         self.retry_strategy.as_ref()
     }
     /// <p>The Unix timestamp (in milliseconds) for when the job was started. More specifically, it's when the job transitioned from the <code>STARTING</code> state to the <code>RUNNING</code> state.</p>
-    pub fn started_at(&self) -> i64 {
+    pub fn started_at(&self) -> ::std::option::Option<i64> {
         self.started_at
     }
     /// <p>The Unix timestamp (in milliseconds) for when the job was stopped. More specifically, it's when the job transitioned from the <code>RUNNING</code> state to a terminal state, such as <code>SUCCEEDED</code> or <code>FAILED</code>.</p>
@@ -156,9 +153,8 @@ impl JobDetail {
         self.depends_on.as_deref().unwrap_or_default()
     }
     /// <p>The Amazon Resource Name (ARN) of the job definition that this job uses.</p>
-    pub fn job_definition(&self) -> &str {
-        use std::ops::Deref;
-        self.job_definition.deref()
+    pub fn job_definition(&self) -> ::std::option::Option<&str> {
+        self.job_definition.as_deref()
     }
     /// <p>Additional parameters that are passed to the job that replace parameter substitution placeholders or override any corresponding parameter defaults from the job definition.</p>
     pub fn parameters(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
@@ -775,60 +771,23 @@ impl JobDetailBuilder {
         &self.consumable_resource_properties
     }
     /// Consumes the builder and constructs a [`JobDetail`](crate::types::JobDetail).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`job_name`](crate::types::builders::JobDetailBuilder::job_name)
-    /// - [`job_id`](crate::types::builders::JobDetailBuilder::job_id)
-    /// - [`job_queue`](crate::types::builders::JobDetailBuilder::job_queue)
-    /// - [`status`](crate::types::builders::JobDetailBuilder::status)
-    /// - [`started_at`](crate::types::builders::JobDetailBuilder::started_at)
-    /// - [`job_definition`](crate::types::builders::JobDetailBuilder::job_definition)
-    pub fn build(self) -> ::std::result::Result<super::super::types::JobDetail, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::JobDetail {
+    pub fn build(self) -> super::super::types::JobDetail {
+        super::super::types::JobDetail {
             job_arn: self.job_arn,
-            job_name: self.job_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_name",
-                    "job_name was not specified but it is required when building JobDetail",
-                )
-            })?,
-            job_id: self.job_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_id",
-                    "job_id was not specified but it is required when building JobDetail",
-                )
-            })?,
-            job_queue: self.job_queue.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_queue",
-                    "job_queue was not specified but it is required when building JobDetail",
-                )
-            })?,
-            status: self.status.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "status",
-                    "status was not specified but it is required when building JobDetail",
-                )
-            })?,
+            job_name: self.job_name,
+            job_id: self.job_id,
+            job_queue: self.job_queue,
+            status: self.status,
             share_identifier: self.share_identifier,
             scheduling_priority: self.scheduling_priority,
             attempts: self.attempts,
             status_reason: self.status_reason,
             created_at: self.created_at,
             retry_strategy: self.retry_strategy,
-            started_at: self.started_at.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "started_at",
-                    "started_at was not specified but it is required when building JobDetail",
-                )
-            })?,
+            started_at: self.started_at,
             stopped_at: self.stopped_at,
             depends_on: self.depends_on,
-            job_definition: self.job_definition.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_definition",
-                    "job_definition was not specified but it is required when building JobDetail",
-                )
-            })?,
+            job_definition: self.job_definition,
             parameters: self.parameters,
             container: self.container,
             node_details: self.node_details,
@@ -844,6 +803,6 @@ impl JobDetailBuilder {
             is_cancelled: self.is_cancelled,
             is_terminated: self.is_terminated,
             consumable_resource_properties: self.consumable_resource_properties,
-        })
+        }
     }
 }

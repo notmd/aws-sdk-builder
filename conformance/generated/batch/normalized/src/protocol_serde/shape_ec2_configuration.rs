@@ -3,17 +3,17 @@ pub fn ser_ec2_configuration(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::Ec2Configuration,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
-        object.key("imageType").string(input.image_type.as_str());
+    if let Some(var_1) = &input.image_type {
+        object.key("imageType").string(var_1.as_str());
     }
-    if let Some(var_1) = &input.image_id_override {
-        object.key("imageIdOverride").string(var_1.as_str());
+    if let Some(var_2) = &input.image_id_override {
+        object.key("imageIdOverride").string(var_2.as_str());
     }
-    if let Some(var_2) = &input.batch_image_status {
-        object.key("batchImageStatus").string(var_2.as_str());
+    if let Some(var_3) = &input.batch_image_status {
+        object.key("batchImageStatus").string(var_3.as_str());
     }
-    if let Some(var_3) = &input.image_kubernetes_version {
-        object.key("imageKubernetesVersion").string(var_3.as_str());
+    if let Some(var_4) = &input.image_kubernetes_version {
+        object.key("imageKubernetesVersion").string(var_4.as_str());
     }
     Ok(())
 }
@@ -77,9 +77,7 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::ec2_configuration_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::ec2_configuration_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

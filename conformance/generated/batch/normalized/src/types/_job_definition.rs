@@ -5,15 +5,15 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct JobDefinition {
     /// <p>The name of the job definition.</p>
-    pub job_definition_name: ::std::string::String,
+    pub job_definition_name: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) for the job definition.</p>
-    pub job_definition_arn: ::std::string::String,
+    pub job_definition_arn: ::std::option::Option<::std::string::String>,
     /// <p>The revision of the job definition.</p>
-    pub revision: i32,
+    pub revision: ::std::option::Option<i32>,
     /// <p>The status of the job definition.</p>
     pub status: ::std::option::Option<::std::string::String>,
     /// <p>The type of job definition. It's either <code>container</code> or <code>multinode</code>. If the job is run on Fargate resources, then <code>multinode</code> isn't supported. For more information about multi-node parallel jobs, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html">Creating a multi-node parallel job definition</a> in the <i>Batch User Guide</i>.</p>
-    pub r#type: ::std::string::String,
+    pub r#type: ::std::option::Option<::std::string::String>,
     /// <p>The scheduling priority of the job definition. This only affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.</p>
     pub scheduling_priority: ::std::option::Option<i32>,
     /// <p>Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a <code>SubmitJob</code> request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html">Job definition parameters</a> in the <i>Batch User Guide</i>.</p>
@@ -45,17 +45,15 @@ pub struct JobDefinition {
 }
 impl JobDefinition {
     /// <p>The name of the job definition.</p>
-    pub fn job_definition_name(&self) -> &str {
-        use std::ops::Deref;
-        self.job_definition_name.deref()
+    pub fn job_definition_name(&self) -> ::std::option::Option<&str> {
+        self.job_definition_name.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) for the job definition.</p>
-    pub fn job_definition_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.job_definition_arn.deref()
+    pub fn job_definition_arn(&self) -> ::std::option::Option<&str> {
+        self.job_definition_arn.as_deref()
     }
     /// <p>The revision of the job definition.</p>
-    pub fn revision(&self) -> i32 {
+    pub fn revision(&self) -> ::std::option::Option<i32> {
         self.revision
     }
     /// <p>The status of the job definition.</p>
@@ -63,9 +61,8 @@ impl JobDefinition {
         self.status.as_deref()
     }
     /// <p>The type of job definition. It's either <code>container</code> or <code>multinode</code>. If the job is run on Fargate resources, then <code>multinode</code> isn't supported. For more information about multi-node parallel jobs, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html">Creating a multi-node parallel job definition</a> in the <i>Batch User Guide</i>.</p>
-    pub fn r#type(&self) -> &str {
-        use std::ops::Deref;
-        self.r#type.deref()
+    pub fn r#type(&self) -> ::std::option::Option<&str> {
+        self.r#type.as_deref()
     }
     /// <p>The scheduling priority of the job definition. This only affects jobs in job queues with a fair-share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.</p>
     pub fn scheduling_priority(&self) -> ::std::option::Option<i32> {
@@ -436,38 +433,13 @@ impl JobDefinitionBuilder {
         &self.consumable_resource_properties
     }
     /// Consumes the builder and constructs a [`JobDefinition`](crate::types::JobDefinition).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`job_definition_name`](crate::types::builders::JobDefinitionBuilder::job_definition_name)
-    /// - [`job_definition_arn`](crate::types::builders::JobDefinitionBuilder::job_definition_arn)
-    /// - [`revision`](crate::types::builders::JobDefinitionBuilder::revision)
-    /// - [`r#type`](crate::types::builders::JobDefinitionBuilder::type)
-    pub fn build(self) -> ::std::result::Result<super::super::types::JobDefinition, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::JobDefinition {
-            job_definition_name: self.job_definition_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_definition_name",
-                    "job_definition_name was not specified but it is required when building JobDefinition",
-                )
-            })?,
-            job_definition_arn: self.job_definition_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_definition_arn",
-                    "job_definition_arn was not specified but it is required when building JobDefinition",
-                )
-            })?,
-            revision: self.revision.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "revision",
-                    "revision was not specified but it is required when building JobDefinition",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::JobDefinition {
+        super::super::types::JobDefinition {
+            job_definition_name: self.job_definition_name,
+            job_definition_arn: self.job_definition_arn,
+            revision: self.revision,
             status: self.status,
-            r#type: self.r#type.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "r#type",
-                    "r#type was not specified but it is required when building JobDefinition",
-                )
-            })?,
+            r#type: self.r#type,
             scheduling_priority: self.scheduling_priority,
             parameters: self.parameters,
             retry_strategy: self.retry_strategy,
@@ -481,6 +453,6 @@ impl JobDefinitionBuilder {
             eks_properties: self.eks_properties,
             container_orchestration_type: self.container_orchestration_type,
             consumable_resource_properties: self.consumable_resource_properties,
-        })
+        }
     }
 }

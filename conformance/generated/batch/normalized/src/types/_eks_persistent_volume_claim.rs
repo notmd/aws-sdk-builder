@@ -5,15 +5,14 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct EksPersistentVolumeClaim {
     /// <p>The name of the <code>persistentVolumeClaim</code> bounded to a <code>persistentVolume</code>. For more information, see <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims"> Persistent Volume Claims</a> in the <i>Kubernetes documentation</i>.</p>
-    pub claim_name: ::std::string::String,
+    pub claim_name: ::std::option::Option<::std::string::String>,
     /// <p>An optional boolean value indicating if the mount is read only. Default is false. For more information, see <a href="https://kubernetes.io/docs/concepts/storage/volumes/#read-only-mounts"> Read Only Mounts</a> in the <i>Kubernetes documentation</i>.</p>
     pub read_only: ::std::option::Option<bool>,
 }
 impl EksPersistentVolumeClaim {
     /// <p>The name of the <code>persistentVolumeClaim</code> bounded to a <code>persistentVolume</code>. For more information, see <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistentvolumeclaims"> Persistent Volume Claims</a> in the <i>Kubernetes documentation</i>.</p>
-    pub fn claim_name(&self) -> &str {
-        use std::ops::Deref;
-        self.claim_name.deref()
+    pub fn claim_name(&self) -> ::std::option::Option<&str> {
+        self.claim_name.as_deref()
     }
     /// <p>An optional boolean value indicating if the mount is read only. Default is false. For more information, see <a href="https://kubernetes.io/docs/concepts/storage/volumes/#read-only-mounts"> Read Only Mounts</a> in the <i>Kubernetes documentation</i>.</p>
     pub fn read_only(&self) -> ::std::option::Option<bool> {
@@ -65,17 +64,10 @@ impl EksPersistentVolumeClaimBuilder {
         &self.read_only
     }
     /// Consumes the builder and constructs a [`EksPersistentVolumeClaim`](crate::types::EksPersistentVolumeClaim).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`claim_name`](crate::types::builders::EksPersistentVolumeClaimBuilder::claim_name)
-    pub fn build(self) -> ::std::result::Result<super::super::types::EksPersistentVolumeClaim, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::EksPersistentVolumeClaim {
-            claim_name: self.claim_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "claim_name",
-                    "claim_name was not specified but it is required when building EksPersistentVolumeClaim",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::EksPersistentVolumeClaim {
+        super::super::types::EksPersistentVolumeClaim {
+            claim_name: self.claim_name,
             read_only: self.read_only,
-        })
+        }
     }
 }

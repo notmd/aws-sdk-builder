@@ -6,20 +6,20 @@ pub fn ser_managed_instances_provider(
     if let Some(var_1) = &input.propagate_tags {
         object.key("propagateTags").string(var_1.as_str());
     }
-    {
-        object.key("infrastructureRoleArn").string(input.infrastructure_role_arn.as_str());
+    if let Some(var_2) = &input.infrastructure_role_arn {
+        object.key("infrastructureRoleArn").string(var_2.as_str());
     }
-    if let Some(var_2) = &input.instance_launch_template {
+    if let Some(var_3) = &input.instance_launch_template {
         #[allow(unused_mut)]
-        let mut object_3 = object.key("instanceLaunchTemplate").start_object();
-        super::super::protocol_serde::shape_instance_launch_template::ser_instance_launch_template(&mut object_3, var_2)?;
-        object_3.finish();
+        let mut object_4 = object.key("instanceLaunchTemplate").start_object();
+        super::super::protocol_serde::shape_instance_launch_template::ser_instance_launch_template(&mut object_4, var_3)?;
+        object_4.finish();
     }
-    if let Some(var_4) = &input.infrastructure_optimization {
+    if let Some(var_5) = &input.infrastructure_optimization {
         #[allow(unused_mut)]
-        let mut object_5 = object.key("infrastructureOptimization").start_object();
-        super::super::protocol_serde::shape_infrastructure_optimization::ser_infrastructure_optimization(&mut object_5, var_4)?;
-        object_5.finish();
+        let mut object_6 = object.key("infrastructureOptimization").start_object();
+        super::super::protocol_serde::shape_infrastructure_optimization::ser_infrastructure_optimization(&mut object_6, var_5)?;
+        object_6.finish();
     }
     Ok(())
 }
@@ -79,11 +79,7 @@ where
                     }
                 }
             }
-            Ok(Some(
-                super::super::serde_util::managed_instances_provider_correct_errors(builder)
-                    .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-            ))
+            Ok(Some(super::super::serde_util::managed_instances_provider_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

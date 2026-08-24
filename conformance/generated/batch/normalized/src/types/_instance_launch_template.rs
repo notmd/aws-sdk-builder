@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct InstanceLaunchTemplate {
     /// <p>The Amazon Resource Name (ARN) of the Amazon EC2 instance profile for the managed instances. The instance profile must use the <code>AmazonECSInstanceRolePolicyForManagedInstances</code> managed policy with a trust policy for <code>ec2.amazonaws.com</code>.</p>
-    pub ec2_instance_profile_arn: ::std::string::String,
+    pub ec2_instance_profile_arn: ::std::option::Option<::std::string::String>,
     /// <p>The network configuration for the managed instances. Specifies the VPC subnets and security groups where instances are launched.</p>
     pub network_configuration: ::std::option::Option<super::super::types::ManagedInstancesNetworkConfiguration>,
     /// <p>The instance type requirements for the capacity provider. Use this to constrain which Amazon EC2 instance types Amazon ECS can launch. If not specified, all available instance types are eligible.</p>
@@ -33,9 +33,8 @@ pub struct InstanceLaunchTemplate {
 }
 impl InstanceLaunchTemplate {
     /// <p>The Amazon Resource Name (ARN) of the Amazon EC2 instance profile for the managed instances. The instance profile must use the <code>AmazonECSInstanceRolePolicyForManagedInstances</code> managed policy with a trust policy for <code>ec2.amazonaws.com</code>.</p>
-    pub fn ec2_instance_profile_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.ec2_instance_profile_arn.deref()
+    pub fn ec2_instance_profile_arn(&self) -> ::std::option::Option<&str> {
+        self.ec2_instance_profile_arn.as_deref()
     }
     /// <p>The network configuration for the managed instances. Specifies the VPC subnets and security groups where instances are launched.</p>
     pub fn network_configuration(&self) -> ::std::option::Option<&super::super::types::ManagedInstancesNetworkConfiguration> {
@@ -264,16 +263,9 @@ impl InstanceLaunchTemplateBuilder {
         &self.local_storage_configuration
     }
     /// Consumes the builder and constructs a [`InstanceLaunchTemplate`](crate::types::InstanceLaunchTemplate).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`ec2_instance_profile_arn`](crate::types::builders::InstanceLaunchTemplateBuilder::ec2_instance_profile_arn)
-    pub fn build(self) -> ::std::result::Result<super::super::types::InstanceLaunchTemplate, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::InstanceLaunchTemplate {
-            ec2_instance_profile_arn: self.ec2_instance_profile_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "ec2_instance_profile_arn",
-                    "ec2_instance_profile_arn was not specified but it is required when building InstanceLaunchTemplate",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::InstanceLaunchTemplate {
+        super::super::types::InstanceLaunchTemplate {
+            ec2_instance_profile_arn: self.ec2_instance_profile_arn,
             network_configuration: self.network_configuration,
             instance_requirements: self.instance_requirements,
             capacity_option_type: self.capacity_option_type,
@@ -283,6 +275,6 @@ impl InstanceLaunchTemplateBuilder {
             capacity_reservations: self.capacity_reservations,
             instance_metadata_tags_propagation: self.instance_metadata_tags_propagation,
             local_storage_configuration: self.local_storage_configuration,
-        })
+        }
     }
 }

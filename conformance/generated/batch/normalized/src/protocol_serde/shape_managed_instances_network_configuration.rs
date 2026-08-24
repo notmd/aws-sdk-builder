@@ -3,23 +3,23 @@ pub fn ser_managed_instances_network_configuration(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::ManagedInstancesNetworkConfiguration,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
-        let mut array_1 = object.key("subnets").start_array();
-        for item_2 in &input.subnets {
+    if let Some(var_1) = &input.subnets {
+        let mut array_2 = object.key("subnets").start_array();
+        for item_3 in var_1 {
             {
-                array_1.value().string(item_2.as_str());
+                array_2.value().string(item_3.as_str());
             }
         }
-        array_1.finish();
+        array_2.finish();
     }
-    {
-        let mut array_3 = object.key("securityGroups").start_array();
-        for item_4 in &input.security_groups {
+    if let Some(var_4) = &input.security_groups {
+        let mut array_5 = object.key("securityGroups").start_array();
+        for item_6 in var_4 {
             {
-                array_3.value().string(item_4.as_str());
+                array_5.value().string(item_6.as_str());
             }
         }
-        array_3.finish();
+        array_5.finish();
     }
     Ok(())
 }
@@ -63,9 +63,7 @@ where
                 }
             }
             Ok(Some(
-                super::super::serde_util::managed_instances_network_configuration_correct_errors(builder)
-                    .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
+                super::super::serde_util::managed_instances_network_configuration_correct_errors(builder).build(),
             ))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(

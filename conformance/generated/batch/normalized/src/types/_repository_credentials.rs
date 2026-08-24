@@ -5,13 +5,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct RepositoryCredentials {
     /// <p>The Amazon Resource Name (ARN) of the secret containing the private repository credentials.</p>
-    pub credentials_parameter: ::std::string::String,
+    pub credentials_parameter: ::std::option::Option<::std::string::String>,
 }
 impl RepositoryCredentials {
     /// <p>The Amazon Resource Name (ARN) of the secret containing the private repository credentials.</p>
-    pub fn credentials_parameter(&self) -> &str {
-        use std::ops::Deref;
-        self.credentials_parameter.deref()
+    pub fn credentials_parameter(&self) -> ::std::option::Option<&str> {
+        self.credentials_parameter.as_deref()
     }
 }
 impl RepositoryCredentials {
@@ -44,16 +43,9 @@ impl RepositoryCredentialsBuilder {
         &self.credentials_parameter
     }
     /// Consumes the builder and constructs a [`RepositoryCredentials`](crate::types::RepositoryCredentials).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`credentials_parameter`](crate::types::builders::RepositoryCredentialsBuilder::credentials_parameter)
-    pub fn build(self) -> ::std::result::Result<super::super::types::RepositoryCredentials, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::RepositoryCredentials {
-            credentials_parameter: self.credentials_parameter.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "credentials_parameter",
-                    "credentials_parameter was not specified but it is required when building RepositoryCredentials",
-                )
-            })?,
-        })
+    pub fn build(self) -> super::super::types::RepositoryCredentials {
+        super::super::types::RepositoryCredentials {
+            credentials_parameter: self.credentials_parameter,
+        }
     }
 }

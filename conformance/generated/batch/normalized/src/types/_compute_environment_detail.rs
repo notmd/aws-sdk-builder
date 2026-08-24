@@ -5,9 +5,9 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ComputeEnvironmentDetail {
     /// <p>The name of the compute environment. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
-    pub compute_environment_name: ::std::string::String,
+    pub compute_environment_name: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of the compute environment.</p>
-    pub compute_environment_arn: ::std::string::String,
+    pub compute_environment_arn: ::std::option::Option<::std::string::String>,
     /// <p>The maximum number of VCPUs expected to be used for an unmanaged compute environment.</p>
     pub unmanagedv_cpus: ::std::option::Option<i32>,
     /// <p>The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster that the compute environment uses.</p>
@@ -46,14 +46,12 @@ pub struct ComputeEnvironmentDetail {
 }
 impl ComputeEnvironmentDetail {
     /// <p>The name of the compute environment. It can be up to 128 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_).</p>
-    pub fn compute_environment_name(&self) -> &str {
-        use std::ops::Deref;
-        self.compute_environment_name.deref()
+    pub fn compute_environment_name(&self) -> ::std::option::Option<&str> {
+        self.compute_environment_name.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the compute environment.</p>
-    pub fn compute_environment_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.compute_environment_arn.deref()
+    pub fn compute_environment_arn(&self) -> ::std::option::Option<&str> {
+        self.compute_environment_arn.as_deref()
     }
     /// <p>The maximum number of VCPUs expected to be used for an unmanaged compute environment.</p>
     pub fn unmanagedv_cpus(&self) -> ::std::option::Option<i32> {
@@ -413,23 +411,10 @@ impl ComputeEnvironmentDetailBuilder {
         &self.ecs_settings
     }
     /// Consumes the builder and constructs a [`ComputeEnvironmentDetail`](crate::types::ComputeEnvironmentDetail).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`compute_environment_name`](crate::types::builders::ComputeEnvironmentDetailBuilder::compute_environment_name)
-    /// - [`compute_environment_arn`](crate::types::builders::ComputeEnvironmentDetailBuilder::compute_environment_arn)
-    pub fn build(self) -> ::std::result::Result<super::super::types::ComputeEnvironmentDetail, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::ComputeEnvironmentDetail {
-            compute_environment_name: self.compute_environment_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "compute_environment_name",
-                    "compute_environment_name was not specified but it is required when building ComputeEnvironmentDetail",
-                )
-            })?,
-            compute_environment_arn: self.compute_environment_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "compute_environment_arn",
-                    "compute_environment_arn was not specified but it is required when building ComputeEnvironmentDetail",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::ComputeEnvironmentDetail {
+        super::super::types::ComputeEnvironmentDetail {
+            compute_environment_name: self.compute_environment_name,
+            compute_environment_arn: self.compute_environment_arn,
             unmanagedv_cpus: self.unmanagedv_cpus,
             ecs_cluster_arn: self.ecs_cluster_arn,
             tags: self.tags,
@@ -445,6 +430,6 @@ impl ComputeEnvironmentDetailBuilder {
             uuid: self.uuid,
             context: self.context,
             ecs_settings: self.ecs_settings,
-        })
+        }
     }
 }

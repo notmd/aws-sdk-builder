@@ -3,23 +3,23 @@ pub fn ser_tmpfs(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::Tmpfs,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
-        object.key("containerPath").string(input.container_path.as_str());
+    if let Some(var_1) = &input.container_path {
+        object.key("containerPath").string(var_1.as_str());
     }
-    {
+    if let Some(var_2) = &input.size {
         object.key("size").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((input.size).into()),
+            ::aws_smithy_types::Number::NegInt((*var_2).into()),
         );
     }
-    if let Some(var_1) = &input.mount_options {
-        let mut array_2 = object.key("mountOptions").start_array();
-        for item_3 in var_1 {
+    if let Some(var_3) = &input.mount_options {
+        let mut array_4 = object.key("mountOptions").start_array();
+        for item_5 in var_3 {
             {
-                array_2.value().string(item_3.as_str());
+                array_4.value().string(item_5.as_str());
             }
         }
-        array_2.finish();
+        array_4.finish();
     }
     Ok(())
 }
@@ -72,9 +72,7 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::tmpfs_correct_errors(builder).build().map_err(|err| {
-                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
-            })?))
+            Ok(Some(super::super::serde_util::tmpfs_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

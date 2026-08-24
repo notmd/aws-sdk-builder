@@ -3,127 +3,127 @@ pub fn ser_compute_resource(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::ComputeResource,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
-        object.key("type").string(input.r#type.as_str());
+    if let Some(var_1) = &input.r#type {
+        object.key("type").string(var_1.as_str());
     }
-    if let Some(var_1) = &input.allocation_strategy {
-        object.key("allocationStrategy").string(var_1.as_str());
+    if let Some(var_2) = &input.allocation_strategy {
+        object.key("allocationStrategy").string(var_2.as_str());
     }
-    if let Some(var_2) = &input.minv_cpus {
+    if let Some(var_3) = &input.minv_cpus {
         object.key("minvCpus").number(
-            #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_2).into()),
-        );
-    }
-    {
-        object.key("maxvCpus").number(
-            #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((input.maxv_cpus).into()),
-        );
-    }
-    if let Some(var_3) = &input.desiredv_cpus {
-        object.key("desiredvCpus").number(
             #[allow(clippy::useless_conversion)]
             ::aws_smithy_types::Number::NegInt((*var_3).into()),
         );
     }
-    if let Some(var_4) = &input.instance_types {
-        let mut array_5 = object.key("instanceTypes").start_array();
-        for item_6 in var_4 {
-            {
-                array_5.value().string(item_6.as_str());
-            }
-        }
-        array_5.finish();
-    }
-    if let Some(var_7) = &input.image_id {
-        object.key("imageId").string(var_7.as_str());
-    }
-    if let Some(var_8) = &input.subnets {
-        let mut array_9 = object.key("subnets").start_array();
-        for item_10 in var_8 {
-            {
-                array_9.value().string(item_10.as_str());
-            }
-        }
-        array_9.finish();
-    }
-    if let Some(var_11) = &input.security_group_ids {
-        let mut array_12 = object.key("securityGroupIds").start_array();
-        for item_13 in var_11 {
-            {
-                array_12.value().string(item_13.as_str());
-            }
-        }
-        array_12.finish();
-    }
-    if let Some(var_14) = &input.ec2_key_pair {
-        object.key("ec2KeyPair").string(var_14.as_str());
-    }
-    if let Some(var_15) = &input.instance_role {
-        object.key("instanceRole").string(var_15.as_str());
-    }
-    if let Some(var_16) = &input.tags {
-        #[allow(unused_mut)]
-        let mut object_17 = object.key("tags").start_object();
-        for (key_18, value_19) in var_16 {
-            {
-                object_17.key(key_18.as_str()).string(value_19.as_str());
-            }
-        }
-        object_17.finish();
-    }
-    if let Some(var_20) = &input.placement_group {
-        object.key("placementGroup").string(var_20.as_str());
-    }
-    if let Some(var_21) = &input.bid_percentage {
-        object.key("bidPercentage").number(
+    if let Some(var_4) = &input.maxv_cpus {
+        object.key("maxvCpus").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_21).into()),
+            ::aws_smithy_types::Number::NegInt((*var_4).into()),
         );
     }
-    if let Some(var_22) = &input.spot_iam_fleet_role {
-        object.key("spotIamFleetRole").string(var_22.as_str());
+    if let Some(var_5) = &input.desiredv_cpus {
+        object.key("desiredvCpus").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_5).into()),
+        );
     }
-    if let Some(var_23) = &input.launch_template {
+    if let Some(var_6) = &input.instance_types {
+        let mut array_7 = object.key("instanceTypes").start_array();
+        for item_8 in var_6 {
+            {
+                array_7.value().string(item_8.as_str());
+            }
+        }
+        array_7.finish();
+    }
+    if let Some(var_9) = &input.image_id {
+        object.key("imageId").string(var_9.as_str());
+    }
+    if let Some(var_10) = &input.subnets {
+        let mut array_11 = object.key("subnets").start_array();
+        for item_12 in var_10 {
+            {
+                array_11.value().string(item_12.as_str());
+            }
+        }
+        array_11.finish();
+    }
+    if let Some(var_13) = &input.security_group_ids {
+        let mut array_14 = object.key("securityGroupIds").start_array();
+        for item_15 in var_13 {
+            {
+                array_14.value().string(item_15.as_str());
+            }
+        }
+        array_14.finish();
+    }
+    if let Some(var_16) = &input.ec2_key_pair {
+        object.key("ec2KeyPair").string(var_16.as_str());
+    }
+    if let Some(var_17) = &input.instance_role {
+        object.key("instanceRole").string(var_17.as_str());
+    }
+    if let Some(var_18) = &input.tags {
         #[allow(unused_mut)]
-        let mut object_24 = object.key("launchTemplate").start_object();
-        super::super::protocol_serde::shape_launch_template_specification::ser_launch_template_specification(&mut object_24, var_23)?;
-        object_24.finish();
+        let mut object_19 = object.key("tags").start_object();
+        for (key_20, value_21) in var_18 {
+            {
+                object_19.key(key_20.as_str()).string(value_21.as_str());
+            }
+        }
+        object_19.finish();
     }
-    if let Some(var_25) = &input.ec2_configuration {
-        let mut array_26 = object.key("ec2Configuration").start_array();
-        for item_27 in var_25 {
+    if let Some(var_22) = &input.placement_group {
+        object.key("placementGroup").string(var_22.as_str());
+    }
+    if let Some(var_23) = &input.bid_percentage {
+        object.key("bidPercentage").number(
+            #[allow(clippy::useless_conversion)]
+            ::aws_smithy_types::Number::NegInt((*var_23).into()),
+        );
+    }
+    if let Some(var_24) = &input.spot_iam_fleet_role {
+        object.key("spotIamFleetRole").string(var_24.as_str());
+    }
+    if let Some(var_25) = &input.launch_template {
+        #[allow(unused_mut)]
+        let mut object_26 = object.key("launchTemplate").start_object();
+        super::super::protocol_serde::shape_launch_template_specification::ser_launch_template_specification(&mut object_26, var_25)?;
+        object_26.finish();
+    }
+    if let Some(var_27) = &input.ec2_configuration {
+        let mut array_28 = object.key("ec2Configuration").start_array();
+        for item_29 in var_27 {
             {
                 #[allow(unused_mut)]
-                let mut object_28 = array_26.value().start_object();
-                super::super::protocol_serde::shape_ec2_configuration::ser_ec2_configuration(&mut object_28, item_27)?;
-                object_28.finish();
+                let mut object_30 = array_28.value().start_object();
+                super::super::protocol_serde::shape_ec2_configuration::ser_ec2_configuration(&mut object_30, item_29)?;
+                object_30.finish();
             }
         }
-        array_26.finish();
+        array_28.finish();
     }
-    if let Some(var_29) = &input.scaling_policy {
+    if let Some(var_31) = &input.scaling_policy {
         #[allow(unused_mut)]
-        let mut object_30 = object.key("scalingPolicy").start_object();
-        super::super::protocol_serde::shape_compute_scaling_policy::ser_compute_scaling_policy(&mut object_30, var_29)?;
-        object_30.finish();
-    }
-    if let Some(var_31) = &input.managed_instances_provider {
-        #[allow(unused_mut)]
-        let mut object_32 = object.key("managedInstancesProvider").start_object();
-        super::super::protocol_serde::shape_managed_instances_provider::ser_managed_instances_provider(&mut object_32, var_31)?;
+        let mut object_32 = object.key("scalingPolicy").start_object();
+        super::super::protocol_serde::shape_compute_scaling_policy::ser_compute_scaling_policy(&mut object_32, var_31)?;
         object_32.finish();
     }
-    if let Some(var_33) = &input.capacity_tags {
+    if let Some(var_33) = &input.managed_instances_provider {
         #[allow(unused_mut)]
-        let mut object_34 = object.key("capacityTags").start_object();
-        for (key_35, value_36) in var_33 {
+        let mut object_34 = object.key("managedInstancesProvider").start_object();
+        super::super::protocol_serde::shape_managed_instances_provider::ser_managed_instances_provider(&mut object_34, var_33)?;
+        object_34.finish();
+    }
+    if let Some(var_35) = &input.capacity_tags {
+        #[allow(unused_mut)]
+        let mut object_36 = object.key("capacityTags").start_object();
+        for (key_37, value_38) in var_35 {
             {
-                object_34.key(key_35.as_str()).string(value_36.as_str());
+                object_36.key(key_37.as_str()).string(value_38.as_str());
             }
         }
-        object_34.finish();
+        object_36.finish();
     }
     Ok(())
 }
@@ -285,9 +285,7 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::compute_resource_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::compute_resource_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

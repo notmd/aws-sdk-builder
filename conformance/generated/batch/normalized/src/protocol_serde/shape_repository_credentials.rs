@@ -3,8 +3,8 @@ pub fn ser_repository_credentials(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::RepositoryCredentials,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
-        object.key("credentialsParameter").string(input.credentials_parameter.as_str());
+    if let Some(var_1) = &input.credentials_parameter {
+        object.key("credentialsParameter").string(var_1.as_str());
     }
     Ok(())
 }
@@ -47,9 +47,7 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::repository_credentials_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::repository_credentials_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

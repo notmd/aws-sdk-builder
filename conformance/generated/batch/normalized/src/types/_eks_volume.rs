@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct EksVolume {
     /// <p>The name of the volume. The name must be allowed as a DNS subdomain name. For more information, see <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names">DNS subdomain names</a> in the <i>Kubernetes documentation</i>.</p>
-    pub name: ::std::string::String,
+    pub name: ::std::option::Option<::std::string::String>,
     /// <p>Specifies the configuration of a Kubernetes <code>hostPath</code> volume. For more information, see <a href="https://kubernetes.io/docs/concepts/storage/volumes/#hostpath">hostPath</a> in the <i>Kubernetes documentation</i>.</p>
     pub host_path: ::std::option::Option<super::super::types::EksHostPath>,
     /// <p>Specifies the configuration of a Kubernetes <code>emptyDir</code> volume. For more information, see <a href="https://kubernetes.io/docs/concepts/storage/volumes/#emptydir">emptyDir</a> in the <i>Kubernetes documentation</i>.</p>
@@ -17,9 +17,8 @@ pub struct EksVolume {
 }
 impl EksVolume {
     /// <p>The name of the volume. The name must be allowed as a DNS subdomain name. For more information, see <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names">DNS subdomain names</a> in the <i>Kubernetes documentation</i>.</p>
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> ::std::option::Option<&str> {
+        self.name.as_deref()
     }
     /// <p>Specifies the configuration of a Kubernetes <code>hostPath</code> volume. For more information, see <a href="https://kubernetes.io/docs/concepts/storage/volumes/#hostpath">hostPath</a> in the <i>Kubernetes documentation</i>.</p>
     pub fn host_path(&self) -> ::std::option::Option<&super::super::types::EksHostPath> {
@@ -128,20 +127,13 @@ impl EksVolumeBuilder {
         &self.persistent_volume_claim
     }
     /// Consumes the builder and constructs a [`EksVolume`](crate::types::EksVolume).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`name`](crate::types::builders::EksVolumeBuilder::name)
-    pub fn build(self) -> ::std::result::Result<super::super::types::EksVolume, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::EksVolume {
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building EksVolume",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::EksVolume {
+        super::super::types::EksVolume {
+            name: self.name,
             host_path: self.host_path,
             empty_dir: self.empty_dir,
             secret: self.secret,
             persistent_volume_claim: self.persistent_volume_claim,
-        })
+        }
     }
 }

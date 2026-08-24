@@ -6,65 +6,65 @@ pub fn ser_eks_container(
     if let Some(var_1) = &input.name {
         object.key("name").string(var_1.as_str());
     }
-    {
-        object.key("image").string(input.image.as_str());
+    if let Some(var_2) = &input.image {
+        object.key("image").string(var_2.as_str());
     }
-    if let Some(var_2) = &input.image_pull_policy {
-        object.key("imagePullPolicy").string(var_2.as_str());
+    if let Some(var_3) = &input.image_pull_policy {
+        object.key("imagePullPolicy").string(var_3.as_str());
     }
-    if let Some(var_3) = &input.command {
-        let mut array_4 = object.key("command").start_array();
-        for item_5 in var_3 {
+    if let Some(var_4) = &input.command {
+        let mut array_5 = object.key("command").start_array();
+        for item_6 in var_4 {
             {
-                array_4.value().string(item_5.as_str());
+                array_5.value().string(item_6.as_str());
             }
         }
-        array_4.finish();
+        array_5.finish();
     }
-    if let Some(var_6) = &input.args {
-        let mut array_7 = object.key("args").start_array();
-        for item_8 in var_6 {
+    if let Some(var_7) = &input.args {
+        let mut array_8 = object.key("args").start_array();
+        for item_9 in var_7 {
             {
-                array_7.value().string(item_8.as_str());
+                array_8.value().string(item_9.as_str());
             }
         }
-        array_7.finish();
+        array_8.finish();
     }
-    if let Some(var_9) = &input.env {
-        let mut array_10 = object.key("env").start_array();
-        for item_11 in var_9 {
-            {
-                #[allow(unused_mut)]
-                let mut object_12 = array_10.value().start_object();
-                super::super::protocol_serde::shape_eks_container_environment_variable::ser_eks_container_environment_variable(&mut object_12, item_11)?;
-                object_12.finish();
-            }
-        }
-        array_10.finish();
-    }
-    if let Some(var_13) = &input.resources {
-        #[allow(unused_mut)]
-        let mut object_14 = object.key("resources").start_object();
-        super::super::protocol_serde::shape_eks_container_resource_requirements::ser_eks_container_resource_requirements(&mut object_14, var_13)?;
-        object_14.finish();
-    }
-    if let Some(var_15) = &input.volume_mounts {
-        let mut array_16 = object.key("volumeMounts").start_array();
-        for item_17 in var_15 {
+    if let Some(var_10) = &input.env {
+        let mut array_11 = object.key("env").start_array();
+        for item_12 in var_10 {
             {
                 #[allow(unused_mut)]
-                let mut object_18 = array_16.value().start_object();
-                super::super::protocol_serde::shape_eks_container_volume_mount::ser_eks_container_volume_mount(&mut object_18, item_17)?;
-                object_18.finish();
+                let mut object_13 = array_11.value().start_object();
+                super::super::protocol_serde::shape_eks_container_environment_variable::ser_eks_container_environment_variable(&mut object_13, item_12)?;
+                object_13.finish();
             }
         }
-        array_16.finish();
+        array_11.finish();
     }
-    if let Some(var_19) = &input.security_context {
+    if let Some(var_14) = &input.resources {
         #[allow(unused_mut)]
-        let mut object_20 = object.key("securityContext").start_object();
-        super::super::protocol_serde::shape_eks_container_security_context::ser_eks_container_security_context(&mut object_20, var_19)?;
-        object_20.finish();
+        let mut object_15 = object.key("resources").start_object();
+        super::super::protocol_serde::shape_eks_container_resource_requirements::ser_eks_container_resource_requirements(&mut object_15, var_14)?;
+        object_15.finish();
+    }
+    if let Some(var_16) = &input.volume_mounts {
+        let mut array_17 = object.key("volumeMounts").start_array();
+        for item_18 in var_16 {
+            {
+                #[allow(unused_mut)]
+                let mut object_19 = array_17.value().start_object();
+                super::super::protocol_serde::shape_eks_container_volume_mount::ser_eks_container_volume_mount(&mut object_19, item_18)?;
+                object_19.finish();
+            }
+        }
+        array_17.finish();
+    }
+    if let Some(var_20) = &input.security_context {
+        #[allow(unused_mut)]
+        let mut object_21 = object.key("securityContext").start_object();
+        super::super::protocol_serde::shape_eks_container_security_context::ser_eks_container_security_context(&mut object_21, var_20)?;
+        object_21.finish();
     }
     Ok(())
 }
@@ -159,9 +159,7 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::eks_container_correct_errors(builder).build().map_err(|err| {
-                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
-            })?))
+            Ok(Some(super::super::serde_util::eks_container_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

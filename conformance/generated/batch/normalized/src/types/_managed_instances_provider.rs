@@ -13,7 +13,7 @@ pub struct ManagedInstancesProvider {
     /// </ul>
     pub propagate_tags: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of the IAM role that Amazon ECS assumes to manage Amazon EC2 instances on your behalf. This role must have a trust policy for <code>ecs.amazonaws.com</code>. You must have the <code>iam:PassRole</code> permission for this role with the condition <code>iam:PassedToService: ecs.amazonaws.com</code>.</p>
-    pub infrastructure_role_arn: ::std::string::String,
+    pub infrastructure_role_arn: ::std::option::Option<::std::string::String>,
     /// <p>The instance launch configuration for the Amazon ECS Managed Instances capacity provider. Contains networking, instance profile, instance requirements, capacity type, storage, and monitoring configuration.</p>
     pub instance_launch_template: ::std::option::Option<super::super::types::InstanceLaunchTemplate>,
     /// <p>The infrastructure optimization configuration for the capacity provider. Specifies the idle-instance scale-in behavior.</p>
@@ -31,9 +31,8 @@ impl ManagedInstancesProvider {
         self.propagate_tags.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the IAM role that Amazon ECS assumes to manage Amazon EC2 instances on your behalf. This role must have a trust policy for <code>ecs.amazonaws.com</code>. You must have the <code>iam:PassRole</code> permission for this role with the condition <code>iam:PassedToService: ecs.amazonaws.com</code>.</p>
-    pub fn infrastructure_role_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.infrastructure_role_arn.deref()
+    pub fn infrastructure_role_arn(&self) -> ::std::option::Option<&str> {
+        self.infrastructure_role_arn.as_deref()
     }
     /// <p>The instance launch configuration for the Amazon ECS Managed Instances capacity provider. Contains networking, instance profile, instance requirements, capacity type, storage, and monitoring configuration.</p>
     pub fn instance_launch_template(&self) -> ::std::option::Option<&super::super::types::InstanceLaunchTemplate> {
@@ -138,19 +137,12 @@ impl ManagedInstancesProviderBuilder {
         &self.infrastructure_optimization
     }
     /// Consumes the builder and constructs a [`ManagedInstancesProvider`](crate::types::ManagedInstancesProvider).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`infrastructure_role_arn`](crate::types::builders::ManagedInstancesProviderBuilder::infrastructure_role_arn)
-    pub fn build(self) -> ::std::result::Result<super::super::types::ManagedInstancesProvider, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::ManagedInstancesProvider {
+    pub fn build(self) -> super::super::types::ManagedInstancesProvider {
+        super::super::types::ManagedInstancesProvider {
             propagate_tags: self.propagate_tags,
-            infrastructure_role_arn: self.infrastructure_role_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "infrastructure_role_arn",
-                    "infrastructure_role_arn was not specified but it is required when building ManagedInstancesProvider",
-                )
-            })?,
+            infrastructure_role_arn: self.infrastructure_role_arn,
             instance_launch_template: self.instance_launch_template,
             infrastructure_optimization: self.infrastructure_optimization,
-        })
+        }
     }
 }

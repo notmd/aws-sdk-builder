@@ -3,53 +3,53 @@ pub fn ser_instance_launch_template(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::InstanceLaunchTemplate,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
-        object.key("ec2InstanceProfileArn").string(input.ec2_instance_profile_arn.as_str());
+    if let Some(var_1) = &input.ec2_instance_profile_arn {
+        object.key("ec2InstanceProfileArn").string(var_1.as_str());
     }
-    if let Some(var_1) = &input.network_configuration {
+    if let Some(var_2) = &input.network_configuration {
         #[allow(unused_mut)]
-        let mut object_2 = object.key("networkConfiguration").start_object();
-        super::super::protocol_serde::shape_managed_instances_network_configuration::ser_managed_instances_network_configuration(&mut object_2, var_1)?;
-        object_2.finish();
+        let mut object_3 = object.key("networkConfiguration").start_object();
+        super::super::protocol_serde::shape_managed_instances_network_configuration::ser_managed_instances_network_configuration(&mut object_3, var_2)?;
+        object_3.finish();
     }
-    if let Some(var_3) = &input.instance_requirements {
+    if let Some(var_4) = &input.instance_requirements {
         #[allow(unused_mut)]
-        let mut object_4 = object.key("instanceRequirements").start_object();
-        super::super::protocol_serde::shape_instance_requirements_request::ser_instance_requirements_request(&mut object_4, var_3)?;
-        object_4.finish();
+        let mut object_5 = object.key("instanceRequirements").start_object();
+        super::super::protocol_serde::shape_instance_requirements_request::ser_instance_requirements_request(&mut object_5, var_4)?;
+        object_5.finish();
     }
-    if let Some(var_5) = &input.capacity_option_type {
-        object.key("capacityOptionType").string(var_5.as_str());
+    if let Some(var_6) = &input.capacity_option_type {
+        object.key("capacityOptionType").string(var_6.as_str());
     }
-    if let Some(var_6) = &input.storage_configuration {
+    if let Some(var_7) = &input.storage_configuration {
         #[allow(unused_mut)]
-        let mut object_7 = object.key("storageConfiguration").start_object();
-        super::super::protocol_serde::shape_managed_instances_storage_configuration::ser_managed_instances_storage_configuration(&mut object_7, var_6)?;
-        object_7.finish();
+        let mut object_8 = object.key("storageConfiguration").start_object();
+        super::super::protocol_serde::shape_managed_instances_storage_configuration::ser_managed_instances_storage_configuration(&mut object_8, var_7)?;
+        object_8.finish();
     }
-    if let Some(var_8) = &input.monitoring {
-        object.key("monitoring").string(var_8.as_str());
+    if let Some(var_9) = &input.monitoring {
+        object.key("monitoring").string(var_9.as_str());
     }
-    if let Some(var_9) = &input.fips_enabled {
-        object.key("fipsEnabled").boolean(*var_9);
+    if let Some(var_10) = &input.fips_enabled {
+        object.key("fipsEnabled").boolean(*var_10);
     }
-    if let Some(var_10) = &input.capacity_reservations {
+    if let Some(var_11) = &input.capacity_reservations {
         #[allow(unused_mut)]
-        let mut object_11 = object.key("capacityReservations").start_object();
-        super::super::protocol_serde::shape_capacity_reservation_request::ser_capacity_reservation_request(&mut object_11, var_10)?;
-        object_11.finish();
+        let mut object_12 = object.key("capacityReservations").start_object();
+        super::super::protocol_serde::shape_capacity_reservation_request::ser_capacity_reservation_request(&mut object_12, var_11)?;
+        object_12.finish();
     }
-    if let Some(var_12) = &input.instance_metadata_tags_propagation {
-        object.key("instanceMetadataTagsPropagation").boolean(*var_12);
+    if let Some(var_13) = &input.instance_metadata_tags_propagation {
+        object.key("instanceMetadataTagsPropagation").boolean(*var_13);
     }
-    if let Some(var_13) = &input.local_storage_configuration {
+    if let Some(var_14) = &input.local_storage_configuration {
         #[allow(unused_mut)]
-        let mut object_14 = object.key("localStorageConfiguration").start_object();
+        let mut object_15 = object.key("localStorageConfiguration").start_object();
         super::super::protocol_serde::shape_managed_instances_local_storage_configuration::ser_managed_instances_local_storage_configuration(
-            &mut object_14,
-            var_13,
+            &mut object_15,
+            var_14,
         )?;
-        object_14.finish();
+        object_15.finish();
     }
     Ok(())
 }
@@ -152,11 +152,7 @@ where
                     }
                 }
             }
-            Ok(Some(
-                super::super::serde_util::instance_launch_template_correct_errors(builder)
-                    .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-            ))
+            Ok(Some(super::super::serde_util::instance_launch_template_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

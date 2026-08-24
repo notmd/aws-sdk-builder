@@ -73,9 +73,7 @@ pub fn de_create_scheduling_policy_http_response(
         output = super::super::protocol_serde::shape_create_scheduling_policy::de_create_scheduling_policy(_response_body, output)
             .map_err(super::super::operation::create_scheduling_policy::CreateSchedulingPolicyError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        super::super::serde_util::create_scheduling_policy_output_output_correct_errors(output)
-            .build()
-            .map_err(super::super::operation::create_scheduling_policy::CreateSchedulingPolicyError::unhandled)?
+        super::super::serde_util::create_scheduling_policy_output_output_correct_errors(output).build()
     })
 }
 

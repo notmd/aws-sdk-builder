@@ -5,19 +5,18 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ServiceResourceId {
     /// <p>The name of the resource identifier.</p>
-    pub name: super::super::types::ServiceResourceIdName,
+    pub name: ::std::option::Option<super::super::types::ServiceResourceIdName>,
     /// <p>The value of the resource identifier.</p>
-    pub value: ::std::string::String,
+    pub value: ::std::option::Option<::std::string::String>,
 }
 impl ServiceResourceId {
     /// <p>The name of the resource identifier.</p>
-    pub fn name(&self) -> &super::super::types::ServiceResourceIdName {
-        &self.name
+    pub fn name(&self) -> ::std::option::Option<&super::super::types::ServiceResourceIdName> {
+        self.name.as_ref()
     }
     /// <p>The value of the resource identifier.</p>
-    pub fn value(&self) -> &str {
-        use std::ops::Deref;
-        self.value.deref()
+    pub fn value(&self) -> ::std::option::Option<&str> {
+        self.value.as_deref()
     }
 }
 impl ServiceResourceId {
@@ -66,23 +65,10 @@ impl ServiceResourceIdBuilder {
         &self.value
     }
     /// Consumes the builder and constructs a [`ServiceResourceId`](crate::types::ServiceResourceId).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`name`](crate::types::builders::ServiceResourceIdBuilder::name)
-    /// - [`value`](crate::types::builders::ServiceResourceIdBuilder::value)
-    pub fn build(self) -> ::std::result::Result<super::super::types::ServiceResourceId, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::ServiceResourceId {
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building ServiceResourceId",
-                )
-            })?,
-            value: self.value.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "value",
-                    "value was not specified but it is required when building ServiceResourceId",
-                )
-            })?,
-        })
+    pub fn build(self) -> super::super::types::ServiceResourceId {
+        super::super::types::ServiceResourceId {
+            name: self.name,
+            value: self.value,
+        }
     }
 }

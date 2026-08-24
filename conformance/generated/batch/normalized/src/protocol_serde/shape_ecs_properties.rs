@@ -3,17 +3,17 @@ pub fn ser_ecs_properties(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::EcsProperties,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
-        let mut array_1 = object.key("taskProperties").start_array();
-        for item_2 in &input.task_properties {
+    if let Some(var_1) = &input.task_properties {
+        let mut array_2 = object.key("taskProperties").start_array();
+        for item_3 in var_1 {
             {
                 #[allow(unused_mut)]
-                let mut object_3 = array_1.value().start_object();
-                super::super::protocol_serde::shape_ecs_task_properties::ser_ecs_task_properties(&mut object_3, item_2)?;
-                object_3.finish();
+                let mut object_4 = array_2.value().start_object();
+                super::super::protocol_serde::shape_ecs_task_properties::ser_ecs_task_properties(&mut object_4, item_3)?;
+                object_4.finish();
             }
         }
-        array_1.finish();
+        array_2.finish();
     }
     Ok(())
 }
@@ -54,9 +54,7 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::ecs_properties_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::ecs_properties_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

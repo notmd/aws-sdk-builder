@@ -3,20 +3,20 @@ pub fn ser_s3_files_volume_configuration(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::S3FilesVolumeConfiguration,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
-        object.key("fileSystemArn").string(input.file_system_arn.as_str());
+    if let Some(var_1) = &input.file_system_arn {
+        object.key("fileSystemArn").string(var_1.as_str());
     }
-    if let Some(var_1) = &input.root_directory {
-        object.key("rootDirectory").string(var_1.as_str());
+    if let Some(var_2) = &input.root_directory {
+        object.key("rootDirectory").string(var_2.as_str());
     }
-    if let Some(var_2) = &input.transit_encryption_port {
+    if let Some(var_3) = &input.transit_encryption_port {
         object.key("transitEncryptionPort").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_2).into()),
+            ::aws_smithy_types::Number::NegInt((*var_3).into()),
         );
     }
-    if let Some(var_3) = &input.access_point_arn {
-        object.key("accessPointArn").string(var_3.as_str());
+    if let Some(var_4) = &input.access_point_arn {
+        object.key("accessPointArn").string(var_4.as_str());
     }
     Ok(())
 }
@@ -80,11 +80,7 @@ where
                     }
                 }
             }
-            Ok(Some(
-                super::super::serde_util::s3_files_volume_configuration_correct_errors(builder)
-                    .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-            ))
+            Ok(Some(super::super::serde_util::s3_files_volume_configuration_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

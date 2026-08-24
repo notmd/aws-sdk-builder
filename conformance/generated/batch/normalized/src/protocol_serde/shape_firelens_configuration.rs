@@ -3,18 +3,18 @@ pub fn ser_firelens_configuration(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::FirelensConfiguration,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
-        object.key("type").string(input.r#type.as_str());
+    if let Some(var_1) = &input.r#type {
+        object.key("type").string(var_1.as_str());
     }
-    if let Some(var_1) = &input.options {
+    if let Some(var_2) = &input.options {
         #[allow(unused_mut)]
-        let mut object_2 = object.key("options").start_object();
-        for (key_3, value_4) in var_1 {
+        let mut object_3 = object.key("options").start_object();
+        for (key_4, value_5) in var_2 {
             {
-                object_2.key(key_3.as_str()).string(value_4.as_str());
+                object_3.key(key_4.as_str()).string(value_5.as_str());
             }
         }
-        object_2.finish();
+        object_3.finish();
     }
     Ok(())
 }
@@ -66,9 +66,7 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::firelens_configuration_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::firelens_configuration_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

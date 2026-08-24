@@ -3,10 +3,10 @@ pub fn ser_ephemeral_storage(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::EphemeralStorage,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
+    if let Some(var_1) = &input.size_in_gi_b {
         object.key("sizeInGiB").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((input.size_in_gi_b).into()),
+            ::aws_smithy_types::Number::NegInt((*var_1).into()),
         );
     }
     Ok(())
@@ -50,9 +50,7 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::ephemeral_storage_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::ephemeral_storage_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

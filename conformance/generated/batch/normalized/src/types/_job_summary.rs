@@ -7,9 +7,9 @@ pub struct JobSummary {
     /// <p>The Amazon Resource Name (ARN) of the job.</p>
     pub job_arn: ::std::option::Option<::std::string::String>,
     /// <p>The job ID.</p>
-    pub job_id: ::std::string::String,
+    pub job_id: ::std::option::Option<::std::string::String>,
     /// <p>The job name.</p>
-    pub job_name: ::std::string::String,
+    pub job_name: ::std::option::Option<::std::string::String>,
     /// <p>The configured capacity usage information for this job, including the unit of measure and quantity of resources.</p>
     pub capacity_usage: ::std::option::Option<::std::vec::Vec<super::super::types::JobCapacityUsageSummary>>,
     /// <p>The Unix timestamp (in milliseconds) for when the job was created. For non-array jobs and parent array jobs, this is when the job entered the <code>SUBMITTED</code> state (at the time <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html">SubmitJob</a> was called). For array child jobs, this is when the child job was spawned by its parent and entered the <code>PENDING</code> state.</p>
@@ -43,14 +43,12 @@ impl JobSummary {
         self.job_arn.as_deref()
     }
     /// <p>The job ID.</p>
-    pub fn job_id(&self) -> &str {
-        use std::ops::Deref;
-        self.job_id.deref()
+    pub fn job_id(&self) -> ::std::option::Option<&str> {
+        self.job_id.as_deref()
     }
     /// <p>The job name.</p>
-    pub fn job_name(&self) -> &str {
-        use std::ops::Deref;
-        self.job_name.deref()
+    pub fn job_name(&self) -> ::std::option::Option<&str> {
+        self.job_name.as_deref()
     }
     /// <p>The configured capacity usage information for this job, including the unit of measure and quantity of resources.</p>
     ///
@@ -358,24 +356,11 @@ impl JobSummaryBuilder {
         &self.job_definition
     }
     /// Consumes the builder and constructs a [`JobSummary`](crate::types::JobSummary).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`job_id`](crate::types::builders::JobSummaryBuilder::job_id)
-    /// - [`job_name`](crate::types::builders::JobSummaryBuilder::job_name)
-    pub fn build(self) -> ::std::result::Result<super::super::types::JobSummary, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::JobSummary {
+    pub fn build(self) -> super::super::types::JobSummary {
+        super::super::types::JobSummary {
             job_arn: self.job_arn,
-            job_id: self.job_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_id",
-                    "job_id was not specified but it is required when building JobSummary",
-                )
-            })?,
-            job_name: self.job_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_name",
-                    "job_name was not specified but it is required when building JobSummary",
-                )
-            })?,
+            job_id: self.job_id,
+            job_name: self.job_name,
             capacity_usage: self.capacity_usage,
             created_at: self.created_at,
             scheduled_at: self.scheduled_at,
@@ -388,6 +373,6 @@ impl JobSummaryBuilder {
             array_properties: self.array_properties,
             node_properties: self.node_properties,
             job_definition: self.job_definition,
-        })
+        }
     }
 }

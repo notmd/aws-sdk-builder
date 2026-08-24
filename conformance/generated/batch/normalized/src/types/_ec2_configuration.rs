@@ -84,7 +84,7 @@ pub struct Ec2Configuration {
     /// </dl>
     /// </dd>
     /// </dl>
-    pub image_type: ::std::string::String,
+    pub image_type: ::std::option::Option<::std::string::String>,
     /// <p>The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the <code>imageId</code> set in the <code>computeResource</code> object.</p><note>
     /// <p>The AMI that you choose for a compute environment must match the architecture of the instance types that you intend to use for that compute environment. For example, if your compute environment uses A1 instance types, the compute resource AMI that you choose must support ARM instances. Amazon ECS vends both x86 and ARM versions of the Amazon ECS-optimized Amazon Linux 2023 AMI. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html">Amazon ECS-optimized Amazon Linux 2023 AMI</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
     /// </note>
@@ -190,9 +190,8 @@ impl Ec2Configuration {
     /// </dl>
     /// </dd>
     /// </dl>
-    pub fn image_type(&self) -> &str {
-        use std::ops::Deref;
-        self.image_type.deref()
+    pub fn image_type(&self) -> ::std::option::Option<&str> {
+        self.image_type.as_deref()
     }
     /// <p>The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the <code>imageId</code> set in the <code>computeResource</code> object.</p><note>
     /// <p>The AMI that you choose for a compute environment must match the architecture of the instance types that you intend to use for that compute environment. For example, if your compute environment uses A1 instance types, the compute resource AMI that you choose must support ARM instances. Amazon ECS vends both x86 and ARM versions of the Amazon ECS-optimized Amazon Linux 2023 AMI. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#ecs-optimized-ami-linux-variants.html">Amazon ECS-optimized Amazon Linux 2023 AMI</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -589,19 +588,12 @@ impl Ec2ConfigurationBuilder {
         &self.image_kubernetes_version
     }
     /// Consumes the builder and constructs a [`Ec2Configuration`](crate::types::Ec2Configuration).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`image_type`](crate::types::builders::Ec2ConfigurationBuilder::image_type)
-    pub fn build(self) -> ::std::result::Result<super::super::types::Ec2Configuration, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::Ec2Configuration {
-            image_type: self.image_type.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "image_type",
-                    "image_type was not specified but it is required when building Ec2Configuration",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::Ec2Configuration {
+        super::super::types::Ec2Configuration {
+            image_type: self.image_type,
             image_id_override: self.image_id_override,
             batch_image_status: self.batch_image_status,
             image_kubernetes_version: self.image_kubernetes_version,
-        })
+        }
     }
 }

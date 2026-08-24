@@ -2,11 +2,11 @@
 
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
-**Summary:** `13168/13168 files compared` · `11834` matched · `1329` mismatches · `4` missing · `1` extra · `0` read errors · `87.38%` average match
+**Summary:** `13168/13168 files compared` · `11963` matched · `1200` mismatches · `4` missing · `1` extra · `0` read errors · `88.51%` average match
 
 | Service | Compared | Matched | Mismatches | Missing | Extra | Read errors | Match | Report |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| batch | 762/762 | 573 | 189 | 0 | 0 | 0 | 75.20% | [report](summary/batch.md) |
+| batch | 762/762 | 702 | 60 | 0 | 0 | 0 | 92.13% | [report](summary/batch.md) |
 | bedrockruntime | 536/536 | 322 | 214 | 0 | 0 | 0 | 60.07% | [report](summary/bedrockruntime.md) |
 | cloudwatchlogs | 1287/1287 | 1235 | 50 | 2 | 0 | 0 | 95.96% | [report](summary/cloudwatchlogs.md) |
 | codeartifact | 459/459 | 353 | 106 | 0 | 0 | 0 | 76.91% | [report](summary/codeartifact.md) |
@@ -21,4 +21,4 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 | sns | 445/445 | 429 | 16 | 0 | 0 | 0 | 96.40% | [report](summary/sns.md) |
 | sqs | 294/294 | 229 | 64 | 1 | 0 | 0 | 77.89% | [report](summary/sqs.md) |
 | sts | 146/146 | 132 | 14 | 0 | 0 | 0 | 90.41% | [report](summary/sts.md) |
-| **Average** | — | — | — | — | — | — | **87.38%** | — |
+| **Average** | — | — | — | — | — | — | **88.51%** | — |

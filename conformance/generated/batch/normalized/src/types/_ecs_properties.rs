@@ -7,15 +7,16 @@ pub struct EcsProperties {
     /// <p>An object that contains the properties for the Amazon ECS task definition of a job.</p><note>
     /// <p>This object is currently limited to one task element. However, the task element can run up to 10 containers.</p>
     /// </note>
-    pub task_properties: ::std::vec::Vec<super::super::types::EcsTaskProperties>,
+    pub task_properties: ::std::option::Option<::std::vec::Vec<super::super::types::EcsTaskProperties>>,
 }
 impl EcsProperties {
     /// <p>An object that contains the properties for the Amazon ECS task definition of a job.</p><note>
     /// <p>This object is currently limited to one task element. However, the task element can run up to 10 containers.</p>
     /// </note>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.task_properties.is_none()`.
     pub fn task_properties(&self) -> &[super::super::types::EcsTaskProperties] {
-        use std::ops::Deref;
-        self.task_properties.deref()
+        self.task_properties.as_deref().unwrap_or_default()
     }
 }
 impl EcsProperties {
@@ -59,16 +60,9 @@ impl EcsPropertiesBuilder {
         &self.task_properties
     }
     /// Consumes the builder and constructs a [`EcsProperties`](crate::types::EcsProperties).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`task_properties`](crate::types::builders::EcsPropertiesBuilder::task_properties)
-    pub fn build(self) -> ::std::result::Result<super::super::types::EcsProperties, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::EcsProperties {
-            task_properties: self.task_properties.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "task_properties",
-                    "task_properties was not specified but it is required when building EcsProperties",
-                )
-            })?,
-        })
+    pub fn build(self) -> super::super::types::EcsProperties {
+        super::super::types::EcsProperties {
+            task_properties: self.task_properties,
+        }
     }
 }

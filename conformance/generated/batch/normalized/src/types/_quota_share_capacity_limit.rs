@@ -5,19 +5,18 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct QuotaShareCapacityLimit {
     /// <p>The maximum capacity available for the quota share. This value represents the maximum quantity of a resource that can be allocated to jobs in the quota share without borrowing.</p>
-    pub max_capacity: i32,
+    pub max_capacity: ::std::option::Option<i32>,
     /// <p>The unit of compute capacity for the capacityLimit. For example, <code>ml.m5.large</code>.</p>
-    pub capacity_unit: ::std::string::String,
+    pub capacity_unit: ::std::option::Option<::std::string::String>,
 }
 impl QuotaShareCapacityLimit {
     /// <p>The maximum capacity available for the quota share. This value represents the maximum quantity of a resource that can be allocated to jobs in the quota share without borrowing.</p>
-    pub fn max_capacity(&self) -> i32 {
+    pub fn max_capacity(&self) -> ::std::option::Option<i32> {
         self.max_capacity
     }
     /// <p>The unit of compute capacity for the capacityLimit. For example, <code>ml.m5.large</code>.</p>
-    pub fn capacity_unit(&self) -> &str {
-        use std::ops::Deref;
-        self.capacity_unit.deref()
+    pub fn capacity_unit(&self) -> ::std::option::Option<&str> {
+        self.capacity_unit.as_deref()
     }
 }
 impl QuotaShareCapacityLimit {
@@ -66,23 +65,10 @@ impl QuotaShareCapacityLimitBuilder {
         &self.capacity_unit
     }
     /// Consumes the builder and constructs a [`QuotaShareCapacityLimit`](crate::types::QuotaShareCapacityLimit).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`max_capacity`](crate::types::builders::QuotaShareCapacityLimitBuilder::max_capacity)
-    /// - [`capacity_unit`](crate::types::builders::QuotaShareCapacityLimitBuilder::capacity_unit)
-    pub fn build(self) -> ::std::result::Result<super::super::types::QuotaShareCapacityLimit, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::QuotaShareCapacityLimit {
-            max_capacity: self.max_capacity.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "max_capacity",
-                    "max_capacity was not specified but it is required when building QuotaShareCapacityLimit",
-                )
-            })?,
-            capacity_unit: self.capacity_unit.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "capacity_unit",
-                    "capacity_unit was not specified but it is required when building QuotaShareCapacityLimit",
-                )
-            })?,
-        })
+    pub fn build(self) -> super::super::types::QuotaShareCapacityLimit {
+        super::super::types::QuotaShareCapacityLimit {
+            max_capacity: self.max_capacity,
+            capacity_unit: self.capacity_unit,
+        }
     }
 }

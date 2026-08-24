@@ -3,20 +3,20 @@ pub fn ser_job_state_time_limit_action(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::JobStateTimeLimitAction,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
-        object.key("reason").string(input.reason.as_str());
+    if let Some(var_1) = &input.reason {
+        object.key("reason").string(var_1.as_str());
     }
-    {
-        object.key("state").string(input.state.as_str());
+    if let Some(var_2) = &input.state {
+        object.key("state").string(var_2.as_str());
     }
-    {
+    if let Some(var_3) = &input.max_time_seconds {
         object.key("maxTimeSeconds").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((input.max_time_seconds).into()),
+            ::aws_smithy_types::Number::NegInt((*var_3).into()),
         );
     }
-    {
-        object.key("action").string(input.action.as_str());
+    if let Some(var_4) = &input.action {
+        object.key("action").string(var_4.as_str());
     }
     Ok(())
 }
@@ -80,11 +80,7 @@ where
                     }
                 }
             }
-            Ok(Some(
-                super::super::serde_util::job_state_time_limit_action_correct_errors(builder)
-                    .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-            ))
+            Ok(Some(super::super::serde_util::job_state_time_limit_action_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

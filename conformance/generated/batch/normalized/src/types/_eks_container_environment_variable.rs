@@ -5,15 +5,14 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct EksContainerEnvironmentVariable {
     /// <p>The name of the environment variable.</p>
-    pub name: ::std::string::String,
+    pub name: ::std::option::Option<::std::string::String>,
     /// <p>The value of the environment variable.</p>
     pub value: ::std::option::Option<::std::string::String>,
 }
 impl EksContainerEnvironmentVariable {
     /// <p>The name of the environment variable.</p>
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> ::std::option::Option<&str> {
+        self.name.as_deref()
     }
     /// <p>The value of the environment variable.</p>
     pub fn value(&self) -> ::std::option::Option<&str> {
@@ -65,17 +64,10 @@ impl EksContainerEnvironmentVariableBuilder {
         &self.value
     }
     /// Consumes the builder and constructs a [`EksContainerEnvironmentVariable`](crate::types::EksContainerEnvironmentVariable).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`name`](crate::types::builders::EksContainerEnvironmentVariableBuilder::name)
-    pub fn build(self) -> ::std::result::Result<super::super::types::EksContainerEnvironmentVariable, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::EksContainerEnvironmentVariable {
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building EksContainerEnvironmentVariable",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::EksContainerEnvironmentVariable {
+        super::super::types::EksContainerEnvironmentVariable {
+            name: self.name,
             value: self.value,
-        })
+        }
     }
 }

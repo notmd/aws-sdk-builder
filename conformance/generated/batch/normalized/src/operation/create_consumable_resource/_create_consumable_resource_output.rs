@@ -4,21 +4,19 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CreateConsumableResourceOutput {
     /// <p>The name of the consumable resource.</p>
-    pub consumable_resource_name: ::std::string::String,
+    pub consumable_resource_name: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of the consumable resource.</p>
-    pub consumable_resource_arn: ::std::string::String,
+    pub consumable_resource_arn: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl CreateConsumableResourceOutput {
     /// <p>The name of the consumable resource.</p>
-    pub fn consumable_resource_name(&self) -> &str {
-        use std::ops::Deref;
-        self.consumable_resource_name.deref()
+    pub fn consumable_resource_name(&self) -> ::std::option::Option<&str> {
+        self.consumable_resource_name.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the consumable resource.</p>
-    pub fn consumable_resource_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.consumable_resource_arn.deref()
+    pub fn consumable_resource_arn(&self) -> ::std::option::Option<&str> {
+        self.consumable_resource_arn.as_deref()
     }
 }
 impl ::aws_types::request_id::RequestId for CreateConsumableResourceOutput {
@@ -82,29 +80,11 @@ impl CreateConsumableResourceOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateConsumableResourceOutput`](crate::operation::create_consumable_resource::CreateConsumableResourceOutput).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`consumable_resource_name`](crate::operation::create_consumable_resource::builders::CreateConsumableResourceOutputBuilder::consumable_resource_name)
-    /// - [`consumable_resource_arn`](crate::operation::create_consumable_resource::builders::CreateConsumableResourceOutputBuilder::consumable_resource_arn)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::create_consumable_resource::CreateConsumableResourceOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(super::super::super::operation::create_consumable_resource::CreateConsumableResourceOutput {
-            consumable_resource_name: self.consumable_resource_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "consumable_resource_name",
-                    "consumable_resource_name was not specified but it is required when building CreateConsumableResourceOutput",
-                )
-            })?,
-            consumable_resource_arn: self.consumable_resource_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "consumable_resource_arn",
-                    "consumable_resource_arn was not specified but it is required when building CreateConsumableResourceOutput",
-                )
-            })?,
+    pub fn build(self) -> super::super::super::operation::create_consumable_resource::CreateConsumableResourceOutput {
+        super::super::super::operation::create_consumable_resource::CreateConsumableResourceOutput {
+            consumable_resource_name: self.consumable_resource_name,
+            consumable_resource_arn: self.consumable_resource_arn,
             _request_id: self._request_id,
-        })
+        }
     }
 }

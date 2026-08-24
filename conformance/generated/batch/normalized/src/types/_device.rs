@@ -7,7 +7,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct Device {
     /// <p>The path for the device on the host container instance.</p>
-    pub host_path: ::std::string::String,
+    pub host_path: ::std::option::Option<::std::string::String>,
     /// <p>The path inside the container that's used to expose the host device. By default, the <code>hostPath</code> value is used.</p>
     pub container_path: ::std::option::Option<::std::string::String>,
     /// <p>The explicit permissions to provide to the container for the device. By default, the container has permissions for <code>read</code>, <code>write</code>, and <code>mknod</code> for the device.</p>
@@ -15,9 +15,8 @@ pub struct Device {
 }
 impl Device {
     /// <p>The path for the device on the host container instance.</p>
-    pub fn host_path(&self) -> &str {
-        use std::ops::Deref;
-        self.host_path.deref()
+    pub fn host_path(&self) -> ::std::option::Option<&str> {
+        self.host_path.as_deref()
     }
     /// <p>The path inside the container that's used to expose the host device. By default, the <code>hostPath</code> value is used.</p>
     pub fn container_path(&self) -> ::std::option::Option<&str> {
@@ -96,18 +95,11 @@ impl DeviceBuilder {
         &self.permissions
     }
     /// Consumes the builder and constructs a [`Device`](crate::types::Device).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`host_path`](crate::types::builders::DeviceBuilder::host_path)
-    pub fn build(self) -> ::std::result::Result<super::super::types::Device, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::Device {
-            host_path: self.host_path.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "host_path",
-                    "host_path was not specified but it is required when building Device",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::Device {
+        super::super::types::Device {
+            host_path: self.host_path,
             container_path: self.container_path,
             permissions: self.permissions,
-        })
+        }
     }
 }

@@ -5,31 +5,30 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct JobStateTimeLimitAction {
     /// <p>The reason to log for the action being taken.</p>
-    pub reason: ::std::string::String,
+    pub reason: ::std::option::Option<::std::string::String>,
     /// <p>The state of the job needed to trigger the action. The only supported value is <code>RUNNABLE</code>.</p>
-    pub state: super::super::types::JobStateTimeLimitActionsState,
+    pub state: ::std::option::Option<super::super::types::JobStateTimeLimitActionsState>,
     /// <p>The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. The minimum value is 600 (10 minutes) and the maximum value is 86,400 (24 hours).</p>
-    pub max_time_seconds: i32,
+    pub max_time_seconds: ::std::option::Option<i32>,
     /// <p>The action to take when a job is at the head of the job queue in the specified state for the specified period of time. For job queues connected to a <code>ECS</code>, <code>FARGATE</code> or <code>EKS</code> compute environment, the only supported value is <code>CANCEL</code>, which will cancel the job. For job queues connected to a <code>SAGEMAKER_TRAINING</code> service environment, the only supported value is <code>TERMINATE</code>, which will terminate the job.</p>
-    pub action: super::super::types::JobStateTimeLimitActionsAction,
+    pub action: ::std::option::Option<super::super::types::JobStateTimeLimitActionsAction>,
 }
 impl JobStateTimeLimitAction {
     /// <p>The reason to log for the action being taken.</p>
-    pub fn reason(&self) -> &str {
-        use std::ops::Deref;
-        self.reason.deref()
+    pub fn reason(&self) -> ::std::option::Option<&str> {
+        self.reason.as_deref()
     }
     /// <p>The state of the job needed to trigger the action. The only supported value is <code>RUNNABLE</code>.</p>
-    pub fn state(&self) -> &super::super::types::JobStateTimeLimitActionsState {
-        &self.state
+    pub fn state(&self) -> ::std::option::Option<&super::super::types::JobStateTimeLimitActionsState> {
+        self.state.as_ref()
     }
     /// <p>The approximate amount of time, in seconds, that must pass with the job in the specified state before the action is taken. The minimum value is 600 (10 minutes) and the maximum value is 86,400 (24 hours).</p>
-    pub fn max_time_seconds(&self) -> i32 {
+    pub fn max_time_seconds(&self) -> ::std::option::Option<i32> {
         self.max_time_seconds
     }
     /// <p>The action to take when a job is at the head of the job queue in the specified state for the specified period of time. For job queues connected to a <code>ECS</code>, <code>FARGATE</code> or <code>EKS</code> compute environment, the only supported value is <code>CANCEL</code>, which will cancel the job. For job queues connected to a <code>SAGEMAKER_TRAINING</code> service environment, the only supported value is <code>TERMINATE</code>, which will terminate the job.</p>
-    pub fn action(&self) -> &super::super::types::JobStateTimeLimitActionsAction {
-        &self.action
+    pub fn action(&self) -> ::std::option::Option<&super::super::types::JobStateTimeLimitActionsAction> {
+        self.action.as_ref()
     }
 }
 impl JobStateTimeLimitAction {
@@ -110,37 +109,12 @@ impl JobStateTimeLimitActionBuilder {
         &self.action
     }
     /// Consumes the builder and constructs a [`JobStateTimeLimitAction`](crate::types::JobStateTimeLimitAction).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`reason`](crate::types::builders::JobStateTimeLimitActionBuilder::reason)
-    /// - [`state`](crate::types::builders::JobStateTimeLimitActionBuilder::state)
-    /// - [`max_time_seconds`](crate::types::builders::JobStateTimeLimitActionBuilder::max_time_seconds)
-    /// - [`action`](crate::types::builders::JobStateTimeLimitActionBuilder::action)
-    pub fn build(self) -> ::std::result::Result<super::super::types::JobStateTimeLimitAction, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::JobStateTimeLimitAction {
-            reason: self.reason.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "reason",
-                    "reason was not specified but it is required when building JobStateTimeLimitAction",
-                )
-            })?,
-            state: self.state.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "state",
-                    "state was not specified but it is required when building JobStateTimeLimitAction",
-                )
-            })?,
-            max_time_seconds: self.max_time_seconds.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "max_time_seconds",
-                    "max_time_seconds was not specified but it is required when building JobStateTimeLimitAction",
-                )
-            })?,
-            action: self.action.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "action",
-                    "action was not specified but it is required when building JobStateTimeLimitAction",
-                )
-            })?,
-        })
+    pub fn build(self) -> super::super::types::JobStateTimeLimitAction {
+        super::super::types::JobStateTimeLimitAction {
+            reason: self.reason,
+            state: self.state,
+            max_time_seconds: self.max_time_seconds,
+            action: self.action,
+        }
     }
 }

@@ -5,13 +5,13 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ServiceJobRetryStrategy {
     /// <p>The number of times to move a service job to <code>RUNNABLE</code> status. You can specify between 1 and 10 attempts.</p>
-    pub attempts: i32,
+    pub attempts: ::std::option::Option<i32>,
     /// <p>Array of <code>ServiceJobEvaluateOnExit</code> objects that specify conditions under which the service job should be retried or failed.</p>
     pub evaluate_on_exit: ::std::option::Option<::std::vec::Vec<super::super::types::ServiceJobEvaluateOnExit>>,
 }
 impl ServiceJobRetryStrategy {
     /// <p>The number of times to move a service job to <code>RUNNABLE</code> status. You can specify between 1 and 10 attempts.</p>
-    pub fn attempts(&self) -> i32 {
+    pub fn attempts(&self) -> ::std::option::Option<i32> {
         self.attempts
     }
     /// <p>Array of <code>ServiceJobEvaluateOnExit</code> objects that specify conditions under which the service job should be retried or failed.</p>
@@ -72,17 +72,10 @@ impl ServiceJobRetryStrategyBuilder {
         &self.evaluate_on_exit
     }
     /// Consumes the builder and constructs a [`ServiceJobRetryStrategy`](crate::types::ServiceJobRetryStrategy).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`attempts`](crate::types::builders::ServiceJobRetryStrategyBuilder::attempts)
-    pub fn build(self) -> ::std::result::Result<super::super::types::ServiceJobRetryStrategy, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::ServiceJobRetryStrategy {
-            attempts: self.attempts.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "attempts",
-                    "attempts was not specified but it is required when building ServiceJobRetryStrategy",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::ServiceJobRetryStrategy {
+        super::super::types::ServiceJobRetryStrategy {
+            attempts: self.attempts,
             evaluate_on_exit: self.evaluate_on_exit,
-        })
+        }
     }
 }

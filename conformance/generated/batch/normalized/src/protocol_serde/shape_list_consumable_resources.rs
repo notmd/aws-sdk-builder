@@ -73,9 +73,7 @@ pub fn de_list_consumable_resources_http_response(
         output = super::super::protocol_serde::shape_list_consumable_resources::de_list_consumable_resources(_response_body, output)
             .map_err(super::super::operation::list_consumable_resources::ListConsumableResourcesError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        super::super::serde_util::list_consumable_resources_output_output_correct_errors(output)
-            .build()
-            .map_err(super::super::operation::list_consumable_resources::ListConsumableResourcesError::unhandled)?
+        super::super::serde_util::list_consumable_resources_output_output_correct_errors(output).build()
     })
 }
 

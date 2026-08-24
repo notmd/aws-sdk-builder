@@ -4,21 +4,19 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct CreateServiceEnvironmentOutput {
     /// <p>The name of the service environment.</p>
-    pub service_environment_name: ::std::string::String,
+    pub service_environment_name: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of the service environment.</p>
-    pub service_environment_arn: ::std::string::String,
+    pub service_environment_arn: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl CreateServiceEnvironmentOutput {
     /// <p>The name of the service environment.</p>
-    pub fn service_environment_name(&self) -> &str {
-        use std::ops::Deref;
-        self.service_environment_name.deref()
+    pub fn service_environment_name(&self) -> ::std::option::Option<&str> {
+        self.service_environment_name.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the service environment.</p>
-    pub fn service_environment_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.service_environment_arn.deref()
+    pub fn service_environment_arn(&self) -> ::std::option::Option<&str> {
+        self.service_environment_arn.as_deref()
     }
 }
 impl ::aws_types::request_id::RequestId for CreateServiceEnvironmentOutput {
@@ -82,29 +80,11 @@ impl CreateServiceEnvironmentOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`CreateServiceEnvironmentOutput`](crate::operation::create_service_environment::CreateServiceEnvironmentOutput).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`service_environment_name`](crate::operation::create_service_environment::builders::CreateServiceEnvironmentOutputBuilder::service_environment_name)
-    /// - [`service_environment_arn`](crate::operation::create_service_environment::builders::CreateServiceEnvironmentOutputBuilder::service_environment_arn)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::create_service_environment::CreateServiceEnvironmentOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(super::super::super::operation::create_service_environment::CreateServiceEnvironmentOutput {
-            service_environment_name: self.service_environment_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "service_environment_name",
-                    "service_environment_name was not specified but it is required when building CreateServiceEnvironmentOutput",
-                )
-            })?,
-            service_environment_arn: self.service_environment_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "service_environment_arn",
-                    "service_environment_arn was not specified but it is required when building CreateServiceEnvironmentOutput",
-                )
-            })?,
+    pub fn build(self) -> super::super::super::operation::create_service_environment::CreateServiceEnvironmentOutput {
+        super::super::super::operation::create_service_environment::CreateServiceEnvironmentOutput {
+            service_environment_name: self.service_environment_name,
+            service_environment_arn: self.service_environment_arn,
             _request_id: self._request_id,
-        })
+        }
     }
 }

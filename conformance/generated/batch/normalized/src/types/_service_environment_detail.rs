@@ -5,34 +5,32 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ServiceEnvironmentDetail {
     /// <p>The name of the service environment.</p>
-    pub service_environment_name: ::std::string::String,
+    pub service_environment_name: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of the service environment.</p>
-    pub service_environment_arn: ::std::string::String,
+    pub service_environment_arn: ::std::option::Option<::std::string::String>,
     /// <p>The type of service environment. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
-    pub service_environment_type: super::super::types::ServiceEnvironmentType,
+    pub service_environment_type: ::std::option::Option<super::super::types::ServiceEnvironmentType>,
     /// <p>The state of the service environment. Valid values are <code>ENABLED</code> and <code>DISABLED</code>.</p>
     pub state: ::std::option::Option<super::super::types::ServiceEnvironmentState>,
     /// <p>The current status of the service environment.</p>
     pub status: ::std::option::Option<super::super::types::ServiceEnvironmentStatus>,
     /// <p>The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.</p>
-    pub capacity_limits: ::std::vec::Vec<super::super::types::CapacityLimit>,
+    pub capacity_limits: ::std::option::Option<::std::vec::Vec<super::super::types::CapacityLimit>>,
     /// <p>The tags associated with the service environment. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
     pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl ServiceEnvironmentDetail {
     /// <p>The name of the service environment.</p>
-    pub fn service_environment_name(&self) -> &str {
-        use std::ops::Deref;
-        self.service_environment_name.deref()
+    pub fn service_environment_name(&self) -> ::std::option::Option<&str> {
+        self.service_environment_name.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the service environment.</p>
-    pub fn service_environment_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.service_environment_arn.deref()
+    pub fn service_environment_arn(&self) -> ::std::option::Option<&str> {
+        self.service_environment_arn.as_deref()
     }
     /// <p>The type of service environment. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
-    pub fn service_environment_type(&self) -> &super::super::types::ServiceEnvironmentType {
-        &self.service_environment_type
+    pub fn service_environment_type(&self) -> ::std::option::Option<&super::super::types::ServiceEnvironmentType> {
+        self.service_environment_type.as_ref()
     }
     /// <p>The state of the service environment. Valid values are <code>ENABLED</code> and <code>DISABLED</code>.</p>
     pub fn state(&self) -> ::std::option::Option<&super::super::types::ServiceEnvironmentState> {
@@ -43,9 +41,10 @@ impl ServiceEnvironmentDetail {
         self.status.as_ref()
     }
     /// <p>The capacity limits for the service environment. This defines the maximum resources that can be used by service jobs in this environment.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.capacity_limits.is_none()`.
     pub fn capacity_limits(&self) -> &[super::super::types::CapacityLimit] {
-        use std::ops::Deref;
-        self.capacity_limits.deref()
+        self.capacity_limits.as_deref().unwrap_or_default()
     }
     /// <p>The tags associated with the service environment. Each tag consists of a key and an optional value. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/using-tags.html">Tagging your Batch resources</a>.</p>
     pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
@@ -186,40 +185,15 @@ impl ServiceEnvironmentDetailBuilder {
         &self.tags
     }
     /// Consumes the builder and constructs a [`ServiceEnvironmentDetail`](crate::types::ServiceEnvironmentDetail).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`service_environment_name`](crate::types::builders::ServiceEnvironmentDetailBuilder::service_environment_name)
-    /// - [`service_environment_arn`](crate::types::builders::ServiceEnvironmentDetailBuilder::service_environment_arn)
-    /// - [`service_environment_type`](crate::types::builders::ServiceEnvironmentDetailBuilder::service_environment_type)
-    /// - [`capacity_limits`](crate::types::builders::ServiceEnvironmentDetailBuilder::capacity_limits)
-    pub fn build(self) -> ::std::result::Result<super::super::types::ServiceEnvironmentDetail, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::ServiceEnvironmentDetail {
-            service_environment_name: self.service_environment_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "service_environment_name",
-                    "service_environment_name was not specified but it is required when building ServiceEnvironmentDetail",
-                )
-            })?,
-            service_environment_arn: self.service_environment_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "service_environment_arn",
-                    "service_environment_arn was not specified but it is required when building ServiceEnvironmentDetail",
-                )
-            })?,
-            service_environment_type: self.service_environment_type.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "service_environment_type",
-                    "service_environment_type was not specified but it is required when building ServiceEnvironmentDetail",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::ServiceEnvironmentDetail {
+        super::super::types::ServiceEnvironmentDetail {
+            service_environment_name: self.service_environment_name,
+            service_environment_arn: self.service_environment_arn,
+            service_environment_type: self.service_environment_type,
             state: self.state,
             status: self.status,
-            capacity_limits: self.capacity_limits.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "capacity_limits",
-                    "capacity_limits was not specified but it is required when building ServiceEnvironmentDetail",
-                )
-            })?,
+            capacity_limits: self.capacity_limits,
             tags: self.tags,
-        })
+        }
     }
 }

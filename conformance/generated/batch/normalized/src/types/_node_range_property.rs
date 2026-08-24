@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct NodeRangeProperty {
     /// <p>The range of nodes, using node index values. A range of <code>0:3</code> indicates nodes with index values of <code>0</code> through <code>3</code>. If the starting range value is omitted (<code>:n</code>), then <code>0</code> is used to start the range. If the ending range value is omitted (<code>n:</code>), then the highest possible node index is used to end the range. Your accumulative node ranges must account for all nodes (<code>0:n</code>). You can nest node ranges (for example, <code>0:10</code> and <code>4:5</code>). In this case, the <code>4:5</code> range properties override the <code>0:10</code> properties.</p>
-    pub target_nodes: ::std::string::String,
+    pub target_nodes: ::std::option::Option<::std::string::String>,
     /// <p>The container details for the node range.</p>
     pub container: ::std::option::Option<super::super::types::ContainerProperties>,
     /// <p>The instance types of the underlying host infrastructure of a multi-node parallel job.</p><note>
@@ -22,9 +22,8 @@ pub struct NodeRangeProperty {
 }
 impl NodeRangeProperty {
     /// <p>The range of nodes, using node index values. A range of <code>0:3</code> indicates nodes with index values of <code>0</code> through <code>3</code>. If the starting range value is omitted (<code>:n</code>), then <code>0</code> is used to start the range. If the ending range value is omitted (<code>n:</code>), then the highest possible node index is used to end the range. Your accumulative node ranges must account for all nodes (<code>0:n</code>). You can nest node ranges (for example, <code>0:10</code> and <code>4:5</code>). In this case, the <code>4:5</code> range properties override the <code>0:10</code> properties.</p>
-    pub fn target_nodes(&self) -> &str {
-        use std::ops::Deref;
-        self.target_nodes.deref()
+    pub fn target_nodes(&self) -> ::std::option::Option<&str> {
+        self.target_nodes.as_deref()
     }
     /// <p>The container details for the node range.</p>
     pub fn container(&self) -> ::std::option::Option<&super::super::types::ContainerProperties> {
@@ -172,21 +171,14 @@ impl NodeRangePropertyBuilder {
         &self.consumable_resource_properties
     }
     /// Consumes the builder and constructs a [`NodeRangeProperty`](crate::types::NodeRangeProperty).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`target_nodes`](crate::types::builders::NodeRangePropertyBuilder::target_nodes)
-    pub fn build(self) -> ::std::result::Result<super::super::types::NodeRangeProperty, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::NodeRangeProperty {
-            target_nodes: self.target_nodes.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "target_nodes",
-                    "target_nodes was not specified but it is required when building NodeRangeProperty",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::NodeRangeProperty {
+        super::super::types::NodeRangeProperty {
+            target_nodes: self.target_nodes,
             container: self.container,
             instance_types: self.instance_types,
             ecs_properties: self.ecs_properties,
             eks_properties: self.eks_properties,
             consumable_resource_properties: self.consumable_resource_properties,
-        })
+        }
     }
 }

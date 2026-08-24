@@ -5,12 +5,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct QuotaSharePolicy {
     /// <p>The strategy that determines how idle resources are assigned to quota shares that are borrowing capacity. Currently, only <code>FIFO</code> is supported.</p>
-    pub idle_resource_assignment_strategy: super::super::types::QuotaShareIdleResourceAssignmentStrategy,
+    pub idle_resource_assignment_strategy: ::std::option::Option<super::super::types::QuotaShareIdleResourceAssignmentStrategy>,
 }
 impl QuotaSharePolicy {
     /// <p>The strategy that determines how idle resources are assigned to quota shares that are borrowing capacity. Currently, only <code>FIFO</code> is supported.</p>
-    pub fn idle_resource_assignment_strategy(&self) -> &super::super::types::QuotaShareIdleResourceAssignmentStrategy {
-        &self.idle_resource_assignment_strategy
+    pub fn idle_resource_assignment_strategy(&self) -> ::std::option::Option<&super::super::types::QuotaShareIdleResourceAssignmentStrategy> {
+        self.idle_resource_assignment_strategy.as_ref()
     }
 }
 impl QuotaSharePolicy {
@@ -46,16 +46,9 @@ impl QuotaSharePolicyBuilder {
         &self.idle_resource_assignment_strategy
     }
     /// Consumes the builder and constructs a [`QuotaSharePolicy`](crate::types::QuotaSharePolicy).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`idle_resource_assignment_strategy`](crate::types::builders::QuotaSharePolicyBuilder::idle_resource_assignment_strategy)
-    pub fn build(self) -> ::std::result::Result<super::super::types::QuotaSharePolicy, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::QuotaSharePolicy {
-            idle_resource_assignment_strategy: self.idle_resource_assignment_strategy.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "idle_resource_assignment_strategy",
-                    "idle_resource_assignment_strategy was not specified but it is required when building QuotaSharePolicy",
-                )
-            })?,
-        })
+    pub fn build(self) -> super::super::types::QuotaSharePolicy {
+        super::super::types::QuotaSharePolicy {
+            idle_resource_assignment_strategy: self.idle_resource_assignment_strategy,
+        }
     }
 }

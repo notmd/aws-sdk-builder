@@ -12,24 +12,22 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct Secret {
     /// <p>The name of the secret.</p>
-    pub name: ::std::string::String,
+    pub name: ::std::option::Option<::std::string::String>,
     /// <p>The secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the Secrets Manager secret or the full ARN of the parameter in the Amazon Web Services Systems Manager Parameter Store.</p><note>
     /// <p>If the Amazon Web Services Systems Manager Parameter Store parameter exists in the same Region as the job you're launching, then you can use either the full Amazon Resource Name (ARN) or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.</p>
     /// </note>
-    pub value_from: ::std::string::String,
+    pub value_from: ::std::option::Option<::std::string::String>,
 }
 impl Secret {
     /// <p>The name of the secret.</p>
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> ::std::option::Option<&str> {
+        self.name.as_deref()
     }
     /// <p>The secret to expose to the container. The supported values are either the full Amazon Resource Name (ARN) of the Secrets Manager secret or the full ARN of the parameter in the Amazon Web Services Systems Manager Parameter Store.</p><note>
     /// <p>If the Amazon Web Services Systems Manager Parameter Store parameter exists in the same Region as the job you're launching, then you can use either the full Amazon Resource Name (ARN) or name of the parameter. If the parameter exists in a different Region, then the full ARN must be specified.</p>
     /// </note>
-    pub fn value_from(&self) -> &str {
-        use std::ops::Deref;
-        self.value_from.deref()
+    pub fn value_from(&self) -> ::std::option::Option<&str> {
+        self.value_from.as_deref()
     }
 }
 impl Secret {
@@ -84,23 +82,10 @@ impl SecretBuilder {
         &self.value_from
     }
     /// Consumes the builder and constructs a [`Secret`](crate::types::Secret).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`name`](crate::types::builders::SecretBuilder::name)
-    /// - [`value_from`](crate::types::builders::SecretBuilder::value_from)
-    pub fn build(self) -> ::std::result::Result<super::super::types::Secret, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::Secret {
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building Secret",
-                )
-            })?,
-            value_from: self.value_from.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "value_from",
-                    "value_from was not specified but it is required when building Secret",
-                )
-            })?,
-        })
+    pub fn build(self) -> super::super::types::Secret {
+        super::super::types::Secret {
+            name: self.name,
+            value_from: self.value_from,
+        }
     }
 }

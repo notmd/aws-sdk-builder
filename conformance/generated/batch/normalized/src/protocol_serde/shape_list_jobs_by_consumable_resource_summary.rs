@@ -110,9 +110,7 @@ where
                 }
             }
             Ok(Some(
-                super::super::serde_util::list_jobs_by_consumable_resource_summary_correct_errors(builder)
-                    .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
+                super::super::serde_util::list_jobs_by_consumable_resource_summary_correct_errors(builder).build(),
             ))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(

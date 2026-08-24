@@ -12,7 +12,7 @@ pub struct EvaluateOnExit {
     /// <p>The string can contain up to 512 characters.</p>
     pub on_exit_code: ::std::option::Option<::std::string::String>,
     /// <p>Specifies the action to take if all of the specified conditions (<code>onStatusReason</code>, <code>onReason</code>, and <code>onExitCode</code>) are met. The values aren't case sensitive.</p>
-    pub action: super::super::types::RetryAction,
+    pub action: ::std::option::Option<super::super::types::RetryAction>,
 }
 impl EvaluateOnExit {
     /// <p>Contains a glob pattern to match against the <code>StatusReason</code> returned for a job. The pattern can contain up to 512 characters. It can contain letters, numbers, periods (.), colons (:), and white spaces (including spaces or tabs). It can optionally end with an asterisk (*) so that only the start of the string needs to be an exact match.</p>
@@ -29,8 +29,8 @@ impl EvaluateOnExit {
         self.on_exit_code.as_deref()
     }
     /// <p>Specifies the action to take if all of the specified conditions (<code>onStatusReason</code>, <code>onReason</code>, and <code>onExitCode</code>) are met. The values aren't case sensitive.</p>
-    pub fn action(&self) -> &super::super::types::RetryAction {
-        &self.action
+    pub fn action(&self) -> ::std::option::Option<&super::super::types::RetryAction> {
+        self.action.as_ref()
     }
 }
 impl EvaluateOnExit {
@@ -111,19 +111,12 @@ impl EvaluateOnExitBuilder {
         &self.action
     }
     /// Consumes the builder and constructs a [`EvaluateOnExit`](crate::types::EvaluateOnExit).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`action`](crate::types::builders::EvaluateOnExitBuilder::action)
-    pub fn build(self) -> ::std::result::Result<super::super::types::EvaluateOnExit, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::EvaluateOnExit {
+    pub fn build(self) -> super::super::types::EvaluateOnExit {
+        super::super::types::EvaluateOnExit {
             on_status_reason: self.on_status_reason,
             on_reason: self.on_reason,
             on_exit_code: self.on_exit_code,
-            action: self.action.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "action",
-                    "action was not specified but it is required when building EvaluateOnExit",
-                )
-            })?,
-        })
+            action: self.action,
+        }
     }
 }

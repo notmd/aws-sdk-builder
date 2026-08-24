@@ -4,16 +4,17 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListConsumableResourcesOutput {
     /// <p>A list of consumable resources that match the request.</p>
-    pub consumable_resources: ::std::vec::Vec<super::super::super::types::ConsumableResourceSummary>,
+    pub consumable_resources: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumableResourceSummary>>,
     /// <p>The <code>nextToken</code> value to include in a future <code>ListConsumableResources</code> request. When the results of a <code>ListConsumableResources</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl ListConsumableResourcesOutput {
     /// <p>A list of consumable resources that match the request.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.consumable_resources.is_none()`.
     pub fn consumable_resources(&self) -> &[super::super::super::types::ConsumableResourceSummary] {
-        use std::ops::Deref;
-        self.consumable_resources.deref()
+        self.consumable_resources.as_deref().unwrap_or_default()
     }
     /// <p>The <code>nextToken</code> value to include in a future <code>ListConsumableResources</code> request. When the results of a <code>ListConsumableResources</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -85,23 +86,11 @@ impl ListConsumableResourcesOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListConsumableResourcesOutput`](crate::operation::list_consumable_resources::ListConsumableResourcesOutput).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`consumable_resources`](crate::operation::list_consumable_resources::builders::ListConsumableResourcesOutputBuilder::consumable_resources)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_consumable_resources::ListConsumableResourcesOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(super::super::super::operation::list_consumable_resources::ListConsumableResourcesOutput {
-            consumable_resources: self.consumable_resources.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "consumable_resources",
-                    "consumable_resources was not specified but it is required when building ListConsumableResourcesOutput",
-                )
-            })?,
+    pub fn build(self) -> super::super::super::operation::list_consumable_resources::ListConsumableResourcesOutput {
+        super::super::super::operation::list_consumable_resources::ListConsumableResourcesOutput {
+            consumable_resources: self.consumable_resources,
             next_token: self.next_token,
             _request_id: self._request_id,
-        })
+        }
     }
 }

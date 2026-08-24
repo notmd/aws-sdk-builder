@@ -5,12 +5,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct QuotaSharePreemptionConfiguration {
     /// <p>Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.</p>
-    pub in_share_preemption: super::super::types::QuotaShareInSharePreemptionState,
+    pub in_share_preemption: ::std::option::Option<super::super::types::QuotaShareInSharePreemptionState>,
 }
 impl QuotaSharePreemptionConfiguration {
     /// <p>Specifies whether jobs within a quota share can be preempted by another, higher priority job in the same quota share.</p>
-    pub fn in_share_preemption(&self) -> &super::super::types::QuotaShareInSharePreemptionState {
-        &self.in_share_preemption
+    pub fn in_share_preemption(&self) -> ::std::option::Option<&super::super::types::QuotaShareInSharePreemptionState> {
+        self.in_share_preemption.as_ref()
     }
 }
 impl QuotaSharePreemptionConfiguration {
@@ -43,16 +43,9 @@ impl QuotaSharePreemptionConfigurationBuilder {
         &self.in_share_preemption
     }
     /// Consumes the builder and constructs a [`QuotaSharePreemptionConfiguration`](crate::types::QuotaSharePreemptionConfiguration).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`in_share_preemption`](crate::types::builders::QuotaSharePreemptionConfigurationBuilder::in_share_preemption)
-    pub fn build(self) -> ::std::result::Result<super::super::types::QuotaSharePreemptionConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::QuotaSharePreemptionConfiguration {
-            in_share_preemption: self.in_share_preemption.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "in_share_preemption",
-                    "in_share_preemption was not specified but it is required when building QuotaSharePreemptionConfiguration",
-                )
-            })?,
-        })
+    pub fn build(self) -> super::super::types::QuotaSharePreemptionConfiguration {
+        super::super::types::QuotaSharePreemptionConfiguration {
+            in_share_preemption: self.in_share_preemption,
+        }
     }
 }

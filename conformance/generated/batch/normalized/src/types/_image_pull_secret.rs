@@ -5,13 +5,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ImagePullSecret {
     /// <p>Provides a unique identifier for the <code>ImagePullSecret</code>. This object is required when <code>EksPodProperties$imagePullSecrets</code> is used.</p>
-    pub name: ::std::string::String,
+    pub name: ::std::option::Option<::std::string::String>,
 }
 impl ImagePullSecret {
     /// <p>Provides a unique identifier for the <code>ImagePullSecret</code>. This object is required when <code>EksPodProperties$imagePullSecrets</code> is used.</p>
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> ::std::option::Option<&str> {
+        self.name.as_deref()
     }
 }
 impl ImagePullSecret {
@@ -44,16 +43,7 @@ impl ImagePullSecretBuilder {
         &self.name
     }
     /// Consumes the builder and constructs a [`ImagePullSecret`](crate::types::ImagePullSecret).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`name`](crate::types::builders::ImagePullSecretBuilder::name)
-    pub fn build(self) -> ::std::result::Result<super::super::types::ImagePullSecret, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::ImagePullSecret {
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building ImagePullSecret",
-                )
-            })?,
-        })
+    pub fn build(self) -> super::super::types::ImagePullSecret {
+        super::super::types::ImagePullSecret { name: self.name }
     }
 }

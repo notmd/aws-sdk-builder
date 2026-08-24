@@ -3,8 +3,8 @@ pub fn ser_quota_share_preemption_configuration(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::QuotaSharePreemptionConfiguration,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
-        object.key("inSharePreemption").string(input.in_share_preemption.as_str());
+    if let Some(var_1) = &input.in_share_preemption {
+        object.key("inSharePreemption").string(var_1.as_str());
     }
     Ok(())
 }
@@ -48,9 +48,7 @@ where
                 }
             }
             Ok(Some(
-                super::super::serde_util::quota_share_preemption_configuration_correct_errors(builder)
-                    .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
+                super::super::serde_util::quota_share_preemption_configuration_correct_errors(builder).build(),
             ))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(

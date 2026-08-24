@@ -7,19 +7,18 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ComputeEnvironmentOrder {
     /// <p>The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower <code>order</code> integer value is tried for job placement first.</p>
-    pub order: i32,
+    pub order: ::std::option::Option<i32>,
     /// <p>The Amazon Resource Name (ARN) of the compute environment.</p>
-    pub compute_environment: ::std::string::String,
+    pub compute_environment: ::std::option::Option<::std::string::String>,
 }
 impl ComputeEnvironmentOrder {
     /// <p>The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower <code>order</code> integer value is tried for job placement first.</p>
-    pub fn order(&self) -> i32 {
+    pub fn order(&self) -> ::std::option::Option<i32> {
         self.order
     }
     /// <p>The Amazon Resource Name (ARN) of the compute environment.</p>
-    pub fn compute_environment(&self) -> &str {
-        use std::ops::Deref;
-        self.compute_environment.deref()
+    pub fn compute_environment(&self) -> ::std::option::Option<&str> {
+        self.compute_environment.as_deref()
     }
 }
 impl ComputeEnvironmentOrder {
@@ -68,23 +67,10 @@ impl ComputeEnvironmentOrderBuilder {
         &self.compute_environment
     }
     /// Consumes the builder and constructs a [`ComputeEnvironmentOrder`](crate::types::ComputeEnvironmentOrder).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`order`](crate::types::builders::ComputeEnvironmentOrderBuilder::order)
-    /// - [`compute_environment`](crate::types::builders::ComputeEnvironmentOrderBuilder::compute_environment)
-    pub fn build(self) -> ::std::result::Result<super::super::types::ComputeEnvironmentOrder, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::ComputeEnvironmentOrder {
-            order: self.order.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "order",
-                    "order was not specified but it is required when building ComputeEnvironmentOrder",
-                )
-            })?,
-            compute_environment: self.compute_environment.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "compute_environment",
-                    "compute_environment was not specified but it is required when building ComputeEnvironmentOrder",
-                )
-            })?,
-        })
+    pub fn build(self) -> super::super::types::ComputeEnvironmentOrder {
+        super::super::types::ComputeEnvironmentOrder {
+            order: self.order,
+            compute_environment: self.compute_environment,
+        }
     }
 }

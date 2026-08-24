@@ -69,9 +69,7 @@ pub fn de_register_job_definition_http_response(
         output = super::super::protocol_serde::shape_register_job_definition::de_register_job_definition(_response_body, output)
             .map_err(super::super::operation::register_job_definition::RegisterJobDefinitionError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        super::super::serde_util::register_job_definition_output_output_correct_errors(output)
-            .build()
-            .map_err(super::super::operation::register_job_definition::RegisterJobDefinitionError::unhandled)?
+        super::super::serde_util::register_job_definition_output_output_correct_errors(output).build()
     })
 }
 

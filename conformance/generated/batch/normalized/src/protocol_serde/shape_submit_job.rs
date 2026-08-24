@@ -63,9 +63,7 @@ pub fn de_submit_job_http_response(
         output = super::super::protocol_serde::shape_submit_job::de_submit_job(_response_body, output)
             .map_err(super::super::operation::submit_job::SubmitJobError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        super::super::serde_util::submit_job_output_output_correct_errors(output)
-            .build()
-            .map_err(super::super::operation::submit_job::SubmitJobError::unhandled)?
+        super::super::serde_util::submit_job_output_output_correct_errors(output).build()
     })
 }
 

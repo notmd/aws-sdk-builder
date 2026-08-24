@@ -3,14 +3,14 @@ pub fn ser_compute_environment_order(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::ComputeEnvironmentOrder,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
+    if let Some(var_1) = &input.order {
         object.key("order").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((input.order).into()),
+            ::aws_smithy_types::Number::NegInt((*var_1).into()),
         );
     }
-    {
-        object.key("computeEnvironment").string(input.compute_environment.as_str());
+    if let Some(var_2) = &input.compute_environment {
+        object.key("computeEnvironment").string(var_2.as_str());
     }
     Ok(())
 }
@@ -60,11 +60,7 @@ where
                     }
                 }
             }
-            Ok(Some(
-                super::super::serde_util::compute_environment_order_correct_errors(builder)
-                    .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-            ))
+            Ok(Some(super::super::serde_util::compute_environment_order_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

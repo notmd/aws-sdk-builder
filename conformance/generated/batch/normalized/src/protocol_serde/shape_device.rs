@@ -3,20 +3,20 @@ pub fn ser_device(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::Device,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
-        object.key("hostPath").string(input.host_path.as_str());
+    if let Some(var_1) = &input.host_path {
+        object.key("hostPath").string(var_1.as_str());
     }
-    if let Some(var_1) = &input.container_path {
-        object.key("containerPath").string(var_1.as_str());
+    if let Some(var_2) = &input.container_path {
+        object.key("containerPath").string(var_2.as_str());
     }
-    if let Some(var_2) = &input.permissions {
-        let mut array_3 = object.key("permissions").start_array();
-        for item_4 in var_2 {
+    if let Some(var_3) = &input.permissions {
+        let mut array_4 = object.key("permissions").start_array();
+        for item_5 in var_3 {
             {
-                array_3.value().string(item_4.as_str());
+                array_4.value().string(item_5.as_str());
             }
         }
-        array_3.finish();
+        array_4.finish();
     }
     Ok(())
 }
@@ -73,9 +73,7 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::device_correct_errors(builder).build().map_err(|err| {
-                ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err)
-            })?))
+            Ok(Some(super::super::serde_util::device_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

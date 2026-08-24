@@ -1869,9 +1869,9 @@ fn render_event_stream_marshaller_payload(
     if target == "smithy.api#Unit" || (members(target_shape).is_empty() && !has_inner) {
         return "::bytes::Bytes::new()".to_owned();
     }
-    output.push_str(&format!(
-        "                headers.push(::aws_smithy_types::event_stream::Header::new(\":content-type\", ::aws_smithy_types::event_stream::HeaderValue::String(\"application/json\".into())));\n"
-    ));
+    output.push_str(
+        "                headers.push(::aws_smithy_types::event_stream::Header::new(\":content-type\", ::aws_smithy_types::event_stream::HeaderValue::String(\"application/json\".into())));\n",
+    );
     format!(
         "::bytes::Bytes::from(crate::protocol_serde::shape_{}_input::ser_{}_payload(&inner).map_err(|err| ::aws_smithy_eventstream::error::Error::marshalling(format!(\"{{err}}\")))?)",
         names::rust_module_name(terminal(union_id)),
@@ -4413,43 +4413,40 @@ fn standalone_request_body(
     if matches!(
         protocol,
         ProtocolKind::AwsJson1_0 | ProtocolKind::AwsJson1_1 | ProtocolKind::RestJson1
-    ) {
-        if let Some((name, member)) = members(input_shape)
-            .into_iter()
-            .find(|(_, member)| has_trait(member, "smithy.api#httpPayload"))
+    ) && let Some((name, member)) = members(input_shape)
+        .into_iter()
+        .find(|(_, member)| has_trait(member, "smithy.api#httpPayload"))
+    {
+        let field = names::rust_identifier(&name);
+        let target = member_target(member).unwrap_or_default();
+        let target_shape = selected.model.shapes.get(target);
+        let target_kind = protocol_shape_kind(selected, target);
+        if !(target_kind == "union"
+            && selected
+                .model
+                .shapes
+                .get(target)
+                .is_some_and(shape_is_streaming))
         {
-            let field = names::rust_identifier(&name);
-            let target = member_target(member).unwrap_or_default();
-            let target_shape = selected.model.shapes.get(target);
-            let target_kind = protocol_shape_kind(selected, target);
-            if !(target_kind == "union"
-                && selected
-                    .model
-                    .shapes
-                    .get(target)
-                    .is_some_and(shape_is_streaming))
-            {
-                let helper = format!(
-                    "crate::protocol_serde::shape_{module}_input::ser_{field}_http_payload"
-                );
-                let expression = if matches!(target_kind, "string" | "enum" | "blob") {
-                    format!("{helper}(input.{field})?")
-                } else {
-                    format!("{helper}(&input.{field})?")
-                };
-                let content_type = target_shape
-                    .and_then(shape_media_type)
-                    .or(match target_kind {
-                        "string" | "enum" => Some("text/plain"),
-                        "blob" => Some("application/octet-stream"),
-                        _ => Some("application/json"),
-                    })
-                    .map(str::to_owned);
-                return (
-                    format!("::aws_smithy_types::body::SdkBody::from({expression})"),
-                    content_type,
-                );
-            }
+            let helper =
+                format!("crate::protocol_serde::shape_{module}_input::ser_{field}_http_payload");
+            let expression = if matches!(target_kind, "string" | "enum" | "blob") {
+                format!("{helper}(input.{field})?")
+            } else {
+                format!("{helper}(&input.{field})?")
+            };
+            let content_type = target_shape
+                .and_then(shape_media_type)
+                .or(match target_kind {
+                    "string" | "enum" => Some("text/plain"),
+                    "blob" => Some("application/octet-stream"),
+                    _ => Some("application/json"),
+                })
+                .map(str::to_owned);
+            return (
+                format!("::aws_smithy_types::body::SdkBody::from({expression})"),
+                content_type,
+            );
         }
     }
     if matches!(
@@ -9425,6 +9422,7 @@ fn render_json_shared_structure_serializer(
     output.push_str("}\n");
 }
 
+#[allow(clippy::too_many_arguments)]
 fn render_json_structure_serializer_body(
     output: &mut String,
     selected: &SelectedModel,
@@ -12695,7 +12693,8 @@ fn operation_input(context: &Context) -> bool {
 }
 
 fn member_is_effectively_required(selected: &SelectedModel, member: &Value, target: &str) -> bool {
-    (member_is_required(member) || has_trait(member, "smithy.api#default"))
+    !has_trait(member, "smithy.api#clientOptional")
+        && (member_is_required(member) || has_trait(member, "smithy.api#default"))
         && selected
             .model
             .shapes
@@ -15633,6 +15632,62 @@ mod tests {
             roles
                 .get("example#Chunk")
                 .is_some_and(|roles| roles.serialize)
+        );
+    }
+
+    #[test]
+    fn client_optional_required_members_remain_nullable() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Op"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Op": {
+                        "type": "operation",
+                        "input": {"target": "example#Input"},
+                        "output": {"target": "smithy.api#Unit"}
+                    },
+                    "example#Input": {
+                        "type": "structure",
+                        "members": {
+                            "value": {
+                                "target": "smithy.api#String",
+                                "traits": {
+                                    "smithy.api#required": {},
+                                    "smithy.api#clientOptional": {}
+                                }
+                            }
+                        },
+                        "traits": {"smithy.api#input": {}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let input = selected
+            .model
+            .shapes
+            .get("example.synthetic#OpInput")
+            .unwrap();
+        let (_, member) = members(input).into_iter().next().unwrap();
+        let target = member_target(member).unwrap();
+
+        assert!(!member_is_effectively_required(&selected, member, target));
+        assert_eq!(
+            structure_member_type(&selected, member, target, &Context::Types {}),
+            "::std::option::Option<::std::string::String>"
         );
     }
 }

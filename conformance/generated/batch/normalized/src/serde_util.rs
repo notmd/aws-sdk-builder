@@ -526,7 +526,7 @@ pub(crate) fn managed_instances_provider_correct_errors(
     if builder.instance_launch_template.is_none() {
         builder.instance_launch_template = {
             let builder = super::types::builders::InstanceLaunchTemplateBuilder::default();
-            super::serde_util::instance_launch_template_correct_errors(builder).build().ok()
+            Some(super::serde_util::instance_launch_template_correct_errors(builder).build())
         }
     }
     builder
@@ -589,9 +589,7 @@ pub(crate) fn instance_launch_template_correct_errors(
     if builder.network_configuration.is_none() {
         builder.network_configuration = {
             let builder = super::types::builders::ManagedInstancesNetworkConfigurationBuilder::default();
-            super::serde_util::managed_instances_network_configuration_correct_errors(builder)
-                .build()
-                .ok()
+            Some(super::serde_util::managed_instances_network_configuration_correct_errors(builder).build())
         }
     }
     builder

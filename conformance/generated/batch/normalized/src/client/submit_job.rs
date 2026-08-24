@@ -22,8 +22,8 @@ impl super::Client {
     ///   - [`consumable_resource_properties_override(ConsumableResourceProperties)`](crate::operation::submit_job::builders::SubmitJobFluentBuilder::consumable_resource_properties_override) / [`set_consumable_resource_properties_override(Option<ConsumableResourceProperties>)`](crate::operation::submit_job::builders::SubmitJobFluentBuilder::set_consumable_resource_properties_override):<br>required: **false**<br><p>An object that contains overrides for the consumable resources of a job.</p><br>
     /// - On success, responds with [`SubmitJobOutput`](crate::operation::submit_job::SubmitJobOutput) with field(s):
     ///   - [`job_arn(Option<String>)`](crate::operation::submit_job::SubmitJobOutput::job_arn): <p>The Amazon Resource Name (ARN) for the job.</p>
-    ///   - [`job_name(String)`](crate::operation::submit_job::SubmitJobOutput::job_name): <p>The name of the job.</p>
-    ///   - [`job_id(String)`](crate::operation::submit_job::SubmitJobOutput::job_id): <p>The unique identifier for the job.</p>
+    ///   - [`job_name(Option<String>)`](crate::operation::submit_job::SubmitJobOutput::job_name): <p>The name of the job.</p>
+    ///   - [`job_id(Option<String>)`](crate::operation::submit_job::SubmitJobOutput::job_id): <p>The unique identifier for the job.</p>
     /// - On failure, responds with [`SdkError<SubmitJobError>`](crate::operation::submit_job::SubmitJobError)
     pub fn submit_job(&self) -> super::super::operation::submit_job::builders::SubmitJobFluentBuilder {
         super::super::operation::submit_job::builders::SubmitJobFluentBuilder::new(self.handle.clone())

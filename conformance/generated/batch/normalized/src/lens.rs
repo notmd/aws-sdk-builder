@@ -130,21 +130,21 @@ pub(crate) fn lens_describe_service_environments_output_output_service_environme
 pub(crate) fn lens_list_consumable_resources_output_output_consumable_resources(
     input: super::operation::list_consumable_resources::ListConsumableResourcesOutput,
 ) -> ::std::option::Option<::std::vec::Vec<super::types::ConsumableResourceSummary>> {
-    let input = input.consumable_resources;
+    let input = input.consumable_resources?;
     ::std::option::Option::Some(input)
 }
 
 pub(crate) fn lens_list_jobs_output_output_job_summary_list(
     input: super::operation::list_jobs::ListJobsOutput,
 ) -> ::std::option::Option<::std::vec::Vec<super::types::JobSummary>> {
-    let input = input.job_summary_list;
+    let input = input.job_summary_list?;
     ::std::option::Option::Some(input)
 }
 
 pub(crate) fn lens_list_jobs_by_consumable_resource_output_output_jobs(
     input: super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput,
 ) -> ::std::option::Option<::std::vec::Vec<super::types::ListJobsByConsumableResourceSummary>> {
-    let input = input.jobs;
+    let input = input.jobs?;
     ::std::option::Option::Some(input)
 }
 
@@ -165,6 +165,6 @@ pub(crate) fn lens_list_scheduling_policies_output_output_scheduling_policies(
 pub(crate) fn lens_list_service_jobs_output_output_job_summary_list(
     input: super::operation::list_service_jobs::ListServiceJobsOutput,
 ) -> ::std::option::Option<::std::vec::Vec<super::types::ServiceJobSummary>> {
-    let input = input.job_summary_list;
+    let input = input.job_summary_list?;
     ::std::option::Option::Some(input)
 }

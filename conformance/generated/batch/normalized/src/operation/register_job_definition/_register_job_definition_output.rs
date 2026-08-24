@@ -4,26 +4,24 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct RegisterJobDefinitionOutput {
     /// <p>The name of the job definition.</p>
-    pub job_definition_name: ::std::string::String,
+    pub job_definition_name: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of the job definition.</p>
-    pub job_definition_arn: ::std::string::String,
+    pub job_definition_arn: ::std::option::Option<::std::string::String>,
     /// <p>The revision of the job definition.</p>
-    pub revision: i32,
+    pub revision: ::std::option::Option<i32>,
     _request_id: Option<String>,
 }
 impl RegisterJobDefinitionOutput {
     /// <p>The name of the job definition.</p>
-    pub fn job_definition_name(&self) -> &str {
-        use std::ops::Deref;
-        self.job_definition_name.deref()
+    pub fn job_definition_name(&self) -> ::std::option::Option<&str> {
+        self.job_definition_name.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the job definition.</p>
-    pub fn job_definition_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.job_definition_arn.deref()
+    pub fn job_definition_arn(&self) -> ::std::option::Option<&str> {
+        self.job_definition_arn.as_deref()
     }
     /// <p>The revision of the job definition.</p>
-    pub fn revision(&self) -> i32 {
+    pub fn revision(&self) -> ::std::option::Option<i32> {
         self.revision
     }
 }
@@ -104,34 +102,12 @@ impl RegisterJobDefinitionOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`RegisterJobDefinitionOutput`](crate::operation::register_job_definition::RegisterJobDefinitionOutput).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`job_definition_name`](crate::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder::job_definition_name)
-    /// - [`job_definition_arn`](crate::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder::job_definition_arn)
-    /// - [`revision`](crate::operation::register_job_definition::builders::RegisterJobDefinitionOutputBuilder::revision)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::register_job_definition::RegisterJobDefinitionOutput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(super::super::super::operation::register_job_definition::RegisterJobDefinitionOutput {
-            job_definition_name: self.job_definition_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_definition_name",
-                    "job_definition_name was not specified but it is required when building RegisterJobDefinitionOutput",
-                )
-            })?,
-            job_definition_arn: self.job_definition_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_definition_arn",
-                    "job_definition_arn was not specified but it is required when building RegisterJobDefinitionOutput",
-                )
-            })?,
-            revision: self.revision.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "revision",
-                    "revision was not specified but it is required when building RegisterJobDefinitionOutput",
-                )
-            })?,
+    pub fn build(self) -> super::super::super::operation::register_job_definition::RegisterJobDefinitionOutput {
+        super::super::super::operation::register_job_definition::RegisterJobDefinitionOutput {
+            job_definition_name: self.job_definition_name,
+            job_definition_arn: self.job_definition_arn,
+            revision: self.revision,
             _request_id: self._request_id,
-        })
+        }
     }
 }

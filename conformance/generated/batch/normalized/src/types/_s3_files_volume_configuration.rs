@@ -5,7 +5,7 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct S3FilesVolumeConfiguration {
     /// <p>The Amazon Resource Name (ARN) of the S3Files file system to use.</p>
-    pub file_system_arn: ::std::string::String,
+    pub file_system_arn: ::std::option::Option<::std::string::String>,
     /// <p>The directory within the S3Files file system to mount as the root directory.</p>
     pub root_directory: ::std::option::Option<::std::string::String>,
     /// <p>The port to use when sending encrypted data between the Amazon ECS host and the S3Files file system server.</p>
@@ -15,9 +15,8 @@ pub struct S3FilesVolumeConfiguration {
 }
 impl S3FilesVolumeConfiguration {
     /// <p>The Amazon Resource Name (ARN) of the S3Files file system to use.</p>
-    pub fn file_system_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.file_system_arn.deref()
+    pub fn file_system_arn(&self) -> ::std::option::Option<&str> {
+        self.file_system_arn.as_deref()
     }
     /// <p>The directory within the S3Files file system to mount as the root directory.</p>
     pub fn root_directory(&self) -> ::std::option::Option<&str> {
@@ -107,19 +106,12 @@ impl S3FilesVolumeConfigurationBuilder {
         &self.access_point_arn
     }
     /// Consumes the builder and constructs a [`S3FilesVolumeConfiguration`](crate::types::S3FilesVolumeConfiguration).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`file_system_arn`](crate::types::builders::S3FilesVolumeConfigurationBuilder::file_system_arn)
-    pub fn build(self) -> ::std::result::Result<super::super::types::S3FilesVolumeConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::S3FilesVolumeConfiguration {
-            file_system_arn: self.file_system_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "file_system_arn",
-                    "file_system_arn was not specified but it is required when building S3FilesVolumeConfiguration",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::S3FilesVolumeConfiguration {
+        super::super::types::S3FilesVolumeConfiguration {
+            file_system_arn: self.file_system_arn,
             root_directory: self.root_directory,
             transit_encryption_port: self.transit_encryption_port,
             access_point_arn: self.access_point_arn,
-        })
+        }
     }
 }

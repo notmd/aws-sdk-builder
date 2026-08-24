@@ -3,11 +3,11 @@ pub fn ser_eks_persistent_volume_claim(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::EksPersistentVolumeClaim,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
-        object.key("claimName").string(input.claim_name.as_str());
+    if let Some(var_1) = &input.claim_name {
+        object.key("claimName").string(var_1.as_str());
     }
-    if let Some(var_1) = &input.read_only {
-        object.key("readOnly").boolean(*var_1);
+    if let Some(var_2) = &input.read_only {
+        object.key("readOnly").boolean(*var_2);
     }
     Ok(())
 }
@@ -53,11 +53,7 @@ where
                     }
                 }
             }
-            Ok(Some(
-                super::super::serde_util::eks_persistent_volume_claim_correct_errors(builder)
-                    .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-            ))
+            Ok(Some(super::super::serde_util::eks_persistent_volume_claim_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

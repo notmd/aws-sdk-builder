@@ -7,21 +7,20 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct Tmpfs {
     /// <p>The absolute file path in the container where the <code>tmpfs</code> volume is mounted.</p>
-    pub container_path: ::std::string::String,
+    pub container_path: ::std::option::Option<::std::string::String>,
     /// <p>The size (in MiB) of the <code>tmpfs</code> volume.</p>
-    pub size: i32,
+    pub size: ::std::option::Option<i32>,
     /// <p>The list of <code>tmpfs</code> volume mount options.</p>
     /// <p>Valid values: "<code>defaults</code>" | "<code>ro</code>" | "<code>rw</code>" | "<code>suid</code>" | "<code>nosuid</code>" | "<code>dev</code>" | "<code>nodev</code>" | "<code>exec</code>" | "<code>noexec</code>" | "<code>sync</code>" | "<code>async</code>" | "<code>dirsync</code>" | "<code>remount</code>" | "<code>mand</code>" | "<code>nomand</code>" | "<code>atime</code>" | "<code>noatime</code>" | "<code>diratime</code>" | "<code>nodiratime</code>" | "<code>bind</code>" | "<code>rbind" | "unbindable" | "runbindable" | "private" | "rprivate" | "shared" | "rshared" | "slave" | "rslave" | "relatime</code>" | "<code>norelatime</code>" | "<code>strictatime</code>" | "<code>nostrictatime</code>" | "<code>mode</code>" | "<code>uid</code>" | "<code>gid</code>" | "<code>nr_inodes</code>" | "<code>nr_blocks</code>" | "<code>mpol</code>"</p>
     pub mount_options: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 }
 impl Tmpfs {
     /// <p>The absolute file path in the container where the <code>tmpfs</code> volume is mounted.</p>
-    pub fn container_path(&self) -> &str {
-        use std::ops::Deref;
-        self.container_path.deref()
+    pub fn container_path(&self) -> ::std::option::Option<&str> {
+        self.container_path.as_deref()
     }
     /// <p>The size (in MiB) of the <code>tmpfs</code> volume.</p>
-    pub fn size(&self) -> i32 {
+    pub fn size(&self) -> ::std::option::Option<i32> {
         self.size
     }
     /// <p>The list of <code>tmpfs</code> volume mount options.</p>
@@ -102,24 +101,11 @@ impl TmpfsBuilder {
         &self.mount_options
     }
     /// Consumes the builder and constructs a [`Tmpfs`](crate::types::Tmpfs).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`container_path`](crate::types::builders::TmpfsBuilder::container_path)
-    /// - [`size`](crate::types::builders::TmpfsBuilder::size)
-    pub fn build(self) -> ::std::result::Result<super::super::types::Tmpfs, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::Tmpfs {
-            container_path: self.container_path.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "container_path",
-                    "container_path was not specified but it is required when building Tmpfs",
-                )
-            })?,
-            size: self.size.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "size",
-                    "size was not specified but it is required when building Tmpfs",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::Tmpfs {
+        super::super::types::Tmpfs {
+            container_path: self.container_path,
+            size: self.size,
             mount_options: self.mount_options,
-        })
+        }
     }
 }

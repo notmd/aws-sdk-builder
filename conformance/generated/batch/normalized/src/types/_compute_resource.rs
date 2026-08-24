@@ -9,7 +9,7 @@ pub struct ComputeResource {
     /// <p>If you choose <code>ECS_MANAGED_INSTANCES</code>, you must also specify a <code>managedInstancesProvider</code> configuration. To use Spot capacity, set <code>capacityOptionType</code> to <code>SPOT</code> in the <code>managedInstancesProvider.instanceLaunchTemplate</code> configuration. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/ecs_managed_instances.html">Amazon ECS Managed Instances compute environments</a> in the <i>Batch User Guide</i>.</p><note>
     /// <p>Multi-node parallel jobs aren't supported on Spot Instances or Amazon ECS Managed Instances.</p>
     /// </note>
-    pub r#type: super::super::types::CrType,
+    pub r#type: ::std::option::Option<super::super::types::CrType>,
     /// <p>The allocation strategy to use for the compute resource if not enough instances of the best fitting instance type can be allocated. This might be because of availability of the instance type in the Region or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon EC2 service limits</a>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html">Allocation strategies</a> in the <i>Batch User Guide</i>.</p><note>
     /// <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
     /// </note> <note>
@@ -71,7 +71,7 @@ pub struct ComputeResource {
     /// <p>The maximum number of vCPUs that a compute environment can support.</p><note>
     /// <p>With any allocation strategy except <code>BEST_FIT</code> using On-Demand (<code>EC2</code>) compute resources, Batch might need to exceed <code>maxvCpus</code> to meet your capacity requirements. In this event, Batch never exceeds <code>maxvCpus</code> by more than a single instance.</p>
     /// </note>
-    pub maxv_cpus: i32,
+    pub maxv_cpus: ::std::option::Option<i32>,
     /// <p>The desired number of vCPUS in the compute environment. Batch modifies this value between the minimum and maximum values based on job queue demand.</p><note>
     /// <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
     /// </note>
@@ -161,8 +161,8 @@ impl ComputeResource {
     /// <p>If you choose <code>ECS_MANAGED_INSTANCES</code>, you must also specify a <code>managedInstancesProvider</code> configuration. To use Spot capacity, set <code>capacityOptionType</code> to <code>SPOT</code> in the <code>managedInstancesProvider.instanceLaunchTemplate</code> configuration. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/ecs_managed_instances.html">Amazon ECS Managed Instances compute environments</a> in the <i>Batch User Guide</i>.</p><note>
     /// <p>Multi-node parallel jobs aren't supported on Spot Instances or Amazon ECS Managed Instances.</p>
     /// </note>
-    pub fn r#type(&self) -> &super::super::types::CrType {
-        &self.r#type
+    pub fn r#type(&self) -> ::std::option::Option<&super::super::types::CrType> {
+        self.r#type.as_ref()
     }
     /// <p>The allocation strategy to use for the compute resource if not enough instances of the best fitting instance type can be allocated. This might be because of availability of the instance type in the Region or <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon EC2 service limits</a>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html">Allocation strategies</a> in the <i>Batch User Guide</i>.</p><note>
     /// <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
@@ -229,7 +229,7 @@ impl ComputeResource {
     /// <p>The maximum number of vCPUs that a compute environment can support.</p><note>
     /// <p>With any allocation strategy except <code>BEST_FIT</code> using On-Demand (<code>EC2</code>) compute resources, Batch might need to exceed <code>maxvCpus</code> to meet your capacity requirements. In this event, Batch never exceeds <code>maxvCpus</code> by more than a single instance.</p>
     /// </note>
-    pub fn maxv_cpus(&self) -> i32 {
+    pub fn maxv_cpus(&self) -> ::std::option::Option<i32> {
         self.maxv_cpus
     }
     /// <p>The desired number of vCPUS in the compute environment. Batch modifies this value between the minimum and maximum values based on job queue demand.</p><note>
@@ -1040,25 +1040,12 @@ impl ComputeResourceBuilder {
         &self.capacity_tags
     }
     /// Consumes the builder and constructs a [`ComputeResource`](crate::types::ComputeResource).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`r#type`](crate::types::builders::ComputeResourceBuilder::type)
-    /// - [`maxv_cpus`](crate::types::builders::ComputeResourceBuilder::maxv_cpus)
-    pub fn build(self) -> ::std::result::Result<super::super::types::ComputeResource, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::ComputeResource {
-            r#type: self.r#type.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "r#type",
-                    "r#type was not specified but it is required when building ComputeResource",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::ComputeResource {
+        super::super::types::ComputeResource {
+            r#type: self.r#type,
             allocation_strategy: self.allocation_strategy,
             minv_cpus: self.minv_cpus,
-            maxv_cpus: self.maxv_cpus.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "maxv_cpus",
-                    "maxv_cpus was not specified but it is required when building ComputeResource",
-                )
-            })?,
+            maxv_cpus: self.maxv_cpus,
             desiredv_cpus: self.desiredv_cpus,
             instance_types: self.instance_types,
             image_id: self.image_id,
@@ -1075,6 +1062,6 @@ impl ComputeResourceBuilder {
             scaling_policy: self.scaling_policy,
             managed_instances_provider: self.managed_instances_provider,
             capacity_tags: self.capacity_tags,
-        })
+        }
     }
 }

@@ -5,11 +5,11 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct JobQueueDetail {
     /// <p>The job queue name.</p>
-    pub job_queue_name: ::std::string::String,
+    pub job_queue_name: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of the job queue.</p>
-    pub job_queue_arn: ::std::string::String,
+    pub job_queue_arn: ::std::option::Option<::std::string::String>,
     /// <p>Describes the ability of the queue to accept new jobs. If the job queue state is <code>ENABLED</code>, it can accept jobs. If the job queue state is <code>DISABLED</code>, new jobs can't be added to the queue, but jobs already in the queue can finish.</p>
-    pub state: super::super::types::JqState,
+    pub state: ::std::option::Option<super::super::types::JqState>,
     /// <p>The Amazon Resource Name (ARN) of the scheduling policy. The format is <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i> </code>. For example, <code>aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy</code>.</p>
     pub scheduling_policy_arn: ::std::option::Option<::std::string::String>,
     /// <p>The status of the job queue (for example, <code>CREATING</code> or <code>VALID</code>).</p>
@@ -19,9 +19,9 @@ pub struct JobQueueDetail {
     /// <p>The priority of the job queue. Job queue priority determines the order that job queues are evaluated when multiple queues dispatch jobs within a shared compute environment. A higher value for <code>priority</code> indicates a higher priority. Queues are evaluated in cycles, in descending order by priority. For example, a job queue with a priority value of <code>10</code> is evaluated before a queue with a priority value of <code>1</code>. All of the compute environments must be either Amazon EC2 (<code>EC2</code> or <code>SPOT</code>) or Fargate (<code>FARGATE</code> or <code>FARGATE_SPOT</code>). Amazon EC2 and Fargate compute environments can't be mixed.</p><note>
     /// <p>Job queue priority doesn't guarantee that a particular job executes before a job in a lower priority queue. Jobs added to higher priority queues during the queue evaluation cycle might not be evaluated until the next cycle. A job is dispatched from a queue only if resources are available when the queue is evaluated. If there are insufficient resources available at that time, the cycle proceeds to the next queue. This means that jobs added to higher priority queues might have to wait for jobs in multiple lower priority queues to complete before they are dispatched. You can use job dependencies to control the order for jobs from queues with different priorities. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/job_dependencies.html">Job Dependencies</a> in the <i>Batch User Guide</i>.</p>
     /// </note>
-    pub priority: i32,
+    pub priority: ::std::option::Option<i32>,
     /// <p>The compute environments that are attached to the job queue and the order that job placement is preferred. Compute environments are selected for job placement in ascending order.</p>
-    pub compute_environment_order: ::std::vec::Vec<super::super::types::ComputeEnvironmentOrder>,
+    pub compute_environment_order: ::std::option::Option<::std::vec::Vec<super::super::types::ComputeEnvironmentOrder>>,
     /// <p>The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
     pub service_environment_order: ::std::option::Option<::std::vec::Vec<super::super::types::ServiceEnvironmentOrder>>,
     /// <p>The type of job queue. For service jobs that run on SageMaker Training, this value is <code>SAGEMAKER_TRAINING</code>. For regular container jobs, this value is <code>EKS</code>, <code>ECS</code>, or <code>ECS_FARGATE</code> depending on the compute environment.</p>
@@ -33,18 +33,16 @@ pub struct JobQueueDetail {
 }
 impl JobQueueDetail {
     /// <p>The job queue name.</p>
-    pub fn job_queue_name(&self) -> &str {
-        use std::ops::Deref;
-        self.job_queue_name.deref()
+    pub fn job_queue_name(&self) -> ::std::option::Option<&str> {
+        self.job_queue_name.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the job queue.</p>
-    pub fn job_queue_arn(&self) -> &str {
-        use std::ops::Deref;
-        self.job_queue_arn.deref()
+    pub fn job_queue_arn(&self) -> ::std::option::Option<&str> {
+        self.job_queue_arn.as_deref()
     }
     /// <p>Describes the ability of the queue to accept new jobs. If the job queue state is <code>ENABLED</code>, it can accept jobs. If the job queue state is <code>DISABLED</code>, new jobs can't be added to the queue, but jobs already in the queue can finish.</p>
-    pub fn state(&self) -> &super::super::types::JqState {
-        &self.state
+    pub fn state(&self) -> ::std::option::Option<&super::super::types::JqState> {
+        self.state.as_ref()
     }
     /// <p>The Amazon Resource Name (ARN) of the scheduling policy. The format is <code>aws:<i>Partition</i>:batch:<i>Region</i>:<i>Account</i>:scheduling-policy/<i>Name</i> </code>. For example, <code>aws:aws:batch:us-west-2:123456789012:scheduling-policy/MySchedulingPolicy</code>.</p>
     pub fn scheduling_policy_arn(&self) -> ::std::option::Option<&str> {
@@ -61,13 +59,14 @@ impl JobQueueDetail {
     /// <p>The priority of the job queue. Job queue priority determines the order that job queues are evaluated when multiple queues dispatch jobs within a shared compute environment. A higher value for <code>priority</code> indicates a higher priority. Queues are evaluated in cycles, in descending order by priority. For example, a job queue with a priority value of <code>10</code> is evaluated before a queue with a priority value of <code>1</code>. All of the compute environments must be either Amazon EC2 (<code>EC2</code> or <code>SPOT</code>) or Fargate (<code>FARGATE</code> or <code>FARGATE_SPOT</code>). Amazon EC2 and Fargate compute environments can't be mixed.</p><note>
     /// <p>Job queue priority doesn't guarantee that a particular job executes before a job in a lower priority queue. Jobs added to higher priority queues during the queue evaluation cycle might not be evaluated until the next cycle. A job is dispatched from a queue only if resources are available when the queue is evaluated. If there are insufficient resources available at that time, the cycle proceeds to the next queue. This means that jobs added to higher priority queues might have to wait for jobs in multiple lower priority queues to complete before they are dispatched. You can use job dependencies to control the order for jobs from queues with different priorities. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/job_dependencies.html">Job Dependencies</a> in the <i>Batch User Guide</i>.</p>
     /// </note>
-    pub fn priority(&self) -> i32 {
+    pub fn priority(&self) -> ::std::option::Option<i32> {
         self.priority
     }
     /// <p>The compute environments that are attached to the job queue and the order that job placement is preferred. Compute environments are selected for job placement in ascending order.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.compute_environment_order.is_none()`.
     pub fn compute_environment_order(&self) -> &[super::super::types::ComputeEnvironmentOrder] {
-        use std::ops::Deref;
-        self.compute_environment_order.deref()
+        self.compute_environment_order.as_deref().unwrap_or_default()
     }
     /// <p>The order of the service environment associated with the job queue. Job queues with a higher priority are evaluated first when associated with the same service environment.</p>
     ///
@@ -318,51 +317,20 @@ impl JobQueueDetailBuilder {
         &self.job_state_time_limit_actions
     }
     /// Consumes the builder and constructs a [`JobQueueDetail`](crate::types::JobQueueDetail).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`job_queue_name`](crate::types::builders::JobQueueDetailBuilder::job_queue_name)
-    /// - [`job_queue_arn`](crate::types::builders::JobQueueDetailBuilder::job_queue_arn)
-    /// - [`state`](crate::types::builders::JobQueueDetailBuilder::state)
-    /// - [`priority`](crate::types::builders::JobQueueDetailBuilder::priority)
-    /// - [`compute_environment_order`](crate::types::builders::JobQueueDetailBuilder::compute_environment_order)
-    pub fn build(self) -> ::std::result::Result<super::super::types::JobQueueDetail, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::JobQueueDetail {
-            job_queue_name: self.job_queue_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_queue_name",
-                    "job_queue_name was not specified but it is required when building JobQueueDetail",
-                )
-            })?,
-            job_queue_arn: self.job_queue_arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_queue_arn",
-                    "job_queue_arn was not specified but it is required when building JobQueueDetail",
-                )
-            })?,
-            state: self.state.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "state",
-                    "state was not specified but it is required when building JobQueueDetail",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::JobQueueDetail {
+        super::super::types::JobQueueDetail {
+            job_queue_name: self.job_queue_name,
+            job_queue_arn: self.job_queue_arn,
+            state: self.state,
             scheduling_policy_arn: self.scheduling_policy_arn,
             status: self.status,
             status_reason: self.status_reason,
-            priority: self.priority.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "priority",
-                    "priority was not specified but it is required when building JobQueueDetail",
-                )
-            })?,
-            compute_environment_order: self.compute_environment_order.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "compute_environment_order",
-                    "compute_environment_order was not specified but it is required when building JobQueueDetail",
-                )
-            })?,
+            priority: self.priority,
+            compute_environment_order: self.compute_environment_order,
             service_environment_order: self.service_environment_order,
             job_queue_type: self.job_queue_type,
             tags: self.tags,
             job_state_time_limit_actions: self.job_state_time_limit_actions,
-        })
+        }
     }
 }

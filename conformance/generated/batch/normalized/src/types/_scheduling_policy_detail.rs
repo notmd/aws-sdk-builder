@@ -5,9 +5,9 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct SchedulingPolicyDetail {
     /// <p>The name of the fair-share scheduling policy.</p>
-    pub name: ::std::string::String,
+    pub name: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Resource Name (ARN) of the scheduling policy. An example is <code>arn:<i>aws</i>:batch:<i>us-east-1</i>:<i>123456789012</i>:scheduling-policy/<i>HighPriority</i> </code>.</p>
-    pub arn: ::std::string::String,
+    pub arn: ::std::option::Option<::std::string::String>,
     /// <p>The quota share scheduling policy details.</p>
     pub quota_share_policy: ::std::option::Option<super::super::types::QuotaSharePolicy>,
     /// <p>The fair-share scheduling policy details.</p>
@@ -17,14 +17,12 @@ pub struct SchedulingPolicyDetail {
 }
 impl SchedulingPolicyDetail {
     /// <p>The name of the fair-share scheduling policy.</p>
-    pub fn name(&self) -> &str {
-        use std::ops::Deref;
-        self.name.deref()
+    pub fn name(&self) -> ::std::option::Option<&str> {
+        self.name.as_deref()
     }
     /// <p>The Amazon Resource Name (ARN) of the scheduling policy. An example is <code>arn:<i>aws</i>:batch:<i>us-east-1</i>:<i>123456789012</i>:scheduling-policy/<i>HighPriority</i> </code>.</p>
-    pub fn arn(&self) -> &str {
-        use std::ops::Deref;
-        self.arn.deref()
+    pub fn arn(&self) -> ::std::option::Option<&str> {
+        self.arn.as_deref()
     }
     /// <p>The quota share scheduling policy details.</p>
     pub fn quota_share_policy(&self) -> ::std::option::Option<&super::super::types::QuotaSharePolicy> {
@@ -136,26 +134,13 @@ impl SchedulingPolicyDetailBuilder {
         &self.tags
     }
     /// Consumes the builder and constructs a [`SchedulingPolicyDetail`](crate::types::SchedulingPolicyDetail).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`name`](crate::types::builders::SchedulingPolicyDetailBuilder::name)
-    /// - [`arn`](crate::types::builders::SchedulingPolicyDetailBuilder::arn)
-    pub fn build(self) -> ::std::result::Result<super::super::types::SchedulingPolicyDetail, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::SchedulingPolicyDetail {
-            name: self.name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "name",
-                    "name was not specified but it is required when building SchedulingPolicyDetail",
-                )
-            })?,
-            arn: self.arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "arn",
-                    "arn was not specified but it is required when building SchedulingPolicyDetail",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::SchedulingPolicyDetail {
+        super::super::types::SchedulingPolicyDetail {
+            name: self.name,
+            arn: self.arn,
             quota_share_policy: self.quota_share_policy,
             fairshare_policy: self.fairshare_policy,
             tags: self.tags,
-        })
+        }
     }
 }

@@ -6,9 +6,9 @@ pub struct SubmitJobOutput {
     /// <p>The Amazon Resource Name (ARN) for the job.</p>
     pub job_arn: ::std::option::Option<::std::string::String>,
     /// <p>The name of the job.</p>
-    pub job_name: ::std::string::String,
+    pub job_name: ::std::option::Option<::std::string::String>,
     /// <p>The unique identifier for the job.</p>
-    pub job_id: ::std::string::String,
+    pub job_id: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl SubmitJobOutput {
@@ -17,14 +17,12 @@ impl SubmitJobOutput {
         self.job_arn.as_deref()
     }
     /// <p>The name of the job.</p>
-    pub fn job_name(&self) -> &str {
-        use std::ops::Deref;
-        self.job_name.deref()
+    pub fn job_name(&self) -> ::std::option::Option<&str> {
+        self.job_name.as_deref()
     }
     /// <p>The unique identifier for the job.</p>
-    pub fn job_id(&self) -> &str {
-        use std::ops::Deref;
-        self.job_id.deref()
+    pub fn job_id(&self) -> ::std::option::Option<&str> {
+        self.job_id.as_deref()
     }
 }
 impl ::aws_types::request_id::RequestId for SubmitJobOutput {
@@ -103,25 +101,12 @@ impl SubmitJobOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`SubmitJobOutput`](crate::operation::submit_job::SubmitJobOutput).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`job_name`](crate::operation::submit_job::builders::SubmitJobOutputBuilder::job_name)
-    /// - [`job_id`](crate::operation::submit_job::builders::SubmitJobOutputBuilder::job_id)
-    pub fn build(self) -> ::std::result::Result<super::super::super::operation::submit_job::SubmitJobOutput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::super::operation::submit_job::SubmitJobOutput {
+    pub fn build(self) -> super::super::super::operation::submit_job::SubmitJobOutput {
+        super::super::super::operation::submit_job::SubmitJobOutput {
             job_arn: self.job_arn,
-            job_name: self.job_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_name",
-                    "job_name was not specified but it is required when building SubmitJobOutput",
-                )
-            })?,
-            job_id: self.job_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_id",
-                    "job_id was not specified but it is required when building SubmitJobOutput",
-                )
-            })?,
+            job_name: self.job_name,
+            job_id: self.job_id,
             _request_id: self._request_id,
-        })
+        }
     }
 }

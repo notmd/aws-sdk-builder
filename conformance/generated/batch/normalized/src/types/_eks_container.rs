@@ -7,7 +7,7 @@ pub struct EksContainer {
     /// <p>The name of the container. If the name isn't specified, the default name "<code>Default</code>" is used. Each container in a pod must have a unique name.</p>
     pub name: ::std::option::Option<::std::string::String>,
     /// <p>The Docker image used to start the container.</p>
-    pub image: ::std::string::String,
+    pub image: ::std::option::Option<::std::string::String>,
     /// <p>The image pull policy for the container. Supported values are <code>Always</code>, <code>IfNotPresent</code>, and <code>Never</code>. This parameter defaults to <code>IfNotPresent</code>. However, if the <code>:latest</code> tag is specified, it defaults to <code>Always</code>. For more information, see <a href="https://kubernetes.io/docs/concepts/containers/images/#updating-images">Updating images</a> in the <i>Kubernetes documentation</i>.</p>
     pub image_pull_policy: ::std::option::Option<::std::string::String>,
     /// <p>The entrypoint for the container. This isn't run within a shell. If this isn't specified, the <code>ENTRYPOINT</code> of the container image is used. Environment variable references are expanded using the container's environment.</p>
@@ -33,9 +33,8 @@ impl EksContainer {
         self.name.as_deref()
     }
     /// <p>The Docker image used to start the container.</p>
-    pub fn image(&self) -> &str {
-        use std::ops::Deref;
-        self.image.deref()
+    pub fn image(&self) -> ::std::option::Option<&str> {
+        self.image.as_deref()
     }
     /// <p>The image pull policy for the container. Supported values are <code>Always</code>, <code>IfNotPresent</code>, and <code>Never</code>. This parameter defaults to <code>IfNotPresent</code>. However, if the <code>:latest</code> tag is specified, it defaults to <code>Always</code>. For more information, see <a href="https://kubernetes.io/docs/concepts/containers/images/#updating-images">Updating images</a> in the <i>Kubernetes documentation</i>.</p>
     pub fn image_pull_policy(&self) -> ::std::option::Option<&str> {
@@ -264,17 +263,10 @@ impl EksContainerBuilder {
         &self.security_context
     }
     /// Consumes the builder and constructs a [`EksContainer`](crate::types::EksContainer).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`image`](crate::types::builders::EksContainerBuilder::image)
-    pub fn build(self) -> ::std::result::Result<super::super::types::EksContainer, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::EksContainer {
+    pub fn build(self) -> super::super::types::EksContainer {
+        super::super::types::EksContainer {
             name: self.name,
-            image: self.image.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "image",
-                    "image was not specified but it is required when building EksContainer",
-                )
-            })?,
+            image: self.image,
             image_pull_policy: self.image_pull_policy,
             command: self.command,
             args: self.args,
@@ -282,6 +274,6 @@ impl EksContainerBuilder {
             resources: self.resources,
             volume_mounts: self.volume_mounts,
             security_context: self.security_context,
-        })
+        }
     }
 }

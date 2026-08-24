@@ -3,10 +3,8 @@ pub fn ser_quota_share_policy(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::QuotaSharePolicy,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
-        object
-            .key("idleResourceAssignmentStrategy")
-            .string(input.idle_resource_assignment_strategy.as_str());
+    if let Some(var_1) = &input.idle_resource_assignment_strategy {
+        object.key("idleResourceAssignmentStrategy").string(var_1.as_str());
     }
     Ok(())
 }
@@ -52,9 +50,7 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::quota_share_policy_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::quota_share_policy_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

@@ -5,13 +5,12 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct SchedulingPolicyListingDetail {
     /// <p>Amazon Resource Name (ARN) of the scheduling policy.</p>
-    pub arn: ::std::string::String,
+    pub arn: ::std::option::Option<::std::string::String>,
 }
 impl SchedulingPolicyListingDetail {
     /// <p>Amazon Resource Name (ARN) of the scheduling policy.</p>
-    pub fn arn(&self) -> &str {
-        use std::ops::Deref;
-        self.arn.deref()
+    pub fn arn(&self) -> ::std::option::Option<&str> {
+        self.arn.as_deref()
     }
 }
 impl SchedulingPolicyListingDetail {
@@ -44,16 +43,7 @@ impl SchedulingPolicyListingDetailBuilder {
         &self.arn
     }
     /// Consumes the builder and constructs a [`SchedulingPolicyListingDetail`](crate::types::SchedulingPolicyListingDetail).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`arn`](crate::types::builders::SchedulingPolicyListingDetailBuilder::arn)
-    pub fn build(self) -> ::std::result::Result<super::super::types::SchedulingPolicyListingDetail, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::SchedulingPolicyListingDetail {
-            arn: self.arn.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "arn",
-                    "arn was not specified but it is required when building SchedulingPolicyListingDetail",
-                )
-            })?,
-        })
+    pub fn build(self) -> super::super::types::SchedulingPolicyListingDetail {
+        super::super::types::SchedulingPolicyListingDetail { arn: self.arn }
     }
 }

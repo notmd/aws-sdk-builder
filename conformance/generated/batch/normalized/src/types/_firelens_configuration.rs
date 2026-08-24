@@ -5,14 +5,14 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct FirelensConfiguration {
     /// <p>The log router to use. The valid values are <code>fluentd</code> or <code>fluentbit</code>.</p>
-    pub r#type: super::super::types::FirelensConfigurationType,
+    pub r#type: ::std::option::Option<super::super::types::FirelensConfigurationType>,
     /// <p>The options to use when configuring the log router. This field is optional and can be used to specify a custom configuration file or to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event. If specified, the syntax to use is <code>"options":{"enable-ecs-log-metadata":"true|false","config-file-type:"s3|file","config-file-value":"arn:aws:s3:::mybucket/fluent.conf|filepath"}</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef">Creating a task definition that uses a FireLens configuration</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
     pub options: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 }
 impl FirelensConfiguration {
     /// <p>The log router to use. The valid values are <code>fluentd</code> or <code>fluentbit</code>.</p>
-    pub fn r#type(&self) -> &super::super::types::FirelensConfigurationType {
-        &self.r#type
+    pub fn r#type(&self) -> ::std::option::Option<&super::super::types::FirelensConfigurationType> {
+        self.r#type.as_ref()
     }
     /// <p>The options to use when configuring the log router. This field is optional and can be used to specify a custom configuration file or to add additional metadata, such as the task, task definition, cluster, and container instance details to the log event. If specified, the syntax to use is <code>"options":{"enable-ecs-log-metadata":"true|false","config-file-type:"s3|file","config-file-value":"arn:aws:s3:::mybucket/fluent.conf|filepath"}</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef">Creating a task definition that uses a FireLens configuration</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
     pub fn options(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
@@ -70,17 +70,10 @@ impl FirelensConfigurationBuilder {
         &self.options
     }
     /// Consumes the builder and constructs a [`FirelensConfiguration`](crate::types::FirelensConfiguration).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`r#type`](crate::types::builders::FirelensConfigurationBuilder::type)
-    pub fn build(self) -> ::std::result::Result<super::super::types::FirelensConfiguration, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::types::FirelensConfiguration {
-            r#type: self.r#type.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "r#type",
-                    "r#type was not specified but it is required when building FirelensConfiguration",
-                )
-            })?,
+    pub fn build(self) -> super::super::types::FirelensConfiguration {
+        super::super::types::FirelensConfiguration {
+            r#type: self.r#type,
             options: self.options,
-        })
+        }
     }
 }

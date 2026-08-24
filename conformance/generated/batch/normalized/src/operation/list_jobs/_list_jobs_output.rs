@@ -4,16 +4,17 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListJobsOutput {
     /// <p>A list of job summaries that match the request.</p>
-    pub job_summary_list: ::std::vec::Vec<super::super::super::types::JobSummary>,
+    pub job_summary_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::JobSummary>>,
     /// <p>The <code>nextToken</code> value to include in a future <code>ListJobs</code> request. When the results of a <code>ListJobs</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl ListJobsOutput {
     /// <p>A list of job summaries that match the request.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.job_summary_list.is_none()`.
     pub fn job_summary_list(&self) -> &[super::super::super::types::JobSummary] {
-        use std::ops::Deref;
-        self.job_summary_list.deref()
+        self.job_summary_list.as_deref().unwrap_or_default()
     }
     /// <p>The <code>nextToken</code> value to include in a future <code>ListJobs</code> request. When the results of a <code>ListJobs</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -85,18 +86,11 @@ impl ListJobsOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListJobsOutput`](crate::operation::list_jobs::ListJobsOutput).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`job_summary_list`](crate::operation::list_jobs::builders::ListJobsOutputBuilder::job_summary_list)
-    pub fn build(self) -> ::std::result::Result<super::super::super::operation::list_jobs::ListJobsOutput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(super::super::super::operation::list_jobs::ListJobsOutput {
-            job_summary_list: self.job_summary_list.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_summary_list",
-                    "job_summary_list was not specified but it is required when building ListJobsOutput",
-                )
-            })?,
+    pub fn build(self) -> super::super::super::operation::list_jobs::ListJobsOutput {
+        super::super::super::operation::list_jobs::ListJobsOutput {
+            job_summary_list: self.job_summary_list,
             next_token: self.next_token,
             _request_id: self._request_id,
-        })
+        }
     }
 }

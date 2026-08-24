@@ -73,9 +73,7 @@ pub fn de_update_service_environment_http_response(
         output = super::super::protocol_serde::shape_update_service_environment::de_update_service_environment(_response_body, output)
             .map_err(super::super::operation::update_service_environment::UpdateServiceEnvironmentError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        super::super::serde_util::update_service_environment_output_output_correct_errors(output)
-            .build()
-            .map_err(super::super::operation::update_service_environment::UpdateServiceEnvironmentError::unhandled)?
+        super::super::serde_util::update_service_environment_output_output_correct_errors(output).build()
     })
 }
 

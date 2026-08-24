@@ -4,16 +4,17 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ListJobsByConsumableResourceOutput {
     /// <p>The list of jobs that require the specified consumable resources.</p>
-    pub jobs: ::std::vec::Vec<super::super::super::types::ListJobsByConsumableResourceSummary>,
+    pub jobs: ::std::option::Option<::std::vec::Vec<super::super::super::types::ListJobsByConsumableResourceSummary>>,
     /// <p>The <code>nextToken</code> value to include in a future <code>ListJobsByConsumableResource</code> request. When the results of a <code>ListJobsByConsumableResource</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
     _request_id: Option<String>,
 }
 impl ListJobsByConsumableResourceOutput {
     /// <p>The list of jobs that require the specified consumable resources.</p>
+    ///
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.jobs.is_none()`.
     pub fn jobs(&self) -> &[super::super::super::types::ListJobsByConsumableResourceSummary] {
-        use std::ops::Deref;
-        self.jobs.deref()
+        self.jobs.as_deref().unwrap_or_default()
     }
     /// <p>The <code>nextToken</code> value to include in a future <code>ListJobsByConsumableResource</code> request. When the results of a <code>ListJobsByConsumableResource</code> request exceed <code>maxResults</code>, this value can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
@@ -85,23 +86,11 @@ impl ListJobsByConsumableResourceOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`ListJobsByConsumableResourceOutput`](crate::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`jobs`](crate::operation::list_jobs_by_consumable_resource::builders::ListJobsByConsumableResourceOutputBuilder::jobs)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<
-        super::super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput,
-        ::aws_smithy_types::error::operation::BuildError,
-    > {
-        ::std::result::Result::Ok(super::super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput {
-            jobs: self.jobs.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "jobs",
-                    "jobs was not specified but it is required when building ListJobsByConsumableResourceOutput",
-                )
-            })?,
+    pub fn build(self) -> super::super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput {
+        super::super::super::operation::list_jobs_by_consumable_resource::ListJobsByConsumableResourceOutput {
+            jobs: self.jobs,
             next_token: self.next_token,
             _request_id: self._request_id,
-        })
+        }
     }
 }

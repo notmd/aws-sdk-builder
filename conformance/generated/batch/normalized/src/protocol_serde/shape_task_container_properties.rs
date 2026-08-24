@@ -45,97 +45,97 @@ pub fn ser_task_container_properties(
         super::super::protocol_serde::shape_firelens_configuration::ser_firelens_configuration(&mut object_14, var_13)?;
         object_14.finish();
     }
-    {
-        object.key("image").string(input.image.as_str());
+    if let Some(var_15) = &input.image {
+        object.key("image").string(var_15.as_str());
     }
-    if let Some(var_15) = &input.linux_parameters {
+    if let Some(var_16) = &input.linux_parameters {
         #[allow(unused_mut)]
-        let mut object_16 = object.key("linuxParameters").start_object();
-        super::super::protocol_serde::shape_linux_parameters::ser_linux_parameters(&mut object_16, var_15)?;
-        object_16.finish();
+        let mut object_17 = object.key("linuxParameters").start_object();
+        super::super::protocol_serde::shape_linux_parameters::ser_linux_parameters(&mut object_17, var_16)?;
+        object_17.finish();
     }
-    if let Some(var_17) = &input.log_configuration {
+    if let Some(var_18) = &input.log_configuration {
         #[allow(unused_mut)]
-        let mut object_18 = object.key("logConfiguration").start_object();
-        super::super::protocol_serde::shape_log_configuration::ser_log_configuration(&mut object_18, var_17)?;
-        object_18.finish();
+        let mut object_19 = object.key("logConfiguration").start_object();
+        super::super::protocol_serde::shape_log_configuration::ser_log_configuration(&mut object_19, var_18)?;
+        object_19.finish();
     }
-    if let Some(var_19) = &input.mount_points {
-        let mut array_20 = object.key("mountPoints").start_array();
-        for item_21 in var_19 {
+    if let Some(var_20) = &input.mount_points {
+        let mut array_21 = object.key("mountPoints").start_array();
+        for item_22 in var_20 {
             {
                 #[allow(unused_mut)]
-                let mut object_22 = array_20.value().start_object();
-                super::super::protocol_serde::shape_mount_point::ser_mount_point(&mut object_22, item_21)?;
-                object_22.finish();
+                let mut object_23 = array_21.value().start_object();
+                super::super::protocol_serde::shape_mount_point::ser_mount_point(&mut object_23, item_22)?;
+                object_23.finish();
             }
         }
-        array_20.finish();
+        array_21.finish();
     }
-    if let Some(var_23) = &input.name {
-        object.key("name").string(var_23.as_str());
+    if let Some(var_24) = &input.name {
+        object.key("name").string(var_24.as_str());
     }
-    if let Some(var_24) = &input.privileged {
-        object.key("privileged").boolean(*var_24);
+    if let Some(var_25) = &input.privileged {
+        object.key("privileged").boolean(*var_25);
     }
-    if let Some(var_25) = &input.readonly_root_filesystem {
-        object.key("readonlyRootFilesystem").boolean(*var_25);
+    if let Some(var_26) = &input.readonly_root_filesystem {
+        object.key("readonlyRootFilesystem").boolean(*var_26);
     }
-    if let Some(var_26) = &input.repository_credentials {
+    if let Some(var_27) = &input.repository_credentials {
         #[allow(unused_mut)]
-        let mut object_27 = object.key("repositoryCredentials").start_object();
-        super::super::protocol_serde::shape_repository_credentials::ser_repository_credentials(&mut object_27, var_26)?;
-        object_27.finish();
+        let mut object_28 = object.key("repositoryCredentials").start_object();
+        super::super::protocol_serde::shape_repository_credentials::ser_repository_credentials(&mut object_28, var_27)?;
+        object_28.finish();
     }
-    if let Some(var_28) = &input.resource_requirements {
-        let mut array_29 = object.key("resourceRequirements").start_array();
-        for item_30 in var_28 {
+    if let Some(var_29) = &input.resource_requirements {
+        let mut array_30 = object.key("resourceRequirements").start_array();
+        for item_31 in var_29 {
             {
                 #[allow(unused_mut)]
-                let mut object_31 = array_29.value().start_object();
-                super::super::protocol_serde::shape_resource_requirement::ser_resource_requirement(&mut object_31, item_30)?;
-                object_31.finish();
+                let mut object_32 = array_30.value().start_object();
+                super::super::protocol_serde::shape_resource_requirement::ser_resource_requirement(&mut object_32, item_31)?;
+                object_32.finish();
             }
         }
-        array_29.finish();
+        array_30.finish();
     }
-    if let Some(var_32) = &input.secrets {
-        let mut array_33 = object.key("secrets").start_array();
-        for item_34 in var_32 {
+    if let Some(var_33) = &input.secrets {
+        let mut array_34 = object.key("secrets").start_array();
+        for item_35 in var_33 {
             {
                 #[allow(unused_mut)]
-                let mut object_35 = array_33.value().start_object();
-                super::super::protocol_serde::shape_secret::ser_secret(&mut object_35, item_34)?;
-                object_35.finish();
+                let mut object_36 = array_34.value().start_object();
+                super::super::protocol_serde::shape_secret::ser_secret(&mut object_36, item_35)?;
+                object_36.finish();
             }
         }
-        array_33.finish();
+        array_34.finish();
     }
-    if let Some(var_36) = &input.ulimits {
-        let mut array_37 = object.key("ulimits").start_array();
-        for item_38 in var_36 {
+    if let Some(var_37) = &input.ulimits {
+        let mut array_38 = object.key("ulimits").start_array();
+        for item_39 in var_37 {
             {
                 #[allow(unused_mut)]
-                let mut object_39 = array_37.value().start_object();
-                super::super::protocol_serde::shape_ulimit::ser_ulimit(&mut object_39, item_38)?;
-                object_39.finish();
+                let mut object_40 = array_38.value().start_object();
+                super::super::protocol_serde::shape_ulimit::ser_ulimit(&mut object_40, item_39)?;
+                object_40.finish();
             }
         }
-        array_37.finish();
+        array_38.finish();
     }
-    if let Some(var_40) = &input.user {
-        object.key("user").string(var_40.as_str());
+    if let Some(var_41) = &input.user {
+        object.key("user").string(var_41.as_str());
     }
-    if let Some(var_41) = &input.start_timeout {
+    if let Some(var_42) = &input.start_timeout {
         object.key("startTimeout").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_41).into()),
+            ::aws_smithy_types::Number::NegInt((*var_42).into()),
         );
     }
-    if let Some(var_42) = &input.stop_timeout {
+    if let Some(var_43) = &input.stop_timeout {
         object.key("stopTimeout").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((*var_42).into()),
+            ::aws_smithy_types::Number::NegInt((*var_43).into()),
         );
     }
     Ok(())
@@ -275,11 +275,7 @@ where
                     }
                 }
             }
-            Ok(Some(
-                super::super::serde_util::task_container_properties_correct_errors(builder)
-                    .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-            ))
+            Ok(Some(super::super::serde_util::task_container_properties_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

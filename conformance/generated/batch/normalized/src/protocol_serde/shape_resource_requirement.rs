@@ -3,11 +3,11 @@ pub fn ser_resource_requirement(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::ResourceRequirement,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
-        object.key("value").string(input.value.as_str());
+    if let Some(var_1) = &input.value {
+        object.key("value").string(var_1.as_str());
     }
-    {
-        object.key("type").string(input.r#type.as_str());
+    if let Some(var_2) = &input.r#type {
+        object.key("type").string(var_2.as_str());
     }
     Ok(())
 }
@@ -57,9 +57,7 @@ where
                     }
                 }
             }
-            Ok(Some(super::super::serde_util::resource_requirement_correct_errors(builder).build().map_err(
-                |err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err),
-            )?))
+            Ok(Some(super::super::serde_util::resource_requirement_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

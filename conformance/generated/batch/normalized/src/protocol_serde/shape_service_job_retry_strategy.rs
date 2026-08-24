@@ -3,23 +3,23 @@ pub fn ser_service_job_retry_strategy(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::ServiceJobRetryStrategy,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
+    if let Some(var_1) = &input.attempts {
         object.key("attempts").number(
             #[allow(clippy::useless_conversion)]
-            ::aws_smithy_types::Number::NegInt((input.attempts).into()),
+            ::aws_smithy_types::Number::NegInt((*var_1).into()),
         );
     }
-    if let Some(var_1) = &input.evaluate_on_exit {
-        let mut array_2 = object.key("evaluateOnExit").start_array();
-        for item_3 in var_1 {
+    if let Some(var_2) = &input.evaluate_on_exit {
+        let mut array_3 = object.key("evaluateOnExit").start_array();
+        for item_4 in var_2 {
             {
                 #[allow(unused_mut)]
-                let mut object_4 = array_2.value().start_object();
-                super::super::protocol_serde::shape_service_job_evaluate_on_exit::ser_service_job_evaluate_on_exit(&mut object_4, item_3)?;
-                object_4.finish();
+                let mut object_5 = array_3.value().start_object();
+                super::super::protocol_serde::shape_service_job_evaluate_on_exit::ser_service_job_evaluate_on_exit(&mut object_5, item_4)?;
+                object_5.finish();
             }
         }
-        array_2.finish();
+        array_3.finish();
     }
     Ok(())
 }
@@ -71,11 +71,7 @@ where
                     }
                 }
             }
-            Ok(Some(
-                super::super::serde_util::service_job_retry_strategy_correct_errors(builder)
-                    .build()
-                    .map_err(|err| ::aws_smithy_json::deserialize::error::DeserializeError::custom_source("Response was invalid", err))?,
-            ))
+            Ok(Some(super::super::serde_util::service_job_retry_strategy_correct_errors(builder).build()))
         }
         _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
             "expected start object or null",

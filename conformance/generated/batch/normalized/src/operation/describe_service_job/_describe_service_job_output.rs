@@ -14,11 +14,11 @@ pub struct DescribeServiceJobOutput {
     /// <p>The Amazon Resource Name (ARN) of the service job.</p>
     pub job_arn: ::std::option::Option<::std::string::String>,
     /// <p>The job ID for the service job.</p>
-    pub job_id: ::std::string::String,
+    pub job_id: ::std::option::Option<::std::string::String>,
     /// <p>The name of the service job.</p>
-    pub job_name: ::std::string::String,
+    pub job_name: ::std::option::Option<::std::string::String>,
     /// <p>The ARN of the job queue that the service job is associated with.</p>
-    pub job_queue: ::std::string::String,
+    pub job_queue: ::std::option::Option<::std::string::String>,
     /// <p>The latest attempt associated with the service job.</p>
     pub latest_attempt: ::std::option::Option<super::super::super::types::LatestServiceJobAttempt>,
     /// <p>The retry strategy to use for failed service jobs that are submitted with this service job.</p>
@@ -30,7 +30,7 @@ pub struct DescribeServiceJobOutput {
     /// <p>The request, in JSON, for the service that the <code>SubmitServiceJob</code> operation is queueing.</p>
     pub service_request_payload: ::std::option::Option<::std::string::String>,
     /// <p>The type of service job. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
-    pub service_job_type: super::super::super::types::ServiceJobType,
+    pub service_job_type: ::std::option::Option<super::super::super::types::ServiceJobType>,
     /// <p>The share identifier for the service job. This is used for fair-share scheduling.</p>
     pub share_identifier: ::std::option::Option<::std::string::String>,
     /// <p>The name of the quota share that the service job is associated with.</p>
@@ -40,9 +40,9 @@ pub struct DescribeServiceJobOutput {
     /// <p>Summarizes the preemptions of the service job. This field appears on a service job when it has been preempted.</p>
     pub preemption_summary: ::std::option::Option<super::super::super::types::ServiceJobPreemptionSummary>,
     /// <p>The Unix timestamp (in milliseconds) for when the service job was started.</p>
-    pub started_at: i64,
+    pub started_at: ::std::option::Option<i64>,
     /// <p>The current status of the service job.</p>
-    pub status: super::super::super::types::ServiceJobStatus,
+    pub status: ::std::option::Option<super::super::super::types::ServiceJobStatus>,
     /// <p>A short, human-readable string to provide more details for the current status of the service job.</p>
     pub status_reason: ::std::option::Option<::std::string::String>,
     /// <p>The Unix timestamp (in milliseconds) for when the service job stopped running.</p>
@@ -79,19 +79,16 @@ impl DescribeServiceJobOutput {
         self.job_arn.as_deref()
     }
     /// <p>The job ID for the service job.</p>
-    pub fn job_id(&self) -> &str {
-        use std::ops::Deref;
-        self.job_id.deref()
+    pub fn job_id(&self) -> ::std::option::Option<&str> {
+        self.job_id.as_deref()
     }
     /// <p>The name of the service job.</p>
-    pub fn job_name(&self) -> &str {
-        use std::ops::Deref;
-        self.job_name.deref()
+    pub fn job_name(&self) -> ::std::option::Option<&str> {
+        self.job_name.as_deref()
     }
     /// <p>The ARN of the job queue that the service job is associated with.</p>
-    pub fn job_queue(&self) -> &str {
-        use std::ops::Deref;
-        self.job_queue.deref()
+    pub fn job_queue(&self) -> ::std::option::Option<&str> {
+        self.job_queue.as_deref()
     }
     /// <p>The latest attempt associated with the service job.</p>
     pub fn latest_attempt(&self) -> ::std::option::Option<&super::super::super::types::LatestServiceJobAttempt> {
@@ -114,8 +111,8 @@ impl DescribeServiceJobOutput {
         self.service_request_payload.as_deref()
     }
     /// <p>The type of service job. For SageMaker Training jobs, this value is <code>SAGEMAKER_TRAINING</code>.</p>
-    pub fn service_job_type(&self) -> &super::super::super::types::ServiceJobType {
-        &self.service_job_type
+    pub fn service_job_type(&self) -> ::std::option::Option<&super::super::super::types::ServiceJobType> {
+        self.service_job_type.as_ref()
     }
     /// <p>The share identifier for the service job. This is used for fair-share scheduling.</p>
     pub fn share_identifier(&self) -> ::std::option::Option<&str> {
@@ -134,12 +131,12 @@ impl DescribeServiceJobOutput {
         self.preemption_summary.as_ref()
     }
     /// <p>The Unix timestamp (in milliseconds) for when the service job was started.</p>
-    pub fn started_at(&self) -> i64 {
+    pub fn started_at(&self) -> ::std::option::Option<i64> {
         self.started_at
     }
     /// <p>The current status of the service job.</p>
-    pub fn status(&self) -> &super::super::super::types::ServiceJobStatus {
-        &self.status
+    pub fn status(&self) -> ::std::option::Option<&super::super::super::types::ServiceJobStatus> {
+        self.status.as_ref()
     }
     /// <p>A short, human-readable string to provide more details for the current status of the service job.</p>
     pub fn status_reason(&self) -> ::std::option::Option<&str> {
@@ -571,73 +568,33 @@ impl DescribeServiceJobOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`DescribeServiceJobOutput`](crate::operation::describe_service_job::DescribeServiceJobOutput).
-    /// This method will fail if any of the following fields are not set:
-    /// - [`job_id`](crate::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder::job_id)
-    /// - [`job_name`](crate::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder::job_name)
-    /// - [`job_queue`](crate::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder::job_queue)
-    /// - [`service_job_type`](crate::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder::service_job_type)
-    /// - [`started_at`](crate::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder::started_at)
-    /// - [`status`](crate::operation::describe_service_job::builders::DescribeServiceJobOutputBuilder::status)
-    pub fn build(
-        self,
-    ) -> ::std::result::Result<super::super::super::operation::describe_service_job::DescribeServiceJobOutput, ::aws_smithy_types::error::operation::BuildError>
-    {
-        ::std::result::Result::Ok(super::super::super::operation::describe_service_job::DescribeServiceJobOutput {
+    pub fn build(self) -> super::super::super::operation::describe_service_job::DescribeServiceJobOutput {
+        super::super::super::operation::describe_service_job::DescribeServiceJobOutput {
             attempts: self.attempts,
             capacity_usage: self.capacity_usage,
             created_at: self.created_at,
             is_terminated: self.is_terminated,
             job_arn: self.job_arn,
-            job_id: self.job_id.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_id",
-                    "job_id was not specified but it is required when building DescribeServiceJobOutput",
-                )
-            })?,
-            job_name: self.job_name.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_name",
-                    "job_name was not specified but it is required when building DescribeServiceJobOutput",
-                )
-            })?,
-            job_queue: self.job_queue.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "job_queue",
-                    "job_queue was not specified but it is required when building DescribeServiceJobOutput",
-                )
-            })?,
+            job_id: self.job_id,
+            job_name: self.job_name,
+            job_queue: self.job_queue,
             latest_attempt: self.latest_attempt,
             retry_strategy: self.retry_strategy,
             scheduled_at: self.scheduled_at,
             scheduling_priority: self.scheduling_priority,
             service_request_payload: self.service_request_payload,
-            service_job_type: self.service_job_type.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "service_job_type",
-                    "service_job_type was not specified but it is required when building DescribeServiceJobOutput",
-                )
-            })?,
+            service_job_type: self.service_job_type,
             share_identifier: self.share_identifier,
             quota_share_name: self.quota_share_name,
             preemption_configuration: self.preemption_configuration,
             preemption_summary: self.preemption_summary,
-            started_at: self.started_at.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "started_at",
-                    "started_at was not specified but it is required when building DescribeServiceJobOutput",
-                )
-            })?,
-            status: self.status.ok_or_else(|| {
-                ::aws_smithy_types::error::operation::BuildError::missing_field(
-                    "status",
-                    "status was not specified but it is required when building DescribeServiceJobOutput",
-                )
-            })?,
+            started_at: self.started_at,
+            status: self.status,
             status_reason: self.status_reason,
             stopped_at: self.stopped_at,
             tags: self.tags,
             timeout_config: self.timeout_config,
             _request_id: self._request_id,
-        })
+        }
     }
 }

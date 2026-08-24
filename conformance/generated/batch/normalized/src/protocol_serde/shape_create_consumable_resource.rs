@@ -73,9 +73,7 @@ pub fn de_create_consumable_resource_http_response(
         output = super::super::protocol_serde::shape_create_consumable_resource::de_create_consumable_resource(_response_body, output)
             .map_err(super::super::operation::create_consumable_resource::CreateConsumableResourceError::unhandled)?;
         output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));
-        super::super::serde_util::create_consumable_resource_output_output_correct_errors(output)
-            .build()
-            .map_err(super::super::operation::create_consumable_resource::CreateConsumableResourceError::unhandled)?
+        super::super::serde_util::create_consumable_resource_output_output_correct_errors(output).build()
     })
 }
 
