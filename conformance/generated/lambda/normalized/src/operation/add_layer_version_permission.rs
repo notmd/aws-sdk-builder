@@ -277,7 +277,8 @@ impl ::aws_smithy_runtime_api::client::ser_de::SerializeRequest for AddLayerVers
                 let input_2 = input_2
                     .as_ref()
                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("version_number", "cannot be empty or unset"))?;
-                let version_number = ::aws_smithy_http::label::fmt_string(input_2, ::aws_smithy_http::label::EncodingStrategy::Default);
+                let mut version_number_encoder = ::aws_smithy_types::primitive::Encoder::from(*input_2);
+                let version_number = version_number_encoder.encode();
                 if version_number.is_empty() {
                     return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
                         "version_number",

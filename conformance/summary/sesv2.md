@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sesv2
-**Progress:** `1159/1159` files compared · `1141` matched · `17` mismatches · `1` missing · `0` extra · `98.45%` match (100.00% means fully matched)
+**Progress:** `1159/1159` files compared · `1144` matched · `14` mismatches · `1` missing · `0` extra · `98.71%` match (100.00% means fully matched)
 
 ### `src/config/auth.rs`
 
@@ -161,23 +161,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  mod lens;
 ```
 
-### `src/operation/get_reputation_entity.rs`
-
-```diff
---- reference/src/operation/get_reputation_entity.rs
-+++ generated/src/operation/get_reputation_entity.rs
-@@ -241,8 +241,7 @@
-                 let input_1 = input_1.as_ref().ok_or_else(|| {
-                     ::aws_smithy_types::error::operation::BuildError::missing_field("reputation_entity_type", "cannot be empty or unset")
-                 })?;
--                let reputation_entity_type =
--                    ::aws_smithy_http::label::fmt_string(input_1.as_str(), ::aws_smithy_http::label::EncodingStrategy::Default);
-+                let reputation_entity_type = ::aws_smithy_http::label::fmt_string(input_1, ::aws_smithy_http::label::EncodingStrategy::Default);
-                 if reputation_entity_type.is_empty() {
-                     return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
-                         "reputation_entity_type",
-```
-
 ### `src/operation/put_email_identity_dkim_signing_attributes/_put_email_identity_dkim_signing_attributes_output.rs`
 
 ```diff
@@ -263,40 +246,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_signing_hosted_zone(&self) -> &::std::option::Option<::std::string::String> {
          &self.signing_hosted_zone
      }
-```
-
-### `src/operation/update_reputation_entity_customer_managed_status.rs`
-
-```diff
---- reference/src/operation/update_reputation_entity_customer_managed_status.rs
-+++ generated/src/operation/update_reputation_entity_customer_managed_status.rs
-@@ -248,8 +248,7 @@
-                 let input_1 = input_1.as_ref().ok_or_else(|| {
-                     ::aws_smithy_types::error::operation::BuildError::missing_field("reputation_entity_type", "cannot be empty or unset")
-                 })?;
--                let reputation_entity_type =
--                    ::aws_smithy_http::label::fmt_string(input_1.as_str(), ::aws_smithy_http::label::EncodingStrategy::Default);
-+                let reputation_entity_type = ::aws_smithy_http::label::fmt_string(input_1, ::aws_smithy_http::label::EncodingStrategy::Default);
-                 if reputation_entity_type.is_empty() {
-                     return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
-                         "reputation_entity_type",
-```
-
-### `src/operation/update_reputation_entity_policy.rs`
-
-```diff
---- reference/src/operation/update_reputation_entity_policy.rs
-+++ generated/src/operation/update_reputation_entity_policy.rs
-@@ -252,8 +252,7 @@
-                 let input_1 = input_1.as_ref().ok_or_else(|| {
-                     ::aws_smithy_types::error::operation::BuildError::missing_field("reputation_entity_type", "cannot be empty or unset")
-                 })?;
--                let reputation_entity_type =
--                    ::aws_smithy_http::label::fmt_string(input_1.as_str(), ::aws_smithy_http::label::EncodingStrategy::Default);
-+                let reputation_entity_type = ::aws_smithy_http::label::fmt_string(input_1, ::aws_smithy_http::label::EncodingStrategy::Default);
-                 if reputation_entity_type.is_empty() {
-                     return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
-                         "reputation_entity_type",
 ```
 
 ### `src/protocol_serde/shape_attachment.rs`

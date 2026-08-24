@@ -4,6 +4,28 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match Smithy URI-label encoding
+- State: in progress
+- Changed: standalone HTTP URI-label serialization now classifies each label from its
+  target shape and follows Smithy-RS `RequestBindingGenerator.serializeLabel`: strings
+  use `label::fmt_string`, enums format `as_str()`, timestamps use the modeled label
+  timestamp format, and other primitives use `primitive::Encoder`. Smithy member names
+  remain the local output variables, preserving the reference writer layout.
+- Evidence: compared the pinned Smithy-RS `RequestBindingGenerator.kt` at
+  `/tmp/smithy-rs`, commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; focused codegen
+  tests (42), workspace tests (60), workspace Clippy with `-D warnings`, formatting,
+  and `git diff --check` pass. `just conformance` regenerated 15 services and 1,133
+  operations, formatted all 13,166 generated Rust files, and produced no parse errors.
+- Conformance: `13,020/13,168` exact, `145` mismatches, `2` missing, and `1` extra
+  (`98.70%`) -> `13,028/13,168` exact, `137` mismatches, `2` missing, and `1` extra
+  (`98.74%`). Lambda improved from `1,052/24` to `1,057/19` mismatches; SESv2 from
+  `1,141/17` to `1,144/14` mismatches. S3 remains exact at `1,281/1,281`.
+- Blocker: `just conformance` still exits 1 because broader Bedrock Runtime,
+  Lambda, SESv2, and shared protocol/shape parity gaps remain; no blocker in this
+  URI-label implementation.
+- Next action: continue with the next highest-impact generic mismatch, starting with
+  the remaining Bedrock Runtime protocol/shape files.
+
 ### Checkpoint: 2026-08-25 — Match Smithy acronym-plural member identifiers
 - State: in progress
 - Changed: member and method identifiers now use the pinned Smithy-RS `toSnakeCase`

@@ -3,75 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1077/1077` files compared · `1052` matched · `24` mismatches · `0` missing · `1` extra · `97.68%` match (100.00% means fully matched)
-
-### `src/operation/add_layer_version_permission.rs`
-
-```diff
---- reference/src/operation/add_layer_version_permission.rs
-+++ generated/src/operation/add_layer_version_permission.rs
-@@ -277,8 +277,7 @@
-                 let input_2 = input_2
-                     .as_ref()
-                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("version_number", "cannot be empty or unset"))?;
--                let mut version_number_encoder = ::aws_smithy_types::primitive::Encoder::from(*input_2);
--                let version_number = version_number_encoder.encode();
-+                let version_number = ::aws_smithy_http::label::fmt_string(input_2, ::aws_smithy_http::label::EncodingStrategy::Default);
-                 if version_number.is_empty() {
-                     return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
-                         "version_number",
-```
-
-### `src/operation/delete_layer_version.rs`
-
-```diff
---- reference/src/operation/delete_layer_version.rs
-+++ generated/src/operation/delete_layer_version.rs
-@@ -252,8 +252,7 @@
-                 let input_2 = input_2
-                     .as_ref()
-                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("version_number", "cannot be empty or unset"))?;
--                let mut version_number_encoder = ::aws_smithy_types::primitive::Encoder::from(*input_2);
--                let version_number = version_number_encoder.encode();
-+                let version_number = ::aws_smithy_http::label::fmt_string(input_2, ::aws_smithy_http::label::EncodingStrategy::Default);
-                 if version_number.is_empty() {
-                     return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
-                         "version_number",
-```
-
-### `src/operation/get_layer_version.rs`
-
-```diff
---- reference/src/operation/get_layer_version.rs
-+++ generated/src/operation/get_layer_version.rs
-@@ -249,8 +249,7 @@
-                 let input_2 = input_2
-                     .as_ref()
-                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("version_number", "cannot be empty or unset"))?;
--                let mut version_number_encoder = ::aws_smithy_types::primitive::Encoder::from(*input_2);
--                let version_number = version_number_encoder.encode();
-+                let version_number = ::aws_smithy_http::label::fmt_string(input_2, ::aws_smithy_http::label::EncodingStrategy::Default);
-                 if version_number.is_empty() {
-                     return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
-                         "version_number",
-```
-
-### `src/operation/get_layer_version_policy.rs`
-
-```diff
---- reference/src/operation/get_layer_version_policy.rs
-+++ generated/src/operation/get_layer_version_policy.rs
-@@ -252,8 +252,7 @@
-                 let input_2 = input_2
-                     .as_ref()
-                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("version_number", "cannot be empty or unset"))?;
--                let mut version_number_encoder = ::aws_smithy_types::primitive::Encoder::from(*input_2);
--                let version_number = version_number_encoder.encode();
-+                let version_number = ::aws_smithy_http::label::fmt_string(input_2, ::aws_smithy_http::label::EncodingStrategy::Default);
-                 if version_number.is_empty() {
-                     return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
-                         "version_number",
-```
+**Progress:** `1077/1077` files compared · `1057` matched · `19` mismatches · `0` missing · `1` extra · `98.14%` match (100.00% means fully matched)
 
 ### `src/operation/invoke.rs`
 
@@ -116,23 +48,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          if let Some(content_length) = body.content_length() {
              let content_length = content_length.to_string();
              request_builder = _header_serialization_settings.set_default_header(request_builder, ::http_1x::header::CONTENT_LENGTH, &content_length);
-```
-
-### `src/operation/remove_layer_version_permission.rs`
-
-```diff
---- reference/src/operation/remove_layer_version_permission.rs
-+++ generated/src/operation/remove_layer_version_permission.rs
-@@ -268,8 +268,7 @@
-                 let input_2 = input_2
-                     .as_ref()
-                     .ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("version_number", "cannot be empty or unset"))?;
--                let mut version_number_encoder = ::aws_smithy_types::primitive::Encoder::from(*input_2);
--                let version_number = version_number_encoder.encode();
-+                let version_number = ::aws_smithy_http::label::fmt_string(input_2, ::aws_smithy_http::label::EncodingStrategy::Default);
-                 if version_number.is_empty() {
-                     return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(
-                         "version_number",
 ```
 
 ### `src/protocol_serde/shape_event_source_mapping_configuration.rs`

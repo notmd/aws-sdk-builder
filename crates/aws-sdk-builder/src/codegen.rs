@@ -4834,6 +4834,7 @@ fn operation_has_s3_expires_output(selected: &SelectedModel, operation: &Value) 
 struct StandaloneUriLabel {
     format_name: String,
     field: String,
+    variable: String,
     greedy: bool,
     kind: StandaloneUriLabelKind,
 }
@@ -4922,6 +4923,7 @@ fn standalone_uri_labels(
             labels.push(StandaloneUriLabel {
                 format_name: label_name.to_owned(),
                 field: field.clone(),
+                variable: field,
                 greedy,
                 kind,
             });
@@ -4940,7 +4942,6 @@ fn standalone_uri_label_body(path: &str, labels: &[StandaloneUriLabel]) -> Strin
     let mut body = String::new();
     for (index, label) in labels.iter().enumerate() {
         let input = format!("input_{}", index + 1);
-        let formatted = format!("formatted_{}", index + 1);
         writeln!(
             body,
             "                let {input} = &_input.{};\n                let {input} = {input}.as_ref().ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field(\"{}\", \"cannot be empty or unset\"))?;",
@@ -4956,7 +4957,8 @@ fn standalone_uri_label_body(path: &str, labels: &[StandaloneUriLabel]) -> Strin
                 };
                 writeln!(
                     body,
-                    "                let {formatted} = ::aws_smithy_http::label::fmt_string({value}, ::aws_smithy_http::label::EncodingStrategy::{});",
+                    "                let {} = ::aws_smithy_http::label::fmt_string({value}, ::aws_smithy_http::label::EncodingStrategy::{});",
+                    label.variable,
                     if label.greedy { "Greedy" } else { "Default" },
                 )
                 .unwrap();
@@ -4964,29 +4966,33 @@ fn standalone_uri_label_body(path: &str, labels: &[StandaloneUriLabel]) -> Strin
             StandaloneUriLabelKind::Timestamp(format) => {
                 writeln!(
                     body,
-                    "                let {formatted} = ::aws_smithy_http::label::fmt_timestamp({input}, ::aws_smithy_types::date_time::Format::{format})?;",
+                    "                let {} = ::aws_smithy_http::label::fmt_timestamp({input}, ::aws_smithy_types::date_time::Format::{format})?;",
+                    label.variable,
                 )
                 .unwrap();
             }
             StandaloneUriLabelKind::Primitive => {
                 writeln!(
                     body,
-                    "                let mut {formatted}_encoder = ::aws_smithy_types::primitive::Encoder::from(*{input});\n                let {formatted} = {formatted}_encoder.encode();",
+                    "                let mut {}_encoder = ::aws_smithy_types::primitive::Encoder::from(*{input});\n                let {} = {}_encoder.encode();",
+                    label.variable,
+                    label.variable,
+                    label.variable,
                 )
                 .unwrap();
             }
         }
         writeln!(
             body,
-            "                if {formatted}.is_empty() {{\n                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(\n                        \"{}\",\n                        \"cannot be empty or unset\",\n                    ));\n                }}",
+            "                if {}.is_empty() {{\n                    return ::std::result::Result::Err(::aws_smithy_types::error::operation::BuildError::missing_field(\n                        \"{}\",\n                        \"cannot be empty or unset\",\n                    ));\n                }}",
+            label.variable,
             label.field,
         )
         .unwrap();
     }
     let arguments = labels
         .iter()
-        .enumerate()
-        .map(|(index, label)| format!("{} = formatted_{}", label.format_name, index + 1))
+        .map(|label| format!("{} = {}", label.format_name, label.variable))
         .collect::<Vec<_>>();
     if arguments.is_empty() {
         writeln!(
