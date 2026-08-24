@@ -15,7 +15,7 @@ pub fn ser_analytics_configuration_type(
     if let Some(var_4) = &input.external_id {
         object.key("ExternalId").string(var_4.as_str());
     }
-    {
+    if input.user_data_shared {
         object.key("UserDataShared").boolean(input.user_data_shared);
     }
     Ok(())

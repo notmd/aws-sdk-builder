@@ -4,6 +4,28 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Omit modeled JSON primitive defaults
+- State: in progress
+- Changed: shared JSON structure serializers now omit non-required primitive members when
+  their values equal modeled `@default` values, matching Smithy-RS `SerializerUtil`.
+  Required, `clientOptional`, `addedDefault`, operation-input, collection, and
+  non-primitive members retain unconditional serialization. The implementation follows
+  the pinned Smithy-RS source at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`, and has a focused regression test.
+- Evidence: `cargo check -p aws-sdk-builder`, the focused regression, formatting, and
+  `git diff --check` pass. `just conformance` generated and formatted all `13,164`
+  Rust snapshot files, reported no generated-source parse errors, and exits 1 only
+  because broader parity gaps remain.
+- Conformance: `12,820/13,168` exact, `343` mismatches, `4` missing, and `1` extra
+  (`97.20%`) -> `12,847/13,168` exact, `316` mismatches, `4` missing, and `1` extra
+  (`97.34%`). CloudWatch Logs improved from `1,253/32` to `1,260/25`; Cognito
+  Identity Provider from `1,326/35` to `1,335/26`; Config from `1,228/34` to
+  `1,233/29`.
+- Blocker: broader protocol, streaming, shape, and runtime parity gaps remain; no
+  blocker in this checkpoint.
+- Next action: continue with the next highest-impact generic protocol or shape parity
+  mismatch.
+
 ### Checkpoint: 2026-08-25 — Preserve peekable JSON Document deserialization
 - State: in progress
 - Changed: JSON Document members now pass the peekable token iterator directly to

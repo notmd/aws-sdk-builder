@@ -3,10 +3,10 @@ pub fn ser_software_token_mfa_settings_type(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::SoftwareTokenMfaSettingsType,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
+    if input.enabled {
         object.key("Enabled").boolean(input.enabled);
     }
-    {
+    if input.preferred_mfa {
         object.key("PreferredMfa").boolean(input.preferred_mfa);
     }
     Ok(())

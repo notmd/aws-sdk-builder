@@ -9,7 +9,7 @@ pub fn ser_rename_key_entry(
     {
         object.key("renameTo").string(input.rename_to.as_str());
     }
-    {
+    if input.overwrite_if_exists {
         object.key("overwriteIfExists").boolean(input.overwrite_if_exists);
     }
     Ok(())

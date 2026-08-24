@@ -9,7 +9,7 @@ pub fn ser_add_key_entry(
     {
         object.key("value").string(input.value.as_str());
     }
-    {
+    if input.overwrite_if_exists {
         object.key("overwriteIfExists").boolean(input.overwrite_if_exists);
     }
     Ok(())

@@ -3,7 +3,7 @@ pub fn ser_sending_options(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::SendingOptions,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
+    if input.sending_enabled {
         object.key("SendingEnabled").boolean(input.sending_enabled);
     }
     Ok(())

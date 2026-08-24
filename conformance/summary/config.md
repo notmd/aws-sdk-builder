@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## config
-**Progress:** `1262/1262` files compared · `1228` matched · `34` mismatches · `0` missing · `0` extra · `97.31%` match (100.00% means fully matched)
+**Progress:** `1262/1262` files compared · `1233` matched · `29` mismatches · `0` missing · `0` extra · `97.70%` match (100.00% means fully matched)
 
 ### `src/client/associate_resource_types.rs`
 
@@ -138,38 +138,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
          ::std::result::Result::Ok(request_builder.body(body).expect("valid request").try_into().unwrap())
      }
-```
-
-### `src/protocol_serde/shape_account_aggregation_source.rs`
-
-```diff
---- reference/src/protocol_serde/shape_account_aggregation_source.rs
-+++ generated/src/protocol_serde/shape_account_aggregation_source.rs
-@@ -12,7 +12,7 @@
-         }
-         array_1.finish();
-     }
--    if input.all_aws_regions {
-+    {
-         object.key("AllAwsRegions").boolean(input.all_aws_regions);
-     }
-     if let Some(var_3) = &input.aws_regions {
-```
-
-### `src/protocol_serde/shape_custom_policy_details.rs`
-
-```diff
---- reference/src/protocol_serde/shape_custom_policy_details.rs
-+++ generated/src/protocol_serde/shape_custom_policy_details.rs
-@@ -9,7 +9,7 @@
-     {
-         object.key("PolicyText").string(input.policy_text.as_str());
-     }
--    if input.enable_debug_log_delivery {
-+    {
-         object.key("EnableDebugLogDelivery").boolean(input.enable_debug_log_delivery);
-     }
-     Ok(())
 ```
 
 ### `src/protocol_serde/shape_delete_service_linked_configuration_recorder.rs`
@@ -1875,22 +1843,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      builder = builder.set_next_token(
 ```
 
-### `src/protocol_serde/shape_organization_aggregation_source.rs`
-
-```diff
---- reference/src/protocol_serde/shape_organization_aggregation_source.rs
-+++ generated/src/protocol_serde/shape_organization_aggregation_source.rs
-@@ -15,7 +15,7 @@
-         }
-         array_2.finish();
-     }
--    if input.all_aws_regions {
-+    {
-         object.key("AllAwsRegions").boolean(input.all_aws_regions);
-     }
-     Ok(())
-```
-
 ### `src/protocol_serde/shape_put_organization_conformance_pack.rs`
 
 ```diff
@@ -2207,42 +2159,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      })
  }
 
-```
-
-### `src/protocol_serde/shape_recording_group.rs`
-
-```diff
---- reference/src/protocol_serde/shape_recording_group.rs
-+++ generated/src/protocol_serde/shape_recording_group.rs
-@@ -68,10 +68,10 @@
-     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::super::types::RecordingGroup,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
--    if input.all_supported {
-+    {
-         object.key("allSupported").boolean(input.all_supported);
-     }
--    if input.include_global_resource_types {
-+    {
-         object.key("includeGlobalResourceTypes").boolean(input.include_global_resource_types);
-     }
-     if let Some(var_1) = &input.resource_types {
-```
-
-### `src/protocol_serde/shape_remediation_configuration.rs`
-
-```diff
---- reference/src/protocol_serde/shape_remediation_configuration.rs
-+++ generated/src/protocol_serde/shape_remediation_configuration.rs
-@@ -31,7 +31,7 @@
-     if let Some(var_7) = &input.resource_type {
-         object.key("ResourceType").string(var_7.as_str());
-     }
--    if input.automatic {
-+    {
-         object.key("Automatic").boolean(input.automatic);
-     }
-     if let Some(var_8) = &input.execution_controls {
 ```
 
 ### `src/types/_remediation_execution_state.rs`

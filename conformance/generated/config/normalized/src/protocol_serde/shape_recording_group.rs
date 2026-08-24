@@ -68,10 +68,10 @@ pub fn ser_recording_group(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::RecordingGroup,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
+    if input.all_supported {
         object.key("allSupported").boolean(input.all_supported);
     }
-    {
+    if input.include_global_resource_types {
         object.key("includeGlobalResourceTypes").boolean(input.include_global_resource_types);
     }
     if let Some(var_1) = &input.resource_types {

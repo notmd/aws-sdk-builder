@@ -6,7 +6,7 @@ pub fn ser_topic_filter(
     if let Some(var_1) = &input.topic_name {
         object.key("TopicName").string(var_1.as_str());
     }
-    {
+    if input.use_default_if_preference_unavailable {
         object
             .key("UseDefaultIfPreferenceUnavailable")
             .boolean(input.use_default_if_preference_unavailable);

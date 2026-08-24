@@ -3,10 +3,10 @@ pub fn ser_device_configuration_type(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::DeviceConfigurationType,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
+    if input.challenge_required_on_new_device {
         object.key("ChallengeRequiredOnNewDevice").boolean(input.challenge_required_on_new_device);
     }
-    {
+    if input.device_only_remembered_on_user_prompt {
         object
             .key("DeviceOnlyRememberedOnUserPrompt")
             .boolean(input.device_only_remembered_on_user_prompt);

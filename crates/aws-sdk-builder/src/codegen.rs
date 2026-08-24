@@ -10419,7 +10419,8 @@ fn render_json_serialize_member(
         );
         writeln!(output, "{prefix}}}").unwrap();
     } else if omit_primitive_default
-        && let Some(condition) = json_primitive_default_condition(selected, member, target, expression)
+        && let Some(condition) =
+            json_primitive_default_condition(selected, member, target, expression)
     {
         writeln!(output, "{prefix}if {condition} {{").unwrap();
         render_json_serialize_value(
@@ -11771,6 +11772,48 @@ fn protocol_member_namespace(member: &Value) -> String {
 fn protocol_member_is_optional(selected: &SelectedModel, member: &Value) -> bool {
     let target = member_target(member).unwrap_or_default();
     !member_is_effectively_required(selected, member, target)
+}
+
+fn json_primitive_default_condition(
+    selected: &SelectedModel,
+    member: &Value,
+    target: &str,
+    expression: &str,
+) -> Option<String> {
+    if member_is_required(member)
+        || has_trait(member, "smithy.api#clientOptional")
+        || has_trait(member, "smithy.api#addedDefault")
+    {
+        return None;
+    }
+    let default = member
+        .get("traits")
+        .and_then(Value::as_object)
+        .and_then(|traits| traits.get("smithy.api#default"))?;
+    let kind = protocol_shape_kind(selected, target);
+    match (kind, default) {
+        ("boolean", Value::Bool(false)) => Some(expression.to_owned()),
+        ("boolean", Value::Bool(true)) => Some(format!("!{expression}")),
+        ("byte" | "short" | "integer" | "long", Value::Number(value)) => {
+            let literal = value.to_string();
+            if value.as_i64() == Some(0) {
+                Some(format!("{expression} != 0"))
+            } else {
+                Some(format!("{expression} != {literal}"))
+            }
+        }
+        ("float" | "double", Value::Number(value)) => {
+            let literal = value.to_string();
+            let zero = value.as_f64() == Some(0.0);
+            let suffix = if kind == "float" { "_f32" } else { "_f64" };
+            if zero {
+                Some(format!("{expression} != 0.0"))
+            } else {
+                Some(format!("{expression} != {literal}{suffix}"))
+            }
+        }
+        _ => None,
+    }
 }
 
 fn indent_expression(expression: &str, indentation: usize) -> String {
@@ -16950,6 +16993,77 @@ mod tests {
         assert!(is_copy_type("smithy.api#Integer", None));
         assert!(is_copy_type("smithy.api#Boolean", None));
         assert!(!is_copy_type("smithy.api#String", None));
+    }
+
+    #[test]
+    fn json_serialization_omits_modeled_primitive_defaults() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Get"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Get": {
+                        "type": "operation",
+                        "input": {"target": "example#Input"},
+                        "output": {"target": "smithy.api#Unit"}
+                    },
+                    "example#Input": {"type": "structure", "members": {}}
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let false_member = serde_json::json!({
+            "target": "smithy.api#Boolean",
+            "traits": {"smithy.api#default": false}
+        });
+        let zero_member = serde_json::json!({
+            "target": "smithy.api#Integer",
+            "traits": {"smithy.api#default": 0}
+        });
+        let nonzero_member = serde_json::json!({
+            "target": "smithy.api#Float",
+            "traits": {"smithy.api#default": 1.5}
+        });
+
+        assert_eq!(
+            json_primitive_default_condition(
+                &selected,
+                &false_member,
+                "smithy.api#Boolean",
+                "input.flag"
+            ),
+            Some("input.flag".to_owned())
+        );
+        assert_eq!(
+            json_primitive_default_condition(
+                &selected,
+                &zero_member,
+                "smithy.api#Integer",
+                "input.count"
+            ),
+            Some("input.count != 0".to_owned())
+        );
+        assert_eq!(
+            json_primitive_default_condition(
+                &selected,
+                &nonzero_member,
+                "smithy.api#Float",
+                "input.ratio"
+            ),
+            Some("input.ratio != 1.5_f32".to_owned())
+        );
     }
 
     #[test]

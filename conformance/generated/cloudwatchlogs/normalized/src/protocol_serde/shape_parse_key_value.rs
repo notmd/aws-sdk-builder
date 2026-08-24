@@ -21,7 +21,7 @@ pub fn ser_parse_key_value(
     if let Some(var_6) = &input.non_match_value {
         object.key("nonMatchValue").string(var_6.as_str());
     }
-    {
+    if input.overwrite_if_exists {
         object.key("overwriteIfExists").boolean(input.overwrite_if_exists);
     }
     Ok(())

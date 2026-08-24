@@ -3,7 +3,7 @@ pub fn ser_suppression_period(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::SuppressionPeriod,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
+    if input.value != 0 {
         object.key("value").number(
             #[allow(clippy::useless_conversion)]
             ::aws_smithy_types::Number::NegInt((input.value).into()),

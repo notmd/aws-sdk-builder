@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1077/1077` files compared · `1021` matched · `55` mismatches · `0` missing · `1` extra · `94.80%` match (100.00% means fully matched)
+**Progress:** `1077/1077` files compared · `1022` matched · `54` mismatches · `0` missing · `1` extra · `94.89%` match (100.00% means fully matched)
 
 ### `src/client/get_function_event_invoke_config.rs`
 
@@ -299,29 +299,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 -    Ok(())
 -}
-```
-
-### `src/protocol_serde/shape_callback_options.rs`
-
-```diff
---- reference/src/protocol_serde/shape_callback_options.rs
-+++ generated/src/protocol_serde/shape_callback_options.rs
-@@ -3,13 +3,13 @@
-     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::super::types::CallbackOptions,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
--    if input.timeout_seconds != 0 {
-+    {
-         object.key("TimeoutSeconds").number(
-             #[allow(clippy::useless_conversion)]
-             ::aws_smithy_types::Number::NegInt((input.timeout_seconds).into()),
-         );
-     }
--    if input.heartbeat_timeout_seconds != 0 {
-+    {
-         object.key("HeartbeatTimeoutSeconds").number(
-             #[allow(clippy::useless_conversion)]
-             ::aws_smithy_types::Number::NegInt((input.heartbeat_timeout_seconds).into()),
 ```
 
 ### `src/protocol_serde/shape_capacity_provider_config.rs`

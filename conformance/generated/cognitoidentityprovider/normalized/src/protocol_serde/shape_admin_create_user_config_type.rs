@@ -3,10 +3,10 @@ pub fn ser_admin_create_user_config_type(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::AdminCreateUserConfigType,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
+    if input.allow_admin_create_user_only {
         object.key("AllowAdminCreateUserOnly").boolean(input.allow_admin_create_user_only);
     }
-    {
+    if input.unused_account_validity_days != 0 {
         object.key("UnusedAccountValidityDays").number(
             #[allow(clippy::useless_conversion)]
             ::aws_smithy_types::Number::NegInt((input.unused_account_validity_days).into()),

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cognitoidentityprovider
-**Progress:** `1361/1361` files compared · `1326` matched · `35` mismatches · `0` missing · `0` extra · `97.43%` match (100.00% means fully matched)
+**Progress:** `1361/1361` files compared · `1335` matched · `26` mismatches · `0` missing · `0` extra · `98.09%` match (100.00% means fully matched)
 
 ### `src/client/add_custom_attributes.rs`
 
@@ -676,42 +676,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn default_redirect_uri(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
 ```
 
-### `src/protocol_serde/shape_admin_create_user_config_type.rs`
-
-```diff
---- reference/src/protocol_serde/shape_admin_create_user_config_type.rs
-+++ generated/src/protocol_serde/shape_admin_create_user_config_type.rs
-@@ -3,10 +3,10 @@
-     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::super::types::AdminCreateUserConfigType,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
--    if input.allow_admin_create_user_only {
-+    {
-         object.key("AllowAdminCreateUserOnly").boolean(input.allow_admin_create_user_only);
-     }
--    if input.unused_account_validity_days != 0 {
-+    {
-         object.key("UnusedAccountValidityDays").number(
-             #[allow(clippy::useless_conversion)]
-             ::aws_smithy_types::Number::NegInt((input.unused_account_validity_days).into()),
-```
-
-### `src/protocol_serde/shape_analytics_configuration_type.rs`
-
-```diff
---- reference/src/protocol_serde/shape_analytics_configuration_type.rs
-+++ generated/src/protocol_serde/shape_analytics_configuration_type.rs
-@@ -15,7 +15,7 @@
-     if let Some(var_4) = &input.external_id {
-         object.key("ExternalId").string(var_4.as_str());
-     }
--    if input.user_data_shared {
-+    {
-         object.key("UserDataShared").boolean(input.user_data_shared);
-     }
-     Ok(())
-```
-
 ### `src/protocol_serde/shape_create_user_pool_client_input.rs`
 
 ```diff
@@ -735,46 +699,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          let mut array_26 = object.key("LogoutURLs").start_array();
          for item_27 in var_25 {
              {
-```
-
-### `src/protocol_serde/shape_device_configuration_type.rs`
-
-```diff
---- reference/src/protocol_serde/shape_device_configuration_type.rs
-+++ generated/src/protocol_serde/shape_device_configuration_type.rs
-@@ -3,10 +3,10 @@
-     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::super::types::DeviceConfigurationType,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
--    if input.challenge_required_on_new_device {
-+    {
-         object.key("ChallengeRequiredOnNewDevice").boolean(input.challenge_required_on_new_device);
-     }
--    if input.device_only_remembered_on_user_prompt {
-+    {
-         object
-             .key("DeviceOnlyRememberedOnUserPrompt")
-             .boolean(input.device_only_remembered_on_user_prompt);
-```
-
-### `src/protocol_serde/shape_email_mfa_settings_type.rs`
-
-```diff
---- reference/src/protocol_serde/shape_email_mfa_settings_type.rs
-+++ generated/src/protocol_serde/shape_email_mfa_settings_type.rs
-@@ -3,10 +3,10 @@
-     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::super::types::EmailMfaSettingsType,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
--    if input.enabled {
-+    {
-         object.key("Enabled").boolean(input.enabled);
-     }
--    if input.preferred_mfa {
-+    {
-         object.key("PreferredMfa").boolean(input.preferred_mfa);
-     }
-     Ok(())
 ```
 
 ### `src/protocol_serde/shape_failover_type.rs`
@@ -839,43 +763,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          _ => Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(
              "expected start object or null",
-```
-
-### `src/protocol_serde/shape_password_policy_type.rs`
-
-```diff
---- reference/src/protocol_serde/shape_password_policy_type.rs
-+++ generated/src/protocol_serde/shape_password_policy_type.rs
-@@ -9,16 +9,16 @@
-             ::aws_smithy_types::Number::NegInt((*var_1).into()),
-         );
-     }
--    if input.require_uppercase {
-+    {
-         object.key("RequireUppercase").boolean(input.require_uppercase);
-     }
--    if input.require_lowercase {
-+    {
-         object.key("RequireLowercase").boolean(input.require_lowercase);
-     }
--    if input.require_numbers {
-+    {
-         object.key("RequireNumbers").boolean(input.require_numbers);
-     }
--    if input.require_symbols {
-+    {
-         object.key("RequireSymbols").boolean(input.require_symbols);
-     }
-     if let Some(var_2) = &input.password_history_size {
-@@ -27,7 +27,7 @@
-             ::aws_smithy_types::Number::NegInt((*var_2).into()),
-         );
-     }
--    if input.temporary_password_validity_days != 0 {
-+    {
-         object.key("TemporaryPasswordValidityDays").number(
-             #[allow(clippy::useless_conversion)]
-             ::aws_smithy_types::Number::NegInt((input.temporary_password_validity_days).into()),
 ```
 
 ### `src/protocol_serde/shape_routing_type.rs`
@@ -968,62 +855,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/protocol_serde/shape_sms_mfa_settings_type.rs`
-
-```diff
---- reference/src/protocol_serde/shape_sms_mfa_settings_type.rs
-+++ generated/src/protocol_serde/shape_sms_mfa_settings_type.rs
-@@ -3,10 +3,10 @@
-     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::super::types::SmsMfaSettingsType,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
--    if input.enabled {
-+    {
-         object.key("Enabled").boolean(input.enabled);
-     }
--    if input.preferred_mfa {
-+    {
-         object.key("PreferredMfa").boolean(input.preferred_mfa);
-     }
-     Ok(())
-```
-
-### `src/protocol_serde/shape_software_token_mfa_config_type.rs`
-
-```diff
---- reference/src/protocol_serde/shape_software_token_mfa_config_type.rs
-+++ generated/src/protocol_serde/shape_software_token_mfa_config_type.rs
-@@ -45,7 +45,7 @@
-     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::super::types::SoftwareTokenMfaConfigType,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
--    if input.enabled {
-+    {
-         object.key("Enabled").boolean(input.enabled);
-     }
-     Ok(())
-```
-
-### `src/protocol_serde/shape_software_token_mfa_settings_type.rs`
-
-```diff
---- reference/src/protocol_serde/shape_software_token_mfa_settings_type.rs
-+++ generated/src/protocol_serde/shape_software_token_mfa_settings_type.rs
-@@ -3,10 +3,10 @@
-     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::super::types::SoftwareTokenMfaSettingsType,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
--    if input.enabled {
-+    {
-         object.key("Enabled").boolean(input.enabled);
-     }
--    if input.preferred_mfa {
-+    {
-         object.key("PreferredMfa").boolean(input.preferred_mfa);
-     }
-     Ok(())
-```
-
 ### `src/protocol_serde/shape_update_user_pool_client_input.rs`
 
 ```diff
@@ -1072,22 +903,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                                  tokens,
                                  _value,
                                  depth + 1,
-```
-
-### `src/protocol_serde/shape_web_authn_mfa_settings_type.rs`
-
-```diff
---- reference/src/protocol_serde/shape_web_authn_mfa_settings_type.rs
-+++ generated/src/protocol_serde/shape_web_authn_mfa_settings_type.rs
-@@ -3,7 +3,7 @@
-     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::super::types::WebAuthnMfaSettingsType,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
--    if input.enabled {
-+    {
-         object.key("Enabled").boolean(input.enabled);
-     }
-     Ok(())
 ```
 
 ### `src/serde_util.rs`

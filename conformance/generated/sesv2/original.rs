@@ -131152,7 +131152,7 @@ pub fn ser_event_destination_definition(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::EventDestinationDefinition,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-{
+if input.enabled {
     object.key("Enabled").boolean(input.enabled);
 }
 if let Some(var_1) = &input.matching_event_types {
@@ -132708,7 +132708,7 @@ pub fn ser_reputation_options(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::ReputationOptions,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-{
+if input.reputation_metrics_enabled {
     object.key("ReputationMetricsEnabled").boolean(input.reputation_metrics_enabled);
 }
 if let Some(var_1) = &input.last_fresh_start {
@@ -132912,7 +132912,7 @@ pub fn ser_sending_options(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::SendingOptions,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-{
+if input.sending_enabled {
     object.key("SendingEnabled").boolean(input.sending_enabled);
 }
     Ok(())
@@ -135519,7 +135519,7 @@ pub fn ser_inbox_placement_tracking_option(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::InboxPlacementTrackingOption,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-{
+if input.global {
     object.key("Global").boolean(input.global);
 }
 if let Some(var_1) = &input.tracked_isps {
@@ -137122,7 +137122,7 @@ pub fn ser_topic_filter(
 if let Some(var_1) = &input.topic_name {
     object.key("TopicName").string(var_1.as_str());
 }
-{
+if input.use_default_if_preference_unavailable {
     object.key("UseDefaultIfPreferenceUnavailable").boolean(input.use_default_if_preference_unavailable);
 }
     Ok(())

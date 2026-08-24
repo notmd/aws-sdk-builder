@@ -3,7 +3,7 @@ pub fn ser_reputation_options(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::ReputationOptions,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
+    if input.reputation_metrics_enabled {
         object.key("ReputationMetricsEnabled").boolean(input.reputation_metrics_enabled);
     }
     if let Some(var_1) = &input.last_fresh_start {

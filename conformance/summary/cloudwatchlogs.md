@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cloudwatchlogs
-**Progress:** `1287/1287` files compared · `1253` matched · `32` mismatches · `2` missing · `0` extra · `97.36%` match (100.00% means fully matched)
+**Progress:** `1287/1287` files compared · `1260` matched · `25` mismatches · `2` missing · `0` extra · `97.90%` match (100.00% means fully matched)
 
 ### `src/event_stream_serde.rs`
 
@@ -531,38 +531,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          cfg.interceptor_state().store_put(endpoint_prefix);
 ```
 
-### `src/protocol_serde/shape_add_key_entry.rs`
-
-```diff
---- reference/src/protocol_serde/shape_add_key_entry.rs
-+++ generated/src/protocol_serde/shape_add_key_entry.rs
-@@ -9,7 +9,7 @@
-     {
-         object.key("value").string(input.value.as_str());
-     }
--    if input.overwrite_if_exists {
-+    {
-         object.key("overwriteIfExists").boolean(input.overwrite_if_exists);
-     }
-     Ok(())
-```
-
-### `src/protocol_serde/shape_copy_value_entry.rs`
-
-```diff
---- reference/src/protocol_serde/shape_copy_value_entry.rs
-+++ generated/src/protocol_serde/shape_copy_value_entry.rs
-@@ -9,7 +9,7 @@
-     {
-         object.key("target").string(input.target.as_str());
-     }
--    if input.overwrite_if_exists {
-+    {
-         object.key("overwriteIfExists").boolean(input.overwrite_if_exists);
-     }
-     Ok(())
-```
-
 ### `src/protocol_serde/shape_fields_data.rs`
 
 ```diff
@@ -796,22 +764,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/protocol_serde/shape_list_to_map.rs`
-
-```diff
---- reference/src/protocol_serde/shape_list_to_map.rs
-+++ generated/src/protocol_serde/shape_list_to_map.rs
-@@ -15,7 +15,7 @@
-     if let Some(var_2) = &input.target {
-         object.key("target").string(var_2.as_str());
-     }
--    if input.flatten {
-+    {
-         object.key("flatten").boolean(input.flatten);
-     }
-     if let Some(var_3) = &input.flattened_element {
-```
-
 ### `src/protocol_serde/shape_live_tail_session_start.rs`
 
 ```diff
@@ -886,54 +838,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                          }
                          "fields" => {
                              builder = builder.set_fields(super::super::protocol_serde::shape_log_fields_list::de_log_fields_list(
-```
-
-### `src/protocol_serde/shape_move_key_entry.rs`
-
-```diff
---- reference/src/protocol_serde/shape_move_key_entry.rs
-+++ generated/src/protocol_serde/shape_move_key_entry.rs
-@@ -9,7 +9,7 @@
-     {
-         object.key("target").string(input.target.as_str());
-     }
--    if input.overwrite_if_exists {
-+    {
-         object.key("overwriteIfExists").boolean(input.overwrite_if_exists);
-     }
-     Ok(())
-```
-
-### `src/protocol_serde/shape_parse_key_value.rs`
-
-```diff
---- reference/src/protocol_serde/shape_parse_key_value.rs
-+++ generated/src/protocol_serde/shape_parse_key_value.rs
-@@ -21,7 +21,7 @@
-     if let Some(var_6) = &input.non_match_value {
-         object.key("nonMatchValue").string(var_6.as_str());
-     }
--    if input.overwrite_if_exists {
-+    {
-         object.key("overwriteIfExists").boolean(input.overwrite_if_exists);
-     }
-     Ok(())
-```
-
-### `src/protocol_serde/shape_rename_key_entry.rs`
-
-```diff
---- reference/src/protocol_serde/shape_rename_key_entry.rs
-+++ generated/src/protocol_serde/shape_rename_key_entry.rs
-@@ -9,7 +9,7 @@
-     {
-         object.key("renameTo").string(input.rename_to.as_str());
-     }
--    if input.overwrite_if_exists {
-+    {
-         object.key("overwriteIfExists").boolean(input.overwrite_if_exists);
-     }
-     Ok(())
 ```
 
 ### `src/protocol_serde/shape_session_streaming_exception.rs`
@@ -1203,22 +1107,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    }
 +    Ok(builder)
 +}
-```
-
-### `src/protocol_serde/shape_suppression_period.rs`
-
-```diff
---- reference/src/protocol_serde/shape_suppression_period.rs
-+++ generated/src/protocol_serde/shape_suppression_period.rs
-@@ -3,7 +3,7 @@
-     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::super::types::SuppressionPeriod,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
--    if input.value != 0 {
-+    {
-         object.key("value").number(
-             #[allow(clippy::useless_conversion)]
-             ::aws_smithy_types::Number::NegInt((input.value).into()),
 ```
 
 ### `src/protocol_serde.rs`

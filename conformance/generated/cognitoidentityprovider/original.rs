@@ -186153,10 +186153,10 @@ pub fn ser_admin_create_user_config_type(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::AdminCreateUserConfigType,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-{
+if input.allow_admin_create_user_only {
     object.key("AllowAdminCreateUserOnly").boolean(input.allow_admin_create_user_only);
 }
-{
+if input.unused_account_validity_days != 0 {
     object.key("UnusedAccountValidityDays").number(
         #[allow(clippy::useless_conversion)]
         ::aws_smithy_types::Number::NegInt((input.unused_account_validity_days).into()),
@@ -186240,7 +186240,7 @@ if let Some(var_3) = &input.role_arn {
 if let Some(var_4) = &input.external_id {
     object.key("ExternalId").string(var_4.as_str());
 }
-{
+if input.user_data_shared {
     object.key("UserDataShared").boolean(input.user_data_shared);
 }
     Ok(())
@@ -187163,10 +187163,10 @@ pub fn ser_device_configuration_type(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::DeviceConfigurationType,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-{
+if input.challenge_required_on_new_device {
     object.key("ChallengeRequiredOnNewDevice").boolean(input.challenge_required_on_new_device);
 }
-{
+if input.device_only_remembered_on_user_prompt {
     object.key("DeviceOnlyRememberedOnUserPrompt").boolean(input.device_only_remembered_on_user_prompt);
 }
     Ok(())
@@ -187587,10 +187587,10 @@ pub fn ser_email_mfa_settings_type(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::EmailMfaSettingsType,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-{
+if input.enabled {
     object.key("Enabled").boolean(input.enabled);
 }
-{
+if input.preferred_mfa {
     object.key("PreferredMfa").boolean(input.preferred_mfa);
 }
     Ok(())
@@ -189330,10 +189330,10 @@ pub fn ser_sms_mfa_settings_type(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::SmsMfaSettingsType,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-{
+if input.enabled {
     object.key("Enabled").boolean(input.enabled);
 }
-{
+if input.preferred_mfa {
     object.key("PreferredMfa").boolean(input.preferred_mfa);
 }
     Ok(())
@@ -189388,7 +189388,7 @@ pub fn ser_software_token_mfa_config_type(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::SoftwareTokenMfaConfigType,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-{
+if input.enabled {
     object.key("Enabled").boolean(input.enabled);
 }
     Ok(())
@@ -189401,10 +189401,10 @@ pub fn ser_software_token_mfa_settings_type(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::SoftwareTokenMfaSettingsType,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-{
+if input.enabled {
     object.key("Enabled").boolean(input.enabled);
 }
-{
+if input.preferred_mfa {
     object.key("PreferredMfa").boolean(input.preferred_mfa);
 }
     Ok(())
@@ -191058,7 +191058,7 @@ pub fn ser_web_authn_mfa_settings_type(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::WebAuthnMfaSettingsType,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-{
+if input.enabled {
     object.key("Enabled").boolean(input.enabled);
 }
     Ok(())
@@ -192656,16 +192656,16 @@ if let Some(var_1) = &input.minimum_length {
         ::aws_smithy_types::Number::NegInt((*var_1).into()),
     );
 }
-{
+if input.require_uppercase {
     object.key("RequireUppercase").boolean(input.require_uppercase);
 }
-{
+if input.require_lowercase {
     object.key("RequireLowercase").boolean(input.require_lowercase);
 }
-{
+if input.require_numbers {
     object.key("RequireNumbers").boolean(input.require_numbers);
 }
-{
+if input.require_symbols {
     object.key("RequireSymbols").boolean(input.require_symbols);
 }
 if let Some(var_2) = &input.password_history_size {
@@ -192674,7 +192674,7 @@ if let Some(var_2) = &input.password_history_size {
         ::aws_smithy_types::Number::NegInt((*var_2).into()),
     );
 }
-{
+if input.temporary_password_validity_days != 0 {
     object.key("TemporaryPasswordValidityDays").number(
         #[allow(clippy::useless_conversion)]
         ::aws_smithy_types::Number::NegInt((input.temporary_password_validity_days).into()),

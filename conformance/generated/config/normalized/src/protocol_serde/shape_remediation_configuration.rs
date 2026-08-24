@@ -31,7 +31,7 @@ pub fn ser_remediation_configuration(
     if let Some(var_7) = &input.resource_type {
         object.key("ResourceType").string(var_7.as_str());
     }
-    {
+    if input.automatic {
         object.key("Automatic").boolean(input.automatic);
     }
     if let Some(var_8) = &input.execution_controls {

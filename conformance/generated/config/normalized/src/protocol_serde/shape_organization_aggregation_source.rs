@@ -15,7 +15,7 @@ pub fn ser_organization_aggregation_source(
         }
         array_2.finish();
     }
-    {
+    if input.all_aws_regions {
         object.key("AllAwsRegions").boolean(input.all_aws_regions);
     }
     Ok(())

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sesv2
-**Progress:** `1159/1159` files compared · `1133` matched · `25` mismatches · `1` missing · `0` extra · `97.76%` match (100.00% means fully matched)
+**Progress:** `1159/1159` files compared · `1138` matched · `20` mismatches · `1` missing · `0` extra · `98.19%` match (100.00% means fully matched)
 
 ### `src/config/auth.rs`
 
@@ -337,22 +337,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/protocol_serde/shape_event_destination_definition.rs`
-
-```diff
---- reference/src/protocol_serde/shape_event_destination_definition.rs
-+++ generated/src/protocol_serde/shape_event_destination_definition.rs
-@@ -3,7 +3,7 @@
-     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::super::types::EventDestinationDefinition,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
--    if input.enabled {
-+    {
-         object.key("Enabled").boolean(input.enabled);
-     }
-     if let Some(var_1) = &input.matching_event_types {
-```
-
 ### `src/protocol_serde/shape_get_deliverability_dashboard_options.rs`
 
 ```diff
@@ -369,22 +353,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      })
  }
 
-```
-
-### `src/protocol_serde/shape_inbox_placement_tracking_option.rs`
-
-```diff
---- reference/src/protocol_serde/shape_inbox_placement_tracking_option.rs
-+++ generated/src/protocol_serde/shape_inbox_placement_tracking_option.rs
-@@ -3,7 +3,7 @@
-     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::super::types::InboxPlacementTrackingOption,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
--    if input.global {
-+    {
-         object.key("Global").boolean(input.global);
-     }
-     if let Some(var_1) = &input.tracked_isps {
 ```
 
 ### `src/protocol_serde/shape_message_insights_data_source.rs`
@@ -536,38 +504,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/protocol_serde/shape_reputation_options.rs`
-
-```diff
---- reference/src/protocol_serde/shape_reputation_options.rs
-+++ generated/src/protocol_serde/shape_reputation_options.rs
-@@ -3,7 +3,7 @@
-     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::super::types::ReputationOptions,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
--    if input.reputation_metrics_enabled {
-+    {
-         object.key("ReputationMetricsEnabled").boolean(input.reputation_metrics_enabled);
-     }
-     if let Some(var_1) = &input.last_fresh_start {
-```
-
-### `src/protocol_serde/shape_sending_options.rs`
-
-```diff
---- reference/src/protocol_serde/shape_sending_options.rs
-+++ generated/src/protocol_serde/shape_sending_options.rs
-@@ -3,7 +3,7 @@
-     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
-     input: &super::super::types::SendingOptions,
- ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
--    if input.sending_enabled {
-+    {
-         object.key("SendingEnabled").boolean(input.sending_enabled);
-     }
-     Ok(())
-```
-
 ### `src/protocol_serde/shape_tenant_suppression_attributes.rs`
 
 ```diff
@@ -620,22 +556,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 -    Ok(())
 -}
-```
-
-### `src/protocol_serde/shape_topic_filter.rs`
-
-```diff
---- reference/src/protocol_serde/shape_topic_filter.rs
-+++ generated/src/protocol_serde/shape_topic_filter.rs
-@@ -6,7 +6,7 @@
-     if let Some(var_1) = &input.topic_name {
-         object.key("TopicName").string(var_1.as_str());
-     }
--    if input.use_default_if_preference_unavailable {
-+    {
-         object
-             .key("UseDefaultIfPreferenceUnavailable")
-             .boolean(input.use_default_if_preference_unavailable);
 ```
 
 ### `src/protocol_serde/shape_update_reputation_entity_customer_managed_status.rs`

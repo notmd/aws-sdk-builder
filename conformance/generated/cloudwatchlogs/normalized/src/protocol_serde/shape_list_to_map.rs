@@ -15,7 +15,7 @@ pub fn ser_list_to_map(
     if let Some(var_2) = &input.target {
         object.key("target").string(var_2.as_str());
     }
-    {
+    if input.flatten {
         object.key("flatten").boolean(input.flatten);
     }
     if let Some(var_3) = &input.flattened_element {

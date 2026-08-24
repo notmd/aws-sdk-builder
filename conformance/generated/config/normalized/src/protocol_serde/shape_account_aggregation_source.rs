@@ -12,7 +12,7 @@ pub fn ser_account_aggregation_source(
         }
         array_1.finish();
     }
-    {
+    if input.all_aws_regions {
         object.key("AllAwsRegions").boolean(input.all_aws_regions);
     }
     if let Some(var_3) = &input.aws_regions {

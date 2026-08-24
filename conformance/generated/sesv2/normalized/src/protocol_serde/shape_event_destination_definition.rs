@@ -3,7 +3,7 @@ pub fn ser_event_destination_definition(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::EventDestinationDefinition,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
+    if input.enabled {
         object.key("Enabled").boolean(input.enabled);
     }
     if let Some(var_1) = &input.matching_event_types {

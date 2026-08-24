@@ -150129,7 +150129,7 @@ pub fn ser_suppression_period(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::SuppressionPeriod,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-{
+if input.value != 0 {
     object.key("value").number(
         #[allow(clippy::useless_conversion)]
         ::aws_smithy_types::Number::NegInt((input.value).into()),
@@ -151703,7 +151703,7 @@ if let Some(var_1) = &input.value_key {
 if let Some(var_2) = &input.target {
     object.key("target").string(var_2.as_str());
 }
-{
+if input.flatten {
     object.key("flatten").boolean(input.flatten);
 }
 if let Some(var_3) = &input.flattened_element {
@@ -152946,7 +152946,7 @@ if let Some(var_5) = &input.key_prefix {
 if let Some(var_6) = &input.non_match_value {
     object.key("nonMatchValue").string(var_6.as_str());
 }
-{
+if input.overwrite_if_exists {
     object.key("overwriteIfExists").boolean(input.overwrite_if_exists);
 }
     Ok(())
@@ -154692,7 +154692,7 @@ pub fn ser_add_key_entry(
 {
     object.key("value").string(input.value.as_str());
 }
-{
+if input.overwrite_if_exists {
     object.key("overwriteIfExists").boolean(input.overwrite_if_exists);
 }
     Ok(())
@@ -154910,7 +154910,7 @@ pub fn ser_copy_value_entry(
 {
     object.key("target").string(input.target.as_str());
 }
-{
+if input.overwrite_if_exists {
     object.key("overwriteIfExists").boolean(input.overwrite_if_exists);
 }
     Ok(())
@@ -155637,7 +155637,7 @@ pub fn ser_move_key_entry(
 {
     object.key("target").string(input.target.as_str());
 }
-{
+if input.overwrite_if_exists {
     object.key("overwriteIfExists").boolean(input.overwrite_if_exists);
 }
     Ok(())
@@ -156263,7 +156263,7 @@ pub fn ser_rename_key_entry(
 {
     object.key("renameTo").string(input.rename_to.as_str());
 }
-{
+if input.overwrite_if_exists {
     object.key("overwriteIfExists").boolean(input.overwrite_if_exists);
 }
     Ok(())

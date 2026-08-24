@@ -137257,7 +137257,7 @@ pub fn ser_account_aggregation_source(
     }
     array_1.finish();
 }
-{
+if input.all_aws_regions {
     object.key("AllAwsRegions").boolean(input.all_aws_regions);
 }
 if let Some(var_3) = &input.aws_regions {
@@ -140359,7 +140359,7 @@ if let Some(var_1) = &input.aws_regions {
     }
     array_2.finish();
 }
-{
+if input.all_aws_regions {
     object.key("AllAwsRegions").boolean(input.all_aws_regions);
 }
     Ok(())
@@ -141140,7 +141140,7 @@ if let Some(var_2) = &input.parameters {
 if let Some(var_7) = &input.resource_type {
     object.key("ResourceType").string(var_7.as_str());
 }
-{
+if input.automatic {
     object.key("Automatic").boolean(input.automatic);
 }
 if let Some(var_8) = &input.execution_controls {
@@ -145161,10 +145161,10 @@ pub fn ser_recording_group(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::RecordingGroup,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-{
+if input.all_supported {
     object.key("allSupported").boolean(input.all_supported);
 }
-{
+if input.include_global_resource_types {
     object.key("includeGlobalResourceTypes").boolean(input.include_global_resource_types);
 }
 if let Some(var_1) = &input.resource_types {
@@ -146528,7 +146528,7 @@ pub fn ser_custom_policy_details(
 {
     object.key("PolicyText").string(input.policy_text.as_str());
 }
-{
+if input.enable_debug_log_delivery {
     object.key("EnableDebugLogDelivery").boolean(input.enable_debug_log_delivery);
 }
     Ok(())

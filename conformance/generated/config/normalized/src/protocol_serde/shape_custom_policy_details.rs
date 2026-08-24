@@ -9,7 +9,7 @@ pub fn ser_custom_policy_details(
     {
         object.key("PolicyText").string(input.policy_text.as_str());
     }
-    {
+    if input.enable_debug_log_delivery {
         object.key("EnableDebugLogDelivery").boolean(input.enable_debug_log_delivery);
     }
     Ok(())

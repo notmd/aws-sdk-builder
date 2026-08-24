@@ -9,16 +9,16 @@ pub fn ser_password_policy_type(
             ::aws_smithy_types::Number::NegInt((*var_1).into()),
         );
     }
-    {
+    if input.require_uppercase {
         object.key("RequireUppercase").boolean(input.require_uppercase);
     }
-    {
+    if input.require_lowercase {
         object.key("RequireLowercase").boolean(input.require_lowercase);
     }
-    {
+    if input.require_numbers {
         object.key("RequireNumbers").boolean(input.require_numbers);
     }
-    {
+    if input.require_symbols {
         object.key("RequireSymbols").boolean(input.require_symbols);
     }
     if let Some(var_2) = &input.password_history_size {
@@ -27,7 +27,7 @@ pub fn ser_password_policy_type(
             ::aws_smithy_types::Number::NegInt((*var_2).into()),
         );
     }
-    {
+    if input.temporary_password_validity_days != 0 {
         object.key("TemporaryPasswordValidityDays").number(
             #[allow(clippy::useless_conversion)]
             ::aws_smithy_types::Number::NegInt((input.temporary_password_validity_days).into()),

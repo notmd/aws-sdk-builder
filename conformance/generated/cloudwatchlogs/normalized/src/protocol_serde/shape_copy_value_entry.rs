@@ -9,7 +9,7 @@ pub fn ser_copy_value_entry(
     {
         object.key("target").string(input.target.as_str());
     }
-    {
+    if input.overwrite_if_exists {
         object.key("overwriteIfExists").boolean(input.overwrite_if_exists);
     }
     Ok(())

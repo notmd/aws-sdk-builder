@@ -3,7 +3,7 @@ pub fn ser_inbox_placement_tracking_option(
     object: &mut ::aws_smithy_json::serialize::JsonObjectWriter,
     input: &super::super::types::InboxPlacementTrackingOption,
 ) -> ::std::result::Result<(), ::aws_smithy_types::error::operation::SerializationError> {
-    {
+    if input.global {
         object.key("Global").boolean(input.global);
     }
     if let Some(var_1) = &input.tracked_isps {
