@@ -193,6 +193,8 @@ pub(crate) mod client_idempotency_token;
 
 mod event_receiver;
 
+mod event_stream_serde;
+
 mod idempotency_token;
 
 mod observability_feature;
@@ -208,8 +210,6 @@ mod endpoint_lib;
 mod lens;
 
 mod serde_util;
-
-mod event_stream_serde;
 
 mod json_errors;
 

@@ -915,6 +915,8 @@ fn render_standalone_extra_modules(
     let has_waiters = has_waiters(selected);
     let has_paginators = has_paginated_operations(selected);
     let has_event_stream = model_has_event_stream(selected);
+    let has_event_stream_input = !event_stream_input_union_ids(selected).is_empty();
+    let has_event_stream_errors = event_stream_has_modeled_errors(selected);
     let has_wrapped_xml_errors = has_aws_query
         || (has_rest_xml
             && !selected
@@ -939,6 +941,12 @@ fn render_standalone_extra_modules(
     }
     if has_event_stream {
         output.push_str("\nmod event_receiver;\n");
+    }
+    // Smithy-RS registers this module as a lazy inline dependency. Input event
+    // stream marshallers are discovered while rendering the early operation
+    // writers, before the idempotency module is finalized.
+    if has_event_stream && has_event_stream_input {
+        output.push_str("\nmod event_stream_serde;\n");
     }
     if model_contains_trait(selected, "aws.protocols#httpChecksum") {
         output.push_str(
@@ -986,6 +994,12 @@ fn render_standalone_extra_modules(
     if has_paginated_operations(selected) {
         output.push_str("\nmod lens;\n");
     }
+    // Modeled event-stream errors pull the unmarshaller's error helpers into
+    // the first lazy dependency wave. Keep this model-driven placement ahead
+    // of the JSON/error correction modules.
+    if has_event_stream && !has_event_stream_input && has_event_stream_errors {
+        output.push_str("\nmod event_stream_serde;\n");
+    }
     if protocol == ProtocolKind::AwsJson1_1 && has_json {
         output.push_str("\nmod json_errors;\n");
     }
@@ -999,13 +1013,13 @@ fn render_standalone_extra_modules(
     if has_wrapped_xml_errors && has_waiters {
         output.push_str("\nmod rest_xml_wrapped_errors;\n");
     }
-    if has_event_stream && !has_rest_xml {
+    if has_event_stream && !has_event_stream_input && !has_event_stream_errors && !has_rest_xml {
         output.push_str("\nmod event_stream_serde;\n");
     }
     if has_query_compatible {
         output.push_str("\nmod aws_query_compatible_errors;\n");
     }
-    if has_event_stream && has_rest_xml {
+    if has_event_stream && !has_event_stream_input && !has_event_stream_errors && has_rest_xml {
         output.push_str("\nmod event_stream_serde;\n");
     }
     if (has_json || has_query_compatible) && protocol != ProtocolKind::AwsJson1_1 {
@@ -1798,6 +1812,20 @@ fn event_stream_output_union_ids(selected: &SelectedModel) -> BTreeSet<String> {
         })
         .filter(|target| is_event_stream_target(selected, target))
         .collect()
+}
+
+fn event_stream_has_modeled_errors(selected: &SelectedModel) -> bool {
+    event_stream_union_ids(selected)
+        .into_iter()
+        .any(|union_id| {
+            selected.model.shapes.get(&union_id).is_some_and(|shape| {
+                members(shape).into_iter().any(|(_, member)| {
+                    member_target(member)
+                        .and_then(|target| selected.model.shapes.get(target))
+                        .is_some_and(is_error_shape)
+                })
+            })
+        })
 }
 
 fn render_event_stream_error_marshaller(output: &mut String, union_name: &str) {
@@ -16486,6 +16514,118 @@ mod tests {
 
         assert!(!is_streaming_blob(&event_stream_union));
         assert!(is_streaming_blob(&streaming_blob));
+    }
+
+    #[test]
+    fn event_stream_module_order_follows_lazy_dependency_phase() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let input_model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Invoke"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Invoke": {
+                        "type": "operation",
+                        "input": {"target": "example#Input"},
+                        "output": {"target": "smithy.api#Unit"}
+                    },
+                    "example#Input": {
+                        "type": "structure",
+                        "members": {
+                            "token": {
+                                "target": "smithy.api#String",
+                                "traits": {"smithy.api#idempotencyToken": {}}
+                            },
+                            "events": {
+                                "target": "example#Events",
+                                "traits": {"smithy.api#httpPayload": {}}
+                            }
+                        }
+                    },
+                    "example#Events": {
+                        "type": "union",
+                        "members": {"chunk": {"target": "example#Chunk"}},
+                        "traits": {"smithy.api#streaming": {}}
+                    },
+                    "example#Chunk": {"type": "structure", "members": {}}
+                }
+            }"#,
+        ))
+        .unwrap();
+        let input_selected = input_model.select(&[], true).unwrap();
+        let mut input_modules = String::new();
+        render_standalone_extra_modules(
+            &mut input_modules,
+            &input_selected,
+            ProtocolKind::RestJson1,
+        );
+        assert!(
+            input_modules.find("mod event_stream_serde;").unwrap()
+                < input_modules.find("mod idempotency_token;").unwrap()
+        );
+
+        let output_model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Invoke"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Invoke": {
+                        "type": "operation",
+                        "output": {"target": "example#Output"}
+                    },
+                    "example#Output": {
+                        "type": "structure",
+                        "members": {
+                            "events": {
+                                "target": "example#Events",
+                                "traits": {"smithy.api#httpPayload": {}}
+                            }
+                        }
+                    },
+                    "example#Events": {
+                        "type": "union",
+                        "members": {
+                            "chunk": {"target": "example#Chunk"},
+                            "failure": {"target": "example#Failure"}
+                        },
+                        "traits": {"smithy.api#streaming": {}}
+                    },
+                    "example#Chunk": {"type": "structure", "members": {}},
+                    "example#Failure": {
+                        "type": "structure",
+                        "members": {},
+                        "traits": {"smithy.api#error": "client"}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let output_selected = output_model.select(&[], true).unwrap();
+        let mut output_modules = String::new();
+        render_standalone_extra_modules(
+            &mut output_modules,
+            &output_selected,
+            ProtocolKind::RestJson1,
+        );
+        assert!(
+            output_modules.find("mod event_stream_serde;").unwrap()
+                < output_modules.find("mod serde_util;").unwrap()
+        );
     }
 
     #[test]

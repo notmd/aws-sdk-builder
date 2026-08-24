@@ -3,32 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `536/536` files compared · `423` matched · `113` mismatches · `0` missing · `0` extra · `78.92%` match (100.00% means fully matched)
-
-### `src/lib.rs`
-
-```diff
---- reference/src/lib.rs
-+++ generated/src/lib.rs
-@@ -193,8 +193,6 @@
-
- mod event_receiver;
-
--mod event_stream_serde;
--
- mod idempotency_token;
-
- mod observability_feature;
-@@ -211,6 +209,8 @@
-
- mod serde_util;
-
-+mod event_stream_serde;
-+
- mod json_errors;
-
- #[doc(inline)]
-```
+**Progress:** `536/536` files compared · `424` matched · `112` mismatches · `0` missing · `0` extra · `79.10%` match (100.00% means fully matched)
 
 ### `src/operation/count_tokens/_count_tokens_output.rs`
 

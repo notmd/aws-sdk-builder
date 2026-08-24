@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cloudwatchlogs
-**Progress:** `1287/1287` files compared · `1250` matched · `35` mismatches · `2` missing · `0` extra · `97.13%` match (100.00% means fully matched)
+**Progress:** `1287/1287` files compared · `1251` matched · `34` mismatches · `2` missing · `0` extra · `97.20%` match (100.00% means fully matched)
 
 ### `src/event_stream_serde.rs`
 
@@ -171,27 +171,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        }
 -    }
 -}
-```
-
-### `src/lib.rs`
-
-```diff
---- reference/src/lib.rs
-+++ generated/src/lib.rs
-@@ -214,11 +214,11 @@
-
- mod lens;
-
--mod event_stream_serde;
--
- mod json_errors;
-
- mod serde_util;
-
-+mod event_stream_serde;
-+
- #[doc(inline)]
- pub use client::Client;
 ```
 
 ### `src/operation/get_log_object/_get_log_object_output.rs`

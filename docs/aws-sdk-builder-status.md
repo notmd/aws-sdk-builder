@@ -4,6 +4,31 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match lazy event-stream module ordering
+- State: in progress
+- Changed: top-level `event_stream_serde` registration now follows the model-driven
+  lazy dependency phases used by Smithy-RS: input event-stream marshallers register
+  before idempotency modules, modeled-error event streams register after `lens`, and
+  ordinary output streams retain their late placement. Added a focused regression for
+  the input and modeled-error phases. The rule follows the pinned Smithy-RS
+  `EventStreamMarshallerGenerator`, `EventStreamUnmarshallerGenerator`,
+  `RustCrate.injectInlineDependencies`, and `WriterDelegator` behavior at
+  `/tmp/smithy-rs`, commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Evidence: `just conformance` generated 15 all-operation snapshots and 1,133
+  operations, formatted 13,164 generated Rust files, compared 13,168 files, and
+  completed without generated-source parse errors. `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` pass. `just conformance`
+  exits 1 only because broader parity gaps remain.
+- Conformance: `12,725/13,168` exact, `438` mismatches, `4` missing, `1` extra
+  (`96.17%`) -> `12,727/13,168` exact, `436` mismatches, `4` missing, `1` extra
+  (`96.18%`). Bedrock Runtime improved from `423/113` to `424/112`; CloudWatch
+  Logs improved from `1,250/35` to `1,251/34`.
+- Blocker: broader Bedrock Runtime protocol/shape differences and remaining generic
+  parity gaps remain; no blocker in this checkpoint.
+- Next action: align the model-derived copy-type accessor signature, starting with
+  the `CountTokensOutput::input_tokens` mismatch.
+
 ### Checkpoint: 2026-08-25 — Gate extended request-ID logging by the S3 decorator
 - State: in progress
 - Changed: streaming response deserialization now receives the shared request-ID plan

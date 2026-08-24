@@ -214,11 +214,11 @@ mod endpoint_lib;
 
 mod lens;
 
+mod event_stream_serde;
+
 mod json_errors;
 
 mod serde_util;
-
-mod event_stream_serde;
 
 #[doc(inline)]
 pub use client::Client;
