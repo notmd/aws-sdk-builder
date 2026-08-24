@@ -4,6 +4,27 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Normalize unlinked documentation anchors
+- State: in progress
+- Changed: the shared client-documentation tokenizer now applies Smithy-RS's
+  pseudo-anchor normalization to unlinked `<a>...</a>` fragments, emitting
+  `<code>...</code>` while preserving real links with `href` attributes. This removes
+  the generated-only unlinked-anchor form across operation/client documentation. A
+  focused regression covers the conversion.
+- Conformance: `just conformance` generated 15 services and 1,133 operations,
+  formatted 13,164 generated Rust files, and compared `13,168` files: `12,716`
+  matched, `447` mismatched, `4` missing, and `1` extra (`96.06%` average match).
+  This is `+61` exact files and `-61` mismatches from the `12,655/508` checkpoint;
+  KMS improved from `540/51` to `583/8`, Batch from `744/18` to `747/15`, and SQS
+  from `275/18` to `281/12`. Generated snapshots now contain zero unlinked `<a>`
+  tags. Generation and snapshot parsing completed without generated-source parse
+  errors. The command exits 1 only because broader parity gaps remain.
+- Verification: focused documentation regression, `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`, formatting, and
+  `git diff --check` pass.
+- Next action: complete the verification gate, commit this checkpoint, then continue
+  with the remaining event-stream, shape, and protocol parity gaps.
+
 ### Checkpoint: 2026-08-25 — Resolve AWS Query-compatible modeled error codes
 - State: in progress
 - Changed: JSON protocol error arms now use the model-driven AWS Query error-code

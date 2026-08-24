@@ -3,23 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1077/1077` files compared · `1009` matched · `67` mismatches · `0` missing · `1` extra · `93.69%` match (100.00% means fully matched)
-
-### `src/client/delete_resource_policy.rs`
-
-```diff
---- reference/src/client/delete_resource_policy.rs
-+++ generated/src/client/delete_resource_policy.rs
-@@ -4,7 +4,7 @@
-     ///
-     /// - The fluent builder is configurable:
-     ///   - [`resource_arn(impl Into<String>)`](crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder::resource_arn) / [`set_resource_arn(Option<String>)`](crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder::set_resource_arn):<br>required: **true**<br><p>The Amazon Resource Name (ARN) of the Lambda resource you want to delete the policy from. You can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.</p><br>
--    ///   - [`revision_id(impl Into<String>)`](crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder::revision_id) / [`set_revision_id(Option<String>)`](crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder::set_revision_id):<br>required: **false**<br><p>The revision ID that the existing policy must match for the deletion to proceed. If the revision ID doesn't match, the operation fails with a <code>PreconditionFailedException</code> error. To retrieve the current revision ID, use the <code>GetResourcePolicy</code> operation.</p><br>
-+    ///   - [`revision_id(impl Into<String>)`](crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder::revision_id) / [`set_revision_id(Option<String>)`](crate::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder::set_revision_id):<br>required: **false**<br><p>The revision ID that the existing policy must match for the deletion to proceed. If the revision ID doesn't match, the operation fails with a <code>PreconditionFailedException</code> error. To retrieve the current revision ID, use the <a>GetResourcePolicy</a> operation.</p><br>
-     /// - On success, responds with [`DeleteResourcePolicyOutput`](crate::operation::delete_resource_policy::DeleteResourcePolicyOutput)
-     /// - On failure, responds with [`SdkError<DeleteResourcePolicyError>`](crate::operation::delete_resource_policy::DeleteResourcePolicyError)
-     pub fn delete_resource_policy(&self) -> super::super::operation::delete_resource_policy::builders::DeleteResourcePolicyFluentBuilder {
-```
+**Progress:** `1077/1077` files compared · `1016` matched · `60` mismatches · `0` missing · `1` extra · `94.34%` match (100.00% means fully matched)
 
 ### `src/client/get_function_event_invoke_config.rs`
 
@@ -35,70 +19,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// - On failure, responds with [`SdkError<GetFunctionEventInvokeConfigError>`](crate::operation::get_function_event_invoke_config::GetFunctionEventInvokeConfigError)
      pub fn get_function_event_invoke_config(
          &self,
-```
-
-### `src/client/get_function_recursion_config.rs`
-
-```diff
---- reference/src/client/get_function_recursion_config.rs
-+++ generated/src/client/get_function_recursion_config.rs
-@@ -5,7 +5,7 @@
-     /// - The fluent builder is configurable:
-     ///   - [`function_name(impl Into<String>)`](crate::operation::get_function_recursion_config::builders::GetFunctionRecursionConfigFluentBuilder::function_name) / [`set_function_name(Option<String>)`](crate::operation::get_function_recursion_config::builders::GetFunctionRecursionConfigFluentBuilder::set_function_name):<br>required: **true**<br><p>The name of the function.</p><br>
-     /// - On success, responds with [`GetFunctionRecursionConfigOutput`](crate::operation::get_function_recursion_config::GetFunctionRecursionConfigOutput) with field(s):
--    ///   - [`recursive_loop(Option<RecursiveLoop>)`](crate::operation::get_function_recursion_config::GetFunctionRecursionConfigOutput::recursive_loop): <p>If your function's recursive loop detection configuration is <code>Allow</code>, Lambda doesn't take any action when it detects your function being invoked as part of a recursive loop.</p> <p>If your function's recursive loop detection configuration is <code>Terminate</code>, Lambda stops your function being invoked and notifies you when it detects your function being invoked as part of a recursive loop.</p> <p>By default, Lambda sets your function's configuration to <code>Terminate</code>. You can update this configuration using the <code>PutFunctionRecursionConfig</code> action.</p>
-+    ///   - [`recursive_loop(Option<RecursiveLoop>)`](crate::operation::get_function_recursion_config::GetFunctionRecursionConfigOutput::recursive_loop): <p>If your function's recursive loop detection configuration is <code>Allow</code>, Lambda doesn't take any action when it detects your function being invoked as part of a recursive loop.</p> <p>If your function's recursive loop detection configuration is <code>Terminate</code>, Lambda stops your function being invoked and notifies you when it detects your function being invoked as part of a recursive loop.</p> <p>By default, Lambda sets your function's configuration to <code>Terminate</code>. You can update this configuration using the <a>PutFunctionRecursionConfig</a> action.</p>
-     /// - On failure, responds with [`SdkError<GetFunctionRecursionConfigError>`](crate::operation::get_function_recursion_config::GetFunctionRecursionConfigError)
-     pub fn get_function_recursion_config(
-         &self,
-```
-
-### `src/client/get_resource_policy.rs`
-
-```diff
---- reference/src/client/get_resource_policy.rs
-+++ generated/src/client/get_resource_policy.rs
-@@ -6,7 +6,7 @@
-     ///   - [`resource_arn(impl Into<String>)`](crate::operation::get_resource_policy::builders::GetResourcePolicyFluentBuilder::resource_arn) / [`set_resource_arn(Option<String>)`](crate::operation::get_resource_policy::builders::GetResourcePolicyFluentBuilder::set_resource_arn):<br>required: **true**<br><p>The Amazon Resource Name (ARN) of the Lambda resource you want to retrieve the policy for. You can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.</p><br>
-     /// - On success, responds with [`GetResourcePolicyOutput`](crate::operation::get_resource_policy::GetResourcePolicyOutput) with field(s):
-     ///   - [`policy(Option<String>)`](crate::operation::get_resource_policy::GetResourcePolicyOutput::policy): <p>The resource-based policy attached to the Lambda resource you specified.</p>
--    ///   - [`revision_id(Option<String>)`](crate::operation::get_resource_policy::GetResourcePolicyOutput::revision_id): <p>The revision ID of the policy. Pass this value as the <code>RevisionId</code> in a <code>PutResourcePolicy</code> or <code>DeleteResourcePolicy</code> request. Doing so ensures the operation acts on the expected version of the policy.</p>
-+    ///   - [`revision_id(Option<String>)`](crate::operation::get_resource_policy::GetResourcePolicyOutput::revision_id): <p>The revision ID of the policy. Pass this value as the <code>RevisionId</code> in a <a>PutResourcePolicy</a> or <a>DeleteResourcePolicy</a> request. Doing so ensures the operation acts on the expected version of the policy.</p>
-     /// - On failure, responds with [`SdkError<GetResourcePolicyError>`](crate::operation::get_resource_policy::GetResourcePolicyError)
-     pub fn get_resource_policy(&self) -> super::super::operation::get_resource_policy::builders::GetResourcePolicyFluentBuilder {
-         super::super::operation::get_resource_policy::builders::GetResourcePolicyFluentBuilder::new(self.handle.clone())
-```
-
-### `src/client/publish_layer_version.rs`
-
-```diff
---- reference/src/client/publish_layer_version.rs
-+++ generated/src/client/publish_layer_version.rs
-@@ -7,7 +7,7 @@
-     ///   - [`description(impl Into<String>)`](crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::description) / [`set_description(Option<String>)`](crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::set_description):<br>required: **false**<br><p>The description of the version.</p><br>
-     ///   - [`content(LayerVersionContentInput)`](crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::content) / [`set_content(Option<LayerVersionContentInput>)`](crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::set_content):<br>required: **true**<br><p>The function layer archive.</p><br>
-     ///   - [`compatible_architectures(Architecture)`](crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::compatible_architectures) / [`set_compatible_architectures(Option<Vec::<Architecture>>)`](crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::set_compatible_architectures):<br>required: **false**<br><p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p><br>
--    ///   - [`compatible_runtimes(Runtime)`](crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::compatible_runtimes) / [`set_compatible_runtimes(Option<Vec::<Runtime>>)`](crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::set_compatible_runtimes):<br>required: **false**<br><p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function runtimes</a>. Used for filtering with <code>ListLayers</code> and <code>ListLayerVersions</code>.</p> <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p><br>
-+    ///   - [`compatible_runtimes(Runtime)`](crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::compatible_runtimes) / [`set_compatible_runtimes(Option<Vec::<Runtime>>)`](crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::set_compatible_runtimes):<br>required: **false**<br><p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">function runtimes</a>. Used for filtering with <a>ListLayers</a> and <a>ListLayerVersions</a>.</p> <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p><br>
-     ///   - [`license_info(impl Into<String>)`](crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::license_info) / [`set_license_info(Option<String>)`](crate::operation::publish_layer_version::builders::PublishLayerVersionFluentBuilder::set_license_info):<br>required: **false**<br><p>The layer's software license. It can be any of the following:</p> <ul>  <li>   <p>An <a href="https://spdx.org/licenses/">SPDX license identifier</a>. For example, <code>MIT</code>.</p></li>  <li>   <p>The URL of a license hosted on the internet. For example, <code>https://opensource.org/licenses/MIT</code>.</p></li>  <li>   <p>The full text of the license.</p></li> </ul><br>
-     /// - On success, responds with [`PublishLayerVersionOutput`](crate::operation::publish_layer_version::PublishLayerVersionOutput) with field(s):
-     ///   - [`content(Option<LayerVersionContentOutput>)`](crate::operation::publish_layer_version::PublishLayerVersionOutput::content): <p>Details about the layer version.</p>
-```
-
-### `src/client/publish_version.rs`
-
-```diff
---- reference/src/client/publish_version.rs
-+++ generated/src/client/publish_version.rs
-@@ -4,7 +4,7 @@
-     ///
-     /// - The fluent builder is configurable:
-     ///   - [`function_name(impl Into<String>)`](crate::operation::publish_version::builders::PublishVersionFluentBuilder::function_name) / [`set_function_name(Option<String>)`](crate::operation::publish_version::builders::PublishVersionFluentBuilder::set_function_name):<br>required: **true**<br><p>The name or ARN of the Lambda function.</p> <p class="title"><b>Name formats</b></p> <ul>  <li>   <p><b>Function name</b> - <code>MyFunction</code>.</p></li>  <li>   <p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li>  <li>   <p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li> </ul> <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p><br>
--    ///   - [`code_sha256(impl Into<String>)`](crate::operation::publish_version::builders::PublishVersionFluentBuilder::code_sha256) / [`set_code_sha256(Option<String>)`](crate::operation::publish_version::builders::PublishVersionFluentBuilder::set_code_sha256):<br>required: **false**<br><p>Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. You can get the hash for the version that you uploaded from the output of <code>UpdateFunctionCode</code>.</p><br>
-+    ///   - [`code_sha256(impl Into<String>)`](crate::operation::publish_version::builders::PublishVersionFluentBuilder::code_sha256) / [`set_code_sha256(Option<String>)`](crate::operation::publish_version::builders::PublishVersionFluentBuilder::set_code_sha256):<br>required: **false**<br><p>Only publish a version if the hash value matches the value that's specified. Use this option to avoid publishing a version if the function code has changed since you last updated it. You can get the hash for the version that you uploaded from the output of <a>UpdateFunctionCode</a>.</p><br>
-     ///   - [`description(impl Into<String>)`](crate::operation::publish_version::builders::PublishVersionFluentBuilder::description) / [`set_description(Option<String>)`](crate::operation::publish_version::builders::PublishVersionFluentBuilder::set_description):<br>required: **false**<br><p>A description for the version to override the description in the function configuration.</p><br>
-     ///   - [`revision_id(impl Into<String>)`](crate::operation::publish_version::builders::PublishVersionFluentBuilder::revision_id) / [`set_revision_id(Option<String>)`](crate::operation::publish_version::builders::PublishVersionFluentBuilder::set_revision_id):<br>required: **false**<br><p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid publishing a version if the function configuration has changed since you last updated it.</p><br>
-     ///   - [`publish_to(FunctionVersionLatestPublished)`](crate::operation::publish_version::builders::PublishVersionFluentBuilder::publish_to) / [`set_publish_to(Option<FunctionVersionLatestPublished>)`](crate::operation::publish_version::builders::PublishVersionFluentBuilder::set_publish_to):<br>required: **false**<br><p>Specifies where to publish the function version or configuration.</p><br>
 ```
 
 ### `src/client/put_function_event_invoke_config.rs`
@@ -122,38 +42,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// - On failure, responds with [`SdkError<PutFunctionEventInvokeConfigError>`](crate::operation::put_function_event_invoke_config::PutFunctionEventInvokeConfigError)
      pub fn put_function_event_invoke_config(
          &self,
-```
-
-### `src/client/put_resource_policy.rs`
-
-```diff
---- reference/src/client/put_resource_policy.rs
-+++ generated/src/client/put_resource_policy.rs
-@@ -5,7 +5,7 @@
-     /// - The fluent builder is configurable:
-     ///   - [`resource_arn(impl Into<String>)`](crate::operation::put_resource_policy::builders::PutResourcePolicyFluentBuilder::resource_arn) / [`set_resource_arn(Option<String>)`](crate::operation::put_resource_policy::builders::PutResourcePolicyFluentBuilder::set_resource_arn):<br>required: **true**<br><p>The Amazon Resource Name (ARN) of the Lambda resource you want to add the policy to. You can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.</p><br>
-     ///   - [`policy(impl Into<String>)`](crate::operation::put_resource_policy::builders::PutResourcePolicyFluentBuilder::policy) / [`set_policy(Option<String>)`](crate::operation::put_resource_policy::builders::PutResourcePolicyFluentBuilder::set_policy):<br>required: **true**<br><p>The policy document you want to add to your Lambda resource. This is formatted as a JSON string.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">Working with resource-based policies in Lambda</a> in the <i>Lambda Developer Guide</i>.</p><br>
--    ///   - [`revision_id(impl Into<String>)`](crate::operation::put_resource_policy::builders::PutResourcePolicyFluentBuilder::revision_id) / [`set_revision_id(Option<String>)`](crate::operation::put_resource_policy::builders::PutResourcePolicyFluentBuilder::set_revision_id):<br>required: **false**<br><p>The revision ID that the existing policy must match for the replacement to proceed. If the revision ID doesn't match, the operation fails with a <code>PreconditionFailedException</code> error. To retrieve the current revision ID, use the <code>GetResourcePolicy</code> operation.</p><br>
-+    ///   - [`revision_id(impl Into<String>)`](crate::operation::put_resource_policy::builders::PutResourcePolicyFluentBuilder::revision_id) / [`set_revision_id(Option<String>)`](crate::operation::put_resource_policy::builders::PutResourcePolicyFluentBuilder::set_revision_id):<br>required: **false**<br><p>The revision ID that the existing policy must match for the replacement to proceed. If the revision ID doesn't match, the operation fails with a <code>PreconditionFailedException</code> error. To retrieve the current revision ID, use the <a>GetResourcePolicy</a> operation.</p><br>
-     /// - On success, responds with [`PutResourcePolicyOutput`](crate::operation::put_resource_policy::PutResourcePolicyOutput) with field(s):
-     ///   - [`policy(Option<String>)`](crate::operation::put_resource_policy::PutResourcePolicyOutput::policy): <p>The resource-based policy that Lambda adds to the resource.</p>
-     ///   - [`revision_id(Option<String>)`](crate::operation::put_resource_policy::PutResourcePolicyOutput::revision_id): <p>The revision ID of the policy that Lambda adds to your Lambda resource.</p>
-```
-
-### `src/client/update_function_code.rs`
-
-```diff
---- reference/src/client/update_function_code.rs
-+++ generated/src/client/update_function_code.rs
-@@ -11,7 +11,7 @@
-     ///   - [`s3_object_storage_mode(S3ObjectStorageMode)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::s3_object_storage_mode) / [`set_s3_object_storage_mode(Option<S3ObjectStorageMode>)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::set_s3_object_storage_mode):<br>required: **false**<br><p>Specifies how the deployment package is stored. Valid values:</p> <ul>  <li>   <p><code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p></li>  <li>   <p><code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p></li> </ul><br>
-     ///   - [`image_uri(impl Into<String>)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::image_uri) / [`set_image_uri(Option<String>)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::set_image_uri):<br>required: **false**<br><p>URI of a container image in the Amazon ECR registry. Do not use for a function defined with a .zip file archive.</p><br>
-     ///   - [`architectures(Architecture)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::architectures) / [`set_architectures(Option<Vec::<Architecture>>)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::set_architectures):<br>required: **false**<br><p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is <code>x86_64</code>.</p><br>
--    ///   - [`publish(bool)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::publish) / [`set_publish(Option<bool>)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::set_publish):<br>required: **false**<br><p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <code>PublishVersion</code> separately.</p><br>
-+    ///   - [`publish(bool)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::publish) / [`set_publish(Option<bool>)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::set_publish):<br>required: **false**<br><p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <a>PublishVersion</a> separately.</p><br>
-     ///   - [`publish_to(FunctionVersionLatestPublished)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::publish_to) / [`set_publish_to(Option<FunctionVersionLatestPublished>)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::set_publish_to):<br>required: **false**<br><p>Specifies where to publish the function version or configuration.</p><br>
-     ///   - [`dry_run(bool)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::dry_run) / [`set_dry_run(Option<bool>)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::set_dry_run):<br>required: **false**<br><p>Set to true to validate the request parameters and access permissions without modifying the function code.</p><br>
-     ///   - [`revision_id(impl Into<String>)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::revision_id) / [`set_revision_id(Option<String>)`](crate::operation::update_function_code::builders::UpdateFunctionCodeFluentBuilder::set_revision_id):<br>required: **false**<br><p>Update the function only if the revision ID matches the ID that's specified. Use this option to avoid modifying a function that has changed since you last read it.</p><br>
 ```
 
 ### `src/client/update_function_event_invoke_config.rs`

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## config
-**Progress:** `1262/1262` files compared · `1219` matched · `43` mismatches · `0` missing · `0` extra · `96.59%` match (100.00% means fully matched)
+**Progress:** `1262/1262` files compared · `1221` matched · `41` mismatches · `0` missing · `0` extra · `96.75%` match (100.00% means fully matched)
 
 ### `src/client/associate_resource_types.rs`
 
@@ -51,40 +51,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// - On failure, responds with [`SdkError<DisassociateResourceTypesError>`](crate::operation::disassociate_resource_types::DisassociateResourceTypesError)
      pub fn disassociate_resource_types(&self) -> super::super::operation::disassociate_resource_types::builders::DisassociateResourceTypesFluentBuilder {
          super::super::operation::disassociate_resource_types::builders::DisassociateResourceTypesFluentBuilder::new(self.handle.clone())
-```
-
-### `src/client/get_aggregate_discovered_resource_counts.rs`
-
-```diff
---- reference/src/client/get_aggregate_discovered_resource_counts.rs
-+++ generated/src/client/get_aggregate_discovered_resource_counts.rs
-@@ -7,7 +7,7 @@
-     ///   - [`configuration_aggregator_name(impl Into<String>)`](crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsFluentBuilder::configuration_aggregator_name) / [`set_configuration_aggregator_name(Option<String>)`](crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsFluentBuilder::set_configuration_aggregator_name):<br>required: **true**<br><p>The name of the configuration aggregator.</p><br>
-     ///   - [`filters(ResourceCountFilters)`](crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsFluentBuilder::filters) / [`set_filters(Option<ResourceCountFilters>)`](crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsFluentBuilder::set_filters):<br>required: **false**<br><p>Filters the results based on the <code>ResourceCountFilters</code> object.</p><br>
-     ///   - [`group_by_key(ResourceCountGroupKey)`](crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsFluentBuilder::group_by_key) / [`set_group_by_key(Option<ResourceCountGroupKey>)`](crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsFluentBuilder::set_group_by_key):<br>required: **false**<br><p>The key to group the resource counts.</p><br>
--    ///   - [`limit(i32)`](crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsFluentBuilder::limit) / [`set_limit(Option<i32>)`](crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsFluentBuilder::set_limit):<br>required: **false**<br><p>The maximum number of <code>GroupedResourceCount</code> objects returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, Config uses the default.</p><br>
-+    ///   - [`limit(i32)`](crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsFluentBuilder::limit) / [`set_limit(Option<i32>)`](crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsFluentBuilder::set_limit):<br>required: **false**<br><p>The maximum number of <a>GroupedResourceCount</a> objects returned on each page. The default is 1000. You cannot specify a number greater than 1000. If you specify 0, Config uses the default.</p><br>
-     ///   - [`next_token(impl Into<String>)`](crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsFluentBuilder::next_token) / [`set_next_token(Option<String>)`](crate::operation::get_aggregate_discovered_resource_counts::builders::GetAggregateDiscoveredResourceCountsFluentBuilder::set_next_token):<br>required: **false**<br><p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p><br>
-     /// - On success, responds with [`GetAggregateDiscoveredResourceCountsOutput`](crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsOutput) with field(s):
-     ///   - [`total_discovered_resources(i64)`](crate::operation::get_aggregate_discovered_resource_counts::GetAggregateDiscoveredResourceCountsOutput::total_discovered_resources): <p>The total number of resources that are present in an aggregator with the filters that you provide.</p>
-```
-
-### `src/client/get_discovered_resource_counts.rs`
-
-```diff
---- reference/src/client/get_discovered_resource_counts.rs
-+++ generated/src/client/get_discovered_resource_counts.rs
-@@ -4,8 +4,8 @@
-     /// This operation supports pagination; See [`into_paginator()`](crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsFluentBuilder::into_paginator).
-     ///
-     /// - The fluent builder is configurable:
--    ///   - [`resource_types(impl Into<String>)`](crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsFluentBuilder::resource_types) / [`set_resource_types(Option<Vec::<String>>)`](crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsFluentBuilder::set_resource_types):<br>required: **false**<br><p>The comma-separated list that specifies the resource types that you want Config to return (for example, <code>"AWS::EC2::Instance"</code>, <code>"AWS::IAM::User"</code>).</p> <p>If a value for <code>resourceTypes</code> is not specified, Config returns all resource types that Config is recording in the region for your account.</p><note>  <p>If the configuration recorder is turned off, Config returns an empty list of <code>ResourceCount</code> objects. If the configuration recorder is not recording a specific resource type (for example, S3 buckets), that resource type is not returned in the list of <code>ResourceCount</code> objects.</p> </note><br>
--    ///   - [`limit(i32)`](crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsFluentBuilder::limit) / [`set_limit(Option<i32>)`](crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsFluentBuilder::set_limit):<br>required: **false**<br><p>The maximum number of <code>ResourceCount</code> objects returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p><br>
-+    ///   - [`resource_types(impl Into<String>)`](crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsFluentBuilder::resource_types) / [`set_resource_types(Option<Vec::<String>>)`](crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsFluentBuilder::set_resource_types):<br>required: **false**<br><p>The comma-separated list that specifies the resource types that you want Config to return (for example, <code>"AWS::EC2::Instance"</code>, <code>"AWS::IAM::User"</code>).</p> <p>If a value for <code>resourceTypes</code> is not specified, Config returns all resource types that Config is recording in the region for your account.</p><note>  <p>If the configuration recorder is turned off, Config returns an empty list of <a>ResourceCount</a> objects. If the configuration recorder is not recording a specific resource type (for example, S3 buckets), that resource type is not returned in the list of <a>ResourceCount</a> objects.</p> </note><br>
-+    ///   - [`limit(i32)`](crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsFluentBuilder::limit) / [`set_limit(Option<i32>)`](crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsFluentBuilder::set_limit):<br>required: **false**<br><p>The maximum number of <a>ResourceCount</a> objects returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p><br>
-     ///   - [`next_token(impl Into<String>)`](crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsFluentBuilder::next_token) / [`set_next_token(Option<String>)`](crate::operation::get_discovered_resource_counts::builders::GetDiscoveredResourceCountsFluentBuilder::set_next_token):<br>required: **false**<br><p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p><br>
-     /// - On success, responds with [`GetDiscoveredResourceCountsOutput`](crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsOutput) with field(s):
-     ///   - [`total_discovered_resources(i64)`](crate::operation::get_discovered_resource_counts::GetDiscoveredResourceCountsOutput::total_discovered_resources): <p>The total number of resources that Config is recording in the region for your account. If you specify resource types in the request, Config returns only the total number of resources for those resource types.</p> <p class="title"><b>Example</b></p> <ol>  <li>   <p>Config is recording three resource types in the US East (Ohio) Region for your account: 25 EC2 instances, 20 IAM users, and 15 S3 buckets, for a total of 60 resources.</p></li>  <li>   <p>You make a call to the <code>GetDiscoveredResourceCounts</code> action and specify the resource type, <code>"AWS::EC2::Instances"</code>, in the request.</p></li>  <li>   <p>Config returns 25 for <code>totalDiscoveredResources</code>.</p></li> </ol>
 ```
 
 ### `src/config.rs`

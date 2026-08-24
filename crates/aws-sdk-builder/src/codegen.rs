@@ -15838,7 +15838,8 @@ fn normalize_client_documentation(value: &str) -> String {
         }
         match token {
             DocumentationToken::Tag(tag) => {
-                if let Some(name) = documentation_tag_name(tag) {
+                let (tag, name) = normalize_documentation_tag(tag, tag.starts_with("</"), &stack);
+                if !name.is_empty() {
                     if tag.starts_with("</")
                         && let Some(opening_index) =
                             stack.iter().rposition(|current| current == &name)
@@ -15857,7 +15858,7 @@ fn normalize_client_documentation(value: &str) -> String {
                             auto_closed = true;
                         }
                     }
-                    output.push_str(&lowercase_documentation_tag(tag));
+                    output.push_str(&tag);
                     if tag.starts_with("</") {
                         if stack.last().is_some_and(|current| current == &name) {
                             stack.pop();
@@ -15868,7 +15869,7 @@ fn normalize_client_documentation(value: &str) -> String {
                         stack.push(name);
                     }
                 } else {
-                    output.push_str(&lowercase_documentation_tag(tag));
+                    output.push_str(&lowercase_documentation_tag(&tag));
                 }
             }
             DocumentationToken::Text(text) => {
@@ -16583,6 +16584,14 @@ mod tests {
         assert_eq!(
             normalized,
             "<ul><li><p>Text</p><note><p>Nested text</p>    <ul><li><p>Nested item</p></li></ul></note></li></ul>"
+        );
+    }
+
+    #[test]
+    fn normalize_client_documentation_converts_unlinked_anchors_to_code() {
+        assert_eq!(
+            normalize_client_documentation("<p>Use <a>ListKeys</a>.</p>"),
+            "<p>Use <code>ListKeys</code>.</p>"
         );
     }
 
