@@ -1140,17 +1140,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          super::super::types::AttributeValue::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-@@ -100,9 +100,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
 ```
 
 ### `src/protocol_serde/shape_describe_endpoints.rs`

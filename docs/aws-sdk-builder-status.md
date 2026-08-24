@@ -4,6 +4,28 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match Smithy-qualified JSON union null peeks
+- State: in progress
+- Changed: JSON union deserializers now emit the fully qualified
+  `::std::option::Option::Some(::std::result::Result::Ok(...))` `ValueNull` peek
+  pattern used by Smithy-RS, rather than relying on prelude imports and shortened
+  paths. The rule is shared by every generated JSON union and has a focused
+  regression test. It follows the pinned Smithy-RS `JsonParserGenerator` output and
+  `RustWriter` formatting at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`.
+- Evidence: focused regression, `just conformance` regeneration and parsing,
+  `cargo test --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` pass. Conformance formatted
+  all `13,164` generated Rust files and reported no generated-source parse errors;
+  `just conformance` exits 1 only because broader parity gaps remain.
+- Conformance: `12,753/13,168` exact, `410` mismatches -> `12,758/13,168` exact,
+  `405` mismatches, `4` missing, and `1` extra (`96.56%`). Bedrock Runtime improved
+  from `450/86` to `454/82`; CloudWatch Logs improved from `1,251/34` to `1,252/33`.
+- Blocker: remaining generic protocol, streaming, shape, and runtime parity gaps
+  remain; no blocker in this checkpoint.
+- Next action: align the next highest-impact generic JSON protocol mismatch, then
+  regenerate and repeat the conformance verification loop.
+
 ### Checkpoint: 2026-08-25 — Match lazy event-stream module ordering
 - State: in progress
 - Changed: top-level `event_stream_serde` registration now follows the model-driven

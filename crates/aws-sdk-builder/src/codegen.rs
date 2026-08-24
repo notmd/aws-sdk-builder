@@ -10560,6 +10560,11 @@ fn render_json_union_deserializer(
     )
     .unwrap();
     output.push_str("    if depth >= 128u32 {\n        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n            \"maximum nesting depth exceeded\",\n        ));\n    }\n    let mut variant = None;\n    match tokens.next().transpose()? {\n        Some(::aws_smithy_json::deserialize::Token::ValueNull { .. }) => return Ok(None),\n        Some(::aws_smithy_json::deserialize::Token::StartObject { .. }) => loop {\n            match tokens.next().transpose()? {\n                Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,\n                Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {\n                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {\n                        let _ = tokens.next().expect(\"peek returned a token\")?;\n                        continue;\n                    }\n                    let key = key.to_unescaped()?;\n                    if key == \"__type\" {\n                        ::aws_smithy_json::deserialize::token::skip_value(tokens)?;\n                        continue;\n                    }\n                    if variant.is_some() {\n                        return Err(::aws_smithy_json::deserialize::error::DeserializeError::custom(\n                            \"encountered mixed variants in union\",\n                        ));\n                    }\n                    variant = match key.as_ref() {\n");
+    let null_peek = output.replace(
+        "if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {",
+        "if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =\n                        tokens.peek()\n                    {",
+    );
+    *output = null_peek;
     for (name, member) in members(shape) {
         let target = member_target(member).unwrap_or_default();
         let variant_name = rust_type_name(&name);
@@ -16725,6 +16730,56 @@ mod tests {
 
         let output = render_json_protocol_operation_file(&selected, "Get");
         assert!(output.find("\"alpha\" =>").unwrap() < output.find("\"zeta\" =>").unwrap());
+    }
+
+    #[test]
+    fn json_union_deserializer_uses_fully_qualified_null_pattern() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Invoke"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Invoke": {
+                        "type": "operation",
+                        "input": {"target": "example#Input"},
+                        "output": {"target": "smithy.api#Unit"},
+                        "traits": {"smithy.api#http": {"method": "POST", "uri": "/", "code": 200}}
+                    },
+                    "example#Input": {
+                        "type": "structure",
+                        "members": {"value": {"target": "example#Union"}},
+                        "traits": {"smithy.api#input": {}}
+                    },
+                    "example#Union": {
+                        "type": "union",
+                        "members": {"text": {"target": "smithy.api#String"}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let shape = selected.model.shapes.get("example#Union").unwrap();
+        let mut rendered = String::new();
+        render_json_union_deserializer(&mut rendered, &selected, "example#Union", shape);
+
+        assert!(rendered.contains(
+            "if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) ="
+        ));
+        assert!(!rendered.contains(
+            "if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) ="
+        ));
     }
 
     #[test]

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## cloudwatchlogs
-**Progress:** `1287/1287` files compared · `1251` matched · `34` mismatches · `2` missing · `0` extra · `97.20%` match (100.00% means fully matched)
+**Progress:** `1287/1287` files compared · `1252` matched · `33` mismatches · `2` missing · `0` extra · `97.28%` match (100.00% means fully matched)
 
 ### `src/event_stream_serde.rs`
 
@@ -709,24 +709,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_get_storage_tier_policy(
      _value: &[u8],
      mut builder: super::super::operation::get_storage_tier_policy::builders::GetStorageTierPolicyOutputBuilder,
-```
-
-### `src/protocol_serde/shape_integration_details.rs`
-
-```diff
---- reference/src/protocol_serde/shape_integration_details.rs
-+++ generated/src/protocol_serde/shape_integration_details.rs
-@@ -19,9 +19,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
 ```
 
 ### `src/protocol_serde/shape_internal_streaming_exception.rs`

@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## bedrockruntime
-**Progress:** `536/536` files compared · `450` matched · `86` mismatches · `0` missing · `0` extra · `83.96%` match (100.00% means fully matched)
+**Progress:** `536/536` files compared · `454` matched · `82` mismatches · `0` missing · `0` extra · `84.70%` match (100.00% means fully matched)
 
 ### `src/operation/invoke_model_with_bidirectional_stream.rs`
 
@@ -59,18 +59,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_async_invoke_output_data_config<'a, I>(
      tokens: &mut ::std::iter::Peekable<I>,
      _value: &'a [u8],
-@@ -19,9 +39,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
-@@ -72,23 +90,3 @@
+@@ -72,23 +92,3 @@
      }
      Ok(variant)
  }
@@ -168,17 +157,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              super::super::protocol_serde::shape_s3_location::ser_s3_location(&mut object_1, inner)?;
              object_1.finish();
          }
-@@ -38,9 +38,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
 ```
 
 ### `src/protocol_serde/shape_bidirectional_output_payload_part.rs`
@@ -229,17 +207,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          super::super::types::CitationGeneratedContent::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-@@ -36,9 +36,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
 ```
 
 ### `src/protocol_serde/shape_citation_location.rs`
@@ -300,17 +267,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          super::super::types::CitationLocation::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-@@ -63,9 +63,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
 ```
 
 ### `src/protocol_serde/shape_citation_source_content.rs`
@@ -332,17 +288,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          super::super::types::CitationSourceContent::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-@@ -36,9 +36,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
 ```
 
 ### `src/protocol_serde/shape_content_block.rs`
@@ -479,35 +424,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          super::super::types::ContentBlock::Unknown => return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant("ContentBlock")),
      }
-@@ -110,9 +110,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
-```
-
-### `src/protocol_serde/shape_content_block_delta.rs`
-
-```diff
---- reference/src/protocol_serde/shape_content_block_delta.rs
-+++ generated/src/protocol_serde/shape_content_block_delta.rs
-@@ -19,9 +19,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
 ```
 
 ### `src/protocol_serde/shape_content_block_delta_event.rs`
@@ -537,24 +453,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub(crate) fn de_content_block_delta_event<'a, I>(
      tokens: &mut ::std::iter::Peekable<I>,
      _value: &'a [u8],
-```
-
-### `src/protocol_serde/shape_content_block_start.rs`
-
-```diff
---- reference/src/protocol_serde/shape_content_block_start.rs
-+++ generated/src/protocol_serde/shape_content_block_start.rs
-@@ -19,9 +19,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
 ```
 
 ### `src/protocol_serde/shape_content_block_start_event.rs`
@@ -630,24 +528,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
                      }
                      "metrics" => {
                          builder = builder.set_metrics(super::super::protocol_serde::shape_converse_metrics::de_converse_metrics(
-```
-
-### `src/protocol_serde/shape_converse_output.rs`
-
-```diff
---- reference/src/protocol_serde/shape_converse_output.rs
-+++ generated/src/protocol_serde/shape_converse_output.rs
-@@ -19,9 +19,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
 ```
 
 ### `src/protocol_serde/shape_converse_stream_metadata_event.rs`
@@ -746,17 +626,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          super::super::types::DocumentContentBlock::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-@@ -36,9 +36,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
 ```
 
 ### `src/protocol_serde/shape_document_source.rs`
@@ -807,17 +676,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          super::super::types::DocumentSource::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-@@ -57,9 +57,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
 ```
 
 ### `src/protocol_serde/shape_guardrail_automated_reasoning_finding.rs`
@@ -825,18 +683,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_guardrail_automated_reasoning_finding.rs
 +++ generated/src/protocol_serde/shape_guardrail_automated_reasoning_finding.rs
-@@ -19,9 +19,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
-@@ -36,53 +34,18 @@
+@@ -36,53 +36,18 @@
                          ));
                      }
                      variant = match key.as_ref() {
@@ -1042,17 +889,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          super::super::types::GuardrailConverseContentBlock::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-@@ -45,9 +45,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
 ```
 
 ### `src/protocol_serde/shape_guardrail_converse_image_source.rs`
@@ -1074,17 +910,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          super::super::types::GuardrailConverseImageSource::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-@@ -36,9 +36,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
 ```
 
 ### `src/protocol_serde/shape_guardrail_image_source.rs`
@@ -1132,17 +957,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              super::super::protocol_serde::shape_s3_location::ser_s3_location(&mut object_1, inner)?;
              object_1.finish();
          }
-@@ -38,9 +38,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
 ```
 
 ### `src/protocol_serde/shape_internal_server_exception.rs`
@@ -1891,35 +1705,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          super::super::types::ReasoningContentBlock::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-@@ -44,9 +42,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
-```
-
-### `src/protocol_serde/shape_reasoning_content_block_delta.rs`
-
-```diff
---- reference/src/protocol_serde/shape_reasoning_content_block_delta.rs
-+++ generated/src/protocol_serde/shape_reasoning_content_block_delta.rs
-@@ -19,9 +19,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
 ```
 
 ### `src/protocol_serde/shape_service_tier.rs`
@@ -2275,18 +2060,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/protocol_serde/shape_tool_result_block_delta.rs
 +++ generated/src/protocol_serde/shape_tool_result_block_delta.rs
-@@ -19,9 +19,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
-@@ -43,7 +41,7 @@
+@@ -43,7 +43,7 @@
                                  .ok_or_else(|| ::aws_smithy_json::deserialize::error::DeserializeError::custom("value for 'text' cannot be null"))?,
                          )),
                          "json" => Some(super::super::types::ToolResultBlockDelta::Json(
@@ -2354,18 +2128,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
          super::super::types::ToolResultContentBlock::Unknown => {
              return Err(::aws_smithy_types::error::operation::SerializationError::unknown_variant(
-@@ -63,9 +63,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
-@@ -81,7 +79,7 @@
+@@ -81,7 +81,7 @@
                      }
                      variant = match key.as_ref() {
                          "json" => Some(super::super::types::ToolResultContentBlock::Json(
@@ -2501,17 +2264,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              super::super::protocol_serde::shape_s3_location::ser_s3_location(&mut object_1, inner)?;
              object_1.finish();
          }
-@@ -38,9 +38,7 @@
-             match tokens.next().transpose()? {
-                 Some(::aws_smithy_json::deserialize::Token::EndObject { .. }) => break,
-                 Some(::aws_smithy_json::deserialize::Token::ObjectKey { key, .. }) => {
--                    if let ::std::option::Option::Some(::std::result::Result::Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) =
--                        tokens.peek()
--                    {
-+                    if let Some(Ok(::aws_smithy_json::deserialize::Token::ValueNull { .. })) = tokens.peek() {
-                         let _ = tokens.next().expect("peek returned a token")?;
-                         continue;
-                     }
 ```
 
 ### `src/protocol_serde.rs`
