@@ -116,14 +116,14 @@ where
                             );
                         }
                         "CallbackURLs" => {
-                            builder = builder.set_callback_ur_ls(super::super::protocol_serde::shape_callback_urls_list_type::de_callback_urls_list_type(
+                            builder = builder.set_callback_urls(super::super::protocol_serde::shape_callback_urls_list_type::de_callback_urls_list_type(
                                 tokens,
                                 _value,
                                 depth + 1,
                             )?);
                         }
                         "LogoutURLs" => {
-                            builder = builder.set_logout_ur_ls(super::super::protocol_serde::shape_logout_urls_list_type::de_logout_urls_list_type(
+                            builder = builder.set_logout_urls(super::super::protocol_serde::shape_logout_urls_list_type::de_logout_urls_list_type(
                                 tokens,
                                 _value,
                                 depth + 1,

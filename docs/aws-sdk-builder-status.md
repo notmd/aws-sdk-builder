@@ -4,6 +4,25 @@ Updated 2026-08-25. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-25 — Match Smithy acronym-plural member identifiers
+- State: in progress
+- Changed: member and method identifiers now use the pinned Smithy-RS `toSnakeCase`
+  acronym boundary rule, keeping suffixes such as `URLs` together. Legacy shape-name
+  casing remains separate, so type and module symbols retain their established
+  normalization contract.
+- Evidence: compared `Strings.kt` and `SymbolVisitor.kt` in the pinned Smithy-RS
+  checkout at `/tmp/smithy-rs`, commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`. Added focused `CallbackURLs` and
+  `LogoutURLs` naming regressions. `just conformance` regenerated and formatted all
+  `13,166` snapshots and compiled all 15 selected service crates. Workspace tests,
+  clippy with `-D warnings`, formatting, and `git diff --check` pass.
+- Conformance: `13,011/13,168` exact, `154` mismatches, `2` missing, and `1` extra
+  (`98.65%`) -> `13,020/13,168` exact, `145` mismatches, `2` missing, and `1` extra
+  (`98.70%`). Cognito Identity Provider improved from 19 to 10 mismatches.
+- Blocker: `just conformance` still exits 1 because unrelated parity gaps remain.
+- Next action: continue with the next highest-impact generic mismatch after this
+  checkpoint.
+
 ### Checkpoint: 2026-08-25 — Match Smithy paginator naming
 - State: in progress
 - Changed: paginator symbols now use the generator's normalized Rust type casing,

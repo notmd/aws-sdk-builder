@@ -48,6 +48,15 @@ pub fn snake_case(value: &str) -> String {
 /// This is intentionally separate from [`snake_case`]: module paths and Rust
 /// symbols have different historical casing contracts in smithy-rs.
 fn smithy_module_case(value: &str) -> String {
+    smithy_snake_case(value)
+}
+
+/// Converts a Rust identifier using Smithy-RS's current `toSnakeCase` rules.
+///
+/// This is intentionally separate from [`snake_case`]. The latter preserves the
+/// historical casing used while normalizing Smithy shape names; member and
+/// method identifiers use the updated Smithy word-boundary rules instead.
+fn smithy_snake_case(value: &str) -> String {
     const COMPLETE_WORDS: &[&str] = &["ipv4", "ipv6", "sigv4", "mib", "gib", "kib", "ttl"];
 
     let chars = value.chars().collect::<Vec<_>>();
@@ -153,7 +162,7 @@ fn end_of_acronym(
 }
 
 pub fn rust_identifier(value: &str) -> String {
-    let name = snake_case(value);
+    let name = smithy_snake_case(value);
     if is_rust_keyword(&name) {
         format!("r#{name}")
     } else {
@@ -219,7 +228,9 @@ fn is_rust_keyword(value: &str) -> bool {
 
 #[cfg(test)]
 mod tests {
-    use super::{rust_identifier, rust_module_name, rustdoc_identifier, snake_case};
+    use super::{
+        rust_identifier, rust_module_name, rustdoc_identifier, smithy_snake_case, snake_case,
+    };
 
     #[test]
     fn rust_keywords_use_context_appropriate_names() {
@@ -248,5 +259,12 @@ mod tests {
         assert_eq!(rust_module_name("IAMUser"), "iam_user");
         assert_eq!(rust_module_name("DynamoDBv2Action"), "dynamo_dbv2_action");
         assert_eq!(rust_module_name("IpV6Address"), "ipv6_address");
+    }
+
+    #[test]
+    fn member_identifiers_keep_acronym_plural_suffixes_together() {
+        assert_eq!(smithy_snake_case("CallbackURLs"), "callback_urls");
+        assert_eq!(rust_identifier("CallbackURLs"), "callback_urls");
+        assert_eq!(rust_identifier("LogoutURLs"), "logout_urls");
     }
 }

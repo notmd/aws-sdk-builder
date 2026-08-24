@@ -1160,8 +1160,8 @@ impl super::Client {
     ///   - [`write_attributes(impl Into<String>)`](crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::write_attributes) / [`set_write_attributes(Option<Vec::<String>>)`](crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::set_write_attributes):<br>required: **false**<br><p>The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list.</p> <p>When you don't specify the <code>WriteAttributes</code> for your app client, your app can write the values of the Standard attributes of your user pool. When your user pool has write access to these default attributes, <code>WriteAttributes</code> doesn't return any information. Amazon Cognito only populates <code>WriteAttributes</code> in the API response if you have specified your own custom set of write attributes.</p> <p>If your app client allows users to sign in through an IdP, this array must include all attributes that you have mapped to IdP attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an IdP. If your app client does not have write access to a mapped attribute, Amazon Cognito throws an error when it tries to update the attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying IdP Attribute Mappings for Your user pool</a>.</p><br>
     ///   - [`explicit_auth_flows(ExplicitAuthFlowsType)`](crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::explicit_auth_flows) / [`set_explicit_auth_flows(Option<Vec::<ExplicitAuthFlowsType>>)`](crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::set_explicit_auth_flows):<br>required: **false**<br><p>The <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html">authentication flows</a> that you want your user pool client to support. For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.</p><note>  <p>If you don't specify a value for <code>ExplicitAuthFlows</code>, your app client supports <code>ALLOW_REFRESH_TOKEN_AUTH</code>, <code>ALLOW_USER_SRP_AUTH</code>, and <code>ALLOW_CUSTOM_AUTH</code>.</p> </note> <p>The values for authentication flow options include the following.</p> <ul>  <li>   <p><code>ALLOW_USER_AUTH</code>: Enable selection-based sign-in with <code>USER_AUTH</code>. This setting covers username-password, secure remote password (SRP), passwordless, and passkey authentication. This authentiation flow can do username-password and SRP authentication without other <code>ExplicitAuthFlows</code> permitting them. For example users can complete an SRP challenge through <code>USER_AUTH</code> without the flow <code>USER_SRP_AUTH</code> being active for the app client. This flow doesn't include <code>CUSTOM_AUTH</code>.</p>   <p>To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html"> Essentials tier</a> or higher.</p></li>  <li>   <p><code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces the <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication flow, your app passes a user name and password to Amazon Cognito in the request, instead of using the Secure Remote Password (SRP) protocol to securely transmit the password.</p></li>  <li>   <p><code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based authentication.</p></li>  <li>   <p><code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.</p></li>  <li>   <p><code>ALLOW_USER_SRP_AUTH</code>: Enable SRP-based authentication.</p></li>  <li>   <p><code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh tokens.</p></li> </ul> <p>In some environments, you will see the values <code>ADMIN_NO_SRP_AUTH</code>, <code>CUSTOM_AUTH_FLOW_ONLY</code>, or <code>USER_PASSWORD_AUTH</code>. You can't assign these legacy <code>ExplicitAuthFlows</code> values to user pool clients at the same time as values that begin with <code>ALLOW_</code>, like <code>ALLOW_USER_SRP_AUTH</code>.</p><br>
     ///   - [`supported_identity_providers(impl Into<String>)`](crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::supported_identity_providers) / [`set_supported_identity_providers(Option<Vec::<String>>)`](crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::set_supported_identity_providers):<br>required: **false**<br><p>A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code>, <code>SignInWithApple</code>, and <code>LoginWithAmazon</code>. You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example <code>MySAMLIdP</code> or <code>MyOIDCIdP</code>.</p> <p>This parameter sets the IdPs that <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html">managed login</a> will display on the login page for your app client. The removal of <code>COGNITO</code> from this list doesn't prevent authentication operations for local users with the user pools API in an Amazon Web Services SDK. The only way to prevent SDK-based authentication is to block access with a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html">WAF rule</a>.</p><br>
-    ///   - [`callback_ur_ls(impl Into<String>)`](crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::callback_ur_ls) / [`set_callback_ur_ls(Option<Vec::<String>>)`](crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::set_callback_ur_ls):<br>required: **false**<br><p>A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.</p> <p>A redirect URI must meet the following requirements:</p> <ul>  <li>   <p>Be an absolute URI.</p></li>  <li>   <p>Be registered with the authorization server. Amazon Cognito doesn't accept authorization requests with <code>redirect_uri</code> values that aren't in the list of <code>CallbackURLs</code> that you provide in this parameter.</p></li>  <li>   <p>Not include a fragment component.</p></li> </ul> <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p> <p>Amazon Cognito requires HTTPS over HTTP except for callback URLs to <code>http://localhost</code>, <code>http://127.0.0.1</code> and <code>http://\[::1\]</code>. These callback URLs are for testing purposes only. You can specify custom TCP ports for your callback URLs.</p> <p>App callback URLs such as <code>myapp://example</code> are also supported.</p><br>
-    ///   - [`logout_ur_ls(impl Into<String>)`](crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::logout_ur_ls) / [`set_logout_ur_ls(Option<Vec::<String>>)`](crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::set_logout_ur_ls):<br>required: **false**<br><p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout endpoint</a>.</p><br>
+    ///   - [`callback_urls(impl Into<String>)`](crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::callback_urls) / [`set_callback_urls(Option<Vec::<String>>)`](crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::set_callback_urls):<br>required: **false**<br><p>A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.</p> <p>A redirect URI must meet the following requirements:</p> <ul>  <li>   <p>Be an absolute URI.</p></li>  <li>   <p>Be registered with the authorization server. Amazon Cognito doesn't accept authorization requests with <code>redirect_uri</code> values that aren't in the list of <code>CallbackURLs</code> that you provide in this parameter.</p></li>  <li>   <p>Not include a fragment component.</p></li> </ul> <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p> <p>Amazon Cognito requires HTTPS over HTTP except for callback URLs to <code>http://localhost</code>, <code>http://127.0.0.1</code> and <code>http://\[::1\]</code>. These callback URLs are for testing purposes only. You can specify custom TCP ports for your callback URLs.</p> <p>App callback URLs such as <code>myapp://example</code> are also supported.</p><br>
+    ///   - [`logout_urls(impl Into<String>)`](crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::logout_urls) / [`set_logout_urls(Option<Vec::<String>>)`](crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::set_logout_urls):<br>required: **false**<br><p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout endpoint</a>.</p><br>
     ///   - [`default_redirect_uri(impl Into<String>)`](crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::default_redirect_uri) / [`set_default_redirect_uri(Option<String>)`](crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::set_default_redirect_uri):<br>required: **false**<br><p>The default redirect URI. In app clients with one assigned IdP, replaces <code>redirect_uri</code> in authentication requests. Must be in the <code>CallbackURLs</code> list.</p><br>
     ///   - [`allowed_o_auth_flows(OAuthFlowType)`](crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::allowed_o_auth_flows) / [`set_allowed_o_auth_flows(Option<Vec::<OAuthFlowType>>)`](crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::set_allowed_o_auth_flows):<br>required: **false**<br><p>The OAuth grant types that you want your app client to generate for clients in managed login authentication. To create an app client that generates client credentials grants, you must add <code>client_credentials</code> as the only allowed OAuth flow.</p> <dl>  <dt>   code  </dt>  <dd>   <p>Use a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the <code>/oauth2/token</code> endpoint.</p>  </dd>  <dt>   implicit  </dt>  <dd>   <p>Issue the access token, and the ID token when scopes like <code>openid</code> and <code>profile</code> are requested, directly to your user.</p>  </dd>  <dt>   client_credentials  </dt>  <dd>   <p>Issue the access token from the <code>/oauth2/token</code> endpoint directly to a non-person user, authorized by a combination of the client ID and client secret.</p>  </dd> </dl><br>
     ///   - [`allowed_o_auth_scopes(impl Into<String>)`](crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::allowed_o_auth_scopes) / [`set_allowed_o_auth_scopes(Option<Vec::<String>>)`](crate::operation::create_user_pool_client::builders::CreateUserPoolClientFluentBuilder::set_allowed_o_auth_scopes):<br>required: **false**<br><p>The OAuth, OpenID Connect (OIDC), and custom scopes that you want to permit your app client to authorize access with. Scopes govern access control to user pool self-service API operations, user data from the <code>userInfo</code> endpoint, and third-party APIs. Scope values include <code>phone</code>, <code>email</code>, <code>openid</code>, and <code>profile</code>. The <code>aws.cognito.signin.user.admin</code> scope authorizes user self-service operations. Custom scopes with resource servers authorize access to external APIs.</p><br>
@@ -2847,8 +2847,8 @@ impl super::Client {
     ///   - [`write_attributes(impl Into<String>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::write_attributes) / [`set_write_attributes(Option<Vec::<String>>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::set_write_attributes):<br>required: **false**<br><p>The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list.</p> <p>When you don't specify the <code>WriteAttributes</code> for your app client, your app can write the values of the Standard attributes of your user pool. When your user pool has write access to these default attributes, <code>WriteAttributes</code> doesn't return any information. Amazon Cognito only populates <code>WriteAttributes</code> in the API response if you have specified your own custom set of write attributes.</p> <p>If your app client allows users to sign in through an IdP, this array must include all attributes that you have mapped to IdP attributes. Amazon Cognito updates mapped attributes when users sign in to your application through an IdP. If your app client does not have write access to a mapped attribute, Amazon Cognito throws an error when it tries to update the attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying IdP Attribute Mappings for Your user pool</a>.</p><br>
     ///   - [`explicit_auth_flows(ExplicitAuthFlowsType)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::explicit_auth_flows) / [`set_explicit_auth_flows(Option<Vec::<ExplicitAuthFlowsType>>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::set_explicit_auth_flows):<br>required: **false**<br><p>The <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html">authentication flows</a> that you want your user pool client to support. For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.</p><note>  <p>If you don't specify a value for <code>ExplicitAuthFlows</code>, your app client supports <code>ALLOW_REFRESH_TOKEN_AUTH</code>, <code>ALLOW_USER_SRP_AUTH</code>, and <code>ALLOW_CUSTOM_AUTH</code>.</p> </note> <p>The values for authentication flow options include the following.</p> <ul>  <li>   <p><code>ALLOW_USER_AUTH</code>: Enable selection-based sign-in with <code>USER_AUTH</code>. This setting covers username-password, secure remote password (SRP), passwordless, and passkey authentication. This authentiation flow can do username-password and SRP authentication without other <code>ExplicitAuthFlows</code> permitting them. For example users can complete an SRP challenge through <code>USER_AUTH</code> without the flow <code>USER_SRP_AUTH</code> being active for the app client. This flow doesn't include <code>CUSTOM_AUTH</code>.</p>   <p>To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html"> Essentials tier</a> or higher.</p></li>  <li>   <p><code>ALLOW_ADMIN_USER_PASSWORD_AUTH</code>: Enable admin based user password authentication flow <code>ADMIN_USER_PASSWORD_AUTH</code>. This setting replaces the <code>ADMIN_NO_SRP_AUTH</code> setting. With this authentication flow, your app passes a user name and password to Amazon Cognito in the request, instead of using the Secure Remote Password (SRP) protocol to securely transmit the password.</p></li>  <li>   <p><code>ALLOW_CUSTOM_AUTH</code>: Enable Lambda trigger based authentication.</p></li>  <li>   <p><code>ALLOW_USER_PASSWORD_AUTH</code>: Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.</p></li>  <li>   <p><code>ALLOW_USER_SRP_AUTH</code>: Enable SRP-based authentication.</p></li>  <li>   <p><code>ALLOW_REFRESH_TOKEN_AUTH</code>: Enable authflow to refresh tokens.</p></li> </ul> <p>In some environments, you will see the values <code>ADMIN_NO_SRP_AUTH</code>, <code>CUSTOM_AUTH_FLOW_ONLY</code>, or <code>USER_PASSWORD_AUTH</code>. You can't assign these legacy <code>ExplicitAuthFlows</code> values to user pool clients at the same time as values that begin with <code>ALLOW_</code>, like <code>ALLOW_USER_SRP_AUTH</code>.</p><br>
     ///   - [`supported_identity_providers(impl Into<String>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::supported_identity_providers) / [`set_supported_identity_providers(Option<Vec::<String>>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::set_supported_identity_providers):<br>required: **false**<br><p>A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code>, <code>SignInWithApple</code>, and <code>LoginWithAmazon</code>. You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example <code>MySAMLIdP</code> or <code>MyOIDCIdP</code>.</p> <p>This parameter sets the IdPs that <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html">managed login</a> will display on the login page for your app client. The removal of <code>COGNITO</code> from this list doesn't prevent authentication operations for local users with the user pools API in an Amazon Web Services SDK. The only way to prevent SDK-based authentication is to block access with a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html">WAF rule</a>.</p><br>
-    ///   - [`callback_ur_ls(impl Into<String>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::callback_ur_ls) / [`set_callback_ur_ls(Option<Vec::<String>>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::set_callback_ur_ls):<br>required: **false**<br><p>A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.</p> <p>A redirect URI must meet the following requirements:</p> <ul>  <li>   <p>Be an absolute URI.</p></li>  <li>   <p>Be registered with the authorization server. Amazon Cognito doesn't accept authorization requests with <code>redirect_uri</code> values that aren't in the list of <code>CallbackURLs</code> that you provide in this parameter.</p></li>  <li>   <p>Not include a fragment component.</p></li> </ul> <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p> <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p> <p>App callback URLs such as <code>myapp://example</code> are also supported.</p><br>
-    ///   - [`logout_ur_ls(impl Into<String>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::logout_ur_ls) / [`set_logout_ur_ls(Option<Vec::<String>>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::set_logout_ur_ls):<br>required: **false**<br><p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout endpoint</a>.</p><br>
+    ///   - [`callback_urls(impl Into<String>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::callback_urls) / [`set_callback_urls(Option<Vec::<String>>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::set_callback_urls):<br>required: **false**<br><p>A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.</p> <p>A redirect URI must meet the following requirements:</p> <ul>  <li>   <p>Be an absolute URI.</p></li>  <li>   <p>Be registered with the authorization server. Amazon Cognito doesn't accept authorization requests with <code>redirect_uri</code> values that aren't in the list of <code>CallbackURLs</code> that you provide in this parameter.</p></li>  <li>   <p>Not include a fragment component.</p></li> </ul> <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p> <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p> <p>App callback URLs such as <code>myapp://example</code> are also supported.</p><br>
+    ///   - [`logout_urls(impl Into<String>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::logout_urls) / [`set_logout_urls(Option<Vec::<String>>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::set_logout_urls):<br>required: **false**<br><p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout endpoint</a>.</p><br>
     ///   - [`default_redirect_uri(impl Into<String>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::default_redirect_uri) / [`set_default_redirect_uri(Option<String>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::set_default_redirect_uri):<br>required: **false**<br><p>The default redirect URI. In app clients with one assigned IdP, replaces <code>redirect_uri</code> in authentication requests. Must be in the <code>CallbackURLs</code> list.</p><br>
     ///   - [`allowed_o_auth_flows(OAuthFlowType)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::allowed_o_auth_flows) / [`set_allowed_o_auth_flows(Option<Vec::<OAuthFlowType>>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::set_allowed_o_auth_flows):<br>required: **false**<br><p>The OAuth grant types that you want your app client to generate. To create an app client that generates client credentials grants, you must add <code>client_credentials</code> as the only allowed OAuth flow.</p> <dl>  <dt>   code  </dt>  <dd>   <p>Use a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the <code>/oauth2/token</code> endpoint.</p>  </dd>  <dt>   implicit  </dt>  <dd>   <p>Issue the access token (and, optionally, ID token, based on scopes) directly to your user.</p>  </dd>  <dt>   client_credentials  </dt>  <dd>   <p>Issue the access token from the <code>/oauth2/token</code> endpoint directly to a non-person user using a combination of the client ID and client secret.</p>  </dd> </dl><br>
     ///   - [`allowed_o_auth_scopes(impl Into<String>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::allowed_o_auth_scopes) / [`set_allowed_o_auth_scopes(Option<Vec::<String>>)`](crate::operation::update_user_pool_client::builders::UpdateUserPoolClientFluentBuilder::set_allowed_o_auth_scopes):<br>required: **false**<br><p>The OAuth, OpenID Connect (OIDC), and custom scopes that you want to permit your app client to authorize access with. Scopes govern access control to user pool self-service API operations, user data from the <code>userInfo</code> endpoint, and third-party APIs. Scope values include <code>phone</code>, <code>email</code>, <code>openid</code>, and <code>profile</code>. The <code>aws.cognito.signin.user.admin</code> scope authorizes user self-service operations. Custom scopes with resource servers authorize access to external APIs.</p><br>
@@ -52250,9 +52250,9 @@ pub struct CreateUserPoolClientInput {
     /// <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
     /// <p>Amazon Cognito requires HTTPS over HTTP except for callback URLs to <code>http://localhost</code>, <code>http://127.0.0.1</code> and <code>http://\[::1\]</code>. These callback URLs are for testing purposes only. You can specify custom TCP ports for your callback URLs.</p>
     /// <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
-    pub callback_ur_ls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub callback_urls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout endpoint</a>.</p>
-    pub logout_ur_ls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub logout_urls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>The default redirect URI. In app clients with one assigned IdP, replaces <code>redirect_uri</code> in authentication requests. Must be in the <code>CallbackURLs</code> list.</p>
     pub default_redirect_uri: ::std::option::Option<::std::string::String>,
     /// <p>The OAuth grant types that you want your app client to generate for clients in managed login authentication. To create an app client that generates client credentials grants, you must add <code>client_credentials</code> as the only allowed OAuth flow.</p>
@@ -52412,15 +52412,15 @@ impl CreateUserPoolClientInput {
     /// <p>Amazon Cognito requires HTTPS over HTTP except for callback URLs to <code>http://localhost</code>, <code>http://127.0.0.1</code> and <code>http://\[::1\]</code>. These callback URLs are for testing purposes only. You can specify custom TCP ports for your callback URLs.</p>
     /// <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
     ///
-    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.callback_ur_ls.is_none()`.
-    pub fn callback_ur_ls(&self) -> &[::std::string::String] {
-        self.callback_ur_ls.as_deref().unwrap_or_default()
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.callback_urls.is_none()`.
+    pub fn callback_urls(&self) -> &[::std::string::String] {
+        self.callback_urls.as_deref().unwrap_or_default()
     }
     /// <p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout endpoint</a>.</p>
     ///
-    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.logout_ur_ls.is_none()`.
-    pub fn logout_ur_ls(&self) -> &[::std::string::String] {
-        self.logout_ur_ls.as_deref().unwrap_or_default()
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.logout_urls.is_none()`.
+    pub fn logout_urls(&self) -> &[::std::string::String] {
+        self.logout_urls.as_deref().unwrap_or_default()
     }
     /// <p>The default redirect URI. In app clients with one assigned IdP, replaces <code>redirect_uri</code> in authentication requests. Must be in the <code>CallbackURLs</code> list.</p>
     pub fn default_redirect_uri(&self) -> ::std::option::Option<&str> {
@@ -52517,8 +52517,8 @@ impl ::std::fmt::Debug for CreateUserPoolClientInput {
         formatter.field("write_attributes", &self.write_attributes);
         formatter.field("explicit_auth_flows", &self.explicit_auth_flows);
         formatter.field("supported_identity_providers", &self.supported_identity_providers);
-        formatter.field("callback_ur_ls", &self.callback_ur_ls);
-        formatter.field("logout_ur_ls", &self.logout_ur_ls);
+        formatter.field("callback_urls", &self.callback_urls);
+        formatter.field("logout_urls", &self.logout_urls);
         formatter.field("default_redirect_uri", &self.default_redirect_uri);
         formatter.field("allowed_o_auth_flows", &self.allowed_o_auth_flows);
         formatter.field("allowed_o_auth_scopes", &self.allowed_o_auth_scopes);
@@ -52555,8 +52555,8 @@ pub struct CreateUserPoolClientInputBuilder {
     pub(crate) write_attributes: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) explicit_auth_flows: ::std::option::Option<::std::vec::Vec<super::super::super::types::ExplicitAuthFlowsType>>,
     pub(crate) supported_identity_providers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) callback_ur_ls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) logout_ur_ls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) callback_urls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) logout_urls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) default_redirect_uri: ::std::option::Option<::std::string::String>,
     pub(crate) allowed_o_auth_flows: ::std::option::Option<::std::vec::Vec<super::super::super::types::OAuthFlowType>>,
     pub(crate) allowed_o_auth_scopes: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -52799,9 +52799,9 @@ impl CreateUserPoolClientInputBuilder {
     /// <p>A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code>, <code>SignInWithApple</code>, and <code>LoginWithAmazon</code>. You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example <code>MySAMLIdP</code> or <code>MyOIDCIdP</code>.</p>
     /// <p>This parameter sets the IdPs that <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html">managed login</a> will display on the login page for your app client. The removal of <code>COGNITO</code> from this list doesn't prevent authentication operations for local users with the user pools API in an Amazon Web Services SDK. The only way to prevent SDK-based authentication is to block access with a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html">WAF rule</a>.</p>
     pub fn get_supported_identity_providers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.supported_identity_providers }
-    /// Appends an item to `callback_ur_ls`.
+    /// Appends an item to `callback_urls`.
     ///
-    /// To override the contents of this collection use [`set_callback_ur_ls`](Self::set_callback_ur_ls).
+    /// To override the contents of this collection use [`set_callback_urls`](Self::set_callback_urls).
     ///
     /// <p>A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.</p>
     /// <p>A redirect URI must meet the following requirements:</p>
@@ -52816,10 +52816,10 @@ impl CreateUserPoolClientInputBuilder {
     /// <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
     /// <p>Amazon Cognito requires HTTPS over HTTP except for callback URLs to <code>http://localhost</code>, <code>http://127.0.0.1</code> and <code>http://\[::1\]</code>. These callback URLs are for testing purposes only. You can specify custom TCP ports for your callback URLs.</p>
     /// <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
-    pub fn callback_ur_ls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        let mut v = self.callback_ur_ls.unwrap_or_default();
+    pub fn callback_urls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        let mut v = self.callback_urls.unwrap_or_default();
         v.push(input.into());
-        self.callback_ur_ls = ::std::option::Option::Some(v);
+        self.callback_urls = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.</p>
@@ -52835,7 +52835,7 @@ impl CreateUserPoolClientInputBuilder {
     /// <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
     /// <p>Amazon Cognito requires HTTPS over HTTP except for callback URLs to <code>http://localhost</code>, <code>http://127.0.0.1</code> and <code>http://\[::1\]</code>. These callback URLs are for testing purposes only. You can specify custom TCP ports for your callback URLs.</p>
     /// <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
-    pub fn set_callback_ur_ls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.callback_ur_ls = input; self }
+    pub fn set_callback_urls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.callback_urls = input; self }
     /// <p>A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.</p>
     /// <p>A redirect URI must meet the following requirements:</p>
     /// <ul>
@@ -52849,22 +52849,22 @@ impl CreateUserPoolClientInputBuilder {
     /// <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
     /// <p>Amazon Cognito requires HTTPS over HTTP except for callback URLs to <code>http://localhost</code>, <code>http://127.0.0.1</code> and <code>http://\[::1\]</code>. These callback URLs are for testing purposes only. You can specify custom TCP ports for your callback URLs.</p>
     /// <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
-    pub fn get_callback_ur_ls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.callback_ur_ls }
-    /// Appends an item to `logout_ur_ls`.
+    pub fn get_callback_urls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.callback_urls }
+    /// Appends an item to `logout_urls`.
     ///
-    /// To override the contents of this collection use [`set_logout_ur_ls`](Self::set_logout_ur_ls).
+    /// To override the contents of this collection use [`set_logout_urls`](Self::set_logout_urls).
     ///
     /// <p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout endpoint</a>.</p>
-    pub fn logout_ur_ls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        let mut v = self.logout_ur_ls.unwrap_or_default();
+    pub fn logout_urls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        let mut v = self.logout_urls.unwrap_or_default();
         v.push(input.into());
-        self.logout_ur_ls = ::std::option::Option::Some(v);
+        self.logout_urls = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout endpoint</a>.</p>
-    pub fn set_logout_ur_ls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.logout_ur_ls = input; self }
+    pub fn set_logout_urls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.logout_urls = input; self }
     /// <p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout endpoint</a>.</p>
-    pub fn get_logout_ur_ls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.logout_ur_ls }
+    pub fn get_logout_urls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.logout_urls }
     /// <p>The default redirect URI. In app clients with one assigned IdP, replaces <code>redirect_uri</code> in authentication requests. Must be in the <code>CallbackURLs</code> list.</p>
     pub fn default_redirect_uri(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.default_redirect_uri = ::std::option::Option::Some(input.into());
@@ -53087,8 +53087,8 @@ impl CreateUserPoolClientInputBuilder {
             write_attributes: self.write_attributes,
             explicit_auth_flows: self.explicit_auth_flows,
             supported_identity_providers: self.supported_identity_providers,
-            callback_ur_ls: self.callback_ur_ls,
-            logout_ur_ls: self.logout_ur_ls,
+            callback_urls: self.callback_urls,
+            logout_urls: self.logout_urls,
             default_redirect_uri: self.default_redirect_uri,
             allowed_o_auth_flows: self.allowed_o_auth_flows,
             allowed_o_auth_scopes: self.allowed_o_auth_scopes,
@@ -53117,8 +53117,8 @@ impl ::std::fmt::Debug for CreateUserPoolClientInputBuilder {
         formatter.field("write_attributes", &self.write_attributes);
         formatter.field("explicit_auth_flows", &self.explicit_auth_flows);
         formatter.field("supported_identity_providers", &self.supported_identity_providers);
-        formatter.field("callback_ur_ls", &self.callback_ur_ls);
-        formatter.field("logout_ur_ls", &self.logout_ur_ls);
+        formatter.field("callback_urls", &self.callback_urls);
+        formatter.field("logout_urls", &self.logout_urls);
         formatter.field("default_redirect_uri", &self.default_redirect_uri);
         formatter.field("allowed_o_auth_flows", &self.allowed_o_auth_flows);
         formatter.field("allowed_o_auth_scopes", &self.allowed_o_auth_scopes);
@@ -53610,7 +53610,7 @@ impl CreateUserPoolClientFluentBuilder {
     ///
     /// Appends an item to `CallbackURLs`.
     ///
-    /// To override the contents of this collection use [`set_callback_ur_ls`](Self::set_callback_ur_ls).
+    /// To override the contents of this collection use [`set_callback_urls`](Self::set_callback_urls).
     ///
     /// <p>A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.</p>
     /// <p>A redirect URI must meet the following requirements:</p>
@@ -53625,8 +53625,8 @@ impl CreateUserPoolClientFluentBuilder {
     /// <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
     /// <p>Amazon Cognito requires HTTPS over HTTP except for callback URLs to <code>http://localhost</code>, <code>http://127.0.0.1</code> and <code>http://\[::1\]</code>. These callback URLs are for testing purposes only. You can specify custom TCP ports for your callback URLs.</p>
     /// <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
-    pub fn callback_ur_ls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.inner = self.inner.callback_ur_ls(input.into());
+    pub fn callback_urls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.callback_urls(input.into());
         self
     }
     /// <p>A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.</p>
@@ -53642,8 +53642,8 @@ impl CreateUserPoolClientFluentBuilder {
     /// <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
     /// <p>Amazon Cognito requires HTTPS over HTTP except for callback URLs to <code>http://localhost</code>, <code>http://127.0.0.1</code> and <code>http://\[::1\]</code>. These callback URLs are for testing purposes only. You can specify custom TCP ports for your callback URLs.</p>
     /// <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
-    pub fn set_callback_ur_ls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.inner = self.inner.set_callback_ur_ls(input);
+    pub fn set_callback_urls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.inner = self.inner.set_callback_urls(input);
         self
     }
     /// <p>A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.</p>
@@ -53659,27 +53659,27 @@ impl CreateUserPoolClientFluentBuilder {
     /// <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
     /// <p>Amazon Cognito requires HTTPS over HTTP except for callback URLs to <code>http://localhost</code>, <code>http://127.0.0.1</code> and <code>http://\[::1\]</code>. These callback URLs are for testing purposes only. You can specify custom TCP ports for your callback URLs.</p>
     /// <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
-    pub fn get_callback_ur_ls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
-        self.inner.get_callback_ur_ls()
+    pub fn get_callback_urls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        self.inner.get_callback_urls()
     }
     ///
     /// Appends an item to `LogoutURLs`.
     ///
-    /// To override the contents of this collection use [`set_logout_ur_ls`](Self::set_logout_ur_ls).
+    /// To override the contents of this collection use [`set_logout_urls`](Self::set_logout_urls).
     ///
     /// <p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout endpoint</a>.</p>
-    pub fn logout_ur_ls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.inner = self.inner.logout_ur_ls(input.into());
+    pub fn logout_urls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.logout_urls(input.into());
         self
     }
     /// <p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout endpoint</a>.</p>
-    pub fn set_logout_ur_ls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.inner = self.inner.set_logout_ur_ls(input);
+    pub fn set_logout_urls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.inner = self.inner.set_logout_urls(input);
         self
     }
     /// <p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout endpoint</a>.</p>
-    pub fn get_logout_ur_ls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
-        self.inner.get_logout_ur_ls()
+    pub fn get_logout_urls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        self.inner.get_logout_urls()
     }
     /// <p>The default redirect URI. In app clients with one assigned IdP, replaces <code>redirect_uri</code> in authentication requests. Must be in the <code>CallbackURLs</code> list.</p>
     pub fn default_redirect_uri(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -124204,9 +124204,9 @@ pub struct UpdateUserPoolClientInput {
     /// <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
     /// <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p>
     /// <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
-    pub callback_ur_ls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub callback_urls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout endpoint</a>.</p>
-    pub logout_ur_ls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub logout_urls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>The default redirect URI. In app clients with one assigned IdP, replaces <code>redirect_uri</code> in authentication requests. Must be in the <code>CallbackURLs</code> list.</p>
     pub default_redirect_uri: ::std::option::Option<::std::string::String>,
     /// <p>The OAuth grant types that you want your app client to generate. To create an app client that generates client credentials grants, you must add <code>client_credentials</code> as the only allowed OAuth flow.</p>
@@ -124361,15 +124361,15 @@ impl UpdateUserPoolClientInput {
     /// <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p>
     /// <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
     ///
-    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.callback_ur_ls.is_none()`.
-    pub fn callback_ur_ls(&self) -> &[::std::string::String] {
-        self.callback_ur_ls.as_deref().unwrap_or_default()
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.callback_urls.is_none()`.
+    pub fn callback_urls(&self) -> &[::std::string::String] {
+        self.callback_urls.as_deref().unwrap_or_default()
     }
     /// <p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout endpoint</a>.</p>
     ///
-    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.logout_ur_ls.is_none()`.
-    pub fn logout_ur_ls(&self) -> &[::std::string::String] {
-        self.logout_ur_ls.as_deref().unwrap_or_default()
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.logout_urls.is_none()`.
+    pub fn logout_urls(&self) -> &[::std::string::String] {
+        self.logout_urls.as_deref().unwrap_or_default()
     }
     /// <p>The default redirect URI. In app clients with one assigned IdP, replaces <code>redirect_uri</code> in authentication requests. Must be in the <code>CallbackURLs</code> list.</p>
     pub fn default_redirect_uri(&self) -> ::std::option::Option<&str> {
@@ -124464,8 +124464,8 @@ impl ::std::fmt::Debug for UpdateUserPoolClientInput {
         formatter.field("write_attributes", &self.write_attributes);
         formatter.field("explicit_auth_flows", &self.explicit_auth_flows);
         formatter.field("supported_identity_providers", &self.supported_identity_providers);
-        formatter.field("callback_ur_ls", &self.callback_ur_ls);
-        formatter.field("logout_ur_ls", &self.logout_ur_ls);
+        formatter.field("callback_urls", &self.callback_urls);
+        formatter.field("logout_urls", &self.logout_urls);
         formatter.field("default_redirect_uri", &self.default_redirect_uri);
         formatter.field("allowed_o_auth_flows", &self.allowed_o_auth_flows);
         formatter.field("allowed_o_auth_scopes", &self.allowed_o_auth_scopes);
@@ -124501,8 +124501,8 @@ pub struct UpdateUserPoolClientInputBuilder {
     pub(crate) write_attributes: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) explicit_auth_flows: ::std::option::Option<::std::vec::Vec<super::super::super::types::ExplicitAuthFlowsType>>,
     pub(crate) supported_identity_providers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) callback_ur_ls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) logout_ur_ls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) callback_urls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) logout_urls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) default_redirect_uri: ::std::option::Option<::std::string::String>,
     pub(crate) allowed_o_auth_flows: ::std::option::Option<::std::vec::Vec<super::super::super::types::OAuthFlowType>>,
     pub(crate) allowed_o_auth_scopes: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -124736,9 +124736,9 @@ impl UpdateUserPoolClientInputBuilder {
     /// <p>A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code>, <code>SignInWithApple</code>, and <code>LoginWithAmazon</code>. You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example <code>MySAMLIdP</code> or <code>MyOIDCIdP</code>.</p>
     /// <p>This parameter sets the IdPs that <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html">managed login</a> will display on the login page for your app client. The removal of <code>COGNITO</code> from this list doesn't prevent authentication operations for local users with the user pools API in an Amazon Web Services SDK. The only way to prevent SDK-based authentication is to block access with a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html">WAF rule</a>.</p>
     pub fn get_supported_identity_providers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.supported_identity_providers }
-    /// Appends an item to `callback_ur_ls`.
+    /// Appends an item to `callback_urls`.
     ///
-    /// To override the contents of this collection use [`set_callback_ur_ls`](Self::set_callback_ur_ls).
+    /// To override the contents of this collection use [`set_callback_urls`](Self::set_callback_urls).
     ///
     /// <p>A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.</p>
     /// <p>A redirect URI must meet the following requirements:</p>
@@ -124753,10 +124753,10 @@ impl UpdateUserPoolClientInputBuilder {
     /// <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
     /// <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p>
     /// <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
-    pub fn callback_ur_ls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        let mut v = self.callback_ur_ls.unwrap_or_default();
+    pub fn callback_urls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        let mut v = self.callback_urls.unwrap_or_default();
         v.push(input.into());
-        self.callback_ur_ls = ::std::option::Option::Some(v);
+        self.callback_urls = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.</p>
@@ -124772,7 +124772,7 @@ impl UpdateUserPoolClientInputBuilder {
     /// <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
     /// <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p>
     /// <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
-    pub fn set_callback_ur_ls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.callback_ur_ls = input; self }
+    pub fn set_callback_urls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.callback_urls = input; self }
     /// <p>A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.</p>
     /// <p>A redirect URI must meet the following requirements:</p>
     /// <ul>
@@ -124786,22 +124786,22 @@ impl UpdateUserPoolClientInputBuilder {
     /// <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
     /// <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p>
     /// <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
-    pub fn get_callback_ur_ls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.callback_ur_ls }
-    /// Appends an item to `logout_ur_ls`.
+    pub fn get_callback_urls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.callback_urls }
+    /// Appends an item to `logout_urls`.
     ///
-    /// To override the contents of this collection use [`set_logout_ur_ls`](Self::set_logout_ur_ls).
+    /// To override the contents of this collection use [`set_logout_urls`](Self::set_logout_urls).
     ///
     /// <p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout endpoint</a>.</p>
-    pub fn logout_ur_ls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        let mut v = self.logout_ur_ls.unwrap_or_default();
+    pub fn logout_urls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        let mut v = self.logout_urls.unwrap_or_default();
         v.push(input.into());
-        self.logout_ur_ls = ::std::option::Option::Some(v);
+        self.logout_urls = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout endpoint</a>.</p>
-    pub fn set_logout_ur_ls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.logout_ur_ls = input; self }
+    pub fn set_logout_urls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.logout_urls = input; self }
     /// <p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout endpoint</a>.</p>
-    pub fn get_logout_ur_ls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.logout_ur_ls }
+    pub fn get_logout_urls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.logout_urls }
     /// <p>The default redirect URI. In app clients with one assigned IdP, replaces <code>redirect_uri</code> in authentication requests. Must be in the <code>CallbackURLs</code> list.</p>
     pub fn default_redirect_uri(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.default_redirect_uri = ::std::option::Option::Some(input.into());
@@ -125020,8 +125020,8 @@ impl UpdateUserPoolClientInputBuilder {
             write_attributes: self.write_attributes,
             explicit_auth_flows: self.explicit_auth_flows,
             supported_identity_providers: self.supported_identity_providers,
-            callback_ur_ls: self.callback_ur_ls,
-            logout_ur_ls: self.logout_ur_ls,
+            callback_urls: self.callback_urls,
+            logout_urls: self.logout_urls,
             default_redirect_uri: self.default_redirect_uri,
             allowed_o_auth_flows: self.allowed_o_auth_flows,
             allowed_o_auth_scopes: self.allowed_o_auth_scopes,
@@ -125049,8 +125049,8 @@ impl ::std::fmt::Debug for UpdateUserPoolClientInputBuilder {
         formatter.field("write_attributes", &self.write_attributes);
         formatter.field("explicit_auth_flows", &self.explicit_auth_flows);
         formatter.field("supported_identity_providers", &self.supported_identity_providers);
-        formatter.field("callback_ur_ls", &self.callback_ur_ls);
-        formatter.field("logout_ur_ls", &self.logout_ur_ls);
+        formatter.field("callback_urls", &self.callback_urls);
+        formatter.field("logout_urls", &self.logout_urls);
         formatter.field("default_redirect_uri", &self.default_redirect_uri);
         formatter.field("allowed_o_auth_flows", &self.allowed_o_auth_flows);
         formatter.field("allowed_o_auth_scopes", &self.allowed_o_auth_scopes);
@@ -125528,7 +125528,7 @@ impl UpdateUserPoolClientFluentBuilder {
     ///
     /// Appends an item to `CallbackURLs`.
     ///
-    /// To override the contents of this collection use [`set_callback_ur_ls`](Self::set_callback_ur_ls).
+    /// To override the contents of this collection use [`set_callback_urls`](Self::set_callback_urls).
     ///
     /// <p>A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.</p>
     /// <p>A redirect URI must meet the following requirements:</p>
@@ -125543,8 +125543,8 @@ impl UpdateUserPoolClientFluentBuilder {
     /// <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
     /// <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p>
     /// <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
-    pub fn callback_ur_ls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.inner = self.inner.callback_ur_ls(input.into());
+    pub fn callback_urls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.callback_urls(input.into());
         self
     }
     /// <p>A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.</p>
@@ -125560,8 +125560,8 @@ impl UpdateUserPoolClientFluentBuilder {
     /// <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
     /// <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p>
     /// <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
-    pub fn set_callback_ur_ls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.inner = self.inner.set_callback_ur_ls(input);
+    pub fn set_callback_urls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.inner = self.inner.set_callback_urls(input);
         self
     }
     /// <p>A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.</p>
@@ -125577,27 +125577,27 @@ impl UpdateUserPoolClientFluentBuilder {
     /// <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
     /// <p>Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.</p>
     /// <p>App callback URLs such as <code>myapp://example</code> are also supported.</p>
-    pub fn get_callback_ur_ls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
-        self.inner.get_callback_ur_ls()
+    pub fn get_callback_urls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        self.inner.get_callback_urls()
     }
     ///
     /// Appends an item to `LogoutURLs`.
     ///
-    /// To override the contents of this collection use [`set_logout_ur_ls`](Self::set_logout_ur_ls).
+    /// To override the contents of this collection use [`set_logout_urls`](Self::set_logout_urls).
     ///
     /// <p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout endpoint</a>.</p>
-    pub fn logout_ur_ls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.inner = self.inner.logout_ur_ls(input.into());
+    pub fn logout_urls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.inner = self.inner.logout_urls(input.into());
         self
     }
     /// <p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout endpoint</a>.</p>
-    pub fn set_logout_ur_ls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.inner = self.inner.set_logout_ur_ls(input);
+    pub fn set_logout_urls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.inner = self.inner.set_logout_urls(input);
         self
     }
     /// <p>A list of allowed logout URLs for managed login authentication. When you pass <code>logout_uri</code> and <code>client_id</code> parameters to <code>/logout</code>, Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of <code>logout_uri</code>. A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">Logout endpoint</a>.</p>
-    pub fn get_logout_ur_ls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
-        self.inner.get_logout_ur_ls()
+    pub fn get_logout_urls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        self.inner.get_logout_urls()
     }
     /// <p>The default redirect URI. In app clients with one assigned IdP, replaces <code>redirect_uri</code> in authentication requests. Must be in the <code>CallbackURLs</code> list.</p>
     pub fn default_redirect_uri(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -144994,9 +144994,9 @@ pub struct UserPoolClientType {
     /// <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
     /// <p>Amazon Cognito requires HTTPS over HTTP for callback URLs to <code>http://localhost</code>, <code>http://127.0.0.1</code> and <code>http://\[::1\]</code>. These callback URLs are for testing purposes only. You can specify custom TCP ports for your callback URLs.</p>
     /// <p>App callback URLs such as myapp://example are also supported.</p>
-    pub callback_ur_ls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub callback_urls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>A list of allowed logout URLs for the IdPs.</p>
-    pub logout_ur_ls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub logout_urls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p>
     /// <p>A redirect URI must:</p>
     /// <ul>
@@ -145178,15 +145178,15 @@ impl UserPoolClientType {
     /// <p>Amazon Cognito requires HTTPS over HTTP for callback URLs to <code>http://localhost</code>, <code>http://127.0.0.1</code> and <code>http://\[::1\]</code>. These callback URLs are for testing purposes only. You can specify custom TCP ports for your callback URLs.</p>
     /// <p>App callback URLs such as myapp://example are also supported.</p>
     ///
-    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.callback_ur_ls.is_none()`.
-    pub fn callback_ur_ls(&self) -> &[::std::string::String] {
-        self.callback_ur_ls.as_deref().unwrap_or_default()
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.callback_urls.is_none()`.
+    pub fn callback_urls(&self) -> &[::std::string::String] {
+        self.callback_urls.as_deref().unwrap_or_default()
     }
     /// <p>A list of allowed logout URLs for the IdPs.</p>
     ///
-    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.logout_ur_ls.is_none()`.
-    pub fn logout_ur_ls(&self) -> &[::std::string::String] {
-        self.logout_ur_ls.as_deref().unwrap_or_default()
+    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.logout_urls.is_none()`.
+    pub fn logout_urls(&self) -> &[::std::string::String] {
+        self.logout_urls.as_deref().unwrap_or_default()
     }
     /// <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p>
     /// <p>A redirect URI must:</p>
@@ -145299,8 +145299,8 @@ impl ::std::fmt::Debug for UserPoolClientType {
         formatter.field("write_attributes", &self.write_attributes);
         formatter.field("explicit_auth_flows", &self.explicit_auth_flows);
         formatter.field("supported_identity_providers", &self.supported_identity_providers);
-        formatter.field("callback_ur_ls", &self.callback_ur_ls);
-        formatter.field("logout_ur_ls", &self.logout_ur_ls);
+        formatter.field("callback_urls", &self.callback_urls);
+        formatter.field("logout_urls", &self.logout_urls);
         formatter.field("default_redirect_uri", &self.default_redirect_uri);
         formatter.field("allowed_o_auth_flows", &self.allowed_o_auth_flows);
         formatter.field("allowed_o_auth_scopes", &self.allowed_o_auth_scopes);
@@ -145339,8 +145339,8 @@ pub struct UserPoolClientTypeBuilder {
     pub(crate) write_attributes: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) explicit_auth_flows: ::std::option::Option<::std::vec::Vec<super::super::types::ExplicitAuthFlowsType>>,
     pub(crate) supported_identity_providers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) callback_ur_ls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-    pub(crate) logout_ur_ls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) callback_urls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
+    pub(crate) logout_urls: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) default_redirect_uri: ::std::option::Option<::std::string::String>,
     pub(crate) allowed_o_auth_flows: ::std::option::Option<::std::vec::Vec<super::super::types::OAuthFlowType>>,
     pub(crate) allowed_o_auth_scopes: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
@@ -145599,9 +145599,9 @@ impl UserPoolClientTypeBuilder {
     /// <p>A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code>, <code>SignInWithApple</code>, and <code>LoginWithAmazon</code>. You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example <code>MySAMLIdP</code> or <code>MyOIDCIdP</code>.</p>
     /// <p>This parameter sets the IdPs that <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html">managed login</a> will display on the login page for your app client. The removal of <code>COGNITO</code> from this list doesn't prevent authentication operations for local users with the user pools API in an Amazon Web Services SDK. The only way to prevent SDK-based authentication is to block access with a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html">WAF rule</a>.</p>
     pub fn get_supported_identity_providers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.supported_identity_providers }
-    /// Appends an item to `callback_ur_ls`.
+    /// Appends an item to `callback_urls`.
     ///
-    /// To override the contents of this collection use [`set_callback_ur_ls`](Self::set_callback_ur_ls).
+    /// To override the contents of this collection use [`set_callback_urls`](Self::set_callback_urls).
     ///
     /// <p>A list of allowed redirect (callback) URLs for the IdPs.</p>
     /// <p>A redirect URI must:</p>
@@ -145616,10 +145616,10 @@ impl UserPoolClientTypeBuilder {
     /// <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
     /// <p>Amazon Cognito requires HTTPS over HTTP for callback URLs to <code>http://localhost</code>, <code>http://127.0.0.1</code> and <code>http://\[::1\]</code>. These callback URLs are for testing purposes only. You can specify custom TCP ports for your callback URLs.</p>
     /// <p>App callback URLs such as myapp://example are also supported.</p>
-    pub fn callback_ur_ls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        let mut v = self.callback_ur_ls.unwrap_or_default();
+    pub fn callback_urls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        let mut v = self.callback_urls.unwrap_or_default();
         v.push(input.into());
-        self.callback_ur_ls = ::std::option::Option::Some(v);
+        self.callback_urls = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of allowed redirect (callback) URLs for the IdPs.</p>
@@ -145635,7 +145635,7 @@ impl UserPoolClientTypeBuilder {
     /// <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
     /// <p>Amazon Cognito requires HTTPS over HTTP for callback URLs to <code>http://localhost</code>, <code>http://127.0.0.1</code> and <code>http://\[::1\]</code>. These callback URLs are for testing purposes only. You can specify custom TCP ports for your callback URLs.</p>
     /// <p>App callback URLs such as myapp://example are also supported.</p>
-    pub fn set_callback_ur_ls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.callback_ur_ls = input; self }
+    pub fn set_callback_urls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.callback_urls = input; self }
     /// <p>A list of allowed redirect (callback) URLs for the IdPs.</p>
     /// <p>A redirect URI must:</p>
     /// <ul>
@@ -145649,22 +145649,22 @@ impl UserPoolClientTypeBuilder {
     /// <p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
     /// <p>Amazon Cognito requires HTTPS over HTTP for callback URLs to <code>http://localhost</code>, <code>http://127.0.0.1</code> and <code>http://\[::1\]</code>. These callback URLs are for testing purposes only. You can specify custom TCP ports for your callback URLs.</p>
     /// <p>App callback URLs such as myapp://example are also supported.</p>
-    pub fn get_callback_ur_ls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.callback_ur_ls }
-    /// Appends an item to `logout_ur_ls`.
+    pub fn get_callback_urls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.callback_urls }
+    /// Appends an item to `logout_urls`.
     ///
-    /// To override the contents of this collection use [`set_logout_ur_ls`](Self::set_logout_ur_ls).
+    /// To override the contents of this collection use [`set_logout_urls`](Self::set_logout_urls).
     ///
     /// <p>A list of allowed logout URLs for the IdPs.</p>
-    pub fn logout_ur_ls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        let mut v = self.logout_ur_ls.unwrap_or_default();
+    pub fn logout_urls(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        let mut v = self.logout_urls.unwrap_or_default();
         v.push(input.into());
-        self.logout_ur_ls = ::std::option::Option::Some(v);
+        self.logout_urls = ::std::option::Option::Some(v);
         self
     }
     /// <p>A list of allowed logout URLs for the IdPs.</p>
-    pub fn set_logout_ur_ls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.logout_ur_ls = input; self }
+    pub fn set_logout_urls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.logout_urls = input; self }
     /// <p>A list of allowed logout URLs for the IdPs.</p>
-    pub fn get_logout_ur_ls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.logout_ur_ls }
+    pub fn get_logout_urls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.logout_urls }
     /// <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p>
     /// <p>A redirect URI must:</p>
     /// <ul>
@@ -145931,8 +145931,8 @@ impl UserPoolClientTypeBuilder {
             write_attributes: self.write_attributes,
             explicit_auth_flows: self.explicit_auth_flows,
             supported_identity_providers: self.supported_identity_providers,
-            callback_ur_ls: self.callback_ur_ls,
-            logout_ur_ls: self.logout_ur_ls,
+            callback_urls: self.callback_urls,
+            logout_urls: self.logout_urls,
             default_redirect_uri: self.default_redirect_uri,
             allowed_o_auth_flows: self.allowed_o_auth_flows,
             allowed_o_auth_scopes: self.allowed_o_auth_scopes,
@@ -145963,8 +145963,8 @@ impl ::std::fmt::Debug for UserPoolClientTypeBuilder {
         formatter.field("write_attributes", &self.write_attributes);
         formatter.field("explicit_auth_flows", &self.explicit_auth_flows);
         formatter.field("supported_identity_providers", &self.supported_identity_providers);
-        formatter.field("callback_ur_ls", &self.callback_ur_ls);
-        formatter.field("logout_ur_ls", &self.logout_ur_ls);
+        formatter.field("callback_urls", &self.callback_urls);
+        formatter.field("logout_urls", &self.logout_urls);
         formatter.field("default_redirect_uri", &self.default_redirect_uri);
         formatter.field("allowed_o_auth_flows", &self.allowed_o_auth_flows);
         formatter.field("allowed_o_auth_scopes", &self.allowed_o_auth_scopes);
@@ -181561,7 +181561,7 @@ if let Some(var_19) = &input.supported_identity_providers {
     }
     array_20.finish();
 }
-if let Some(var_22) = &input.callback_ur_ls {
+if let Some(var_22) = &input.callback_urls {
     let mut array_23 = object.key("CallbackURLs").start_array();
     for item_24 in var_22 {
         {
@@ -181570,7 +181570,7 @@ if let Some(var_22) = &input.callback_ur_ls {
     }
     array_23.finish();
 }
-if let Some(var_25) = &input.logout_ur_ls {
+if let Some(var_25) = &input.logout_urls {
     let mut array_26 = object.key("LogoutURLs").start_array();
     for item_27 in var_25 {
         {
@@ -185191,7 +185191,7 @@ if let Some(var_18) = &input.supported_identity_providers {
     }
     array_19.finish();
 }
-if let Some(var_21) = &input.callback_ur_ls {
+if let Some(var_21) = &input.callback_urls {
     let mut array_22 = object.key("CallbackURLs").start_array();
     for item_23 in var_21 {
         {
@@ -185200,7 +185200,7 @@ if let Some(var_21) = &input.callback_ur_ls {
     }
     array_22.finish();
 }
-if let Some(var_24) = &input.logout_ur_ls {
+if let Some(var_24) = &input.logout_urls {
     let mut array_25 = object.key("LogoutURLs").start_array();
     for item_26 in var_24 {
         {
@@ -190156,10 +190156,10 @@ where
                     builder = builder.set_supported_identity_providers(super::super::protocol_serde::shape_supported_identity_providers_list_type::de_supported_identity_providers_list_type(tokens, _value, depth + 1)?);
                 },
                 "CallbackURLs" => {
-                    builder = builder.set_callback_ur_ls(super::super::protocol_serde::shape_callback_urls_list_type::de_callback_urls_list_type(tokens, _value, depth + 1)?);
+                    builder = builder.set_callback_urls(super::super::protocol_serde::shape_callback_urls_list_type::de_callback_urls_list_type(tokens, _value, depth + 1)?);
                 },
                 "LogoutURLs" => {
-                    builder = builder.set_logout_ur_ls(super::super::protocol_serde::shape_logout_urls_list_type::de_logout_urls_list_type(tokens, _value, depth + 1)?);
+                    builder = builder.set_logout_urls(super::super::protocol_serde::shape_logout_urls_list_type::de_logout_urls_list_type(tokens, _value, depth + 1)?);
                 },
                 "DefaultRedirectURI" => {
                     builder = builder.set_default_redirect_uri(::aws_smithy_json::deserialize::token::expect_string_or_null(tokens.next())?

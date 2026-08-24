@@ -75,7 +75,7 @@ pub fn ser_create_user_pool_client_input_input(
         }
         array_20.finish();
     }
-    if let Some(var_22) = &input.callback_ur_ls {
+    if let Some(var_22) = &input.callback_urls {
         let mut array_23 = object.key("CallbackURLs").start_array();
         for item_24 in var_22 {
             {
@@ -84,7 +84,7 @@ pub fn ser_create_user_pool_client_input_input(
         }
         array_23.finish();
     }
-    if let Some(var_25) = &input.logout_ur_ls {
+    if let Some(var_25) = &input.logout_urls {
         let mut array_26 = object.key("LogoutURLs").start_array();
         for item_27 in var_25 {
             {
