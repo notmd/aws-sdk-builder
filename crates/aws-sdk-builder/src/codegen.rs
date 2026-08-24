@@ -9578,7 +9578,8 @@ fn json_protocol_mark_role(
     // collection and map values are serialized inline by their containing
     // serializer. Deserializers, however, need helpers for all compound
     // shapes so they can recursively build collection/map values.
-    if !shape_is_streaming(shape)
+    if !is_error_shape(shape)
+        && !shape_is_streaming(shape)
         && ((matches!(role, ProtocolSerdeRole::Serialize) && matches!(kind, "structure" | "union"))
             || (matches!(role, ProtocolSerdeRole::Deserialize)
                 && matches!(kind, "structure" | "union" | "list" | "map")))
@@ -18433,9 +18434,65 @@ mod tests {
         assert!(event_stream.contains("failed to unmarshall Chunk: {err}"));
 
         let roles = json_protocol_serde_roles(&selected);
-        let failure_roles = roles.get("example#Failure").copied().unwrap();
-        let failure = render_json_protocol_shape_file(&selected, "example#Failure", failure_roles);
+        assert!(!roles.contains_key("example#Failure"));
+        let failure = render_json_protocol_error_file(&selected, "example#Failure");
+        assert!(failure.contains("de_failure_json_err"));
         assert!(!failure.contains("de_failure_payload"));
+    }
+
+    #[test]
+    fn shared_json_shape_serializers_precede_deserializers() {
+        let metadata = ServiceMetadata {
+            key: "example",
+            filename: "model.json",
+            module_name: "aws_sdk_example",
+            sdk_version: None,
+        };
+        let model = crate::model::Model::load(ServiceSource::new(
+            metadata,
+            br#"{
+                "shapes": {
+                    "example#Service": {
+                        "type": "service",
+                        "version": "2024-01-01",
+                        "operations": ["example#Invoke"],
+                        "traits": {"aws.protocols#restJson1": {}}
+                    },
+                    "example#Invoke": {
+                        "type": "operation",
+                        "input": {"target": "example#Input"},
+                        "output": {"target": "example#Output"}
+                    },
+                    "example#Input": {
+                        "type": "structure",
+                        "members": {"shared": {"target": "example#Shared"}},
+                        "traits": {"smithy.api#input": {}}
+                    },
+                    "example#Output": {
+                        "type": "structure",
+                        "members": {"shared": {"target": "example#Shared"}},
+                        "traits": {"smithy.api#output": {}}
+                    },
+                    "example#Shared": {
+                        "type": "structure",
+                        "members": {"value": {"target": "smithy.api#String"}}
+                    }
+                }
+            }"#,
+        ))
+        .unwrap();
+        let selected = model.select(&[], true).unwrap();
+        let roles = json_protocol_serde_roles(&selected);
+        let rendered = render_json_protocol_shape_file(
+            &selected,
+            "example#Shared",
+            roles.get("example#Shared").copied().unwrap(),
+        );
+
+        assert!(
+            rendered.find("pub fn ser_shared").unwrap()
+                < rendered.find("pub(crate) fn de_shared").unwrap()
+        );
     }
 
     #[test]
